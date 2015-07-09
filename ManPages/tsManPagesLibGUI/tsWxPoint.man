@@ -1,0 +1,153 @@
+
+Help on module tsWxPoint:
+
+NAME
+    tsWxPoint
+
+FILE
+    ./tsLibGUI/tsWxPkg/src/tsWxPoint.py
+
+DESCRIPTION
+    tsWxPoint.py - Class to represent a point or position of a graphical
+    object with integer x (horizontal) and y (vertical) properties.
+
+CLASSES
+    __builtin__.object
+        Point
+    
+    class Point(__builtin__.object)
+     |  A data structure for representing a point or position with integer x
+     |  and y properties. Most places in wxPython that expect a wx.Point can
+     |  also accept a (x,y) tuple.
+     |  
+     |  Methods defined here:
+     |  
+     |  Get(self)
+     |      Return the x and y properties as a tuple.
+     |  
+     |  Set(self, x, y)
+     |      Set both the x and y properties.
+     |  
+     |  __add__(self, pt)
+     |      Add pt properties to this and return the result.
+     |  
+     |  __eq__(self, other)
+     |      Test for equality of wx.Point objects.
+     |  
+     |  __getitem__(self, index)
+     |      Under Construction.
+     |  
+     |  __iadd__(self, pt)
+     |      Add pt to this object.
+     |  
+     |  __init__(self, x=0, y=0)
+     |      Constructor. Create a wx.Point object.
+     |  
+     |  __isub__(self, pt)
+     |      Subtract pt from this object.
+     |  
+     |  __len__(self)
+     |      Return length of object.
+     |  
+     |  __ne__(self, other)
+     |      Test for inequality of wx.Point objects.
+     |  
+     |  __nonzero__(self)
+     |      Return True if not zero.
+     |  
+     |  __reduce__(self)
+     |      Under Construction.
+     |  
+     |  __repr__(self)
+     |      Return text representation.
+     |  
+     |  __setitem__(self, index, val)
+     |      Under Construction.
+     |  
+     |  __str__(self)
+     |      Return text representation.
+     |  
+     |  __sub__(self, pt)
+     |      Subtract pt properties from this and return the result
+     |  
+     |  tsDel_x(self)
+     |  
+     |  tsDel_y(self)
+     |  
+     |  tsGet_x(self)
+     |  
+     |  tsGet_y(self)
+     |  
+     |  tsSet_x(self, value)
+     |  
+     |  tsSet_y(self, value)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Static methods defined here:
+     |  
+     |  tsGetPointType(*args)
+     |      Generate the specified class instance from the specified tuple.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  x
+     |  
+     |  y
+
+DATA
+    DEBUG = True
+    VERBOSE = True
+    __authors__ = 'Richard S. Gordon'
+    __copyright__ = 'Copyright (c) 2007-2013 Richard S. Gordon.\n\t\tAll r...
+    __credits__ = '\n\n  Credits: \n\n\t  tsLibGUI Import & Application .....
+    __date__ = '04/01/2013'
+    __header__ = '\n\ntsWxPoint, v1.1.0 (build 04/01/2013)\n\n  Author... ...
+    __license__ = 'GNU General Public License, Version 3, 29 June 2007'
+    __line1__ = 'tsWxPoint, v1.1.0 (build 04/01/2013)'
+    __line2__ = 'Author(s): Richard S. Gordon'
+    __line3__ = 'Copyright (c) 2007-2013 Richard S. Gordon.\n\t\tAll right...
+    __line4__ = 'GNU General Public License, Version 3, 29 June 2...U Gene...
+    __title__ = 'tsWxPoint'
+    __version__ = '1.1.0'
+    mainTitleVersionDate = 'tsWxPoint, v1.1.0 (build 04/01/2013)'
+
+VERSION
+    1.1.0
+
+DATE
+    04/01/2013
+
+CREDITS
+    
+    
+      Credits: 
+    
+    	  tsLibGUI Import & Application Launch Features: 
+    	  Copyright (c) 2007-2009 Frederick A. Kier.
+    			All rights reserved.
+    
+    	  Python Curses Module API & Run Time Library Features:
+    	  Copyright (c) 2001-2013 Python Software Foundation.
+    			All rights reserved.
+    	  PSF License Agreement for Python 2.7.3 & 3.3.0
+    
+    	  wxWidgets (formerly wxWindows) & wxPython API Features:
+    	  Copyright (c) 1992-2008 Julian Smart, Robert Roebling,
+    			Vadim Zeitlin and other members of the 
+    			wxWidgets team.
+    			All rights reserved.
+    	  wxWindows Library License
+    
+    	  nCurses API & Run Time Library Features:
+    	  Copyright (c) 1998-2011 Free Software Foundation, Inc.
+    			All rights reserved.
+    	  GNU General Public License, Version 3, 29 June 2007
+
+

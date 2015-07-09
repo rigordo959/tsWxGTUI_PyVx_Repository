@@ -1,0 +1,108 @@
+
+------------------------------------------------------------------------------
+
+tsLinesOfCode, v2.0.0 (build 02/16/2013)
+
+  Author(s): Richard S. Gordon, a.k.a. Software Gadgetry
+  Copyright (c) 2007-2013 Software Gadgetry.
+  All rights reserved.
+
+  File Extension Features of SLOCCount 2.26:
+  Copyright (c) 2001-2004 David A. Wheeler.
+  All rights reserved.
+
+  Algorithm Features of COCOMO(R) 81:
+  Copyright (c) 1981 Dr. Barry W. Boehm.
+  All rights reserved.
+
+------------------------------------------------------------------------------
+
+    CODE    CMNTS    LINES    WORDS    CHARS PATH/FILE
+     226       44      270     1151     8399 /cygdrive/d/WR/SoftwareGadgetry-Dev/Python-2.x/tsApplications/tsToolApps/tsLinesOfCode/test2/Sample Source Files/bank.ada
+     129       34      163      470     4116 /cygdrive/d/WR/SoftwareGadgetry-Dev/Python-2.x/tsApplications/tsToolApps/tsLinesOfCode/test2/Sample Source Files/billing.c
+     105       25      130      620     3899 /cygdrive/d/WR/SoftwareGadgetry-Dev/Python-2.x/tsApplications/tsToolApps/tsLinesOfCode/test2/Sample Source Files/billing.pas
+      22        7       29       74      674 /cygdrive/d/WR/SoftwareGadgetry-Dev/Python-2.x/tsApplications/tsToolApps/tsLinesOfCode/test2/Sample Source Files/bodemath.h
+       7        4       11       50      399 /cygdrive/d/WR/SoftwareGadgetry-Dev/Python-2.x/tsApplications/tsToolApps/tsLinesOfCode/test2/Sample Source Files/bourne.sh
+     872      375     1247     3445    37530 /cygdrive/d/WR/SoftwareGadgetry-Dev/Python-2.x/tsApplications/tsToolApps/tsLinesOfCode/test2/Sample Source Files/cmdline.cpp
+       4        2        6        8       51 /cygdrive/d/WR/SoftwareGadgetry-Dev/Python-2.x/tsApplications/tsToolApps/tsLinesOfCode/test2/Sample Source Files/Cygwin.bat
+     230       87      317     1052     7459 /cygdrive/d/WR/SoftwareGadgetry-Dev/Python-2.x/tsApplications/tsToolApps/tsLinesOfCode/test2/Sample Source Files/f77tst.f77
+     230       87      317     1052     7463 /cygdrive/d/WR/SoftwareGadgetry-Dev/Python-2.x/tsApplications/tsToolApps/tsLinesOfCode/test2/Sample Source Files/f77tst.f90
+     230       87      317     1052     7459 /cygdrive/d/WR/SoftwareGadgetry-Dev/Python-2.x/tsApplications/tsToolApps/tsLinesOfCode/test2/Sample Source Files/ftst.f
+     344      384      728     1944    16538 /cygdrive/d/WR/SoftwareGadgetry-Dev/Python-2.x/tsApplications/tsToolApps/tsLinesOfCode/test2/Sample Source Files/GeneralCmds.c
+      59       58      117      422     2253 /cygdrive/d/WR/SoftwareGadgetry-Dev/Python-2.x/tsApplications/tsToolApps/tsLinesOfCode/test2/Sample Source Files/hello.f90
+     106      269      375     1616    19723 /cygdrive/d/WR/SoftwareGadgetry-Dev/Python-2.x/tsApplications/tsToolApps/tsLinesOfCode/test2/Sample Source Files/MCP004.INC
+      59       42      101      387     2540 /cygdrive/d/WR/SoftwareGadgetry-Dev/Python-2.x/tsApplications/tsToolApps/tsLinesOfCode/test2/Sample Source Files/MCP006.FTN
+      68       34      102      351     3861 /cygdrive/d/WR/SoftwareGadgetry-Dev/Python-2.x/tsApplications/tsToolApps/tsLinesOfCode/test2/Sample Source Files/MCP060.INC
+       0      270      270      960     9746 /cygdrive/d/WR/SoftwareGadgetry-Dev/Python-2.x/tsApplications/tsToolApps/tsLinesOfCode/test2/Sample Source Files/MCP063.INC
+     337      147      484     1400    11677 /cygdrive/d/WR/SoftwareGadgetry-Dev/Python-2.x/tsApplications/tsToolApps/tsLinesOfCode/test2/Sample Source Files/MIMIC038.PLM
+      20        3       23       65      512 /cygdrive/d/WR/SoftwareGadgetry-Dev/Python-2.x/tsApplications/tsToolApps/tsLinesOfCode/test2/Sample Source Files/MIMIC043.ASM
+      56       51      107      188     2414 /cygdrive/d/WR/SoftwareGadgetry-Dev/Python-2.x/tsApplications/tsToolApps/tsLinesOfCode/test2/Sample Source Files/print.cpp
+       6       35       41      193     1150 /cygdrive/d/WR/SoftwareGadgetry-Dev/Python-2.x/tsApplications/tsToolApps/tsLinesOfCode/test2/Sample Source Files/profile.bash
+     270        1      271     1031     6883 /cygdrive/d/WR/SoftwareGadgetry-Dev/Python-2.x/tsApplications/tsToolApps/tsLinesOfCode/test2/Sample Source Files/rootloci.bas
+     270        1      271      765     4824 /cygdrive/d/WR/SoftwareGadgetry-Dev/Python-2.x/tsApplications/tsToolApps/tsLinesOfCode/test2/Sample Source Files/rootloci_stripped.bas
+      51       46       97      331     3008 /cygdrive/d/WR/SoftwareGadgetry-Dev/Python-2.x/tsApplications/tsToolApps/tsLinesOfCode/test2/Sample Source Files/stackwalk.h
+       4       20       24       56      571 /cygdrive/d/WR/SoftwareGadgetry-Dev/Python-2.x/tsApplications/tsToolApps/tsLinesOfCode/test2/Sample Source Files/tsConfig.py
+     365       29      394     1275    13876 /cygdrive/d/WR/SoftwareGadgetry-Dev/Python-2.x/tsApplications/tsToolApps/tsLinesOfCode/test2/Sample Source Files/vdap.f
+     522      598     1120     4792    36157 /cygdrive/d/WR/SoftwareGadgetry-Dev/Python-2.x/tsApplications/tsToolApps/tsLinesOfCode/test2/Sample Source Files/writer.plm
+      25       40       65      252     1414 /cygdrive/d/WR/SoftwareGadgetry-Dev/Python-2.x/tsApplications/tsToolApps/tsLinesOfCode/test2/Sample Source Files/xmitr.asm
+------------------------------------------------------------------------------
+
+  Input Path:     <../../WR/SoftwareGadgetry-Dev/Python-2.x/tsApplications/tsToolApps/tsLinesOfCode/test2/Sample Source Files/>.
+  Results are available in "/cygdrive/d/Temp/ProprietarySource-2.x/tsLinesOfCodeStatistics.txt".
+
+------------------------------------------------------------------------------
+
+		Overall Source Code Feature Statistics
+
+           FILES     CODE    CMNTS    LINES    WORDS      CHARS
+   Pct:             62.42%   37.58%  100.00%
+Totals:       27     4617     2780     7397    25002     214596
+   Std:       24      198      147      312     1077       9771
+   Avg:        1      171      103      274      926       7948
+
+------------------------------------------------------------------------------
+
+		"Organic" Software Project Estimate
+		Constructive Cost Model (COCOMO(R) 81)
+
+Total Physical Source Lines of Code (KSLOC) 			= 4617 (4.62)
+
+Estimated Development Effort in Person-Years (Person-Months) 	= 1.00 (11.96)
+ (Basic COCOMO model, Person-Months = 2.40 * (KSLOC**1.05))
+
+Estimated Schedule in Years (Months) 				= 0.53 (6.42)
+ (Basic COCOMO model, Months = 2.50 * (person-months**0.38))
+
+Estimated Average Number of Developers  			= 1.86
+ (Effort/Schedule)
+
+Total Estimated Cost to Develop 				= $ 134654
+ (Average Salary = $ 56286.00/year, Overhead = 2.40).
+
+Estimated Productivity in Source Lines of Code per Day 		= 9.9
+
+------------------------------------------------------------------------------
+
+	Distribution of Source Code Feature Statistics by File Types
+
+   TYPES      FILES     CODE    CMNTS    LINES    WORDS      CHARS  %-LINES
+   .ada           1      226       44      270     1151       8399    3.65%
+   .asm           2       45       43       88      317       1926    1.19%
+   .bas           2      540        2      542     1796      11707    7.33%
+   .bash          1        6       35       41      193       1150    0.55%
+   .bat           1        4        2        6        8         51    0.08%
+   .c             2      473      418      891     2414      20654   12.05%
+   .cpp           2      928      426     1354     3633      39944   18.30%
+   .f             2      595      116      711     2327      21335    9.61%
+   .f77           1      230       87      317     1052       7459    4.29%
+   .f90           2      289      145      434     1474       9716    5.87%
+   .ftn           1       59       42      101      387       2540    1.37%
+   .h             2       73       53      126      405       3682    1.70%
+   .inc           3      174      573      747     2927      33330   10.10%
+   .pas           1      105       25      130      620       3899    1.76%
+   .plm           2      859      745     1604     6192      47834   21.68%
+   .py            1        4       20       24       56        571    0.32%
+   .sh            1        7        4       11       50        399    0.15%
+
+------------------------------------------------------------------------------
+

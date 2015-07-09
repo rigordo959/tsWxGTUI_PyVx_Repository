@@ -1,0 +1,157 @@
+
+
+tsLinesOfCodeProjectMetrics, v2.7.0 (build 02/13/2014)
+
+  Author(s): Richard S. Gordon
+  Copyright (c) 2007-2014 Richard S. Gordon.
+		All rights reserved.
+  GNU General Public License, Version 3, 29 June 2007
+
+  Credits: 
+
+	  tsLibCLI Import & Application Launch Features: 
+	  Copyright (c) 2007-2009 Frederick A. Kier. 
+			All rights reserved.
+
+	  File Extension Features of SLOCCount 2.26: 
+	  Copyright (c) 2001-2004 David A. Wheeler. 
+			All rights reserved.
+
+	  Algorithm Features of COCOMO(R) 81: 
+	  Copyright (c) 1981 Dr. Barry W. Boehm. 
+			All rights reserved.
+
+	  Python Logging Module API Features: 
+	  Copyright (c) 2001-2013 Python Software Foundation.
+			All rights reserved.
+	  PSF License Agreement for Python 2.7.3 & 3.3.0
+
+      init in tsCxGlobalsPkg
+<open file './logs/2014-04-08-at-06-27-39/tsLinesOfCodeProjectMetrics.log', mode 'w' at 0x7fe2df98>
+tsCommandLineEnv: ImportError (tsLibCLI); importCode=No module named tsOperatorSettingsParser
+
+
+usage: tsLinesOfCodeProjectMetrics.py [-h] [-v] [-a] [-i INPUT] [-o OUTPUT]
+                                      [-d] [-s] [-V] [-p {0,1,2}]
+                                      [-m {argparse}]
+
+Purpose:
+
+	tsLinesOfCodeProjectMetrics.py - Python application program,
+	with a Command Line Interface (CLI), that generates reports of
+	software project progress and the estimated cost (or contributed
+	value) of the project when it is finally completed.
+
+	It scans an operator designated file directory tree containing
+	the source files, in one or more programming language specific
+	formats (such as Ada, Assembler, C/C++, Cobol, Fortran, PL/M,
+	Python, Text, and various command line shells).
+
+	* For each file, it accumulates and reports the total number of
+	  code lines, blank/comment lines, words and characters.
+
+	* For each programming language format, it accumulates and reports
+	  a summary of details of the associated source files.
+
+	* For the entire set of source files, it accumulates and reports
+	  a summary of details.
+
+	It uses the summary of the entire set of source files to derive,
+	analyze, estimate and report metrics for the software development
+	project (such as labor, cost, schedule and lines of code per day
+	productivity).
+
+Syntax:
+
+    <python-interpreter> <program> [Keyword-Value Option(s)] ... \
+                                   [Positional Argument(s)] ...
+
+Examples:
+
+    Interpreter   program app.      operator settings
+    -----------   ----------------  -----------------------------
+    python        tsLinesOfCodeProjectMetrics.py.py
+
+    python2.7     tsLinesOfCodeProjectMetrics.py.py \
+                                    [-h] [-v] [-a] \
+                                    [-i INPUTDIR] \
+                                    [-o OUTPUTFILE] \
+                                    [-d] [-s] [-V] [-p {0,1,2}] \
+                                    [-m {argparse}] \
+
+                                    {optparse, getopt}
+
+    python3.3     tsLinesOfCodeProjectMetrics.py.py \
+                                    [--help] [--version] [--about] \
+                                    [--input INPUTDIR] \
+                                    [--output OUTPUTFILE] \
+                                    [--debug] [--scan] [--Verbose] \
+                                    [--project {0,1,2}] \
+                                    [--module {argparse}] \
+
+                                    {optparse, getopt}
+
+        ---------------------------------------------------------
+        Key:
+
+            "python"    - Default interpreter for platform
+
+            "python2.7" - First alternate interpreter for platform
+
+            "python3.3" - Second alternate interpreter for platform
+
+            "[]" - Brackets enclose option keywords and values
+
+            "{}" - Braces enclose option value choices and
+                   positional arguments
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -v, --version         show the build version of this software (including its
+                        title, version and date) and exit
+  -a, --about           show a summary of the terms & conditions for users of
+                        this software (including the applicable product
+                        identification, authors, contributors, copyrights,
+                        licenses and purpose) and exit
+  -i INPUT, --input INPUT
+                        gather software source file metrics (source type, code
+                        lines, comment lines, total lines, words, characters)
+                        for each invidual file and for collection of files in
+                        this input directory (default = "./").
+  -o OUTPUT, --output OUTPUT
+                        log/display source file metrics (source type, code
+                        lines, comment lines, total lines, words, characters)
+                        for each invidual file and for collection of files to
+                        this output file (default =
+                        "./tsLinesOfCodeProjectMetrics.pyStatistics.txt")
+  -d, --debug           log/display application program progress and
+                        diagnostic messages useful in debugging and
+                        troubleshooting. (default = False).
+  -s, --scan            enable log/display software source file parsing
+                        activity details source file type (file name
+                        extension) and individual line type (code, comment,
+                        directive) (default = False)
+  -V, --Verbose         log/display verbose troubleshooting details for
+                        application program activity tracking diagnostic
+                        messages (default = False)
+  -p {0,1,2}, --project {0,1,2}
+                        log/display software development project metrics in
+                        accordance with COCOMO Model, first published, in
+                        1981, by Dr. Barry W. Boehm. Key choice: {"0"
+                        (default) | "1" | "2"} where: "0" selects "organic"
+                        model "small" teams with "good" experience working
+                        with "less than rigid" requirements; "1" selects
+                        "semi-detatched" model "medium" teams with mixed
+                        experience working with a mix of "rigid" and "less
+                        than rigid" requirements; "2" selects "embedded" model
+                        developed within a set of "tight" constraints. It is
+                        also combination of "organic" and "semi-detached"
+                        projects. (hardware, software, operational, ...)
+  -m {argparse}, --module {argparse}
+                        sets default for standard Python parser module. (To
+                        demonstrate the similarity and differences between
+                        Optional and Positional Arguments, an Optional
+                        Argument is used to set the latest Python
+                        recommendation, "argparse", while a Positional
+                        Argument is used to override it with a now Python
+                        deprecated "optparse" or "getopt")

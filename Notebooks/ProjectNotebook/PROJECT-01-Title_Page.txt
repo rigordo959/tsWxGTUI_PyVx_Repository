@@ -1,0 +1,17 @@
+#-----------------------------------------------------------
+#"Time-stamp: <06/18/2015  3:35:33 AM rsg>"
+#-----------------------------------------------------------
+
+============== File: PROJECT-01-Title_Page.txt =============
+
+   +----+----+  TeamSTARS "tsWxGTUI_PyVx" Toolkit
+   | ts | Wx |      with Python 2x & Python 3x based
+   +----+----+         Command Line Interface (CLI)
+   | G T U I |      and "Curses"-based "wxPython"-style, 
+   +---------+         Graphical-Text User Interface (GUI)
+ 
+   Get that cross-platform, pixel-mode "wxPython" feeling
+   on character-mode 8-/16-color (xterm-family) & non-color
+   (vt100-family) terminals and terminal emulators.
+
+======================= End-Of-File ========================

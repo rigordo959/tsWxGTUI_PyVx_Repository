@@ -1,0 +1,44 @@
+#-----------------------------------------------------------
+#"Time-stamp: <06/18/2015  4:38:59 AM rsg>"
+#-----------------------------------------------------------
+
+== File: PROJECT-09-Software_Configuration_Management.txt ==
+
+   +----+----+  TeamSTARS "tsWxGTUI_PyVx" Toolkit
+   | ts | Wx |      with Python 2x & Python 3x based
+   +----+----+         Command Line Interface (CLI)
+   | G T U I |      and "Curses"-based "wxPython"-style, 
+   +---------+         Graphical-Text User Interface (GUI)
+ 
+   Get that cross-platform, pixel-mode "wxPython" feeling
+   on character-mode 8-/16-color (xterm-family) & non-color
+   (vt100-family) terminals and terminal emulators.
+
+============= SOFTWARE CONFIGURATION MANAGEMENT ============
+
+From Wikipedia, the free encyclopedia:
+
+"Mercurial is a cross-platform, distributed revision control
+tool for software developers. It is mainly implemented using
+the Python programming language, but includes a binary diff
+implementation written in C. It is supported on Windows and
+Unix-like systems, such as FreeBSD, Mac OS X and Linux. Mer-
+curial is primarily a command line program but graphical
+user interface extensions are available. All of Mercurial's
+operations are invoked as arguments to its driver program
+hg, a reference to the chemical symbol of the element
+mercury.
+
+Mercurial's major design goals include high performance and
+scalability, decentralized, fully distributed collaborative
+development, robust handling of both plain text and binary
+files, and advanced branching and merging capabilities,
+while remaining conceptually simple.[3] It includes an
+integrated web interface. Mercurial has also taken steps
+to ease the transition for SVN users.
+
+The creator and lead developer of Mercurial is Matt Mackall.
+Mercurial is released as free software under the terms of
+the GNU GPL v2 (or any later version[4])."
+
+======================= End-Of-File ========================

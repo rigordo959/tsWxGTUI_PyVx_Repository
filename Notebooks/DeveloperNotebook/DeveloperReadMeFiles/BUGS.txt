@@ -1,0 +1,1605 @@
+#-----------------------------------------------------------
+#"Time-stamp: <06/14/2015  5:03:03 AM rsg>"
+#-----------------------------------------------------------
+
+====================== File: BUGS.txt ======================
+
+   +----+----+  TeamSTARS "tsWxGTUI_PyVx" Toolkit
+   | ts | Wx |      with Python 2x & Python 3x based
+   +----+----+         Command Line Interface (CLI)
+   | G T U I |      and "Curses"-based "wxPython"-style, 
+   +---------+         Graphical-Text User Interface (GUI)
+ 
+   Get that cross-platform, pixel-mode "wxPython" feeling
+   on character-mode 8-/16-color (xterm-family) & non-color
+   (vt100-family) terminals and terminal emulators.
+
+   You can find this and other plain-text files in the
+   Toolkit subdirectory named:
+
+       "./<Toolkit Recipient's Repository>/Documents".
+
+===================== TABLE OF CONTENTS ====================
+
+1. Bugzilla - Full Text Bug Listing
+
+2. Known Problem(s) / Issue(s)
+
+============= Bugzilla - Full Text Bug Listing =============
+
+1. Bugzilla - Full Text Bug Listing
+
+
+Bugzilla - Full Text Bug Listing
+
+Home | New | Browse | Search | [?] | Reports | Help | New Account
+     | Log In | Forgot Password
+
+------------------------------------------------------------
+Bug 2
+Summary:          To-Do
+Product:          tsWxGTUI_PyVx                             Reporter:          admin <rigordo>
+Component:        tsWxGTUI_Py2x                             Assignee:          admin <rigordo>
+Status:           CONFIRMED ---                                                
+Severity:         enhancement                               CC:                
+Priority:         ---  
+Version:          unspecified                                                  
+Hardware:         PC   
+OS:               Windows                                                      
+
+This auto-sizes the comments and positions the collapse/expand links to the
+right.
+Description                         
+admin 2015-04-23 05:59:30 EDT
+To-Do (while bug tracking broken by time zone error): 1) Review all
+tsWxGTUI_Py2x class and module API specifications. Modify to conform to
+associated specifications of the latest wxPython 2.9.5.0 release 2) Review all
+tsWxGTUI_Py3x class and module API specifications. Modify to conform to
+associated specifications of the latest wxPython 3.0.2.0 release.
+
+------------------------------------------------------------
+Bug 3
+Summary:          To-Do
+Product:          tsWxGTUI_PyVx                             Reporter:          admin <rigordo>
+Component:        tsWxGTUI_Py3x                             Assignee:          admin <rigordo>
+Status:           CONFIRMED ---                                                
+Severity:         enhancement                               CC:                
+Priority:         ---  
+Version:          unspecified                                                  
+Hardware:         PC   
+OS:               Windows                                                      
+
+This auto-sizes the comments and positions the collapse/expand links to the
+right.
+Description                         
+admin 2015-04-23 06:00:41 EDT
+To-Do (while bug tracking broken by time zone error): 1) Review all
+tsWxGTUI_Py2x class and module API specifications. Modify to conform to
+associated specifications of the latest wxPython 2.9.5.0 release 2) Review all
+tsWxGTUI_Py3x class and module API specifications. Modify to conform to
+associated specifications of the latest wxPython 3.0.2.0 release.
+
+------------------------------------------------------------
+Bug 4
+Summary:          Revise design to eliminate need for registerGuiTopLevelObjectStatusBar.
+Product:          tsLibCLI                               Reporter:          admin <rigordo>
+Component:        tsApplication                          Assignee:          admin <rigordo>
+Status:           CONFIRMED ---                                             
+Severity:         enhancement                            CC:                
+Priority:         ---                                                       
+Version:          unspecified                                               
+Hardware:         All                                                       
+OS:               All                                                       
+
+This auto-sizes the comments and positions the collapse/expand links to the
+right.
+Description                         
+admin 2015-04-24 07:55:14 EDT
+2013/05/30 rsg Revise design to eliminate need for
+registerGuiTopLevelObjectStatusBar. Perhaps the design can adjust the frame size
+to include the status bar rather than append it as a separate object.
+
+------------------------------------------------------------
+Bug 5
+Summary:          Expand the set of built-in, stand-alone tests.
+Product:          tsLibCLI                                          Reporter:          admin <rigordo>
+Component:        tsDoubleLinkedList                                Assignee:          admin <rigordo>
+Status:           CONFIRMED ---
+Severity:         enhancement                                       CC:                
+Priority:         ---          
+Version:          unspecified  
+Hardware:         All          
+OS:               All          
+
+This auto-sizes the comments and positions the collapse/expand links to the
+right.
+Description                         
+admin 2015-04-24 07:59:31 EDT
+2011/09/12 rsg Expand the set of built-in, stand-alone tests to become a full
+unit-test suite. Currently, the tests only exercise a subset the possible usage
+variations. The expanded suite ought to be moved into to a separate test module.
+
+------------------------------------------------------------
+Bug 6
+Summary:          Review and finalize the available exceptions and errors.
+Product:          tsLibCLI                               Reporter:          admin <rigordo>
+Component:        tsExceptions                           Assignee:          admin <rigordo>
+Status:           CONFIRMED ---                                             
+Severity:         enhancement                            CC:                
+Priority:         ---                                                       
+Version:          unspecified                                               
+Hardware:         All                                                       
+OS:               All                                                       
+
+This auto-sizes the comments and positions the collapse/expand links to the
+right.
+Description                         
+admin 2015-04-24 08:00:41 EDT
+Review and finalize the available exceptions and errors.
+
+------------------------------------------------------------
+Bug 7
+Summary:          Methods should support *args and **kw.
+Product:          tsLibCLI                               Reporter:          admin <rigordo>
+Component:        tsLogger                               Assignee:          admin <rigordo>
+Status:           CONFIRMED ---                                             
+Severity:         enhancement                            CC:                
+Priority:         ---                                                       
+Version:          unspecified                                               
+Hardware:         All                                                       
+OS:               All                                                       
+
+This auto-sizes the comments and positions the collapse/expand links to the
+right.
+Description                         
+admin 2015-04-24 08:02:12 EDT
+Methods should support *args and **kw.
+
+------------------------------------------------------------
+Bug 8
+Summary:          _getNetworkIdentification - Cannot explain missing Mac OS X information.
+Product:          tsLibCLI                              Reporter:          admin <rigordo>
+Component:        tsPlatformRunTimeEnvironment          Assignee:          admin <rigordo>
+Status:           CONFIRMED ---                         
+Severity:         enhancement        CC:                
+Priority:         ---                                   
+Version:          unspecified                           
+Hardware:         Macintosh                             
+OS:               Mac OS                                
+
+This auto-sizes the comments and positions the collapse/expand links to the
+right.
+Description                         
+admin 2015-04-24 08:04:11 EDT
+_getNetworkIdentification - Cannot explain missing Mac OS X information.
+
+------------------------------------------------------------
+Bug 9
+Summary:          _getMacOperatingSystem - Cannot explain missing Mac OS X information.
+Product:          tsLibCLI                              Reporter:           admin <rigordo>
+Component:        tsPlatformRunTimeEnvironment          Assignee:           admin <rigordo>
+Status:           CONFIRMED ---                         
+Severity:         enhancement       CC:                 
+Priority:         ---                                   
+Version:          unspecified                           
+Hardware:         Macintosh                             
+OS:               Mac OS                                
+
+This auto-sizes the comments and positions the collapse/expand links to the
+right.
+Description                         
+admin 2015-04-24 08:05:26 EDT
+_getMacOperatingSystem - Cannot explain missing Mac OS X information.
+
+------------------------------------------------------------
+Bug 10
+Summary:          Resolve outdated import mechanisms that preclude back porting to Python 2.3.4.
+Product:          tsLibCLI                              Reporter:           admin <rigordo>
+Component:        tsPlatformRunTimeEnvironment          Assignee:           admin <rigordo>
+Status:           CONFIRMED ---                         
+Severity:         enhancement       CC:                 
+Priority:         ---                                   
+Version:          unspecified                           
+Hardware:         All                                   
+OS:               All                                   
+
+This auto-sizes the comments and positions the collapse/expand links to the
+right.
+Description                         
+admin 2015-04-24 08:06:44 EDT
+2014/05/26 rsg Resolve outdated import mechanisms that preclude back porting to
+Python 2.3.4.
+
+------------------------------------------------------------
+Bug 11
+Summary:          Resolve application segmentation fault when import ts enabled.
+Product:          tsLibCLI                              Reporter:          admin <rigordo>
+Component:        tsReportUtilities                     Assignee:          admin <rigordo>
+Status:           CONFIRMED ---                                                
+Severity:         enhancement                           CC:                
+Priority:         ---  
+Version:          unspecified                                                  
+Hardware:         All  
+OS:               All  
+
+This auto-sizes the comments and positions the collapse/expand links to the
+right.
+Description                         
+admin 2015-04-24 08:08:00 EDT
+Resolve application segmentation fault when import ts enabled.
+
+------------------------------------------------------------
+Bug 12
+Summary:          tsfl.TsFileLock(tsfl.TsFileLock.EVENTID) does not work yet.
+Product:          tsLibCLI                              Reporter:          admin <rigordo>
+Component:        tsReportUtilities                     Assignee:          admin <rigordo>
+Status:           CONFIRMED ---                                                
+Severity:         enhancement                           CC:                
+Priority:         ---  
+Version:          unspecified                                                  
+Hardware:         All  
+OS:               All  
+
+This auto-sizes the comments and positions the collapse/expand links to the
+right.
+Description                         
+admin 2015-04-24 08:08:56 EDT
+tsfl.TsFileLock(tsfl.TsFileLock.EVENTID) does not work yet.
+
+------------------------------------------------------------
+Bug 13
+Summary:          Upgrade subprocess method usage from Python 2.4 to Python 2.7 and 3.4.
+Product:          tsLibCLI                              Reporter:          admin <rigordo>
+Component:        tsSysCommands                         Assignee:          admin <rigordo>
+Status:           CONFIRMED ---                                                
+Severity:         enhancement                           CC:                
+Priority:         ---  
+Version:          unspecified                                                  
+Hardware:         All  
+OS:               All  
+
+This auto-sizes the comments and positions the collapse/expand links to the
+right.
+Description                         
+admin 2015-04-24 08:12:16 EDT
+Upgrade subprocess method usage from Python 2.4 to Python 2.7 and 3.4.
+
+------------------------------------------------------------
+Bug 14
+Summary:          Propose elimination of treading overhead.
+Product:          tsToolsLibCLI                         Reporter:          admin <rigordo>
+Component:        tsLinesOfCode                         Assignee:          admin <rigordo>
+Status:           CONFIRMED ---                                             
+Severity:         enhancement                           CC:                
+Priority:         ---                                                       
+Version:          unspecified                                               
+Hardware:         All                                                       
+OS:               All                                                       
+
+This auto-sizes the comments and positions the collapse/expand links to the
+right.
+Description                         
+admin 2015-04-24 08:16:28 EDT
+Propose elimination of treading overhead by launching Lines-Of-Code application
+process instead of application thread.
+
+------------------------------------------------------------
+Bug 15
+Summary:          Troubleshoot IOError that occurs only on cygwin but not on Cygwin-X or Mac OS X.
+Product:          tsToolsLibCLI                         Reporter:          admin <rigordo>
+Component:        tsLinesOfCode                         Assignee:          admin <rigordo>
+Status:           CONFIRMED ---                                             
+Severity:         enhancement                           CC:                
+Priority:         ---                                                       
+Version:          unspecified                                               
+Hardware:         All                                                       
+OS:               All                                                       
+
+This auto-sizes the comments and positions the collapse/expand links to the
+right.
+Description                         
+admin 2015-04-24 08:17:52 EDT
+Troubleshoot IOError that occurs only on cygwin but not on Cygwin-X or Mac OS X.
+
+------------------------------------------------------------
+Bug 16
+Summary:          Apply syntaxFeatures tabulation in a generic analyzer method.
+Product:          tsToolsLibCLI                         Reporter:          admin <rigordo>
+Component:        tsLinesOfCode                         Assignee:          admin <rigordo>
+Status:           CONFIRMED ---                                             
+Severity:         enhancement                           CC:                
+Priority:         ---                                                       
+Version:          unspecified                                               
+Hardware:         All                                                       
+OS:               All                                                       
+
+This auto-sizes the comments and positions the collapse/expand links to the
+right.
+Description                         
+admin 2015-04-24 08:19:30 EDT
+2013/01/17 rsg Apply syntaxFeatures tabulation in a generic analyzer method to
+replace file type specific methods. Algorithm differences might make this
+impractical.
+
+------------------------------------------------------------
+Bug 17
+Summary:          Eliminate the required positional argument by which the operator specifies the parser.
+Product:          tsToolsLibCLI                         Reporter:          admin <rigordo>
+Component:        tsLinesOfCode                         Assignee:          admin <rigordo>
+Status:           CONFIRMED ---                                             
+Severity:         enhancement                           CC:                
+Priority:         ---                                                       
+Version:          unspecified                                               
+Hardware:         All                                                       
+OS:               All                                                       
+
+This auto-sizes the comments and positions the collapse/expand links to the
+right.
+Description                         
+admin 2015-04-24 08:20:49 EDT
+013/05/22 rsg Eliminate the required positional argument by which the operator
+specifies the parser. Use of keyword option, with default to None would be more
+user friendly.
+
+------------------------------------------------------------
+Bug 18
+Summary:          Correct report header by replacing reference to __header__.
+Product:          tsToolsLibCLI                         Reporter:          admin <rigordo>
+Component:        tsLinesOfCode                         Assignee:          admin <rigordo>
+Status:           CONFIRMED ---                                             
+Severity:         enhancement                           CC:                
+Priority:         ---                                                       
+Version:          unspecified                                               
+Hardware:         All                                                       
+OS:               All                                                       
+
+This auto-sizes the comments and positions the collapse/expand links to the
+right.
+Description                         
+admin 2015-04-24 08:21:52 EDT
+2013/07/31 rsg Correct report header by replacing reference to __header__ by
+self.GetRunTimeHeader().
+
+------------------------------------------------------------
+Bug 19
+Summary:          Propose elimination of treading overhead.
+Product:          tsToolsLibCLI                         Reporter:           admin <rigordo>
+Component:        tsSoftwareParser                      Assignee:           admin <rigordo>
+Status:           CONFIRMED ---                                                    
+Severity:         enhancement                           CC:                 
+Priority:         ---      
+Version:          unspecified                                                      
+Hardware:         All      
+OS:               All      
+
+This auto-sizes the comments and positions the collapse/expand links to the
+right.
+Description                         
+admin 2015-04-24 08:24:19 EDT
+2011/12/12 rsg Propose elimination of treading overhead by launching Lines-Of-
+Code application process instead of application thread.
+
+------------------------------------------------------------
+Bug 20
+Summary:          Troubleshoot IOError that occurs only on cygwin.
+Product:          tsToolsLibCLI                         Reporter:           admin <rigordo>
+Component:        tsSoftwareParser                      Assignee:           admin <rigordo>
+Status:           CONFIRMED ---                                                    
+Severity:         enhancement                           CC:                 
+Priority:         ---      
+Version:          unspecified                                                      
+Hardware:         All      
+OS:               All      
+
+This auto-sizes the comments and positions the collapse/expand links to the
+right.
+Description                         
+admin 2015-04-24 08:25:36 EDT
+2011/12/12 rsg Troubleshoot IOError that occurs only on cygwin but not on Cygwin-
+X or Mac OS X.
+
+------------------------------------------------------------
+Bug 21
+Summary:          Apply syntaxFeatures tabulation in a generic analyzer method.
+Product:          tsToolsLibCLI                         Reporter:          admin <rigordo>
+Component:        tsSoftwareParser                      Assignee:          admin <rigordo>
+Status:           CONFIRMED ---                                                   
+Severity:         enhancement                           CC:                
+Priority:         ---     
+Version:          unspecified                                                     
+Hardware:         All     
+OS:               All     
+
+This auto-sizes the comments and positions the collapse/expand links to the
+right.
+Description                         
+admin 2015-04-24 08:26:58 EDT
+2013/01/17 rsg Apply syntaxFeatures tabulation in a generic analyzer method to
+replace file type specific methods. Algorithm differences might make this
+impractical.
+
+------------------------------------------------------------
+Bug 22
+Summary:          Resolve inability to launch via tsCommandLineEnv.
+Product:          tsToolsLibCLI                                Reporter:           admin <rigordo>
+Component:        tsSoftwareParser                             Assignee:           admin <rigordo>
+Status:           CONFIRMED ---                                                    
+Severity:         enhancement                                  CC:                 
+Priority:         ---      
+Version:          unspecified                                                      
+Hardware:         All      
+OS:               All      
+
+This auto-sizes the comments and positions the collapse/expand links to the
+right.
+Description                         
+admin 2015-04-24 08:28:18 EDT
+2013/01/17 rsg Resolve inability to launch via tsCommandLineEnv instead of via
+tsApplication. Does not offer appropriate coupling between external option
+definition and internal option handling, as exemplified by OptionWrapper.
+
+------------------------------------------------------------
+Bug 23
+Summary:          Correct report header by replacing reference to __header__.
+Product:          tsToolsLibCLI                         Reporter:           admin <rigordo>
+Component:        tsSoftwareParser                      Assignee:           admin <rigordo>
+Status:           CONFIRMED ---                                                    
+Severity:         enhancement                           CC:                 
+Priority:         ---      
+Version:          unspecified                                                      
+Hardware:         All      
+OS:               All      
+
+This auto-sizes the comments and positions the collapse/expand links to the
+right.
+Description                         
+admin 2015-04-24 08:29:29 EDT
+2013/07/31 rsg Correct report header by replacing reference to __header__ by
+self.GetRunTimeHeader().
+
+------------------------------------------------------------
+Bug 24
+Summary:          Redesign as a daemon thread or process.
+Product:          tsLibGUI                              Reporter:           admin <rigordo>
+Component:        tsWxEventDaemon                       Assignee:           admin <rigordo>
+Status:           CONFIRMED ---
+Severity:         enhancement                           CC:                 
+Priority:         ---          
+Version:          unspecified  
+Hardware:         All          
+OS:               All          
+
+This auto-sizes the comments and positions the collapse/expand links to the
+right.
+Description                         
+admin 2015-04-27 07:32:32 EDT
+Redesign as a daemon thread or process. Current implementation is only a method.
+
+------------------------------------------------------------
+Bug 25
+Summary:          pgrade subprocess to support subprocess.run.
+Product:          tsLibCLI                              Reporter:          admin <rigordo>
+Component:        tsSysCommands                         Assignee:          admin <rigordo>
+Status:           CONFIRMED ---                                                
+Severity:         enhancement                           CC:                
+Priority:         ---  
+Version:          unspecified                                                  
+Hardware:         All  
+OS:               All  
+
+This auto-sizes the comments and positions the collapse/expand links to the
+right.
+Description                         
+admin 2015-04-27 18:04:18 EDT
+Upgrade subprocess to support subprocess.run which will be introduced with
+Python 3.5,
+
+------------------------------------------------------------
+Bug 26
+Summary:          Unresolvable write access permission errors during use of Python setup.py.
+Product:          Host Computer Platform(s)              Reporter:           admin <rigordo>
+Component:        Microsoft Windows 8.1 Desktop Platform Assignee:           admin <rigordo>
+Status:           CONFIRMED ---                                    
+Severity:         blocker                                CC:                 
+Priority:         ---                                              
+Version:          unspecified                                      
+Hardware:         PC                                               
+OS:               Windows                                          
+
+This auto-sizes the comments and positions the collapse/expand links to the
+right.
+Description                         
+admin 2015-05-10 10:36:45 EDT
+Unresolvable write access permission errors during use of Python setup.py.
+Unknown "Cygwin" configuration issue during use of Python setup.py to install
+the TeamSTARS "tsWxGTUI_PyVx" Toolkit into the site-package associated with
+Python 2.7 and Python 3.4. Google search found references to inappropriate
+inclusion of Windows path with cygwin path.
+
+------------------------------------------------------------
+Bug 27
+Summary:          Unresolvable write access permission errors during use of Python setup.py.
+Product:          Host Computer Platform(s)                                  Reporter:          admin <rigordo>
+Component:        Microsoft Windows 10 Desktop Platform (Technical Preview)  Assignee:          admin <rigordo>
+Status:           CONFIRMED ---                                                   
+Severity:         blocker                                                    CC:                
+Priority:         ---     
+Version:          unspecified                                                     
+Hardware:         PC      
+OS:               Windows 
+
+This auto-sizes the comments and positions the collapse/expand links to the
+right.
+Description                         
+admin 2015-05-10 10:38:05 EDT
+Unresolvable write access permission errors during use of Python setup.py.
+Comment 1
+admin 2015-05-10 10:51:05 EDT
+Unresolvable write access permission errors during use of Python setup.py.
+Unknown "Cygwin" configuration issue during use of Python setup.py to install
+the TeamSTARS "tsWxGTUI_PyVx" Toolkit into the site-package associated with
+Python 2.7 and Python 3.4. Google search found references to inappropriate
+inclusion of Windows path with cygwin path.
+
+------------------------------------------------------------
+Bug 28
+Summary:          Unresolved write access permission errors during use of Python setup.py.
+Product:          Host Computer Platform(s)                       Reporter:           admin <rigordo>
+Component:        Apple Mac OS 10.10 (Yosemite) Desktop Platform  Assignee:           admin <rigordo>
+Status:           UNCONFIRMED ---                                          
+Severity:         blocker                                         CC:                 
+Priority:         ---                                                      
+Version:          unspecified                                              
+Hardware:         Macintosh                                                
+OS:               Mac OS                                                   
+
+This auto-sizes the comments and positions the collapse/expand links to the
+right.
+Description                         
+admin 2015-05-10 10:57:55 EDT
+Unresolved write access permission errors during use of Python setup.py.
+Unknown "Mac OS X" configuration issue during use of Python setup.py to install
+the TeamSTARS "tsWxGTUI_PyVx" Toolkit into the site-package associated with
+Python 2.7 and Python 3.4.
+
+------------------------------------------------------------
+Bug 29
+Summary:          Creates, but does not install, only rudimentary ManPages from source code.
+Product:          ManPages                                        Reporter:          admin <rigordo>
+Component:        tsManPagesLibCLI                                Assignee:          admin <rigordo>
+Status:           CONFIRMED ---                                                      
+Severity:         enhancement                                     CC:                
+Priority:         ---        
+Version:          unspecified
+Hardware:         All        
+OS:               All        
+
+This auto-sizes the comments and positions the collapse/expand links to the
+right.
+Description                         
+admin 2015-05-20 06:38:57 EDT
+Toolkit provides utility scripts that: a) create rudimentary ManPages from
+source code; b) do NOT yet merge Toolkit ManPages with ManPages installed by the
+host computer operating system or with the installation of other third-pary add-
+ons.
+
+------------------------------------------------------------
+Bug 30
+Summary:          Creates, but does not install, only rudimentary ManPages from source code.
+Product:          ManPages                              Reporter:          admin <rigordo>
+Component:        tsManPagesLibGUI                      Assignee:          admin <rigordo>
+Status:           CONFIRMED ---                                                       
+Severity:         enhancement                           CC:                
+Priority:         ---         
+Version:          unspecified 
+Hardware:         All         
+OS:               All         
+
+This auto-sizes the comments and positions the collapse/expand links to the
+right.
+Description                         
+admin 2015-05-20 06:41:53 EDT
+
+
+------------------------------------------------------------
+Bug 31
+Summary:          Creates, but does not install, only rudimentary ManPages from source code.
+Product:          ManPages                              Reporter:          admin <rigordo>
+Component:        tsManPagesTestsLibCLI                 Assignee:          admin <rigordo>
+Status:           CONFIRMED ---          
+Severity:         enhancement                           CC:                
+Priority:         ---                    
+Version:          unspecified            
+Hardware:         All                    
+OS:               All                    
+
+This auto-sizes the comments and positions the collapse/expand links to the
+right.
+Description                         
+admin 2015-05-20 06:42:30 EDT
+
+
+------------------------------------------------------------
+Bug 32
+Summary:          Creates, but does not install, only rudimentary ManPages from source code.
+Product:          ManPages                              Reporter:          admin <rigordo>
+Component:        tsManPagesTestsLibCLI                 Assignee:          admin <rigordo>
+Status:           CONFIRMED ---          
+Severity:         enhancement                           CC:                
+Priority:         ---                    
+Version:          unspecified            
+Hardware:         All                    
+OS:               All                    
+
+This auto-sizes the comments and positions the collapse/expand links to the
+right.
+Description                         
+admin 2015-05-20 06:43:31 EDT
+
+
+------------------------------------------------------------
+Bug 33
+Summary:          Creates, but does not install, only rudimentary ManPages from source code.
+Product:          ManPages                              Reporter:          admin <rigordo>
+Component:        tsManPagesTestsLibGUI                 Assignee:          admin <rigordo>
+Status:           CONFIRMED ---           
+Severity:         enhancement                           CC:                
+Priority:         ---                     
+Version:          unspecified             
+Hardware:         All                     
+OS:               All                     
+
+This auto-sizes the comments and positions the collapse/expand links to the
+right.
+Description                         
+admin 2015-05-20 06:44:02 EDT
+
+
+------------------------------------------------------------
+Bug 34
+Summary:          Creates, but does not install, only rudimentary ManPages from source code.
+Product:          ManPages                              Reporter:          admin <rigordo>
+Component:        tsManPagesTestsToolsLibGUI (Future)   Assignee:          admin <rigordo>
+Status:           CONFIRMED ---                                 
+Severity:         enhancement                           CC:                
+Priority:         ---                                           
+Version:          unspecified                                   
+Hardware:         All                                           
+OS:               All                                           
+
+This auto-sizes the comments and positions the collapse/expand links to the
+right.
+Description                         
+admin 2015-05-20 06:44:42 EDT
+
+
+------------------------------------------------------------
+Bug 35
+Summary:          Creates, but does not install, only rudimentary ManPages from source code.
+Product:          ManPages                              Reporter:          admin <rigordo>
+Component:        tsManPagesToolsCLI                    Assignee:          admin <rigordo>
+Status:           CONFIRMED ---    
+Severity:         enhancement                           CC:                
+Priority:         ---              
+Version:          unspecified      
+Hardware:         All              
+OS:               All              
+
+This auto-sizes the comments and positions the collapse/expand links to the
+right.
+Description                         
+admin 2015-05-20 06:45:07 EDT
+
+
+------------------------------------------------------------
+Bug 36
+Summary:          Creates, but does not install, only rudimentary ManPages from source code.
+Product:          ManPages                              Reporter:          admin <rigordo>
+Component:        tsManPagesToolsCLI                    Assignee:          admin <rigordo>
+Status:           CONFIRMED ---    
+Severity:         enhancement                           CC:                
+Priority:         ---              
+Version:          unspecified      
+Hardware:         All              
+OS:               All              
+
+This auto-sizes the comments and positions the collapse/expand links to the
+right.
+Description                         
+admin 2015-05-20 06:45:49 EDT
+
+
+------------------------------------------------------------
+Bug 37
+Summary:          Creates, but does not install, only rudimentary ManPages from source code.
+Product:          ManPages                              Reporter:          admin <rigordo>
+Component:        tsManPagesToolsGUI (Future)           Assignee:          admin <rigordo>
+Status:           CONFIRMED ---                      
+Severity:         enhancement                           CC:                
+Priority:         ---                                
+Version:          unspecified                        
+Hardware:         All                                
+OS:               All                                
+
+This auto-sizes the comments and positions the collapse/expand links to the
+right.
+Description                         
+admin 2015-05-20 06:46:17 EDT
+
+
+------------------------------------------------------------
+Bug 38
+Summary:          Creates, but does not install, only rudimentary ManPages from source code.
+Product:          ManPages                              Reporter:          admin <rigordo>
+Component:        tsManPagesToolsLibCLI                 Assignee:          admin <rigordo>
+Status:           CONFIRMED ---          
+Severity:         enhancement                           CC:                
+Priority:         ---                    
+Version:          unspecified            
+Hardware:         All                    
+OS:               All                    
+
+This auto-sizes the comments and positions the collapse/expand links to the
+right.
+Description                         
+admin 2015-05-20 06:46:53 EDT
+
+
+------------------------------------------------------------
+Bug 39
+Summary:          Creates, but does not install, only rudimentary ManPages from source code.
+Product:          ManPages                              Reporter:           admin <rigordo>
+Component:        tsManPagesUtilities (Future)          Assignee:           admin <rigordo>
+Status:           CONFIRMED ---                    
+Severity:         enhancement                           CC:                 
+Priority:         ---                              
+Version:          unspecified                      
+Hardware:         All                              
+OS:               All                              
+
+This auto-sizes the comments and positions the collapse/expand links to the
+right.
+Description                         
+admin 2015-05-20 06:47:22 EDT
+
+------------------------------------------------------------
+Bug 40
+Summary:        Propose enhancement to eliminate overhead during handling of scroll arrow events.
+Product:        tsLibGUI        Reporter:       admin <rigordo@comcast.net>
+Component:      tsWxScrolledText        Assignee:       admin <rigordo@comcast.net>
+Status:         CONFIRMED ---            
+Severity:       enhancement     CC:     
+Priority:       ---              
+Version:        unspecified              
+Hardware:       All              
+OS:     All              
+Time tracking:  
+Orig. Est.      Actual Hours    Hours Worked    Hours Left      %Complete       Gain
+0.0     0.0     0.0     0.0     0       0.0
+Deadline:                        
+
+Description admin 2015-06-13 12:48:37 EDT
+
+Enhancement to eliminate overhead during handling of scroll arrow events.
+Current design practice features multiple layers of GUI objects which each
+create event bindings that must be searched for a connection between trig-
+gering object and ultimate recipient. Current workaround requires elaborate
+callback mechanism. Propose revision eliminates intermediate layer bindings
+and associate searches.
+
+
+------------------------------------------------------------
+Bug 41
+Summary:        Propose enhancement to add popup menu to taskbar button with
+                appropriate option choices.
+Product:        tsLibGUI        Reporter:       admin <rigordo@comcast.net>
+Component:      tsWxTaskBar     Assignee:       admin <rigordo@comcast.net>
+Status:         CONFIRMED ---            
+Severity:       enhancement     CC:     
+Priority:       ---              
+Version:        unspecified              
+Hardware:       All              
+OS:     All              
+Time tracking:  
+Orig. Est.      Actual Hours    Hours Worked    Hours Left      %Complete       Gain
+0.0     0.0     0.0     0.0     0       0.0
+Deadline:                        
+
+Description admin 2015-06-13 12:57:58 EDT
+
+Enhancement to add popup menu to taskbar button with appropriate option
+choices. Activate/cancel frame/dialog iconize, resize/restore frame/
+dialog size, close frame/dialog in manner similar to Microsoft Windows,
+Linux or Unix.
+
+Comment1 admin 2015-06-14 04:57:07 EDT
+
+The enhancement would provide a flexible means of handling or recovering
+from an iconization which had hidden (rather than re-sized) the frame or
+dialog and associated child GUI objects. The alternative to the enhance-
+ment is to assume that hiding had been used and that clicking on a
+specific taskbar button should cancel it if hiding was active or else
+resize it to its previous size.
+
+
+================ Known Problem(s) / Issue(s) ===============
+
+2. Known Problem(s) / Issue(s)
+
+This is a list of Known Problem(s) / Issue(s). It is organized by
+issue category:
+
+----------------------- Design Issues ----------------------
+
+2011/11/10
+
+   Application programs cannot delete wxPython-style GUI objects.
+
+   Application programs cannot delete wxPython-style GUI objects
+   because Python's "nCurses" module does not have the
+   "nCurses_delwin" method for deleting "nCurses" style GUI objects.
+
+   Not sure this issue can be resolved. A search for an explanation
+   for why Python does not support the delwin function, came upon
+   the following "nCurses" man page entry:
+
+   "Calling delwin deletes the named window, freeing all memory
+   associated with it (it does not actually erase the window's
+   screen image). Subwindows must be deleted before the main
+   window can be deleted."
+
+2011/11/10
+
+   Abort Signal (Ctrl-C) Handling
+
+   Applications occasionally terminate without restoring the
+   display to its previous state in which keyboard input is
+   echoed to the display.
+
+   Troubleshooting Hint:
+
+   The operator must type "stty sane" to manuallly restore the
+   display to its normal state.
+
+   The operator might want to Clear Screen by typing Ctrl-L shell
+   command"^L".
+
+2012/07/03
+
+   Conflict between need for wxPython's "Show" method and
+   emulator's need for Curses' Panel Library
+
+   Limited screen real estate typically necessitates the
+   overlapping of window objects. When the operator needs to
+   see the features of a partially or totally hidden object,
+   a Graphical User Interface uses a Task Bar with buttons
+   for each frame or dialog. After moving the mouse over the
+   button for the hidden object, the operator can click on
+   the mouse button to bring a hidden background object to
+   the visible foreground. The Curses-based design provides
+   a similar Task Bar.
+
+   However, the current design's use of wxWidgets-/wxPython-
+   style "Show" method is incompatible with use of the
+   Curses Panel (Stack) library as evidenced by sample code
+   (See http://tldp.org/HOWTO/CURSES-Programming-HOWTO/
+   panels.html). The sample code doesn't use components
+   associated with "Show" method, but the wxPython emulation
+   depends on them to accomodate a delay in the creation of
+   Curses windows until after the completion of associated
+   distributed layouts.
+
+2012/08/11
+
+   Lack of application program blocking mechanism for key-
+   board input.
+
+   Keyboard input subject to restrictions:
+
+   tsWxPasswordEntryDialog is derived from tsWxTextEntry-
+   Dialog. The latter uses tsWxTextEditBox which has
+   usability issues in both non-event driven and event
+   driven modes.
+
+   The non-event-driven mode uses curses.textpad.Textbox
+   which monopolizes GUI platform and ignores mouse button
+   clicks until the operator terminates input via double
+   entry of control-G key. It also, responds to operator
+   input after the control-G.
+
+   The event driven mode uses an python emulation of
+   curses.textpad.Textbox that provides enhanced edit
+   capabilities while recognizing mouse button clicks
+   and keyboard press-release activity. However, the
+   display blinks as each new text character is displayed.
+   More imporrtantly, there is no mechanism to block the
+   application program pending the operator's completion
+   of text input.
+
+2012/11/16
+
+   Mouse "Click" Event handling can be unreliable on some
+   platforms.
+
+   Mouse "Click" Event handling can be unreliable on some
+   platforms. What works on Windows with Cygwin sometimes
+   crashes on Ubuntu Linux.
+
+   Troubleshooting Hint:
+
+   Detected caret position, at time of mouse click, con-
+   sidered to be outside of displayed GUI object border.
+
+   Perhaps displayed GUI object border must be pre-aligned
+   with character cell display.
+
+2012/11/16
+
+   Lack of Pending Event handling.
+
+   wxPython-style event handling should include front-end
+   (real time) dispatching or queuing with back-end (idle
+   time) ProcessPendingEvent handling.
+
+   While the wxPython emulation is under construction, the
+   workaround involves front-end use of tsWxProcess-
+   SelectedEventTable. The workaround has been used after
+   much trial and error to demonstrate buttons, checkboxes,
+   radio buttons and the scroll bar "arrow" buttons and
+   gauges associated with text scrolling.
+
+2013/07/16
+
+   Need Frame and Dialog control button event handlers.
+
+   Frame control buttons (ICONIZE, MAXIMIZE/RESTOREDOWN,
+   and CLOSE) do not make appropriate changes to display.
+   The handlers only output an appropriate text message.
+
+   Dialog control buttons (HELP and CLOSE) do not make
+   appropriate changes to display. The handlers only output
+   an appropriate text message.
+
+2013/08/16
+
+   Hierarchical library file structure interferes with
+   operation of pylint and pydoc.
+
+   Pylint is a tool that checks for errors in Python code,
+   tries to enforce a coding standard and looks for bad
+   code smells. This is similar but nevertheless different
+   from what pychecker provides, especially since pychecker
+   explicitly does not bother with coding style. The
+   default coding style used by Pylint is close to PEP 8
+   (aka Guido's style guide).
+
+   Pydoc is a documentation module for the programming
+   language Python. Similar to the functionality of
+   Perldoc within Perl, Pydoc allows Python programmers
+   to access Python's documentation help files, generate
+   HTML pages with documentation specifics, and find the
+   appropriate module for a particular job. Pydoc can be
+   accessed from a module-specific GUI, from within the
+   Python interpreter, or from a command line shell
+
+   Pylint and Pydoc expect to process files from within a
+   monolithic file directory. When invoked within a
+   hierarchical file directory with its hierarichal
+   "package" import mechanism, they report various import
+   errors which degrade their usefulness.
+
+2013/08/20
+
+   Python files must be "untabified" before being processed
+   by tsStripComments to avoid "IndentationError".
+
+   Failure to "untabify" Python source files prior to
+   processing by "tsStripComments" may need manual fix-up
+   of IndentationError.
+
+2013/08/24
+
+   tsStripComments renders unusable such doc string depend-
+   ent modules as tsOperatorSettingsParser
+
+   Blank lines within doc strings are visually used to
+   define the end of one paragraph and the start of a new
+   one.
+
+   a. tsOperatorSettingsParser uses the text wrap module to
+      ensure that text fits within the available run time
+      display area.
+
+   b. Text wrap depends on blank lines to avoid merging
+      text from separate paragraphs.
+
+   c. Authoring doc strings with blank lines is both
+      natural and effective at achieving the correct
+      display.
+
+   d. tsStripComments originally did not recognize the
+      appropriateness of removing some blank lines but not
+      others. An update removed all but the first of a
+      sequence of consecutive blank lines.
+
+   e. The main application using a tsOperatorSettings-
+      Parser-like module passes the module's launch purpose
+      via a doc string which is subject to stripping. All
+      other launch parameters (such as title, author, build
+      version and build date) are passed by reference to
+      the associated labeled doc string. See BuildPurpose
+      AttributeError for traceback example when doc string
+      deleted and Purpose = __doc__  attempted to pass a
+      NoneType.
+
+   f. A simple work around would be to create a purpose
+      labeled doc string which will not be subject to
+      comment stripping. A reference to the label can then
+      be passed instead of the one to the unlabeled doc
+      string.
+
+2013/09/04
+
+   test_tsWxGridSizer event processing generates too many
+   event messages per button click. Button click event
+   handling needs to be directly coupled to keybad button
+   window rather than coupled to the parent Frame provided
+   handler.
+
+2013/09/04
+
+   Partially-compliant wxPython User Interface. Keyboard
+   input subject to restrictions:
+
+   tsWxPasswordEntryDialog is derived from tsWxTextEntry-
+   Dialog. The latter uses tsWxTextEditBox which has usabil-
+   ity issues in both non-event driven and event driven
+   modes.
+
+   The non-event-driven mode uses curses.textpad.Textbox
+   which monopolizes GUI platform and ignores mouse button
+   clicks until the operator terminates input via double
+   entry of control-G key. It also, responds to operator
+   input after the control-G.
+
+   The event driven mode uses an python emulation of
+   curses.textpad.Textbox that provides enhanced edit
+   capabilities while recognizing mouse button clicks and
+   keyboard press-release activity. However, the display
+   blinks as each new text character is displayed. More
+   imporrtantly, there is no mechanism to block the appli-
+   cation program pending the operator's completion of text
+   input.
+
+2013/09/05
+
+   2to3-3.2.py RefactoringTool: There were 6 errors:
+
+   a. RefactoringTool: Can't parse ./tsWxLayout_h.py:
+      ParseError: bad input: type=48, value='//',
+      context=('', (1, 0))
+
+   b. RefactoringTool: Can't parse ./tsWxLayoutGTUI.py:
+      TokenError: ('EOF in multi-line string', (126, 4))
+
+   c. RefactoringTool: Can't parse ./tsWxTextEntry.py:
+      ParseError: bad input: type=1, value='wxString',
+      context=(' ', (270, 31))
+
+   d. RefactoringTool: Can't parse ./test_tsWxEvents.py:
+      ParseError: bad input: type=22, value='=',
+      context=('', (878, 45))
+
+   e. RefactoringTool: Can't parse ./test_tsWxStatusBar.py:
+      ParseError: bad input: type=22, value='=',
+      context=('', (859, 45))
+
+   f. RefactoringTool: Can't parse ./test_tsWxTaskBar.py:
+      ParseError: bad input: type=22, value='=',
+      context=('', (657, 45))
+
+2013/09/06 (Updated 11/21/2014)
+
+   --------------------------------------------------------------
+   NOTE: Use of tsCxGlobals.py and tsWxGlobals.py have eliminated
+   need for tsConfigObjectPkg. It was deprecated and removed from
+   the release on 2014/04/05 by rsg.
+   --------------------------------------------------------------
+
+   tsConfigObjectPkg only available for Python-2.x.
+
+   Python 3.x version of tsLib/tsConfObjectPkg/ reports TypeError
+   in configobj.py line 1380, in _iced because:
+
+      'int' object "line[-1]" is not subscripted
+
+   Revised readme_bmp_text to describe the Extended Multi-
+   Color support as EXPERIMENTAL because Curses and nCurses
+   Terminal/Emulator standards only support 256 color-pairs
+   with 16x16 foreground/background colors. Previous host
+   operating system distributions reported, but failed to
+   support, up to 256 colors with up to 32767 color-pairs.
+
+2015/05/25
+
+   The "python setup.py sdist" command to the distutils pack
+   age, cannot be used to create a tar file or zip file for
+   a repository containing source code for both Python 2x
+   and Python 3x versions of the Toolkit and Notebook docu-
+   mentation in engineering-style application-specific
+   multi-font formats.
+
+   As a work around, the distribution includes the following
+   POSIX-style commnd line interface shell scripts:
+
+       setup_tsWxGTUI_PyVx_tar_file.sh
+       setup_tsWxGTUI_PyVx_zip_file.sh
+
+   
+
+---------------------- Display Issues ----------------------
+
+2010/08/25 (Updated 11/21/2014)
+
+   Undocumented "Curses" / "nCurses" 256 color pair limitation
+   constrains support for xterm-88color and xterm-256color
+   consoles.
+
+   Workaround provides addition of configuration control switch
+   USE_256_COLOR_PAIR_LIMIT to "tsWxGlobals.py" file and support
+   for xterm-88color and xterm-256color consoles which is
+   equivalent to that for xterm-16color type console. The
+   latter provides the automatic mapping of the 68x68 standard
+   "wxPython" foreground/background color name combinations into
+   the available 16x16 "Curses" / "nCurses" 256 color name pairs.
+
+   Without xterm-16color console type support, use of the 68x68
+   standard "wxPython" foreground/background color combinations,
+   included in a 71-color palette, will produce both the incor-
+   rect color and such unwanted display attributes as underlines,
+   blinking etc.
+
+2011/12/06
+
+   GUI Object Automatic Layout Anomalies
+
+   Use of wxPython-style sizers to automatically layout complex
+   assemblies of GUI Objects typically produce the telescoping
+   or overlapping of adjacent border lines into a single line.
+
+   Use of wxPython-style pixel dimensions are associated with
+   the nearest available Curses column and row. Anomalies show
+   up only when derived pixel dimensions are not integer multi-
+   ples of the pixel width and height for the fixed width font
+   of a single character. See an example at wxStaticBoxSizer.
+
+2011/12/06 (Updated 12/28/2014)
+
+   SplashScreen Bitmap Image Compatibility
+
+   Use of a SplashScreen Bitmap image are platform dependent. An
+   image created and saved on a Cygwin console reloads and is
+   displayed only on a Cygwin console. It does not reload and
+   display on a Linux, Mac OS X or Unix xterm.
+
+   The toolkit design therefore creates, saves and installs a
+   Bitmap image for each platform. The images are identified
+   via their platform-specific names.
+
+          Basic Multi-Color ("wxPython" transformation maps
+            68-color palette into 8 or 16 built-in colors)
+
+   Base Name     Size    Type   Host OS       File Ext.    Notes
+   ------------- -------------- -------------------------  ------------------
+   "SplashScreen-[60x15_CYGWIN]-cygwin_nt-5.0.bmp"         (Placeholder for
+    Windows 2000)
+   "SplashScreen-[60x15_CYGWIN]-cygwin_nt-5.1.bmp"         (Windows XP)
+   "SplashScreen-[60x15_CYGWIN]-cygwin_nt-5.2.bmp"         (Placeholder for
+    Windows XP x64)
+   "SplashScreen-[60x15_CYGWIN]-cygwin_nt-6.0.bmp"         (Placeholder for
+    Windows Vista)
+   "SplashScreen-[60x15_CYGWIN]-cygwin_nt-6.1.bmp"         (Windows 7)
+   "SplashScreen-[60x15_LINUX]-cygwin_nt-6.1.bmp"          (Windows 7)
+   "SplashScreen-[60x15_XTERM]-cygwin_nt-6.1.bmp"          (Windows 7)
+   "SplashScreen-[80x25_XTERM]-darwin.bmp"                 (Mac OS 10.9.1)
+   "SplashScreen-[96x40_XTERM]-linux.bmp"                  (Fedora 21)
+   "SplashScreen-[96x40_XTERM]-linux.bmp"                  (Ubuntu 12.04)
+   "SplashScreen-[128x50_XTERM]-freebsd.bmp"               (PC-BSD 9.2)
+   "SplashScreen-[128x50_XTERM]-sunos.bmp"                 (OpenIndiana 151a8)
+   "SplashScreen-[60x15_XTERM-COLOR]-cygwin_nt-6.1.bmp"    (Windows 7)
+   "SplashScreen-[80x15_XTERM-16COLOR]-cygwin_nt-6.3.bmp"  (Windows 8.1)
+   "SplashScreen-[80x15_XTERM-88COLOR]-cygwin_nt-6.3.bmp"  (16x16 color
+    pair limit
+    for Windows 8.1)
+   "SplashScreen-[80x15_XTERM-256COLOR]-cygwin_nt-6.3.bmp" (16x16 color
+    pair limit
+    for Windows 8.1)
+
+      Non-Color ("wxPython" transformation maps 68-color palette
+      into black with one shade of the default color for displays
+      having only a white, orange or green phosphor).
+
+   Base Name     Size    Type   Host OS       File Ext.    Notes
+   ------------- -------------- -------------------------  ------------------
+   "SplashScreen-[80x40_VT100]-cygwin_nt-5.0.bmp"          (Placeholder for
+    Windows 2000)
+   "SplashScreen-[80x40_VT100]-cygwin_nt-5.1.bmp"          (Windows XP)
+   "SplashScreen-[80x40_VT100]-cygwin_nt-5.2.bmp"          (Placeholder for
+    Windows XP x64)
+   "SplashScreen-[80x40_VT100]-cygwin_nt-6.0.bmp"          (Placeholder for
+    Windows Vista)
+   "SplashScreen-[80x15_VT100]-cygwin_nt-6.1.bmp"          (Windows 7)
+   "SplashScreen-[80x15_VT100]-cygwin_nt-6.2.bmp"          (Windows 8)
+   "SplashScreen-[80x15_VT220]-cygwin_nt-6.3.bmp"          (Windows 8.1)
+
+      #########################################################
+      # Advanced Multi-Color support is still evolving....    #
+      #                                                       #
+      # Terminal/Emulator standards support an undocumented   #
+      # maximum of 256 color pairs. This inference resulted   #
+      # from the following observations.                      #
+      #                                                       #
+      # Under Python 2.x and Python 3.x, most xterm-88color   #
+      # and xterm-256color terminal emlators produced the     #
+      # wrong colors marred by spurious umderline artifacts.  #
+      #                                                       #
+      # Under Python 3.3.0 with a Yosemite Mac OS X Terminal  #
+      # utility, there were 256 color pairs and a 16-color    #
+      # palette that worked.                                  #
+      #                                                       #
+      # Also, under the Python 2.7.6 with the GNOME Desktop   #
+      # for CentOS 7.0 Linux, there were 256 color pairs and  #
+      # a 16-color palette that worked    .                   #
+      #                                                       #
+      # For the color pair matrix used by the "tsWxGTUI"      #
+      # Toolkit, the Advanced Multi-Color support emulates    #
+      # xterm-16color and associated mapping of the wxPython  #
+      # 68-color palette into the built-in 16 colors.         #
+      #########################################################
+
+   if (COLOR_PAIRS > 256) and       (USE_256_COLOR_PAIR_LIMIT):    # As set in tsWxGlobals.py
+
+      Advanced Multi-Color ("wxPython" emulation maps
+      68-color palette into 16 of 88 or 16 of 256 colors)
+
+   elif (COLOR_PAIRS == 256)         # As reported by curses
+
+      Advanced Multi-Color ("wxPython" emulation maps
+      68-color palette into 16 of 88 or 16 of 256 colors)
+
+   else:
+
+      Advanced Multi-Color ("wxPython" emulation maps
+      68-color palette into 71 of 88 or 140 of 256 colors)
+
+   Base Name     Size    Type   Host OS       File Ext.    Notes
+   ------------- -------------- -------------------------  ------------------
+   "SplashScreen-[80x15_XTERM-88COLOR]-cygwin_nt-6.3.bmp"  (Windows 8.1)
+   "SplashScreen-[80x25_XTERM-88COLOR]-darwin.bmp"         (Mac OS 10.9.1)
+   "SplashScreen-[96x40_XTERM-88COLOR]-linux.bmp"          (Fedora 20)
+   "SplashScreen-[80x15_XTERM-256COLOR]-cygwin_nt-6.3.bmp" (Windows 8.1)
+   "SplashScreen-[80x25_XTERM-256COLOR]-darwin.bmp"        (Mac OS 10.9.1)
+   "SplashScreen-[96x40_XTERM-256COLOR]-linux.bmp"         (Fedora 20)
+
+A new Splash Screen is built upon the first use of a uniquely sized
+command line interface display by those host operating systems that
+share this directory.
+
+  NOTE:
+
+    Previous terminal emulator used in a command line interface shell can
+    alter the built-in color palette for subsequect terminal emulators.
+    Examples:
+
+    1) The final xterm sees no color palette change if the first one is
+       xterm followed by xterm-color, vt100 and xterm.
+
+    2) The final xterm sees a dim color palette change if the first one is
+       xterm followed by by xterm-16color, vt100 and xterm.
+ 
+2013/03/05
+
+   Ubuntu Linux 12.04 terminal those runs "tsWxGTUI" applications
+   associated with regression testing. Occassionally, a mouse click
+   triggers an application trap for what appears to be an unknown
+   cursor mis-alignment issue.
+
+   Test Platforms:
+
+      Linux Ubuntu 12.04 32-bit
+
+      Mac OS X (10.7.5) 64-bit
+
+      Windows XP 32-bit (with cygwin, Unix-type environment)
+
+      Windows 7 Professional 32-bit (with cygwin, Unix-type
+      environment)
+
+      Windows 8 Professional 32-bit (with cygwin, Unix-type
+      environment)
+
+   Command Line Interface regression tests (Python 2.x and
+   3.x) include the following:
+
+      test_tsApplication.py
+      test_tsCommandLineInterface.py
+      test_tsDecorators.py
+      test_tsExceptions.py
+      test_tsLogger.py
+      test_tsReportUtilies.py
+      test_tsThreadPool.py
+      tsLinesOfCode.py
+
+   Graphical User Interface regression tests (Python 2.x and
+   3.x) include the following:
+
+      test_tsWxBoxSizer.py
+      test_tsWxGridSizer.py
+      test_tsWxMetrics.py
+      test_tsWxScrolledWindow.py (mouse click trap symptoms)
+      test_tsWxWidgets.py
+
+----------------------- Import Issues ----------------------
+
+2011/06/01
+
+   Non-compliant wxPython Library Modules
+
+   Functions, Class Methods and Class Properties:
+
+      See Microsoft Access file:
+
+2011/06/01
+
+   Non-compliant wxPython Applications
+
+   Unit, Integration and System Test Applications:
+
+      test_tsWxWidgets - Runs without failure. Unit Test for
+      widgets.
+
+      test_tsWxPySimpleApp - Runs without failure. Unit Test
+      for startup.
+
+2013/03/05
+
+   Named import module not found.
+
+   Despite establishment of tsLibCLI and tsLibGUI, importing
+   within repository from test directories may fail.
+
+      Problem can be eliminated by installing "tsWxGTUI" into
+      default Python's site-packages using the appropriate
+      setup.py tool.
+
+-------------------- Installation Issues -------------------
+
+2013/03/25 (Updated 11/21/2014)
+
+   Access to the "tsToolsCLI" services should be path inde-
+   pendant from the top level of the "tsWxGTUI" Toolkit site
+   package.
+
+   Access to the "tsToolsCLI" services is only via their
+   source code path. Access should also be path independant
+   from the top level of the "tsWxGTUI" Toolkit site package.
+
+      tsLinesOfCodeProjectMetricsPkg
+      tsPlatformQueryPkg
+      tsStripCommentsPkg
+      tsStripLineNumbersPkg
+      tsTreeCopyPkg
+      tsTreeTrimLinesPkg
+
+2013/03/25
+
+   Access to the "tsToolsGUI" services should be path inde-
+   pendant from the top level of the "tsWxGTUI" Toolkit site
+   package.
+
+   Access to the "tsToolsGUI" services is only via their
+   source code path. Access should also be path independant
+   from the top level of the "tsWxGTUI" Toolkit site pack-
+   age.
+
+      tsWxLinesOfCodeProjectMetricsPkg (Future)
+      tsWxPlatformQueryPkg (Future)
+
+-------------------- Operational Issues --------------------
+
+None
+
+------------------- Remote Access Issues -------------------
+
+2012/04/07
+
+   A local platform connected to one or more remote plat-
+   forms, which together are operating in "Stand-Among Mode",
+   may report various connection errors.
+
+   Use of the OpenSSH SSH client (remote login program) via
+   the command "ssh <user id>@<remote host id>" may require
+   the System Administrators, Software Engineers or System
+   Operators to temporarily supend or permanently modfy
+   local and/or remote computer security settings:
+
+      Authorize local computer on remote system to resolve
+      the issue:
+      "ssh: connect to host <IP Address> port 22; Connection
+      refused"
+
+      Unblock firewall on remote system to resolve the issue:
+      "sh: connect to host <IP Address> port 22; Connection
+      timed out"
+
+------------------ Troubleshooting Issues ------------------
+
+2013/09/04 (Updated 11/21/2014)
+
+   Instrumentation to facilitate debugging has been left
+   activated. Module level variables have been set to enable
+   built-in code to log and display both normal progress and
+   unexpected events.
+
+   The "tsWxGTUI" Toolkit is a work in progress. Unless one
+   is introducing only localized changes, remembering where
+   to find and turn debug control flags "on" and "off"
+   quickly become tedious and vexing. Ignoring the automa-
+   tically generated information until debugging is required
+   is relatively painless.
+
+   Consider the lines-of-code metrics and debugging effort
+   associated with just the primary Python version 2.x files
+   (including documentation, tests and associated data but
+   excluding their demo code copies, man pages, tsDocGUI
+   files and derived Python 3.x counterparts):
+
+                Overall Source Code Feature Statistics
+
+           FILES     CODE    CMNTS    LINES    WORDS      CHARS
+   Pct:             41.79%   58.21%  100.00%
+Totals:      397    97009   135149   232158   735300    9117051
+   Std:      359      406      618      942     3052      44491
+   Avg:        1      244      340      585     1852      22965
+
+------------------------------------------------------------------------------
+
+        Distribution of Source Code Feature Statistics by File Types
+
+   TYPES      FILES     CODE    CMNTS    LINES    WORDS      CHARS  %-LINES
+   .ada           1      226       44      270     1151       8399    0.12%
+   .asm           6      145      203      348     1325       7582    0.15%
+   .bas           2      540        2      542     1796      11707    0.23%
+   .bash          1        6       35       41      193       1150    0.02%
+   .bat           1        4        2        6        8         51    0.00%
+   .c             6     1849     1954     3803    10190      86806    1.64%
+   .cpp           2      928      426     1354     3633      39944    0.58%
+   .f             2      595      116      711     2327      21335    0.31%
+   .f77           1      230       87      317     1052       7459    0.14%
+   .f90           6      525      377      902     3162      18728    0.39%
+   .ftn           1       59       42      101      387       2540    0.04%
+   .h             2       73       53      126      405       3682    0.05%
+   .inc           3      174      573      747     2927      33330    0.32%
+   .pas           1      105       25      130      620       3900    0.06%
+   .plm           2      859      745     1604     6192      47834    0.69%
+   .py          285    90070   103810   193880   580624    6666577   83.51%
+   .sh           13      621      554     1175     3701      40890    0.51%
+   .txt          62        0    26101    26101   115607    2115137   11.24%
+
+2013/09/04 (Updated 11/21/2014)
+
+   Development notes ("comments" and "doc strings") are em-
+   bedded within each Python source file.
+
+   Prior to publication the notes must be reviewed and edit-
+   ed to ensure accuracy, completeness and clarity.
+
+   For a pre-release said notes should be stripped out of
+   each source file to be published. The "tsStripCom-
+   ments.py" tool is provided for this purpose. Even after
+   note stripping, all executable statements (including
+   imports, definitions, logic and input/output) will be
+   fully human readable.
+ 
+   The "tsStripComments.py" tool must be used with care on
+   those top-level application or test files which provide
+   an operator with command line help. This is because gen-
+   eral purpose command line parsers, such as "tsOperator-
+   SettingsParser", expect to receive an application-speci-
+   fic purpose-defining doc string, text contained within
+   triple quotes (such as """Module Purpose """ or '''Module
+   Purpose''') that must not be stripped. The purpose doc
+   string is typically unlabeled at or near the begin-
+   ning of the file. It is referenced by "__doc__". To
+   ensure that it is not stripped, it is suggested that
+   the "__doc__" label be explicitly defined via one of
+   the following:
+
+   # Implicit label definition override
+   __doc__ = """Module Purpose"""
+   __doc__ = '''Module Purpose'''
+
+   # Explicit new label definition
+   purpose = """Module Purpose"""
+   purpose = '''Module Purpose'''
+
+--------------------- User Input Issues --------------------
+
+2008/09/03
+
+   Manually Sized Curses Screen
+
+   Host Operating Systems typically provide a Graphical User
+   Interface that operates in pixel-mode and can be progra-
+   matically sized by an application during its startup.
+
+   Terminal emulators typically provide a Graphical-style
+   User Interface that operates in character-mode but pro-
+   gramatically sized by an application during its startup.
+
+   Troubleshooting Hints:
+
+   a. Operating Systems typically provide user changeable
+      properties to change the font and layout size of the
+      shell window in which the application will be run.
+
+   b. If the application aborts itself because it started
+      in an under sized shell window, the operator should
+      re-adjust the shell window's font and layout prop-
+      erties as appropriate.
+
+2010/08/25
+
+   Partially-compliant wxPython User Interface
+
+   Keyboard input subject to restrictions:
+
+   a. Apple "Cmd" (Command) Not supported on computer plat-
+      forms running Mac OS X, Linux or Windows.
+
+   b. Only "character" events supported; "key" press/release
+      events Not supported.
+
+   c. Only "Shift", "Ctrl" or"Alt" key can be pressed in com-
+      bination with a character key; combinations of "Shift",
+      "Ctrl" and "Alt" keys are Not supported. (Note: The
+      "Alt" key event internally involves two separate
+      "Curses" getchar operations.)
+
+2012/08/11
+
+   Partially-compliant wxPython User Interface
+
+   Keyboard input subject to restrictions:
+
+   a. tsWxPasswordEntryDialog is derived from tsWxTextEntry-
+      Dialog. The latter uses tsWxTextEditBox which has
+      usability issues in both non-event driven and event
+      driven modes.
+
+   b. The non-event-driven mode uses curses.textpad.Textbox
+      which monopolizes GUI platform and ignores mouse but-
+      ton clicks until the operator terminates input via
+      double entry of control-G key. It also, responds to
+      operator input after the control-G.
+
+   c. The event driven mode uses an python emulation of
+      curses.textpad.Textbox that provides enhanced edit
+      capabilities while recognizing mouse button clicks and
+      keyboard press-release activity. However, the display
+      blinks as each new text character is displayed. More
+      imporrtantly, there is no mechanism to block the ap-
+      plication program pending the operator's completion
+      of text input.
+
+2013/07/18
+
+   Partially-compliant wxPython User Interface
+
+   test_tsWxGridSizer event processing generates too many
+   event messages per button click. Button click event
+   handling needs to be directly coupled to keybad button
+   window rather than coupled to the parent Frame provided
+   handler.
+
+======================= End-Of-File ========================

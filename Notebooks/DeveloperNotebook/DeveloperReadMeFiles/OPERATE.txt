@@ -1,0 +1,109 @@
+#-----------------------------------------------------------
+#"Time-stamp: <06/11/2015  9:14:51 AM rsg>"
+#-----------------------------------------------------------
+
+===================== File: OPERATE.txt ====================
+
+   +----+----+  TeamSTARS "tsWxGTUI_PyVx" Toolkit
+   | ts | Wx |      with Python 2x & Python 3x based
+   +----+----+         Command Line Interface (CLI)
+   | G T U I |      and "Curses"-based "wxPython"-style, 
+   +---------+         Graphical-Text User Interface (GUI)
+ 
+   Get that cross-platform, pixel-mode "wxPython" feeling
+   on character-mode 8-/16-color (xterm-family) & non-color
+   (vt100-family) terminals and terminal emulators.
+
+   You can find this and other plain-text files in the
+   Toolkit subdirectory named:
+
+       "./<Toolkit Recipient's Repository>/Documents".
+
+===================== TABLE OF CONTENTS ====================
+
+1. Getting Started
+
+2. Install
+
+3. Configure
+
+4. Operate
+
+5. Demo
+
+6. Copying
+
+7. Troubleshooting
+
+===================== GETTING STARTED ======================
+
+1. Getting Started
+
+   You will find the announcement for the release in the
+   Toolkit file named "./Documents/README.txt".
+   The overview topics include:
+
+   * Purpose
+   * Applications
+   * Capabilities
+   * Limitations
+   * Implementation
+   * System Requirements
+
+   You will find a beginner's guide for first time Toolkit
+   users and first time Python programmers in the Toolkit
+   file named "./Documents/GETTING_STARTED.txt".
+   Topics include:
+
+   * Toolkit-compatible Operating Systems
+   * Python Download, Development & Training Resources
+   * Python Download Gotchas
+
+========================= INSTALL ==========================
+
+2. Install
+
+   You can find this topic addressed in the Toolkit file
+   named "./Documents/INSTALL.txt".
+
+======================== CONFIGURE =========================
+
+3. Configure
+
+   You can find this topic addressed in the Toolkit file
+   named "./Documents/CONFIGURE.txt".
+
+========================= OPERATE ==========================
+
+4. Operate
+
+   You can find this topic addressed in the Toolkit file
+   named "./Documents/OPERATE.txt".
+
+=========================== DEMO ===========================
+
+5. Demo
+
+   You can find a step-by-step tutorial on various platform-
+   specific operations in the Toolkit file named
+   "./Documents/DEMO.txt".
+
+   The tutorial uses various Toolkit application programs
+   to demonstrate the operation and features of Toolkit
+   components included in the release distribution.
+
+========================== COPYING =========================
+
+6. Copying
+
+   You can find this topic addressed in the Toolkit file
+   named "./Documents/COPYING.txt".
+
+===================== TROUBLESHOOTING ======================
+
+7. Troubleshooting
+
+   You can find this topic addressed in the Toolkit file
+   named "./Documents/TROUBLESHOOT.txt".
+
+======================= End-Of-File ========================

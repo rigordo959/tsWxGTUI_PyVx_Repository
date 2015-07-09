@@ -1,0 +1,27 @@
+#"Time-stamp: <02/18/2015  8:49:46 AM rsg>"
+# File: MANIFEST.in
+
+recursive-include tsWxGTUI_Py3x *.py *.sh *.txt
+
+recursive-include tests *.py *.c *.sh *.txt
+
+recursive-include tsWxGTUI_Py3x/tsDemoArchive *.*
+#recursive-include tsWxGTUI_Py3x/tsDocCLI *.*
+#recursive-include tsWxGTUI_Py3x/tsDocGUI *.*
+recursive-include tsWxGTUI_Py3x/tsLibCLI *.*
+recursive-include tsWxGTUI_Py3x/tsLibGUI *.*
+recursive-include tsWxGTUI_Py3x/tsManPagesLibCLI *.*
+recursive-include tsWxGTUI_Py3x/tsManPagesLibGUI *.*
+recursive-include tsWxGTUI_Py3x/tsManPagesTestsCLI *.*
+recursive-include tsWxGTUI_Py3x/tsManPagesTestsGUI *.*
+recursive-include tsWxGTUI_Py3x/tsManPagesToolsCLI *.*
+recursive-include tsWxGTUI_Py3x/tsToolsCLI *.*
+recursive-include tsWxGTUI_Py3x/tsToolsGUI *.*
+recursive-include tsWxGTUI_Py3x/tsUtilities *.*
+
+include *.html
+include *.py
+include *.sh
+include *.txt
+include MANIFEST.in
+## include launcher.c 

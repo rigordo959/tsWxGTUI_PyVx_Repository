@@ -1,0 +1,25 @@
+      init in tsCxGlobalsPkg
+<open file './logs/2014-04-08-at-06-26-39/test_tsSysCommand.log', mode 'w' at 0x7fd6b5f8>
+tsCommandLineEnv: ImportError (tsLibCLI); importCode=No module named tsOperatorSettingsParser
+
+
+tsSysCommands.py, v2.1.0 (build 04/14/2014)
+
+  Author(s): Richard S. Gordon
+  Copyright (c) 2007-2014 Richard S. Gordon.
+		All rights reserved.
+  GNU General Public License, Version 3, 29 June 2007
+
+  Credits: 
+
+	  tsLibCLI Import & Application Launch Features: 
+	  Copyright (c) 2007-2009 Frederick A. Kier.
+			All rights reserved.
+
+Usage: test_tsSysCommand.py [options]
+
+Options:
+  -h, --help            show this help message and exit
+  -c COMMAND, --command=COMMAND
+                        command [default = None]
+  -V, --Verbose         print status messages to stdout [default = False]

@@ -1,0 +1,51 @@
+#-----------------------------------------------------------
+#"Time-stamp: <06/18/2015  4:56:51 AM rsg>"
+#-----------------------------------------------------------
+
+====== File: PROJECT-16-Applicaion_Launch_Modules.txt ======
+
+   +----+----+  TeamSTARS "tsWxGTUI_PyVx" Toolkit
+   | ts | Wx |      with Python 2x & Python 3x based
+   +----+----+         Command Line Interface (CLI)
+   | G T U I |      and "Curses"-based "wxPython"-style, 
+   +---------+         Graphical-Text User Interface (GUI)
+ 
+   Get that cross-platform, pixel-mode "wxPython" feeling
+   on character-mode 8-/16-color (xterm-family) & non-color
+   (vt100-family) terminals and terminal emulators.
+
+================= APPLICAION LAUNCH MODULES ================
+
+The TeamSTARS "tsWxGTUI_PyVx" Toolkit povides the following
+applicaion launch modules
+
+1. "tsApplication.py" (a component of "tsLibCLI")
+
+   Base class to initialize and configure the application
+   program launched by an operator. It delivers those key-
+   word-value pair options and positional arguments speci-
+   fied by the operator, on the command line, and by the
+   application, in its invocation parameter list. It ini-
+   tializes any application specific logger(s). It enables
+   an application launched via a Command Line Interface
+   (CLI) to initialize, configure and use the same char-
+   acter-mode terminal with a Graphical-style User Inter-
+   face (GUI).
+
+2. "tsCommandlineEnv.py" (a component of "tsLibCLI")
+
+   Class, that uses "tsApplication" and wraps the Command
+   Line Interface application with exception handlers to
+   control exit codes and messages that may be used to
+   coordinate other application programs. 
+
+3. "tsWxMultiFrameEnv.py" (a component of "tsLibGUI")
+
+   Class, that uses "tsCommandLineEnv" to launch and use
+   the same character-mode terminal with a Graphical-style
+   User Interface (GUI). It wraps the CLI, underlying the
+   GUI, and the GUI with exception handlers to control the
+   exit codes and messages used to coordinate other appli-
+   cation programs.
+
+======================= End-Of-File ========================

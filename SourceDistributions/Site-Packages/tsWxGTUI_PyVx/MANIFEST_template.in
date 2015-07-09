@@ -1,0 +1,26 @@
+#"Time-stamp: <05/05/2015  8:04:52 AM rsg>"
+# File: MANIFEST_template.in
+
+recursive-include tsWxGTUI_PyVx *.py *.sh *.txt
+
+recursive-include tsWxGTUI_PyVx/tsDemoArchive *.*
+recursive-include tsWxGTUI_PyVx/tsDemoArchive/tsTestsLibCLI *.*
+recursive-include tsWxGTUI_PyVx/tsDemoArchive/tsTestsLibGUI *.*
+recursive-include tsWxGTUI_PyVx/tsDemoArchive/tsTestsToolsCLI *.*
+#recursive-include tsWxGTUI_PyVx/tsDemoArchive/tsTestsToolsGUI *.*
+recursive-include tsWxGTUI_PyVx/tsDemoArchive/tsTestsToolsLibCLI *.*
+recursive-include tsWxGTUI_PyVx/tsDemoArchive/tsTestsToolsLibCLI/basicFileTypes *.*
+recursive-include tsWxGTUI_PyVx/tsDemoArchive/tsTestsToolsLibCLI/regressionTestFileTypes *.*
+#recursive-include tsWxGTUI_PyVx/tsDemoArchive/tsToolsLibGUI *.*
+recursive-include tsWxGTUI_PyVx/tsLibCLI *.*
+recursive-include tsWxGTUI_PyVx/tsLibGUI *.*
+recursive-include tsWxGTUI_PyVx/tsToolsCLI *.*
+recursive-include tsWxGTUI_PyVx/tsToolsGUI *.*
+recursive-include tsWxGTUI_PyVx/tsUtilities *.*
+
+include *.html
+include *.py
+include *.sh
+include *.txt
+include MANIFEST.in
+## include launcher.c 

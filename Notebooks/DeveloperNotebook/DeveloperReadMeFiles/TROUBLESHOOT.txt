@@ -1,0 +1,660 @@
+#-----------------------------------------------------------
+#"Time-stamp: <06/17/2015  5:40:56 AM rsg>"
+#-----------------------------------------------------------
+
+=================== File: TROUBLESHOOT.txt =================
+
+   +----+----+  TeamSTARS "tsWxGTUI_PyVx" Toolkit
+   | ts | Wx |      with Python 2x & Python 3x based
+   +----+----+         Command Line Interface (CLI)
+   | G T U I |      and "Curses"-based "wxPython"-style, 
+   +---------+         Graphical-Text User Interface (GUI)
+ 
+   Get that cross-platform, pixel-mode "wxPython" feeling
+   on character-mode 8-/16-color (xterm-family) & non-color
+   (vt100-family) terminals and terminal emulators.
+
+   You can find this and other plain-text files in the
+   Toolkit subdirectory named:
+
+       "./<Toolkit Recipient's Repository>/Documents".
+
+==================== TABLE OF CONTENTS =====================
+
+Preface
+
+1. Troubleshooter's Resources
+
+2. Insight of the "tsWxGTUI" Toolkit Developer(s)
+   by Richard S. Gordon
+
+3. File Access Permission Override Instructions
+
+4. Python Curses Evolution 
+
+========================== PREFACE =========================
+
+Preface
+
+The TeamSTARS "tsWxGTUI_PyVx" Toolkit began with a desire
+and vision.
+
+Our desire was to have and give others an easier and faster
+means to produce user friendly and mainainable software for
+the local and remote monitoring and control of equipment
+that incorporated embedded computers.
+
+Our vision applies the portable, cross-platform "Python"
+Command Line Interface with the "wxPython" Graphical User
+Interface and with low bandwidth communication "Curses"
+terminal interface technology.
+
+In its comments, the resulting Python source code embodies
+the evolution of the implementation from feasibility proto-
+types, experiments, work-arounds, fixes and tweaks to its
+current pre-alpha stage release.
+
+Whereas "wxPython" could take advantage of the host computer
+operating system's GUI services, "Curses" provided only a
+limited set of keyboard, mouse, color palette and display
+input/output services. As a result, the implementation has
+an unexpected amount of source code associated with key-
+board, mouse and color palette services.
+
+The "wxPython" Application Programming Interface (API) emu-
+lation is somewhat usable but is neither complete nor opti-
+mal.
+
+Perhaps advances in "Python" technology may one day enable:
+
+    1) Use of multiple local/remote application program
+       processes
+
+    2) Use of multiple local threads of execution rather
+       than a loop which polls to identify and initiate
+       work which can now be performed 
+
+Perhaps advances in "Curses" technology may one day enable:
+
+    1) More than 16 colors and more than 256 color pairs
+
+    2) Mouse input for non-color vt100-family terminal emu-
+       lators
+
+
+                                           Richard S. Gordon
+                                SoftwareGadgetry@comcast.net
+
+================ TROUBLESHOOTER'S RESOURCES ================
+
+1. Troubleshooter's Resources
+
+   1.1 wxPython in Action
+       by Noel Rappin and Robin Dunn
+
+       According to www.wxpython.org:
+
+       "This is the first book about wxPython and offers
+       a friendly tutorial to help you get started, a
+       detailed guide to UI programming practices, and many
+       samples of using wxPython to create and use user
+       interface elements. It covers an impressive amount of
+       information delivered at a measured pace, encouraging
+       experimentation and learning by doing.
+
+       Available from: Manning, Amazon, and as an eBook."
+
+   1.2 wxPython Online wxDocs
+       http://www.wxpython.org
+
+       According to http://www.wxpython.org/onlinedocs.php:
+
+           "Current wxWidgets Version is 3.0.2"
+
+       According to http://www.wxpython.org/recentchanges.php:
+
+           "Recent Changes [available for 3.0.2 back through 0.3]"
+
+   1.3 wxWidgets Documentation
+       http://www.wxwidgets.org
+
+       According to http://www.wxwidgets.org/docs/:
+
+           "Reference Manuals
+
+            All manuals are available online, including older
+            versions. Please see the downloads page for off-
+            line copies. The latest development version of
+            the manual is also available, built nightly.
+
+                3.0 Online Manual
+                2.8 Online Manual
+                Development Manual"
+
+       According to the "older versions" link:
+
+            "wxWidgets Online Manuals
+
+            The following versions of the wxWidgets Manual are
+            kept online here. Please note that versions listed
+            with only the major and minor version numbers
+            (i.e. 2.4, 2.6, and 2.8) will always be updated
+            with the latest release of wxWidgets in those stable
+            branches. The "trunk" manual is updated at least
+            daily with the latest development version of
+            wxWidgets."
+
+            ByTheWay:
+            ========
+
+                The former wxPython class relationship diagrams
+                are no longer included. 
+
+   1.4 Programmer's Guide to NCurses
+       by Dan Gookin
+
+       According to www.goodreads.com:
+
+       "Programming the console in UNIX---Here's just what
+       you need.
+
+       First, you'll get a no-nonsense tutorial guide to
+       the nCurses version 5.5 library, taking you from
+       basic to advanced functions step by step. Then you'll
+       find an A-to-Z reference of more than 175 nCurses
+       functions, cross-referenced and illustrated with
+       examples. With this all-purpose nCurses reference,
+       you'll:
+
+       Learn techniques that can be used to program Linux(R),
+       FreeBSD(R), Mac OS(R) X, or any other UNIX-based OS.
+       Program, control, and manipulate text on the terminal
+       screen. Control interactive I/O, organize content
+       into windows on the screen, and use color to high-
+       light text and organize information. Use a mouse to
+       further refine input. Create nCurses programs using
+       your choice of editors. Find hundreds of quick, easy-
+       to-understand programming examples.
+
+       Author Dan Gookin is known for making technology make
+       sense.
+
+       Buy this book and you'll see why."
+
+   1.5 Definition of Troubleshooting
+       From Wikipedia, the free encyclopedia
+
+       "Troubleshooting is a form of problem solving, often
+       applied to repair failed products or processes. It is
+       a logical, systematic search for the source of a
+       problem so that it can be solved, and so the product
+       or process can be made operational again. Trouble-
+       shooting is needed to develop and maintain complex
+       systems where the symptoms of a problem can have many
+       possible causes. Troubleshooting is used in many
+       fields such as engineering, system administration,
+       electronics, automotive repair, and diagnostic
+       medicine. Troubleshooting requires identification of
+       the malfunction(s) or symptoms within a system. Then,
+       experience is commonly used to generate possible
+       causes of the symptoms.
+
+       Determining the most likely cause is a process of
+       elimination - eliminating potential causes of a prob-
+       lem. Finally, troubleshooting requires confirmation
+       that the solution restores the product or process to
+       its working state.
+
+       In general, troubleshooting is the identification of,
+       or diagnosis of "trouble" in the management flow of a
+       corporation or a system caused by a failure of some
+       kind. The problem is initially described as symptoms
+       of malfunction, and troubleshooting is the process of
+       determining and remedying the causes of these symptoms.
+
+       A system can be described in terms of its expected,
+       desired or intended behavior (usually, for artificial
+       systems, its purpose). Events or inputs to the system
+       are expected to generate specific results or outputs.
+       (For example selecting the "print" option from various
+       computer applications is intended to result in a
+       hardcopy emerging from some specific device). Any un-
+       expected or undesirable behavior is a symptom.
+       Troubleshooting is the process of isolating the
+       specific cause or causes of the symptom. Frequently
+       the symptom is a failure of the product or process
+       to produce any results. (Nothing was printed, for
+       example).
+
+       The methods of forensic engineering are especially
+       useful in tracing problems in products or processes,
+       and a wide range of analytical techniques are avail-
+       able to determine the cause or causes of specific
+       failures. Corrective action can then be taken to pre-
+       vent further failures of a similar kind. Preventative
+       action is possible using failure mode and effects
+       analysis (FMEA) and fault tree analysis (FTA) before
+       full scale production, and these methods can also be
+       used for failure analysis."
+
+====== INSIGHT OF THE "tsWxGTUI" TOOLKIT DEVELOPER(S) ======
+
+2. Insight of the "tsWxGTUI" Toolkit Developer(s)
+   by Richard S. Gordon
+
+   Planning, developing and troubleshooting the Toolkit has
+   been a challenge. Applying Curses/nCurses to emulate even
+   a subset of "wxPython's" capabilities has been particular-
+   ly challenging.
+
+   When one works as a team member, one benefits from one's
+   colleagues' diverse experience and skills.
+
+   Both inexperienced and experienced troubleshooters may
+   soon discover that they are engaged in a daunting task.
+
+   Troubleshooting a simple application program (one whose
+   size is no more than a few hundred lines of code with
+   minimal comments) will be easiest, assuming the trouble-
+   shooter has knowledge of or can understand the applica-
+   tion.
+
+   Techniques include simple print statements to track
+   progress to the point of failure and then modify/add
+   print statements to capture additional information.
+
+   Use of debug tools such as GNU's gdb, Python's IDLE or
+   WingWare's Python Integrated Development Environment
+   eliminates the need for print statements. More impor-
+   tantly, these tools provide the means to set and clear
+   breakpoints and the means to display any information
+   from anywhere in the running software.
+
+   Troubleshooting the TeamSTARS "tsWxGTUI_PyVx" Toolkit
+   requires far greater skill and effort. Components are
+   interdependant. There are commonly used methods. Class
+   objects inherit data abstractions and methods from one
+   another. Understanding the code is further complicated
+   when someone else authored it and each piece of code
+   is but a small piece of a vastly more complex, multi-
+   faceted, cross-platform and evolving system.
+
+   Consider:
+
+   a) the task of reverse engineering an evolving product
+      from only its largely undocommented implementation,
+      but without any requirement, design or qualification
+      documentation.
+
+   b) that the Python Curses module interfaces only to a
+      subset of the nCurses methods and that its author(s)
+      remarked that "extension contributions will be appre-
+      ciated".
+
+   c) that file modules may contain a few, tens or hundreds
+      of class definition, data definitions and method
+      definitions.
+
+   d) the lines-of-code metrics and debugging effort associ-
+      ated with just the primary Python version 2.x files
+      (including documentation, tests and associated data but
+      excluding their demo code copies, man pages, document
+      files and derived Python 3.x counterparts):
+
+------------------------------------------------------------------------------
+
+                Overall Source Code Feature Statistics
+
+           FILES     CODE    CMNTS    LINES    WORDS      CHARS
+   Pct:             42.31%   57.69%  100.00%
+Totals:      276    73711   100524   174235   545139    6465545
+   Std:      249      415      672     1016     3222      42515
+   Avg:        1      267      364      631     1975      23426
+
+------------------------------------------------------------------------------
+
+        Distribution of Source Code Feature Statistics by File Types
+
+   TYPES      FILES     CODE    CMNTS    LINES    WORDS      CHARS  %-LINES
+   .asm           3       75      120      195      754       4220    0.11%
+   .c             3     1045     1086     2131     5644      49613    1.22%
+   .f90           3      177      174      351     1266       6759    0.20%
+   .py          212    70653    87463   158116   482564    5496941   90.75%
+   .sh           37     1761     1109     2870     8867      93557    1.65%
+   .txt          18        0    10572    10572    46044     814455    6.07%
+
+------------------------------------------------------------------------------
+
+        Definition of Source Code by File Types
+
+     TYPES  DEFINITION
+      .asm  Assembler Source (Intel ASM80 standard)
+        .c  C Source
+      .f90  FORTRAN Source (90 standard)
+       .py  Python Script Source
+       .sh  SH Script (Bourne Shell)
+      .txt  Plain Text (ASCII)
+
+------------------------------------------------------------------------------
+
+Skipped 3 of 279 file(s) for having invalid "name.ext":
+
+   Valid file "name.ext" (Upper or Lower case):
+
+      .ada    .adb    .ads    .asm    .asm80  .bas    .bash   .bat    
+      .c      .c++    .cbl    .cc     .cob    .cpp    .cs     .csh    
+      .cxx    .f      .f77    .f90    .f95    .for    .ftn    .h      
+      .inc    .ksh    .p      .pas    .plm    .plm80  .plm96  .plmext 
+      .py     .rb     .s      .sh     .txt    
+
+
+   /cygdrive/d/WR/tsWxGTUI_PyVx_Preview/SourceDistributions/Site-Packages/tsWxGTUI_PyVx/Python-2x/MANIFEST.in
+   /cygdrive/d/WR/tsWxGTUI_PyVx_Preview/SourceDistributions/Site-Packages/tsWxGTUI_PyVx/Python-2x/tsWxGTUI_Py2x/tsUtilities/256color.pl
+   /cygdrive/d/WR/tsWxGTUI_PyVx_Preview/SourceDistributions/Site-Packages/tsWxGTUI_PyVx/Python-2x/tsWxGTUI_Py2x/tsUtilities/potentially_useful/Generating Python Module Dependency Graphs.pdf
+
+------------------------------------------------------------------------------
+
+                "Organic" Software Project Estimate
+                Constructive Cost Model (COCOMO(R) 81)
+
+Total Physical Source Lines of Code (KSLOC)                     = 73711 (73.71)
+
+Estimated Development Effort in Person-Years (Person-Months)    = 18.28 (219.34)
+ (Basic COCOMO model, Person-Months = 2.40 * (KSLOC**1.05))
+
+Estimated Schedule in Years (Months)                            = 1.62 (19.39)
+ (Basic COCOMO model, Months = 2.50 * (person-months**0.38))
+
+Estimated Average Number of Developers                          = 11.31
+ (Effort/Schedule)
+
+Total Estimated Cost to Develop                                 = $ 2469167
+ (Average Salary = $ 56286.00/year, Overhead = 2.40).
+
+Estimated Productivity in Source Lines of Code per Day          = 1.4
+
+------------------------------------------------------------------------------
+
+   Hints:
+
+   a. The "tsWxGTUI" Toolkit provides instrumentation to facilitate
+      debugging. It has been built into the libraries of building
+      blocks, tools and tests. File module level variables have been
+      created to enable built-in code to log and display both normal
+      progress and unexpected events. The "tsCxGlobals.py" file
+      introduced a central point for the troubleshooter to choose the
+      appropriate theme to conveniently enable or disable module
+      level debug without haveg to touch multiple files.
+
+   b. It is suggested that debugging variables for module import
+      operations be enabled. A quick examination will reveal where
+      the first failure occurred and if and where failures re-
+      ocur. Other points of interest are located where operator
+      command line keyword-value pair options and positional
+      arguments are input and points where calling and called func-
+      tions pass input and returned parameters.
+
+   c. The "tsWxGTUI" Toolkit also facilitates troubleshooting by
+      capturing and storing human redable configuration and event
+      information.
+
+      The location for the configuration and event information is a
+      root directory named "logs" located in the launch directory.
+      Upon each launch, the toolkit creates a subdirectory within
+      "logs" that is named for the launch date and time. It con-
+      tains a file named for the application, tool or test and any
+      associated configuration and activity specific logs.
+
+   d. The prototype design was not designed to be installed as a
+      site packge. Instead of import statements with full path,
+      specifications, the design first imported a building block
+      library package, identified only by name, and then imported
+      library modules, again only identified by name. Logic in
+      the __init__.py file dynamically generated the full path
+      specification. The following describes the resulting trouble-
+      shooting process.
+
+      Each package "__init__.py" module should reflect the import
+      dependency order. The Python-2.x version has typically been the
+      starting point. That was fortunate because Python-3.x tries to
+      avoid multiple instances of the same import. It is more likely
+      to trap import errors and exceptions. A way to get insight on
+      the import dependency is to examine the results for the fol-
+      lowing CLI commands:
+
+      cd tsWxGTUI/Python-2x/tsLinesOfCodeProjectMetricsPkg/src
+
+      grep -n "import" *.py > grep_import.log
+ 
+      Package files that import nothing but modules registered in
+      the Global Module Index should be at the top (beginning) of
+      the package import list. Package files that import siblings
+      should be positioned in the list below ones they import and
+      above those that import them. The first module to move is
+      the one associated with the first import error/exception in
+      the trap display or log.
+
+      To facilitate future maintenance, dependency changes to the
+      Python-3.x "__init__.py" should be made to its Python-2.x
+      counterpart.
+
+      The Python standard 2to3 utility can be used to translate
+      a baseline Python 2.x source file into its Python 3.x
+      counterpart.
+
+     In the tsUtilities subdirectory is a file which can faciliate
+     the process. It is named "run_2to3_script.sh". It applies
+     all conversions except those invoked with "-x":
+
+         print - Assuming that files already use Python2.7 print method
+                 instead of command line print statement, this option
+                 prevents addition of superflous parantheses.
+
+         import - Assuming that files already use hierarchical file
+                  definitions, this option prevents addition of superflous
+                  superflous and inappropriate "dot notation".
+
+     The utility internally invokes 2to3 via the following command:
+
+         2to3-3.2 -w -x print -x import ./*.py
+
+     Example utility usage:
+
+         cd /WR/SoftwareGadgetry-Dev/Python-2.x/tsLibraries/tsWxPkg/src
+         ./run_2to3_script.sh
+
+     Unfortunately there are some syntax, semantic and library
+     module differences that escape the translation process.
+
+     Manual debugging is the only way to resolve the latent run
+     time errors.
+
+     Once a baseline Python 3.x version is created, it more
+     productive to use a file compare and merge utility to
+     synchronize subsequent changes from Python 2x files into
+     their Python 3.x counterparts. Typically one must manually
+     correct Python 2.x "except, errorcode" into Python 3.x
+     except as errorcode". Using a text eitor, such as xemacs,
+     to find and replace each occurance is substantially faster
+     than debugging run time exceptions one-by-one.
+
+     Debugging the Python 3.x Unicode encode/decode and file access
+     mode parameters was particularly painful and time consuming.
+     Intuition was often an essential skill.
+
+======= FILE ACCESS PERMISSION OVERRIDE INSTRUCTIONS =======
+
+3. File Access Permission Override Instructions
+
+Problem:
+
+   The TeamSTARS "tsWxGTUI_PyVx" toolkit has been installed
+   but bash shell commands cannot either list the files in
+   the directory and/or the contents of one or more files.
+
+Solution:
+
+   # Override Directory & File ownership, with contents of
+   # field <> as appropriate, via bash shell command(s):
+   chown <your user login id> tsWxGTUI
+
+
+   # Override file access permissions, with contents of
+   # field <> as appropriate, via bash shell command(s):
+   chmod -Rf <ugo> tsWxGTUI # OPTIONS
+                           #
+                           # R = Descends directories recursively
+                           #
+                           # f = Suppresses all error reporting
+                           #     except invalid permissions and
+                           #     usage statements.
+                           #
+                           # MODE form [ugo]
+                           #
+                           #       u = File owner.
+                           #       g = Owner's assigned Group.
+                           #       o = All others.
+                           #
+                           # 4 (Write)     is equivalent to +w
+                           # 2 (Read)      is equivalent to    +r
+                           # 1 (eXecute)   is equivalent to       +x
+                           #
+                           # 7 (composite) is equivalent to +w +r +x
+ 
+   chown <your user login id> WithoutComments
+
+   chmod -Rf <755> WithoutComments
+
+================== PYTHON CURSES EVOLUTION =================
+
+4. Python Curses Evolution
+
+   4.1 From https://docs.python.org/release/1.5.2p2/lib/
+                    module-curses.html:
+
+       "6.12 curses -- Terminal independant console handling
+
+       The curses module provides an interface to the curses
+       Unix library, the de-facto standard for portable
+       advanced terminal handling.
+
+       While curses is most widely used in the Unix environ-
+       ment, versions are available for DOS, OS/2, and pos-
+       sibly other systems as well.
+
+       The extension module has not been tested with all
+       available versions of curses."
+
+       See Also:
+
+       "Tutorial material on using curses with Python is
+        available on the Python Web site as Andrew Kuchling's
+        Curses Programming with Python, at
+        http://www.python.org/doc/howto/curses/curses.html."
+
+        6.12.1 Constants and Functions
+        6.12.2 Window Objects
+
+   4.2 From https://docs.python.org/release/2.2.1/lib/
+                    module-curses.html
+
+       "Changed in version 1.6: Added support for the ncurses
+        library and converted to a package.
+
+       The curses module provides an interface to the curses
+       library, the de-facto standard for portable advanced
+       terminal handling.
+
+       While curses is most widely used in the Unix environ-
+       ment, versions are available for DOS, OS/2, and pos-
+       sibly other systems as well.
+
+       This extension module is designed to match the API of
+       ncurses, an open-source curses library hosted on Linux
+       and the BSD variants of Unix."
+
+       See Also:
+
+       Module curses.ascii:
+            Utilities for working with ASCII characters, re-
+            gardless of your locale settings.
+
+       Module curses.panel:
+            A panel stack extension that adds depth to curses
+            windows.
+
+       Module curses.textpad:
+            Editable text widget for curses supporting Emacs-
+            like bindings.
+
+       Module curses.wrapper:
+            Convenience function to ensure proper terminal
+            setup and resetting on application entry and
+            exit.
+
+       Curses Programming with Python
+            Tutorial material on using curses with Python,
+            by Andrew Kuchling and Eric Raymond, is available
+            on the Python Web site.
+
+       The Demo/curses/ directory in the Python source dis-
+       tribution contains some example programs using the
+       curses bindings provided by this module.
+
+        6.13.1 Functions
+        6.13.2 Window Objects
+        6.13.3 Constants
+
+   4.3 From https://docs.python.org/release/3.4.3/library/
+                   curses.html#module-curses
+
+       "The curses module provides an interface to the curses
+        library, the de-facto standard for portable advanced
+        terminal handling.
+
+        While curses is most widely used in the Unix environ-
+        ment, versions are available for Windows, DOS, and pos-
+        sibly other systems as well.
+
+        This extension module is designed to match the API of
+        ncurses, an open-source curses library hosted on Linux
+        and the BSD variants of Unix.
+
+        Note: Since version 5.4, the ncurses library decides
+        how to interpret non-ASCII data using the nl_langinfo
+        function. That means that you have to call
+        locale.setlocale() in the application and encode Uni-
+        code strings using one of the system?s available en-
+        codings. This example uses the system's default
+        encoding:
+
+        import locale
+        locale.setlocale(locale.LC_ALL, '')
+        code = locale.getpreferredencoding()
+
+        Then use code as the encoding for str.encode()
+        calls."
+
+        See also
+
+        Module curses.ascii
+             Utilities for working with ASCII characters,
+             regardless of your locale settings.
+
+        Module curses.panel
+             A panel stack extension that adds depth to
+             curses windows.
+
+        Module curses.textpad
+             Editable text widget for curses supporting
+             Emacs-like bindings.
+
+        Curses Programming with Python
+             Tutorial material on using curses with Python,
+             by Andrew Kuchling and Eric Raymond.
+
+        The Tools/demo/ directory in the Python source
+        distribution contains some example programs using
+        the curses bindings provided by this module.
+
+======================= End-Of-File ========================

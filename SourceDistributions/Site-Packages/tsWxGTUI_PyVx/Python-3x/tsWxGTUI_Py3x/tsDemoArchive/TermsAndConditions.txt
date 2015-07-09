@@ -1,0 +1,56 @@
+#-------------------------------------------------------------
+#"Time-stamp: <04/12/2015  3:46:50 AM rsg>"
+#-------------------------------------------------------------
+
++------------------------------------------------------------+
+|                                                            |
+| +----+----+  TeamSTARS "tsWxGTUI_PyVx" Toolkit             |
+| | ts | Wx |     with Python-based                          |
+| +----+----+        Command Line Interface (CLI)            |
+| | G T U I |     and "wxPython"-style, "Curses"-based       |
+| +---------+        Graphical-Text User Interface (GUI)     |
+|                                                            |
+| Get that cross-platform, pixel-mode "wxPython" feeling on  |
+| character-mode color (xterm-family) & non-color (vt100-    |
+| family) terminals.                                         |
+|                                                            |
+|                                                            |
+| tsWxGTUI_PyVx, v0.0.0 (pre-alpha build 04/12/2015)         |
+|                                                            |
+|   Author(s): Richard S. Gordon & Frederick A. Kier         |
+|                                                            |
+|   Copyright (c) 2007-2009 Frederick A. Kier &              |
+|                           Richard S. Gordon,               |
+|                           a.k.a TeamSTARS.                 |
+|                 All rights reserved.                       |
+|   Copyright (c) 2010-2015 Richard S. Gordon,               |
+|                           a.k.a Software Gadgetry.         |
+|                 All rights reserved.                       |
+|   GNU General Public License (GPL), Version 3,             |
+|                 29 June 2007                               |
+|   GNU Free Documentation License (GFDL) 1.3,               |
+|                 3 November 2008                            |
+|                                                            |
+|   Each third-party component is subject to its copyright   |
+|   holder`s designated copyright and license notices.       |
+|                                                            |
+|                                                            |
+| The "tsWxGTUI_PyVx" Toolkit and its third-party components |
+| are distributed as free and open source software. You may  |
+| use, modify and redistribute it only under the terms and   |
+| conditions set forth in the "COPYRIGHT.txt", "CREDITS.txt" |
+| and "LICENSE.txt" files located in the directory           |
+| "./tsWxGTUI_PyVx/Documents".                |
+|                                                            |
+| The "tsWxGTUI_PyVx" Toolkit and its third-party components |
+| are distributed in the hope that they will be useful, but  |
+| WITHOUT ANY WARRANTY; without even the IMPLIED WARRANTY    |
+| OF MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE.    |
+|                                                            |
+|                                                            |
+| The Terms & Conditions which permit YOUR use, modification |
+| and redistribution of the "tsWxGTUI_PyVx" Toolkit may be   |
+| found in the "NOTICES.txt" file located in the directory   |
+| "./tsWxGTUI_PyVx/Documents".                |
+|                                                            |
++------------------------------------------------------------+

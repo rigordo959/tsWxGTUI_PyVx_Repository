@@ -1,0 +1,94 @@
+#-----------------------------------------------------------
+#"Time-stamp: <06/11/2015  9:14:29 AM rsg>"
+#-----------------------------------------------------------
+
+========================= NEWS.txt =========================
+
+   +----+----+  TeamSTARS "tsWxGTUI_PyVx" Toolkit
+   | ts | Wx |      with Python 2x & Python 3x based
+   +----+----+         Command Line Interface (CLI)
+   | G T U I |      and "Curses"-based "wxPython"-style, 
+   +---------+         Graphical-Text User Interface (GUI)
+ 
+   Get that cross-platform, pixel-mode "wxPython" feeling
+   on character-mode 8-/16-color (xterm-family) & non-color
+   (vt100-family) terminals and terminal emulators.
+
+   You can find this and other plain-text files in the
+   Toolkit subdirectory named:
+
+       "./<Toolkit Recipient's Repository>/Documents".
+
+=========================== News ===========================
+
+The pre-alpha release of the TeamSTARS "tsWxGTUI_PyVx-0.0.0"
+Toolkit is now available. It includes the following two
+versions:
+
+1. The TeamSTARS "tsWxGTUI_Py2x-0.0.0" Toolkit is released
+   for users of the popular, high-level, cross-platform,
+   second generation Python 2.x programming language which
+   is widely available.
+
+   A wiki posting by the Python Software Foundation announc-
+   ed that Python 3.0 was released in 2008. The final 2.x
+   version 2.7 release came out in mid-2010, with a state-
+   ment of extended support for this end-of-life release.
+   The 2.x branch will see no new major releases after that.
+
+   The source code and documentation is available for down-
+   load at:
+
+      http://pypi.python.org/pypi.
+
+   It supports development and operation of:
+
+   a. Command Line User Interface (CLI) application
+      programs implemented in Python 2.0.0-2.7.9.
+
+   b. Graphical-style User Interface (GUI) application
+      programs implemented in Python 2.6.4-2.7.9.
+
+2. The TeamSTARS "tsWxGTUI_Py3x-0.0.0" Toolkit is released
+   for users of the popular, high-level, cross-platform,
+   third generation Python 3.x programming language which
+   is growing in availability.
+
+   A wiki posting by the Python Software Foundation announc-
+   ed that Python 3.0 was released in 2008. 3.x is under
+   active development and has already seen over five years
+   of stable releases, including version 3.3 in 2012 and
+   3.4 in 2014. This means that all recent standard library
+   improvements, for example, are only available by default
+   in Python 3.x.
+
+   Guido van Rossum (the original creator of the Python
+   language) decided to clean up Python 2.x properly,
+   with less regard for backwards compatibility than is
+   the case for new releases in the 2.x range. The most
+   drastic improvement is the better Unicode support
+   (with all text strings being Unicode by default) as
+   well as saner bytes/Unicode separation.
+
+   Besides, several aspects of the core language (such as
+   print and exec being statements, integers using floor
+   division) have been adjusted to be easier for newcomers
+   to learn and to be more consistent with the rest of the
+   language, and old cruft has been removed (for example,
+   all classes are now new-style, "range()" returns a memory
+   efficient iterable, not a list as in 2.x).
+
+   The source code and documentation is available for down-
+   load at:
+
+      http://pypi.python.org/pypi.
+
+   It supports development and operation of:
+
+   a. Command Line User Interface (CLI) application
+      programs implemented in Python 3.0.0-3.4.2.
+
+   b. Graphical-style User Interface (GUI) application
+      programs implemented in Python 3.1.5-3.4.2.
+
+======================= End-Of-File ========================

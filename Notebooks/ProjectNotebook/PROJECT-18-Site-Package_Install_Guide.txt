@@ -1,0 +1,122 @@
+#-----------------------------------------------------------
+#"Time-stamp: <06/19/2015  5:10:15 AM rsg>"
+#-----------------------------------------------------------
+
+====== File: PROJECT-18-Site-Package_Install_Guide.txt =====
+
+   +----+----+  TeamSTARS "tsWxGTUI_PyVx" Toolkit
+   | ts | Wx |      with Python 2x & Python 3x based
+   +----+----+         Command Line Interface (CLI)
+   | G T U I |      and "Curses"-based "wxPython"-style, 
+   +---------+         Graphical-Text User Interface (GUI)
+ 
+   Get that cross-platform, pixel-mode "wxPython" feeling
+   on character-mode 8-/16-color (xterm-family) & non-color
+   (vt100-family) terminals and terminal emulators.
+
+================ Site-Package Install Guide ================
+
+1. Site Package Installation Guide:
+
+   Upon downloading and then extracting the contents of the
+   TeamSTARS "tsWxGTUI_PyVx" Toolkit "tar" or "zip" file,
+   the recipient will find both "Developer-Sandbox" and
+   "Site-Package" versions for Python 2x and Python 3x.
+
+   WARNING: The repository contains site-packages but is NOT
+            itself one.
+
+            The recipient must NOT attempt to install the
+            entire repository with any other Python version
+            specific site-packages.
+
+   1.1 Python Version Specific Site-Package Install
+
+       You must use the Python Version Specific command
+       for each version you intend to install.
+
+       WARNING: Once you have installed one of the included
+                site-packages, you will not be able to use
+                or debug those components which you have
+                modified but not yet installed.
+
+       1.1.1 Python 2x Install Examples
+
+             # Command must actually be on a single line
+             cd ./SourceDistributions/
+                  Site-Packages/tsWxGTUI_PyVx/Python-2x
+
+             a. python2.6 setup.py install
+
+             b. python2.7 setup.py install
+
+       1.1.2 Python 3x Install Examples
+
+             # Command must actually be on a single line
+             cd ./SourceDistributions/
+                  Site-Packages/tsWxGTUI_PyVx/Python-3x
+
+             a. python3.2 setup.py install
+
+             b. python3.4 setup.py install
+
+   1.2 Python Version Specific Site-Package Test
+
+       You must use the Python Version Specific command
+       for each version you intend to test.
+
+       1.2.1 Python 2x Test Examples
+
+             # Set path to top-level directory containing
+             # toolkit libraries
+             cd ./SourceDistributions/
+                  Developer-Sandboxes/tsWxGTUI_PyVx/
+                  Python-2x/tsWxGTUI_Py2x
+
+             # Copy collection of tests into top-level
+             # directory containing toolkit libraries
+             cp -p ./tsDemoArchive/src/test_*.py .
+
+             # Run one of the Command Line Interface tests
+             # using python, python2, python2.6 or python2.7
+             # as appropriate
+             a. python test_tsPlatformRunTimeEnvironment.py
+
+             # Run one of the Graphical User Interface tests
+             # using python, python2, python2.6 or python2.7
+             # as appropriate
+             b. python test_tsWxSystemSettings.py
+
+             # Run another Graphical User Interface test
+             # using python, python2, python2.6 or python2.7
+             # as appropriate
+             c. python test_tsWxColorPalette.py
+
+       1.2.2 Python 3x Test Examples
+
+             # Set path to top-level directory containing
+             # toolkit libraries
+             cd ./SourceDistributions/
+                  Developer-Sandboxes/tsWxGTUI_PyVx/
+                  Python-3x/tsWxGTUI_Py3x
+
+             # Copy collection of tests into top-level
+             # directory containing toolkit libraries
+             cp -p ./tsDemoArchive/src/test_*.py .
+
+             # Run one of the Command Line Interface tests
+             # using python3, python3.2 or python3.4
+             # as appropriate
+             a. python3 test_tsPlatformRunTimeEnvironment.py
+
+             # Run one of the Graphical User Interface tests
+             # using python3, python3.2 or python3.4
+             # as appropriate
+             b. python3 test_tsWxSystemSettings.py
+
+             # Run another Graphical User Interface test
+             # using python3, python3.2 or python3.4
+             # as appropriate
+             c. python3 test_tsWxColorPalette.py
+
+======================= End-Of-File ========================

@@ -1,0 +1,135 @@
+#-----------------------------------------------------------
+#"Time-stamp: <07/08/2015  2:07:59 AM rsg>"
+#-----------------------------------------------------------
+
+====================== File: TO-DO.txt =====================
+
+   +----+----+  TeamSTARS "tsWxGTUI_PyVx" Toolkit
+   | ts | Wx |      with Python 2x & Python 3x based
+   +----+----+         Command Line Interface (CLI)
+   | G T U I |      and "Curses"-based "wxPython"-style, 
+   +---------+         Graphical-Text User Interface (GUI)
+ 
+   Get that cross-platform, pixel-mode "wxPython" feeling
+   on character-mode 8-/16-color (xterm-family) & non-color
+   (vt100-family) terminals and terminal emulators.
+
+   You can find this and other plain-text files in the
+   Toolkit subdirectory named:
+
+       "./<Toolkit Recipient's Repository>/Documents".
+
+       <Your Working Repository>
+       (e.g. "tsWxGTUI_PyVx_Repository") 
+         |
+         |
+         +-- ["Documents"]
+
+========= LIST OF PLANNED DEVELOPMENT FOR THE CODE =========
+
+The following roadmap is a "guesstimate", an estimate based
+on a mixture of guesswork and calculation.
+
+It reflects the following experiences and assumptions:
+
+   a) Reconciling the 256-color capability with the 256-
+      color pair limit took many months, experiments and
+      advancements by various GNU/Linux operating system
+      providers.
+
+   b) Several attempts to resolve the GUI object focus con-
+      trol have been unsuccessful.
+
+   c) Resolving the keyboard shortcut key capability needed
+      for vt100 terminal support without a mouse has been
+      relegated to the lowest priority pending any known
+      user interest.
+
+1. Release "tsWxGTUI_PyVx-0.0.0
+ 
+   Technical Preview (Pre-Alpha Site-Packages) Edition
+   Target Date: 1 September 2015
+
+   Unresolved Issues:
+
+   1.1 Non-functional
+
+       Curses window re-sizing
+       Frame/Dialog Window iconize, resize an close buttons
+       Taskbar GUI object focus control
+       Keyboard shortcut keys (needed for vt100 terminals)
+       Inter-Process Communication and Event Handling
+
+   1.2 Limited functionality
+
+       GUI object Communication and Event Handling
+       Various emulated wxPython API placeholders
+
+2. Release "tsWxGTUI_PyVx-0.1.0
+ 
+   Technical Preview (Pre-Alpha Developer-Sandboxes) Edition
+   Target Date: 1 December 2015
+
+   Unresolved Issues:
+
+   2.1 Non-functional
+
+       Curses window re-sizing
+       Frame/Dialog Window iconize, resize an close buttons
+       Taskbar GUI object focus control
+       Keyboard shortcut keys (needed for vt100 terminals)
+       Inter-Process Communication and Event Handling
+
+   2.2 Limited functionality
+
+       GUI object Communication and Event Handling
+       Various emulated wxPython API placeholders
+
+3. Release "tsWxGTUI_PyVx-0.2.0
+ 
+   Technical Preview (Beta) Edition
+   Target Date: 1 January 2016
+
+   Unresolved Issues:
+
+   3.1 Non-functional
+
+       Inter-Process Communication and Event Handling
+
+   3.2 Limited functionality
+
+       Keyboard shortcut keys (needed for vt100 terminals)
+       Various emulated wxPython API placeholders
+
+4. Release "tsWxGTUI_PyVx-0.3.0
+ 
+   Technical Preview (Release Candidate 1) Edition
+   Target Date: 1 April 2016
+
+   Unresolved Issues:
+
+   4.1 Non-functional
+
+       Inter-Process Communication and Event Handling
+
+   4.2 Limited functionality
+
+       Various emulated wxPython API placeholders
+
+5. Release "tsWxGTUI_PyVx-0.4.0
+ 
+   Technical Preview (Release Candidate 2) Edition
+   Target Date: 1 July 2016
+
+   Unresolved Issues:
+
+   5.1 Limited functionality
+
+       Various emulated wxPython API placeholders
+
+6. Release "tsWxGTUI_PyVx-1.0.0
+ 
+   General Availability (Release Candidate 2) Edition
+   Target Date: 1 January 2017
+
+======================= End-Of-File ========================

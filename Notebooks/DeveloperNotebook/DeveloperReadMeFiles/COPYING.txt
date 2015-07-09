@@ -1,0 +1,46 @@
+#-----------------------------------------------------------
+#"Time-stamp: <06/11/2015  9:12:46 AM rsg>"
+#-----------------------------------------------------------
+
+===================== File: COPYING.txt ====================
+
+   +----+----+  TeamSTARS "tsWxGTUI_PyVx" Toolkit
+   | ts | Wx |      with Python 2x & Python 3x based
+   +----+----+         Command Line Interface (CLI)
+   | G T U I |      and "Curses"-based "wxPython"-style, 
+   +---------+         Graphical-Text User Interface (GUI)
+ 
+   Get that cross-platform, pixel-mode "wxPython" feeling
+   on character-mode 8-/16-color (xterm-family) & non-color
+   (vt100-family) terminals and terminal emulators.
+
+   You can find this and other plain-text files in the
+   Toolkit subdirectory named:
+
+       "./<Toolkit Recipient's Repository>/Documents".
+
+=================== Copying Instructions ===================
+
+  Steps to reproduce the "tsWxGTUI_PyVx" Toolkit with its
+  applicable copyright, license and documentation.
+
+  SoftwareGadgetryWorkingRepository =
+      /WR/SoftwareGadgetry-PyPI/tsWxGTUI_PyVx
+
+  SourceForgeDistributionRepository =
+      /SourceForgeDev/tsWxGTUI_PyVx
+
+  # Assumes source location is:
+  #    SourceForgeDistributionRepository
+
+  # Assumes target location is:
+  #    /Target/tsWxGTUI_PyVx
+
+  SOURCE=/SourceForgeDev/tsWxGTUI_PyVx
+  TARGET=/Target/tsWxGTUI_PyVx
+  TOOLS=$SOURCE/Python-2.x/tsToolsCLI/tsTreeCopyPkg/src
+  cd TOOLS
+  python ./tsTreeCopy.py -i $SOURCE -o $TARGET
+
+======================= End-Of-File ========================
+

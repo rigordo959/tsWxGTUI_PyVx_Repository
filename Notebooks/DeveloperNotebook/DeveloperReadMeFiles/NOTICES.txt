@@ -1,0 +1,58 @@
+#-----------------------------------------------------------
+#"Time-stamp: <06/11/2015  9:14:39 AM rsg>"
+#-----------------------------------------------------------
+
+===================== File: NOTICES.txt ====================
+
+   +----+----+  TeamSTARS "tsWxGTUI_PyVx" Toolkit
+   | ts | Wx |      with Python 2x & Python 3x based
+   +----+----+         Command Line Interface (CLI)
+   | G T U I |      and "Curses"-based "wxPython"-style, 
+   +---------+         Graphical-Text User Interface (GUI)
+ 
+   Get that cross-platform, pixel-mode "wxPython" feeling
+   on character-mode 8-/16-color (xterm-family) & non-color
+   (vt100-family) terminals and terminal emulators.
+
+   You can find this and other plain-text files in the
+   Toolkit subdirectory named:
+
+       "./<Toolkit Recipient's Repository>/Documents".
+
+==================== TABLE OF CONTENTS =====================
+
+   1. Copyright Notice
+
+   2. License Notice
+
+===================== COPYRIGHT NOTICE =====================
+
+   See the "COPYRIGHT.txt" file identifies the Author(s)
+   and Copyright holder(s) of the TeamSTARS "tsWxGTUI_PyVx"
+   Toolkit.
+
+   See the "CREDITS.txt" file identifiess the Author(s)
+   and Copyright holder(s) of third-party Work(s) which
+   have been used, directly or indirectly, in accordance
+   with their Author(s)'s Copyright and License.
+
+   The "COPYRIGHT.txt" and "CREDITS.txt" files are located
+   in the subdirectory named named:
+
+       "./<Toolkit Recipient's Repository>/Documents".
+
+====================== LICENSE NOTICE ======================
+
+   See the "LICENSE.txt" file for general and special
+   arrangements, provisions, rules, specifications and
+   standards that form an integral part of the agreement
+   or contract between the recipients and Author(s)/
+   copyright holders of the TeamSTARS "tsWxGTUI" Toolkit
+   and its third-party components.
+
+   The "LICENSE.txt" file is located in the subdirectory
+   named:
+
+       "./<Toolkit Recipient's Repository>/Documents".
+
+======================= End-Of-File ========================

@@ -1,0 +1,92 @@
+#-----------------------------------------------------------
+#"Time-stamp: <06/18/2015  4:33:47 AM rsg>"
+#-----------------------------------------------------------
+
+========= File: PROJECT-07-Design_Architecture.txt =========
+
+   +----+----+  TeamSTARS "tsWxGTUI_PyVx" Toolkit
+   | ts | Wx |      with Python 2x & Python 3x based
+   +----+----+         Command Line Interface (CLI)
+   | G T U I |      and "Curses"-based "wxPython"-style, 
+   +---------+         Graphical-Text User Interface (GUI)
+ 
+   Get that cross-platform, pixel-mode "wxPython" feeling
+   on character-mode 8-/16-color (xterm-family) & non-color
+   (vt100-family) terminals and terminal emulators.
+
+==================== DESIGN ARCHITECTURE ===================
+
+This Block Diagram depicts the organizational, functional
+and interface relationship between the "tsWxGTUI" Toolkit
+components and users (System Administrator, Software
+Engineer, System Operator and Field Service personnel):
+
+1. To external System Operator interface via "tsToolkitCLI"
+
+2. To internal "tsToolkitGUI" interface via "tsToolkitCLI"
+
+3. To iternal System Operator interfaces:
+
+   a) To "tsUtilities", "tsToolsCLI" and "tsTestsCLI" via
+      "tsToolkitCLI"
+
+   b) To "tsToolsGUI" and "tsTestsGUI"  via "tsToolkitCLI"
+      and "tsToolkitGUI"
+
++----------------------------------------------------------+
+|       Graphical-style User Interface (tsToolkitGUI)      |
++---------------------------+------------------------------+
+| The "tsToolsGUI" is a set | The "tsTestsGUI" is a set of |
+| of graphical-style user   | graphical-style user inter-  |
+| interface application     | face application programs    |
+| programs for tracking     | for regression testing and   |
+| software development      | tutorial demos.              |
+| metrics.                  |                              |
++---------------------------+------------------------------+
+| The "tsLibGUI" is a library of graphical-style user      |
+| interface building blocks that establishes the emulated  |
+| run time environ ment for the high-level, pixel-mode,    |
+| "wxPython" GUI Toolkit via the low-level, character-     |
+| mode, "nCurses" Text User Interface Toolkit.             |
++----------------------------------------------------------+
+                         ^  ^  |
+                         |  |  |
+                         |  |  v
++----------------------------------------------------------+
+|           Command Line Interface (tsToolkitCLI)          |
++---------------------------+------------------------------+
+| The "tsToolsCLI" is a set | The "tsTestsCLI" is a set    |
+| of command line interface | of command line interface    |
+| application programs and  | application programs and     |
+| utility scripts for:      | scripts for regression test- |
+| checking source code      | ing and tutorial demos.      |
+| syntax and style via      |                              |
+| "plint"; generating Unix- |                              |
+| style "man page" docu-    |                              |
+| mentation from source     |                              |
+| code comments via         |                              |
+| "pydoc"; and installing,  |                              |
+| modifying for publica-    |                              |
+| tion, and tracking soft-  |                              |
+| ware development metrics. |                              |
++---------------------------+------------------------------+
+| The "tsLibCLI" is a library of command line building     |
+| blocks that establishes the POSIX-style, run time        |
+| environment for pre-processing source files, launching   |
+| application programs, handling events (registering       |
+| events with date, time and event severity annotations)   |
+| and configuring console terminal and file system input   |
+| and output.                                              |
++----------------------------------------------------------+
+| The "tsUtilities" is a library of computer system con-   |
+| figuration, diagnostic, installation, maintenance and    |
+| performnce tool components for various host hardware     |
+| and software platforms.                                  |
++----------------------------------------------------------+
+                         ^  ^  |
+                         |  |  +- > Operator Display &
+                         |  |       Log Files
+                         |  +------ Operator Keyboard
+                         +--------- Operator Mouse
+
+======================= End-Of-File ========================

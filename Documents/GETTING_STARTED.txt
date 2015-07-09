@@ -1,0 +1,1555 @@
+#-----------------------------------------------------------
+#"Time-stamp: <07/08/2015  2:02:13 AM rsg>"
+#-----------------------------------------------------------
+
+========= Title Page for File: GETTING_STARTED.txt =========
+
+   +----+----+  TeamSTARS "tsWxGTUI_PyVx" Toolkit
+   | ts | Wx |      with Python 2x & Python 3x based
+   +----+----+         Command Line Interface (CLI)
+   | G T U I |      and "Curses"-based "wxPython"-style, 
+   +---------+         Graphical-Text User Interface (GUI)
+ 
+   Get that cross-platform, pixel-mode "wxPython" feeling
+   on character-mode 8-/16-color (xterm-family) & non-color
+   (vt100-family) terminals and terminal emulators.
+
+   You can find this and other plain-text files in the
+   Toolkit subdirectory named:
+
+       "./<Toolkit Recipient's Repository>/Documents".
+
+       <Your Working Repository>
+       (e.g. "tsWxGTUI_PyVx_Repository") 
+         |
+         |  Working repository containing directories and
+         |  files to be packaged into downloadable "tarball"
+         |  and/or "zip" files via the setup shell scripts
+         |  at the bottom of this diagram.
+         |
+         +-- ["Documents"] (Original)
+         |     |
+         |     |  This directory contains a collection of files
+         |     |  which provide the Toolkit recipient with an
+         |     |  understanding of the purpose, goals & capabil-
+         |     |  ities, non-goals & limitations, terms & condi-
+         |     |  tions and procedures for installing, operating,
+         |     |  modifying and redistributing the Toolkit. 
+         |     |
+         |     +-- "GETTING_STARTED.txt"
+         |
+         +-- ["ManPages"] (Original)
+         |     |
+         |     |  Deliverable Toolkit manual pages are a
+         |     |  form of online software documentation
+         |     |  usually found on a Unix or Unix-like oper-
+         |     |  ating system.
+         |     |
+         |     |  Topics covered include computer programs
+         |     |  (including library and system calls),
+         |     |  formal standards and conventions, and even
+         |     |  abstract concepts.
+         |     |
+         |     |  A user may NOT invoke a man page by issu-
+         |     |  ing the man command. Instead, a user may
+         |     |  display a man page by issuing the
+         |     |  less <man document file> command.
+         |     |
+         |     +-- ["tsManPagesLibCLI"]
+         |     +-- ["tsManPagesLibGUI"]
+         |     +-- ["tsManPagesTestsLibCLI"]
+         |     +-- ["tsManPagesTestsLibGUI"]
+         |     +-- ["tsManPagesToolsCLI"]
+         |     +-- ["tsManPagesToolsGUI"]     (Future)
+         |     +-- ["tsManPagesToolsLibCLI"]
+         |     +-- ["tsManPagesToolsLibGUI"]  (Future)
+         |     +-- ["tsManPagesUtilitiesCLI"] (Future)
+         |
+         +-- ["Notebooks"] (Pre-dates Documents)
+         |     |
+         |     |  Contains a collection of commentaries that
+         |     |  express opinions or offerings of explana-
+         |     |  tions about events or situations that might
+         |     |  be useful to Toolkit installers, developers,
+         |     |  operators, troubleshooters and distributors.
+         |     |  The documents may be in Application-specific
+         |     |  formats (Adobe PDF, JPEG Bit-mapped image,
+         |     |  Microsoft Office, Plain text etc.).
+         |     |
+         |     |  The collection includes:
+         |     |
+         |     |  a) DeveloperDocuments (API-References-
+         |     |     Pixel-Mode-wxPython and Developer-
+         |     |     ReadMe-Files); and
+         |     |
+         |     |  b) EngineeringDocuments (Product Marketing
+         |     |     Documentation, Project Documentation and
+         |     |     Technical Documentation). (Pre-dates Documents) 
+         |
+         +-- ["SourceDistributions"] (Original)
+         |     |
+         |     |  Contains a collection of computer program
+         |     |  source code files that the Toolkit recip-
+         |     |  ient will need to install, operate, modify
+         |     |  and re-distribute the Toolkit.
+         |     |
+         |     +-- ["Developer-Sandboxes"] (Pre-dates Site-Packages)
+         |     |     |
+         |     |     |  A sandbox is a testing environment that iso-
+         |     |     |  lates untested code changes and outright
+         |     |     |  experimentation from the production environ-
+         |     |     |  ment or repository.
+         |     |     |
+         |     |     +-- ["tsWxGTUI_PyVx"] (Developer-Sandbox)
+         |     |           |
+         |     |           +-- ["Documents"] (Copy)
+         |     |           |
+         |     |           |  This directory contains a collection of files
+         |     |           |  which provide the Toolkit recipient with an
+         |     |           |  understanding of the purpose, goals & capabil-
+         |     |           |  ities, non-goals & limitations, terms & condi-
+         |     |           |  tions and procedures for installing, operating,
+         |     |           |  modifying and redistributing the Toolkit. 
+         |     |           |
+         |     |           +-- ["ManPages"] (Copy)
+         |     |           |     |
+         |     |           |     |  Deliverable Toolkit manual pages are a
+         |     |           |     |  form of online software documentation
+         |     |           |     |  usually found on a Unix or Unix-like oper-
+         |     |           |     |  ating system.
+         |     |           |     |
+         |     |           |     |  Topics covered include computer programs
+         |     |           |     |  (including library and system calls),
+         |     |           |     |  formal standards and conventions, and even
+         |     |           |     |  abstract concepts.
+         |     |           |     |
+         |     |           |     |  A user may NOT invoke a man page by issu-
+         |     |           |     |  ing the man command. Instead, a user may
+         |     |           |     |  display a man page by issuing the
+         |     |           |     |  less <man document file> command.
+         |     |           |     |
+         |     |           |     +-- ["tsManPagesLibCLI"]
+         |     |           |     +-- ["tsManPagesLibGUI"]
+         |     |           |     +-- ["tsManPagesTestsLibCLI"]
+         |     |           |     +-- ["tsManPagesTestsLibGUI"]
+         |     |           |     +-- ["tsManPagesToolsCLI"]
+         |     |           |     +-- ["tsManPagesToolsGUI"]     (Future)
+         |     |           |     +-- ["tsManPagesToolsLibCLI"]
+         |     |           |     +-- ["tsManPagesToolsLibGUI"]  (Future)
+         |     |           |     +-- ["tsManPagesUtilitiesCLI"] (Future)
+         |     |           |
+         |     |           +-- ["Python-2x"] (Developer-Sandbox)
+         |     |           |     |
+         |     |           |     +-- ["tsWxGTUI_Py2x"]
+         |     |           |
+         |     |           +-- ["Python-3x"]  (Developer-Sandbox,
+         |     |                 |             Ported from Python-2x)
+         |     |                 |
+         |     |                 +-- ["tsWxGTUI_Py3x"]
+         |     |
+         |     +-- ["Site-Packages"]
+         |           |
+         |           |  Site-packages is the location where third-
+         |           |  party packages are installed (i.e., those
+         |           |  not part of the core Python distribution).
+         |           |  NOTE: That with Linux, Mac OS X and Unix
+         |           |  operating systems one must have root priv-
+         |           |  iledges to write to that location.
+         |           |
+         |           +-- ["tsWxGTUI_PyVx"] (Site-Package)
+         |                 |
+         |                 +-- ["Documents"] (Copy)
+         |                 |
+         |                 |  This directory contains a collection of files
+         |                 |  which provide the Toolkit recipient with an
+         |                 |  understanding of the purpose, goals & capabil-
+         |                 |  ities, non-goals & limitations, terms & condi-
+         |                 |  tions and procedures for installing, operating,
+         |                 |  modifying and redistributing the Toolkit. 
+         |                 |
+         |                 +-- ["ManPages"] (Copy)
+         |                 |     |
+         |                 |     |  Deliverable Toolkit manual pages are a
+         |                 |     |  form of online software documentation
+         |                 |     |  usually found on a Unix or Unix-like oper-
+         |                 |     |  ating system.
+         |                 |     |
+         |                 |     |  Topics covered include computer programs
+         |                 |     |  (including library and system calls),
+         |                 |     |  formal standards and conventions, and even
+         |                 |     |  abstract concepts.
+         |                 |     |
+         |                 |     |  A user may NOT invoke a man page by issu-
+         |                 |     |  ing the man command. Instead, a user may
+         |                 |     |  display a man page by issuing the
+         |                 |     |  less <man document file> command.
+         |                 |     |
+         |                 |     +-- ["tsManPagesLibCLI"]
+         |                 |     +-- ["tsManPagesLibGUI"]
+         |                 |     +-- ["tsManPagesTestsLibCLI"]
+         |                 |     +-- ["tsManPagesTestsLibGUI"]
+         |                 |     +-- ["tsManPagesToolsCLI"]
+         |                 |     +-- ["tsManPagesToolsGUI"]     (Future)
+         |                 |     +-- ["tsManPagesToolsLibCLI"]
+         |                 |     +-- ["tsManPagesToolsLibGUI"]  (Future)
+         |                 |     +-- ["tsManPagesUtilitiesCLI"] (Future)
+         |                 |
+         |                 +-- ["Python-2x"] (Site-Package)
+         |                 |     |
+         |                 |     +-- ["tsWxGTUI_Py2x"]
+         |                 |
+         |                 +-- ["Python-3x"] (Site-Package,
+         |                       |            Ported from Python-2x)
+         |                       |
+         |                       +-- ["tsWxGTUI_Py3x"]
+         |
+         +-- "MANIFEST.in"
+         |
+         |    Deliverable File inclusion criteria list.
+         |
+         +-- "MANIFEST_template.in"
+         |
+         |    Deliverable Generic file inclusion criteria list
+         |    template for any Python version-specific TeamSTARS
+         |    "tsWxGTUI_PyVx" Toolkit.
+         |
+         +-- "MANIFEST_TREE.html"
+         |
+         |    Non-Deliverable Diagram (Multi-Level Org Chart)
+         |    depicting the hierarchical relationship between files
+         |    in the release, in Hypertext Markup Language format.
+         |
+         |    Diagram created via Command "./MANIFEST_TREE.sh".
+         |
+         +-- "MANIFEST_TREE.sh"
+         |
+         |    Deliverable POSIX-style Command Line Interface shell
+         |    script to generate diagrams depicting the hierarchical
+         |    relationship between files in the release
+         |    ("MANIFEST_TREE.html" and "MANIFEST_TREE.txt").
+         |
+         +-- "MANIFEST_TREE.txt"
+         |
+         |    Non-Deliverable Diagram (Multi-Level Org Chart)
+         |    depicting the hierarchical relationship between
+         |    files in the release, in Plain Text format.
+         |
+         |    Diagram created via Command "./MANIFEST_TREE.sh".
+         |
+         +-- "setup_tsWxGTUI_PyVx_Repository_tar_file.sh"
+         |
+         |    Deliverable POSIX-style Command Line Interface shell
+         |    script to generate downloadable "tarball" file.
+         |
+         +-- "setup_tsWxGTUI_PyVx_Repository_zip_file.sh"
+         |
+         |    Deliverable POSIX-style Command Line Interface shell
+         |    script to generate downloadable "zip" file.
+         |
+         +-- "README2-Repository.txt"
+
+===================== TABLE OF CONTENTS ====================
+
+1. What is in the software distribution?
+
+   1.1 What is the TeamSTARS "tsWxGTUI_PyVx" Toolkit?
+
+   1.2 How to prepare your computer(s) for use with the
+       Toolkit? 
+
+   1.3 How can you become familiar with the features,
+       look and feel of the Toolkit? 
+
+   1.4 What are the currently known Toolkit limitations,
+       bugs and update roadmap? 
+
+2. User Interfaces
+
+   2.1 Command Line Interface
+
+   2.2 Graphical User Interface
+
+       2.2.1 C/C++ packages
+       2.2.2 Packages in other languages
+
+   2.3 Window Manager
+
+3. Operating System
+
+   3.1 Linux (POSIX-compatible CLI & GUI)
+
+   3.2 Mac OS X (POSIX-compatible CLI & GUI)
+
+   3.3 Microsoft Windows
+
+       3.3.1 "Cygwin" (POSIX-compatible CLI & GUI)
+       3.3.2 "GnuWin32" (POSIX-compatible CLI only)
+       3.3.3 "Windows PowerShell" (Windows-native CLI only)
+       3.3.4 "Command Prompt" (Windows-native CLI only)
+
+   3.4 Unix (POSIX-compatible CLI & GUI)
+
+4. Toolkit Development Resources
+
+   4.1 Python Programming Language Resources
+
+       4.1.1 Python 3.x
+       4.1.2 Python 2.x
+
+   4.2 Open Source & Commercial Python Resources
+
+       4.2.1 Python Software Foundation Website
+       4.2.2 ActiveState Website
+
+   4.3 Python Training Resources
+
+       4.3.1 Dive into Python
+       4.3.2 Learn Python
+       4.3.3 Python Community
+       4.3.4 Python Cookbook
+
+5. Python Download Gotchas
+
+   5.1 Linux and Unix Operating Systems (CAUTION)
+   5.2 Microsoft Windows Operating Systems (WARNING)
+
+6. wxPython/wxWidgets Development Resources
+
+   6.1 wxPython Programming Language Resources
+
+       6.1.1 wxPython 2.8.9.2 (Currently Emulated API)
+       6.1.2 wxPython 3.0.2.0 (Future Emulated API)
+
+   6.2 Open Source wxPython/wxWidgets Resources
+
+       6.2.1 wxPython.org Website
+       6.2.2 wxWidgets.org Website
+
+   6.3 wxPython/wxWidgets Training Resources
+
+       6.3.1 wxPython Community
+       6.3.2 wxPython Cookbook
+
+========================== README ==========================
+
+1. What is in the software distribution?
+
+   Browse through the following information located in
+   the directory "./tsWxGTUI_PyVx/Documents". It provid-
+   es an overview of the Toolkit distribution and its
+   contents:
+
+   1.1 What is the TeamSTARS "tsWxGTUI_PyVx" Toolkit?
+
+         a) "README1-Introduction.txt"
+         b) "README2-Repository.txt"
+         c) "README3-Documents.txt"
+         d) "README4-ManPages.txt"
+         e) "README5-Notebooks.txt"
+         f) "README6-SourceDistribution.txt"
+         g) "README7-DeveloperSandboxes.txt"
+         h) "README8-SitePackages.txt"
+         i) "README9-KeyboardMouseInput.txt"
+
+   1.2 How to prepare your computer(s) for use with the
+       Toolkit? 
+
+         a) "GETTING_STARTED.txt"
+
+   1.3 How can you become familiar with the features,
+       look and feel of the Toolkit? 
+
+         a) "DEMO.txt"
+         b) "TROUBLESHOOT.txt"
+
+   1.4 What are the currently known Toolkit limitations,
+       bugs and update roadmap? 
+
+         a) "BUGS.txt"
+         b) "TO-DO.txt"
+
+
+====================== USER INTERFACES =====================
+
+2. User Interfaces
+
+   2.1 Command Line Interface
+
+       From Wikipedia, the free encyclopedia:
+
+       "A command-line interface or command language inter-
+       preter (CLI), also known as command-line user inter-
+       face, console user interface,[1] and character user
+       interface (CUI), is a means of interacting with a
+       computer program where the user (or client) issues
+       commands to the program in the form of successive
+       lines of text (command lines).
+
+       The CLI was the primary means of interaction with
+       most computer systems until the introduction of the
+       video display terminal in the mid-1960s, and contin-
+       ued to be used throughout the 1970s and 1980s on
+       OpenVMS, Unix systems and personal computer systems
+       including MS-DOS, CP/M and Apple DOS. The interface
+       is usually implemented with a command line shell,
+       which is a program that accepts commands as text
+       input and converts commands to appropriate operating
+       system functions.
+
+       Command-line interfaces to computer operating systems
+       are less widely used by casual computer users, who
+       favor graphical user interfaces. Command-line inter-
+       faces are often preferred by more advanced computer
+       users, as they often provide a more concise and power-
+       ful means to control a program or operating system.
+
+       Programs with command-line interfaces are generally
+       easier to automate via scripting.
+
+       Alternatives to the command line include, but are not
+       limited to text user interface menus (see IBM AIX SMIT
+       for example), keyboard shortcuts, and various other
+       desktop metaphors centered on the pointer (usually
+       controlled with a mouse)."
+
+   2.2 Graphical User Interface
+
+       From Wikipedia, the free encyclopedia:
+
+       "In computing, a graphical user interface (GUI,[1]
+       sometimes pronounced "gooey" or "jee-you-eye")[2] is
+       a type of interface that allows users to interact
+       with electronic devices through graphical icons and
+       visual indicators such as secondary notation, as
+       opposed to text-based interfaces, typed command
+       labels or text navigation. GUIs were introduced in
+       reaction to the perceived steep learning curve of
+       command-line interfaces (CLIs),[3][4][4] which
+       require commands to be typed on the keyboard.
+
+       The actions in a GUI are usually performed through
+       direct manipulation of the graphical elements.[5]
+       In addition to computers, GUIs can be found in hand-
+       held devices such as MP3 players, portable media
+       players, gaming devices and smaller household, office
+       and industry equipment. The term "GUI" tends not to
+       be applied to other low-resolution types of interfaces
+       with display resolutions, such as video games (where
+       HUD[6] is preferred), or not restricted to flat
+       screens, like volumetric displays[7] because the term
+       is restricted to the scope of two-dimensional display
+       screens able to describe generic information, in the
+       tradition of the computer science research at the
+       PARC (Palo Alto Research Center)."
+
+       From Wikipedia, the free encyclopedia:
+
+       "This is a list of packages implementing a platform-
+       independent GUI (PIGUI). These can be used to develop
+       software that can be ported to multiple platforms
+       without changes to its source code.
+
+       2.2.1 C/C++ packages
+
+             Excerpts From Wikipedia, the free encyclopedia:
+
+             +-----------+------------------+------------+---------+
+             |   Name    |  Owner           | Platforms  | License |
+             +-----------+------------------+------------+---------+
+             | GTK+      | GNOME Foundation | X11,       | LGPL    |
+             |           |                  | Windows,   |         |
+             |           |                  | DirectFB,  |         |
+             |           |                  | Quartz on  |         |
+             |           |                  |  Mac OS X  |         |
+             +-----------+------------------+------------+---------+
+             | MKS       | DataFocus, Inc.  | Windows    | Commer- |
+             | Toolkit   |                  | from X11   |   cial  |
+             |           |                  | code       |         |
+             +-----------+------------------+------------+---------+
+             | Qt        | Qt Project       | Windows,   | LGPL,   |
+             |           |                  | Linux(X11),| GPL,    |
+             |           |                  | OS-X, iOS, | Commer- |
+             |           |                  | Android [1]|   cial  |
+             +-----------+------------------+------------+---------+
+             | wxWidgets | wxWidgets team   | Windows,   | LGPL    |
+             |           |                  | OS/2,      |         |
+             |           |                  | X11,       |         |
+             |           |                  | Mac OS X,  |         |
+             |           |                  | iOS        |         |
+             +-----------+------------------+------------+---------+
+
+       2.2.2 Packages in other languages
+
+             Excerpts From Wikipedia, the free encyclopedia:
+
+             +-----------+------------------+------------+---------+
+             |   Name    |  Owner           | Platforms  | License |
+             +-----------+------------------+------------+---------+
+             |Java/Swing | Oracle/          | Windows,   | Free    |
+             |           | Sun Micro-       | OS/2,      |         |
+             |           | systems          | X11,       |         |
+             |           |                  | Mac OS X   |         |
+             +-----------+------------------+------------+---------+
+             |Tcl/Tk     | Open Source      | Windows,   | Free    |
+             |           }                  | OS/2,      |         |
+             |           |                  | X11,       |         |
+             |           |                  | Mac OS X   |         |
+             +-----------+------------------+------------+---------+
+
+   2.3 Window Manager
+
+       From Wikipedia, the free encyclopedia:
+
+       "A window manager is system software that controls
+       the placement and appearance of windows within a
+       windowing system in a graphical user interface.[1]
+       Most window managers are designed to help provide a
+       desktop environment. They work in conjunction with
+       the underlying graphical system that provides requir-
+       ed functionality---support for graphics hardware,
+       pointing devices, and a keyboard, and are often writ-
+       ten and created using a widget toolkit.
+
+       Few window managers are designed with a clear dis-
+       tinction between the windowing system and the window
+       manager. Every graphical user interface based on a
+       windows metaphor has some form of window management.
+       In practice, the elements of this functionality vary
+       greatly.[2] Elements usually associated with window
+       managers allow the user to open, close, minimize,
+       maximize, move, resize, and keep track of running
+       windows, including window decorators. Many window
+       managers also come with various utilities and featur-
+       es: e.g. docks, task bars, program launchers, desktop
+       icons, and wallpaper."
+
+===================== OPERATING SYSTEM =====================
+
+3. Operating System
+
+   The TeamSTARS "tsWxGTUI_PyVx" Toolkit software source
+   code is designed to be used with four popular operating
+   system classes that are significantly different.
+
+   Use of the designated Python programming language re-
+   lease(s) and associated operating system specific imple-
+   mentations of the Python Virtual Machine and Interpreter
+   should make it unnecessary to ever modify any of the
+   Toolkit source code to accomodate different operating
+   systems or computer hardware. Of course, you may modify
+   the Toolkit source code if you cannot wait for someone
+   else to port it to a newer or even older Python program-
+   ming language release.
+
+   The following third-party reference material has been
+   selected to ensure that Toolkit recipients, users and
+   authors share the same vision of system capabilities
+   and limitations. Providing you only with links to the
+   reference material would not be as convenient for you.
+   The third-party material might unexpectedly be deleted,
+   moved or lose its relevance by being radically changed.
+
+   From Wikipedia, the free encyclopedia
+
+   "An operating system (OS) is software that manages comput-
+   er hardware and software resources and provides common
+   services for computer programs. The operating system is
+   an essential component of the system software in a comput-
+   er system. Application programs usually require an operat-
+   ing system to function.
+
+   Time-sharing operating systems schedule tasks for effi-
+   cient use of the system and may also include accounting
+   software for cost allocation of processor time, mass
+   storage, printing, and other resources.
+
+   For hardware functions such as input and output and mem-
+   ory allocation, the operating system acts as an inter-
+   mediary between programs and the computer hardware,[1][2]
+   although the application code is usually executed direct-
+   ly by the hardware and will frequently make a system call
+   to an OS function or be interrupted by it. Operating sys-
+   tems can be found on almost any device that contains a
+   computer -- from cellular phones and video game consoles
+   to supercomputers and web servers.
+
+   Examples of popular modern operating systems include And-
+   roid, BSD, iOS, Linux, OS X, QNX, Microsoft Windows,[3]
+   Windows Phone, and IBM z/OS. All these examples, except
+   Windows, Windows Phone and z/OS, share roots in UNIX."
+
+   Excerpts From Wikipedia, the free encyclopedia
+
+   "POSIX (/poziks/ poz-iks), an acronym for Portable Oper-
+   ating System Interface,[1] is a family of standards
+   specified by the IEEE Computer Society for maintaining
+   compatibility between operating systems. POSIX defines
+   the application programming interface (API), along with
+   command line shells and utility interfaces, for software
+   compatibility with variants of Unix and other operating
+   systems.[2][3]"
+
+   "Name
+    ----
+    Originally, the name "POSIX" referred to IEEE
+    Std 1003.1-1988, released in 1988. The family of POSIX
+    standards is formally designated as IEEE 1003 and the
+    international standard name is ISO/IEC 9945.
+
+    The standards emerged from a project that began circa
+    1985. Richard Stallman suggested the name POSIX to the
+    IEEE instead of former IEEE-IX. The committee found it
+    more easily pronounceable and memorable, and thus adopt-
+    ed it.[2][4]
+
+    Overview
+    --------
+    The POSIX specifications for Unix-like operating systems
+    originally consisted of a single document for the core
+    programming interface, but eventually grew to 19 separate
+    documents (POSIX.1, POSIX.2, etc.).[5] The standardized
+    user command line and scripting interface were based on
+    the Korn shell. Many user-level programs, services, and
+    utilities including awk, echo, ed were also standardized,
+    along with required program-level services including
+    basic I/O (file, terminal, and network) services. POSIX
+    also defines a standard threading library API which is
+    supported by most modern operating systems. Nowadays,
+    most of POSIX parts are combined into a single standard,
+    IEEE Std 1003.1-2008, also known as POSIX.1-2008.
+
+    As of 2014, POSIX documentation is divided in two parts:
+
+    * POSIX.1, 2013 Edition: POSIX Base Definitions, System
+      Interfaces, and Commands and Utilities (which include
+      POSIX.1, extensions for POSIX.1, Real-time Services,
+      Threads Interface, Real-time Extensions, Security
+      Interface, Network File Access and Network Process-to-
+      Process Communications, User Portability Extensions,
+      Corrections and Extensions, Protection and Control
+      Utilities and Batch System Utilities. This is POSIX
+      1003.1-2008 with Technical Corrigendum 1.)
+
+    * POSIX Conformance Testing: A test suite for POSIX
+      accompanies the standard: VSX-PCTS or the VSX POSIX
+      Conformance Test Suite.[6]
+
+    The development of the POSIX standard takes place in the
+    Austin Group, a joint working group linking the IEEE,
+    The Open Group and the ISO/IEC JTC 1 organizations."
+
+   3.1 Linux (POSIX-compatible CLI & GUI)
+
+       From Wikipedia, the free encyclopedia
+
+       "Linux is a Unix-like and mostly POSIX-compliant
+       computer operating system.
+
+       The defining component of Linux is the Linux kernel,
+       a computer program (first released on 5 October 1991
+       by Linus Torvalds) that manages input/output requests
+       from software, and translates them into data proces-
+       sing instructions for the central processing unit and
+       other electronic components of a computer.
+
+       The Free Software Foundation uses the name GNU/Linux
+       to describe the operating system as a whole because
+       its GNU toolchain software is orders of magnitude
+       larger and supplies the Unix-like Application
+       Programming Interface (API) and functionality.
+
+       Linux was originally developed as a free operating
+       system for Intel x86-based personal computers, but
+       has since been ported to more computer hardware
+       platforms than any other operating system. It is the
+       leading operating system on servers, main-frame
+       computers and supercomputers, but is used on only
+       around 1% of desktop computers.
+
+       Linux also runs on embedded systems, which are devices
+       whose operating system is typically built into the
+       firmware and is highly tailored to the system; this
+       includes mobile phones, tablet computers, network
+       routers, facility automation controls, televisions
+       and video game consoles.
+
+       For a description comparing the popular, inexperienced
+       user-friendly Ubuntu (whose early motto was "Linux for
+       human beings") with its Debian foundation (whose motto
+       is "the universal operating system") you should read
+       the following:
+
+          "https://www.wikivs.com/wiki/Debian_vs_Ubuntu"
+
+       For a well written introduction to embedded Linux,
+       you should read the following blog:
+
+          "http://www.embedded.com/electronics-blogs
+                 /open-mike/4420567
+                 /Learning-Linux-for-embedded-systems"
+
+       Android, the most widely used operating system for
+       tablets and smartphones, is built on top of the Linux
+       kernel."
+
+       3.1.1 Character-mode Command Line Interface
+
+             The Linux "Terminal" application and "bash"
+             shell support the TeamSTARS "tsWxGTUI_PyVx"
+             Toolkit with its local Python-based Command
+             Line Interface (CLI).
+
+             The "bash" shell, with its "ssh" and "sftp"
+             commands, enables the operator to connect
+             with remote computers and thereby concurrently
+             conduct not only one or more local CLI sessions
+             but also one or more remote CLI sessions.
+
+             Operating in character-mode (with 8-bits of
+             data per character) rather than in pixel-mode
+             graphics mode (with at least 8x12 bits of data
+             per character) dramatically reduces the band-
+             width required for the input-output communi-
+             cation between the computer and operator term-
+             minal.
+
+       3.1.2 Character-mode Graphical-style User Interface
+
+             The Linux "Terminal" application, user select-
+             able terminal emulators (including multi-color
+             xterms and non-color vt100/vt220) and "ncurses"
+             terminal device interface library supports the
+             TeamSTARS "tsWxGTUI_PyVx" Toolkit with its
+             "wxPython"-style, "Curses"-based Graphical-Text
+             User Interface (GUI).
+
+             The existing Character-mode Command Line Inter-
+             face enables the operator to concurrently con-
+             duct not only one or more local GUI sessions
+             but also one or more remote GUI sessions.
+
+             Operating in character-mode (with 8-bits of
+             data per color-pair code) rather than in pixel-
+             mode graphics mode (with at least 8x12x24 bits
+             of data per character) dramatically reduces the
+             bandwidth required for the input-output communi-
+             cation between the computer and operator term-
+             inal.
+
+   3.2 Mac OS X (POSIX-compatible CLI & GUI)
+
+       From Wikipedia, the free encyclopedia
+
+       "OS X, formerly known as Mac OS X, is a series of Unix-
+       based graphical interface operating systems developed
+       and marketed by Apple Inc. It is designed to run on
+       Mac computers, having been pre-installed on all Macs
+       since 2002.
+
+       Within the market of desktop, laptop and home comput-
+       ers, and by web usage, OS X is the second most widely
+       used OS after Windows.
+
+       OS X, whose X is the Roman numeral for 10 and is a
+       prominent part of its brand identity, is built on
+       technologies developed at NeXT between the second half
+       of the 1980s and Apple's purchase of the company in late
+       1996. The 'X' is also used to emphasize the relatedness
+       between OS X and UNIX. Versions 10.5 "Leopard" running
+       on Intel processors, 10.6 "Snow Leopard", 10.7 "Lion",
+       10.8 "Mountain Lion", 10.9 "Mavericks", and 10.10
+       "Yosemite" have obtained UNIX 03 certification.
+
+       iOS, which runs on the iPhone, iPod Touch, iPad, and
+       the 2nd and 3rd generation Apple TV, shares the Darwin
+       core and many frameworks with OS X. An unnamed variant
+       of v10.4 powered the first generation Apple TV.
+
+       Early versions of Mac OS X were compiled to run on the
+       PowerPC CPUs used by Macs of the period. After Apple
+       announced it would shift to using Intel x86 CPUs from
+       2006 onwards, Tiger and Leopard were released in ver-
+       sions for Intel and PowerPC processors. Snow Leopard
+       was the first version released only for Intel Macs.
+       Since the release of Mac OS X 10.7 "Lion", OS X has
+       dropped support for 32-bit Intel processors as well.
+       It now runs exclusively on 64-bit Intel CPUs.
+
+       OS X is based upon the Mach kernel, developed at
+       Carnegie Mellon University. Certain parts of FreeBSD's
+       and NetBSD's were also incorporated into NeXTSTEP, which
+       forms the core of Mac OS X."
+
+       3.2.1 Character-mode Command Line Interface
+
+             The Max OS X "Terminal" or Third-party "iTerm"
+             application and "bash" shell support the
+             TeamSTARS "tsWxGTUI_PyVx" Toolkit with its
+             Python-based Command Line Interface (CLI).
+
+             The "bash" shell, with its "ssh" and "sftp"
+             commands, enables the operator to conduct
+             local and remote sessions.
+
+       3.2.2 Character-mode Graphical-style User Interface
+
+             The third-party "iTerm" Mac OS X application,
+             user selectable terminal emulators (including
+             multi-color xterms and non-color vt100/vt220)
+             and "ncurses" terminal device interface
+             library supports the TeamSTARS "tsWxGTUI_PyVx"
+             Toolkit with its "wxPython"-style, "Curses"-
+             based Graphical-Text User Interface (GUI).
+
+             NOTES:
+
+             a) The Mac OS X "Terminal" application, user
+                selectable terminal emulators (including
+                multi-color xterms and non-color vt100/vt220)
+                and "ncurses" terminal device interface library
+                is NOT recommended because it does not support
+                operator input via a mouse.
+
+             b) However, the TeamSTARS "tsWxGTUI_PyVx" Toolkit
+                would be suitable for use with VT100 and VT220
+                terminal emulators because the Digital Equipment
+                Corporation never designed its VT100 and VT220
+                terminals to work with operator input via a
+                mouse. It only supported operator input via
+                keyboard and the available function keys.
+
+   3.3 Microsoft Windows
+
+       From Wikipedia, the free encyclopedia
+
+       "Microsoft Windows or Windows is a metafamily of graphical
+       operating systems developed, marketed, and sold by Micro-
+       soft. It consists of several families of operating sys-
+       tems, each of which cater to a certain sector of the
+       computing industry. Active Windows families include
+       Windows NT, Windows Embedded and Windows Phone; these
+       may encompass subfamilies, e.g. Windows Embedded Com-
+       pact (Windows CE) or Windows Server. Defunct Windows
+       families include Windows 9x and Windows Mobile.
+
+       Microsoft introduced an operating environment named Win-
+       dows on November 20, 1985 as a graphical operating sys-
+       tem shell for MS-DOS in response to the growing interest
+       in graphical user interfaces (GUIs). Microsoft Windows
+       came to dominate the world's personal computer market
+       with over 90% market share, overtaking Mac OS, which
+       had been introduced in 1984. However, it is outsold by
+       Android on smartphones and tablets.
+
+       As of April 2014, the most recent versions of Windows
+       for personal computers, smartphones, server computers
+       and embedded devices are respectively Windows 8.1,
+       Windows Phone 8.1, Windows Server 2012 R2 and Windows
+       Embedded 8. A specialized version of Windows runs on
+       the Xbox One game console."
+
+       NOTE: You will have to obtain third-party software in
+             order to use various POSIX-compatible local and
+             remote Command Line Interface and "Curses"-
+             based Graphical-style User Interface features.
+
+       3.3.1 "Cygwin" (POSIX-compatible CLI & GUI)
+
+             From Wikipedia, the free encyclopedia
+
+             "Cygwin is a Unix-like environment and command-
+             line interface for Microsoft Windows. Cygwin
+             provides native integration of Windows-based
+             applications, data, and other system resources
+             with applications, software tools, and data of
+             the Unix-like environment. Thus it is possible
+             to launch Windows applications from the Cygwin
+             environment, as well as to use Cygwin tools and
+             applications within the Windows operating con-
+             text.
+
+             Cygwin consists of two parts: a dynamic-link
+             library (DLL) as an API compatibility layer
+             providing a substantial part of the POSIX API
+             functionality, and an extensive collection of
+             software tools and applications that provide
+             a Unix-like look and feel.
+
+             Cygwin was originally developed by Cygnus Sol-
+             utions, which was later acquired by Red Hat.
+             It is free and open source software, released
+             under the GNU General Public License version 3.
+             Today it is maintained by employees of Red Hat,
+             NetApp and many other volunteers.
+
+             Cygwin consists of a library that implements
+             the POSIX system call API in terms of Win32
+             system calls, a GNU development toolchain
+             (including GCC and GDB) to allow software
+             development, and a large number of application
+             programs equivalent to those on Unix systems.
+             Programmers have ported many Unix, GNU, BSD
+             and Linux programs and packages to Cygwin,
+             including the X Window System, K Desktop
+             Environment 3, GNOME, Apache, and TeX.
+             Cygwin permits installing inetd, syslogd,
+             sshd, Apache, and other daemons as standard
+             Windows services, allowing Microsoft Windows
+             systems to emulate Unix and Linux servers.
+
+             Cygwin programs are installed by running
+             Cygwin's "setup" program, which downloads
+             the necessary program and feature package
+             files from repositories on the Internet.
+             Setup can install, update, and remove pro-
+             grams and their source code packages. A
+             complete installation will take in excess
+             of 17 GB of hard disk space, but usable
+             configurations may require as little as
+             1 or 2 GB."
+
+             3.3.1.1 Character-mode Command Line Interface
+
+                     The Cygwin "Terminal" application and "bash"
+                     shell support the TeamSTARS "tsWxGTUI_PyVx"
+                     Toolkit with its Python-based Command Line
+                     Interface (CLI).
+
+                     The "bash" shell, with its "ssh" and "sftp"
+                     commands, enables the operator to conduct
+                     local and remote sessions.
+
+             3.3.1.2 Character-mode Graphical-style User Interface
+
+                     The Cygwin "Terminal" application, user select-
+                     able terminal emulators (including multi-color
+                     xterms and non-color vt100/vt220) and "ncurses"
+                     terminal device interface library supports the
+                     TeamSTARS "tsWxGTUI_PyVx" Toolkit with its
+                     "wxPython"-style, "Curses"-based Graphical-Text
+                     User Interface (GUI).
+
+       3.3.2 "GnuWin32" (POSIX-compatible CLI only)
+
+             From Wikipedia, the free encyclopedia
+
+             "The GnuWin32 project provides native ports in
+             the form of runnable computer programs, patches,
+             and source code for various GNU and open source
+             tools and software, much of it modified to run
+             on the 32-bit Windows platform. The ports in-
+             cluded in the GnuWin32 packages are:
+
+             * GNU utilities such as bc, bison, chess,
+               Coreutils, diffutils, ed, Flex, gawk, gettext,
+               grep, Groff, gzip, iconv, less, m4, patch,
+               readline, rx, sharutils, sed, tar, texinfo,
+               units, Wget, which
+ 
+             * Archive management and compression tools, such
+               as: arc, arj, bzip2, gzip, lha, zip, zlib.
+
+             * Non-GNU utilities such as: cygutils, file,
+               ntfsprogs, OpenSSL, PCRE.
+
+             * Graphics tools.
+
+             * PDCurses [Release 3.4]
+
+             * Tools for processing text.
+
+             * Mathematical software and statistics Software.
+
+             Most programs have dependencies (typically
+             DLLs), so that the executable files cannot
+             simply be run in Windows unless files they
+             depend upon are available. An alternative
+             set of ported programs is UnxUtils; these
+             versions only depend on the Microsoft
+             C-runtime msvcrt.dll, but are usually older
+             versions."
+
+             NOTE: PDCurses does not provide the "ncurses"
+                   mouse button interface used by the Team-
+                   STARS "tsWxGTUI_PyVx" Toolkit. It also
+                   does not provide or recognize the xterm
+                   and vt100 terminal emulators.
+
+                   Unfortunately, Python Curses for Micro-
+                   soft Windows traps when it fails to
+                   import "_curses". Furthermore, the
+                   "tsWxGTUI" Toolkit will trap when it
+                   fails to obtain mouse button key codes
+                   from PDCurses 3.4 via these standard
+                   Python Curses module references:
+
+                        curses.BUTTON1_RELEASED
+                        curses.BUTTON1_PRESSED
+                        curses.BUTTON1_CLICKED
+                        curses.BUTTON1_DOUBLE_CLICKED
+                        curses.BUTTON1_TRIPLE_CLICKED
+                        curses.BUTTON2_RELEASED
+                        curses.BUTTON2_PRESSED
+                        curses.BUTTON2_CLICKED
+                        curses.BUTTON2_DOUBLE_CLICKED
+                        curses.BUTTON2_TRIPLE_CLICKED
+                        curses.BUTTON3_RELEASED
+                        curses.BUTTON3_PRESSED
+                        curses.BUTTON3_CLICKED
+                        curses.BUTTON3_DOUBLE_CLICKED
+                        curses.BUTTON3_TRIPLE_CLICKED
+                        curses.BUTTON4_RELEASED
+                        curses.BUTTON4_PRESSED
+                        curses.BUTTON4_CLICKED
+                        curses.BUTTON4_DOUBLE_CLICKED
+                        curses.BUTTON4_TRIPLE_CLICKED
+                        curses.BUTTON_CTRL
+                        curses.BUTTON_SHIFT
+                        curses.BUTTON_ALT
+
+             3.3.2.1 Character-mode Command Line Interface
+
+                     The GnuWin32 "Terminal" application and
+                     "bash" shell support the TeamSTARS
+                     "tsWxGTUI_PyVx" Toolkit with its Python-
+                     based Command Line Interface (CLI).
+
+                     The "bash" shell, with its "ssh" and
+                     "sftp" commands, enables the operator
+                     to conduct local and remote sessions.
+
+             3.3.2.2 Character-mode Graphical-style User In-
+                     terface (Availability depends on PDCurses)
+
+                     The GnuWin32 "Terminal" application, user
+                     selectable terminal emulators (including
+                     multi-color xterms and non-color vt100/
+                     vt220) and "PDCurses" terminal device
+                     interface library supports the TeamSTARS
+                     "tsWxGTUI_PyVx" Toolkit with its "wxPy-
+                     thon"-style, "PDCurses"-based Graphical-
+                     Text User Interface (GUI).
+
+       3.3.3 "Windows PowerShell" (Windows-native CLI only)
+
+             From Wikipedia, the free encyclopedia
+
+             "Windows PowerShell is a task automation and
+             configuration management framework from
+             Microsoft, consisting of a command-line shell
+             and associated scripting language built on
+             the .NET Framework. PowerShell provides full
+             access to COM and WMI, enabling administrators
+             to perform administrative tasks on both local
+             and remote Windows systems as well as
+             WS-Management and CIM enabling management of
+             remote Linux systems and network devices.
+
+             In PowerShell, administrative tasks are generally
+             performed by cmdlets (pronounced command-lets),
+             which are specialized .NET classes implementing
+             a particular operation. Sets of cmdlets may be
+             combined into scripts, executables (which are
+             standalone applications), or by instantiating
+             regular .NET classes (or WMI/COM Objects).
+             These work by accessing data in different data
+             stores, like the file system or registry, which
+             are made available to the PowerShell runtime
+             via Windows PowerShell providers.
+
+             Windows PowerShell also provides a hosting API
+             with which the Windows PowerShell runtime can
+             be embedded inside other applications. These
+             applications can then use Windows PowerShell
+             functionality to implement certain operations,
+             including those exposed via the graphical
+             interface. This capability has been used by
+             Microsoft Exchange Server 2007 to expose its
+             management functionality as PowerShell cmdlets
+             and providers and implement the graphical man-
+             agement tools as PowerShell hosts which invoke
+             the necessary cmdlets. Other Microsoft appli-
+             cations including Microsoft SQL Server 2008
+             also expose their management interface via
+             PowerShell cmdlets. With PowerShell, graphical
+             interface-based management applications on
+             Windows are layered on top of Windows Power-
+             Shell. A PowerShell scripting interface for
+             Windows products is mandated by Microsoft's
+             Common Engineering Criteria.
+
+             Windows PowerShell includes its own extensive,
+             console-based help, similar to man pages in
+             Unix shells, via the Get-Help cmdlet and
+             updatable with fresh content using the
+             Update-Help cmdlet and web based content
+             via the -online switch to Get-Help."
+
+             3.3.3.1 Character-mode Command Line Interface
+
+                     The "PowerShell" application sup-
+                     ports the TeamSTARS "tsWxGTUI_PyVx"
+                     Toolkit with its Python-based Command
+                     Line Interface (CLI).
+
+             3.3.3.2 Character-mode Graphical-style User Interface
+
+                     Not supported by the TeamSTARS
+                     "tsWxGTUI_PyVx" Toolkit.
+
+       3.3.4 "Command Prompt" (Windows-native CLI only)
+
+             From Wikipedia, the free encyclopedia
+
+             "Command Prompt, better known as cmd.exe or just
+             cmd (after its executable file name), is the
+             command-line interpreter on OS/2 and eComStation,
+             Windows CE and Windows NT operating systems
+             (including Windows 2000 and later). It is the
+             analog of COMMAND.COM in DOS and Windows 9x
+             systems (where it is also called "MS-DOS Prompt"),
+             or of the Unix shells used on Unix-like systems.
+
+             Unlike COMMAND.COM, which is a DOS program, cmd
+             is a native Windows application usually running
+             in Win32 console. This allows it to take advantage
+             of features available to native programs on the
+             platform that are otherwise unavailable to DOS
+             programs. For example, since cmd is a native text
+             mode application on OS/2, it can use real pipes
+             in command pipelines, allowing both sides of the
+             pipeline to run concurrently. As a result, it is
+             possible to redirect the standard error in cmd,
+             unlike COMMAND.COM. (COMMAND.COM uses temporary
+             files, and runs the two sides serially, one after
+             the other.)
+
+             In reality, cmd is a Windows program that acts
+             as a DOS-like command line interpreter. It is
+             generally compatible, but provides extensions
+             which address some of the limitations of
+             COMMAND.COM."
+
+             For details, pleae see:
+
+                   http://en.wikipedia.org/wiki/Cmd.exe
+
+             3.3.4.1 Character-mode Command Line Interface
+
+                     The "Command Prompt" application sup-
+                     ports the TeamSTARS "tsWxGTUI_PyVx"
+                     Toolkit with its Python-based Command
+                     Line Interface (CLI).
+
+             3.3.4.2 Character-mode Graphical-style User Interface
+
+                     Not supported by the TeamSTARS
+                     "tsWxGTUI_PyVx" Toolkit.
+
+   3.4 Unix (POSIX-compatible CLI & GUI)
+
+       From Wikipedia, the free encyclopedia
+
+       "Unix (all-caps UNIX for the trademark) is a family of
+       multitasking, multiuser computer operating systems that
+       derive from the original AT&T Unix, developed in the
+       1970s at the Bell Labs research center by Ken Thompson,
+       Dennis Ritchie, and others.
+
+       Initially intended for use inside the Bell System, AT&T
+       licensed Unix to outside parties from the late 1970s,
+       leading to a variety of both academic and commercial
+       variants of Unix from vendors such as the University of
+       California, Berkeley (BSD), Microsoft (Xenix), IBM (AIX)
+       and Sun Microsystems (Solaris). AT&T finally sold its
+       rights in Unix to Novell in the early 1990s, which then
+       sold its Unix business to the Santa Cruz Operation (SCO)
+       in 1995, but the UNIX trademark passed to the industry
+       standards consortium The Open Group, which allows the
+       use of the mark for certified operating systems compli-
+       ant with the Single UNIX Specification. Among these is
+       Apple's OS X, which is the Unix version with the largest
+       installed base as of 2014.
+
+       From the power user's or programmer's perspective, Unix
+       systems are characterized by a modular design that is
+       sometimes called the "Unix philosophy," meaning the OS
+       provides a set of simple tools that each perform a
+       limited, well-defined function, with a unified file-
+       system as the main means of communication and a shell
+       scripting and command language to combine the tools to
+       perform complex workflows. Aside from the modular
+       design, Unix also distinguishes itself from its pre-
+       decessors as the first portable operating system:
+       virtually the entire OS is written in the C programming
+       language which allowed it to outgrow the 16-bit PDP-11
+       minicomputer for which it was originally developed.
+
+       Many clones of Unix have arisen over the years, of which
+       Linux is the most popular, having overtaken the popu-
+       larity of "true" Unix on server platforms since its
+       inception in the early 1990s.
+
+       Originally, Unix was meant to be a programmer's work-
+       bench to be used for developing software to be run on
+       multiple platforms more than to be used to run appli-
+       cation software. The system grew larger as the operat-
+       ing system started spreading in the academic circle,
+       as users added their own tools to the system and
+       shared them with colleagues.
+
+       Unix was designed to be portable, multi-tasking and
+       multi-user in a time-sharing configuration. Unix sys-
+       tems are characterized by various concepts: the use
+       of plain text for storing data; a hierarchical file
+       system; treating devices and certain types of inter-
+       process communication (IPC) as files; and the use of
+       a large number of software tools, small programs that
+       can be strung together through a command line inter-
+       preter using pipes, as opposed to using a single
+       monolithic program that includes all of the same
+       functionality. These concepts are collectively known
+       as the "Unix philosophy." Brian Kernighan and Rob
+       Pike summarize this in The Unix Programming Environ-
+       ment as "the idea that the power of a system comes
+       more from the relationships among programs than from
+       the programs themselves."
+
+       Unix operating systems are widely used in servers,
+       workstations, and mobile devices.[11] The Unix
+       environment and the client?server program model were
+       essential elements in the development of the Inter-
+       net and the reshaping of computing as centered in
+       networks rather than in individual computers.
+
+       Both Unix and the C programming language were devel-
+       oped by AT&T and distributed to government and
+       academic institutions, which led to both being ported
+       to a wider variety of machine families than any other
+       operating system.
+
+       Under Unix, the operating system consists of many
+       utilities along with the master control program, the
+       kernel. The kernel provides services to start and
+       stop programs, handles the file system and other
+       common "low level" tasks that most programs share,
+       and schedules access to avoid conflicts when programs
+       try to access the same resource or device simultane-
+       ously. To mediate such access, the kernel has special
+       rights, reflected in the division between user-space
+       and kernel-space.
+
+       The microkernel concept was introduced in an effort to
+       reverse the trend towards larger kernels and return
+       to a system in which most tasks were completed by
+       smaller utilities. In an era when a standard computer
+       consisted of a hard disk for storage and a data terminal
+       for input and output (I/O), the Unix file model worked
+       quite well, as most I/O was linear. However, modern
+       systems include networking and other new devices. As
+       graphical user interfaces developed, the file model
+       proved inadequate to the task of handling asynchronous
+       events such as those generated by a mouse. In the 1980s,
+       non-blocking I/O and the set of inter-process communi-
+       cation mechanisms were augmented with Unix domain
+       sockets, shared memory, message queues, and semaphores.
+       In microkernel implementations, functions such as net-
+       work protocols could be moved out of the kernel, while
+       conventional (monolithic) Unix implementations have
+       network protocol stacks as part of the kernel."
+
+       3.4.1 Character-mode Command Line Interface
+
+             The Unix "Terminal" application and "bash"
+             shell support the TeamSTARS "tsWxGTUI_PyVx"
+             Toolkit with its Python-based Command Line
+             Interface (CLI).
+
+             The "bash" shell, with its "ssh" and "sftp"
+             commands, enables the operator to conduct
+             local and remote sessions.
+
+       3.4.2 Character-mode Graphical-style User Interface
+
+             The Unix "Terminal" application, user select-
+             able terminal emulators (including multi-color
+             xterms and non-color vt100/vt220) and "ncurses"
+             terminal device interface library supports the
+             TeamSTARS "tsWxGTUI_PyVx" Toolkit with its
+             "wxPython"-style, "Curses"-based Graphical-Text
+             User Interface (GUI).
+
+=============== TOOLKIT DEVELOPMENT RESOURCES ==============
+
+4. Toolkit Development Resources
+
+   The TeamSTARS "tsWxGTUI_PyVx" Toolkit is designed to be
+   used without modification on computer systems with 32-bit
+   and 64-bit processors from various manufacturers.
+
+   4.1 Python Programming Language Resources
+
+       The TeamSTARS "tsWxGTUI_PyVx" Toolkit is implemented
+       in both of the currently popular, high-level Python
+       programming languages.
+
+       Both versions are generally available for computer
+       systems with various editions of the Linux, Mac OS X,
+       Microsoft Windows and Unix operating systems.
+
+       4.1.1 Python 3.x
+
+             Stable releases of evolving Python 3x version
+             3.0.0-3.4.3 are available for use with current
+             and future computer platforms.
+
+             Latest release candidate is Python 3.5.0rc2
+             as of 9 Mar. 2015.
+
+             NOTE: The Python Software Foundation has
+                   designated Python 3.x to be under
+                   active development.
+
+                   There will be ongoing feature enhance-
+                   ment upgrades.
+
+                   There will be a limited number of
+                   bug fix updates to earlier Python
+                   3.x releases.
+
+       4.1.2 Python 2.x
+
+             Stable releases of mature Python 2x versions
+             2.0.0-2.7.9 are available for use with legacy
+             computer plaforms.
+
+             NOTE: The Python Software Foundation has
+                   designated Python 2.x to be in its
+                   End-Of-Life stage.
+
+                   There will be no more feature
+                   enhancement upgrades (back-ported
+                   from Python 3x).
+
+                   There will a limited number of
+                   bug fix updates to Python 2.7.
+
+   4.2 Open Source & Commercial Python Resources
+
+       Microsoft Windows operating systems do not include
+       any Python release.
+
+       Linux, Mac OS X and Unix operating systems typically
+       include a recent, but not necessarily the latest
+       Python release.
+
+       The following open source and commercial resources
+       can provide Python releases to suite your current and
+       evolving needs.
+
+       4.2.1 Python Software Foundation Website
+
+             From http://www.python.org/
+
+             "Python is a programming language that lets
+             you work quickly and integrate systems more
+             effectively."
+
+             Python runs on Linux, Mac OS X, Microsoft Windows,
+             Unix and other Operating Systems. It also has been
+             ported to the Java and .NET virtual machines.
+
+             Python is free to use, even for commercial prod-
+             ucts, because of its OSI-approved open source
+             license.
+
+             New to Python or choosing between Python 2 and
+             Python 3? Read Python 2 or Python 3.
+
+             The Python Software Foundation holds the intel-
+             lectual property rights behind Python, under-
+             writes the PyCon conference, and funds many
+             other projects in the Python community.
+
+             The current production versions are Python 2.7.9
+             and Python 3.4.3.
+
+             Start with one of these versions for learning
+             Python if you want the most stability; they're
+             both considered stable production releases.
+
+             If you don't know which version to use, try
+             Python 3.4.x. Some existing third-party software
+             is not yet compatible with Python 3; if you need
+             to use such software, you can download Python
+             2.7.9 instead."
+
+       4.2.2 ActiveState Website
+
+             From http://www.activestate.com/activepython:
+
+             "ActivePython Business and Enterprise Editions
+             feature our precompiled, supported, quality-
+             assured Python distribution used by millions
+             of developers around the world for easy Python
+             installation and quality-assured code. When
+             you're using Python on production servers or
+             mission-critical applications, ActivePython
+             Business and Enterprise Editions offer signi-
+             ficant time savings over open source Python
+             for installing, managing, and standardizing
+             your Python."
+
+             "ActivePython (freeware, Windows)
+             IDLE (open source, Windows)
+             Komodo (commercial, Windows)
+             RPMs (open source, Linux)
+             Source code (all platforms)
+             python-mode for Emacs
+             Jack Jansen's binaries (open source, Mac OS, Mac OS X)
+             Fink (open source, Mac OS X)
+             Jython (open source, Java)
+             more platforms"
+
+   4.3 Python Training Resources
+
+       4.3.1 Dive into Python
+
+             From http://www.diveintopython.net/
+ 
+             "Dive Into Python is a free Python book for
+             experienced programmers. It was originally hosted
+             at DiveIntoPython.org, but the author has pulled
+             down all copies. It is being mirrored here. You
+             can read the book online, or download it in a
+             variety of formats. It is also available in
+             multiple languages."
+
+       4.3.2 Learn Python
+
+             "Learning to Program How to Think Like a Com-
+             puter Scientist"
+
+             Thinking in Python
+             Introductions
+             O'Reilly Python Center
+             Non-English resources
+             more tutorials"
+
+       4.3.3 Python Community
+
+             "Python.org
+             comp.lang.python
+             c.l.p.announce
+             Tutor
+             Python mailing lists
+             more links"
+
+       4.3.4 Python Cookbook
+
+             "Python Cookbook
+             Vaults of Parnassus
+             Python.facts"
+
+================== PYTHON DOWNLOAD GOTCHAS =================
+
+5. Python Download Gotchas
+
+   How to check if python is already installed on your
+   computer?
+
+      Read "https://wiki.python.org
+                   /moin/BeginnersGuide/Download"
+
+   For those Operating System distributions that don't in-
+   clude Python, various release versions can be obtained
+   directly from the Python Software Foundation at
+   "www.python.org".
+
+   5.1 Linux and Unix Operating Systems (CAUTION)
+
+       Distributions of Linux and Unix Operating Systems
+       typically include a recent, but not necessarily the
+       latest, Python release. However, since the Operating
+       System distribution may itself use a specific Python
+       release, it is often necessary to follow special
+       installation procedures when addding newer Python
+       releases.
+
+       For example, see the "How to install Python 2.7 and
+       Python 3.3 on CentOS 6" article at:
+
+           http://toomuchdata.com.
+
+       It advises its readers to:
+
+           "Use 'make altinstall' to prevent problems.
+
+           It is critical that you use make altinstall when
+           you install your custom version of Python. If
+           you use the normal make install you will end up
+           with two different versions of Python in the
+           filesystem both named python. This can lead to
+           problems that are very hard to diagnose."
+
+   5.2 Microsoft Windows Operating Systems (WARNING)
+
+       Distributions of Microsoft Windows do NOT include
+       any Python release and do NOT include any
+       "Curses" or "nCurses" Terminal Control Library
+       for use with the terminal emulators (xterm,
+       xterm-color, xterm-16color, xterm-88color,
+       xterm-256color, vt100 and vt220) and terminals.
+
+       However, if you install Cygwin, the free Linux-
+       like Command Line Interface and GNU Toolkit from
+       Red Hat at "http://cygwin.com", you can then
+       install a recent, but not necessarily the latest
+       Python 2.x and/or Python 3.x release and the
+       associated "Curses" or "nCurses" Terminal Con-
+       trol Library.
+
+========= WXPYTHON/WXWIDGETS DEVELOPMENT RESOURCES =========
+
+6. wxPython/wxWidgets Development Resources
+
+   The TeamSTARS "tsWxGTUI_PyVx" Toolkit began, in 2007, as
+   a character-mode emulation of the Application Programming
+   Interface (API) of the pixel-mode wxPython 2.8.9.2 GUI
+   Toolkit used by Python language programmers.
+
+   By contrast, the pixel-mode wxPython GUI Toolkit is only
+   a wrapper which interfaces Python language application
+   programs to the pixel-mode wxWidgets GUI Toolkit compo-
+   nents which are themselves implemented in the C++ pro-
+   gramming language.
+
+   In October 2014, the wxWidgets and wxPython developers
+   released version 3.0.2.0  and associated on-line documen-
+   tation. While documentation for new and older wxWidgets
+   releases is available, the documentation for wxPython
+   2.8.9.2 is no longer available and has been replaced by
+   links to wxWidgets documentation. Documentation for
+   wxPython 2.8.9.2 has been replaced by a link to wxWidgets
+   2.8.12.  The new documentation lacks diagrams for each
+   class which depict the class inheritance relationships.
+
+   6.1 wxPython Programming Language Resources
+
+       6.1.1 wxPython 2.8.9.2 (Currently Emulated API)
+       6.1.2 wxPython 3.0.2.0 (Future Emulated API)
+
+   6.2 Open Source wxPython/wxWidgets Resources
+
+       6.2.1 wxPython.org Website
+       6.2.2 wxWidgets.org Website
+
+   6.3 wxPython/wxWidgets Training Resources
+
+       6.3.1 wxPython Community
+       6.3.2 wxPython Cookbook
+
+       http://wiki.wxpython.org
+
+
+======================= End-Of-File ========================

@@ -1,0 +1,116 @@
+Help on module tsCxGlobals:
+
+NAME
+    tsCxGlobals
+
+FILE
+    /cygdrive/d/WR/Technical_Preview-Draft/tsWxGTUI_PyVx/Python-2x/tsWxGTUI_Py2x/tsLibCLI/tsCxGlobals.py
+
+DESCRIPTION
+    tsCxGlobals.py - Module to establish configuration constants and
+    macro-type functions for the Command Line Interface mode of the
+    "tsWxGTUI" Toolkit.
+
+FUNCTIONS
+    Max(a, b)
+        Cast both operands to the same type before comparing them to avoid
+        warnings about signed/unsigned comparisons from some compilers
+    
+    Min(a, b)
+        Cast both operands to the same type before comparing them to avoid
+        warnings about signed/unsigned comparisons from some compilers
+    
+    get_terminal_size()
+        getTerminalSize()
+        - Return width and height of console display
+        - works on linux,os x,windows,cygwin(windows)
+        originally retrieved from:
+        http://stackoverflow.com/questions/566746/
+               how-to-get-console-window-width-in-python
+    
+    tsCaselessStringCompare(string1, string2)
+        Return True, only if two text strings are identical except for
+        upper/lower case. Otherwise, return False.
+
+DATA
+    ALERT = 35
+    APPEND = 'a'
+    CRITICAL = 50
+    DEBUG = 10
+    DEBUG_TRACE_LEVEL = 5
+    DEFAULT_LOG_FILE_MODE = 'w'
+    EMERGENCY = 55
+    ERROR = 40
+    INFO = 20
+    LOG_EXTENSION = '.log'
+    LOG_NAME = 'message'
+    LOG_PATH = './'
+    NOTICE = 25
+    NOTSET = 0
+    PRIVATE = 1
+    PRIVATENAME = 'PRIVATE'
+    Platform = '__tsToolkitCLI__'
+    ProductName = 'TeamSTARS "tsWxGTUI_PyVx" Toolkit'
+    SubSystemName = '"tsToolkitCLI"'
+    System = 'CYGWIN_NT-6.1'
+    TRUNCATE = 'w'
+    ThemeCxPython = {'ProductName': 'TeamSTARS "tsWxGTUI_PyVx" Toolkit', '...
+    ThemeDate = '03/22/2015'
+    ThemeToUse = {'ProductName': 'TeamSTARS "tsWxGTUI_PyVx" Toolkit', 'Sub...
+    Theme_Application_Administrator = {'ProductName': 'TeamSTARS "tsWxGTUI...
+    Theme_Application_Engineer = {'ProductName': 'TeamSTARS "tsWxGTUI_PyVx...
+    Theme_Application_Service = {'ProductName': 'TeamSTARS "tsWxGTUI_PyVx"...
+    Theme_SCADA_Administrator = {'ProductName': 'TeamSTARS "tsWxGTUI_PyVx"...
+    Theme_SCADA_Engineer = {'ProductName': 'TeamSTARS "tsWxGTUI_PyVx" Tool...
+    Theme_SCADA_Operator = {'ProductName': 'TeamSTARS "tsWxGTUI_PyVx" Tool...
+    Theme_SCADA_Service = {'ProductName': 'TeamSTARS "tsWxGTUI_PyVx" Toolk...
+    Theme_Toolkit_Administrator = {'ProductName': 'TeamSTARS "tsWxGTUI_PyV...
+    Theme_Toolkit_Engineer = {'ProductName': 'TeamSTARS "tsWxGTUI_PyVx" To...
+    Theme_Toolkit_Service = {'ProductName': 'TeamSTARS "tsWxGTUI_PyVx" Too...
+    VERBOSE = True
+    VendorName = 'Richard S. Gordon, a.k.a. Software Gadgetry'
+    WARNING = 30
+    __authors__ = 'Richard S. Gordon'
+    __copyright__ = 'Copyright (c) 2013-2015 Richard S. Gordon.\n\t\tAll r...
+    __credits__ = '\n\n  Credits: \n\n\t  terminalsize (https://gist.git.....
+    __date__ = '03/22/2015'
+    __header__ = '\n\ntsCxGlobals, v1.5.0 (build 03/22/2015)\n\n  Auth... ...
+    __license__ = 'GNU General Public License, Version 3, 29 June 2007'
+    __line1__ = 'tsCxGlobals, v1.5.0 (build 03/22/2015)'
+    __line2__ = 'Author(s): Richard S. Gordon'
+    __line3__ = 'Copyright (c) 2013-2015 Richard S. Gordon.\n\t\tAll right...
+    __line4__ = 'GNU General Public License, Version 3, 29 June 2...U Gene...
+    __title__ = 'tsCxGlobals'
+    __version__ = '1.5.0'
+    category = {0: 'NOTSET', 1: 'PRIVATE', 10: 'DEBUG', 20: 'INFO', 25: 'N...
+    mainTitleVersionDate = 'tsCxGlobals, v1.5.0 (build 03/22/2015)'
+    sizex = 80
+    sizey = 50
+    subprocessAvailable = True
+    syslogAvailable = True
+    syslogMap = {0: 6, 1: 0, 10: 7, 20: 6, 25: 5, 30: 4, 35: 1, 40: 3, 50:...
+    theCopyright = '\ntsWxGTUI_Py2x, v0.0.0 (pre-alpha build 03/22/20...ld...
+    theLicense = '\nThe "tsWxGTUI_Py2x" Toolkit and its third-party...HANT...
+    theMasthead = '\n+----+----+  TeamSTARS "tsWxGTUI_Py2x" Toolkit\n...m-...
+    theNotices = '\nThe Terms & Conditions which permit YOUR use, m...tory...
+    threshold = {0: 0, 1: 1, 10: 10, 20: 20, 25: 25, 30: 30, 35: 35, 40: 4...
+    tsPythonVersion = '2.7.8'
+    tsWxGTUI_PyVx = 'tsWxGTUI_Py2x'
+
+VERSION
+    1.5.0
+
+DATE
+    03/22/2015
+
+CREDITS
+    
+    
+      Credits: 
+    
+    	  terminalsize (https://gist.github.com/jtriley/1108174) Features: 
+    	  Copyright (c) 2011 Justin T. Riley.
+    			All rights reserved.
+    	  GNU General Public License, Version 3, 29 June 2007
+
+

@@ -1,0 +1,1043 @@
+           Relationships Between “tsWxGTUI” Toolkit
+             High-Level, Low-Level and Extended
+             Application Programming Interfaces
+            By Richard S. Gordon,  July 25, 2014
+
+                        Page 1 of 16
+An Application Programming Interface (API) is a source code
+based specification intended to be used as an interface by
+software components to communicate with each other. An API
+may include specifications for routines, data structures,
+object classes, and variables.
+  1.   High Level API - A programming interface that is the
+     least detailed but provides more functionality within one
+     statement than a lower-level interface. High-level
+     interfaces are designed to enable the programmer to write
+     code in a shorter amount of time and to be less involved
+     with the details of the software module or hardware device
+     that is performing the required services. For example, the
+     programmer can invoke a high level procedure to append one
+     or more text strings to an internal buffer.
+  2.   Low Level API - A programming interface that is the
+     most detailed, allowing the programmer to manipulate
+     functions within a software module or within hardware at a
+     very granular level. To continue with the afore mentioned
+     example, a high level procedure can then invoke one or more
+     low level procedures that will sequentially get one text
+     string at a time from the internal buffer, sequentially
+     scroll the top most string off the display, then scroll up
+     each remaining displayed string and finally outputting the
+     new string to the bottom row of the screen.
+  3.   Extended API - A customized version of an existing
+     programming interface that supports additional keyword value
+     pairs and positional arguments. For example, the “tsWxGTUI”
+     Toolkit is a character-mode emulation of the pixel-mode
+     “wxPython” API. It internally may require optional
+     parameters to distinguish such features as character-mode
+     dimensions from their pixel-mode counterparts. It may also
+     include functionality that "wxPython" and its underlying
+     "wxWidgets" toolkit otherwise obtain from the host operating
+     system and its programming libraries, such as the
+     installation of the color palette and the implementation of
+     scrollable windows.
+  
+
+
+1    Comparison of wxPython with tsWxGTUI (Development Plan)
+   
+   
+This tabulation shall briefly compare the features,
+capabilities and limitations of the pixel-mode "wxPython" /
+"wxWidgets" / "wxEmbedded" Toolkit with those of its
+character-mode emulator, the "tsWxGTUI" Toolkit.
+                                      
+Feature    "wxPython" / "wxWidgets" / "tsWxGTUI"
+           "wxEmbedded"
+Platform   Locally (via system        Locally (via system console
+           console or xterm)  and     or xterm) and remotely (via
+           remotely (via vnc)         xterm) accessible systems:
+           accessible systems:        §    Desktop
+           §    Desktop               §    Laptop
+           §    Laptop                §    Workstation
+           §    Workstation           §    Embedded
+           §    Embedded (via KOAN's
+             "wxEmbedded")
+Operator   §    Keyboard              §    Keyboard
+Desktop    §    Mouse, trackball,     §    Mouse, trackball,
+Interface    touchpad or touchscreen    touchpad or touchscreen
+Hardware   §    Optional Mouseless    §    Optional Mouseless
+           §    Display (pixel mode)    (Future)
+                                      §    Display (character
+                                        mode)
+Operating  §    Linux                 §    Linux
+System &   §    Mac OS X              §    Mac OS X
+Device     §    Microsoft Windows     §    Microsoft Windows
+Driver     §    Unix                    (with free add-on of POSIX-
+Software                                like Cygwin Command Line
+                                        Interface and GNU tools
+                                        from Red Hat)
+                                      §    Unix
+Terminal   §    "wxWidgets"           §    "nCurses" internally
+Device       internally uses host       uses host Operating System
+Interface    Operating System specific  specific API for its
+Software     API for its Terminal       Terminal Device Interface.
+             Device Interface.        §    It translates host
+           §    It translates host      Operating System specific
+             Operating System specific  events into "nCurses"
+             events into "wxWidget"     specific published API
+             specific published API     events.
+             events.                  §    Events include
+           §    Events include          keyboard key press /
+             keyboard key press /       release, mouse button press
+             release, mouse button      / release and single /
+             press / release and single  double / triple click with
+             / double click with mouse  mouse position ONLY
+             position at every clocked  available at time of button
+             sample.                    state change.
+           §    Events also include   §    Events also include
+             window resizing.           window resizing. However,
+                                        event handling is currently
+                                        limited to trapping the
+                                        unsupported event. Though
+                                        re-initializing "nCurses"
+                                        to detect and use the new
+                                        size is feasible and fast
+                                        (50 milliseconds or more
+                                        depending on host processor
+                                        and terminal color palette
+                                        (and associated definition
+                                        of or mapping of wxPython
+                                        color palette), it does not
+                                        address the time consuming
+                                        (20 seconds or more on host
+                                        processor) compexities
+                                        associated with re-
+                                        initializing the "wxPython"
+                                        emulation and the System
+                                        Operator designated
+                                        application program.
+Programmin §    "wxWidgets" is        §    "tsWxGTUI" is
+g Language   implemented in C++         implemented in Python 2.x
+           §    "wxPython"            §    After debugging,
+             binding/wrapper for        "tsWxGTUI" is ported from
+             "wxWidgets" is implemented  Python 2.x to Python 3.x
+             with SWIG in Python 2.x    via the standard Python
+             and Python 3.x             "2to3" utility with minor
+                                        manual debugging when
+                                        appropriate
+Terminal   §    "wxWidgets"           §    "tsWxGTUI" internally
+Interface    internally uses Operating  uses Python Curses
+Software     System or X window system  ("nCurses") module API for
+             specific API for Graphical  Graphical-style User
+             User Interface.            Interface. The Python
+                                        Curses module only
+                                        implements the most
+                                        commonly used subset
+                                        features of the "nCurses"
+                                        API.
+                                      §    The "tsWxGTUI" Toolkit
+                                        emulates a typical
+                                        Operating System or X
+                                        window system specific API
+                                        for Graphical User
+                                        Interface.
+Operator   §    Host Operating System §    Host Operating System
+Desktop      specific Command Line      specific Command Line
+Interface    Interface is a POSIX       Interface is a POSIX
+Software     compatible shell (such as  compatible shell (such as
+             bash)                      bash)
+           §    Host Operating System §    Host Operating System
+             specific Graphical User    specific Graphical User
+             Interface features support  Interface shell features
+             multiple independently re-  support multiple
+             sizable and repositionable  independently re-sizable
+             Frames and Dialogs         and repositionable Command
+           §    Host Operating System   Line Interface shell
+             specific Graphical User    windows
+             Interface features reflect§    "tsWxGTUI" emulated
+             proprietary placement of   Graphical User Interface
+             labels and buttons to      features  DO NOT support
+             iconize, maximize/restore  multiple independently re-
+             and close frames and       sizable and repositionable
+             dialogs                    Frames and Dialogs WITHOUT
+           §    Host Operating System   the System Operator first
+             specific Graphical User    creating separate Command
+             Interface task bar         Line Interface shell
+             features support the       windows
+             closing of individual    §    "tsWxGTUI" emulated
+             Frames and Dialogs         Graphical User Interface
+           §    Host Operating System   features reflect Microsoft
+             specific task bar features  Windows-style placement of
+             support the shifting of    labels and buttons to
+             foreground focus from one  iconize, maximize/restore
+             Frame or Dialog to another  and close frames and
+                                        dialogs
+                                      §    "tsWxGTUI" emulated
+                                        Graphical User Interface
+                                        task bar features DO NOT
+                                        currently support the
+                                        closing of individual
+                                        Frames and Dialogs
+                                      §    "tsWxGTUI" Toolkit
+                                        task bar features (future
+                                        enhancement) support the
+                                        shifting of foreground
+                                        focus from one Frame or
+                                        Dialog to another
+Applicatio §    "wxWidgets" /         §    "tsWxGTUI" emulated
+n            "wxPython" API for         subset of "wxWidgets" /
+Programmin   Graphical User Interface   "wxPython" API for
+g            supports bit-mapped        Graphical-style User
+Interface    images.                    Interface DOES NOT support
+           §    It supports fixed and   bitmapped images except for
+             variable sized fonts and   the single, predefined
+             at least the 68 most       bitmapped image used as a
+             commonly used colors.      splash screen at startup
+                                      §    It supports a single
+                                        fixed sized font and at
+                                        least the 68 most commonly
+                                        used colors (which are
+                                        either internally mapped
+                                        into the "nCurses" standard
+                                        8-color, 16-color or
+                                        defined for optional 88-
+                                        color and 256-color
+                                        terminal hardware and
+                                        terminal emulator
+                                        software).
+                                      §    It supports the 1-
+                                        color (white) that is "ON"
+                                        or "OFF" (black) associated
+                                        with a VT100/VT220 Terminal
+                                        emulator.
+
+
+
+
+2    High, Low and Extended API Relationships
+   
+   
+The following table describes the conceptual purpose, scope,
+capabilities, limitations and relationship between the High-
+level, Low-Level and Extended APIs associated with the
+"tsWxGTUI" Toolkit and its third-party components.
+                                          
+High Level API      Low Level API         Extended API
+Local Command Line                        Local & Remote Command
+Interface Launcher                        Line Interface Launcher
+§    login to local                       §    login to local
+  platform host                              platform host
+§    launch local                         §    launch local shell
+  shell                                   §    launch local
+§    launch local                         application
+  application                             §    terminate local
+§    terminate                            application
+  local application                       §    login to remote
+§    terminate                            platform host
+  local shell                             §    launch remote
+§    logout of                            application
+  local platform host                     §    terminate remote
+                                          application
+                                          §    logout of remote
+                                          platform host
+                                          §    terminate local
+                                          shell
+                                          §    logout of local
+                                          platform host
+                    Local Host Operating  Local & Remote Host
+                    System Process API    Operating System
+                    §    Process Launcher Process API
+                    §    Process          §    Process Launcher
+                      Terminator          §    Process Terminator
+                    §    Process Cleanup  §    Process Cleanup
+                    §    Process Event    §    Process Event
+                      Handlers               Handlers
+                    §    Process          §    Process
+                      Input/Output Handlers   Input/Output Handlers
+                                          Command Line Interface
+                                          Low Level API (ts)
+                                          §    tsApplication
+                                             (Class and run time
+                                             library component
+                                             initializes and
+                                             configures the
+                                             application using the
+                                             following keyword-value
+                                             pairs and positional
+                                             arguments: input
+                                             provided on the command
+                                             line by an operator and
+                                             input provided in the
+                                             parameter list of the
+                                             application's
+                                             invocation of the class
+                                             instantiation.)
+                                          §    tsCommandLineEnv
+                                             (Class and run time
+                                             library component
+                                             provides platform
+                                             independent
+                                             configuration,
+                                             initialization,
+                                             input/output supervisor
+                                             and application
+                                             launcher, event handler
+                                             and terminator)
+                                          §
+                                             tsCommandLineInterface
+                                             (Class and methods that
+                                             prompt or re-prompt the
+                                             operator for input,
+                                             validate that
+                                             theoperator has
+                                             supplied the expected
+                                             number of inputs and
+                                             that each is of the
+                                             expected type.)
+                                          §    tsConfig (Class
+                                             for a config file
+                                             reader/writer that
+                                             supports nested
+                                             sections in the config
+                                             files.)
+                                          §    tsCxGlobals
+                                             (Module to establish
+                                             configuration constants
+                                             and macro-type
+                                             functions for the
+                                             Command Line Interface
+                                             mode of the "tsWxGTUI"
+                                             Toolkit.)
+                                          §    tsDecorators
+                                             (Class to define a
+                                             general purposegeneral-
+                                             purposegeneral-purpose
+                                             decorator factory and
+                                             common decorators that
+                                             takes a caller function
+                                             as input and returns a
+                                             decorator with the same
+                                             attributes.)
+                                          §    tsDoubleLinkedList
+                                             (Class to establish a
+                                             representation of a
+                                             linked list with
+                                             forward and backward
+                                             pointers.)
+                                          §    tsExceptions
+                                             (Class to define and
+                                             handle error
+                                             exceptions. Maps run
+                                             time exception types
+                                             into 8-bit exit codes
+                                             and prints associated
+                                             diagnostic message and
+                                             traceback info.)
+                                          §    tsLogger (Class
+                                             that emulates a subset
+                                             of Python logging API.
+                                             It defines and handles
+                                             prioritized, time and
+                                             date stamped event
+                                             message formatting and
+                                             output to files and
+                                             devices. Files are
+                                             organized in a date and
+                                             time stamped directory
+                                             named for the launched
+                                             application. Unix-type
+                                             devices include syslog,
+                                             stderr, stdout and
+                                             stdscr (the ncurses
+                                             display screen). It
+                                             also supports
+                                             "wxPython"-style
+                                             logging of assert and
+                                             check case results.)
+                                          §
+                                             tsOperatorSettingsParse
+                                             r (Class to parse the
+                                             command line entered by
+                                             the operator of an
+                                             application program.
+                                             Parsing extracts the
+                                             Keyword-Value pair
+                                             Options and Positional
+                                             Arguments that will
+                                             configure and control
+                                             the application during
+                                             its execution.)
+                                          §
+                                             tsPlatformRunTimeEnviro
+                                             nment (Class to capture
+                                             current hardware,
+                                             software and network
+                                             information about the
+                                             run time environment
+                                             for the user process.)
+                                          §    tsReportUtilities
+                                             (Class defining methods
+                                             used to format
+                                             information: date and
+                                             time (begin, end and
+                                             elapsed), file size
+                                             (with kilo-, mega-,
+                                             giga-, tera-, peta-,
+                                             exa-, zeta- and yotta-
+                                             byte units) and nested
+                                             Python dictionaries.)
+                                          §    tsSysCommands
+                                             (Class definition and
+                                             methods for issuing
+                                             shell commands to and
+                                             receiving responses
+                                             from the host operating
+                                             system.)
+                                          §    tsThreadPool
+                                             (Class to define a
+                                             thread pool object that
+                                             maintains a pool of
+                                             worker threads to
+                                             perform time consuming
+                                             operations in parallel.
+                                             It assigns jobs to the
+                                             threads by putting them
+                                             in a work request
+                                             queue, where they are
+                                             picked up by the next
+                                             available thread. This
+                                             then performs the
+                                             requested operation in
+                                             the background and puts
+                                             the results in another
+                                             queue. The thread pool
+                                             object can then collect
+                                             the results from all
+                                             threads from this queue
+                                             as soon as they become
+                                             available or after all
+                                             threads have finished
+                                             their work. It's also
+                                             possible, to define
+                                             callbacks to handle
+                                             each result as it comes
+                                             in.)
+Graphical User                            Local & Remote
+Interface Launcher                        Graphical User
+§    login to local                       Interface Launcher
+  platform host and                       §    login to local
+  its GUI Desktop                            platform host
+§    launch local                         §    launch local shell
+  application from                        §    launch local
+  GUI Desktop                                application
+§    terminate                            §    terminate local
+  local application                          application
+  from GUI Desktop                        §    login to remote
+§    logout of                               platform host
+  local platform host                     §    launch remote
+  and its GUI Desktop                        application
+                                          §    terminate remote
+                                             application
+                                          §    logout of remote
+                                             platform host
+                                          §    terminate local
+                                             shell
+                                          §    logout of local
+                                             platform host
+                    Local Host Operating  Local & Remote Host
+                    System Process API    Operating System
+                    §    Process Launcher Process API
+                    §    Process          §    Process Launcher
+                      Terminator          §    Process Terminator
+                    §    Process Cleanup  §    Process Cleanup
+                    §    Process Event    §    Process Event
+                      Handlers               Handlers
+                    §    Process          §    Process
+                      Input/Output Handlers   Input/Output Handlers
+Graphical User      Graphical User        Graphical User
+Interface           Interface Application Interface Application
+Application         Launcher API          Launcher API (tsWxGTUI)
+Launcher API        (nCurses)             §    tsWx (Module to
+(wxWidgets &        §    application run     load all symbols that
+wxPython)             time library           should appear within
+§    run time         components provide     the wxPython.wx
+  library components  platform specific      emulation namespace.
+  provide platform    nCurses                Included are various
+  specific            configuration,         classes, constants,
+  configuration,      initialization,        functions and methods
+  initialization,     input/output           available for use by
+  input/output        supervisor and         applications built with
+  supervisor and      application launcher   components from the
+  application                                wxPython emulation
+  launcher                                   infrastructure.)
+                                          §    tsWxGlobals
+                                             (Module to establish
+                                             configuration constants
+                                             and macro-type
+                                             functions for the
+                                             Graphical-style User
+                                             Interface mode of the
+                                             "tsWxGTUI" Toolkit.
+                                             Provides a centralized
+                                             mechanism for
+                                             modifying/restoring
+                                             those configuration
+                                             constants that can be
+                                             interogated at runtime
+                                             by those software
+                                             components having a
+                                             "need-to-know". The
+                                             intent being to avoid
+                                             subsequent searches to
+                                             locate and modify or
+                                             restore a constant
+                                             appropriate to the
+                                             current configuration.
+                                             Provides a theme-based
+                                             mechanism for modifying
+                                             / restoring those
+                                             configuration
+                                             constants.)
+                                          §    tsWxMultiFrameEnv
+                                             (Class to enable an
+                                             application using a
+                                             Command Line Interface
+                                             (CLI) to launch and use
+                                             the same character-mode
+                                             terminal with a
+                                             Graphical-style User
+                                             Interface (GUI). It
+                                             uses application
+                                             specified configuration
+                                             keyword-value pair
+                                             options to initialize
+                                             any application
+                                             specific logger(s) It
+                                             wraps the CLI,
+                                             underlying the GUI, and
+                                             the GUI with exception
+                                             handlers to control the
+                                             exit codes and messages
+                                             used to coordinate
+                                             other application
+                                             programs.)
+Graphical User                            Graphical User
+Interface High                            Interface High Level
+Level Application                         Application Launcher
+Launcher API                              API (tsWxGTUI)
+(wxWidgets &                              §    PyApp (start
+wxPython)                                    wxPython application)
+§    PyApp (start                         §    PySimpleApp (start
+  wxPython                                   simple wxPython
+  application)                               application)
+§    PySimpleApp                          §    PyOnDemandOutput
+  (start simple                              (start Redirected
+  wxPython                                   Output window;
+  application)                               enhancements include
+§                                            date, time and message
+  PyOnDemandOutput                           severity level
+  (start Redirected                          annotations with and
+  Output window)                             without font style and
+                                             foreground/backgtound
+                                             color markup
+                                             attributes)
+                    Graphical User        Graphical User
+                    Interface Low Level   Interface Low Level
+                    Launcher (nCurses)    Launcher API (tsWxGTUI)
+                    §    start            §    start
+                      (curses.start)         (tsWxGTUI.start)
+                    §    stop             §    stop
+                      (curses.stop)          (tsWxGTUI.stop)
+                                          §
+                                             tsWxGraphicalTextUserIn
+                                             terface (Class uses the
+                                             Standard Python Curses
+                                             API to initialize,
+                                             manage and shutdown
+                                             input, from a keyboard
+                                             and mouse, and output,
+                                             to a two-dimensional
+                                             display screen. It
+                                             identifies user
+                                             terminal make, model
+                                             and features. It
+                                             controls terminal
+                                             device startup,
+                                             shutdown and exception
+                                             handling. It translates
+                                             "wxPython"-style
+                                             terminal color, pixel
+                                             and character
+                                             parameters into their
+                                             "Curses" counterparts.
+                                             Upon startup, it
+                                             briefly restores or
+                                             creates, saves or loads
+                                             the splash screen
+                                             bitmap image as
+                                             specified in the
+                                             "tsWxGlobals"
+                                             configuration file.)
+GUI (wxWidgets &    GUI (nCurses)         GUI (tsWxGTUI)
+wxPython)           §    It is a          §    It is a Python and
+§    It is a C++      programming library    nCurses based
+  library that lets   that provides an API   programming library
+  developers create   which allows the       that lets developers
+  applications for    programmer to write    create wxWidgets and
+  Windows, OS X,      text mode user         wxPython style
+  Linux and UNIX on   interfaces in a        applications for
+  32-bit and 64-bit   terminal independent   Windows, OS X, Linux
+  architectures as    manner.                and UNIX on 32-bit and
+  well as several   §    It is a toolkit     64-bit architectures.
+  mobile platforms    for developing "GUI-§    It emulates a
+  including Windows   like" application      subset of the wxWidgets
+  Mobile, iPhone SDK  software that runs     and wxPython API that
+  and embedded GTK+.  under a terminal       is suitable for text
+                      emulator.              mode terminals.
+                    §    It also          §    It requires the
+                      optimizes screen       operator to preadjust
+                      changes, in order to   the position, size and
+                      reduce the latency     appearance of each
+                      experienced when       command shell window,
+                      using remote shells.   within the display,
+                                             before running an
+                                             application program.
+§    It has popular                       
+  language bindings
+  for Python, Perl,
+  Ruby and many other
+  languages.
+§    Unlike other                         
+  cross-platform
+  toolkits, wxWidgets
+  gives its
+  applications a
+  truly native look
+  and feel because it
+  uses the platform's
+  native API rather
+  than emulating the
+  GUI.
+§    It's also                            
+  extensive, free,
+  open-source and
+  mature.
+§    It supports    §    It supports      §    It supports local
+  local terminals     local and remote       and remote terminals
+  with various        terminals with         with various keyboard,
+  keyboard, mouse and  various keyboard,      mouse and text mode
+  pixel mode display  mouse and text mode    display device
+  device              display device         configurations.
+  configurations.     configurations.
+§    It enables the §    It requires the  §    It requires the
+  operator to adjust  operator to preadjust   operator to login to
+  the display         the position, size     each remote computer
+  position, size and  and appearance of      before running an
+  appearance of the   each command shell     application program.
+  top level GUI       window, within the
+  objects.            display, before
+                      running an
+                      application program.
+                    §    It requires the
+                      operator to login to
+                      each remote computer
+                      before running an
+                      application program.
+§    It enables     §    It enables       §    It enables
+  application         application            application
+  programmmers to     programmmers to        programmmers to control
+  control the initial  control the initial    the initial position,
+  display position,   position, size and     size and appearance of
+  size and appearance  appearance of the top   the top level GUI
+  of the top level    level GUI objects,     objects, within a
+  GUI objects.        within a command       command shell window.
+                      shell window.       §    Application
+                    §    Application         programs will
+                      programs may or may    malfunction or
+                      not malfunction or     terminate after an
+                      terminate after an     operator re-adjusts the
+                      operator re-adjusts    size of the command
+                      the size of the        shell window.
+                      command shell window.
+                      For example, the
+                      Midnight Commander
+                      application from the
+                      Free Software
+                      Foundation
+                      automatically adjusts
+                      itself to changes in
+                      screen size when used
+                      with an xterm type
+                      terminal emulator but
+                      needs to be manually
+                      refreshed via Ctrl-L
+                      when used with a
+                      cygwin console shell.
+Host Platform High  Host Platform Low     Host Platform Low Level
+Level Interface     Level Interface       Interface (tsWxGTUI
+(Host)              (Virtual Machine)     analogous to host
+Platform-specific   Programming language  services provided by
+API, libraries and  specific API,         "gtk", "msw", "osx" and
+User Interface for  platform-specific     "unix")
+starting,           libraries and User    Programming language
+initializing,       Interface for         specific API, platform-
+configuring,        starting,             specific libraries and
+controlling,        initializing,         User Interface for
+monitoring and      configuring,          starting, initializing,
+terminating         controlling,          configuring,
+computer hardware   monitoring and        controlling, monitoring
+and software        terminating           and terminating
+activities.         application software  application software
+§    Linux (Fedora  activities.           activities.
+  17-20 & Ubuntu)   §    Python 2.6.x,    §
+  10.04-12.04         2.7.x and/or Python    tsWxGraphicalTextUserIn
+§    Mac OS X (Lion   3.x (provides          terface (Class uses the
+  10.7.4-10.9.1)      platform independent   Standard Python Curses
+§    Microsoft        Virtual Machine API)   API to initialize,
+  Windows (XP with  §    Python Curses       manage and shutdown
+  SP3, 7, 8 & 8.1)    Module (provides       input, from a keyboard
+  with Cygwin (1.7.2)  terminal independent   and mouse, and output,
+  add-on              keyboard, mouse and    to a two-dimensional
+§    Unix (SunOS      display API)           display screen. It
+  5.11)             §    NCurses Library     identifies user
+                      (implements platform   terminal make, model
+                      specific keyboard,     and features. It
+                      mouse and display      controls terminal
+                      API)                   device startup,
+                                             shutdown and exception
+                                             handling. It translates
+                                             "wxPython"-style
+                                             terminal color, pixel
+                                             and character
+                                             parameters into their
+                                             "Curses" counterparts.
+                                             Upon startup, it
+                                             briefly restores or
+                                             creates, saves or loads
+                                             the splash screen
+                                             bitmap image as
+                                             specified in the
+                                             "tsWxGlobals"
+                                             configuration file.)
+                    TopLevel Windows      Top Level Windows
+                    (wxWidgets &          ((tsWxGTUI implements
+                    wxPython)             feature(s) available in
+                    §    Frame (A GUI     wxWidgets or wxPython
+                      object whose size andlibrary)
+                      position can usually§    Frame (A GUI
+                      be changed by the      object whose size and
+                      user. It usually has   position can (usually)
+                      thick borders and a    be changed by the user.
+                      title bar, and can     It usually has thick
+                      optionally contain a   borders and a title
+                      menu bar, toolbar and   bar, and can optionally
+                      status bar. A frame    contain a menu bar,
+                      can contain any GUI    toolbar and status bar.
+                      object that is not a   A frame can contain any
+                      frame or dialog.       GUI object that is not
+                      Frames are windows     a frame or dialog.
+                      associated with an     Frames are windows
+                      application task       associated with an
+                      (such as an internet   application task (such
+                      WEB Browser) that can   as an internet WEB
+                      be minimized into an   Browser) that can be
+                      icon, expanded to      minimized into an icon,
+                      full screen or         expanded to full screen
+                      terminated upon        or terminated upon
+                      operator demand.)      operator demand.)
+                    §    Dialog (A GUI    §    Dialog (A GUI
+                      object, such as        object, such as
+                      PasswordEntryDialog    PasswordEntryDialog or
+                      or TextEntryDialog,    TextEntryDialog, with a
+                      with a title bar and   title bar and sometimes
+                      sometimes a system     a system menu, which
+                      menu, which can be     can be moved around the
+                      moved around the       screen. It can contain
+                      screen. It can         controls and other GUI
+                      contain controls and   objects and is often
+                      other GUI objects and   used to allow the user
+                      is often used to       to make some choice or
+                      allow the user to      to answer a question.
+                      make some choice or    Dialogs are pop-up
+                      to answer a question.   windows associated with
+                      Dialogs are pop-up     an application task’s
+                      windows associated     menu bar (such as an
+                      with an application    input field for an
+                      task’s menu bar (such   operator's search
+                      as an input field for   criteria and an output
+                      an operator's search   field for a list of
+                      criteria and an        candidate WEB sites)
+                      output field for a     that will be terminated
+                      list of candidate WEB   upon completion.)
+                      sites) that will be §    Redirected Output
+                      terminated upon        (An optional window to
+                      completion.)           display the UNIX-style
+                    §    Redirected          "stdout" (progress) and
+                      Output (An optional    "stderr" (error)
+                      window to display the   messages output by an
+                      UNIX-style "stdout"    application task via a
+                      (progress) and         "print" statement. All
+                      "stderr" (error)       output is automatically
+                      messages output by an   prefixed with the date
+                      application task via   (year/month/day); the
+                      a "print" statement.)   time
+                                             (hour:minute:second.mil
+                                             lisecond such as
+                                             "2011/01/23
+                                             12:34:56.789"; a
+                                             separator (" - "); an
+                                             optional severity level
+                                             indicator (DEBUG,
+                                             WARNING, ERROR etc.
+                                             When the application
+                                             designer wants to draw
+                                             attention to special
+                                             messages, the messages
+                                             may be enhanced by:
+                                             Reversed or custom
+                                             foreground and
+                                             background colors;
+                                             blink, bold, dim,
+                                             normal, standout and
+                                             underline special
+                                             effects)
+                                          Top Level Windows
+                                          (tsWxGTUI implements
+                                          feature(s) not
+                                          available in wxWidgets
+                                          or wxPython library)
+                                          §    Redirected Output
+                                             (AppendText applies
+                                             Color and Font
+                                             Attribute Markup)
+                                          §    TaskBar (buttons
+                                             shift focus in manner
+                                             similar to native host
+                                             GUI that underlies
+                                             wxWidgets and wxPython)
+                    Low Level Windows     §    Low Level Windows
+                    (wxWidgets &             ((tsWxGTUI implements
+                    wxPython)                feature(s) available in
+                    §    Buttons (one or     wxWidgets or wxPython
+                      more action            library)
+                      initiating selection)§    Buttons (one or
+                    §    Check Boxes (one    more action initiating
+                      or more Left & Right   selection)
+                      Aligned independent §    Check Boxes (one
+                      feature selecting      or more Left & Right
+                      buttons)               Aligned independent
+                    §    Gauges              feature selecting
+                      (Horizontal &          buttons)
+                      Vertical bar graphs)§    Gauges (Horizontal
+                    §    Menu Bars (row      & Vertical bar graphs)
+                      of one or more pull §    Menu Bars (row of
+                      down menu selections)one or more pull down
+                    §    Menus (column of menu selections)
+                      one or more action  §    Menus (column of
+                      iniating selections)one or more action
+                                          iniating selections)
+                    §    Panels           §    Panels (optionally
+                      (optionally labeled    labeled window
+                      window containing      containing other GUI
+                      other GUI objects)     objects)
+                    §    Radio Boxes      §    Radio Boxes
+                      (Horizontal &          (Horizontal & Vertical
+                      Vertical panel         panel containing two or
+                      containing two or      more radio buttons)
+                      more radio buttons) §    Radio Buttons (two
+                    §    Radio Buttons       or more Left & Right
+                      (two or more Left &    Aligned mutually
+                      Right Aligned          exclusive feature
+                      mutually exclusive     selecting buttons)
+                      feature selecting   §    ScrollBar (panel
+                      buttons)               with Horizontal and/or
+                    §    ScrollBar (panel    Vertical buttons, that
+                      with Horizontal        control a scrollable
+                      and/or Vertical        text window, and a
+                      buttons, that control   gauge, to display the
+                      a scrollable text      position and size of
+                      window, and a gauge,   the displayed text
+                      to display the         relative to the non-
+                      position and size of   displayed text)
+                      the displayed text  §    ScrolledWindow
+                      relative to the non-   (panel with a
+                      displayed text)        Horizontal and/or
+                    §    ScrolledWindow      Vertical ScrollBar and
+                      (panel with a          a scrollable text
+                      Horizontal and/or      window)
+                      Vertical ScrollBar
+                      and a scrollable text
+                      window)
+                    §    Splash Screen    §    Splash Screen
+                      (Optional window to    (Optional window to
+                      display a bitmap       display a text-based,
+                      description of the     bitmap-like description
+                      application. It        of the application. It
+                      briefly appears        briefly appears before
+                      before any top-level   any top-level wxPython-
+                      wxPython-style         style application
+                      application Frames.)   Frames.)
+                    §    StaticText       §    StaticText (panel
+                      (panel for displaying   for displaying text)
+                      text)               §    Status Bars (panel
+                    §    Status Bars         with one or more Status
+                      (panel with one or     Bar Panels)
+                      more Status Bar     §    Status Bar Panels
+                      Panels)                (panel for displaying a
+                    §    Status Bar          single piece of status
+                      Panels (panel for      information)
+                      displaying a single §    TextCtrl (panel
+                      piece of status        for displaying text
+                      information)           that may be optionally
+                    §    TextCtrl (panel     formatted and scrolled)
+                      for displaying text §    Tool Bars (row of
+                      that may be            one or more action
+                      optionally formatted   initiating selections)
+                      and scrolled)
+                    §    Tool Bars (row
+                      of one or more action
+                      initiating
+                      selections)
+                                          Low Level Windows
+                                          ((tsWxGTUI implements
+                                          feature(s) not
+                                          available in wxWidgets
+                                          or wxPython library)
+                                          §    Buttons
+                                             (BORDER_SIMPLE for
+                                             single line label
+                                             replaced by bracketed
+                                             label)
+                                          §    Panels (optionally
+                                             labeled window
+                                             containing other GUI
+                                             objects)
+                                          §    ScrollBar Buttons
+                                             (implements feature(s)
+                                             not available in
+                                             nCurses library)
+                                          §    ScrollBar Gauges
+                                             (implements feature(s)
+                                             not available in
+                                             NCurses library)
+                                          §    Scrolled (Template
+                                             for scrollable text
+                                             wndows with Horizontal
+                                             and/or Vertical
+                                             ScrollBars)
+                                          §    Scrolled Text
+                                             (implements text markup
+                                             feature(s) not
+                                             available in NCurses
+                                             library)
+                                          §    ScrolledWindow
+                                             (scrollable text window
+                                             with Horizontal and/or
+                                             Vertical
+                                             ScrollBars)Task Bar
+                                             Buttons (implements
+                                             feature(s) not
+                                             available in NCurses
+                                             library to apply
+                                             keyboard focus shift)
+                                          §    TextCtrl
+                                             (AppendText applies
+                                             Color and Font
+                                             Attribute Markup)
+                                          §    TextEditBox
+                                             (receives keyboard
+                                             editing commands and
+                                             data on event driven
+                                             basis and displays
+                                             input in windows
+                                             associated with
+                                             PasswordEntryDialog and
+                                             TextEntryDialog)
+GUI Object Styles   GUI Object Layout     GUI Object Styles
+(wxWidgets &        Sizers (wxWidgets &   (tsWxGTUI)
+wxPython)           wxPython)             §    Box (automatically
+§    Overlapping    §    Box                 scaled Horizontal &
+§    Tiled            (automatically scaled   Vertical Layout)
+§    Border None      Horizontal & Vertical§    Grid
+§    Border Simple    Layout)                (automatically scaled
+§    Splash Screen  §    Grid                Horizontal & Vertical
+  (Bitmap Image)      (automatically scaled   Layout)
+                      Horizontal & Vertical§    Splash Screen (off-
+                      Layout)                line, NCurses-style
+                    §    Splash Screen       Bitmap Image builder
+                      (Bitmap Image          utility)
+                      display)            §    Static Box
+                    §    Static Box          (combines Box Sizer
+                      (combines Box Sizer    with Bordered Panel
+                      with Bordered Panel    layout)
+                      layout)
+Text (wxWidgets &   Text (nCurses)        Text (tsWxGTUI)
+wxPython)           §    Single           §    Single Monospaced
+§    Multiple         Monospaced             Font
+  Proportional (such  (configurable by    §    Single Size
+  as Times and        terminal operator      (conversions between
+  Helvetica) and      such as Courier) Font   wxWidgets pixel and
+  Monospaced        §    Single Size         nCurses character
+  (Courier) Font      (configurable by       dimensions presumes
+  Families            terminal operator      12pt font having 8
+§    Multiple Sizes   such as 12pt having 8   pixel width and 12
+  (8pt to 288pt)      pixel width and 12     pixel height)
+§    Special          pixel height)       §    Special Effects
+  Effects (numerous §    Special Effects     (configuration file
+  including           (configurable by       "tsWxGlobals"
+  horizontal,         application            establishes defaults
+  vertical, rotated   programmer but         for various nCurses
+  etc.)               limited to one or a    text markup styles that
+                      combination of the     may be changed or
+                      following: Blinking,   overridden by the
+                      Bold, Dim, Normal,     application programmer)
+                      Reverse, Standout and
+                      Underline)
+Color Palette       Color Palette         Color Palette
+(wxWidgets &        (nCurses)             (tsWxGTUI)
+wxPython)           §    8-colors (black, §
+§    68-colors        blue, cyan, green,     tsWxGraphicalTextUserIn
+§    4624-            magenta, red, white,   terface maps wxWidgets
+  foreground/backgrou  yellow)                68-colors (4624-color
+  nd color pairs    §    64-                 pairs) into nCurses 8-
+                      foreground/background   colors (64-color pairs)
+                      color pairs         §
+                    §    256-colors          tsWxGraphicalTextUserIn
+                      (option requires wide-   terface defines nCurses
+                      character build of     256-colors (65536-color
+                      nCurses and Python     pairs) into wxWidgets
+                      Curses modules)        68-colors (4624-color
+                    §    65536-              pairs) and 188 other
+                      foreground/background   colors (60912 other
+                      color pairs (option    color pairs)
+                      requires wide-      Non-Color Palette
+                      character build of  (tsWxGTUI)
+                      nCurses and Python  §    Platform-specific
+                      Curses modules)        1-color is visible for
+                    Non-Color Palette        Foreground (White) and
+                    (nCurses)                NOT visible (Black) for
+                    §    Platform-           Background. The 1-color
+                      specific 1-color is    (2-color pair) is
+                      visible for            determined either by
+                      Foreground (White)     the phosphor (Green,
+                      and NOT visible        Orange, White) used in
+                      (Black) for            the physical terminal's
+                      Background. The 1-     display or by the color
+                      color (2-color pair)   adopted by the terminal
+                      is determined either   emulator (Cygwin's
+                      by the phosphor        console-based and xterm-
+                      (Green, Orange,        based vt100 emulators
+                      White) used in the     use White on Black
+                      physical terminal's    while Apple's Mac OS X
+                      display or by the      xterm-based vt100
+                      color adopted by the   emulator uses Black on
+                      terminal emulator      White)
+                      (Cygwin's console-
+                      based and xterm-based
+                      vt100 emulators use
+                      White on Black while
+                      Apple's Mac OS X
+                      xterm-based vt100
+                      emulator uses Black
+                      on White)
+
