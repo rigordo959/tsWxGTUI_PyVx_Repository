@@ -1,5 +1,5 @@
 #! /usr/bin/env python
-# "Time-stamp: <07/05/2015  6:28:22 AM rsg>"
+# "Time-stamp: <07/11/2015 10:00:17 AM rsg>"
 '''
 tsWxEventLoop.py - Class uses the Standard Python Curses API to
 receive keyboard and mouse events. It maps those events into
@@ -2874,7 +2874,7 @@ class EventLoop(object):
 
         mouseId = vt100State[3]
 
-	new_design_not_ready = True
+        new_design_not_ready = True
 
         if new_design_not_ready:
 
