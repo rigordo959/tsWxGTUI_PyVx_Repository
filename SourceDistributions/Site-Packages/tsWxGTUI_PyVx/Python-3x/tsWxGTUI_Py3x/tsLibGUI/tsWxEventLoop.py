@@ -1,5 +1,5 @@
 #! /usr/bin/env python
-# "Time-stamp: <07/05/2015  5:40:21 AM rsg>"
+# "Time-stamp: <07/14/2015 12:23:53 AM rsg>"
 '''
 tsWxEventLoop.py - Class uses the Standard Python Curses API to
 receive keyboard and mouse events. It maps those events into
@@ -300,6 +300,11 @@ handler.
 #                   "vt100State[6]) with balancing ")" for con-
 #                   sistancy.
 #
+#    2015/07/14 rsg Revised methods "tsMouseEventGenerator" and
+#                   "tsVT100MouseEventGenerator". Added logic to
+#                   inhibit event generation if Curses STDSCR
+#                   lacks an associated wxPython GUI Object.
+#
 # ToDo:
 #
 #    2011/12/31 rsg Translate Ncurses key names to wxPython key names.
@@ -345,8 +350,8 @@ handler.
 #################################################################
 
 __title__     = 'tsWxEventLoop'
-__version__   = '1.12.0'
-__date__      = '06/23/2015'
+__version__   = '1.13.0'
+__date__      = '07/14/2015'
 __authors__   = 'Richard S. Gordon'
 __copyright__ = 'Copyright (c) 2007-2015 ' + \
     '%s.\n\t\tAll rights reserved.' % __authors__
@@ -1496,57 +1501,68 @@ class EventLoop(object):
          objectCriteria) = self.tsThisIsTriggeringObject(
              mouseId, x, y, z, bstate)
 
-        triggeringEvent = self.tsThisIsTriggeringEvent(
-            mouseId, x, y, z, bstate, objectId)
+        if triggeringObject is None:
 
-        if DEBUG:
-
-            fmt1 = 'tsWxEventLoop.tsMouseEventGenerator: '
-            fmt2 = 'triggeringMouseTuple=%s' % str(
-                self.ts_LastCursesGetMouseTuple)
-            fmt3 = 'triggeringObject=%s; id=%d; className=%s' % (
-                str(triggeringObject),
-                triggeringObject.ts_AssignedId,
-                triggeringObject.ts_ClassName)
-            msg = fmt1 + fmt2 + fmt3
-            self.logger.notice(msg)
-            print('NOTICE: %s\n' % msg)
-
-        if triggeringObject.ts_ClassName.lower() == wx.ScrollBarGaugeNameStr.lower():
-
-            triggeringMouseTuple = self.ts_LastCursesGetMouseTuple
+            # Curses STDSCR area without associated wxPython GUI object,
+            msg = 'Curses STDSCR area without ' + \
+                  'associated wxPython GUI object.'
+            print('DEBUG: %s' % msg)
 
         else:
 
-            triggeringMouseTuple = None
+            # Curses STDSCR area with associated wxPython GUI object.
+            triggeringEvent = self.tsThisIsTriggeringEvent(
+                mouseId, x, y, z, bstate, objectId)
 
-        if bypassEventProcessingMode:
+            if DEBUG:
 
-            results = self.tsProcessEventTables(
-                objectCriteria=objectCriteria,
-                objectId=objectId,
-                triggeringEvent=triggeringEvent,
-                triggeringObject=triggeringObject)
+                fmt1 = 'tsWxEventLoop.tsMouseEventGenerator: '
+                fmt2 = 'triggeringMouseTuple=%s' % str(
+                    self.ts_LastCursesGetMouseTuple)
+                fmt3 = 'triggeringObject=%s; id=%d; className=%s' % (
+                    str(triggeringObject),
+                    triggeringObject.ts_AssignedId,
+                    triggeringObject.ts_ClassName)
+                msg = fmt1 + fmt2 + fmt3
+                self.logger.notice(msg)
+                print('NOTICE: %s\n' % msg)
 
-        else:
+            if triggeringObject.ts_ClassName.lower() == \
+               wx.ScrollBarGaugeNameStr.lower():
 
-            theEvent = Event(
-                id=wx.ID_ANY,
-                callbackUserData=None,
-                canVeto=False,
-                eventCategory=wxEVT_CATEGORY_USER_INPUT,
-                eventCriteria=objectCriteria,
-                eventData=triggeringMouseTuple,
-                eventSource=triggeringObject,
-                eventType=triggeringEvent.EventType,
-                isCommandEvent=False,
-                propagationLevel=wxEVENT_PROPAGATE_NONE,
-                skipped=False,
-                timeStamp=time.time(),
-                veto=False,
-                wasProcessed=False)
+                triggeringMouseTuple = self.ts_LastCursesGetMouseTuple
 
-            self.ts_RealTimeQueue.Add(theEvent)
+            else:
+
+                triggeringMouseTuple = None
+
+            if bypassEventProcessingMode:
+
+                results = self.tsProcessEventTables(
+                    objectCriteria=objectCriteria,
+                    objectId=objectId,
+                    triggeringEvent=triggeringEvent,
+                    triggeringObject=triggeringObject)
+
+            else:
+
+                theEvent = Event(
+                    id=wx.ID_ANY,
+                    callbackUserData=None,
+                    canVeto=False,
+                    eventCategory=wxEVT_CATEGORY_USER_INPUT,
+                    eventCriteria=objectCriteria,
+                    eventData=triggeringMouseTuple,
+                    eventSource=triggeringObject,
+                    eventType=triggeringEvent.EventType,
+                    isCommandEvent=False,
+                    propagationLevel=wxEVENT_PROPAGATE_NONE,
+                    skipped=False,
+                    timeStamp=time.time(),
+                    veto=False,
+                    wasProcessed=False)
+
+                self.ts_RealTimeQueue.Add(theEvent)
 
     #-----------------------------------------------------------------------
 
@@ -2856,79 +2872,165 @@ class EventLoop(object):
         '''
         Categorize mouse input. Identify triggering object and generate
         the appropriate triggering event notification.
+
+        Examples:
+
+            Sequence --- close box with mouse pressed           
+            0   escape          27
+            1                   91
+            2                   77
+            3   button+32       pressed  32
+            4   x + 33          95
+            5   y + 33          39
+
+            Sequence --- close box with mouse released          
+            6   escape          27
+            7                   91
+            8                   77
+            9   buttons ?       released 35
+            10  x + 33          95
+            11  y + 33          39
         '''
 ##        self.ts_LastCursesGetMouseTuple = curses.getmouse()
 
 ##        (mouseId, x, y, z, bstate) = self.ts_LastCursesGetMouseTuple
 
         mouseId = vt100State[3]
-        x = int(vt100State[4] - 33)
-        y = int(vt100State[5] - 33)
-        z = int(vt100State[9] - 35)
-        if (int(vt100State[9] - 35) == 0):
-            bstate = curses.BUTTON1_CLICKED
-        elif (int(vt100State[9] - 35) == 1):
-            bstate = curses.BUTTON2_CLICKED
-        elif (int(vt100State[9] - 35) == 2):
-            bstate = curses.BUTTON3_CLICKED
+
+        new_design_not_ready = True
+
+        if new_design_not_ready:
+
+            x = int(vt100State[4] - 33)
+            y = int(vt100State[5] - 33)
+            z = int(vt100State[9] - 35)
+            if (int(vt100State[9] - 35) == 0):
+                bstate = curses.BUTTON1_CLICKED
+            elif (int(vt100State[9] - 35) == 1):
+                bstate = curses.BUTTON2_CLICKED
+            elif (int(vt100State[9] - 35) == 2):
+                bstate = curses.BUTTON3_CLICKED
+
+        else:
+
+            x_pressed = int(vt100State[4] - 33)
+            y_pressed = int(vt100State[5] - 33)
+            z_pressed = int(vt100State[9] - 35)
+
+            x_released = int(vt100State[4+6] - 33)
+            y_released = int(vt100State[5+6] - 33)
+            z_released = int(vt100State[9] - 35)
+
+            x_displacement = int(x_released - x_pressed)
+            y_displacement = int(y_released - y_pressed)
+            z_displacement = int(z_released - z_pressed)
+
+            x = x_pressed
+            y = y_pressed
+            z = z_pressed
+
+            if ((x_displacement == 0) and \
+                (y_displacement == 0) and \
+                (z_displacement == 0)):
+
+                # Simple mouse click
+                if (int(vt100State[9] - 35) == 0):
+                    bstate = curses.BUTTON1_CLICKED
+                elif (int(vt100State[9] - 35) == 1):
+                    bstate = curses.BUTTON2_CLICKED
+                elif (int(vt100State[9] - 35) == 2):
+                    bstate = curses.BUTTON3_CLICKED
+
+            else:
+
+                # Character string selection
+                msg = 'Character string selection: ' + \
+                      'Pressed = %s; Released = %s' % (
+                          str(x_pressed, y_pressed, z_pressed),
+                          str(x_released, y_released, z_released))
+                self.logger.notice(msg)
+                print('NOTICE: %s\n' % msg)
+
+##                if (int(vt100State[9] - 35) == 0):
+##                    bstate = curses.BUTTON1_PRESSED
+##                elif (vt100State[9] - 35) == 1:
+##                    bstate = curses.BUTTON2_PRESSED
+##                elif (vt100State[9] - 35) == 2:
+##                    bstate = curses.BUTTON3_PRESSED
+                if (int(vt100State[9] - 35) == 0):
+                    bstate = curses.BUTTON1_CLICKED
+                elif (int(vt100State[9] - 35) == 1):
+                    bstate = curses.BUTTON2_CLICKED
+                elif (int(vt100State[9] - 35) == 2):
+                    bstate = curses.BUTTON3_CLICKED
 
         (triggeringObject,
          objectId,
          objectCriteria) = self.tsThisIsTriggeringObject(
              mouseId, x, y, z, bstate)
 
-        triggeringEvent = self.tsThisIsTriggeringEvent(
-            mouseId, x, y, z, bstate, objectId)
+        if triggeringObject is None:
 
-        if DEBUG:
-
-            fmt1 = 'tsWxEventLoop.tsVT100MouseEventGenerator: '
-            fmt2 = 'triggeringMouseTuple=%s' % str(
-                self.ts_LastCursesGetMouseTuple)
-            fmt3 = 'triggeringObject=%s; id=%d; className=%s' % (
-                str(triggeringObject),
-                triggeringObject.ts_AssignedId,
-                triggeringObject.ts_ClassName)
-            msg = fmt1 + fmt2 + fmt3
-            self.logger.notice(msg)
-            print('NOTICE: %s\n' % msg)
-
-        if triggeringObject.ts_ClassName.lower() == \
-           wx.ScrollBarGaugeNameStr.lower():
-
-            triggeringMouseTuple = self.ts_LastCursesGetMouseTuple
+            # Curses STDSCR area without associated wxPython GUI object,
+            msg = 'Curses STDSCR area without ' + \
+                  'associated wxPython GUI object.'
+            print('DEBUG: %s' % msg)
 
         else:
 
-            triggeringMouseTuple = None
+            # Curses STDSCR area with associated wxPython GUI object.
+            triggeringEvent = self.tsThisIsTriggeringEvent(
+                mouseId, x, y, z, bstate, objectId)
 
-        if bypassEventProcessingMode:
+            if DEBUG:
 
-            results = self.tsProcessEventTables(
-                objectCriteria=objectCriteria,
-                objectId=objectId,
-                triggeringEvent=triggeringEvent,
-                triggeringObject=triggeringObject)
+                fmt1 = 'tsWxEventLoop.tsVT100MouseEventGenerator: '
+                fmt2 = 'triggeringMouseTuple=%s' % str(
+                    self.ts_LastCursesGetMouseTuple)
+                fmt3 = 'triggeringObject=%s; id=%d; className=%s' % (
+                    str(triggeringObject),
+                    triggeringObject.ts_AssignedId,
+                    triggeringObject.ts_ClassName)
+                msg = fmt1 + fmt2 + fmt3
+                self.logger.notice(msg)
+                print('NOTICE: %s\n' % msg)
 
-        else:
+            if triggeringObject.ts_ClassName.lower() == \
+               wx.ScrollBarGaugeNameStr.lower():
 
-            theEvent = Event(
-                id=wx.ID_ANY,
-                callbackUserData=None,
-                canVeto=False,
-                eventCategory=wxEVT_CATEGORY_USER_INPUT,
-                eventCriteria=objectCriteria,
-                eventData=triggeringMouseTuple,
-                eventSource=triggeringObject,
-                eventType=triggeringEvent.EventType,
-                isCommandEvent=False,
-                propagationLevel=wxEVENT_PROPAGATE_NONE,
-                skipped=False,
-                timeStamp=time.time(),
-                veto=False,
-                wasProcessed=False)
+                triggeringMouseTuple = self.ts_LastCursesGetMouseTuple
 
-            self.ts_RealTimeQueue.Add(theEvent)
+            else:
+
+                triggeringMouseTuple = None
+
+            if bypassEventProcessingMode:
+
+                results = self.tsProcessEventTables(
+                    objectCriteria=objectCriteria,
+                    objectId=objectId,
+                    triggeringEvent=triggeringEvent,
+                    triggeringObject=triggeringObject)
+
+            else:
+
+                theEvent = Event(
+                    id=wx.ID_ANY,
+                    callbackUserData=None,
+                    canVeto=False,
+                    eventCategory=wxEVT_CATEGORY_USER_INPUT,
+                    eventCriteria=objectCriteria,
+                    eventData=triggeringMouseTuple,
+                    eventSource=triggeringObject,
+                    eventType=triggeringEvent.EventType,
+                    isCommandEvent=False,
+                    propagationLevel=wxEVENT_PROPAGATE_NONE,
+                    skipped=False,
+                    timeStamp=time.time(),
+                    veto=False,
+                    wasProcessed=False)
+
+                self.ts_RealTimeQueue.Add(theEvent)
 
     # End tsWx API Extensions
     #-----------------------------------------------------------------------
