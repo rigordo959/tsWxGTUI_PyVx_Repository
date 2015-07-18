@@ -1,5 +1,5 @@
 #! /usr/bin/env python
-#"Time-stamp: <03/21/2015 11:34:36 PM rsg>"
+#"Time-stamp: <07/18/2015  5:50:35 AM rsg>"
 '''
 tsPlatformRunTimeEnvironment - Class to capture current
 hardware, software and network information about the run time
@@ -341,7 +341,7 @@ class PlatformRunTimeEnvironment(object):
 
             sizex, sizey = get_terminal_size()
 
-        except Exceptoon as tsGetHostConsoleDisplaySizeErrorCode:
+        except Exception as tsGetHostConsoleDisplaySizeErrorCode:
 
             sizex = 80
             sizey = 25
