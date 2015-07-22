@@ -1,5 +1,5 @@
 #! /usr/bin/env python
-#"Time-stamp: <12/07/2013  9:10:27 AM rsg>"
+#"Time-stamp: <07/22/2015  2:24:36 AM rsg>"
 '''
 test_tsWxPySimpleApp.py - Application program to mimic some
 features of the Graphical TextUser Interface.
@@ -13,18 +13,7 @@ features of the Graphical TextUser Interface.
 #    Application program to mimic some features of the
 #    Graphical Text User Interface.
 #
-#
-#    1. Frame
-#    2. one main panel added to Frame
-#    3. two panels, one left and one right, added to main panel
-#    4. two buttons in the left panel (plus and minus)
-#    5. one text widget in the right panel used as a counter
-#    6. the plus button will add one to the counter
-#    7. the minus button will subtract one from the counter
-#
 # Limitations:
-#
-#    1) None
 #
 # Notes:
 #
@@ -36,20 +25,24 @@ features of the Graphical TextUser Interface.
 #
 # Methods:
 #
+# Modifications:
+#
+#   2015/07/22 rsg Resurected very first wxPython emulation test and
+#                  modified design to use same parameter names
+#                  as current tsWxMultiFrameEnv.
+#
 # ToDo:
 #   1. Show menu help in status bar - works on MS Windows
 #   2. Fix minimum size - can resize the Frame too small
 #      added fix - doesn't quite work on MacOS, need to check MS Windows
 #
-# Modifications:
-#
 #################################################################
 
 __title__     = 'test_tsWxPySimpleApp'
-__version__   = '0.0.2'
-__date__      = '06/25/2009'
+__version__   = '1.0.0'
+__date__      = '07/22/2015'
 __authors__   = 'Richard "Dick" S. Gordon & Frederick "Rick" A. Kier'
-__copyright__ = 'Copyright (c) 2007-2009 TeamSTARS. All rights reserved.'
+__copyright__ = 'Copyright (c) 2007-2015 TeamSTARS. All rights reserved.'
  
 __line1__ = '%s, v%s (build %s)' % (__title__, __version__, __date__)
 __line2__ = 'Authors: %s' % __authors__
@@ -149,14 +142,15 @@ if __name__ == '__main__':
 
     try:
         theApplication = cliAPP(
-            header=__header__,
-            mainTitleVersionDate=mainTitleVersionDate,
-            title=__title__,
-            version=__version__,
-            date=__date__,
+            buildHeader=__header__,
+            buildTitleVersionDate=mainTitleVersionDate,
+            buildTitle=__title__,
+            buildVersion=__version__,
+            buildDate=__date__,
+            runTimeEntryPoint=cliAPP.main,
             logs=[])
 
-        theApplication.runMain()
+        theApplication.main()
 
     except Exception, e:
         if isinstance(e, tse.TsExceptions):
