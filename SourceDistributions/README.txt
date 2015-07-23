@@ -1,5 +1,5 @@
 #-----------------------------------------------------------
-#"Time-stamp: <07/07/2015  7:17:22 PM rsg>
+#"Time-stamp: <07/23/2015  7:43:23 AM rsg>
 #-----------------------------------------------------------
 
 ===================== File: README.txt =====================
@@ -19,9 +19,20 @@
 
        "./<Toolkit Recipient's Repository>/Documents".
 
+       <Your Working Repository>
+       (e.g. "tsWxGTUI_PyVx_Repository") 
+         |
+         |
+         +-- ["Documents"]
+
 ===================== TABLE OF CONTENTS ====================
 
 1. Welcome
+
+   1.1 Application Programs
+   1.2 Development Systems
+   1.3 Embedded Systems
+   1.4 What should you do to get started?
 
 2. Release Distribution Identification
 
@@ -60,26 +71,52 @@
        (GUI) that can be monitored and controlled locally or
        remotely.
 
-   1.2. Embedded Systems
+   1.2 Development Systems
 
-        Mission-critical systems for commercial, industrial,
-        medical and military applications are typically cus-
-        tomized and optimized for a specific use. Unlike
-        their general purpose desktop, laptop and workstation
-        counterparts, embedded systems typically have limit-
-        ed, application-specific processing, memory, commu-
-        nication, input/output and file storage resources.
-        Some may have character-mode hardware only suitable
-        for their operating system's command line console.
+        General-purpose systems used for development of:
 
-   1.3 What should you do to get started?
+        a. software (source code for libraries of scripts,
+           building blocks, tools and applications)
+
+        b. documentation (presentations, training material,
+           programmer reference manuals etc.)
+
+        Such general-purpose desktop, laptop and workstation
+        computer systems typically have upgradable or at least
+        sufficient processing, memory, communication, input/
+        output and file storage resources. They typically have
+        computer terminal interface hardware suitable for a
+        pixel-mode display that also supports character-mode. 
+
+   1.3 Embedded Systems
+
+        Mission-critical systems used to monitor and control:
+
+        a. operating mode (setup, diagnostic/test, monitor
+           only, manual, automatic etc.)
+
+        b. setpoints (startup/shutdown sequences, tempera-
+           tures, pressures, motion speed, fluid/gas flows,
+           lighting brightness/contrast, sound loudness/tonal
+           balance, detector sensitivity etc.)
+
+        c. commercial, industrial, manufacturing, medical or
+           military equipment.
+
+        Such application-specific computer systems typically have
+        upgradable but limited processing, memory, communication,
+        input/output and file storage resources. Some may have
+        character-mode hardware only suitable for their operating
+        system's command line console.
+
+   1.4 What should you do to get started?
 
        Browse through the following information located in
        the directory "./tsWxGTUI_PyVx/Documents". It provid-
        es an overview of the Toolkit distribution and its
        contents:
 
-       1.3.1 What is the TeamSTARS "tsWxGTUI_PyVx" Toolkit?
+       1.4.1 What is the TeamSTARS "tsWxGTUI_PyVx" Toolkit?
 
              a) "README1-Introduction.txt"
              b) "README2-Repository.txt"
@@ -91,27 +128,28 @@
              h) "README8-SitePackages.txt"
              i) "README9-KeyboardMouseInput.txt"
 
-       1.3.2 How to prepare your computer(s) for use with the
+       1.4.2 How to prepare your computer(s) for use with the
              Toolkit? 
 
              a) "GETTING_STARTED.txt"
 
-       1.3.3 How can you become familiar with the features,
+       1.4.3 How can you become familiar with the features,
              look and feel of the Toolkit? 
 
              a) "DEMO.txt"
              b) "TROUBLESHOOT.txt"
 
-       1.3.4 What are the currently known Toolkit limitations,
+       1.4.4 What are the currently known Toolkit limitations,
              bugs and update roadmap? 
 
              a) "BUGS.txt"
              b) "TO-DO.txt"
 
-   1.4 Experience the features, look and feel of the Toolkit
-       by running through the scenarios presented in DEMO.txt
-       file and browsing through the Python source code for the
-       associated application programs and building blocks.
+       1.4.5 Experience the features, look and feel of the
+             Toolkit by running through the scenarios pre-
+             sented in DEMO.txt file and browsing through
+             the Python source code for the associated
+             application programs and building blocks.
 
 
                                            Richard S. Gordon
@@ -796,7 +834,7 @@
        named ["tsWxGTUI_PyVx-0.0.0"]. It contains the
        following:
 
-       ["tsWxGTUI_PyVx-0.0.0"]
+       ["tsWxGTUI_PyVx_Repository-0.0.0"]
          |
          +-- ["tsWxGTUI_PyVx"]
          |     |
