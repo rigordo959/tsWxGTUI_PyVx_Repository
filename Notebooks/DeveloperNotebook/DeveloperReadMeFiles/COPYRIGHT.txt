@@ -1,5 +1,5 @@
 #-----------------------------------------------------------
-#"Time-stamp: <06/11/2015  9:12:56 AM rsg>"
+#"Time-stamp: <08/04/2015  3:39:47 PM rsg>"
 #-----------------------------------------------------------
 
 ==================== File: COPYRIGHT.txt ===================
@@ -19,6 +19,12 @@
 
        "./<Toolkit Recipient's Repository>/Documents".
 
+       <Your Working Repository>
+       (e.g. "tsWxGTUI_PyVx_Repository") 
+         |
+         |
+         +-- ["Documents"]
+
 ==================== TABLE OF CONTENTS =====================
 
    1. Copyright Notice TeamSTARS "tsWxGTUI_PyVx" Toolkit
@@ -31,7 +37,7 @@
 
 ==== COPYRIGHT NOTICE TeamSTARS "tsWxGTUI_PyVx" Toolkit ====
 
-      TeamSTARS "tsWxGTUI_PyVx" Toolkit, v0.0.0
+      TeamSTARS "tsWxGTUI_PyVx" Toolkit, v0.0.1
 
       Copyright (c) 2007-2009 Frederick A. Kier &
                               Richard S. Gordon,

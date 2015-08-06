@@ -1,5 +1,5 @@
 #-----------------------------------------------------------
-#"Time-stamp: <07/23/2015  7:43:05 AM rsg>
+#"Time-stamp: <08/06/2015  3:32:24 AM rsg>
 #-----------------------------------------------------------
 
 ===================== File: README.txt =====================
@@ -112,8 +112,8 @@
    1.4 What should you do to get started?
 
        Browse through the following information located in
-       the directory "./tsWxGTUI_PyVx/Documents". It provid-
-       es an overview of the Toolkit distribution and its
+       the directory "./tsWxGTUI_PyVx_Repository/Documents". It
+       provides an overview of the Toolkit distribution and its
        contents:
 
        1.4.1 What is the TeamSTARS "tsWxGTUI_PyVx" Toolkit?
@@ -203,8 +203,8 @@
                        Current stable release is Python 3.4.3
                        as of 25 Feb. 2015.
 
-                       Latest (beta) release is Python 3.5.0b2
-                       as of 1 June 2015.
+                       Latest (beta) release is Python 3.5.0b3
+                       as of 5 July 2015.
 
                        NOTE: The Python Software Foundation has
                              designated Python 3.x to be under
@@ -324,8 +324,8 @@
    3.1 "Zip" File for Microsoft Windows
 
        Microsoft Windows platforms (such as Windows XP, Vista,
-       7, 8, 8.1 and 10 Technical Preview) support a "zip"
-       archive file format such as:
+       7, 8, 8.1 and 10) support a "zip" archive file format
+       such as:
 
        Multi-generation Python programming language release
        sdist-stage source code and documentation products:
@@ -467,8 +467,8 @@
    fication date and time) in the following toolkit working
    repository files:
 
-      "./tsWxGTUI_PyVx/MANIFEST_TREE.txt"
-      "./tsWxGTUI_PyVx/MANIFEST_TREE.html"
+      "./tsWxGTUI_PyVx_Repository/MANIFEST_TREE.txt"
+      "./tsWxGTUI_PyVx_Repository/MANIFEST_TREE.html"
 
    An overview, annotated with design guidelines, is depicted
    in the following organization chart:

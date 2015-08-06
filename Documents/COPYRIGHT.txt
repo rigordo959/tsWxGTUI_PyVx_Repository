@@ -1,5 +1,5 @@
 #-----------------------------------------------------------
-#"Time-stamp: <07/08/2015  2:00:47 AM rsg>"
+#"Time-stamp: <08/04/2015  3:39:47 PM rsg>"
 #-----------------------------------------------------------
 
 ==================== File: COPYRIGHT.txt ===================
@@ -37,7 +37,7 @@
 
 ==== COPYRIGHT NOTICE TeamSTARS "tsWxGTUI_PyVx" Toolkit ====
 
-      TeamSTARS "tsWxGTUI_PyVx" Toolkit, v0.0.0
+      TeamSTARS "tsWxGTUI_PyVx" Toolkit, v0.0.1
 
       Copyright (c) 2007-2009 Frederick A. Kier &
                               Richard S. Gordon,
