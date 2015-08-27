@@ -1,5 +1,5 @@
 #-----------------------------------------------------------
-#"Time-stamp: <07/07/2015  7:47:34 PM rsg>"
+#"Time-stamp: <08/26/2015  4:35:18 PM rsg>"
 #-----------------------------------------------------------
 
 =========== File: README6-SourceDistributions.txt ==========
@@ -95,7 +95,7 @@
 
 3. Site-Package
 
-===================== SourceDistribution ====================
+======================== Source Code =======================
 
 1. Source Code
 
@@ -125,7 +125,7 @@
    small code snippets, but occasionally complete code
    bases; a well-known case is the source code of PGP."
 
-===================== DEVELOPER-SANDBOX ====================
+===================== Developer-Sandbox ====================
 
 2. Developer-Sandbox
 
@@ -180,7 +180,7 @@
    unique) or by package.module name (if module name is not
    unique).
 
-======================= SITE-PACKAGE =======================
+======================= Site-Package =======================
 
 3. Site-Package
 

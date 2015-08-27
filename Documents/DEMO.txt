@@ -1,5 +1,5 @@
 #-----------------------------------------------------------
-#"Time-stamp: <07/08/2015  4:14:04 AM rsg>"
+#"Time-stamp: <08/26/2015  4:09:25 PM rsg>"
 #-----------------------------------------------------------
 
 ======================= File: DEMO.txt =====================
@@ -25,21 +25,277 @@
          |
          +-- ["Documents"]
 
-   Examples (assume download into a working repository
-             "WR" created in the user's desktop directory
-             "~/Desktop"):
+========================== PREFACE =========================
 
-   1. Downloaded release:
+   The TeamSTARS "tsWxGTUI_PyVx" Toolkit is available as a
+   compressed archive ("zip") file from:
 
-       "~/Desktop/WR/tsWxGTUI_PyVx_Repository/
-          Documents/DEMO.txt".
+      https://github.com/rigordo959/tsWxGTUI_PyVX_Repository
 
-   2. User Scratchpads (a place to run the demonstration
-      and capture log files for easy housekeeping):
+   After it has been downloaded, its contents must be ex-
+   tracted into a working repository "WR" created in the
+   user's desktop directory or other convenient location:
 
-       "~/Desktop/Scratchpad-tsWxGTUI_Py2x".
+      ~/Desktop/WR/tsWxGTUI_PyVX_Repository
 
-       "~/Desktop/Scratchpad-tsWxGTUI_Py3x".
+   Once it has been extracted, the user will find its con-
+   tents organized as follows:
+
+       <Your Working Repository>
+       (e.g. "tsWxGTUI_PyVx_Repository") 
+         |
+         |  Working repository containing directories and
+         |  files to be packaged into downloadable "tarball"
+         |  and/or "zip" files via the setup shell scripts
+         |  at the bottom of this diagram.
+         |
+         +-- ["Documents"] (Original)
+         |     |
+         |     |  This directory contains a collection of files
+         |     |  which provide the Toolkit recipient with an
+         |     |  understanding of the purpose, goals & capabil-
+         |     |  ities, non-goals & limitations, terms & condi-
+         |     |  tions and procedures for installing, operating,
+         |     |  modifying and redistributing the Toolkit. 
+         |     |
+         |     +-- "README.txt"
+         |     +-- "README1-Introduction.txt"
+         |     +-- "README2-Repository.txt"
+         |     +-- "README3-Documents.txt"
+         |     +-- "README4-ManPages.txt"
+         |     +-- "README5-Notebooks.txt"
+         |     +-- "README6-SourceDistributions.txt"
+         |     +-- "README7-DeveloperSandboxes.txt"
+         |     +-- "README8-SitePackages.txt"
+         |     +-- "README9-KeyboardMouseInput.txt"
+         |     +-- "GETTING_STARTED.txt"
+         |
+         +-- ["ManPages"] (Original)
+         |     |
+         |     |  Deliverable Toolkit manual pages are a
+         |     |  form of online software documentation
+         |     |  usually found on a Unix or Unix-like
+         |     |  operating system.
+         |     |
+         |     |  Topics covered include computer programs
+         |     |  (including library and system calls),
+         |     |  formal standards and conventions, and even
+         |     |  abstract concepts.
+         |     |
+         |     |  Unlike their Unix or Unix-like counterparts,
+         |     |  a Toolkit user may NOT invoke a man page by
+         |     |  issuing the "man command". Instead, a user
+         |     |  mmust display a man page by issuing the
+         |     |  "less <man document file>" command.
+         |     |
+         |     +-- ["tsManPagesLibCLI"]
+         |     +-- ["tsManPagesLibGUI"]
+         |     +-- ["tsManPagesTestsLibCLI"]
+         |     +-- ["tsManPagesTestsLibGUI"]
+         |     +-- ["tsManPagesToolsCLI"]
+         |     +-- ["tsManPagesToolsGUI"]     (Future)
+         |     +-- ["tsManPagesToolsLibCLI"]
+         |     +-- ["tsManPagesToolsLibGUI"]  (Future)
+         |     +-- ["tsManPagesUtilitiesCLI"] (Future)
+         |     |
+         |     +-- "README4-ManPages.txt"
+         |
+         +-- ["Notebooks"] (Original Pre-dates Documents)
+         |     |
+         |     |  Contains a collection of commentaries that
+         |     |  express opinions or offerings of explana-
+         |     |  tions about events or situations that might
+         |     |  be useful to Toolkit installers, developers,
+         |     |  operators, troubleshooters and distributors.
+         |     |  The documents may be in Application-specific
+         |     |  formats (such as Adobe PDF, JPEG Bit-mapped
+         |     |  image, LibreOffice, Microsoft Office, plain
+         |     |  text).
+         |     |
+         |     +-- ["DeveloperNotebook"] (Future Original
+         |     |     |                    Developer-Sandbox)
+         |     |     |
+         |     |     |  Contains a collection of:
+         |     |     |     API-References-Pixel-Mode-wxPython
+         |     |     |     and Developer-ReadMe-Files
+         |     |     |
+         |     |     +-- "README5-DeveloperNotebook.txt"
+         |     |
+         |     +-- ["EngineeringNotebook"] (Future Original
+         |     |     |                      Developer-Sandbox)
+         |     |     |
+         |     |     |  Contains a Toolkit Developer oriented collection of:
+         |     |     |
+         |     |     |     Project (purpose,
+         |     |     |              goals,
+         |     |     |              non-goals,
+         |     |     |              features,
+         |     |     |              capabilities,
+         |     |     |              limitations),
+         |     |     |
+         |     |     |     Plan (software life-cycle),
+         |     |     |
+         |     |     |     Requirements (purpose,
+         |     |     |                   goals,
+         |     |     |                   non-goals,
+         |     |     |                   features,
+         |     |     |                   capabilities,
+         |     |     |                   limitations,
+         |     |     |                   file system configuration,
+         |     |     |                   hardware & software interface,
+         |     |     |                   software,
+         |     |     |                   system,
+         |     |     |                   user configuration options),
+         |     |     |
+         |     |     |     Design (API emulation strategy, architecture),
+         |     |     |
+         |     |     |     Implementation (developer-sandbox, site-package),
+         |     |     |
+         |     |     |     Test (unit, integration, system, acceptance),
+         |     |     |
+         |     |     |     Marketing (announcement, brochure),
+         |     |     |
+         |     |     |     Release (introduction,
+         |     |     |              release notes,
+         |     |     |              software user's manual,
+         |     |     |              terms & conditions,
+         |     |     |              dictionary),
+         |     |     |
+         |     |     |     Third-party Resources
+         |     |     |
+         |     |     +-- "README5-EngineeringNotebook.txt"
+         |     |
+         |     +-- ["ProjectNotebook"] (Original Site-Package)
+         |     |     |
+         |     |     |  Contains a Toolkit User oriented collection of
+         |     |     |     ["EngineeringNotebook"] abstracts:
+         |     |     |
+         |     |     |     Project (purpose,
+         |     |     |              goals,
+         |     |     |              non-goals,
+         |     |     |              features,
+         |     |     |              capabilities,
+         |     |     |              limitations)
+         |     |     |
+         |     |     +-- "README5-ProjectNotebook.txt"
+         |     |
+         |     +-- "README5-Notebooks.txt"
+         |
+         +-- ["SourceDistributions"] (Original)
+         |     |
+         |     |  Contains a collection of computer program
+         |     |  source code files that the Toolkit recip-
+         |     |  ient will need to install, operate, modify
+         |     |  and re-distribute the Toolkit.
+         |     |
+         |     +-- ["Developer-Sandboxes"] (Pre-dates Site-Packages)
+         |     |     |
+         |     |     |  A sandbox is a testing environment that iso-
+         |     |     |  lates untested code changes and outright
+         |     |     |  experimentation from the production environ-
+         |     |     |  ment or repository.
+         |     |     |
+         |     |     +-- ["tsWxGTUI_PyVx"] (Developer-Sandbox)
+         |     |     |     |
+         |     |     |     +-- ["Documents"] (Copy)
+         |     |     |     |
+         |     |     |     +-- ["ManPages"] (Copy)
+         |     |     |     |
+         |     |     |     +-- ["Python-2x"] (Developer-Sandbox)
+         |     |     |     |     |
+         |     |     |     |     +-- ["tsWxGTUI_Py2x"]
+         |     |     |     |
+         |     |     |     +-- ["Python-3x"]  (Developer-Sandbox,
+         |     |     |           |             Ported from Python-2x)
+         |     |     |           |
+         |     |     |           +-- ["tsWxGTUI_Py3x"]
+         |     |     |
+         |     |     +-- "README7-DeveloperSandboxes.txt"
+         |     |
+         |     +-- ["Site-Packages"]
+         |     |     |
+         |     |     |  Site-packages is the location where third-
+         |     |     |  party packages are installed (i.e., those
+         |     |     |  not part of the core Python distribution).
+         |     |     |  NOTE: That with Linux, Mac OS X and Unix
+         |     |     |  operating systems one must have root priv-
+         |     |     |  iledges to write to that location.
+         |     |     |
+         |     |     +-- ["tsWxGTUI_PyVx"] (Site-Package)
+         |     |     |     |
+         |     |     |     +-- ["Documents"] (Copy)
+         |     |     |     |
+         |     |     |     +-- ["ManPages"] (Copy)
+         |     |     |     |
+         |     |     |     +-- ["Python-2x"] (Site-Package)
+         |     |     |     |     |
+         |     |     |     |     +-- ["tsWxGTUI_Py2x"]
+         |     |     |     |
+         |     |     |     +-- ["Python-3x"] (Site-Package,
+         |     |     |           |            Ported from Python-2x)
+         |     |     |           |
+         |     |     |           +-- ["tsWxGTUI_Py3x"]
+         |     |     |
+         |     |     +-- "README8-SitePackages.txt"
+         |     |
+         |     +-- "README6-SourceDistributions.txt"
+         |
+         +-- "MANIFEST.in"
+         |
+         |    Deliverable File inclusion criteria list.
+         |
+         +-- "MANIFEST_template.in"
+         |
+         |    Deliverable Generic file inclusion criteria list
+         |    template for any Python version-specific TeamSTARS
+         |    "tsWxGTUI_PyVx" Toolkit.
+         |
+         +-- "MANIFEST_TREE.html"
+         |
+         |    Non-Deliverable Diagram (Multi-Level Org Chart)
+         |    depicting the hierarchical relationship between files
+         |    in the release, in Hypertext Markup Language format.
+         |
+         |    Diagram created via Command "./MANIFEST_TREE.sh".
+         |
+         +-- "MANIFEST_TREE.sh"
+         |
+         |    Deliverable POSIX-style Command Line Interface shell
+         |    script to generate diagrams depicting the hierarchical
+         |    relationship between files in the release
+         |    ("MANIFEST_TREE.html" and "MANIFEST_TREE.txt").
+         |
+         +-- "MANIFEST_TREE.txt"
+         |
+         |    Non-Deliverable Diagram (Multi-Level Org Chart)
+         |    depicting the hierarchical relationship between
+         |    files in the release, in Plain Text format.
+         |
+         |    Diagram created via Command "./MANIFEST_TREE.sh".
+         |
+         +-- "setup_tsWxGTUI_PyVx_Repository_tar_file.sh"
+         |
+         |    Deliverable POSIX-style Command Line Interface shell
+         |    script to generate downloadable "tarball" file.
+         |
+         +-- "setup_tsWxGTUI_PyVx_Repository_zip_file.sh"
+         |
+         |    Deliverable POSIX-style Command Line Interface shell
+         |    script to generate downloadable "zip" file.
+         |
+         +-- "README.txt"
+
+   For those prospective adopters and users of the TeamSTARS
+   "tsWxGTUI_PyVx" Toolkit who are curious but impatient,
+   the "INSTALL.txt" file in the "Documents" directory con-
+   tains a "Quick Test Drive" section. It uses a Developer-
+   Sandbox, to avoid Site-Package installation. It will
+   briefly lead you to those Command Line Interface and
+   Graphical User Interface applications which enable you
+   to experience the look and feel of the Toolkit in action.
+
+   Others might take the time to pickup computer jargon and
+   follow this narrated, scripted tour.
 
 ===================== TABLE OF CONTENTS ====================
 
@@ -61,10 +317,11 @@
 
    2.3 Microsoft Windows
 
-       2.3.1 "Cygwin" (CLI & GUI)
-       # 2.3.2 "GnuWin32" (CLI)
-       # 2.3.3 "Windows PowerShell" (CLI only)
-       2.3.4 "Comand Prompt" (CLI only)
+       2.3.1 "Comand Prompt" (CLI only)
+
+       2.3.2 "Windows PowerShell" (CLI only)
+
+       2.3.3 "Cygwin" (CLI & GUI)
 
    2.4 Unix (CLI & GUI)
 
@@ -161,7 +418,7 @@
 
        7.3.2 Logout of Last Remote System:
 
-=============== DICTIONARY OF COMPUTER JARGON ==============
+=============== Dictionary of Computer Jargon ==============
 
 1. Dictionary of Computer Jargon
 
@@ -309,7 +566,7 @@
        threading CPUs and in CPUs with multiple multi-
        threading cores."
 
-================== PREPARE OPERATOR CONSOLE ================
+================== Prepare Operator Console ================
 
 2. Prepare Operator Console
 
@@ -372,24 +629,145 @@
 
        2.3.1 Comand Prompt (CLI only)
 
-             Launch "Command Prompt" or "Windows PowerShell"
-             application
+             Launch "Command Prompt" application from
+             "Accessories" folder.
 
-             a. Adjust Properties Font
+             a. Adjust Properties with Options Tab
 
-                Recommend Raster Fonts with 8 x 12 size
+                Cursor Size
 
-             b. Adjust Properties Window Layout (width and
-                height)
+                    Recommend Small
 
-                Should be at least 60 columns x 24 rows
-                Recommend 120 columns x 40 rows
+                Command History
 
-             c. Adjust Properties Colors
+                    Buffer Size
+
+                        Recommend 50 
+
+                    Number of Buffers
+
+                        Recommend 4
+
+                    Discard Old Duplicates
+
+                        Recommend leave blank
+
+                Edit Options
+
+                    QuickEdit Mode
+
+                        Recommend leave blank
+
+                    Insert Mode
+
+                        Recommend leave blank
+
+             b. Adjust Properties with Font Tab
+
+                Font
+
+                    Recommend Raster Fonts
+
+                Size
+
+                    Recommend 8 x 12
+
+             c. Adjust Properties with Layout Tab
+
+                Screen Buffer Size
+
+                    Recommend 120 Width x 50 Height
+
+                Window Size
+
+                    Should be at least 60 columns x 24 rows
+
+                    Recommend 120 columns x 40 rows
+
+                Window Position
+
+                    Recommend 22 Left x 22 Top
+
+                Let system position window
+
+                    Recommend leave blank
+
+             d. Adjust Properties with Colors Tab
 
                 Recommend Screen Background of Black
+                (Red 0, Green 0, Blue 0)
 
-       2.3.2 Cygwin (CLI & GUI)
+       2.3.2 "Windows PowerShell" (CLI only)
+
+             Launch "Windows PowerShell" application from
+             "Accessories" folder.
+
+             a. Adjust Properties with Options Tab
+
+                Cursor Size
+
+                    Recommend Small
+
+                Command History
+
+                    Buffer Size
+
+                        Recommend 50 
+
+                    Number of Buffers
+
+                        Recommend 4
+
+                    Discard Old Duplicates
+
+                        Recommend leave blank
+
+                Edit Options
+
+                    QuickEdit Mode
+
+                        Recommend click to turn ON
+
+                    Insert Mode
+
+                        Recommend click to turn ON
+
+             b. Adjust Properties with Font Tab
+
+                Font
+
+                    Recommend Raster Fonts
+
+                Size
+
+                    Recommend 8 x 12
+
+             c. Adjust Properties with Layout Tab
+
+                Screen Buffer Size
+
+                    Recommend 120 Width x 3000 Height
+
+                Window Size
+
+                    Should be at least 60 columns x 24 rows
+
+                    Recommend 120 columns x 50 rows
+
+                Window Position
+
+                    Recommend 22 Left x 22 Top
+
+                Let system position window
+
+                    Recommend click to turn ON
+
+             d. Adjust Properties with Colors Tab
+
+                Recommend Screen Background of Dark Blue
+                (Red 1, Green 36, Blue 35)
+
+       2.3.3 Cygwin (CLI & GUI)
 
              Launch "Cygwin Terminal" application
 
@@ -436,7 +814,7 @@
                 guide but make adjustments to suit your own
                 preferences.
 
-======= PYTHON PROGRAMMING LIBRARY, SECOND GENERATION ======
+======= Python Programming Library, Second Generation ======
 
 3. Python Programming Library, Second Generation
 
@@ -784,7 +1162,7 @@
              # Unix (FreeBSD)               "Dolphim"
              #      (Open Indiana)          "Nautilus"
 
-======== PYTHON PROGRAMMING LIBRARY, THIRD GENERATION ======
+======== Python Programming Library, Third Generation ======
 
 4. Python Programming Library, Third Generation
 
@@ -1137,7 +1515,7 @@
              # Unix (FreeBSD)               "Dolphim"
              #      (Open Indiana)          "Nautilus"
 
-==== PREPARE SSH / SFTP CLIENT & SERVER FOR REMOTE LOGIN ===
+==== Prepare SSH / SFTP Client & Server for Remote Login ===
 
 5. Prepare SSH / SFTP Client & Server for Remote Login
 
@@ -1505,7 +1883,7 @@
 
              5.4.3.2 Click on "Restart" or "Shut down" Icon
 
-============== USE SSH / SFTP FOR REMOTE LOGIN =============
+========= Use SSH / SFTP Server(s) for Remote Login ========
 
 6. Use SSH / SFTP Server(s) for Remote Login
 
@@ -1667,7 +2045,7 @@
              #     "logout"
              #     "Connection to <remote host network id> closed.
 
-===== USE MULTIPLE SESSIONS FOR CONCURRENT APPLICATIONS ====
+===== Use Multiple Sessions for Concurrent Applications ====
 
 7. Use Multiple Sessions for Concurrent Applications
 

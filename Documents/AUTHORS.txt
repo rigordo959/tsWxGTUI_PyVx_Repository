@@ -1,5 +1,5 @@
 #-----------------------------------------------------------
-#"Time-stamp: <07/08/2015  4:05:18 AM rsg>"
+#"Time-stamp: <08/26/2015  9:56:38 AM rsg>"
 #-----------------------------------------------------------
 
 ===================== File: AUTHORS.txt ====================
@@ -52,8 +52,14 @@ and license applicability issues.
 
 RSG     Richard S. Gordon
 
-     (2007-2009)    Prototype co-author and developer.
-     (2010-present) Pre-alpha author, developer & publisher.
+     (2007-2009)    Prototype (for what became known as the
+                    developer-sandboxes) co-author and
+                    developer.
+     (2010-present) Pre-alpha author, developer & publisher
+                    of the developer-sandboxes, site-pack-
+                    ages, guest operating system configur-
+                    ations, tools, demos, documents, man-
+                    pages and notebooks.
      -------------------------------------------------------
 
         # Source Code Distribution and Installlation Setup
@@ -713,7 +719,9 @@ RSG     Richard S. Gordon
 
 FAK     Frederick A. Kier
 
-     (2007-2009)    Prototype co-author and developer.
+     (2007-2009)    Prototype (for what became known as the
+                    developer-sandboxes) co-author and
+                    developer.
      -------------------------------------------------------
 
         # tsLibraries (prototype for what became
@@ -727,7 +735,8 @@ FAK     Frederick A. Kier
            test
               test_tsApplication.py
 
-        tsConfigObjPkg (now deprecated)
+        tsConfigObjPkg (now deprecated by
+                        tsCxGlobals.py & tsWxGlobals.py)
 
            src
               __init__.py
@@ -738,7 +747,7 @@ FAK     Frederick A. Kier
                             Foord, Nicola Larosa)
            test
 
-        tsDataBasePkg (now deprecated)
+        tsDataBasePkg (now deprecated; never used)
 
            src
               __init__.py
@@ -758,7 +767,8 @@ FAK     Frederick A. Kier
                  PyDbLite.py
            test
 
-        tsDecoratorPkg (now deprecated)
+        tsDecoratorPkg (now deprecated;
+                        used only to declare static classes)
 
            src
               __init__.py
@@ -797,14 +807,15 @@ FAK     Frederick A. Kier
                             application.)
            test
 
-        tsOptionParserPkg (now deprecated)
+        tsOptionParserPkg (now deprecated; replaced by
+                           tsOperatorSettingsParser.py)
 
            src
               __init__.py
               tsOptionParser.py
            test
 
-        tsThreadPoolPkg (now deprecated)
+        tsThreadPoolPkg (now deprecated; never used)
 
            src
               __init__.py

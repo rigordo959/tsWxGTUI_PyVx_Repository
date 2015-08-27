@@ -1,5 +1,5 @@
 #-----------------------------------------------------------
-#"Time-stamp: <07/08/2015  4:11:08 AM rsg>"
+#"Time-stamp: <08/26/2015  9:59:27 AM rsg>"
 #-----------------------------------------------------------
 
 ====================== File: BUGS.txt ======================
@@ -27,19 +27,143 @@
 
 ===================== TABLE OF CONTENTS ====================
 
-1. Bugzilla - Full Text Bug Listing
+1. GitHub - Issue Tracking (Active; public records)
 
-2. Known Problem(s) / Issue(s)
+2. Bugzilla - Issue Tracking (Deprecated;
+                              non-public records;
+                              replaced by GitHub)
 
-============= Bugzilla - Full Text Bug Listing =============
+3. Known Problem(s) / Issue(s) (Historical;
+                                non-public records;
+                                easily overlooked;
+                                replaced by Bugzilla)
 
-1. Bugzilla - Full Text Bug Listing
+============= GITHUB - ISSUE TRACKING (ACTIVE) =============
 
+1. GitHub - Issue Tracking (Active; public records)
 
-Bugzilla - Full Text Bug Listing
+   The TeamSTARS "tsWxGTUI_PyVx" Toolkit has been developed
+   for release as free and open source software.
 
-Home | New | Browse | Search | [?] | Reports | Help | New Account
-     | Log In | Forgot Password
+   Its public repository, bugs and other issues are access-
+   ible at:
+
+      "https://github.com/rigordo959/
+               tsWxGTUI_PyVx_Repository" 
+
+   The GitHub issues were created by transcribing ones
+   previously created on a private Bugzilla server as
+   detailed in the following section:
+
+      "2. Bugzilla - Issue Tracking".
+
+Why use GiHub?
+
+   Excerpt from: "https://github.com/features"
+
+   "Field-tested tools for any project.
+
+   GitHub is the largest code host on the planet with
+   over 25.8 million repositories. Large or small,
+   every repository comes with the same powerful
+   tools. These tools are open to the community for
+   public projects and secure for private projects.
+
+   Integrated issue tracking.
+
+   A flexible issue tracker lets you stay on top of bugs
+   and focus on features.
+
+   Your project's issues page can be as simple or as
+   sophisticated as you like. Filter by open and closed
+   issues, assignees, labels, and milestones. Sort by
+   issue age, number of comments, and update time.
+
+   Keyboard shortcuts make issue assignment and labeling
+   fast.
+
+   Only teammates and collaborators can create and view
+   issues on private repositories.
+
+   Anyone may create and view issues on public repositories."
+
+========== BUGZILLA - ISSUE TRACKING (DEPRECATED) ==========
+
+2. Bugzilla - Issue Tracking (Deprecated;
+                              non-public records;
+                              replaced by GitHub)
+
+Though the TeamSTARS "tsWxGTUI_PyVx" Toolkit is a multi-level
+nested structure of subsystems, building blocks, tools, tests
+and documents, Bugzilla imposes a two-level structure of
+products and components which was utilized in the following
+issues. Since the Bugzilla Appliance is on a private network,
+it was necessary to share the issues by reprinting the bug
+list.
+
+The following excerpt describes the Bugzilla Appliance. The
+Live CD was installed as one of several Guest Operating Sys-
+tems on an available desktop computer.
+
+Excerpt from:
+
+   "http://linux.softpedia.com/get/System/
+           Operating-Systems/
+           Linux-Distributions/
+           TurnKey-Bugzilla-Live-CD-51860.shtml"
+
+"TurnKey Bugzilla Live CD is an open source and free oper-
+ating system based on the highly acclaimed Debian GNU/Linux
+distribution and built around the famous and powerful Bug-
+zilla web application. It is specifically engineered to act
+as a software appliance for those of you who want to deploy
+dedicated Bugzilla servers.
+
+Bugzilla is an open source, lightweight, fast, web-based and
+general-purpose bug tracker and testing application developed
+by the Mozilla project. The appliance includes upstream Bug-
+zilla configurations deployed on /var/www/bugzilla and pre-
+configured to execute whine and collect statistics at certain
+periods of time.
+
+Additionally, the Bugzilla installation supports documentation
+and dependency graphs, and it is designed to subdue bothersome
+new version notifications. It supports secure connections using
+the latest SSL (Secure Sockets Layer) implementation.
+
+A Postfix mail server for sending email messages to users is
+also pre-installed, along with Webmin modules for configuring
+Apache, Postfix and MySQL. Please note that the Postfix mail
+transfer agent is bound to localhost.
+
+The default username for Web Shell, SSH, MySQL and Webmin is
+root, and the default Bugzilla username is admin, which can
+be customized via:
+
+   http://appliance_ip/
+          editusers.cgi?action=edit&userid=1.
+
+The initial configuration is available at
+
+   http://appliance_ip/editparams.cgi.
+
+It is available for download as Live CD ISO images, supporting
+both 32-bit and 64-bit architectures. TurnKey Bugzilla is also
+available for download as virtual machine images for the OVF,
+OpenNode, OpenVZ, Xen and OpenStack virtualization technologies.
+
+The installation process takes a few minutes and requires users
+to only choose a partitioning method and where to install the
+boot loader. After installation, the first boot configuration
+wizard kicks in, allowing users to enter new passwords for the
+aforementioned accounts.
+
+At the end of the first boot initialization process, the user
+can access the TurnKey Linux Configuration Console from where
+the server can be restarted or shutdown. Also, don't forget
+to note the IP addresses and ports of the active services.
+
+TurnKey Bugzilla Live CD was reviewed by Marius Nestor 5.0/5"
 
 ------------------------------------------------------------
 
@@ -1634,12 +1758,15 @@ o    | Log out rigordo@comcast.net
 Bugzilla Appliance - Powered by TurnKey Linux
 
 
-================ Known Problem(s) / Issue(s) ===============
+========= KNOWN PROBLEM(S) / ISSUE(S) (HISTORICAL) =========
 
-2. Known Problem(s) / Issue(s)
+3. Known Problem(s) / Issue(s) (Historical;
+                                non-public records;
+                                easily overlooked;
+                                replaced by Bugzilla)
 
-This is a list of Known Problem(s) / Issue(s). It is organized by
-issue category:
+This is a list of Known Problem(s) / Issue(s). It is organ-
+ized by issue category:
 
 ----------------------- Design Issues ----------------------
 

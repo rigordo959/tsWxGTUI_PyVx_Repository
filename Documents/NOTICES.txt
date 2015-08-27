@@ -1,5 +1,5 @@
 #-----------------------------------------------------------
-#"Time-stamp: <07/08/2015  2:05:35 AM rsg>"
+#"Time-stamp: <08/26/2015  4:19:15 PM rsg>"
 #-----------------------------------------------------------
 
 ===================== File: NOTICES.txt ====================
@@ -31,7 +31,7 @@
 
    2. License Notice
 
-===================== COPYRIGHT NOTICE =====================
+===================== Copyright Notice =====================
 
    See the "COPYRIGHT.txt" file identifies the Author(s)
    and Copyright holder(s) of the TeamSTARS "tsWxGTUI_PyVx"
@@ -47,7 +47,7 @@
 
        "./<Toolkit Recipient's Repository>/Documents".
 
-====================== LICENSE NOTICE ======================
+====================== License Notice ======================
 
    See the "LICENSE.txt" file for general and special
    arrangements, provisions, rules, specifications and

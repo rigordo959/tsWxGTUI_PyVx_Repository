@@ -1,5 +1,5 @@
 #-----------------------------------------------------------
-#"Time-stamp: <07/07/2015  7:31:54 PM rsg>"
+#"Time-stamp: <08/26/2015  4:32:16 PM rsg>"
 #-----------------------------------------------------------
 
 ================ File: README5-Notebooks.txt ===============
@@ -154,7 +154,7 @@
 
    2.3 Technical Documentation
 
-================== ["DEVELOPER-DOCUMENTS"] =================
+================== ["Developer-Documents"] =================
 
 1. ["Developer-Documents"]
 
@@ -167,7 +167,7 @@
    1.1 ["API-References-Pixel-Mode-wxPython"]
    1.2 ["DeveloperReadMeFiles"]
 
-================= ["ENGINEERING-DOCUMENTS"] ================
+================= ["Engineering-Documents"] ================
 
 2. ["Engineering-Documents"]
 

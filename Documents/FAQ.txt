@@ -1,5 +1,5 @@
 #-----------------------------------------------------------
-#"Time-stamp: <07/08/2015  2:01:22 AM rsg>"
+#"Time-stamp: <08/26/2015  4:13:00 PM rsg>"
 #-----------------------------------------------------------
 
 ======================= File: FAQ.txt ======================
@@ -37,11 +37,16 @@
 
 2. What the Toolkit is not?
 
-   a. A cross-platform way to magically run native Linux,
-      Mac OS X, Microsoft Windows and Unix application.
+   2.1 A cross-platform way to magically run native Linux,
+       Mac OS X, Microsoft Windows and Unix application.
  
-   b. A cross-platform way to run native pixel-mode
-      "wxPython" / "wxWidgets" applications.
+   2.2 A cross-platform way to run native pixel-mode
+       "wxPython" / "wxWidgets" applications.
+
+3. Alterative Solutions
+
+   3.1 Remote shell
+   3.2 wxPython High-Level GUI Toolkit
 
 =================== What is the Toolkit? ===================
 
@@ -50,7 +55,7 @@
 1.1 Purpose
 
    The TeamSTARS "tsWxGTUI_PyVx" Toolkit software provides
-   utilities, tols and building blocks for the rapid proto-
+   utilities, tools and building blocks for the rapid proto-
    typing, development and maintenance of application pro-
    grams suitable for embedded systems.
 
@@ -281,12 +286,18 @@
 
 2. What the Toolkit is not?
 
-2.1 The TeamSTARS "tsWxGTUI_PyVx" Toolkit DOES NOT Provide
+2.1 A cross-platform way to magically run native Linux,
+    Mac OS X, Microsoft Windows and Unix application.
+
+    The TeamSTARS "tsWxGTUI_PyVx" Toolkit DOES NOT Provide
     a cross-platform way to magically run native Linux, Mac
     OS X, Microsoft Windows and Unix applications on each
     other's development and embedded system platforms.
 
-2.2 The TeamSTARS "tsWxGTUI_PyVx" Toolkit DOES NOT Provide a
+2.2 A cross-platform way to run native pixel-mode
+    "wxPython" / "wxWidgets" applications.
+
+    The TeamSTARS "tsWxGTUI_PyVx" Toolkit DOES NOT Provide a
     cross-platform way to run native pixel-mode "wxPython" /
     "wxWidgets" applications on platforms with character-
     mode terminals or terminal emulators (such as vt100,
@@ -306,5 +317,63 @@
        "nCurses" character set (such as fixed sized font
        with blinking, normal, bold, dim and reverse video
        attributes).
+
+=================== Alterative Solutions ===================
+
+3. Alterative Solutions
+
+3.1 Remote shell
+
+    There are different approaches to remote access to an operating
+    system, which are sometimes also referred to as remote admin-
+    istration.
+
+    The classical approach of multi-user mainframes is to provide
+    text-based UI for each active user simultaneously by means of
+    a text terminal connected to the mainframe via serial line or
+    modem. This approach is now associated with Unix-like systems.
+    Now, the Secure Shell protocol is used for a text-based UI, and
+    for also GUI, if required, through SSH tunelling and X Window
+    System networking capabilities.
+
+    Likewise, a remote GUI is possible for Microsoft Windows with
+    Remote Desktop Protocol.
+
+    Alternative approach, for GUI shells, is a desktop environment
+    controlled both locally and remotely, such as Radmin and Windows
+    Desktop Sharing.
+
+    In any case, a shell-level remote access provides much more
+    essential access to the computer than client-server protocols
+    usually do. This implies additional security threats.
+
+3.2 wxPython High-Level GUI Toolkit
+
+    Excerpt from Wikipedia, the free encyclopedia:
+
+    "wxPython is a wrapper for the cross-platform GUI API (often
+    referred to as a 'toolkit') wxWidgets (which is written in C++)
+    for the Python programming language. It is one of the alternatives
+    to Tkinter, which is bundled with Python. It is implemented as a
+    Python extension module (native code). Other popular alternatives
+    are PyGTK and PyQt. Like wxWidgets, wxPython is free software.
+
+3.3 WxEmbedded High-Level GUI Toolkit
+
+    In 2002, the wxWidgets web site home page mentioned that the
+    Italian firm Koan had assumed responsibility for and started a
+    WxEmbedded research project.
+
+    In 2015, a search of the Koan web site (www.koansoftware.com)
+    found no indication of any WxEmbedded products for x86 and Arm
+    based systems.
+
+    When asked about WxEmbedded, a representative for Koan's embed-
+    ded and real-time software engineering responded:
+
+        "Unfortunately I am no longer using wxWidgets because
+        nowadays everybody wants QT, that adopting LGPL license
+        mode is now the de-facto preferred cross-platform
+        graphical library."
 
 ======================= End-Of-File ========================

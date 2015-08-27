@@ -1,5 +1,5 @@
 #-----------------------------------------------------------
-#"Time-stamp: <07/08/2015  4:39:23 AM rsg>"
+#"Time-stamp: <08/26/2015  4:27:58 PM rsg>"
 #-----------------------------------------------------------
 
 =================== File: TROUBLESHOOT.txt =================
@@ -38,7 +38,7 @@ Preface
 
 4. Python Curses Evolution 
 
-========================== PREFACE =========================
+========================== Preface =========================
 
 Preface
 
@@ -51,8 +51,8 @@ the local and remote monitoring and control of equipment
 that incorporated embedded computers.
 
 Our vision applies the portable, cross-platform "Python"
-Command Line Interface with the "wxPython" Graphical User
-Interface and with low bandwidth communication "Curses"
+Command Line Interface with the "wxPython"-style Graphical
+User Interface and with low bandwidth communication "Curses"
 terminal interface technology.
 
 In its comments, the resulting Python source code embodies
@@ -71,29 +71,32 @@ The "wxPython" Application Programming Interface (API) emu-
 lation is somewhat usable but is neither complete nor opti-
 mal.
 
-Perhaps advances in "Python" technology may one day enable:
+Perhaps advances in:
 
-    1) Use of multiple local/remote application program
-       processes
+    "Python" technology may one day enable:
 
-    2) Use of multiple local threads of execution rather
-       than a loop which polls to identify and initiate
-       work which can now be performed 
+       1) Use of multiple local/remote application program
+          processes
 
-Perhaps advances in "Curses" technology may one day enable:
+       2) Use of multiple local threads of execution rather
+          than a loop which polls to identify and initiate
+          work which can now be performed 
 
-    1) More than 16 colors and more than 256 color pairs
+    "Curses" technology may one day enable:
 
-    2) Mouse input for non-color vt100-family terminal emu-
-       lators on all platforms rather than just Cygwin
-       mintty and the few Linux distributions with XTerm
-       and UXTerm shell window applications.
+       1) More than 16 colors and more than 256 color pairs
+
+       2) Mouse input for non-color vt100-family terminal emu-
+          lators on all platforms rather than just Cygwin
+          mintty and those Linux distributions with nCurses-
+          based Terminal, XTerm and UXTerm shell window appli-
+          cations.
 
 
                                            Richard S. Gordon
                                 SoftwareGadgetry@comcast.net
 
-================ TROUBLESHOOTER'S RESOURCES ================
+================ Troubleshooter's Resources ================
 
 1. Troubleshooter's Resources
 
@@ -245,7 +248,7 @@ Perhaps advances in "Curses" technology may one day enable:
        full scale production, and these methods can also be
        used for failure analysis."
 
-====== INSIGHT OF THE "tsWxGTUI" TOOLKIT DEVELOPER(S) ======
+====== Insight of the "tsWxGTUI" Toolkit Developer(s) ======
 
 2. Insight of the "tsWxGTUI" Toolkit Developer(s)
    by Richard S. Gordon
@@ -383,114 +386,164 @@ Estimated Productivity in Source Lines of Code per Day          = 1.4
 
 ------------------------------------------------------------------------------
 
-   Hints:
+Hints:
 
-   a. The "tsWxGTUI" Toolkit provides instrumentation to facilitate
-      debugging. It has been built into the libraries of building
-      blocks, tools and tests. File module level variables have been
-      created to enable built-in code to log and display both normal
-      progress and unexpected events. The "tsCxGlobals.py" file
-      introduced a central point for the troubleshooter to choose the
-      appropriate theme to conveniently enable or disable module
-      level debug without haveg to touch multiple files.
+   a. The "tsWxGTUI" Toolkit provides instrumentation to
+      facilitate debugging. It has been built into the
+      libraries of building blocks, tools and tests. File
+      module level variables have been created to enable
+      built-in code to log and display both normal progress
+      and unexpected events. The "tsCxGlobals.py" file
+      introduced a central point for the troubleshooter to
+      choose the appropriate theme to conveniently enable
+      or disable module level debug without haveg to touch
+      multiple files.
 
-   b. It is suggested that debugging variables for module import
-      operations be enabled. A quick examination will reveal where
-      the first failure occurred and if and where failures re-
-      ocur. Other points of interest are located where operator
-      command line keyword-value pair options and positional
-      arguments are input and points where calling and called func-
-      tions pass input and returned parameters.
+   b. It is suggested that debugging variables for module
+      import operations be enabled. A quick examination will
+      reveal where the first failure occurred and if and
+      where failures re-occur. Other points of interest are
+      located where operator command line keyword-value pair
+      options and positional arguments are input and points
+      where calling and called functions pass input and
+      return parameters.
 
-   c. The "tsWxGTUI" Toolkit also facilitates troubleshooting by
-      capturing and storing human redable configuration and event
-      information.
+   c. The "tsWxGTUI" Toolkit also facilitates troubleshoot-
+      ing by capturing and storing human redable configur-
+      ation and event information.
 
-      The location for the configuration and event information is a
-      root directory named "logs" located in the launch directory.
-      Upon each launch, the toolkit creates a subdirectory within
-      "logs" that is named for the launch date and time. It con-
-      tains a file named for the application, tool or test and any
-      associated configuration and activity specific logs.
+      The location for the configuration and event informa-
+      tion is a root directory named "logs" located in the
+      launch directory.
 
-   d. The prototype design was not designed to be installed as a
-      site packge. Instead of import statements with full path,
-      specifications, the design first imported a building block
-      library package, identified only by name, and then imported
-      library modules, again only identified by name. Logic in
-      the __init__.py file dynamically generated the full path
-      specification. The following describes the resulting trouble-
-      shooting process.
+      Upon each launch, the toolkit creates a subdirectory
+      within "logs" that is named for the launch date and
+      time. It contains a file named for the application,
+      tool or test and any associated configuration and
+      activity specific logs.
 
-      Each package "__init__.py" module should reflect the import
-      dependency order. The Python-2.x version has typically been the
-      starting point. That was fortunate because Python-3.x tries to
-      avoid multiple instances of the same import. It is more likely
-      to trap import errors and exceptions. A way to get insight on
-      the import dependency is to examine the results for the fol-
-      lowing CLI commands:
+   d. The prototype "developer-sandbox" design was not de-
+      signed to be installed as a "site-packge". Instead
+      of import statements with full path, specifications,
+      the design first imported a building block library
+      package, identified only by name, and then imported
+      library modules, again only identified by name. Logic
+      in the __init__.py file dynamically generated the full
+      path specification. The following describes the result-
+      ing trouble-shooting process.
+
+      Each package "__init__.py" module should reflect the
+      import dependency order. The Python-2.x version has
+      typically been the starting point. That was fortunate
+      because Python-3.x tries to avoid multiple instances
+      of the same import. It is more likely to trap import
+      errors and exceptions. A way to get insight on the
+      import dependency is to examine the results for the
+      following CLI commands:
 
       cd tsWxGTUI/Python-2x/tsLinesOfCodeProjectMetricsPkg/src
 
       grep -n "import" *.py > grep_import.log
  
-      Package files that import nothing but modules registered in
-      the Global Module Index should be at the top (beginning) of
-      the package import list. Package files that import siblings
-      should be positioned in the list below ones they import and
-      above those that import them. The first module to move is
-      the one associated with the first import error/exception in
-      the trap display or log.
+      Package files that import nothing but modules regis-
+      tered in the Global Module Index should be at the top
+      (beginning) of the package import list. Package files
+      that import siblings should be positioned in the list
+      below ones they import and above those that import
+      them. The first module to move is the one associated
+      with the first import error/exception in the trap
+      display or log.
 
-      To facilitate future maintenance, dependency changes to the
-      Python-3.x "__init__.py" should be made to its Python-2.x
-      counterpart.
+      To facilitate future maintenance, dependency changes
+      to the Python-3.x "__init__.py" should be made to its
+      Python-2.x counterpart.
 
-      The Python standard 2to3 utility can be used to translate
-      a baseline Python 2.x source file into its Python 3.x
-      counterpart.
+   e. The Python standard 2to3 utility can be used to trans-
+      late a baseline Python 2.x source file into its Python
+      3.x counterpart.
 
-     In the tsUtilities subdirectory is a file which can faciliate
-     the process. It is named "run_2to3_script.sh". It applies
-     all conversions except those invoked with "-x":
+   f. The Python standard 3to2 utility can be used to trans-
+      late a baseline Python 3.x source file into its Python
+      2.x counterpart.
 
-         print - Assuming that files already use Python2.7 print method
-                 instead of command line print statement, this option
-                 prevents addition of superflous parantheses.
+   g. Six is a Python 2 and 3 compatibility library. It pro-
+      vides utility functions for smoothing over the differ-
+      ences between the Python versions with the goal of
+      writing Python code that is compatible on both Python
+      versions. See the documentation for more information
+      on what is provided.
 
-         import - Assuming that files already use hierarchical file
-                  definitions, this option prevents addition of superflous
-                  superflous and inappropriate "dot notation".
+      Six supports every Python version since 2.5. It is
+      contained in only one Python file, so it can be easily
+      copied into your project. (The copyright and license
+      notice must be retained.)
 
-     The utility internally invokes 2to3 via the following command:
+      Online documentation is at http://pythonhosted.org/six/.
+
+   h. In the tsUtilities subdirectory is a file which can
+      faciliate the process. It is named "run_2to3_script.sh".
+      It applies all conversions except those invoked with
+      "-x":
+
+         print  - Assuming that files already use Python2.7
+                  print method instead of command line print
+                  statement, this option prevents addition
+                  of superflous parantheses.
+
+         import - Assuming that files already use hierarch-
+                  ical file definitions, this option prevents
+                  addition of superflous and inappropriate
+                  "dot notation".
+
+      The utility internally invokes 2to3 via the following
+      command:
 
          2to3-3.2 -w -x print -x import ./*.py
 
-     Example utility usage:
+      Example utility usage:
 
          cd /WR/SoftwareGadgetry-Dev/Python-2.x/tsLibraries/tsWxPkg/src
          ./run_2to3_script.sh
 
-     Unfortunately there are some syntax, semantic and library
-     module differences that escape the translation process.
+   i. Unfortunately there are some syntax, semantic and
+      library module differences that escape the trans-
+      lation process.
 
-     Manual debugging is the only way to resolve the latent run
-     time errors.
+      Manual debugging is the only way to resolve the latent
+      run time errors.
 
-     Once a baseline Python 3.x version is created, it more
-     productive to use a file compare and merge utility to
-     synchronize subsequent changes from Python 2x files into
-     their Python 3.x counterparts. Typically one must manually
-     correct Python 2.x "except, errorcode" into Python 3.x
-     except as errorcode". Using a text eitor, such as xemacs,
-     to find and replace each occurance is substantially faster
-     than debugging run time exceptions one-by-one.
+   j. Once a baseline Python 3.x version is created, it more
+      productive to use a file compare and merge utility to
+      synchronize subsequent changes from Python 2x files
+      into their Python 3.x counterparts. Typically one must
+      manually correct Python 2.x "except, errorcode" into
+      Python 3.x except as errorcode". Using a text eitor,
+      such as xemacs, to find and replace each occurance is
+      substantially faster than debugging run time excep-
+      tions one-by-one.
 
-     Debugging the Python 3.x Unicode encode/decode and file access
-     mode parameters was particularly painful and time consuming.
-     Intuition was often an essential skill.
+      Debugging the Python 3.x Unicode encode/decode and
+      file access mode parameters was particularly painful
+      and time consuming. Intuition was often an essential
+      skill.
 
-======= FILE ACCESS PERMISSION OVERRIDE INSTRUCTIONS =======
+   k. An especially useful troubleshooting tool is "WingIDE
+      Pro" (an integrated development environment for Python)
+      from:
+
+         "https://wingware.com"
+
+      It suppors an external console with optional X11 fea-
+      tures enabling it to display the curses-based
+      wxPython-style Graphical User Interface output while
+      its standard console displays debugger info.
+
+      You ought to set the first breakpoint just before the
+      Command Line Interface code launches Curses. When the
+      breakpoint is reached, the troubleshooter can appro-
+      priately adjust the console window size.
+
+======= File Access Permission Override Instructions =======
 
 3. File Access Permission Override Instructions
 
@@ -533,7 +586,7 @@ Solution:
 
    chmod -Rf <755> WithoutComments
 
-================== PYTHON CURSES EVOLUTION =================
+================== Python Curses Evolution =================
 
 4. Python Curses Evolution
 

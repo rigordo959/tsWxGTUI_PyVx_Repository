@@ -1,5 +1,5 @@
 #-----------------------------------------------------------
-#"Time-stamp: <07/07/2015  7:46:51 PM rsg>
+#"Time-stamp: <08/26/2015  4:38:35 PM rsg>
 #-----------------------------------------------------------
 
 =============== File: README2-Repository.txt ===============
@@ -251,6 +251,11 @@
          |
          |    Diagram created via Command "./MANIFEST_TREE.sh".
          |
+         +-- "extract_tsWxGTUI_PyVx_Repository_zip_file.sh"
+         |
+         |    Deliverable POSIX-style Command Line Interface shell
+         |    script to extract contents of downloadable "zip" file.
+         |
          +-- "setup_tsWxGTUI_PyVx_Repository_tar_file.sh"
          |
          |    Deliverable POSIX-style Command Line Interface shell
@@ -263,17 +268,7 @@
          |
          +-- "README.txt"
 
-===================== TABLE OF CONTENTS ====================
-
-1. Repository
-
-   1.1 Documents
-   1.2 ManPages
-   1.3 Notebooks
-   1.4 SourceDistributions
-   1.5 Manifest
-
-======================== REPOSITORY ========================
+======================== Repository ========================
 
 1. Repository
 

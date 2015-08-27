@@ -1,5 +1,5 @@
 #-----------------------------------------------------------
-#"Time-stamp: <07/07/2015  7:47:06 PM rsg>"
+#"Time-stamp: <08/26/2015  4:33:12 PM rsg>"
 #-----------------------------------------------------------
 
 ================ File: README3-Documents.txt ===============
@@ -69,7 +69,7 @@
          |
          +-- "README.txt"
 
-====================== ["DOCUMENTS"] =======================
+====================== ["Documents"] =======================
 
    This directory contains a collection of files which pro-
    vide the Toolkit recipient with an understanding of the

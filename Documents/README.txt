@@ -1,5 +1,5 @@
 #-----------------------------------------------------------
-#"Time-stamp: <08/06/2015  3:32:24 AM rsg>
+#"Time-stamp: <08/26/2015  7:29:13 AM rsg>
 #-----------------------------------------------------------
 
 ===================== File: README.txt =====================
@@ -27,12 +27,13 @@
 
 ===================== TABLE OF CONTENTS ====================
 
-1. Welcome
+1. Introduction
 
    1.1 Application Programs
-   1.2 Development Systems
-   1.3 Embedded Systems
-   1.4 What should you do to get started?
+   1.2 Embedded Systems
+   1.3 Toolkit Components
+   1.4 Multi-Project Release
+   1.5 What should you do to get started?
 
 2. Release Distribution Identification
 
@@ -42,8 +43,9 @@
 
 3. Release Distribution File Type
 
-   3.1 "Zip" File for Microsoft Windows
-   3.2 "Tar" File for Cygwin, GNU/Linux and Unix
+   3.1 "Git" Repository Clone "Zip" File
+   3.2 "Zip" File for Microsoft Windows
+   3.3 "Tar" File for Cygwin, GNU/Linux and Unix
 
 4. Source Distribution Type
 
@@ -53,14 +55,27 @@
 
 5. Sdist, Build & Install Contents & Organization
 
-========================== WELCOME =========================
+========================== Introduction =========================
 
-1. The TeamSTARS "tsWxGTUI_PyVx" Toolkit provides a collec-
-   tion of building-block components, tools, utilities, and
-   tests. It has been designed to facilitate the creation,
-   enhancement, troubleshooting, maintenance and support of
-   application programs that are suitable for embedded sys-
-   tems.
+1. Introduction
+
+   The TeamSTARS "tsWxGTUI_PyVx" Toolkit is released as Free
+   and Open Source Software. You can get all of the source
+   code and associated building-blocks, tools, tests, util-
+   ities, examples and documentation via the "GitHub" Web-
+   based repository hosting service.
+
+   Implemented in both the mature Python 2x and evolving Py-
+   thon 3x programming languages, its source code is that
+   part of computer software which most users don't ever
+   see; it's the part computer programmers manipulate to
+   change how a computer "program" or "application" works.
+
+   It has been designed to facilitate the creation, enhance-
+   ment, troubleshooting, maintenance, porting and support
+   of application programs that are suitable for the moni-
+   toring and control of equipment with embedded computer
+   systems.
 
    1.1 Application Programs
 
@@ -71,52 +86,75 @@
        (GUI) that can be monitored and controlled locally or
        remotely.
 
-   1.2 Development Systems
+   1.2 Embedded Systems
 
-        General-purpose systems used for development of:
+        Mission-critical systems for commercial, industrial,
+        medical and military applications are typically cus-
+        tomized and optimized for a specific use. Unlike
+        their general purpose desktop, laptop and workstation
+        counterparts, embedded systems typically have limit-
+        ed, application-specific processing, memory, commu-
+        nication, input/output and file storage resources.
+        Some may have character-mode hardware only suitable
+        for their operating system's command line console.
 
-        a. software (source code for libraries of scripts,
-           building blocks, tools and applications)
+   1.3 Toolkit Components
 
-        b. documentation (presentations, training material,
-           programmer reference manuals etc.)
+       The component of the Toolkit source code serve two
+       distinct roles:
 
-        Such general-purpose desktop, laptop and workstation
-        computer systems typically have upgradable or at least
-        sufficient processing, memory, communication, input/
-        output and file storage resources. They typically have
-        computer terminal interface hardware suitable for a
-        pixel-mode display that also supports character-mode. 
+       1.3.1 "Site-Packages"
 
-   1.3 Embedded Systems
+             The TeamSTARS "tsWxGTUI_PyVx" Toolkit repository
+             contains separately installable Python 2x and Python
+             3x "site-packages". Each contains on-line documen-
+             tation and the appropriate Python version-specific
+             source code.
 
-        Mission-critical systems used to monitor and control:
+             Local or remote applications that have imported the
+             appropriate Python 2x or Python 3x "site-package"
+             can be launched from any convenient directory on the
+             associated local or remote computer system.
 
-        a. operating mode (setup, diagnostic/test, monitor
-           only, manual, automatic etc.)
+       1.3.2 "Developer-Sandboxes"
 
-        b. setpoints (startup/shutdown sequences, tempera-
-           tures, pressures, motion speed, fluid/gas flows,
-           lighting brightness/contrast, sound loudness/tonal
-           balance, detector sensitivity etc.)
+             The TeamSTARS "tsWxGTUI_PyVx" Toolkit repository
+             contains separate non-installable Python 2x and
+             Python 3x "developer-sandboxes" which facilitate:
 
-        c. commercial, industrial, manufacturing, medical or
-           military equipment.
+             a. experimentation, development and troubleshooting
+                of Toolkit enhancements and customizations.
 
-        Such application-specific computer systems typically have
-        upgradable but limited processing, memory, communication,
-        input/output and file storage resources. Some may have
-        character-mode hardware only suitable for their operating
-        system's command line console.
+             b. porting to other hardware and software platforms.
 
-   1.4 What should you do to get started?
+             Local or remote Python 2x applications can only be
+             launched from the associated "tsWxGTUI_Py2x"
+             "developer-sandbox" directory.
+
+             Local or remote Python 3x applications can only be
+             launched from the associated "tsWxGTUI_Py3x"
+             "developer-sandbox" directory.
+
+   1.4 Multi-Project Release
+
+       The two "site-packages" and two "developer-sandboxes" are
+       released together so that (despite their Python 2x and
+       Python 3x implementation differences) they retain the
+       identical Application Programming Interface (API) and
+       User Interface (UI) look and feel:
+
+       a. Comand Line User Interface (CLI)
+
+       b. Graphical User Interface (GUI)
+
+   1.5 What should you do to get started?
 
        Browse through the following information located in
-       the directory "./tsWxGTUI_PyVx_Repository/Documents". It
-       provides an overview of the Toolkit distribution and its
+       the directory "./tsWxGTUI_PyVx/Documents". It provid-
+       es an overview of the Toolkit distribution and its
        contents:
 
-       1.4.1 What is the TeamSTARS "tsWxGTUI_PyVx" Toolkit?
+       1.5.1 What is the TeamSTARS "tsWxGTUI_PyVx" Toolkit?
 
              a) "README1-Introduction.txt"
              b) "README2-Repository.txt"
@@ -128,38 +166,66 @@
              h) "README8-SitePackages.txt"
              i) "README9-KeyboardMouseInput.txt"
 
-       1.4.2 How to prepare your computer(s) for use with the
+       1.5.2 How to prepare your computer(s) for use with the
              Toolkit? 
 
              a) "GETTING_STARTED.txt"
 
-       1.4.3 How can you become familiar with the features,
+                References citations and commentaries on
+                computer jargon and topics associated with:
+
+                "User Interfaces"
+                "Operating Systems"
+                "Toolkit Development Resources"
+                "Python Download Gotchas"
+                "wxPython/wxWidgets Development Resources"
+
+       1.5.3 How can you become familiar with the features,
              look and feel of the Toolkit? 
 
-             a) "DEMO.txt"
-             b) "TROUBLESHOOT.txt"
+             a) "INSTALL.txt" (includes a concise "Quick Test
+                Drive" commentary)
 
-       1.4.4 What are the currently known Toolkit limitations,
+             b) "DEMO.txt" (includes a verbose "Narrated,
+                Scripted Demo Test Drive" commentary)
+
+             c) "TROUBLESHOOT.txt" (includes a verbose
+                "Insight of the "tsWxGTUI" Toolkit
+                Developer(s)" commentary)
+
+       1.5.4 What are the currently known Toolkit limitations,
              bugs and update roadmap? 
 
              a) "BUGS.txt"
              b) "TO-DO.txt"
 
-       1.4.5 Experience the features, look and feel of the
-             Toolkit by running through the scenarios pre-
-             sented in DEMO.txt file and browsing through
-             the Python source code for the associated
-             application programs and building blocks.
+       1.5.5 Experience the features, look and feel of the Toolkit
+
+             Running through the scenarios presented in the
+             following documents:
+
+             a) "INSTALL.txt" (includes a concise "Quick Test
+                Drive" commentary)
+
+             b) "DEMO.txt" (includes a verbose "Narrated,
+                Scripted Demo Test Drive" commentary)
+
+             c) "TROUBLESHOOT.txt" (includes a verbose
+                "Insight of the "tsWxGTUI" Toolkit
+                Developer(s)" commentary)
+
+             d) Python source code for the associated application
+                programs and building blocks.
 
 
                                            Richard S. Gordon
                                 SoftwareGadgetry@comcast.net
 
-============= RELEASE DISTRIBUTION NOMINCLATURE ============
+============= Release Distribution Nominclature ============
 
 2. Release Distribution Nominclature
 
-   Multiplr Python version-specific TeamSTARS "tsWxGTUI_PyVx"
+   Multiple Python version-specific TeamSTARS "tsWxGTUI_PyVx"
    Toolkits are downloaded (as either a compressed, "tarball"
    or "zip" file) from the Python Package Index, a reposi-
    tory of software for the Python programming lanuage.
@@ -203,8 +269,8 @@
                        Current stable release is Python 3.4.3
                        as of 25 Feb. 2015.
 
-                       Latest (beta) release is Python 3.5.0b3
-                       as of 5 July 2015.
+                       Latest (beta) release is Python 3.5.0b2
+                       as of 1 June 2015.
 
                        NOTE: The Python Software Foundation has
                              designated Python 3.x to be under
@@ -312,6 +378,8 @@
                      ing its second functional enhancement with its
                      first bug fix. 
 
+============== Release Distribution File Type ==============
+
 3. Release Distribution File Type
 
    The files and directories/folders associated with the
@@ -321,11 +389,54 @@
    of computer platform operating system used to package
    the release:
 
-   3.1 "Zip" File for Microsoft Windows
+   3.1 "Git" Repository Clone "Zip" File
+
+       Excerpted from From Wikipedia, the free encyclopedia
+
+          "Git is a distributed revision control system with an
+          emphasis on speed, data integrity, and support for
+          distributed, non-linear workflows. Git was initially
+          designed and developed by Linus Torvalds for Linux
+          kernel development in 2005, and has since become one
+          of the most widely adopted version control systems for
+          software development.
+
+          As with most other distributed version control sys-
+          tems, and unlike most client-server systems, every
+          Git working directory is a full-fledged repository
+          with complete history and full version-tracking cap-
+          abilities, independent of network access or a central
+          server. Like the Linux kernel, Git is free software
+          distributed under the terms of the GNU General Public
+          License version 2."
+
+          "GitHub" offers all of the distributed revision control
+          and source code management (SCM) functionality of Git
+          as well as adding its own features.
+
+       The Toolkit author chose the "GitHub" service because
+       its cost-free features are popular with both software
+       authors and recipients.
+   
+       You must use a web browser to download the TeamSTARS
+       "tsWxGTUI_PyVx" Toolkit to your computer's desktop or
+       to another convenient location.
+
+       Though you do not need to become a "GitHub" member, you
+       must use the following internet web address to view or
+       obtain a copy of the toolkit repository:
+
+          https://github.com/rigordo959/tsWxGTUI_PyVX_Repository
+
+       The cloning process downloads a compressed "zip" file and
+       then extracts the contents into a Git repository on your
+       computer's desktop or to another convenient location.
+
+   3.2 "Zip" File for Microsoft Windows
 
        Microsoft Windows platforms (such as Windows XP, Vista,
-       7, 8, 8.1 and 10) support a "zip" archive file format
-       such as:
+       7, 8, 8.1 and 10 Technical Preview) support a "zip"
+       archive file format such as:
 
        Multi-generation Python programming language release
        sdist-stage source code and documentation products:
@@ -339,7 +450,7 @@
            "tsWxGTUI_Py2x-3.2.1.zip"    (  2,251,821 bytes)
            "tsWxGTUI_Py1x-3.2.1.zip"
 
-   3.2 "Tar" File for Cygwin, GNU/Linux and Unix
+   3.3 "Tar" File for Cygwin, GNU/Linux and Unix
 
        POSIX-compatible platforms (such as Linux, Unix and
        Cygwin, the free, Linux-like plug-in for Microsoft
@@ -375,6 +486,8 @@
           "tsWxGTUI_Py2x dist"         (  4,036,623 bytes)
           "tsWxGTUI_Py2x-0.0.0-py2.7.egg"
                                        ( 16,266,200 bytes)
+
+================= Source Distribution Type =================
 
 4. Source Distribution Type
 
@@ -424,352 +537,7 @@
        import path based upon package topology and import depen-
        dancy relationships.
 
-============= RELEASE CONTENTS AND ORGANIZATION ============
-
-3. Release Contents and Organization
-
-   The TeamSTARS "tsWxGTUI_PyVx" Toolkit has been engineered,
-   developed and tested for use with the second generation
-   Python programming language (Python 2x), the most popular
-   and widely available generation.
-
-   In recognition of the growing popularity and availability
-   of the third generation Python programming language (Python
-   3x), and as a convenience to Toolkit users, a Python 3x port
-   of the Python 2x Toolkit has also been developed and tested.
-
-   The TeamSTARS "tsWxGTUI_PyVx" Toolkit author(s) recommend
-   keeping the engineering documentation and source code for
-   the multi-generation Python Toolkits together only on
-   those computer systems used for Toolkit development and
-   maintenance. This minimizes file editing and copying.
-   It also minimizes debugging and troubleshooting. This
-   ultimately maximizes productivity.
-
-   Source code for the multi-generation Python Toolkit dis-
-   tribution is created in a working repository directory
-   named:
-
-      "/WR/tsWxGTUI_PyVx_Repository/tsWxGTUI_PyVx"
-
-   It is released on a POSIX-compatible system, as a single
-   compressed "tarball" file suitable for installation and use
-   on Linux, Unix or Microsoft Windows (with Cygwin, the free
-   Linux-like Plug-in from Red Hat).
-
-   For the initial (pre-alpha) release (0.0.0), the "tar-
-   ball" file is named:
-
-      "tsWxGTUI_PyVx-0.0.0.tar.gx".
-
-   The Release Contents and Organization is depicted
-   (details include access permissions, file size and modi-
-   fication date and time) in the following toolkit working
-   repository files:
-
-      "./tsWxGTUI_PyVx_Repository/MANIFEST_TREE.txt"
-      "./tsWxGTUI_PyVx_Repository/MANIFEST_TREE.html"
-
-   An overview, annotated with design guidelines, is depicted
-   in the following organization chart:
-
-      --------------------------------------------------------
-      Key:
-
-         [] -- Denotes a Directory containing one or more
-               Directories and/or Files.
-
-         "" -- Denotes Name of a Directory or File.
-
-         +  -- Denotes an organizational branch relationship.
-
-         |  -- Denotes a organizational hierarchy relationship.
-
-         :  -- Denotes an optional or temporary organizational
-               hierarchy relationship.
-
-        CLI -- Denotes those Toolkit components associated
-               with the text-mode, Command Line-style User
-               Interface. A user may then enter a command
-               as a line of text, via a keyboard. In response,
-               the Toolkit outputs a scrolling sequence of
-               text lines to the display terminal.
-
-               This low-level interface, though somewhat user-
-               friendly, is relatively difficult to use. It is
-               typically used during computer hardware and soft-
-               ware installation, configuration and trouble-
-               shooting.
-
-               It requires accurate typing/reading skills and
-               mastery of a complex vocabulary and syntax fea-
-               turing both required and optional parameters.
-
-        GUI -- Denotes those Toolkit components associated
-               with the Graphical-style User Interface. The
-               Toolkit outputs text characters to various row
-               and column positions on a display terminal.
-               This organizes side-by-side and/or overlapping
-               areas for user input (via keyboard and/or mouse)
-               and for output (via as color or non-color dis-
-               play terminal).
-
-               This high-level, user-friendly interface is
-               relatively easy to use. It is typically used
-               during operation of a computerized Supervisory
-               Control and Data Acquisition (SCADA) system.
-
-               It requires basic typing/reading skills and
-               familiarity with proper SCADA system operation.
-      --------------------------------------------------------
-
-       <Your Working Repository>
-       (e.g. "tsWxGTUI_PyVx_Repository") 
-         |
-         |  Working repository containing directories and
-         |  files to be packaged into downloadable "tarball"
-         |  and/or "zip" files via the setup shell scripts
-         |  at the bottom of this diagram.
-         |
-         +-- ["Documents"] (Original)
-         |     |
-         |     |  This directory contains a collection of files
-         |     |  which provide the Toolkit recipient with an
-         |     |  understanding of the purpose, goals & capabil-
-         |     |  ities, non-goals & limitations, terms & condi-
-         |     |  tions and procedures for installing, operating,
-         |     |  modifying and redistributing the Toolkit. 
-         |     |
-         |     +-- "README.txt"
-         |     +-- "README1-Introduction.txt"
-         |     +-- "README2-Repository.txt"
-         |     +-- "README3-Documents.txt"
-         |     +-- "README4-ManPages.txt"
-         |     +-- "README5-Notebooks.txt"
-         |     +-- "README6-SourceDistributions.txt"
-         |     +-- "README7-DeveloperSandboxes.txt"
-         |     +-- "README8-SitePackages.txt"
-         |     +-- "README9-KeyboardMouseInput.txt"
-         |     +-- "GETTING_STARTED.txt"
-         |     +-- "DEMO.txt"
-         |
-         +-- ["ManPages"] (Original)
-         |     |
-         |     |  Deliverable Toolkit manual pages are a
-         |     |  form of online software documentation
-         |     |  usually found on a Unix or Unix-like
-         |     |  operating system.
-         |     |
-         |     |  Topics covered include computer programs
-         |     |  (including library and system calls),
-         |     |  formal standards and conventions, and even
-         |     |  abstract concepts.
-         |     |
-         |     |  Unlike their Unix or Unix-like counterparts,
-         |     |  a Toolkit user may NOT invoke a man page by
-         |     |  issuing the "man command". Instead, a user
-         |     |  mmust display a man page by issuing the
-         |     |  "less <man document file>" command.
-         |     |
-         |     +-- ["tsManPagesLibCLI"]
-         |     +-- ["tsManPagesLibGUI"]
-         |     +-- ["tsManPagesTestsLibCLI"]
-         |     +-- ["tsManPagesTestsLibGUI"]
-         |     +-- ["tsManPagesToolsCLI"]
-         |     +-- ["tsManPagesToolsGUI"]     (Future)
-         |     +-- ["tsManPagesToolsLibCLI"]
-         |     +-- ["tsManPagesToolsLibGUI"]  (Future)
-         |     +-- ["tsManPagesUtilitiesCLI"] (Future)
-         |     |
-         |     +-- "README4-ManPages.txt"
-         |
-         +-- ["Notebooks"] (Pre-dates Documents)
-         |     |
-         |     |  Contains a collection of commentaries that
-         |     |  express opinions or offerings of explana-
-         |     |  tions about events or situations that might
-         |     |  be useful to Toolkit installers, developers,
-         |     |  operators, troubleshooters and distributors.
-         |     |  The documents may be in Application-specific
-         |     |  formats (such as Adobe PDF, JPEG Bit-mapped
-         |     |  image, LibreOffice, Microsoft Office, plain
-         |     |  text).
-         |     |
-         |     +-- ["DeveloperNotebook"] (Future Original
-         |     |     |                    Developer-Sandbox)
-         |     |     |
-         |     |     |  Contains a collection of:
-         |     |     |     API-References-Pixel-Mode-wxPython
-         |     |     |     and Developer-ReadMe-Files
-         |     |
-         |     +-- ["EngineeringNotebook"] (Original Site-Package)
-         |     |     |
-         |     |     |  Contains a Toolkit User oriented collection of
-         |     |     |     ["EngineeringNotebook"] abstracts:
-         |     |     |
-         |     |     |     Project (purpose,
-         |     |     |              goals,
-         |     |     |              non-goals,
-         |     |     |              features,
-         |     |     |              capabilities,
-         |     |     |              limitations),
-         |     |
-         |     +-- ["EngineeringNotebook"] (Future Original
-         |     |     |                      Developer-Sandbox)
-         |     |     |
-         |     |     |  Contains a Toolkit User oriented collection of
-         |     |     |     ["EngineeringNotebook"] abstracts:
-         |     |     |
-         |     |     |     Project (purpose,
-         |     |     |              goals,
-         |     |     |              non-goals,
-         |     |     |              features,
-         |     |     |              capabilities,
-         |     |     |              limitations),
-         |     |     |
-         |     |     |  Contains a Toolkit Developer oriented collection of:
-         |     |     |
-         |     |     |     Project (purpose,
-         |     |     |              goals,
-         |     |     |              non-goals,
-         |     |     |              features,
-         |     |     |              capabilities,
-         |     |     |              limitations),
-         |     |     |
-         |     |     |     Plan (software life-cycle),
-         |     |     |
-         |     |     |     Requirements (purpose,
-         |     |     |                   goals,
-         |     |     |                   non-goals,
-         |     |     |                   features,
-         |     |     |                   capabilities,
-         |     |     |                   limitations,
-         |     |     |                   file system configuration,
-         |     |     |                   hardware & software interface,
-         |     |     |                   software,
-         |     |     |                   system,
-         |     |     |                   user configuration options),
-         |     |     |
-         |     |     |     Design (API emulation strategy, architecture),
-         |     |     |
-         |     |     |     Implementation (developer-sandbox, site-package),
-         |     |     |
-         |     |     |     Test (unit, integration, system, acceptance),
-         |     |     |
-         |     |     |     Marketing (announcement, brochure),
-         |     |     |
-         |     |     |     Release (introduction,
-         |     |     |              release notes,
-         |     |     |              software user's manual,
-         |     |     |              terms & conditions,
-         |     |     |              dictionary),
-         |     |     |
-         |     |     |     Third-party Resources
-         |     |
-         |     +-- "README5-Notebooks.txt"
-         |
-         +-- ["SourceDistributions"] (Original)
-         |     |
-         |     |  Contains a collection of computer program
-         |     |  source code files that the Toolkit recip-
-         |     |  ient will need to install, operate, modify
-         |     |  and re-distribute the Toolkit.
-         |     |
-         |     +-- "README6-SourceDistributions.txt"
-         |     |
-         |     +-- ["Developer-Sandboxes"] (Future Original
-         |     |     |                      Pre-dates Site-Packages)
-         |     |     |
-         |     |     |  A sandbox is a testing environment that iso-
-         |     |     |  lates untested code changes and outright
-         |     |     |  experimentation from the production environ-
-         |     |     |  ment or repository.
-         |     |     |
-         |     |     +-- ["tsWxGTUI_PyVx"] (Developer-Sandbox)
-         |     |           |
-         |     |           +-- ["Documents"] (Copy)
-         |     |           |
-         |     |           +-- ["ManPages"] (Copy)
-         |     |           |
-         |     |           +-- ["Python-2x"] (Developer-Sandbox)
-         |     |           |     |
-         |     |           |     +-- ["tsWxGTUI_Py2x"]
-         |     |           |
-         |     |           +-- ["Python-3x"]  (Developer-Sandbox,
-         |     |                 |             Ported from Python-2x)
-         |     |                 |
-         |     |                 +-- ["tsWxGTUI_Py3x"]
-         |     |
-         |     +-- ["Site-Packages"] (Original)
-         |           |
-         |           |  A site-package is the location where third-
-         |           |  party packages are installed (i.e., those
-         |           |  not part of the core Python distribution).
-         |           |  NOTE: That with Linux, Mac OS X and Unix
-         |           |  operating systems one must have root priv-
-         |           |  ileges to write to that location.
-         |           |
-         |           +-- ["tsWxGTUI_PyVx"] (Site-Package)
-         |                 |
-         |                 +-- ["Documents"] (Copy)
-         |                 |
-         |                 +-- ["ManPages"] (Copy)
-         |                 |
-         |                 +-- ["Python-2x"] (Site-Package)
-         |                 |     |
-         |                 |     +-- ["tsWxGTUI_Py2x"]
-         |                 |
-         |                 +-- ["Python-3x"] (Site-Package,
-         |                       |            Ported from Python-2x)
-         |                       |
-         |                       +-- ["tsWxGTUI_Py3x"]
-         |
-         +-- "MANIFEST.in"
-         |
-         |    Deliverable File inclusion criteria list.
-         |
-         +-- "MANIFEST_template.in"
-         |
-         |    Deliverable Generic file inclusion criteria list
-         |    template for any Python version-specific TeamSTARS
-         |    "tsWxGTUI_PyVx" Toolkit.
-         |
-         +-- "MANIFEST_TREE.html"
-         |
-         |    Non-Deliverable Diagram (Multi-Level Org Chart)
-         |    depicting the hierarchical relationship between files
-         |    in the release, in Hypertext Markup Language format.
-         |
-         |    Diagram created via Command "./MANIFEST_TREE.sh".
-         |
-         +-- "MANIFEST_TREE.sh"
-         |
-         |    Deliverable POSIX-style Command Line Interface shell
-         |    script to generate diagrams depicting the hierarchical
-         |    relationship between files in the release
-         |    ("MANIFEST_TREE.html" and "MANIFEST_TREE.txt").
-         |
-         +-- "MANIFEST_TREE.txt"
-         |
-         |    Non-Deliverable Diagram (Multi-Level Org Chart)
-         |    depicting the hierarchical relationship between
-         |    files in the release, in Plain Text format.
-         |
-         |    Diagram created via Command "./MANIFEST_TREE.sh".
-         |
-         +-- "setup_tsWxGTUI_PyVx_Repository_tar_file.sh"
-         |
-         |    Deliverable POSIX-style Command Line Interface shell
-         |    script to generate downloadable "tarball" file.
-         |
-         +-- "setup_tsWxGTUI_PyVx_Repository_zip_file.sh"
-         |
-         |    Deliverable POSIX-style Command Line Interface shell
-         |    script to generate downloadable "zip" file.
-         |
-         +-- "README.txt"
-
-====== SDIST, BUILD & INSTALL CONTENTS & ORGANIZATION ======
+====== Sdist, Build & Install Contents & Organization ======
 
 5. Sdist, Build & Install Contents & Organization
 

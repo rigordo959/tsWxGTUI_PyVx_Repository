@@ -1,5 +1,5 @@
 #-----------------------------------------------------------
-#"Time-stamp: <07/07/2015  8:17:02 PM rsg>
+#"Time-stamp: <08/26/2015  8:36:50 AM rsg>
 #-----------------------------------------------------------
 
 ============== File: README1-Introduction.txt ==============
@@ -76,7 +76,9 @@
 5. Deliverables
 
    5.1 Documentation
-   5.2 Source Code
+   5.2 Manpages
+   5.3 Notebooks
+   5.4 SourceDistributions
 
 6. Installation
 
@@ -86,7 +88,7 @@
 
 9. Acknowledgments
 
-======================== WHAT IS IT? =======================
+======================== What is it? =======================
 
 1. What is it?
 
@@ -341,7 +343,7 @@
                    I'll see whether I have time to help - no
                    promises!"
 
-================== HOW IS IT IMPLEMENTED? ==================
+================== How is it implemented? ==================
 
 2. How is it implemented?
 
@@ -502,7 +504,7 @@
                 http://docs.python.org/3/library
                        /curses.html
 
-============= WHAT ARE THE SYSTEM REQUIREMENTS? ============
+============= What are the System Requirements? ============
 
 3. What are the System Requirements?
 
@@ -853,17 +855,17 @@
             KDE SC, LXDE, Xfce, and MATE as the graphical
             user interface. (10.0)
 
-==================== THE LATEST VERSIONS ===================
+==================== The Latest Versions ===================
 
 4. The Latest Versions
 
    The latest TeamSTARS "tsWxGTUI_PyVx" Toolkit version is a
    pre-alpha stage, pre-production release identitified as:
 
-   4.1 "tsWxGTUI_Py2x-0.0.0" for Python 2.4.1 - 2.7.9
-   4.2 "tsWxGTUI_Py3x-0.0.0" for Python 3.0.0 - 3.4.3
+   4.1 "tsWxGTUI_Py2x-0.0.2" for Python 2.7.6 - 2.7.10
+   4.2 "tsWxGTUI_Py3x-0.0.2" for Python 3.0.0 - 3.4.3
 
-======================= DELIVERABLES =======================
+======================= Deliverables =======================
 
 5. Deliverables
 
@@ -872,29 +874,70 @@
 
    5.1 Documentation
 
-       5.1.1 Documentation in Plain Text Format
+       This is an on-line collection of files which provide
+       the Toolkit recipient with understanding of the pur-
+       pose, goals & capabilities, non-goals & limitations,
+       terms & conditions and procedures for installing,
+       operating, modifying and redistributing the Toolkit.
 
-             The TeamSTARS "tsWxGTUI_PyVx" Toolkit documen-
-             tation is included, in plain text format,
-             in the directory named:
+   5.2 Manpages
 
-               ./tsWxGTUI_PyVx_Reposiotry/Documents
+       This is an on-line collection of operating manual
+       pages. Topics covered include computer programs
+       (including library and system calls), formal
+       standards and conventions, and even abstract
+       concepts.
 
-       5.1.2 Documentation in HTML Format
+   5.3 Notebooks
 
-             Since the TeamSTARS "tsWxGTUI_PyVx" Toolkit
-             emulates a character-mode compatible subset of
-             the wxPython and wxWidgets pixel-mode GUI Ap-
-             plication Programming Interface (API), the
-             documentation includes archive copies of pixel-
-             mode API in its Hypertext Markup Language
-             format.
+       This is an on-line collection of engineering notes
+       which provide commentaries that express opinions or
+       offerings of explanations about events or situations
+       that might be useful to Toolkit installers, developers,
+       operators, troubleshooters and distributors.
 
-             The archive copies are provided because the
-             original On-Line versions are no longer avail-
-             able on the wxWidgets and wxPython web sites.
+       The documents may be in Application-specific formats
+       (such as Adobe PDF, JPEG Bit-mapped image, LibreOffice,
+       Microsoft Office, plain text).
 
-   5.2 Source Code
+       FUTURE CONTENT
+
+          Since the TeamSTARS "tsWxGTUI_PyVx" Toolkit emulates a
+          character-mode compatible subset of the wxPython and
+          wxWidgets pixel-mode GUI Application Programming Inter-
+          face (API), future documentation may include archive
+          copies of the pixel-mode API in its Hypertext Markup
+          Language format.
+
+          The archive copies may be provided because the
+          original On-Line versions are no longer avail-
+          able on the wxWidgets and wxPython web sites.
+ 
+   5.4 SourceDistributions
+
+       This is an on-line collection of computer program
+       source code files that the Toolkit recipient will
+       need to install, operate, modify and re-distribute
+       the Toolkit.
+
+       It includes:
+
+       5.4.1 "Developer-Sandboxes"
+
+             A sandbox is a testing environment that iso-
+             lates untested code changes and outright
+             experimentation from the production environ-
+             ment or repository.
+
+       5.4.2 "Site-Packages"
+
+             A site-packages is the location where third-
+             party packages are installed (i.e., those
+             not part of the core Python distribution).
+
+             NOTE: That with Linux, Mac OS X and Unix
+                   operating systems one must have root
+                   priviledges to write to that location.
 
        Excerpt From Wikipedia, the free encyclopedia:
 
@@ -964,7 +1007,7 @@
        customize the source code so as to support older or
        newer Python versions and platforms.
 
-======================= INSTALLATION =======================
+======================= Installation =======================
 
 6. Installation
 
@@ -972,7 +1015,7 @@
 
      ./Documents/INSTALL.txt.
 
-========================= LICENSING ========================
+========================= Licensing ========================
 
 7. Licensing
 
@@ -980,7 +1023,7 @@
 
      ./Documents/LICENSE.txt.
 
-========================= CONTACTS =========================
+========================= Contacts =========================
 
 8. Contacts
 
@@ -989,7 +1032,7 @@
 
         SoftwareGadgetry@comcast.net
 
-====================== ACKNOWLEDGMENTS =====================
+====================== Acknowledgments =====================
 
 9. Acknowledgments
 

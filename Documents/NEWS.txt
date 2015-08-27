@@ -1,5 +1,5 @@
 #-----------------------------------------------------------
-#"Time-stamp: <07/08/2015  4:48:41 AM rsg>"
+#"Time-stamp: <08/26/2015  4:18:09 PM rsg>"
 #-----------------------------------------------------------
 
 ========================= NEWS.txt =========================
@@ -25,7 +25,73 @@
          |
          +-- ["Documents"]
 
-=========================== News ===========================
+==================== 13 August 2015 News ===================
+
+The pre-alpha release of the TeamSTARS "tsWxGTUI_PyVx-0.0.2"
+Toolkit is available.
+
+Modified Python 2x and 3x site-packages to now include copies
+of the repository contents of the "Documents", "ManPages" and
+"ProjectNotebook" directories. These directories and their
+contents can now be included in the distribution of source
+code created by the "python setup.py sdist" command.
+
+Updated Python 2x and 3x site-packages setup.py and MANIFEST.in
+to support "sdist" command in addition to the previous "build"
+and "install" commands.
+
+Updated CHANGE_LOG.txt, FAQ.txt and GETTING_STARTED.txt to
+improve usability.
+
+POSTSCRIPTS
+=========== 
+
+1. The Python Software Foundation's backporting of Python
+   3.1-3.4 features to Python 2.7 makes it possible for
+   adopters and users of the TeamSTARS "tsWxGTUI_PyVx" Tool-
+   kit to also use the Toolkit's Python 3x source code with
+   later versions of Python 2.7. (This is similar to the
+   backporting of Python 3.0 features to later versions of
+   Python 2.6.)
+
+2. The Python Software Foundation's Python Package Index
+   (PyPI) contains a package named "SIX" which is a Python
+   2 and 3 compatibility library. It provides utility func-
+   tions for smoothing over the differences between Python
+   versions with the goal of writing Python code that is
+   compatible on both Python versions. It supports every
+   Python version since 2.5. It is contained in only one
+   Python file, so it can be easily copied into your pro-
+   ject.
+
+3. The TeamSTARS "tsWxGTUI_PyVx" Toolkit author may eventu-
+   ally apply "SIX" to expand the usability of the Toolkit
+   with older Python versions. Currently, the Toolkit is
+   focussed only on those popular, readily available plat-
+   forms that can be emulated using hypervisor technology
+   to run various Linux, Mac OS X, Microsoft Windows and
+   Unix distributions as guest operating systems on a late
+   model computer with multi-core Intel processors. Attempts
+   to build and use older versions of Python on the same
+   Guest OS have been unsuccessful. The older Pythons work
+   only in Command Line Interface mode. The Graphical User
+   Interface mode cannot work because the older curses in-
+   terfaces fail to build and the Toolkit author lacks the
+   troubleshooting expertise. There is a suspicion that one
+   cannot build an old Python curses interface package when
+   the host platform only has a newer, incompatible curses
+   or ncurses terminal interface library installed.
+
+==================== 06 August 2015 News ===================
+
+The pre-alpha release of the TeamSTARS "tsWxGTUI_PyVx-0.0.1"
+Toolkit is now available.
+
+Updated README.txt, COPYRIGHT.txt and notebooks to improve
+clarity, reflect new platforms and to include platform
+usability considerations. 
+
+===================== 08 July 2015 News ====================
 
 The pre-alpha release of the TeamSTARS "tsWxGTUI_PyVx-0.0.0"
 Toolkit is now available. It includes the following two

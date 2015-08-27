@@ -1,5 +1,5 @@
 #-----------------------------------------------------------
-#"Time-stamp: <07/07/2015  7:48:10 PM rsg>"
+#"Time-stamp: <08/26/2015  4:37:15 PM rsg>"
 #-----------------------------------------------------------
 
 ==== Title Page for File: README9-KeyboardMouseInput.txt ===
@@ -407,7 +407,7 @@
                 or released) or more (when pressed and
                 quickly released) escape prefixed six-
                 character strings (the following was deduced
-		from data capture and print out):
+                from data capture and print out):
 
                 a. escape character --- (27 = 0x1b)
 
@@ -418,8 +418,8 @@
                 d. button + state + 32 --- (0 = left button;
                                             1 = middle button;
                                             2 = right button;
-					    4 = wheel mouse;
-					    5 = wheel mouse;
+                                            4 = wheel mouse;
+                                            5 = wheel mouse;
                                             32 = pressed state; 
                                             35 = released state)
 

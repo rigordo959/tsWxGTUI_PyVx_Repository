@@ -1,5 +1,5 @@
 #-----------------------------------------------------------
-#"Time-stamp: <07/08/2015  4:17:31 AM rsg>"
+#"Time-stamp: <08/26/2015  4:15:13 PM rsg>"
 #-----------------------------------------------------------
 
 ===================== File: INSTALL.txt ====================
@@ -27,165 +27,823 @@
 
 ===================== TABLE OF CONTENTS ====================
 
-1. How to Download a Compressed File from the Internet
+1. Internet Web Browsers
 
-   1.1 Cygwin
-   1.2 GNU/Linux
-   1.3 Mac OS X
-   1.4 Microsoft Windows
-   1.5 Unix
+2. The "tsWxGTUI_PyVx_Repository" Hosting Service
 
-2. How to Extract the Contents of a Compressed File
+3. Git Basics
 
-   1.1 GZ
-   1.2 TAR
-   1.3 TGZ
-   1.4 ZIP
+4. Non-Installable Developer-Sandboxes
 
-3. How to Install the Documentation
+5. Installable Site-Packages
 
-   3.1 Developers
-   3.2 Distributors
-   3.3 Engineering
-   3.4 Operators
-   3.5 Troubleshooters
+6. Quick Test Drive
 
-4. How to Install the Source Code Development Repositories
+7. Narrated, Scripted Demo Test Drive
 
-   4.1 Building Block Library
-   4.2 Software Development Development Tools
-   4.3 Unit, Integration and System Tests
-   4.4 Computer Administration Utilities
+=================== Internet Web Browsers ==================
 
-5. How to Install the Python Site Packages
+1. Internet Web Browsers
 
-==== How to Download a Compressed File from the Internet ===
+   These Internet Web Browsers have been successfully used
+   to download a copy of the TeamSTARS "tsWxGTUI_PyVx" Tool-
+   kit repository from the "GitHub" Hosting Service. 
 
-1. How to Download a Compressed File from the Internet
+   1.1 Apple "Safari" (included with Mac OS X and optional
+       add-on for Microsoft Windows)
 
-   1.1 Cygwin
-   1.2 GNU/Linux
-   1.3 Mac OS X
-   1.4 Microsoft Windows
-   1.5 Unix
+   1.2 Google "Chrome" (available as optional add-on for
+       Linux, Mac OS X and Microsoft Windows)
 
-===== How to Extract the Contents of a Compressed File =====
+   1.3 KDE "Konqueror" (included with or available as op-
+       tional add-on for Linux and Unix)
 
-2. How to Extract the Contents of a Compressed File
+   1.4 Microsoft "Edge" (included with Windows 10)
 
-   1.1 GZ
-   1.2 TAR
-   1.3 TGZ
-   1.4 ZIP
+   1.5 Microsoft "Internet Explorer" (included with
+       Windows XP, Vista, 7, 8, and 8.1)
 
-============= How to Install the Documentation =============
+   1.6 Mozilla "Firefox" (included with or available as op-
+       tional add-on for Linux, Mac OS X, Microsoft Windows
+       and Unix)
 
-3. How to Install the Documentation
+   1.7 Mozilla "Iceweasel" (included with Debian Linux 8)
 
-   3.1 Developers
-   3.2 Distributors
-   3.3 Engineering
-   3.4 Operators
-   3.5 Troubleshooters
+====== The "tsWxGTUI_PyVx_Repository" Hosting Service ======
 
-== How to Install the Source Code Development Repositories =
+2. The "tsWxGTUI_PyVx_Repository" Hosting Service
 
-4. How to Install the Source Code Development Repositories
+   The TeamSTARS "tsWxGTUI_PyVx" Toolkit is released as Free
+   and Open Source Software. You can get all of the source
+   code and associated tools, tests, utilities, examples and
+   documentation via the "GitHub" Web-based repository host-
+   ing service.
 
-   4.1 Building Block Library
-   4.2 Software Development Development Tools
-   4.3 Unit, Integration and System Tests
-   4.4 Computer Administration Utilities
+   Implemented in both the mature Python 2x and evolving Py-
+   thon 3x programming languages, its source code is that
+   part of computer software which most users don't ever
+   see; it's the part computer programmers manipulate to
+   change how a computer "program" or "application" works.
 
-========== How to Install the Python Site Packages =========
+   Excerpted from From Wikipedia, the free encyclopedia
 
-5. How to Install the Python Site Packages
+      "Git is a distributed revision control system with an
+      emphasis on speed, data integrity, and support for
+      distributed, non-linear workflows. Git was initially
+      designed and developed by Linus Torvalds for Linux
+      kernel development in 2005, and has since become one
+      of the most widely adopted version control systems for
+      software development.
 
-================= INSTALLATION INSTRUCTIONS ================
+      As with most other distributed version control sys-
+      tems, and unlike most client-server systems, every
+      Git working directory is a full-fledged repository
+      with complete history and full version-tracking cap-
+      abilities, independent of network access or a central
+      server. Like the Linux kernel, Git is free software
+      distributed under the terms of the GNU General Public
+      License version 2."
 
-   These instructions describe the steps to download,
-   extract and install the Toolkit files.
+   "GitHub" offers all of the distributed revision control
+   and source code management (SCM) functionality of Git
+   as well as adding its own features.
 
-   The file you download, "tsWxGUI_PyVx" has a release
-   number suffix (such as "-0.0.0").
+   The Toolkit author chose the "GitHub" service because
+   its cost-free features are popular with both software
+   authors and recipients.
+   
+   You must use a web browser to download the TeamSTARS
+   "tsWxGTUI_PyVx" Toolkit to your computer's desktop or
+   to another convenient location.
 
-   The file named "MANIFEST_README.txt" identifies what you
-   can expect to find after the download and extraction
-   processes. 
+   Though you do not need to become a "GitHub" member, you
+   must use the following internet web address to view or
+   obtain a copy of the toolkit repository:
 
-   1. Toolkit Subdirectories
+      https://github.com/rigordo959/tsWxGTUI_PyVX_Repository
 
-      The file you download is a container of one or more
-      Toolkit subdirectories:
+      Excerpts from "GitHub" at:
 
-      1.1 Subdirectory "tsWxGUI_Py2x" (development version
-          with automatic dynamic import path generation
+         https://git-scm.com
+ 
+            "Git is a free and open source distributed
+            version control system designed to handle
+            everything from small to very large projects
+            with speed and efficiency.
 
-          Contains source code implemented in the second
-          generation Python programming language.
+            Git is easy to learn and has a tiny footprint
+            with lightning fast performance. It outclasses
+            SCM tools like Subversion, CVS, Perforce, and
+            ClearCase with features like cheap local branch-
+            ing, convenient staging areas, and multiple
+            workflows."
 
-          Supports Python 2.0.0-Python 2.7.9.
+         https://help.github.com/articles/github-glossary/
 
-      1.2 Subdirectory "tsWxGUI_Py3x" (development version
-          with automatic dynamic import path generation
+            "A clone is a copy of a repository that lives on
+            your computer instead of on a website's server
+            somewhere, or the act of making that copy. With
+            your clone you can edit the files in your preferred
+            editor and use Git to keep track of your changes
+            without having to be online."
 
-          Contains source code implemented in the third
-          generation Python programming language.
+   The cloning process downloads a compressed "zip" file and
+   then extracts the contents into a Git repository on your
+   computer's desktop or to another convenient location.
 
-          Supports Python 3.0.0-Python 3.5.0.
+======================== Git Basics ========================
 
-   2. Installation Steps:
+3. Git Basics
 
-      2.1 Download the distribution's "tarball" or "zip" file
-          from its internet repository.
+   Git is a distributed revision control system with an em-
+   phasis on speed, data integrity, and support for distri-
+   buted, non-linear workflows. Git was initially designed
+   and developed by Linus Torvalds for Linux kernel develop-
+   ment in 2005, and has since become one of the most widely
+   adopted version control systems for software development.
 
-      2.2 Create a working repository directory "WR"
-          either:
+   This sections reveals how to get it and use it to down-
+   load the "tsWxGTUI_PyVx_Repository".
 
-          a. Via "bash" shell command on Cygwin (Microsoft
-             Windows plug-in), Linux, OS X or Unix:
+   Recent Linux, Mac OS X and Unix computer operating sys-
+   tems often include git.
 
-             "mkdir /WR"
+   Though there is a "git" installer for Microsoft Windows,
+   only Cygwin, the free GNU/Linux-like plug-in from Red
+   Hat provides the usable run time environment needed for
+   the TeamSTARS "tsWxGTUI_PyVx" Toolkit's Python Curses-
+   based Graphical User Interface. Cygwin also includes
+   various "git" installation options.
 
-          b. Via "Command Prompt" shell command on Microsoft
-             Windows:
+   To find out if your computer system does or does not
+   already have "git" installed, launch your computer's
+   console terminal application and then issue the command:
 
-             "mkdir \WR"
+       "which git".
 
-      2.3 Set working directory for command line shell
-          either:
+   If not already installed, your computer system undoubted-
+   ly provides the means to install such optional software
+   as git.
 
-          a. Via "bash" shell command on Cygwin (Microsoft
-             Windows plug-in), Linux, OS X or Unix:
+   You may find the following third-party information use-
+   ful. 
 
-            "cd /WR"
+   3.1 Getting Started - Git Basics
 
-          b. Via "Command Prompt" shell command on Microsoft
-             Windows:
+          https://git-scm.com/book/en/v2/
+                  Getting-Started-Git-Basics
 
-             "cd \WR"
+   3.2 Getting Started - The Command Line
 
-      2.4 Extract contents of distribution's downloaded file
-          either:
+          https://git-scm.com/book/en/v2/
+                  Getting-Started-The-Command-Line
 
-          a. From "tarball" via "bash" shell command on Cygwin
-             (Microsoft Windows plug-in), Linux, OS X or Unix
-             via:
+   3.3 Getting Started - Installing Git
 
-             "tar xvzf ./tsWxGTUI_PyVx_Repository_0.0.0.tgz"
+          https://git-scm.com/book/en/v2/
+                  Getting-Started-Installing-Git
 
-          b. From "zip" file via "bash" shell command on
-             Cygwin (free Linux-like Microsoft Windows
-             plug-in from Red Hat), Linux, OS X or Unix
-             via:
+   3.4 Getting Started - First-Time Git Setup
 
-             "unzip ./tsWxGTUI_PyVx_Repository_0.0.0.zip"
+          https://git-scm.com/book/en/v2/
+                  Getting-Started-First-Time-Git-Setup
 
-          c. From "zip" file via "Command Prompt" shell com-
-             mand on Microsoft Windows using an equivalent
-             third-party tool via:
+   3.5 Getting Started - Getting Help
 
-             "unzip .\tsWxGTUI_PyVx_Repository_0.0.0.zip"
+          https://git-scm.com/book/en/v2/
+                  Getting-Started-Getting-Help
+
+   3.6 Getting Started - Summary
+
+          https://git-scm.com/book/en/v2/
+                  Getting-Started-Summary
+
+   3.7 Git Basics - Getting a Git Repository
+
+          https://git-scm.com/book/en/v2/
+                  Git-Basics-Getting-a-Git-Repository
+
+       3.7.1 Follow the first approach to take an existing
+             project or directory and import it into Git.
+
+       3.7.2 Follow the second approach to clone an existing
+             Git repository from another server.
+
+             For example:
+
+                $ git clone https://github.com/rigordo959/
+                                    tsWxGTUI_PyVx_Repository
+
+       3.7.3 Projects typically have short names that need
+             not include the word "repository". However, the
+             TeamSTARS "tsWxGTUI_PyVx" Toolkit incorporates
+             the word "repository" because it includes four
+             inter-related projects which share components
+             (to assure source code functional and interface
+             consistancy and minimize document maintenance):
+
+             <Your Working Repository>
+             (e.g. "tsWxGTUI_PyVx_Repository") 
+               |
+               +-- ["Documents"]
+               |
+               +-- ["ManPages"]
+               |
+               +-- ["Notebooks"]
+               |
+               +-- ["SourceDistributions"]
+                     |
+                     +-- ["Developer-Sandboxes"]
+                     |     |
+                     |     +-- ["tsWxGTUI_PyVx"]
+                     |           |
+                     |           +-- ["Python-2x"]
+                     |           |     |
+                     |           |     +-- ["tsWxGTUI_Py2x"]
+                     |           |
+                     |           +-- ["Python-3x"]
+                     |                 |
+                     |                 +-- ["tsWxGTUI_Py3x"]
+                     |
+                     +-- ["Site-Packages"]
+                           |
+                           +-- ["tsWxGTUI_PyVx"]
+                                 |
+                                 +-- ["Python-2x"]
+                                 |     |
+                                 |     +-- ["tsWxGTUI_Py2x"]
+                                 |
+                                 +-- ["Python-3x"]
+                                       |
+                                       +-- ["tsWxGTUI_Py3x"]
+
+             (a) Documents
+
+                 This directory contains a collection of
+                 files which provide the Toolkit recipient
+                 with an understanding of the purpose, goals
+                 & capabilities, non-goals & limitations,
+                 terms & conditions and procedures for in-
+                 stalling, operating, modifying and redis-
+                 tributing the Toolkit.
+
+             (b) Manual Pages
+
+                 This directory contains a collection of
+                 files which provide a form of online soft-
+                 ware documentation usually found on a Linux
+                 or Unix-like operating system.
+
+                 Topics covered include computer programs
+                 (library and system calls), formal stand-
+                 ards and conventions, and even abstract
+                 concepts.
+
+             (c) Notebooks
+
+                 This directory contains a collection of
+                 files containing commentaries that express
+                 opinions or offerings of explanations about
+                 events or situations that might be useful
+                 to Toolkit installers, developers, oper-
+                 ators, troubleshooters and distributors.
+
+             (d) Source-Distribution
+
+                 Contains four project-specific collections
+                 of computer program source code files that
+                 the Toolkit recipient will need to install,
+                 operate, modify and re-distribute the Tool-
+                 kit.
+
+                 Two of the projects are intended to be in-
+                 stalled as a Python site-package (one for
+                 the mature Python 2x programming language
+                 and the other for the evolving Python 3x
+                 programming language).
+
+                 The two other projects are NOT intended to
+                 be installed as a Python site-package. Each
+                 is intended to be a developer-sandbox that
+                 will facilitate the experimentation associ-
+                 ated with Toolkit development (one for Py-
+                 thon 2x and the other for Python 3x).
+
+                 The four projects are released together so
+                 that (despite their Python 2x and Python 3x
+                 implementation differences) they retain the
+                 identical Application Programming Interface
+                 (API) and User Interface (UI) look and feel:
+
+                    Comand Line User Interface (CLI)
+                    Graphical User Interface (GUI)
+
+   3.8 What else can you do with Git?
+
+       Use your web browser to read "git - the simple guide"
+       by Roger Dudler at:
+
+          "http://rogerdudler.github.io/git-guide/"
+
+       Its author's promise:
+
+          "just a simple guide for getting started with git.
+           no deep shit ;)"
+
+============ Non-Installable Developer-Sandboxes ===========
+
+4. Non-Installable Developer-Sandboxes
+
+   In computer programming and software testing, smoke test-
+   ing (also known as confidence testing, sanity testing) is
+   preliminary testing to reveal simple failures severe
+   enough to reject a prospective "tsWxGTUI_PyVx_Repository"
+   Developer-Sandbox release.
+
+   There are two non-installable Developer-Sandboxes, one
+   for use with the mature Python 2x programming language
+   and the other for use with the evolving Python 3x one.
+
+   # Launch computer Terminal application (unless
+   # otherwise indicated, supports mouse input for
+   # xterm-family and vt100-family terminals) by
+   # double-clicking on icon for:
+   #    Cygwin   (the free GNU/Linux-like plug-in from Red Hat
+   #              on Microsoft Windows)
+   #    Terminal (on Linux)
+   #    Terminal (on Mac OS X; mouseless for vt100/vt220)
+   #    Terminal (on Unix; mouseless for vt100/vt220)
+   #    iTerm2   (third-party application on Mac OS X)
+   double-click on Terminal
+
+   cd ./tsWxGTUI_PyVx_Repository/SourceDistributions/Developer-Sandboxes
+
+   4.1 Developer-Sandbox tsWxGTUI_Py2x
+
+       It is for use with Python 2x.
+
+       # save the current working directory in memory
+       # so it can be returned to at any time, optionally
+       # changing to a new directory. 
+       pushd ./tsWxGTUI_PyVx/Python-2x/tsWxGTUI_Py2x/ 
+
+       4.1.1 Developer-Sandbox Smoke Testing
+
+             4.1.1.1 Command Line Interface Smoke Testing
+
+                     # Launch Python Command Line Interface application
+                     python2 test_tsPlatformRunTimeEnvironment.py -h
+
+                     # Smoke Testing completed when application
+                     # outputs Command Line Interface Help
+
+             4.1.1.2 Graphical User Interface Smoke Testing
+
+                     # Launch Python Graphical User Interface application
+                     python2 test_tsWxScrolledWindow.py
+
+                     # Smoke Testing completed when applica-
+                     # tion outputs three scrollable window
+                     # panels and their contents can be
+                     # scrolled in the same direction as the
+                     # arrow button under the cursor pointer
+                     # when the mouse was clicked
+
+                     # Use interrupt signal to exit Python program
+                     Control-C
+
+                     # Restore Terminal for Command Line Interface
+                     stty sane
+
+       # return to the saved directory at the top of the
+       # stack
+       popd 
+
+   4.2 Developer-Sandbox tsWxGTUI_Py3x
+
+       It is for use with Python 3x.
+
+       # save the current working directory in memory
+       # so it can be returned to at any time, optionally
+       # changing to a new directory. 
+       pushd ./tsWxGTUI_PyVx/Python-3x/tsWxGTUI_Py3x/ 
+
+       4.2.1 Developer-Sandbox Smoke Testing
+
+             4.2.1.1 Command Line Interface Smoke Testing
+
+                     # Launch Python Command Line Interface application
+                     python3 test_tsPlatformRunTimeEnvironment.py -h
+
+                     # Smoke Testing completed when application
+                     # outputs Command Line Interface Help
+
+             4.2.1.2 Graphical User Interface Smoke Testing
+
+                     # Launch Python Graphical User Interface application
+                     python3 test_tsWxScrolledWindow.py
+
+                     # Smoke Testing completed when applica-
+                     # tion outputs three scrollable window
+                     # panels and their contents can be
+                     # scrolled in the same direction as the
+                     # arrow button under the cursor pointer
+                     # when the mouse was clicked
+
+                     # Use interrupt signal to exit Python program
+                     Control-C
+
+                     # Restore Terminal for Command Line Interface
+                     stty sane
+
+       # return to the saved directory at the top of the
+       # stack
+       popd 
+
+================= Installable Site-Packages ================
+
+5. Installable Site-Packages
+
+   In computer programming and software testing, smoke test-
+   ing (also known as confidence testing, sanity testing) is
+   preliminary testing to reveal simple failures severe
+   enough to reject a prospective "tsWxGTUI_PyVx_Repository"
+   Site-Package release.
+
+   There are two Site-Packages, one for use with the mature
+   Python 2x programming language and the other for use with
+   the evolving Python 3x one.
+
+   Depending on your current and future programming language
+   needs, you may install either or both of the site-pack-
+   ages via the following procedure:
+
+   # Launch computer Terminal application (unless
+   # otherwise indicated, supports mouse input for
+   # xterm-family and vt100-family terminals) by
+   # double-clicking on icon for:
+   #    Cygwin   (the free GNU/Linux-like plug-in from Red Hat
+   #              on Microsoft Windows)
+   #    Terminal (on Linux)
+   #    Terminal (on Mac OS X; mouseless for vt100/vt220)
+   #    Terminal (on Unix; mouseless for vt100/vt220)
+   #    iTerm2   (third-party application on Mac OS X)
+   double-click on Terminal
+
+   cd ./tsWxGTUI_PyVx_Repository/SourceDistributions/Site-Packages
+
+   5.1 Site-Package tsWxGTUI_Py2x
+
+       It is for installation and use with Python 2x.
+
+       # save the current working directory in memory
+       # so it can be returned to at any time, optionally
+       # changing to a new directory. 
+       pushd ./tsWxGTUI_PyVx/Python-2x
+
+       5.1.1 Default Installation
+
+             If the command "python -V" report begins with
+             "python2" and you have no other 2x version,
+             you may install this site-package via:
+
+                "python setup.py install"
+
+       5.1.2 Non-Default Installation
+
+             If the command "python -V" report begins with
+             "python2" and you have multiple 2x versions,
+             (such as python 2.6.8 and 2.7.10) you may
+             install this site-package via:
+
+                "python2.6.8 setup.py install"
+
+                "python2.7.10 setup.py install"
+
+       5.1.3 Site-Package Smoke Testing
+
+             5.1.3.1 Command Line Interface Smoke Testing
+
+                     # save the current working directory in memory
+                     # so it can be returned to at any time, optionally
+                     # changing to a new directory. 
+                     pushd ./tsWxGTUI_Py2x/tsDemoArchive/tsTestsLibCLI
+
+                     python2 test_tsPlatformRunTimeEnvironment.py -h
+
+                     # Smoke Testing completed when application
+                     # outputs Command Line Interface Help
+
+                     # return to the saved directory at the top of the
+                     # stack
+                     popd
+
+             5.1.3.2 Graphical User Interface Smoke Testing
+
+                     # save the current working directory in memory
+                     # so it can be returned to at any time, optionally
+                     # changing to a new directory. 
+                     pushd ./tsWxGTUI_Py2x/tsDemoArchive/tsTestsLibGUI
+
+                     python2 test_tsWxScrolledWindow.py
+
+                     # Smoke Testing completed when applica-
+                     # tion outputs three scrollable window
+                     # panels and their contents can be
+                     # scrolled in the same direction as the
+                     # arrow button under the cursor pointer
+                     # when the mouse was clicked
+
+                     # Use interrupt signal to exit Python program
+                     Control-C
+
+                     # Restore Terminal for Command Line Interface
+                     stty sane
+
+                     # return to the saved directory at the top of the
+                     # stack
+                     popd
+
+       # return to the saved directory at the top of the
+       # stack
+       popd 
+
+   5.2 Site-Package tsWxGTUI_Py3x
+
+       It is for installation and use with Python 3x.
+
+       # save the current working directory in memory
+       # so it can be returned to at any time, optionally
+       # changing to a new directory. 
+       pushd ./tsWxGTUI_PyVx/Python-3x 
+
+       5.2.1 Default Installation
+
+             If the command "python -V" report begins with
+             "python3" and you have no other 3x version,
+             you may install this site-package via:
+
+                "python setup.py install"
+
+       5.2.2 Non-Default Installation
+
+             If the command "python -V" report begins with
+             "python3" and you have multiple 3x versions,
+             (such as python 3.0.1 and 3.4.3) you may
+             install this site-package via:
+
+                "python3.0.1 setup.py install"
+
+                "python3.4.3 setup.py install"
+
+       5.2.3 Site-Package Smoke Testing
+
+             5.2.3.1 Command Line Interface Smoke Testing
+
+                     # save the current working directory in memory
+                     # so it can be returned to at any time, optionally
+                     # changing to a new directory. 
+                     pushd ./tsWxGTUI_Py3x/tsDemoArchive/tsTestsLibCLI
+
+                     # Launch Python Command Line Interface application
+                     python3 test_tsPlatformRunTimeEnvironment.py -h
+
+                     # Smoke Testing completed when application
+                     # outputs Command Line Interface Help
+
+                     # return to the saved directory at the top of the
+                     # stack
+                     popd
+
+             5.2.3.2 Graphical User Interface Smoke Testing
+
+                     # save the current working directory in memory
+                     # so it can be returned to at any time, optionally
+                     # changing to a new directory. 
+                     pushd ./tsWxGTUI_Py3x/tsDemoArchive/tsTestsLibGUI
+
+                     # Launch Python Graphical User Interface application
+                     python3 test_tsWxScrolledWindow.py
+
+                     # Smoke Testing completed when applica-
+                     # tion outputs three scrollable window
+                     # panels and their contents can be
+                     # scrolled in the same direction as the
+                     # arrow button under the cursor pointer
+                     # when the mouse was clicked
+
+                     # Use interrupt signal to exit Python program
+                     Control-C
+
+                     # Restore Terminal for Command Line Interface
+                     stty sane
+
+                     # return to the saved directory at the top of the
+                     # stack
+                     popd
+
+       # return to the saved directory at the top of the
+       # stack
+       popd 
+
+===================== Quick Test Drive =====================
+
+6. Quick Test Drive
+
+   This topic is for those who:
+
+   a) are somewhat curious about the Toolkit;
+
+   b) want to briefly experience the look and feel of its
+      user interface;
+
+   c) do not yet want to read lots of introductory material;
+
+   d) are not ready to adopt and install it as an integral
+      part of their computer system.
+
+   # Launch computer Terminal application (unless
+   # otherwise indicated, supports mouse input for
+   # xterm-family and vt100-family terminals) by
+   # double-clicking on icon for:
+   #    Cygwin   (the free GNU/Linux-like plug-in from Red Hat
+   #              on Microsoft Windows)
+   #    Terminal (on Linux)
+   #    Terminal (on Mac OS X; mouseless for vt100/vt220)
+   #    Terminal (on Unix; mouseless for vt100/vt220)
+   #    iTerm2   (third-party application on Mac OS X)
+   double-click on Terminal
+
+   cd ./tsWxGTUI_PyVx_Repository/SourceDistributions/Developer-Sandboxes
+
+   6.1 Developer-Sandbox tsWxGTUI_Py2x
+
+       It is for use with Python 2x.
+
+       # save the current working directory in memory
+       # so it can be returned to at any time, optionally
+       # changing to a new directory. 
+       pushd ./tsWxGTUI_PyVx/Python-2x/tsWxGTUI_Py2x/ 
+
+       6.1.1 Command Line Interface User On-line Help
+
+             # Launch Python Command Line Interface applications
+             python2 test_tsOperatorSettingsParser.py --help
+
+       6.1.2 Command Line Interface Run Time Environment
+
+             # Launch Python Command Line Interface application
+             python2 test_tsPlatformRunTimeEnvironment.py
+
+             # Display the Run Time Environment Report
+             less ./test_tsPlatformRunTimeEnvironment.txt
+
+       6.1.3 Command Line Interface Source Code Metrics Tool
+
+             # Launch Python Command Line Interface applications
+             python2 tsLinesOfCodeProjectMetrics.py
+
+       6.1.4 Graphical User Interface Desktop Display & User Input
+
+             # Launch Python Graphical User Interface application
+             python2 test_tsWxWidgets.py
+
+             # Modify User Control Options 
+             click on the first checkbox
+             click on the fourth checkbox
+             click on the Gui_Test_Units Taskbar button
+             click on the Dialog Taskbar button
+
+             # Use interrupt signal to exit Python program
+             Control-C
+
+             # Restore Terminal for Command Line Interface
+             stty sane
+
+       6.1.4 Graphical User Interface Peep-hole Display & User Input
+
+             # Launch Python Graphical User Interface application
+             python2 test_tsWxScrolledWindow.py
+
+             # Modify User Peep-Hole Position Control Options
+             click on right arrow ">"
+             double click on right arrow ">"
+             click midway between left "<" and right ">" arrows
+
+             # Use interrupt signal to exit Python program
+             Control-C
+
+             # Restore Terminal for Command Line Interface
+             stty sane
+
+       6.1.5 Graphical User Interface Color Palette Display
+
+             # Launch Python Graphical User Interface application
+             python2 test_tsWxColorPalette.py
+
+             # Use interrupt signal to exit Python program
+             Control-C
+
+             # Restore Terminal for Command Line Interface
+             stty sane
+
+       # return to the saved directory at the top of the
+       # stack
+       popd 
+
+   6.2 Developer-Sandbox tsWxGTUI_Py3x
+
+       It is for use with Python 3x.
+
+       # save the current working directory in memory
+       # so it can be returned to at any time, optionally
+       # changing to a new directory. 
+       pushd ./tsWxGTUI_PyVx/Python-3x/tsWxGTUI_Py3x/ 
+
+       6.2.1 Command Line Interface User On-line Help
+
+             # Launch Python Command Line Interface applications
+             python3 test_tsOperatorSettingsParser.py --help
+
+       6.2.2 Command Line Interface Run Time Environment
+
+             # Launch Python Command Line Interface application
+             python3 test_tsPlatformRunTimeEnvironment.py
+
+             # Display the Run Time Environment Report
+             less ./test_tsPlatformRunTimeEnvironment.txt
+
+       6.2.3 Command Line Interface Source Code Metrics Tool
+
+             # Launch Python Command Line Interface applications
+             python3 tsLinesOfCodeProjectMetrics.py
+
+       6.2.4 Graphical User Interface Desktop Display & User Input
+
+             # Launch Python Graphical User Interface application
+             python3 test_tsWxWidgets.py
+
+             # Modify User Control Options 
+             click on the first checkbox
+             click on the fourth checkbox
+             click on the Gui_Test_Units Taskbar button
+             click on the Dialog Taskbar button
+
+             # Use interrupt signal to exit Python program
+             Control-C
+
+             # Restore Terminal for Command Line Interface
+             stty sane
+
+       6.2.4 Graphical User Interface Peep-hole Display & User Input
+
+             # Launch Python Graphical User Interface application
+             python3 test_tsWxScrolledWindow.py
+
+             # Modify User Peep-Hole Position Control Options
+             click on right arrow ">"
+             double click on right arrow ">"
+             click midway between left "<" and right ">" arrows
+
+             # Use interrupt signal to exit Python program
+             Control-C
+
+             # Restore Terminal for Command Line Interface
+             stty sane
+
+       6.2.5 Graphical User Interface Color Palette Display
+
+             # Launch Python Graphical User Interface application
+             python3 test_tsWxColorPalette.py
+
+             # Use interrupt signal to exit Python program
+             Control-C
+
+             # Restore Terminal for Command Line Interface
+             stty sane
+
+       # return to the saved directory at the top of the
+       # stack
+       popd 
+
+============ Narrated, Scripted Demo Test Drive ============
+
+7. Narrated, Scripted Demo Test Drive
+
+   This topic is for those who:
+
+   a) are more than just curious about the Toolkit;
+
+   b) want to experience the look and feel of its user in-
+      terfaces for local and remote command line, graphical
+      desktop and source code project metrics tool;
+
+   c) want to explore applicable jargon and technology;
+
+   d) want to install and explore it as an integral part of
+      their computer system.
+
+   This topic is covered in the "DEMO.txt" file in the
+   "Documents" directory.
 
 ======================= End-Of-File ========================
-
