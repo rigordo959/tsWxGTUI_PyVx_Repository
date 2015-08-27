@@ -1,0 +1,53 @@
+#-----------------------------------------------------------
+#"Time-stamp: <08/26/2015  4:26:08 PM rsg>"
+#-----------------------------------------------------------
+
+===================== File: THANKS.txt =====================
+
+   +----+----+  TeamSTARS "tsWxGTUI_PyVx" Toolkit
+   | ts | Wx |      with Python 2x & Python 3x based
+   +----+----+         Command Line Interface (CLI)
+   | G T U I |      and "Curses"-based "wxPython"-style, 
+   +---------+         Graphical-Text User Interface (GUI)
+ 
+   Get that cross-platform, pixel-mode "wxPython" feeling
+   on character-mode 8-/16-color (xterm-family) & non-color
+   (vt100-family) terminals and terminal emulators.
+
+   You can find this and other plain-text files in the
+   Toolkit subdirectory named:
+
+       "./<Toolkit Recipient's Repository>/Documents".
+
+       <Your Working Repository>
+       (e.g. "tsWxGTUI_PyVx_Repository") 
+         |
+         |
+         +-- ["Documents"]
+
+========================== Thanks ==========================
+
+Acknowledgments to those otherwise unsung heros who contrib-
+uted time and effort to supporting the Toolkit authors.
+
+Planners
+
+   Not Applicable
+
+Editors
+
+   Not Applicable
+
+Designers
+
+   Not Applicable
+
+Coders
+
+   Not Applicable
+
+Testers
+
+   Not Applicable
+
+=========================== End-Of-File ============================

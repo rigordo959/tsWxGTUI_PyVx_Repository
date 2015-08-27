@@ -1,0 +1,379 @@
+#-----------------------------------------------------------
+#"Time-stamp: <08/26/2015  4:13:00 PM rsg>"
+#-----------------------------------------------------------
+
+======================= File: FAQ.txt ======================
+
+   +----+----+  TeamSTARS "tsWxGTUI_PyVx" Toolkit
+   | ts | Wx |      with Python 2x & Python 3x based
+   +----+----+         Command Line Interface (CLI)
+   | G T U I |      and "Curses"-based "wxPython"-style, 
+   +---------+         Graphical-Text User Interface (GUI)
+ 
+   Get that cross-platform, pixel-mode "wxPython" feeling
+   on character-mode 8-/16-color (xterm-family) & non-color
+   (vt100-family) terminals and terminal emulators.
+
+   You can find this and other plain-text files in the
+   Toolkit subdirectory named:
+
+       "./<Toolkit Recipient's Repository>/Documents".
+
+       <Your Working Repository>
+       (e.g. "tsWxGTUI_PyVx_Repository") 
+         |
+         |
+         +-- ["Documents"]
+
+===================== TABLE OF CONTENTS ====================
+
+1. What is the Toolkit?
+
+   1.1 Purpose
+   1.2 Toolkit Components
+   1.3 Toolkit Applications
+   1.4 Platform Requirements
+   1.5 Programming Language Requirements
+
+2. What the Toolkit is not?
+
+   2.1 A cross-platform way to magically run native Linux,
+       Mac OS X, Microsoft Windows and Unix application.
+ 
+   2.2 A cross-platform way to run native pixel-mode
+       "wxPython" / "wxWidgets" applications.
+
+3. Alterative Solutions
+
+   3.1 Remote shell
+   3.2 wxPython High-Level GUI Toolkit
+
+=================== What is the Toolkit? ===================
+
+1. What is the Toolkit?
+
+1.1 Purpose
+
+   The TeamSTARS "tsWxGTUI_PyVx" Toolkit software provides
+   utilities, tools and building blocks for the rapid proto-
+   typing, development and maintenance of application pro-
+   grams suitable for embedded systems.
+
+   It and the hardware/software platform on which it has
+   been installed, provide the means for developing, docu-
+   menting, enhancing, operating, troubleshooting, main-
+   taining and supporting the embedded system.
+
+1.2 Toolkit Components
+
+   Toolkit building-block components are general-purpose,
+   re-usable and enable the application developer to
+   focus on the application specific functionality and
+   not waste effort re-inventing and re-implementing
+   the functionality typical of Command Line and Graphical
+   User Interfaces.
+
+   Components include:
+
+   a. tsToolkitCLI (tsLibCLI, tsToolsCLI and tsUtiities)
+
+      Cross-platform, Python-based toolkit for development
+      of applications featuring a Command Line Interface
+      (CLI). This means that the same program source code
+      will usually run without modifications on platforms
+      having:
+
+      * 32-bit/64-bit processors from various manufacturers
+
+      * Linux, Mac OS X, Microsoft Windows and Unix operat-
+        ing systems
+
+   b. tsToolkitGUI (tsLibGUI)
+
+      Cross-platform, Python and Curses-based toolkit for
+      development of applications featuring a character-
+      mode Graphical-style User Interface (GUI). It adds
+      its GUI capabilities to the CLI capabilities of the
+      tsToolkitCLI. This means that the same program
+      source code will usually run without modifications
+      on platforms having:
+
+      * 32-bit/64-bit processors from various manufacturers
+
+      * Linux, Mac OS X, Microsoft Windows and Unix operat-
+        ing systems from various manufacturers
+
+      * 16-color/256-color pair xterm-16color, xterm-88color
+        and xterm-88color terminals/terminal emulators
+
+      * 8-color/64-color pair cygwin, linux, xterm and
+        xterm-color terminals/terminal emulators
+
+      * Non-color black/white, black/green and black/orange
+        VT100 and VT220 terminals/terminal emulators
+
+   c. Examples (tsDemoArchive)
+
+      Cross-platform, Python and Curses-based application
+      programs that illustrate implementation techniques
+      and demonstrate CLI and GUI features and behaviors:
+
+      demo_tsWxFrame.py
+      demo_wxFrame.py
+
+      test_tsApplication.py
+      test_tsCommandLineEnv.py
+      test_tsCommandLineInterface.py
+      test_tsCxGlobals.py
+      test_tsDoubleLinkedList.py
+      test_tsExceptions.py
+      test_tsLogger.py
+      test_tsOperatorSettingsParser.py
+      test_tsPlatformRunTimeEnvironment.py
+      test_tsReportUtilities.py
+      test_tsSysCommand.py
+      test_tsWxBoxSizer.py
+      test_tsWxCheckBox.py
+      test_tsWxDisplay.py
+      test_tsWxDoubleLinkedList.py
+      test_tsWxGlobals.py
+      test_tsWxGraphicalTextUserInterface.py
+      test_tsWxGridSizer.py
+      test_tsWxMultiFrameEnv.py
+      test_tsWxRSM.py
+      test_tsWxScrolledWindow.py
+      test_tsWxScrolledWindowDual.py
+      test_tsWxSplashScreen.py
+      test_tsWxSystemSettings.py
+      test_tsWxWidgets.py
+
+      tsCxGlobals.py
+      tsWxGlobals.py
+      tsWxGraphicalTextUserInterface.py
+
+      tsLinesOfCodeProjectMetrics.py
+      tsPlatformQuery.py
+      tsStripComments.py
+      tsStripLineNumbers.py
+      tsTreeCopy.py
+      tsTreeTrimLines.py
+
+      Tutorial_CLI_0_hello_world_print_statement.py
+      Tutorial_CLI_1_hello_world_print_function.py
+      Tutorial_CLI_2_hello_world_script_environment.py
+      Tutorial_CLI_3_hello_world_main_module_application.py
+      Tutorial_CLI_4_Command_Line_PlatformQuery_Application.py
+      Tutorial_GUI_0_Curses_LowLevel_WidgetApi_application.py
+      Tutorial_GUI_1_wxPython_HighLevel_WidgetApi_application.py
+      Tutorial_GUI_2_tsWxGTUI_HighLevel_BoxSizerApi_application.py
+      Tutorial_GUI_3_tsWxGTUI_HighLevel_WidgetApi_application.py
+
+   d. Documentation (tsDistributors and tsManPages)
+
+      Plain text format for release notes and for the
+      training and reference use of the embedded system
+      operator.
+
+   e. Documentation (tsDocGUI)
+
+      Application specific formats (such as Adobe PDF
+      and Microsoft Office) for the training and
+      reference use of the software developer.
+
+1.3 Toolkit Applications
+
+   Application programs that incorporate the TeamSTARS
+   "tsWxGTUI_PyVx" Toolkit building blocks typically feature
+   "user-friendly" Command Line and/or Graphical-style User
+   Interfaces that can be controlled locally or remotely.
+
+   Commercial, industrial, medical and military embedded
+   systems are customized and optimized for a specific
+   use. Unlike their general-purpose desktop, laptop and
+   workstation counterparts, they typically have limited,
+   application-specific processing, memory, communication,
+   input/output and file storage resources. Typical
+   applications include:
+
+   a. AUTOMATION - The use of various control systems
+      for operating equipment such as machinery, processes
+      in factories, telephone networks, steering and
+      stabilization of ships, aircraft and other
+      applications with minimal or reduced human
+      intervention.
+
+   b. COMMUNICATION - The application of telecommunica-
+      tions technology for the transmission of data to,
+      from, or between computers over dedicated or time
+      shared hardware.
+
+   c. CONTROL - The application of one or more devices,
+      to manage, command, direct or regulate the behavior
+      of other device(s) or system(s). Industrial control
+      systems, as used in industrial production, control
+      equipment or machinery. In open loop control systems
+      output is generated based only on inputs. In closed
+      loop (feedback) control systems current output is
+      taken into consideration and corrections are made
+      based on feedback.
+
+   d. DIAGNOSTIC - The application of technology to locate
+      problems with software, hardware, or any combination
+      thereof in a system, or a network of systems.
+      Diagnostics typically provide guidance to the user
+      to solve issues.
+
+   e. INSTRUMENTATION - The application of technology for
+      the measurement and control of process variables
+      within a production or manufacturing area. An
+      instrument is a device that measures a physical
+      quantity such as flow, temperature, level, distance,
+      angle, or pressure. Instruments may be as simple
+      as direct reading thermometers or may be complex
+      multi-variable process analyzers. Instruments
+      are often part of a control system in refineries,
+      factories, and vehicles.
+
+   f. SIMULATION - The application of technology for the
+      imitation of the operation of a real-world process
+      or system over time. The act of simulating some-
+      thing first requires that a model be developed;
+      this model represents the key characteristics or
+      behaviors/functions of the selected physical or
+      abstract system or process. The model represents
+      the system itself, whereas the simulation represents
+      the operation of the system over time.
+
+1.4 Platform Requirements
+
+    The TeamSTARS "tsWxGTUI_PyVx" Toolkit supports various
+    platforms having 32-bit and 64-bit processors running
+    POSIX-compatible releases of Linux, Mac OS X, Microsoft
+    Windows, and Unix operating systems.
+
+    This means that users of platforms having Microsoft
+    Windows will need to install Cygwin, the free and
+    open source command line interface and GNU toolchain
+    (including GCC and GDB) from Red Hat, which implements
+    the POSIX system call API in terms of Win32 system
+    calls to allow software development, and a large number
+    of application programs equivalent to those on Unix and
+    Linux systems.
+
+1.5 Programming Language Requirements
+
+    The TeamSTARS "tsWxGTUI_PyVx" Toolkit is implemented
+    in the popular high-level Python programming language.
+    It emulates the Application Programing Interface (API)
+    of the popular cross-platform pixel-mode "wxPython" GUI
+    toolkit.
+
+    Unlike the "wxPython" wrapper to "wxWidgets", which is
+    implemented in C++ and uses platform specific Graphical
+    User Interface libraries to maintain the look and feel
+    of native host GUI applicarion, "tsWxGTUI_PyVx" uses the
+    host platform's character-mode "Curses" / "nCurses"
+    terminal control library with various color and non-
+    color terminal emulators.
+
+    By substituting character-mode operations for pixelmode
+    ones, communication traffic can typically be reduced by
+    at least two orders of magnitude. This enables the
+    efficient, centralized monitoring and control of
+    applications running on a network of computer systems.
+
+================= What the Toolkit is not? =================
+
+2. What the Toolkit is not?
+
+2.1 A cross-platform way to magically run native Linux,
+    Mac OS X, Microsoft Windows and Unix application.
+
+    The TeamSTARS "tsWxGTUI_PyVx" Toolkit DOES NOT Provide
+    a cross-platform way to magically run native Linux, Mac
+    OS X, Microsoft Windows and Unix applications on each
+    other's development and embedded system platforms.
+
+2.2 A cross-platform way to run native pixel-mode
+    "wxPython" / "wxWidgets" applications.
+
+    The TeamSTARS "tsWxGTUI_PyVx" Toolkit DOES NOT Provide a
+    cross-platform way to run native pixel-mode "wxPython" /
+    "wxWidgets" applications on platforms with character-
+    mode terminals or terminal emulators (such as vt100,
+    vt220, xterm, xterm-color, xterm-16color, xterm-88color
+    and xterm-256color).
+
+    This means that you must replace pixel graphic elements
+    such as:
+
+    a. Icons and curved lines with suitable character-cell
+       elements from the "Curses" / "nCurses" line draw
+       character set (such as horizontal and vertical
+       lines, line intersection and shape corners).
+
+    b. Proportional sized fonts and text attributes with
+       suitable character-cell elements from the "Curses" /
+       "nCurses" character set (such as fixed sized font
+       with blinking, normal, bold, dim and reverse video
+       attributes).
+
+=================== Alterative Solutions ===================
+
+3. Alterative Solutions
+
+3.1 Remote shell
+
+    There are different approaches to remote access to an operating
+    system, which are sometimes also referred to as remote admin-
+    istration.
+
+    The classical approach of multi-user mainframes is to provide
+    text-based UI for each active user simultaneously by means of
+    a text terminal connected to the mainframe via serial line or
+    modem. This approach is now associated with Unix-like systems.
+    Now, the Secure Shell protocol is used for a text-based UI, and
+    for also GUI, if required, through SSH tunelling and X Window
+    System networking capabilities.
+
+    Likewise, a remote GUI is possible for Microsoft Windows with
+    Remote Desktop Protocol.
+
+    Alternative approach, for GUI shells, is a desktop environment
+    controlled both locally and remotely, such as Radmin and Windows
+    Desktop Sharing.
+
+    In any case, a shell-level remote access provides much more
+    essential access to the computer than client-server protocols
+    usually do. This implies additional security threats.
+
+3.2 wxPython High-Level GUI Toolkit
+
+    Excerpt from Wikipedia, the free encyclopedia:
+
+    "wxPython is a wrapper for the cross-platform GUI API (often
+    referred to as a 'toolkit') wxWidgets (which is written in C++)
+    for the Python programming language. It is one of the alternatives
+    to Tkinter, which is bundled with Python. It is implemented as a
+    Python extension module (native code). Other popular alternatives
+    are PyGTK and PyQt. Like wxWidgets, wxPython is free software.
+
+3.3 WxEmbedded High-Level GUI Toolkit
+
+    In 2002, the wxWidgets web site home page mentioned that the
+    Italian firm Koan had assumed responsibility for and started a
+    WxEmbedded research project.
+
+    In 2015, a search of the Koan web site (www.koansoftware.com)
+    found no indication of any WxEmbedded products for x86 and Arm
+    based systems.
+
+    When asked about WxEmbedded, a representative for Koan's embed-
+    ded and real-time software engineering responded:
+
+        "Unfortunately I am no longer using wxWidgets because
+        nowadays everybody wants QT, that adopting LGPL license
+        mode is now the de-facto preferred cross-platform
+        graphical library."
+
+======================= End-Of-File ========================

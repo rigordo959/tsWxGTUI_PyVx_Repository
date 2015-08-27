@@ -1,0 +1,2210 @@
+#-----------------------------------------------------------
+#"Time-stamp: <08/26/2015  4:09:25 PM rsg>"
+#-----------------------------------------------------------
+
+======================= File: DEMO.txt =====================
+
+   +----+----+  TeamSTARS "tsWxGTUI_PyVx" Toolkit
+   | ts | Wx |      with Python 2x & Python 3x based
+   +----+----+         Command Line Interface (CLI)
+   | G T U I |      and "Curses"-based "wxPython"-style, 
+   +---------+         Graphical-Text User Interface (GUI)
+ 
+   Get that cross-platform, pixel-mode "wxPython" feeling
+   on character-mode 8-/16-color (xterm-family) & non-color
+   (vt100-family) terminals and terminal emulators.
+
+   You can find this and other plain-text files in the
+   Toolkit subdirectory named:
+
+       "./<Toolkit Recipient's Repository>/Documents".
+
+       <Your Working Repository>
+       (e.g. "tsWxGTUI_PyVx_Repository") 
+         |
+         |
+         +-- ["Documents"]
+
+========================== PREFACE =========================
+
+   The TeamSTARS "tsWxGTUI_PyVx" Toolkit is available as a
+   compressed archive ("zip") file from:
+
+      https://github.com/rigordo959/tsWxGTUI_PyVX_Repository
+
+   After it has been downloaded, its contents must be ex-
+   tracted into a working repository "WR" created in the
+   user's desktop directory or other convenient location:
+
+      ~/Desktop/WR/tsWxGTUI_PyVX_Repository
+
+   Once it has been extracted, the user will find its con-
+   tents organized as follows:
+
+       <Your Working Repository>
+       (e.g. "tsWxGTUI_PyVx_Repository") 
+         |
+         |  Working repository containing directories and
+         |  files to be packaged into downloadable "tarball"
+         |  and/or "zip" files via the setup shell scripts
+         |  at the bottom of this diagram.
+         |
+         +-- ["Documents"] (Original)
+         |     |
+         |     |  This directory contains a collection of files
+         |     |  which provide the Toolkit recipient with an
+         |     |  understanding of the purpose, goals & capabil-
+         |     |  ities, non-goals & limitations, terms & condi-
+         |     |  tions and procedures for installing, operating,
+         |     |  modifying and redistributing the Toolkit. 
+         |     |
+         |     +-- "README.txt"
+         |     +-- "README1-Introduction.txt"
+         |     +-- "README2-Repository.txt"
+         |     +-- "README3-Documents.txt"
+         |     +-- "README4-ManPages.txt"
+         |     +-- "README5-Notebooks.txt"
+         |     +-- "README6-SourceDistributions.txt"
+         |     +-- "README7-DeveloperSandboxes.txt"
+         |     +-- "README8-SitePackages.txt"
+         |     +-- "README9-KeyboardMouseInput.txt"
+         |     +-- "GETTING_STARTED.txt"
+         |
+         +-- ["ManPages"] (Original)
+         |     |
+         |     |  Deliverable Toolkit manual pages are a
+         |     |  form of online software documentation
+         |     |  usually found on a Unix or Unix-like
+         |     |  operating system.
+         |     |
+         |     |  Topics covered include computer programs
+         |     |  (including library and system calls),
+         |     |  formal standards and conventions, and even
+         |     |  abstract concepts.
+         |     |
+         |     |  Unlike their Unix or Unix-like counterparts,
+         |     |  a Toolkit user may NOT invoke a man page by
+         |     |  issuing the "man command". Instead, a user
+         |     |  mmust display a man page by issuing the
+         |     |  "less <man document file>" command.
+         |     |
+         |     +-- ["tsManPagesLibCLI"]
+         |     +-- ["tsManPagesLibGUI"]
+         |     +-- ["tsManPagesTestsLibCLI"]
+         |     +-- ["tsManPagesTestsLibGUI"]
+         |     +-- ["tsManPagesToolsCLI"]
+         |     +-- ["tsManPagesToolsGUI"]     (Future)
+         |     +-- ["tsManPagesToolsLibCLI"]
+         |     +-- ["tsManPagesToolsLibGUI"]  (Future)
+         |     +-- ["tsManPagesUtilitiesCLI"] (Future)
+         |     |
+         |     +-- "README4-ManPages.txt"
+         |
+         +-- ["Notebooks"] (Original Pre-dates Documents)
+         |     |
+         |     |  Contains a collection of commentaries that
+         |     |  express opinions or offerings of explana-
+         |     |  tions about events or situations that might
+         |     |  be useful to Toolkit installers, developers,
+         |     |  operators, troubleshooters and distributors.
+         |     |  The documents may be in Application-specific
+         |     |  formats (such as Adobe PDF, JPEG Bit-mapped
+         |     |  image, LibreOffice, Microsoft Office, plain
+         |     |  text).
+         |     |
+         |     +-- ["DeveloperNotebook"] (Future Original
+         |     |     |                    Developer-Sandbox)
+         |     |     |
+         |     |     |  Contains a collection of:
+         |     |     |     API-References-Pixel-Mode-wxPython
+         |     |     |     and Developer-ReadMe-Files
+         |     |     |
+         |     |     +-- "README5-DeveloperNotebook.txt"
+         |     |
+         |     +-- ["EngineeringNotebook"] (Future Original
+         |     |     |                      Developer-Sandbox)
+         |     |     |
+         |     |     |  Contains a Toolkit Developer oriented collection of:
+         |     |     |
+         |     |     |     Project (purpose,
+         |     |     |              goals,
+         |     |     |              non-goals,
+         |     |     |              features,
+         |     |     |              capabilities,
+         |     |     |              limitations),
+         |     |     |
+         |     |     |     Plan (software life-cycle),
+         |     |     |
+         |     |     |     Requirements (purpose,
+         |     |     |                   goals,
+         |     |     |                   non-goals,
+         |     |     |                   features,
+         |     |     |                   capabilities,
+         |     |     |                   limitations,
+         |     |     |                   file system configuration,
+         |     |     |                   hardware & software interface,
+         |     |     |                   software,
+         |     |     |                   system,
+         |     |     |                   user configuration options),
+         |     |     |
+         |     |     |     Design (API emulation strategy, architecture),
+         |     |     |
+         |     |     |     Implementation (developer-sandbox, site-package),
+         |     |     |
+         |     |     |     Test (unit, integration, system, acceptance),
+         |     |     |
+         |     |     |     Marketing (announcement, brochure),
+         |     |     |
+         |     |     |     Release (introduction,
+         |     |     |              release notes,
+         |     |     |              software user's manual,
+         |     |     |              terms & conditions,
+         |     |     |              dictionary),
+         |     |     |
+         |     |     |     Third-party Resources
+         |     |     |
+         |     |     +-- "README5-EngineeringNotebook.txt"
+         |     |
+         |     +-- ["ProjectNotebook"] (Original Site-Package)
+         |     |     |
+         |     |     |  Contains a Toolkit User oriented collection of
+         |     |     |     ["EngineeringNotebook"] abstracts:
+         |     |     |
+         |     |     |     Project (purpose,
+         |     |     |              goals,
+         |     |     |              non-goals,
+         |     |     |              features,
+         |     |     |              capabilities,
+         |     |     |              limitations)
+         |     |     |
+         |     |     +-- "README5-ProjectNotebook.txt"
+         |     |
+         |     +-- "README5-Notebooks.txt"
+         |
+         +-- ["SourceDistributions"] (Original)
+         |     |
+         |     |  Contains a collection of computer program
+         |     |  source code files that the Toolkit recip-
+         |     |  ient will need to install, operate, modify
+         |     |  and re-distribute the Toolkit.
+         |     |
+         |     +-- ["Developer-Sandboxes"] (Pre-dates Site-Packages)
+         |     |     |
+         |     |     |  A sandbox is a testing environment that iso-
+         |     |     |  lates untested code changes and outright
+         |     |     |  experimentation from the production environ-
+         |     |     |  ment or repository.
+         |     |     |
+         |     |     +-- ["tsWxGTUI_PyVx"] (Developer-Sandbox)
+         |     |     |     |
+         |     |     |     +-- ["Documents"] (Copy)
+         |     |     |     |
+         |     |     |     +-- ["ManPages"] (Copy)
+         |     |     |     |
+         |     |     |     +-- ["Python-2x"] (Developer-Sandbox)
+         |     |     |     |     |
+         |     |     |     |     +-- ["tsWxGTUI_Py2x"]
+         |     |     |     |
+         |     |     |     +-- ["Python-3x"]  (Developer-Sandbox,
+         |     |     |           |             Ported from Python-2x)
+         |     |     |           |
+         |     |     |           +-- ["tsWxGTUI_Py3x"]
+         |     |     |
+         |     |     +-- "README7-DeveloperSandboxes.txt"
+         |     |
+         |     +-- ["Site-Packages"]
+         |     |     |
+         |     |     |  Site-packages is the location where third-
+         |     |     |  party packages are installed (i.e., those
+         |     |     |  not part of the core Python distribution).
+         |     |     |  NOTE: That with Linux, Mac OS X and Unix
+         |     |     |  operating systems one must have root priv-
+         |     |     |  iledges to write to that location.
+         |     |     |
+         |     |     +-- ["tsWxGTUI_PyVx"] (Site-Package)
+         |     |     |     |
+         |     |     |     +-- ["Documents"] (Copy)
+         |     |     |     |
+         |     |     |     +-- ["ManPages"] (Copy)
+         |     |     |     |
+         |     |     |     +-- ["Python-2x"] (Site-Package)
+         |     |     |     |     |
+         |     |     |     |     +-- ["tsWxGTUI_Py2x"]
+         |     |     |     |
+         |     |     |     +-- ["Python-3x"] (Site-Package,
+         |     |     |           |            Ported from Python-2x)
+         |     |     |           |
+         |     |     |           +-- ["tsWxGTUI_Py3x"]
+         |     |     |
+         |     |     +-- "README8-SitePackages.txt"
+         |     |
+         |     +-- "README6-SourceDistributions.txt"
+         |
+         +-- "MANIFEST.in"
+         |
+         |    Deliverable File inclusion criteria list.
+         |
+         +-- "MANIFEST_template.in"
+         |
+         |    Deliverable Generic file inclusion criteria list
+         |    template for any Python version-specific TeamSTARS
+         |    "tsWxGTUI_PyVx" Toolkit.
+         |
+         +-- "MANIFEST_TREE.html"
+         |
+         |    Non-Deliverable Diagram (Multi-Level Org Chart)
+         |    depicting the hierarchical relationship between files
+         |    in the release, in Hypertext Markup Language format.
+         |
+         |    Diagram created via Command "./MANIFEST_TREE.sh".
+         |
+         +-- "MANIFEST_TREE.sh"
+         |
+         |    Deliverable POSIX-style Command Line Interface shell
+         |    script to generate diagrams depicting the hierarchical
+         |    relationship between files in the release
+         |    ("MANIFEST_TREE.html" and "MANIFEST_TREE.txt").
+         |
+         +-- "MANIFEST_TREE.txt"
+         |
+         |    Non-Deliverable Diagram (Multi-Level Org Chart)
+         |    depicting the hierarchical relationship between
+         |    files in the release, in Plain Text format.
+         |
+         |    Diagram created via Command "./MANIFEST_TREE.sh".
+         |
+         +-- "setup_tsWxGTUI_PyVx_Repository_tar_file.sh"
+         |
+         |    Deliverable POSIX-style Command Line Interface shell
+         |    script to generate downloadable "tarball" file.
+         |
+         +-- "setup_tsWxGTUI_PyVx_Repository_zip_file.sh"
+         |
+         |    Deliverable POSIX-style Command Line Interface shell
+         |    script to generate downloadable "zip" file.
+         |
+         +-- "README.txt"
+
+   For those prospective adopters and users of the TeamSTARS
+   "tsWxGTUI_PyVx" Toolkit who are curious but impatient,
+   the "INSTALL.txt" file in the "Documents" directory con-
+   tains a "Quick Test Drive" section. It uses a Developer-
+   Sandbox, to avoid Site-Package installation. It will
+   briefly lead you to those Command Line Interface and
+   Graphical User Interface applications which enable you
+   to experience the look and feel of the Toolkit in action.
+
+   Others might take the time to pickup computer jargon and
+   follow this narrated, scripted tour.
+
+===================== TABLE OF CONTENTS ====================
+
+1. Dictionary of Computer Jargon
+
+   1.1 Users
+
+   1.2 Sessions
+
+   1.3 Processes
+
+   1.4 Threads
+
+2. Prepare Operator Console
+
+   2.1 Linux (CLI & GUI)
+
+   2.2 Mac OS X (CLI & GUI)
+
+   2.3 Microsoft Windows
+
+       2.3.1 "Comand Prompt" (CLI only)
+
+       2.3.2 "Windows PowerShell" (CLI only)
+
+       2.3.3 "Cygwin" (CLI & GUI)
+
+   2.4 Unix (CLI & GUI)
+
+3. Python Programming Library, Second Generation
+
+   3.1 Set working directory
+
+   3.2 Experience Command Line Interface (CLI)
+       (Features, Look and Feel)
+
+   3.3 Experience "wxPython"-style Graphical User Interface
+       (Features, Look and Feel)
+
+4. Python Programming Library, Third Generation
+
+   4.1 Set working directory
+
+   4.2 Experience Command Line Interface (CLI)
+       (Features, Look and Feel)
+
+   4.3 Experience "wxPython"-style Graphical User Interface
+       (Features, Look and Feel)
+
+5. Prepare SSH / SFTP Client & Server for Remote Login
+
+   5.1 Linux SSH / SFTP Server (CentOS 7)
+
+   5.2 Mac OS X SSH / SFTP Server (Yosemite)
+
+   5.3 Microsoft Windows SSH / SFTP Client & Server
+       (Professional Edition of Windows 7)
+
+       5.3.1 Cygwin Plug-In Mode (Not Verified)
+       5.3.2 Native Mode (Not Verified)
+
+   5.4 Unix SSH / SFTP Server (PC-BSD 10) (Not Verified)
+
+6. Use SSH / SFTP Server(s) for Remote Login
+
+   6.1 Create Remote Single Session Desktop
+
+       6.1.1 Launch the Command Line Interface shell ses-
+             sion.
+
+       6.1.2 Login to Remote System as user with/without
+             administrative privileges.
+
+       6.1.3 Set Working Directory
+
+       6.1.4 Launch First Application
+
+       6.1.5 Launch Last Application
+
+       6.1.6 Create Remote archive of logs directory
+
+       6.1.7 Transferring files between Local and Remote
+             Systems
+
+       6.1.8 Logout of Remote System
+
+7. Use Multiple Sessions for Concurrent Applications
+
+   7.1 Create First Single/Multi-Session Desktop
+
+       7.1.1 Launch the Command Line Interface shell ses-
+             sion.
+
+       7.1.2 Login to Remote System as user with/without
+             administrative privileges.
+
+       7.1.3 Set Working Directory
+
+       7.1.4 Launch First Application
+
+       7.1.5 Launch Last Application
+
+   7.2 Create Last Single/Multi-Session Desktop
+
+       7.2.1 Launch the Command Line Interface shell ses-
+             sion.
+
+       7.2.2 Login to remote system as user with/without
+             administrative privileges.
+
+       7.2.3 Set Working Directory
+
+       7.2.4 Launch First Application
+
+       7.2.5 Launch Last Application
+
+   7.3 Logout of Single/Multi-Session Desktops
+
+       7.3.1 Logout of First Remote System:
+
+       7.3.2 Logout of Last Remote System:
+
+=============== Dictionary of Computer Jargon ==============
+
+1. Dictionary of Computer Jargon
+
+   These instructions use the following computer jargon in
+   describing how to operate the TeamSTARS "tsWxGTUI_PyVx"
+   Toolkit.
+
+   1.1 Users
+
+       From Wikipedia, the free encyclopedia
+
+       "Multi-user is a term that defines an operating sys-
+       tem or application software that allows access by
+       multiple users of a computer. Time-sharing systems
+       are multi-user systems. Most batch processing systems
+       for mainframe computers may also be considered
+       "multi-user", to avoid leaving the CPU idle while it
+       waits for I/O operations to complete. However, the
+       term "multitasking" is more common in this context.
+
+       An example is a Unix server where multiple remote
+       users have access (such as via Secure Shell) to the
+       Unix shell prompt at the same time. Another example
+       uses multiple X Window sessions spread across multi-
+       ple terminals powered by a single machine - this is
+       an example of the use of thin client. Similar func-
+       tions were also available under MP/M, Concurrent DOS,
+       Multiuser DOS and FlexOS.
+
+       Some multi-user operating systems such as Windows
+       versions from the Windows NT family support simul-
+       taneous access by multiple users (for example, via
+       Remote Desktop Connection) as well as the ability
+       for a user to disconnect from a local session while
+       leaving processes running (doing work on their
+       behalf) while another user logs into and uses the
+       system. The operating system provides isolation of
+       each user's processes from other users, while
+       enabling them to execute concurrently.
+
+       Management systems are implicitly designed to be
+       used by multiple users, typically one system
+       administrator or more and an end-user community.
+
+       The complementary term, single-user, is most
+       commonly used when talking about an operating
+       system being usable only by one person at a time,
+       or in reference to a single-user software license
+       agreement. Multi-user operating systems such as
+       Unix sometimes have a single user mode or runlevel
+       available for emergency maintenance."
+
+   1.2 Sessions
+
+       From Wikipedia, the free encyclopedia
+
+       "In computer science, in particular networking, a
+       session is a semi-permanent interactive information
+       interchange, also known as a dialogue, a conversa-
+       tion or a meeting, between two or more communicat-
+       ing devices, or between a computer and user (see
+       Login session). A session is set up or established
+       at a certain point in time, and then torn down at
+       some later point. An established communication ses-
+       sion may involve more than one message in each dir-
+       ection. A session is typically, but not always,
+       stateful, meaning that at least one of the communi-
+       cating parts needs to save information about the
+       session history in order to be able to communicate,
+       as opposed to stateless communication, where the
+       communication consists of independent requests
+       with responses.
+
+       An established session is the basic requirement to
+       perform a connection-oriented communication. A ses-
+       sion also is the basic step to transmit in connec-
+       tionless communication modes. However any unidirec-
+       tional transmission does not define a session.[1]"
+
+   1.3 Processes
+
+       From Wikipedia, the free encyclopedia
+
+       "In computing, a process is an instance of a computer
+       program that is being executed. It contains the pro-
+       gram code and its current activity. Depending on the
+       operating system (OS), a process may be made up of
+       multiple threads of execution that execute instruc-
+       tions concurrently.
+
+       A computer program is a passive collection of instruc-
+       tions; a process is the actual execution of those in-
+       structions. Several processes may be associated with
+       the same program; for example, opening up several
+       instances of the same program often means more than
+       one process is being executed.
+
+       Multitasking is a method to allow multiple processes
+       to share processors (CPUs) and other system resources.
+       Each CPU executes a single task at a time. However,
+       multitasking allows each processor to switch between
+       tasks that are being executed without having to wait
+       for each task to finish. Depending on the operating
+       system implementation, switches could be performed
+       when tasks perform input/output operations, when a
+       task indicates that it can be switched, or on hard-
+       ware interrupts.
+
+       A common form of multitasking is time-sharing. Time-
+       sharing is a method to allow fast response for inter-
+       active user applications. In time-sharing systems,
+       context switches are performed rapidly. This makes
+       it seem like multiple processes are being executed
+       simultaneously on the same processor. The execution
+       of multiple processes seemingly simultaneously is
+       called concurrency.
+
+       For security and reliability reasons most modern
+       operating systems prevent direct communication
+       between independent processes, providing strictly
+       mediated and controlled inter-process communication
+       functionality."
+
+   1.4 Threads
+
+       From Wikipedia, the free encyclopedia
+
+       "Multithreading is the ability of a program or an op-
+       erating system process to manage its use by more than
+       one user at a time and to even manage multiple re-
+       quests by the same user without having to have mul-
+       tiple copies of the programming running in the com-
+       puter. Central processing units have hardware support
+       to efficiently execute multiple threads. These are
+       distinguished from multiprocessing systems (such as
+       multi-core systems) in that the threads have to share
+       the resources of a single core: the computing units,
+       the CPU caches and the translation lookaside buffer
+       (TLB). Where multiprocessing systems include multiple
+       complete processing units, multithreading aims to in-
+       crease utilization of a single core by using thread-
+       level as well as instruction-level parallelism. As
+       the two techniques are complementary, they are some-
+       times combined in systems with multiple multi-
+       threading CPUs and in CPUs with multiple multi-
+       threading cores."
+
+================== Prepare Operator Console ================
+
+2. Prepare Operator Console
+
+   Background information about each operating system is
+   available in "./Documents/GETTING_STARTED.txt".
+
+   2.1 Linux (CLI & GUI)
+
+       2.1.1 Login to Linux Computer System as user with
+             or without administrator privileges
+
+       2.1.2 Launch "Terminal" application
+
+             a. Click on "Activities" at Top-Left of Desktop.
+
+             b. Click on "Terminal" Icon on left side of Desktop
+
+             c. Click on Edit Profile Properties
+
+                Use Microsoft Windows running Cygwin Terminal
+                as a guide but feel free to make adjustments
+                that suit your own preferences.
+
+   2.2 Mac OS X (CLI & GUI)
+
+       2.2.1 Login to Mac OS X Computer System as user with
+             or without administrator privileges
+
+       2.2.2 Click on "Applications" Folder Icon at Bottom-
+             Right of Desktop.
+
+             2.2.2.1 Click on third-party "iTerm" Icon,
+                     if available.
+
+                     a. Edit Profile Properties
+
+                        Use Microsoft Windows running Cygwin
+                        as a guide but make adjustments to suit
+                        your own preferences.
+
+             2.2.2.2 Click on "Utilities" Folder Icon.
+
+                     a. Click on "Terminal" Icon.
+
+                        NOTES:
+
+                           The "Terminal" is supplied with
+                           Mac OS X.
+
+                           It will NOT respond to the mouse.
+                           Button Clicks are ignored.
+
+                     b. Edit Profile Properties
+
+                        Use Microsoft Windows running Cygwin
+                        as a guide but make adjustments to suit
+                        your own preferences.
+
+   2.3 Microsoft Windows
+
+       2.3.1 Comand Prompt (CLI only)
+
+             Launch "Command Prompt" application from
+             "Accessories" folder.
+
+             a. Adjust Properties with Options Tab
+
+                Cursor Size
+
+                    Recommend Small
+
+                Command History
+
+                    Buffer Size
+
+                        Recommend 50 
+
+                    Number of Buffers
+
+                        Recommend 4
+
+                    Discard Old Duplicates
+
+                        Recommend leave blank
+
+                Edit Options
+
+                    QuickEdit Mode
+
+                        Recommend leave blank
+
+                    Insert Mode
+
+                        Recommend leave blank
+
+             b. Adjust Properties with Font Tab
+
+                Font
+
+                    Recommend Raster Fonts
+
+                Size
+
+                    Recommend 8 x 12
+
+             c. Adjust Properties with Layout Tab
+
+                Screen Buffer Size
+
+                    Recommend 120 Width x 50 Height
+
+                Window Size
+
+                    Should be at least 60 columns x 24 rows
+
+                    Recommend 120 columns x 40 rows
+
+                Window Position
+
+                    Recommend 22 Left x 22 Top
+
+                Let system position window
+
+                    Recommend leave blank
+
+             d. Adjust Properties with Colors Tab
+
+                Recommend Screen Background of Black
+                (Red 0, Green 0, Blue 0)
+
+       2.3.2 "Windows PowerShell" (CLI only)
+
+             Launch "Windows PowerShell" application from
+             "Accessories" folder.
+
+             a. Adjust Properties with Options Tab
+
+                Cursor Size
+
+                    Recommend Small
+
+                Command History
+
+                    Buffer Size
+
+                        Recommend 50 
+
+                    Number of Buffers
+
+                        Recommend 4
+
+                    Discard Old Duplicates
+
+                        Recommend leave blank
+
+                Edit Options
+
+                    QuickEdit Mode
+
+                        Recommend click to turn ON
+
+                    Insert Mode
+
+                        Recommend click to turn ON
+
+             b. Adjust Properties with Font Tab
+
+                Font
+
+                    Recommend Raster Fonts
+
+                Size
+
+                    Recommend 8 x 12
+
+             c. Adjust Properties with Layout Tab
+
+                Screen Buffer Size
+
+                    Recommend 120 Width x 3000 Height
+
+                Window Size
+
+                    Should be at least 60 columns x 24 rows
+
+                    Recommend 120 columns x 50 rows
+
+                Window Position
+
+                    Recommend 22 Left x 22 Top
+
+                Let system position window
+
+                    Recommend click to turn ON
+
+             d. Adjust Properties with Colors Tab
+
+                Recommend Screen Background of Dark Blue
+                (Red 1, Green 36, Blue 35)
+
+       2.3.3 Cygwin (CLI & GUI)
+
+             Launch "Cygwin Terminal" application
+
+             a. Adjust Options Looks
+
+                Recommend Foreground of White
+                Recommend Background of Black
+                Recommend Cursor of Block and Blinking
+
+             b. Adjust Options text
+
+                Recommend Fonts with 8-point, shows bold as font
+                and default font smoothing
+
+             c. Adjust Options Window (width and height)
+
+                 Should be at least 60 columns x 24 rows
+                 Recommend 80 columns x 50 rows
+
+                 Display  Font  Pixel Size   Text Size
+                 =======  ====  ===========  ==================
+                 CGA      8x8    320 x  200   40 col x  25 rows
+                 HVGA     8x12   480 x  320   60 col x  26 rows
+                 VGA      8x12   640 x  480   80 col x  40 rows
+                 SVGA     8x12   800 x  600  100 col x  50 rows
+                 XGA      8x12  1024 x  768  128 col x  64 rows
+                 WXGA+    8x12  1440 x  900  180 col x  75 rows
+                 QHD      8x12  2560 x 1440  320 col x 120 rows
+
+             d. Adjust Options Terminal
+
+                Recommend Type of "xterm"
+
+   2.4 Unix (CLI & GUI)
+
+       2.4.1 Login to Unix Computer System as user with
+             or without administrator privileges
+
+       2.4.2 Launch "Terminal" application
+
+             a. Edit Profile Properties
+
+                Use Microsoft Windows running Cygwin as a
+                guide but make adjustments to suit your own
+                preferences.
+
+======= Python Programming Library, Second Generation ======
+
+3. Python Programming Library, Second Generation
+
+   The Python 2x interpretter, if it is the only Python
+   interpretter on the computer platform, may be invoked
+   as either "python" or "python2".
+
+   If there are multiple enhancement releases, such as 2.1,
+   2.2, 2.3, 2.4, 2.5, 2.6 and 2.7, and you want to use 2.5,
+   it will be necessary to use "python2.5"
+
+   If there are multiple bug fix releases, such as 2.7.1,
+   2.7.2, 2.7.3, 2.7.4, 2.7.5, 2.7.6, 2.7.8 and 2.7.9 and
+   you want to use 2.7.3, it will be necessary to use
+   "python2.7.3".
+
+   3.1 Set working directory
+
+       3.1.1 For example, using installed version with manual,
+             static import:
+
+             # Create and populate a directory containing
+             # only the Toolkit application program files.
+             #
+             # These files will only use those Toolkit
+             # building blocks which had been installed
+             # as part of the Toolkit Python site-package.
+             #
+             mkdir ~/Desktop/Scratchpad-tsWxGTUI_Py2x
+             cd ~/Desktop/Scratchpad-tsWxGTUI_Py2x
+
+             cp -p ~/Desktop/WR/tsWxGTUI_PyVx/
+                     Python-2x/tsWxGTUI_Py2x/
+                     tsTestsLibCLI/test_*.py ./
+
+             cp -p ~/Desktop/WR/tsWxGTUI_PyVx/
+                     Python-2x/tsWxGTUI_Py2x/
+                     tsTestsLibGUI/test_*.py ./
+
+             cp -p ~/Desktop/WR/tsWxGTUI_PyVx/
+                     Python-2x/tsWxGTUI_Py2x/
+                     tsToolsCLI/ts*.py ./
+
+       3.1.2 For example, using installation version with manual,
+             static import:
+
+             cd ~/Desktop/WR/tsWxGTUI_PyVx/Python-2x/tsWxGTUI_Py2x
+
+   3.2 Experience Command Line Interface (CLI)
+       (Features, Look and Feel)
+
+       3.2.1 Launch 1st CLI application without any operator constraints
+             #
+             # Abort the CLI application with the "Ctrl-C" button combination:
+             #
+             # (1) hold down the control key on the keyboard and
+             #     simultaneously
+             #
+             # (2) press the "c" key on the keyboard
+
+             python2 test_tsPlatformRunTimeEnvironment.py
+
+       3.2.2 About, Keyword-Value Pair Option, Long & Short Forms
+
+             python2 test_tsPlatformRunTimeEnvironment.py --about
+             python2 test_tsPlatformRunTimeEnvironment.py -a
+
+       3.2.3 Help, Keyword-Value Pair Option, Long & Short Forms
+
+             python2 test_tsPlatformRunTimeEnvironment.py --help
+             python2 test_tsPlatformRunTimeEnvironment.py -h
+
+       3.2.4 Version, Keyword-Value Pair Option, Long & Short Forms
+
+             python2 test_tsPlatformRunTimeEnvironment.py --version
+             python2 test_tsPlatformRunTimeEnvironment.py -v
+
+       3.2.5 Debug, Keyword-Value Pair Option, Long & Short Forms
+
+             python2 test_tsPlatformRunTimeEnvironment.py --debug
+             python2 test_tsPlatformRunTimeEnvironment.py -d
+
+       3.2.6 Verbose, Keyword-Value Pair Option, Long & Short Forms
+
+             python2 test_tsPlatformRunTimeEnvironment.py --Verbose
+             python2 test_tsPlatformRunTimeEnvironment.py -V
+
+       3.2.7 Output, Keyword-Value Pair Option, Long & Short Forms
+
+             python2 test_tsPlatformRunTimeEnvironment.py
+                     --output ./longRunTime.txt
+
+             python2 test_tsPlatformRunTimeEnvironment.py
+                     -o ./shortRunTime.txt
+
+       3.2.8 Launch 2nd CLI application without any operator constraints
+
+             python2 test_tsOperatorSettingsParser.py
+
+       3.2.9 Launch 2nd CLI application with Help, Keyword-Value Pair Option
+
+             python2 test_tsOperatorSettingsParser --help
+
+       3.2.10 Launch 2nd CLI application with each alternative positional
+              argument
+
+              python2 test_tsOperatorSettingsParser.py optparse
+              python2 test_tsOperatorSettingsParser.py getopt
+
+       3.2.11 Launch 3rd CLI application without any operator interaction
+              # Demonstrates:
+              #
+              # (1) A centralized mechanism for modifying/restoring those
+              #     configuration constants that can be interogated at
+              #     runtime by those software components having a
+              #     "need-to-know". The intent being to avoid subsequent
+              #     searches to locate and modify or restore a constant
+              #     appropriate to the current configuration.
+              #
+              # (2) Provide a theme-based mechanism for modifying/restoring
+              #     configuration constants as appropriate for various
+              #     classes of users and their activities.
+
+              python2 test_tsCxGlobals.py
+
+       3.2.12 Examine Log Files for the previous launches
+
+              # Use the appropriate file manager for your host operating
+              # system to list and view the contens of:
+              #
+              # (1) the top-level directory "./tsWxGTUI_Py2x/logs/".
+              #
+              # (2) the launch log directory. The format will be
+              #     Year-Month-Day-at-Hour-Minute-Second.
+              #     Example: "2014-12-39-at-11-10-46"
+              #
+              # (3) the file "PlatformRunTimeEnvironment.log"
+              #
+              # (4) the file "test_tsCxGlobals.log"
+              #
+              # (5) the file "tsCxGlobalsDictionaryTest.log"
+              #
+              # Host Operating System        File Manager Utility
+              # ---------------------------  ------------------------------
+              # Cygwin on Microsoft Windows  "mc" (GNU's Midnight Commander)
+              # Linux                        "Files"
+              # Mac OS X                     "Finder"
+              #                              "PathFinder" (COCOATECH)
+              # Microsoft Windows            "File Explorer"
+              #                              "Total Commander" (Ghisler)
+              # Unix (FreeBSD)               "Dolphim"
+              #      (Open Indiana)          "Nautilus"
+
+   3.3 Experience "wxPython"-style Graphical User Interface
+       (Features, Look and Feel)
+
+       3.3.1 Reset Working Terminal Emulator, whenever the terminal
+             either:
+             #
+             # (1) displays gibberish; or
+             #
+             # (2) does not echo your keyboard input
+
+             stty sane
+
+       3.3.2 Set Working Terminal Emulator (may use any one of 9 choices)
+             #
+             # (1) "cygwin" for 8-Color/64-Color Pairs (Cygwin-only host)
+             # (2) "linux" for 8-Color/64-Color Pairs (Linux-only host)
+             # (3) "xterm" for 8-Color/64-Color Pairs (default)
+             # (4) "xterm-color" for 8-Color/64-Color Pairs (obsolete)
+             # (5) "xterm-16color" for 16-Color/256-Color Pairs
+             # (6) "xterm-88color" for 16-Color/256-Color Pairs (override)
+             # (7) "xterm-256color" for 16-Color/256-Color Pairs (override)
+             # (8) "vt100" for non-color (white, green or orange on black)
+             # (9) "vt220" for non-color (white, green or orange on black)
+
+             TERM=xterm
+
+       3.3.3 Verify Working Terminal Emulator
+
+             echo $TERM
+
+       3.3.4 Launch 1st GUI application without any operator interaction
+             Demonstrates:
+             #
+             # Splash Screen
+             #
+             #    with Masthead, Copyright, License and Warranty Disclaimer
+             #
+             # Color Palettes and foreground/background color pairs
+             #
+             #    with "built-in" (non-changeable) or
+             #         "synthesized" (changeable) to match both the color names
+             #         and Red-Green-Blue values of the 8-color palette
+             #
+             #    with "wxPython" color-mapping emulation
+             #
+             # Abort the GUI application with the "Ctrl-C" button combination:
+             #
+             #    hold down the control key on the keyboard and
+             #    simultaneously press the "c" key on the keyboard
+
+             python2 test_tsWxGraphicalTextUserInterface.py
+
+       3.3.5 Launch 2nd GUI application without any operator interaction
+             Demonstrates:
+             #
+             # Splash Screen
+             #
+             #    with Masthead, Copyright, License and Warranty Disclaimer
+             #
+             # Multi-Frame Desktop with:
+             #
+             # (1) Frame "test_tsWxMultiFrameEnv" with Iconize.
+             #     Maximize/Restore and Close Buttons that
+             #     only create event messagess.
+             #
+             # (2) Frame "Redirected Output: stdout/stderr" with
+             #     scrolling date, time and event severity
+             #     stamped operator notification messages.
+             #
+             # (3) Frame "Tasks @ Host" with: launched application
+             #     name; current date and time; spinning baton to
+             #     indicate busy/idle period activity; and task
+             #     focus control buttons that only create event
+             #     messages.
+
+             python2 test_tsWxMultiFrameEnv.py
+
+       3.3.6 Launch 3rd GUI application without any operator interaction
+             Demonstrates:
+             #
+             # Splash Screen
+             #
+             #    with Masthead, Copyright, License and Warranty Disclaimer
+             #
+             # Multi-Frame Desktop with:
+             #
+             # (1) Frame "Gui_Test_Units" with:
+             #
+             #     a) Iconize. Maximize/Restore and Close But-
+             #        tons that only create event messagess.
+             #
+             #     b) Menu Bar that is non-operational
+             #
+             #     c) Panel with Horizontal and Vertical Scroll Bars that:
+             #
+             #        c1) reposition text by, single column or row,
+             #            in response to single click on scroll arrows
+             #            [<, > ^ and v] with left mouse button
+             #
+             #        c2) reposition text by, single page width or height,
+             #            in response to double click on scroll arrows
+             #            [<, > ^ and v] with left mouse button
+             #
+             #        c3) reposition text to beginning or end of text
+             #            in response to single click on scroll arrows
+             #            [<, > ^ and v] with right mouse button
+             #
+             #        c4) reposition text to relative horizontal and
+             #            vertical position of text in response to single
+             #            click on scroll bar gauges with left mouse button
+             #            Maximize/Restore and Close Buttons that
+             #            only create event messagess.
+             #
+             # (2) Frame "Redirected Output: stdout/stderr" with
+             #     scrolling date, time and event severity
+             #     stamped operator notification messages.
+             #
+             # (3) Frame "Tasks @ Host" with: launched application
+             #     name; current date and time; spinning baton to
+             #     indicate busy/idle period activity; and task
+             #     focus control buttons that only create event
+             #     messages.
+
+             python2 test_tsWxScrolledWindowDual.py
+
+       3.3.7 Launch 4th GUI application without any operator interaction
+             Demonstrates:
+             #
+             # (1) A centralized mechanism for modifying/restoring those
+             #     configuration constants that can be interogated at
+             #     runtime by those software components having a
+             #     "need-to-know". The intent being to avoid subsequent
+             #     searches to locate and modify or restore a constant
+             #     appropriate to the current configuration.
+             #
+             # (2) Provide a theme-based mechanism for modifying/restoring
+             #     those configuration constants as appropriate for
+             #     the following character-mode wxPython emulation:
+             #
+             #     a. Splash Screen
+             #
+             #        Docstrings to be used for Masthead, Copyright, License
+             #        and Notice fields appropriate for the available space
+             #        on the display screen.
+             #
+             #     b. Video Display Constants
+             #
+             #     c. Message Indentation Constants to facilitate trouble-
+             #        shooting hierarchy of emulated wxPython classes
+             #
+             #     d. wxPython object names and constants (identifiers,
+             #        keycodes, styles, attributes, color palette,
+             #        supported terminals/emulators and default fonts,
+             #        styles, foreground/background/markup colors etc.).
+
+             python2 test_tsWxGlobals.py
+
+       3.3.8 Examine Log Files for the previous launches
+
+             # Use the appropriate file manager for your host operating
+             # system to list and view the contens of:
+             #
+             # (1) the top-level directory "./tsWxGTUI_Py3x/logs/".
+             #
+             # (2) the launch log directory. The format will be
+             #     Year-Month-Day-at-Hour-Minute-Second.
+             #     Example: "2014-12-39-at-11-10-46"
+             #
+             # (3) the file "debug_via_tsru.log.log"
+             #
+             # (4) the file "DisplayConfiguration.log"
+             #
+             # (5) the file "PlatformRunTimeEnvironment.log"
+             #
+             # (6) the file "Redirected-stdout.log"
+             #
+             # (7) the file "TerminalRunTimeEnvironment.log"
+             #
+             # (8) the file "test_tsWxScrolledWindowDual.log"
+             #
+             # (9) the Splash Screen log directory
+             #     "./tsWxGTUI_Py3x/logs/bmp/".
+             #
+             # Host Operating System        File Manager Utility
+             # ---------------------------  ------------------------------
+             # Cygwin on Microsoft Windows  "mc" (GNU's Midnight Commander)
+             # Linux                        "Files"
+             # Mac OS X                     "Finder"
+             #                              "PathFinder" (COCOATECH)
+             # Microsoft Windows            "File Explorer"
+             #                              "Total Commander" (Ghisler)
+             # Unix (FreeBSD)               "Dolphim"
+             #      (Open Indiana)          "Nautilus"
+
+======== Python Programming Library, Third Generation ======
+
+4. Python Programming Library, Third Generation
+
+   The Python 3x interpretter, if it is the only Python
+   interpretter on the computer platform, may be invoked
+   as either "python" or "python3".
+
+   If there are multiple enhancement releases, such as 3.0,
+   3.1, 3.2, 3.3 and 3.4, and you want to use 3.2, it will
+   be necessary to use "python3.2.
+
+   If there are multiple bug fix releases, such as 3.2.1,
+   3.2.2, 3.2.3, 3.2.4, 3.2.5 and 3.2.6 and you want to use
+   3.2.5, it will be necessary to use "python3.2.5".
+
+   4.1 Set working directory
+
+       4.1.1 For example, using installed version with manual,
+             static import:
+
+             # Create and populate a directory containing
+             # only the Toolkit application program files.
+             #
+             # These files will only use those Toolkit
+             # building blocks which had been installed
+             # as part of the Toolkit Python site-package.
+             #
+             mkdir ~/Desktop/Scratchpad-tsWxGTUI_Py3x
+             cd ~/Desktop/Scratchpad-tsWxGTUI_Py3x
+
+             cp -p ~/Desktop/WR/tsWxGTUI_PyVx/
+                     Python-3x/tsWxGTUI_Py3x/
+                     tsTestsLibCLI/test_*.py ./
+
+             cp -p ~/Desktop/WR/tsWxGTUI_PyVx/
+                     Python-3x/tsWxGTUI_Py3x/
+                     tsTestsLibGUI/test_*.py ./
+
+             cp -p ~/Desktop/WR/tsWxGTUI_PyVx/
+                     Python-3x/tsWxGTUI_Py3x/
+                     tsToolsCLI/ts*.py ./
+
+       4.1.2 For example, using installation version with manual,
+             static import:
+
+             cd ~/Desktop/WR/tsWxGTUI_PyVx/Python-3x/tsWxGTUI_Py3x
+
+   4.2 Experience Command Line Interface (CLI)
+       (Features, Look and Feel)
+
+       4.2.1 Launch 1st CLI application without any operator
+             constraints
+             #
+             # Abort the CLI application with the "Ctrl-C"
+             # button combination:
+             #
+             # (1) hold down the control key on the keyboard
+             #     and simultaneously
+             #
+             # (2) press the "c" key on the keyboard
+
+             python3 test_tsPlatformRunTimeEnvironment.py
+
+       4.2.2 About, Keyword-Value Pair Option, Long & Short Forms
+
+             python3 test_tsPlatformRunTimeEnvironment.py --about
+             python3 test_tsPlatformRunTimeEnvironment.py -a
+
+       4.2.3 Help, Keyword-Value Pair Option, Long & Short Forms
+
+             python3 test_tsPlatformRunTimeEnvironment.py --help
+             python3 test_tsPlatformRunTimeEnvironment.py -h
+
+       4.2.4 Version, Keyword-Value Pair Option, Long & Short Forms
+
+             python3 test_tsPlatformRunTimeEnvironment.py --version
+             python3 test_tsPlatformRunTimeEnvironment.py -v
+
+       4.2.5 Debug, Keyword-Value Pair Option, Long & Short Forms
+
+             python3 test_tsPlatformRunTimeEnvironment.py --debug
+             python3 test_tsPlatformRunTimeEnvironment.py -d
+
+       4.2.6 Verbose, Keyword-Value Pair Option, Long & Short Forms
+
+             python3 test_tsPlatformRunTimeEnvironment.py --Verbose
+             python3 test_tsPlatformRunTimeEnvironment.py -V
+
+       4.2.7 Output, Keyword-Value Pair Option, Long & Short Forms
+
+             python3 test_tsPlatformRunTimeEnvironment.py
+                     --output ./longRunTime.txt
+             python3 test_tsPlatformRunTimeEnvironment.py
+                     -o ./shortRunTime.txt
+
+       4.2.8 Launch 2nd CLI application without any operator
+             constraints
+
+             python3 test_tsOperatorSettingsParser.py
+
+       4.2.9 Launch 2nd CLI application with Help,
+             Keyword-Value Pair Option
+
+             python3 test_tsOperatorSettingsParser --help
+
+       4.2.10 Launch 2nd CLI application with each alternative
+              positional argument
+
+              python3 test_tsOperatorSettingsParser.py optparse
+              python3 test_tsOperatorSettingsParser.py getopt
+
+       4.2.11 Launch 3rd CLI application without any operator
+              interaction
+              # Demonstrates:
+              #
+              # (1) A centralized mechanism for modifying/restoring
+              #     those configuration constants that can be inter-
+              #     rogated at runtime by those software components
+              #     having a "need-to-know". The intent being to
+              #     avoid subsequent searches to locate and modify
+              #     or restore a constant appropriate to the current
+              #     configuration.
+              #
+              # (2) Provide a theme-based mechanism for modifying/
+              #     restoring configuration constants as appropri-
+              #     ate for various classes of users and their
+              #     activities.
+
+              python3 test_tsCxGlobals.py
+
+       4.2.12 Examine Log Files for the previous launches
+
+              # Use the appropriate file manager for your host operating
+              # system to list and view the contens of:
+              #
+              # (1) the top-level directory "./tsWxGTUI_Py3x/logs/".
+              #
+              # (2) the launch log directory. The format will be
+              #     Year-Month-Day-at-Hour-Minute-Second.
+              #     Example: "2014-12-39-at-11-10-46"
+              #
+              # (3) the file "PlatformRunTimeEnvironment.log"
+              #
+              # (4) the file "test_tsCxGlobals.log"
+              #
+              # (5) the file "tsCxGlobalsDictionaryTest.log"
+              #
+              # Host Operating System        File Manager Utility
+              # ---------------------------  ------------------------------
+              # Cygwin on Microsoft Windows  "mc" (GNU's Midnight Commander)
+              # Linux                        "Files"
+              # Mac OS X                     "Finder"
+              #                              "PathFinder" (COCOATECH)
+              # Microsoft Windows            "File Explorer"
+              #                              "Total Commander" (Ghisler)
+              # Unix (FreeBSD)               "Dolphim"
+              #      (Open Indiana)          "Nautilus"
+
+   4.3 Experience "wxPython"-style Graphical User Interface
+       (Features, Look and Feel)
+
+       4.3.1 Reset Working Terminal Emulator, whenever the terminal
+             either:
+             #
+             # (1) displays gibberish; or
+             #
+             # (2) does not echo your keyboard input
+
+             stty sane
+
+       4.3.2 Set Working Terminal Emulator (may use any one of 9 choices)
+             #
+             # (1) "cygwin" for 8-Color/64-Color Pairs (Cygwin-only host)
+             # (2) "linux" for 8-Color/64-Color Pairs (Linux-only host)
+             # (3) "xterm" for 8-Color/64-Color Pairs (default)
+             # (4) "xterm-color" for 8-Color/64-Color Pairs (obsolete)
+             # (5) "xterm-16color" for 16-Color/256-Color Pairs
+             # (6) "xterm-88color" for 16-Color/256-Color Pairs (override)
+             # (7) "xterm-256color" for 16-Color/256-Color Pairs (override)
+             # (8) "vt100" for non-color (white, green or orange on black)
+             # (9) "vt220" for non-color (white, green or orange on black)
+
+             TERM=xterm
+
+       4.3.3 Verify Working Terminal Emulator
+
+             echo $TERM
+
+       4.3.4 Launch 1st GUI application without any operator interaction
+             Demonstrates:
+             #
+             # Splash Screen
+             #
+             #    with Masthead, Copyright, License and Warranty Disclaimer
+             #
+             # Color Palettes and foreground/background color pairs
+             #
+             #    with "built-in" (non-changeable) or
+             #         "synthesized" (changeable) to match both the color names
+             #         and Red-Green-Blue values of the 8-color palette
+             #
+             #    with "wxPython" color-mapping emulation
+             #
+             # Abort the GUI application with the "Ctrl-C" button combination:
+             #
+             #    hold down the control key on the keyboard and
+             #    simultaneously press the "c" key on the keyboard
+
+             python3 test_tsWxGraphicalTextUserInterface.py
+
+       4.3.5 Launch 2nd GUI application without any operator interaction
+             Demonstrates:
+             #
+             # Splash Screen
+             #
+             #    with Masthead, Copyright, License and Warranty Disclaimer
+             #
+             # Multi-Frame Desktop with:
+             #
+             # (1) Frame "test_tsWxMultiFrameEnv" with Iconize.
+             #     Maximize/Restore and Close Buttons that
+             #     only create event messagess.
+             #
+             # (2) Frame "Redirected Output: stdout/stderr" with
+             #     scrolling date, time and event severity
+             #     stamped operator notification messages.
+             #
+             # (3) Frame "Tasks @ Host" with: launched application
+             #     name; current date and time; spinning baton to
+             #     indicate busy/idle period activity; and task
+             #     focus control buttons that only create event
+             #     messages.
+
+             python3 test_tsWxMultiFrameEnv.py
+
+       4.3.6 Launch 3rd GUI application without any operator interaction
+             Demonstrates:
+             #
+             # Splash Screen
+             #
+             #    with Masthead, Copyright, License and Warranty Disclaimer
+             #
+             # Multi-Frame Desktop with:
+             #
+             # (1) Frame "Gui_Test_Units" with:
+             #
+             #     a) Iconize. Maximize/Restore and Close But-
+             #        tons that only create event messagess.
+             #
+             #     b) Menu Bar that is non-operational
+             #
+             #     c) Panel with Horizontal and Vertical Scroll Bars that:
+             #
+             #        c1) reposition text by, single column or row,
+             #            in response to single click on scroll arrows
+             #            [<, > ^ and v] with left mouse button
+             #
+             #        c2) reposition text by, single page width or height,
+             #            in response to double click on scroll arrows
+             #            [<, > ^ and v] with left mouse button
+             #
+             #        c3) reposition text to beginning or end of text
+             #            in response to single click on scroll arrows
+             #            [<, > ^ and v] with right mouse button
+             #
+             #        c4) reposition text to relative horizontal and
+             #            vertical position of text in response to single
+             #            click on scroll bar gauges with left mouse button
+             #            Maximize/Restore and Close Buttons that
+             #            only create event messagess.
+             #
+             # (2) Frame "Redirected Output: stdout/stderr" with
+             #     scrolling date, time and event severity
+             #     stamped operator notification messages.
+             #
+             # (3) Frame "Tasks @ Host" with: launched application
+             #     name; current date and time; spinning baton to
+             #     indicate busy/idle period activity; and task
+             #     focus control buttons that only create event
+             #     messages.
+
+             python3 test_tsWxScrolledWindowDual.py
+
+       4.3.7 Launch 4th GUI application without any operator interaction
+             Demonstrates:
+             #
+             # (1) A centralized mechanism for modifying/restoring those
+             #     configuration constants that can be interogated at
+             #     runtime by those software components having a
+             #     "need-to-know". The intent being to avoid subsequent
+             #     searches to locate and modify or restore a constant
+             #     appropriate to the current configuration.
+             #
+             # (2) Provide a theme-based mechanism for modifying/restoring
+             #     those configuration constants as appropriate for
+             #     the following character-mode wxPython emulation:
+             #
+             #     a. Splash Screen
+             #
+             #        Docstrings to be used for Masthead, Copyright, License
+             #        and Notice fields appropriate for the available space
+             #        on the display screen.
+             #
+             #     b. Video Display Constants
+             #
+             #     c. Message Indentation Constants to facilitate trouble-
+             #        shooting hierarchy of emulated wxPython classes
+             #
+             #     d. wxPython object names and constants (identifiers,
+             #        keycodes, styles, attributes, color palette,
+             #        supported terminals/emulators and default fonts,
+             #        styles, foreground/background/markup colors etc.).
+
+             python3 test_tsWxGlobals.py
+
+       4.3.8 Examine Log Files for the previous launches
+
+             # Use the appropriate file manager for your host operating
+             # system to list and view the contens of:
+             #
+             # (1) the top-level directory "./tsWxGTUI_Py3x/logs/".
+             #
+             # (2) the launch log directory. The format will be
+             #     Year-Month-Day-at-Hour-Minute-Second.
+             #     Example: "2014-12-39-at-11-10-46"
+             #
+             # (3) the file "debug_via_tsru.log.log"
+             #
+             # (4) the file "DisplayConfiguration.log"
+             #
+             # (5) the file "PlatformRunTimeEnvironment.log"
+             #
+             # (6) the file "Redirected-stdout.log"
+             #
+             # (7) the file "TerminalRunTimeEnvironment.log"
+             #
+             # (8) the file "test_tsWxScrolledWindowDual.log"
+             #
+             # (9) the Splash Screen log directory
+             #     "./tsWxGTUI_Py3x/logs/bmp/".
+             #
+             # Host Operating System        File Manager Utility
+             # ---------------------------  ------------------------------
+             # Cygwin on Microsoft Windows  "mc" (GNU's Midnight Commander)
+             # Linux                        "Files"
+             # Mac OS X                     "Finder"
+             #                              "PathFinder" (COCOATECH)
+             # Microsoft Windows            "File Explorer"
+             #                              "Total Commander" (Ghisler)
+             # Unix (FreeBSD)               "Dolphim"
+             #      (Open Indiana)          "Nautilus"
+
+==== Prepare SSH / SFTP Client & Server for Remote Login ===
+
+5. Prepare SSH / SFTP Client & Server for Remote Login
+
+   SSH / SFTP are TCP/IP services that provide a secure mech-
+   anism for remotely logging into one system over either a
+   local network or the internet into another system. SFTP
+   also provides the ability to transfer files between the
+   local and remote systems.
+
+   When a user logs into a remote system using SSH / SFTP,
+   they receive a command prompt allowing them to enter com-
+   mands on the remote system as if they were sitting at the
+   remote system and had opened a terminal session.
+
+   The following is representative of the preparation asso-
+   ciated with various operating system types (makes and
+   models).
+
+   Please substitute your own user data for the yourUserID user
+   data.
+
+   5.1 Linux SSH / SFTP Server (CentOS 7)
+
+       5.1.1 Login as user with administrative privileges
+
+       5.1.2 Click on "Activities" at Top-Left of Desktop.
+
+       5.1.3 Click on "Terminal" Icon on left side of Desktop
+
+             Enter "ifconfig" command with keyboard and remember
+             the following access features in the response:
+
+                user login name    = "yourUserID"
+                host computer name = "centos7vm"
+                domain/work group  = "teamstars"
+                host eth0 inet     = "10.0.0.14"
+
+                    [yourUserID@centos7vm-teamstars ~]$ ifconfig
+                    eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+                            inet 10.0.0.14  netmask 255.255.255.0  broadcast 10.0.0.255
+                            inet6 2601:6:3380:d1f7:21c:42ff:fecc:aa9  prefixlen 64  scopeid 0x0<global>
+                            inet6 fe80::21c:42ff:fecc:aa9  prefixlen 64  scopeid 0x20<link>
+                            ether 00:1c:42:cc:0a:a9  txqueuelen 1000  (Ethernet)
+                            RX packets 297  bytes 55181 (53.8 KiB)
+                            RX errors 0  dropped 0  overruns 0  frame 0
+                            TX packets 206  bytes 19779 (19.3 KiB)
+                            TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+                    eth1: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+                            ether 00:1c:42:db:15:b4  txqueuelen 1000  (Ethernet)
+                            RX packets 56  bytes 22551 (22.0 KiB)
+                            RX errors 0  dropped 0  overruns 0  frame 0
+                            TX packets 0  bytes 0 (0.0 B)
+                            TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+                    lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
+                            inet 127.0.0.1  netmask 255.0.0.0
+                            inet6 ::1  prefixlen 128  scopeid 0x10<host>
+                            loop  txqueuelen 0  (Local Loopback)
+                            RX packets 6  bytes 560 (560.0 B)
+                            RX errors 0  dropped 0  overruns 0  frame 0
+                            TX packets 6  bytes 560 (560.0 B)
+                            TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+                    virbr0: flags=4099<UP,BROADCAST,MULTICAST>  mtu 1500
+                            inet 192.168.122.1  netmask 255.255.255.0  broadcast 192.168.122.255
+                            ether 52:54:00:b0:69:6e  txqueuelen 0  (Ethernet)
+                            RX packets 0  bytes 0 (0.0 B)
+                            RX errors 0  dropped 0  overruns 0  frame 0
+                            TX packets 3  bytes 234 (234.0 B)
+                            TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+                    [yourUserID@centos7vm-teamstars ~]$
+
+       5.1.4 Right Click on user name "Richard Gordon" at Top-Right of Desktop
+             Title Bar.
+
+       5.1.5 Click on Settings Pull-down
+
+       5.1.6 Click to Turn-On Sharing
+
+       5.1.7 Click to change Computer Name if it does not happen
+             to be unique on your network (avoid localhost.local).
+
+       5.1.8 Click to Turn-Off Screen Sharing, if appropriate.
+
+       5.1.9 Click to Turn-On Remote Login.
+
+       5.1.10 Logoff when ready to use another computer
+
+       5.1.11 Login when ready to shutdown
+
+       5.1.12 Right Click on user name "Richard Gordon" at Top-Right of Desktop
+              Title Bar.
+
+       5.1.13 Click on Power Off Pull-down
+
+       5.1.14 Click on Power Off Button
+
+   5.2 Mac OS X SSH / SFTP Server (Yosemite)
+
+       5.2.1 Login as user with administrative privileges
+
+       5.2.2 Click on Apple Icon -> System Preferences ->
+             Sharing
+
+       5.2.3 Click on check box ("[ ]") to enable/disable
+             as appropriate:
+
+             File Sharing
+
+                 Click on +/- to enable/disable shared folders
+                       users and accrees privileges as appro-
+                       priate
+
+             Printer Sharing
+
+               Printers
+
+                 Click to enable/disable as appropriate;
+                 Click on +/- to enable/disable users as appropriate
+
+             Remote Login
+ 
+                 Click on Allow access for Only these users;
+                 Click on +/- to enable/disable users as appropriate
+
+       5.2.4 Click on "Applications" Folder Icon at Bottom-Right of Desktop.
+
+       5.2.5 Click on "Utilities" Folder Icon.
+
+       5.2.6 Click on "Terminal" Icon.
+
+             Enter "ifconfig" command with keyboard and remember
+             the following access features in the response:
+
+                user login name    = "yourUserID"
+                host computer name = "Richards-iMac"
+                domain/work group  = "teamstars"
+                host eth0 inet     = "10.0.0.14"
+
+                    [yourUserID@centos7vm-teamstars ~]$ ifconfig
+                       Last login: Fri Jan  2 18:25:04 from 10.0.0.3
+                       Richards-iMac:~ yourUserID$ ifconfig
+                       lo0: flags=8049<UP,LOOPBACK,RUNNING,MULTICAST> mtu 16384
+                               options=3<RXCSUM,TXCSUM>
+                               inet6 ::1 prefixlen 128
+                               inet 127.0.0.1 netmask 0xff000000
+                               inet6 fe80::1%lo0 prefixlen 64 scopeid 0x1
+                               nd6 options=1<PERFORMNUD>
+                       gif0: flags=8010<POINTOPOINT,MULTICAST> mtu 1280
+                       stf0: flags=0<> mtu 1280
+                       en0: flags=8963<UP,BROADCAST,SMART,RUNNING,PROMISC,SIMPLEX,MULTICAST> mtu 1500
+                               options=10b<RXCSUM,TXCSUM,VLAN_HWTAGGING,AV>
+                               ether 68:5b:35:92:1d:49
+                               inet6 fe80::6a5b:35ff:fe92:1d49%en0 prefixlen 64 scopeid 0x4
+                               inet 10.0.0.2 netmask 0xffffff00 broadcast 10.0.0.255
+                               inet6 2601:6:3380:d1f7:6a5b:35ff:fe92:1d49 prefixlen 64 autoconf
+                               inet6 2601:6:3380:d1f7:959e:4f0e:ce1f:2875 prefixlen 64 deprecated autoconf temporary
+                               inet6 2601:6:3380:d1f7:b8d3:73dd:e5b2:2719 prefixlen 64 deprecated autoconf temporary
+                               inet6 2601:6:3380:d1f7:94f4:735b:b430:c89 prefixlen 64 deprecated autoconf temporary
+                               inet6 2601:6:3380:d1f7:185e:a49e:21d8:cf06 prefixlen 64 deprecated autoconf temporary
+                               inet6 2601:6:3380:d1f7:da6:28b9:d200:a02b prefixlen 64 deprecated autoconf temporary
+                               inet6 2601:6:3380:d1f7:a5ea:fc77:9cfc:7186 prefixlen 64 deprecated autoconf temporary
+                               inet6 2601:6:3380:d1f7:ac29:f9af:8a54:f4f prefixlen 64 autoconf temporary
+                               nd6 options=1<PERFORMNUD>
+                               media: autoselect (1000baseT <full-duplex,flow-control,energy-efficient-ethernet>)
+                               status: active
+                       en1: flags=8823<UP,BROADCAST,SMART,SIMPLEX,MULTICAST> mtu 1500
+                               ether c8:e0:eb:3c:8a:d5
+                               nd6 options=1<PERFORMNUD>
+                               media: autoselect (<unknown type>)
+                               status: inactive
+                       en2: flags=8963<UP,BROADCAST,SMART,RUNNING,PROMISC,SIMPLEX,MULTICAST> mtu 1500
+                               options=60<TSO4,TSO6>
+                               ether 32:00:18:90:e0:00
+                               media: autoselect <full-duplex>
+                               status: inactive
+                       en3: flags=8963<UP,BROADCAST,SMART,RUNNING,PROMISC,SIMPLEX,MULTICAST> mtu 1500
+                               options=60<TSO4,TSO6>
+                               ether 32:00:18:90:e0:01
+                               media: autoselect <full-duplex>
+                               status: inactive
+                       p2p0: flags=8802<BROADCAST,SIMPLEX,MULTICAST> mtu 2304
+                               ether 0a:e0:eb:3c:8a:d5
+                               media: autoselect
+                               status: inactive
+                       awdl0: flags=8802<BROADCAST,SIMPLEX,MULTICAST> mtu 1452
+                               ether aa:78:3f:2f:58:a4
+                               nd6 options=1<PERFORMNUD>
+                               media: autoselect
+                               status: inactive
+                       bridge0: flags=8863<UP,BROADCAST,SMART,RUNNING,SIMPLEX,MULTICAST> mtu 1500
+                               options=63<RXCSUM,TXCSUM,TSO4,TSO6>
+                               ether 6a:5b:35:29:98:00
+                               Configuration:
+                                       id 0:0:0:0:0:0 priority 0 hellotime 0 fwddelay 0
+                                       maxage 0 holdcnt 0 proto stp maxaddr 100 timeout 1200
+                                       root id 0:0:0:0:0:0 priority 0 ifcost 0 port 0
+                                       ipfilter disabled flags 0x2
+                               member: en2 flags=3<LEARNING,DISCOVER>
+                                       ifmaxaddr 0 port 6 priority 0 path cost 0
+                               member: en3 flags=3<LEARNING,DISCOVER>
+                                       ifmaxaddr 0 port 7 priority 0 path cost 0
+                               nd6 options=1<PERFORMNUD>
+                               media: <unknown type>
+                               status: inactive
+                       vnic0: flags=8843<UP,BROADCAST,RUNNING,SIMPLEX,MULTICAST> mtu 1500
+                               options=3<RXCSUM,TXCSUM>
+                               ether 00:1c:42:00:00:08
+                               inet 10.211.55.2 netmask 0xffffff00 broadcast 10.211.55.255
+                               media: autoselect
+                               status: active
+                       vnic1: flags=8843<UP,BROADCAST,RUNNING,SIMPLEX,MULTICAST> mtu 1500
+                               options=3<RXCSUM,TXCSUM>
+                               ether 00:1c:42:00:00:09
+                               inet 10.37.129.2 netmask 0xffffff00 broadcast 10.37.129.255
+                               media: autoselect
+                               status: active
+                       Richards-iMac:~ yourUserID$
+
+       5.2.7 Click on Apple Icon -> Log Out when ready to use another computer
+
+       5.2.8 Click on Apple Icon -> Shut Down when ready to Turn Off Power
+
+   5.3 Microsoft Windows SSH / SFTP Server & Client
+       (Professional Edition of Windows 7)
+
+       5.3.1 Cygwin Plug-In Mode (Not Verified)
+
+             Please see internet-based information at:
+
+                 http://www.howtogeek.com/howto/41560
+                       /how-to-get-ssh-command-line-
+                        access-to-windows-7-using-cygwin/
+
+             Please see internet-based information at:
+
+                 Oracle GlassFish Server 3.1-3.1.1
+                 High Availability Administration Guide
+
+                 https://docs.oracle.com
+                        /cd/E18930_01/html/821-2426/gksiy.html
+
+             NOTES:
+
+             (1) Client mode is enabled after installation
+                 of "openssh" module.
+
+             (2) Server mode cannot be enabled without
+                 administrator privileges.
+
+             (3) Windows users having administrator privi
+                 -leges DO NOT have and CANNOT get Cygwin
+                 administrator privileges. The referenced
+                 articles might only work with earlier
+                 versions of Windows and Cygwin.
+
+       5.3.2 Native Mode (Not Verified)
+
+             Please see internet-based information at:
+
+                http://serverfault.com/questions/429426
+                      /how-can-i-connect-to-a-windows-
+                       server-using-a-command-line-
+                       interface-cli
+
+   5.4 Unix SSH / SFTP Server (FreeBSD 10 / PC-BSD 10)
+
+       Login as user with/without administrative privileges
+
+       5.4.1 Click on red Icon for "Kickoff Application
+             Launcher" at Bottom-Right of Desktop.
+
+             5.4.1.1 Click on "Terminal" Icon on left side
+                     of Desktop
+
+             5.4.1.2 Enter "ifconfig" command with keyboard
+                     and remember the following access fea-
+                     tures in the response:
+
+           [yourUserID@pcbsd10VM ~]$ ifconfig
+               em0: flags=8843<UP,BROADCAST,RUNNING,SIMPLEX,MULTICAST> metric 0 mtu 1500
+                    options=9b<RXCSUM,TXCSUM,VLAN_MTU,VLAN_HWTAGGING,VLAN_HWCSUM>
+                    ether 00:1c:42:42:b2:0d
+                     inet6 fe80::21c:42ff:fe42:b20d%em0 prefixlen 64 scopeid 0x1
+                     inet6 2601:6:3380:d1f7:21c:42ff:fe42:b20d prefixlen 64 autoconf
+                     inet 10.0.0.20 netmask 0xffffff00 broadcast 10.0.0.255
+                     nd6 options=23<PERFORMNUD,ACCEPT_RTADV,AUTO_LINKLOCAL>
+                     media: Ethernet autoselect (1000baseT <full-duplex>)
+                     status: active
+               em1: flags=8843<UP,BROADCAST,RUNNING,SIMPLEX,MULTICAST> metric 0 mtu 1500
+                    options=9b<RXCSUM,TXCSUM,VLAN_MTU,VLAN_HWTAGGING,VLAN_HWCSUM>
+                    ether 00:1c:42:7b:ec:7e
+                    inet6 fe80::21c:42ff:fe7b:ec7e%em1 prefixlen 64 scopeid 0x2
+                    inet6 fdb2:2c26:f4e4:1:21c:42ff:fe7b:ec7e prefixlen 64 detached autoconf
+                    inet 10.37.129.16 netmask 0xffffff00 broadcast 10.37.129.255
+                    nd6 options=23<PERFORMNUD,ACCEPT_RTADV,AUTO_LINKLOCAL>
+                    media: Ethernet autoselect (1000baseT <full-duplex>)
+                    status: active
+               lo0: flags=8049<UP,LOOPBACK,RUNNING,MULTICAST> metric 0 mtu 16384
+                    options=600003<RXCSUM,TXCSUM,RXCSUM_IPV6,TXCSUM_IPV6>
+                    inet6 ::1 prefixlen 128
+                    inet6 fe80::1%lo0 prefixlen 64 scopeid 0x3
+                    inet 127.0.0.1 netmask 0xff000000
+                    nd6 options=21<PERFORMNUD,AUTO_LINKLOCAL>
+           [yourUserID@pcbsd10VM ~]$
+
+             5.4.1.3 Click on "Terminal" Icon on left side
+                     of Desktop
+
+                     Please see internet-based information at:
+
+                        http://wiki.pcbsd.org/index.php/Security/10.0
+
+                     SSH / SFTP is disabled by default: and can
+                     only be enabled by the superuser. This
+                     setting prevents bots and other users
+                     from trying to access your system. If
+                     you do need to use SSH, change the "NO"
+                     to a "YES" in the line "sshd_enable="
+                     in the file /etc/rc.conf. You can start
+                     the service right away by typing
+                     service sshd start. You will need to
+                     add a firewall rule to allow SSH
+                     connections from the systems that
+                     require SSH / SFTP access.
+
+                     SSH / SFTP root logins are disabled by default:
+                     if you enable SSH, you must login as a
+                     regular user and can use su or sudo
+                     when you need to perform administrative
+                     actions. You should not change this
+                     default as this prevents an unwanted
+                     user from having complete access
+                     to your system.
+
+             5.4.1.4 Enter "sudo emacs /etc/rc.conf" via
+                     keyboard for privileged mode editing.
+
+                     a) Enter password for privileged mode
+                     b) Add the line 'sshd_enable="YES"'
+                     c) Save the file
+
+       5.4.2 Click on red Icon for "Kickoff Application
+             Launcher" at Bottom-Right of Desktop.
+
+             5.4.2.1 Click on "PC-BSD Control Panel" Icon on
+                     left side of Desktop
+
+             5.4.2.2 Click on "Firewall Manager" Icon on left side of Desktop
+
+             5.4.2.3 Click on "Add Entry"
+
+             5.4.2.4 Click On "Custom"
+
+             5.4.2.5 Click on "Edit"
+
+             5.4.2.6 Click on "SSH" for Port 22
+
+       5.4.3 Click on red Icon for "Kickoff Application
+             Launcher" at Bottom-Right of Desktop.
+
+             5.4.3.1 Click on "Leave" Icon
+
+             5.4.3.2 Click on "Restart" or "Shut down" Icon
+
+========= Use SSH / SFTP Server(s) for Remote Login ========
+
+6. Use SSH / SFTP Server(s) for Remote Login
+
+   SSH / SFTP are TCP/IP services that provide a secure mech-
+   anism for remotely logging into one system over either a
+   local network or the internet into another system. When a
+   user logs into a remote system using SSH / SFTP, they
+   receive a command prompt allowing them to enter commands
+   on the remote system as if they were sitting at the remote
+   system and had opened a terminal session.
+
+   For an introduction to SSH with examples, see:
+
+      http://support.suso.com/supki/SSH_Tutorial_for_Linux
+
+   For an introduction to SFTP with examples, see:
+
+      http://www.computerhope.com/unix/sftp.htm
+
+      http://www.digitalocean.com/community/tutorials
+            /how-to-use-sftp-to-securely-transfer-files-
+             with-a-remote-server
+
+   Login to local system as user with/without administrative
+   privileges.
+
+   6.1 Create Remote Single Session Desktop
+
+       6.1.1 Launch the Command Line Interface shell ses-
+             sion.
+
+             Launch Terminal Application
+
+             Set Session Terminal Emulator (may use any one
+             of 9 choices)
+             #
+             # (1) "cygwin" for 8-Color/64-Color Pairs (Cygwin-only host)
+             # (2) "linux" for 8-Color/64-Color Pairs (Linux-only host)
+             # (3) "xterm" for 8-Color/64-Color Pairs (default)
+             # (4) "xterm-color" for 8-Color/64-Color Pairs (obsolete)
+             # (5) "xterm-16color" for 16-Color/256-Color Pairs
+             # (6) "xterm-88color" for 16-Color/256-Color Pairs (override)
+             # (7) "xterm-256color" for 16-Color/256-Color Pairs (override)
+             # (8) "vt100" for non-color (white, green or orange on black)
+             # (9) "vt220" for non-color (white, green or orange on black)
+
+             TERM=xterm
+
+       6.1.2 Login to remote system as user with/without
+             administrative privileges.
+
+             If you expect to transfer files between the
+             local and Remote Systems, use either of the
+             following SFTP commands:
+
+                # sftp <login user name>@<remote host network id>
+                sftp TestEngineer@LinuxSCADA.teamstars
+                sftp TestEngineer@255.254.253.252
+
+             If you DO NOT expect to transfer files between
+             the local and Remote Systems, use either of the
+             following SSH commands:
+
+                # ssh <login user name>@<remote host network id>
+                ssh TestEngineer@LinuxSCADA.teamstars
+                ssh TestEngineer@255.254.253.252
+
+             Observe/Respond to the following messages
+             Password: its_a_secret
+             Last login: Fri Jan  2 17:14:12 2015 from 10.0.0.3
+             LinuxSCADA.teamstars:TestEngineer$
+
+       6.1.3 Set Working Directory
+
+             For example:
+
+                cd ~/Desktop/WR/tsWxGTUI_PyVx/Python-3x
+                               /tsWxGTUI_Py3x
+
+       6.1.4 Launch First Application
+
+             #
+             # Abort the CLI application with the "Ctrl-C"
+             # button combination:
+             #
+             # (1) hold down the control key on the keyboard
+             #     and simultaneously
+             #
+             # (2) press the "c" key on the keyboard
+
+       6.1.5 Launch Last Application
+
+             #
+             # Abort the CLI application with the "Ctrl-C"
+             # button combination:
+             #
+             # (1) hold down the control key on the keyboard
+             #     and simultaneously
+             #
+             # (2) press the "c" key on the keyboard
+
+       6.1.6 Create Remote archive of logs directory
+
+             If you expect to download Remote files to the Local
+             System:
+
+                #Display Remote System Working Directory:
+                pwd
+
+                #Change Remote System Working Directory:
+
+                cd ~/Desktop/WR/tsWxGTUI_PyVx/Python-3x
+                     /tsWxGTUI_Py3x
+
+                #Display Local System Working Directory:
+                lpwd
+
+                #Change Local System Working Directory:
+                lcd ~/Desktop/WR/tsWxGTUI_PyVx/Python-3x
+                      /tsWxGTUI_Py3x/logs/LinuxSCADA"
+
+                tar -cvzf LinuxSCADA_logs.tar.gz ./logs
+
+       6.1.7 Transferring files between Local and Remote
+             Systems
+
+             To transfer files from the Local to the Remote
+             System:
+
+                # Comand:
+                put localFile
+
+                # Response:
+                Uploading localFile to /remoteDirectory/localFile
+                localFile         100% 7607     7.4KB/s   00:00
+
+             To transfer files from the Remote to the Local
+             System:
+
+                # Comand:
+                get localFile
+
+                # Response:
+                Uploading localFile to /localDirectory/remoteFile
+                remoteFile         100% 7607     7.4KB/s   00:00
+
+       6.1.8 Logout of Remote System
+
+             #
+             # Enter:
+             #
+             # (1) "exit" via keyboard
+             #
+             # (2) press the "Enter" or "Return" key on the
+             #     keyboard
+             #
+             # Observe confiration message(s):
+             #
+             #     "logout"
+             #     "Connection to <remote host network id> closed.
+
+===== Use Multiple Sessions for Concurrent Applications ====
+
+7. Use Multiple Sessions for Concurrent Applications
+
+   7.1 Create First Single/Multi-Session Desktop
+
+       7.1.1 Launch the Command Line Interface shell ses-
+             sion.
+
+             Launch Terminal Application
+
+             Set Session Terminal Emulator (may use any one
+             of 9 choices)
+             #
+             # (1) "cygwin" for 8-Color/64-Color Pairs (Cygwin-only host)
+             # (2) "linux" for 8-Color/64-Color Pairs (Linux-only host)
+             # (3) "xterm" for 8-Color/64-Color Pairs (default)
+             # (4) "xterm-color" for 8-Color/64-Color Pairs (obsolete)
+             # (5) "xterm-16color" for 16-Color/256-Color Pairs
+             # (6) "xterm-88color" for 16-Color/256-Color Pairs (override)
+             # (7) "xterm-256color" for 16-Color/256-Color Pairs (override)
+             # (8) "vt100" for non-color (white, green or orange on black)
+             # (9) "vt220" for non-color (white, green or orange on black)
+
+             TERM=xterm
+
+       7.1.2 Login to Remote System as user with/without
+             administrative privileges.
+
+             Use either of the following forms of
+             ssh <login user name>@<remote host network id>
+
+                ssh TestEngineer@LinuxSCADA.teamstars
+                ssh TestEngineer@255.254.253.252
+
+             Observe/Respond to the following messages
+             Password: its_a_secret
+             Last login: Fri Jan  2 17:14:12 2015 from 10.0.0.3
+             LinuxSCADA.teamstars:TestEngineer$
+
+       7.1.3 Set Working Directory
+
+             For example:
+
+                cd ~/Desktop/WR/tsWxGTUI_PyVx/Python-3x
+                               /tsWxGTUI_Py3x
+
+       7.1.4 Launch First Application
+
+             #
+             # Abort the CLI application with the "Ctrl-C"
+             # button combination:
+             #
+             # (1) hold down the control key on the keyboard
+             #     and simultaneously
+             #
+             # (2) press the "c" key on the keyboard
+
+       7.1.5 Launch Last Application
+               #
+               # Abort the CLI application with the "Ctrl-C"
+               # button combination:
+               #
+               # (1) hold down the control key on the keyboard
+               #     and simultaneously
+               #
+               # (2) press the "c" key on the keyboard
+
+   7.2 Create Last Single/Multi-Session Desktop
+
+       7.2.1 Launch the Command Line Interface shell ses-
+             sion.
+
+             Launch Terminal Application
+
+             Set Session Terminal Emulator (may use any one
+             of 9 choices)
+             #
+             # (1) "cygwin" for 8-Color/64-Color Pairs (Cygwin-only host)
+             # (2) "linux" for 8-Color/64-Color Pairs (Linux-only host)
+             # (3) "xterm" for 8-Color/64-Color Pairs (default)
+             # (4) "xterm-color" for 8-Color/64-Color Pairs (obsolete)
+             # (5) "xterm-16color" for 16-Color/256-Color Pairs
+             # (6) "xterm-88color" for 16-Color/256-Color Pairs (override)
+             # (7) "xterm-256color" for 16-Color/256-Color Pairs (override)
+             # (8) "vt100" for non-color (white, green or orange on black)
+             # (9) "vt220" for non-color (white, green or orange on black)
+
+             TERM=xterm
+
+       7.2.2 Login to remote system as user with/without
+             administrative privileges.
+
+             Use either of the following forms of
+             ssh <login user name>@<remote host network id>
+
+                ssh TestEngineer@LinuxSCADA.teamstars
+                ssh TestEngineer@255.254.253.252
+
+             Observe/Respond to the following messages
+             Password: its_a_secret
+             Last login: Fri Jan  2 17:14:12 2015 from 10.0.0.3
+             LinuxSCADA.teamstars:TestEngineer$
+
+       7.2.3 Set Working Directory
+
+             For example:
+
+                cd ~/Desktop/WR/tsWxGTUI_PyVx/Python-3x
+                               /tsWxGTUI_Py3x
+
+       7.2.4 Launch First Application
+
+             #
+             # Abort the CLI application with the "Ctrl-C"
+             # button combination:
+             #
+             # (1) hold down the control key on the keyboard
+             #     and simultaneously
+             #
+             # (2) press the "c" key on the keyboard
+
+       7.2.5 Launch Last Application
+               #
+               # Abort the CLI application with the "Ctrl-C"
+               # button combination:
+               #
+               # (1) hold down the control key on the keyboard
+               #     and simultaneously
+               #
+               # (2) press the "c" key on the keyboard
+
+   7.3 Logout of Single/Multi-Session Desktops
+
+       7.3.1 Logout of First Remote System:
+               #
+               # Enter:
+               #
+               # (1) "exit" via keyboard
+               #
+               # (2) press the "Enter" or "Return" key on the
+               #     keyboard
+               #
+               # Observe confiration message(s):
+               #
+               #     "logout"
+               #     "Connection to <remote host network id> closed.
+
+       7.3.2 Logout of Last Remote System:
+               #
+               # Enter:
+               #
+               # (1) "exit" via keyboard
+               #
+               # (2) press the "Enter" or "Return" key on the
+               #     keyboard
+               #
+               # Observe confiration message(s):
+               #
+               #     "logout"
+               #     "Connection to <remote host network id> closed.
+
+======================= End-Of-File ========================

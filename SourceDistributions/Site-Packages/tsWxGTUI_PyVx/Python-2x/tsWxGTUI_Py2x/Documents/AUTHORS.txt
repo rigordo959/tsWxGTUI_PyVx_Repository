@@ -1,0 +1,838 @@
+#-----------------------------------------------------------
+#"Time-stamp: <08/26/2015  9:56:38 AM rsg>"
+#-----------------------------------------------------------
+
+===================== File: AUTHORS.txt ====================
+
+   +----+----+  TeamSTARS "tsWxGTUI_PyVx" Toolkit
+   | ts | Wx |      with Python 2x & Python 3x based
+   +----+----+         Command Line Interface (CLI)
+   | G T U I |      and "Curses"-based "wxPython"-style, 
+   +---------+         Graphical-Text User Interface (GUI)
+ 
+   Get that cross-platform, pixel-mode "wxPython" feeling
+   on character-mode 8-/16-color (xterm-family) & non-color
+   (vt100-family) terminals and terminal emulators.
+
+   You can find this and other plain-text files in the
+   Toolkit subdirectory named:
+
+       "./<Toolkit Recipient's Repository>/Documents".
+
+       <Your Working Repository>
+       (e.g. "tsWxGTUI_PyVx_Repository") 
+         |
+         |
+         +-- ["Documents"]
+
+========================= AUTHORS ==========================
+
+These are the authors of the TeamSTARS "tsWxGTUI_PyVx" Tool-
+kit, in decreasing order of their contribution since 2007.
+
+Files of Toolkit source code include comments identifying
+each component's principal and contributing authors. Also
+included are citations of third-party intellectual property
+whose features influenced or independently validated the
+design.
+
+The first name to appear on the author's line, authored the
+module initially. Subsequent names enhanced or performed
+maintenance to fix bugs and clarify comments.
+
+The first name to appear on the credit's line, authored the
+third-party module, application program interface, user
+interface appearance, algorithm and/or data.
+
+This list and its enumeration of module authorship, should
+facilitate the identification and resolution of copyright
+and license applicability issues.
+
+------------------------------------------------------------
+
+RSG     Richard S. Gordon
+
+     (2007-2009)    Prototype (for what became known as the
+                    developer-sandboxes) co-author and
+                    developer.
+     (2010-present) Pre-alpha author, developer & publisher
+                    of the developer-sandboxes, site-pack-
+                    ages, guest operating system configur-
+                    ations, tools, demos, documents, man-
+                    pages and notebooks.
+     -------------------------------------------------------
+
+        # Source Code Distribution and Installlation Setup
+        # Tools (prototype, release & documentation)
+
+        MANIFEST.in
+        MANIFEST_TREE.sh
+        README.txt
+        say_hello.py
+        setup.py
+        setup_tsWxGTUI_PyVx_Repository_tar_file.sh
+        setup_tsWxGTUI_PyVx_Repository_zip_file.sh
+        TermsAndConditions.txt
+
+        ----------------------------------------------------
+
+        # tsLibCLI (prototype, release & documentation)
+
+        tsApplicationPkg
+
+           src
+              __init__.py
+              tsApplication.py
+           test
+              test_tsApplication.py
+
+        tsCommandLineEnvPkg
+
+           src
+               __init__.py
+               tsCommandLineEnv.py
+           test
+               test_tsCommandLineEnv.py
+
+        tsCommandLineInterfcePkg
+
+           src
+               __init__.py
+               tsCommandLineInterface.py
+           test
+               test_tsCommandLineInterface.py
+
+        tsCxGlobalsPkg
+
+           src
+               __init__.py
+               tsCxGlobals.py
+           test
+              test_tsCxGlobals.py
+
+        tsDoubleLinkedListPkg
+
+           src
+               __init__.py
+               tsDoubleLinkedList.py
+           test
+               test_tsDoubleLinkedList.py
+
+        tsExceptionPkg
+
+           src
+               __init__.py
+               tsExceptions.py
+           test
+               test_tsExceptions.py
+
+        tsGraphicalTextUserInterfacePkg
+        (subsequently moved to tsLibGUI and renamed tsWxPkg)
+
+           src
+               __init__.py
+               tsGraphicalTextUserInterface.py
+                  (subsequently moved to tsLibGUI and renamed
+                   tsWxGraphicalTextUserInterface.py)
+           test
+
+        tsLoggerPkg
+
+           src
+               __init__.py
+               tsLogger.py (Incorporates a subset of the
+                            Python Logging Module
+                            Application Programming
+                            Interface (API), constants
+                            and algorithms by Vinay Sajip
+                            that has subsequently
+                            been customized and enhanced
+                            for "tsWxGTUI_PyVx" Toolkit
+                            application.)
+           test
+              test_tsLogger.py
+
+        tsOperatorSettingsParserPkg
+
+           src
+               __init__.py
+               tsOperatorSettingsParser.py
+           test
+               test_tsOperatorSettingsParser.py
+
+        tsPlatformRunTimeEnvironmentPkg
+
+           src
+               __init__.py
+               tsGistGetTerminalSize.py (Incorporates
+                                         "terminalsize.py"
+                                         by Justin T. Riley)
+               tsPlatformRunTimeEnvironment.py
+           test
+               test_tsPlatformRunTimeEnvironment.py
+
+        tsReportUtilityPkg
+
+           src
+               __init__.py
+               tsReportUtilities.py
+           test
+               test_tsReportUtilities.py
+
+        tsSysCommandsPkg
+
+           src
+               __init__.py
+               tsSysCommands.py
+           test
+               test_tsSysCommands.py
+
+        ----------------------------------------------------
+
+        # tsLibGUI (prototype, release & documentation)
+
+          (Incorporates a character-mode compatible subset
+          of the wxPython Application Programming Interface
+          (API), constants and algorithms by Julian Smart,
+          Robert Roebling, Vadim Zeitlin and other members
+          of the wxWidgets team that has subsequently been
+          customized and enhanced for "tsWxGTUI" Toolkit
+          application.)
+
+          Incorporates Python Curses Module Application
+          Programming Interface (API) and constants by
+          the Python Software Foundation.)
+
+        tsWxPkg
+
+           src
+               __init__.py
+               tsWx.py
+               tsWxAcceleratorEntry.py
+               tsWxAcceleratorTable.py
+               tsWxApp.py
+               tsWxBoxSizer.py
+               tsWxButton.py
+               tsWxCallLater.py
+               tsWxCaret.py
+               tsWxCheckBox.py
+               tsWxChoice.py
+               tsWxColor.py
+               tsWxColorDatabase.py
+               tsWxControl.py
+               tsWxControlWithItems.py
+               tsWxCursor.py
+               tsWxDebugHandlers.py
+               tsWxDialog.py
+               tsWxDialogButton.py
+               tsWxDisplay.py
+               tsWxDoubleLinkedList.py
+               tsWxEraseEvent.py
+               tsWxEvent.py
+               tsWxEventDaemon.py
+               tsWxEventLoop.py
+               tsWxEventLoopActivator.py
+               tsWxEventQueueEntry.py
+               tsWxEventTableEntry.py
+               tsWxEvtHandler.py
+               tsWxFlexGridSizer.py
+               tsWxFocusEvent.py
+               tsWxFrame.py
+               tsWxFrameButton.py
+               tsWxGauge.py
+               tsWxGlobals.py
+               tsWxGraphicalTextUserInterface.py
+               tsWxGridBagSizer.py
+               tsWxGridSizer.py
+               tsWxItemContainer.py
+               tsWxKeyboardState.py
+               tsWxKeyEvent.py
+               tsWxListBox.py
+               tsWxLog.py
+               tsWxMenu.py
+               tsWxMenuBar.py
+               tsWxMouseEvent.py
+               tsWxMouseState.py
+               tsWxMultiFrameEnv.py
+               tsWxNonLinkedList.py
+               tsWxObject.py
+               tsWxPanel.py
+               tsWxPasswordEntryDialog.py
+               tsWxPoint.py
+               tsWxPyApp.py
+               tsWxPyEventBinder.py
+               tsWxPyOnDemandOutputWindow.py
+               tsWxPySimpleApp.py
+               tsWxPySizer.py
+               tsWxPythonColor16DataBase.py
+               tsWxPythonColor16SubstitutionMap.py
+               tsWxPythonColor256DataBase.py
+               tsWxPythonColor88DataBase.py
+               tsWxPythonColor8DataBase.py
+               tsWxPythonColor8SubstitutionMap.py
+               tsWxPythonColorDataBaseRGB.py
+               tsWxPythonColorNames.py
+               tsWxPythonColorRGBNames.py
+               tsWxPythonColorRGBValues.py
+               tsWxPythonMonochromeDataBase.py
+               tsWxPythonPrivateLogger.py
+               tsWxRadioBox.py
+               tsWxRadioButton.py
+               tsWxRect.py
+               tsWxScreen.py
+               tsWxScrollBar.py
+               tsWxScrollBarButton.py
+               tsWxScrollBarGauge.py
+               tsWxScrolled.py
+               tsWxScrolledText.py
+               tsWxScrolledWindow.py
+               tsWxShowEvent.py
+               tsWxSize.py
+               tsWxSizer.py
+               tsWxSizerFlags.py
+               tsWxSizerItem.py
+               tsWxSizerItemList.py
+               tsWxSizerSpacer.py
+               tsWxSlider.py
+               tsWxSplashScreen.py
+               tsWxStaticBox.py
+               tsWxStaticBoxSizer.py
+               tsWxStaticLine.py
+               tsWxStaticText.py
+               tsWxStatusBar.py
+               tsWxSystemSettings.py
+               tsWxTaskBar.py
+               tsWxTextCtrl.py
+               tsWxTextEditBox.py
+               tsWxTextEntry.py
+               tsWxTextEntryDialog.py
+               tsWxTimer.py
+               tsWxToggleButton.py
+               tsWxTopLevelWindow.py
+               tsWxValidator.py
+               tsWxWindow.py
+               tsWxWindowCurses.py
+           test
+               test_bit_shift.py
+               test_nCursesDemo.py
+               test_PythonReturnTypes.py
+               test_tsWxAcceleratorEntry.py
+               test_tsWxAUI.py
+               test_tsWxBoxLogo.py
+               test_tsWxBoxSizer.py
+               test_tsWxCheckBox.py
+               test_tsWxCheckBoxEvent.py
+               test_tsWxCliLinesOfCode.py
+               test_tsWxColorPalette.py
+               test_tsWxCurses.py
+               test_tsWxDiagnostic.py
+               test_tsWxDialogDemo.py
+               test_tsWxDisplay.py
+               test_tsWxDoubleLinkedList.py
+               test_tsWxFieldMarkup.py
+               test_tsWxFileCommander.py
+               test_tsWxFrame.py
+               test_tsWxGauge.py
+               test_tsWxGlobals.py
+               test_tsWxGraphicalTextUserInterface.py
+               test_tsWxGridSizer.py
+               test_tsWxKeyEvents.py
+               test_tsWxLinesOfCode.py
+               test_tsWxLogo.py
+               test_tsWxMarkupDiagnostic.py
+               test_tsWxMetrics.py
+               test_tsWxMidiWindow.py
+               test_tsWxMouseEvent.py
+               test_tsWxMultiFrameEnv.py
+               test_tsWxOverlays.py
+               test_tsWxPasswordEntryDialog.py
+               test_tsWxPySimpleApp.py
+               test_tsWxRadioBox.py
+               test_tsWxRadioBoxEvent.py
+               test_tsWxRSM.py
+               test_tsWxScrollBar.py
+               test_tsWxScrolled.py
+               test_tsWxScrolled3Boxes.py
+               test_tsWxScrolledWindow.py
+               test_tsWxScrolledWindowDual.py
+               test_tsWxSplashScreen.py
+               test_tsWxStaticBoxSizer.py
+               test_tsWxStaticLine.py
+               test_tsWxStaticText.py
+               test_tsWxSystemSettings.py
+               test_tsWxTemplate.py
+               test_tsWxTextCtrl.py
+               test_tsWxTextEntryDialog.py
+               test_tsWxVt100Widgets.py
+               test_tsWxWidgets.py
+               test_tsWxWidgetsMarkup.py
+
+        ----------------------------------------------------
+
+        # tsToolsCLI (prototype, release & documentation)
+
+        tsLinesOfCodeProjectMetricsPkg
+
+           src
+               __init__.py
+               File_Extensions.txt (From:
+                                    http://www.lehigh.edu/
+                                    ~inimr/computer-basics-
+                                    tutorial/filextentions.htm)
+               tsLinesOfCode.py
+               tsLinesOfCodeProjectMetrics.py
+               tsLOCPMOperatorSettingsParser.py
+               tsProjectMetrics.py (Incorporates COCOMO
+                                    (COnstructive COst MOdel)
+                                    algorithm features used in
+                                    SLOCCount 2.26
+                                    by David A. Wheeler.)
+               tsSoftwareMetrics.py
+               tsSoftwareParser.py
+           test
+               test_tsLinesOfCode.py
+               tsLinesOfCodeProjectMetrics.py
+ 
+
+        tsPlatformQueryPkg
+
+           src
+               tsPlatformQuery.py
+           test
+
+        tsStripCommentsPkg
+
+           src
+               __init__.py
+               tsStripComments.py
+                   (Incorporates a subset of the Python
+                    shutil Module Application Programming
+                    Interface (API) and constants by the
+                    Python Software Foundation that
+                    has subsequently been customized and
+                    enhanced for "tsWxGTUI" Toolkit
+                    application.)
+
+                   (Incorporates a copy of a module to
+                    Remove Comments/Docstrings from a given
+                    Python Source File by Dan McDougall that
+                    has subsequently been customized
+                    for "tsWxGTUI" Toolkit application.)
+
+               tsStripSettingsParser.py
+           test
+               test_tsStripComments.py
+               test_tsStripSettingsParser.py
+
+        tsStripLineNumbersPkg
+
+           src
+               tsStripLineNumbers.py
+                   (Incorporates a subset of the Python
+                    shutil Module Application Program-
+                    ming Interface (API) and
+                    constants by the Python Software
+                    Foundation that has subsequently
+                    been customized and enhanced for
+                    "tsWxGTUI" Toolkit application.)
+           test
+
+        tsTreeCopyPkg
+
+           src
+               tsTreeCopy.py
+                   (Incorporates a subset of the Python
+                    shutil Module Application Programming
+                    Interface (API) and constants by the
+                    Python Software Foundation that
+                    has subsequently been customized and
+                    enhanced for "tsWxGTUI" Toolkit
+                    application.)
+           test
+
+        tsTreeTrimLinesPkg
+
+           src
+               __init__.py
+               tsTreeTrimLines.py
+               tsTreeTrimShutil.py
+                   (Incorporates a subset of the Python
+                    shutil Module Application Programming
+                    Interface (API) and constants by the
+                    Python Software Foundation that
+                    has subsequently been customized and
+                    enhanced for "tsWxGTUI" Toolkit
+                    application.)
+           test
+
+        ----------------------------------------------------
+
+        # tsUtilities (prototype, release & documentation)
+
+        tsUtilities
+
+           src
+               __init__.py
+               PythonTidy.py (Copyright (c) 2006
+                              Charles Curtis Rhode)
+               buildManPages.sh
+               buildManPagesTestsCLI.sh
+               buildManPagesTestsGUI.sh
+               buildManPagesToolsCLI.sh
+               reindent.py (Released to the public domain,
+                            by Tim Peters, 03 October 2000.)
+               runPydoc.sh
+               runPydoc_script.sh
+               runPylint_script.sh
+               runRegressionTest.sh
+               runTree.sh
+               run_2to3_script.sh
+               run_grep_import.sh
+               tsGistGetTerminalSize.py (Derived from:
+                   https://gist.github.com/jtriley/1108174
+                   by Justin T. Riley, created
+                   "terminalsize.py" for
+                   gist 2011-07-26T14:59:00-07:00.)
+               which.py (Copyright (c) 2002-2005
+                         ActiveState Corp.)
+               which_doc.txt
+           test
+
+        ----------------------------------------------------
+
+        # Documents (character-mode documentation; formerly tsDocCLI)
+
+        Log Files (*.log)
+
+               (Incorporates Definitions, Abbreviations, and Acronyms
+                by Wikipedia, the free encyclopedia.)
+
+        Text Files (*.txt)
+
+               (Incorporates Definitions, Abbreviations, and Acronyms
+                by Wikipedia, the free encyclopedia.)
+
+        ----------------------------------------------------
+
+        # ManPages (character-mode documentation)
+
+        +-- ["tsManPagesLibCLI"]
+        |     |
+        |     +-- "runPydoc_tsManPagesCLI.sh"
+        |     +-- "runPylint_tsManPagesCLI.sh"
+        |     +-- "tsApplication.man"
+        |     +-- "tsCommandLineEnv.man"
+        |     +-- "tsCommandLineInterface.man"
+        |     +-- "tsCxGlobals.man"
+        |     +-- "tsDoubleLinkedList.man"
+        |     +-- "tsExceptions.man"
+        |     +-- "tsGistGetTerminalSize.man"
+        |     +-- "tsLogger.man"
+        |     +-- "tsOperatorSettingsParser.man"
+        |     +-- "tsPlatformRunTimeEnvironment.man"
+        |     +-- "tsReportUtilities.man"
+        |     +-- "tsSysCommands.man"
+        |
+        +-- ["tsManPagesLibGUI"]
+        |     |
+        |     +-- "runPydoc_tsManPagesGUI.sh"
+        |     +-- "runPylint_tsManPagesGUI.sh"
+        |     +-- "tsWx.man"
+        |     +-- "tsWxAcceleratorEntry.man"
+        |     +-- "tsWxAcceleratorTable.man"
+        |     +-- "tsWxApp.man"
+        |     +-- "tsWxBoxSizer.man"
+        |     +-- "tsWxButton.man"
+        |     +-- "tsWxCallLater.man"
+        |     +-- "tsWxCaret.man"
+        |     +-- "tsWxCheckBox.man"
+        |     +-- "tsWxChoice.man"
+        |     +-- "tsWxColor.man"
+        |     +-- "tsWxColorDatabase.man"
+        |     +-- "tsWxControl.man"
+        |     +-- "tsWxControlWithItems.man"
+        |     +-- "tsWxCursor.man"
+        |     +-- "tsWxDebugHandlers.man"
+        |     +-- "tsWxDialog.man"
+        |     +-- "tsWxDialogButton.man"
+        |     +-- "tsWxDisplay.man"
+        |     +-- "tsWxDoubleLinkedList.man"
+        |     +-- "tsWxEraseEvent.man"
+        |     +-- "tsWxEvent.man"
+        |     +-- "tsWxEventDaemon.man"
+        |     +-- "tsWxEventLoop.man"
+        |     +-- "tsWxEventLoopActivator.man"
+        |     +-- "tsWxEventQueueEntry.man"
+        |     +-- "tsWxEventTableEntry.man"
+        |     +-- "tsWxEvtHandler.man"
+        |     +-- "tsWxFlexGridSizer.man"
+        |     +-- "tsWxFocusEvent.man"
+        |     +-- "tsWxFrame.man"
+        |     +-- "tsWxFrameButton.man"
+        |     +-- "tsWxGauge.man"
+        |     +-- "tsWxGlobals.man"
+        |     +-- "tsWxGraphicalTextUserInterface.man"
+        |     +-- "tsWxGridBagSizer.man"
+        |     +-- "tsWxGridSizer.man"
+        |     +-- "tsWxItemContainer.man"
+        |     +-- "tsWxKeyboardState.man"
+        |     +-- "tsWxKeyEvent.man"
+        |     +-- "tsWxListBox.man"
+        |     +-- "tsWxLog.man"
+        |     +-- "tsWxMenu.man"
+        |     +-- "tsWxMenuBar.man"
+        |     +-- "tsWxMouseEvent.man"
+        |     +-- "tsWxMouseState.man"
+        |     +-- "tsWxMultiFrameEnv.man"
+        |     +-- "tsWxNonLinkedList.man"
+        |     +-- "tsWxObject.man"
+        |     +-- "tsWxPanel.man"
+        |     +-- "tsWxPasswordEntryDialog.man"
+        |     +-- "tsWxPoint.man"
+        |     +-- "tsWxPyApp.man"
+        |     +-- "tsWxPyEventBinder.man"
+        |     +-- "tsWxPyOnDemandOutputWindow.man"
+        |     +-- "tsWxPySimpleApp.man"
+        |     +-- "tsWxPySizer.man"
+        |     +-- "tsWxRadioBox.man"
+        |     +-- "tsWxRadioButton.man"
+        |     +-- "tsWxRect.man"
+        |     +-- "tsWxScreen.man"
+        |     +-- "tsWxScrollBar.man"
+        |     +-- "tsWxScrollBarButton.man"
+        |     +-- "tsWxScrollBarGauge.man"
+        |     +-- "tsWxScrolled.man"
+        |     +-- "tsWxScrolledText.man"
+        |     +-- "tsWxScrolledWindow.man"
+        |     +-- "tsWxShowEvent.man"
+        |     +-- "tsWxSize.man"
+        |     +-- "tsWxSizer.man"
+        |     +-- "tsWxSizerItem.man"
+        |     +-- "tsWxSizerItemList.man"
+        |     +-- "tsWxSizerSpacer.man"
+        |     +-- "tsWxSlider.man"
+        |     +-- "tsWxSplashScreen.man"
+        |     +-- "tsWxStaticBox.man"
+        |     +-- "tsWxStaticBoxSizer.man"
+        |     +-- "tsWxStaticLine.man"
+        |     +-- "tsWxStaticText.man"
+        |     +-- "tsWxStatusBar.man"
+        |     +-- "tsWxSystemSettings.man"
+        |     +-- "tsWxTaskBar.man"
+        |     +-- "tsWxTextCtrl.man"
+        |     +-- "tsWxTextEditBox.man"
+        |     +-- "tsWxTextEntryDialog.man"
+        |     +-- "tsWxTimer.man"
+        |     +-- "tsWxToggleButton.man"
+        |     +-- "tsWxTopLevelWindow.man"
+        |     +-- "tsWxValidator.man"
+        |     +-- "tsWxWindow.man"
+        |
+        +-- ["tsManPagesTestsLibCLI"]
+        |     |
+        |     +-- "buildManPagesTestsCLI.sh"
+        |     +-- "test_tsApplication.man"
+        |     +-- "test_tsCommandLineEnv.man"
+        |     +-- "test_tsDoubleLinkedList.man"
+        |     +-- "test_tsOperatorSettingsParser.man"
+        |     +-- "test_tsPlatformRunTimeEnvironment.man"
+        |     +-- "test_tsSysCommand.man"
+        |
+        +-- ["tsManPagesTestsLibGUI"]
+        |     |
+        |     +-- "buildManPagesTestsGUI.sh"
+        |     +-- "test_tsWxBoxSizer.man"
+        |     +-- "test_tsWxCheckBox.man"
+        |     +-- "test_tsWxDisplay.man"
+        |     +-- "test_tsWxDoubleLinkedList.man"
+        |     +-- "test_tsWxGlobals.man"
+        |     +-- "test_tsWxGraphicalTextUserInterface.man"
+        |     +-- "test_tsWxGridSizer.man"
+        |     +-- "test_tsWxMultiFrameEnv.man"
+        |     +-- "test_tsWxRSM.man"
+        |     +-- "test_tsWxScrolledWindow.man"
+        |     +-- "test_tsWxScrolledWindowDual.man"
+        |     +-- "test_tsWxSplashScreen.man"
+        |     +-- "test_tsWxWidgets.man"
+        |
+        +-- ["tsManPagesToolsCLI"]
+        |     |
+        |     +-- "buildManPagesToolsCLI.sh"
+        |     +-- "runPydoc_tsManPagesToolsCLI.sh"
+        |     +-- "runPylint_tsManPagesToolsCLI.sh"
+        |     +-- "tsLinesOfCodeProjectMetrics.man"
+        |     +-- "tsPlatformQuery.man"
+        |     +-- "tsStripComments.man"
+        |     +-- "tsStripLineNumbers.man"
+        |     +-- "tsTreeCopy.man"
+        |     +-- "tsTreeTrimLines.man"
+        |
+        +-- ["tsManPagesToolsGUI"]     (Future)
+        |     |
+        |     +-- To-Be-Determined
+        |
+        +-- ["tsManPagesToolsLibCLI"]
+        |     |
+        |     +-- To-Be-Determined
+        |
+        +-- ["tsManPagesToolsLibGUI"]  (Future)
+        |     |
+        |     +-- To-Be-Determined
+        |
+        +-- ["tsManPagesUtilitiesCLI"] (Future)
+        |     |
+        |     +-- To-Be-Determined
+        |
+        +-- "README4-ManPages.txt" 
+
+        # Notebooks (pixel-mode documentation; formerly tsDocGUI)
+
+        Adobe Portable Document Files (*.pdf)
+
+               (Incorporates Definitions, Abbreviations, and Acronyms
+                by Wikipedia, the free encyclopedia.)
+
+        Bitmapped Image Files (*.bmp. *.jpg & *png)
+
+               (Incorporates screen shots.)
+
+        Microsoft Access Database Files (*.mdb)
+
+               (Incorporates tabulation of character-mode and
+                pixel-mode emulation classes and modules.)
+
+        Microsoft Visio Files (*.vsd)
+
+               (Incorporates block diagrams, organization charts
+                and flow charts.)
+
+        Microsoft Word Files (*.doc)
+
+               (Incorporates Definitions, Abbreviations, and Acronyms
+                by Wikipedia, the free encyclopedia.)
+
+        WEB Browser Files (*.html)
+
+               (Incorporates information by associated third-party.)
+
+------------------------------------------------------------
+
+FAK     Frederick A. Kier
+
+     (2007-2009)    Prototype (for what became known as the
+                    developer-sandboxes) co-author and
+                    developer.
+     -------------------------------------------------------
+
+        # tsLibraries (prototype for what became
+        #              tsLibCLI and tsLibGUI)
+
+        tsApplicationPkg
+
+           src
+              __init__.py
+              tsApplication.py
+           test
+              test_tsApplication.py
+
+        tsConfigObjPkg (now deprecated by
+                        tsCxGlobals.py & tsWxGlobals.py)
+
+           src
+              __init__.py
+              configobj.py (Copyright (C) 2005-2006 Michael
+                            Foord, Nicola Larosa)
+              tsConfig.py
+              validate.py (Copyright (C) 2005-2006 Michael
+                            Foord, Nicola Larosa)
+           test
+
+        tsDataBasePkg (now deprecated; never used)
+
+           src
+              __init__.py
+
+              buzhug (Copyright (C) 2006 Pierre Quentel
+                      quentel.pierre@wanadoo.fr)
+                 __init__.py
+                 buzhug.py
+                 buzhug_algos.py
+                 buzhug_client.py
+                 buzhug_files.py
+                 buzhug_server.py
+                 buzhug_test.py
+
+              PyDbLite (Source is not known)
+                 __init__.py
+                 PyDbLite.py
+           test
+
+        tsDecoratorPkg (now deprecated;
+                        used only to declare static classes)
+
+           src
+              __init__.py
+              decorator.py (Copyright info no longer
+                            available at
+                            http://www.phyast.pitt.edu
+                            /~micheles/python
+                            /documentation.html)
+              tsDecorators.py
+           test
+
+        tsGraphicalTextUserInterfacePkg (subsequently moved
+                                         to tsLibGUI and
+                                         renamed tsWxPkg)
+
+           src
+               __init__.py
+               tsGraphicalTextUserInterface.py (subsequently
+                   moved to tsLibGUI and development
+                   continued after renaming as
+                   tsWxGraphicalTextUserInterface.py)
+           test
+
+        tsLoggerPkg
+
+           src
+               __init__.py
+               tsLogger.py (Incorporates a subset of the
+                            Python Logging Module
+                            Application Programming
+                            Interface (API), constants
+                            and algorithms by Vinay Sajip
+                            that has subsequently
+                            been customized and enhanced
+                            for "tsWxGTUI_PyVx" Toolkit
+                            application.)
+           test
+
+        tsOptionParserPkg (now deprecated; replaced by
+                           tsOperatorSettingsParser.py)
+
+           src
+              __init__.py
+              tsOptionParser.py
+           test
+
+        tsThreadPoolPkg (now deprecated; never used)
+
+           src
+              __init__.py
+              threadpool.py (Copyright (c) 2006 by
+                             Christopher Arndt.)
+              tsThreadPool.py
+           test
+              tsThreadPool_test.py
+
+        tsWxPkg
+
+           src
+               __init__.py
+               tsWxEvent.py
+               tsWxEventLoop.py
+               tsWxEventLoopActivator.py
+               tsWxEvtHandler.py
+           test
+
+======================= End-Of-File ========================

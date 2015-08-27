@@ -1,0 +1,192 @@
+#-----------------------------------------------------------
+#"Time-stamp: <08/26/2015 10:25:15 AM rsg>"
+#-----------------------------------------------------------
+
+=================== File: CHANGE_LOG.txt ===================
+
+   +----+----+  TeamSTARS "tsWxGTUI_PyVx" Toolkit
+   | ts | Wx |      with Python 2x & Python 3x based
+   +----+----+         Command Line Interface (CLI)
+   | G T U I |      and "Curses"-based "wxPython"-style, 
+   +---------+         Graphical-Text User Interface (GUI)
+ 
+   Get that cross-platform, pixel-mode "wxPython" feeling
+   on character-mode 8-/16-color (xterm-family) & non-color
+   (vt100-family) terminals and terminal emulators.
+
+   You can find this and other plain-text files in the
+   Toolkit subdirectory named:
+
+       "./<Toolkit Recipient's Repository>/Documents".
+
+       <Your Working Repository>
+       (e.g. "tsWxGTUI_PyVx_Repository") 
+         |
+         |
+         +-- ["Documents"]
+
+======================= Change Log =========================
+
+    2015/08/26 rsg Updated contents of the "Documents" di-
+                   rectory to reflect adoption of "GtHub"
+                   repository hosting service for the Tool-
+                   kit release and the associated review and
+                   re-organization of the Toolkit release
+                   itself.
+
+    2015/08/26 rsg Updated "Change Log":
+
+                   Reversed the log order to draw attention
+                   to the most recent event by placing it
+                   immediately below the change file header
+                   and conversly drawing the least attention
+                   to the oldest change by placing it directly
+                   above the change file footer.
+
+    2015/08/12 rsg Updated "Documents":
+
+                   Modified "GETTING_STARTED.txt", in directory
+                   "./tsWxGTUI_PyVx_Repository/Documents"
+                   to include a section entitled "QUICK TEST DRIVE"
+                   which offers curious but impatient prospective
+                   adopters and users of the toolkit the means to
+                   minimize the time and effort to experience the
+                   look and feel of the toolkit after simply down-
+                   loading it and extracting its contents into a
+                   temporary deiectory.
+
+                   Modified "FAQ.txt", in directory
+                   "./tsWxGTUI_PyVx_Repository/Documents"
+                   to include a section entitled "Alterative
+                   Solutions" which offers curious but impatient
+                   prospective adopters and users of the toolkit
+                   the means to minimize the time and effort to 
+                   discover the additional information buryied
+                   within the extensive engineering notebook
+                   collection.
+
+    2015/08/11 rsg Updated "SourceDistributions:
+
+                   Modified setup.py modules, in Python 2x and 3x
+                   "SitePackages", to:
+
+                   a) add support for Debian 8, Microsoft Windows
+                      10 and OpenSUSE 13.2. 
+
+                   b) update supported operating system versions 
+
+    2015/08/11 rsg Updated "SourceDistributions:
+
+                   Modified MANIFEST.in modules, in Python 2x and 3x
+                   "SitePackages" for use during "python setup.py
+                   sdist" operation to include contents of:
+
+                      Documents
+                      ManPages
+                      ProjectNotebook.
+
+    2015/08/10 rsg Updated "SourceDistributions:
+
+                   Updated Python 2x and 3x "SitePackages" to
+                   include copies from "./tsWxGTUI_PyVx_Repository"
+                   of:
+
+                      ./Documents
+                      ./ManPages
+                      ./Notebooks/ProjectNotebook.
+
+    2015/06/23 rsg Modified "tsWxEventLoop" module to take
+                   advantage of a recently discovered
+                   "nCurses" feature that makes mouse input
+                   available not just for xterm-family term-
+                   inal emulators but also with vt100-family
+                   ones, but only with the new "XTerm" and
+                   "UXTerm" terminal application on Linux
+                   operating system and with the "mintty"
+                   terminal application on the Linux-based
+                   Cygwin plugin for Microsoft Windows.
+
+                   This eliminates the need for keyboard
+                   shortcut "hot" key feature which is still
+                   to be developed. However, processing
+                   twelve instead of a single mouse input
+                   event introduces a noticable delay in
+                   response and precludes use of double or
+                   triple button clicks.        
+
+  2015/03/26 rsg Successfully ported copies of current
+                 developer-sandboxes into installable site-
+                 packages. Changes involved the tedious
+                 tasks of:
+
+                 a) Moving hundreds of building-block, tool
+                    and test source code from separate devel-
+                    oper-sandbox packages into appropriate
+                    tsLibCLI, tsToolsCLI, tsToolsLibCLI,
+                    tsLibGUI, tsToolsGUI and tsToolsLibGUI
+                    site-package directories;
+
+                 b) Editing hundreds of source code files to 
+                    replace "try-except" logic around import
+                    statements with "import from" site-pack-
+                    age logic and substitute empty site-
+                    package "__init__.py" files for complex
+                    path generating logic in dozens of de-
+                    veloper-packages.
+
+                 c) Installing and debugging each site-
+                    package on various host platforms.
+
+                 d) Updating documentation to reflect both
+                    the developer-sandbox and site-package
+                    configurations.
+
+  2014/11/21 rsg Resolved display anomaly issue with xterm-88color
+                 and xterm-256color by application of the config-
+                 uration control switch USE_256_COLOR_PAIR_LIMIT
+                 so that these terminal emulators now behave like
+                 their xterm-16color counterpart. This color pair
+                 limitation technique was discovered in such
+                 newer operating system releases as CentOS 7.0
+                 Linux and Mac OS X 10.10 (Yosemite).
+
+  2014/04/05 rsg Removed deprecated packages and tools:
+
+                 tsCommandLineParserPkg
+                 tsConfigObjectPkg
+                 tsDataBasePkg
+                 tsDecoratorPkg
+                 tsLibraryImport Tool
+                 tsLinesOfCode Tool
+                 tsPublish Tool
+                 tsReImport Tool
+                 tsReVersion Tool
+                 tsThreadPoolPkg
+
+  2014/04/04 rsg Added MANIFEST_TREE.sh to distribution and instal-
+                 lation setup to generate text and html versions
+                 of file manifest listing.
+
+  2014/03/14 rsg Added MANIFEST.in to distribution and installation
+                 setup that includes non-python files.
+
+  2013/10/18 rsg Added logic to the tsApplication module to gather,
+                 capture and log the tsPlatformRuntimeEnvironment
+                 at each Python application launch in a manner
+                 similar to the capture of GUI configuration by
+                 the tsWxGraphicalTextUserInterface module at GUI
+                 launch.
+
+  2013/10/18 rsg Added tsGistGetTerminalSize.py module to the
+                 tsUtilities package and to the configuration
+                 gathering of the tsPlatformRuntimeEnvironment
+                 package. It captures, reports and displays the
+                 command line shell window size on Cygwin, Linux,
+                 Mac OS X, Microsoft Windows and Unix.
+
+  2013/10/21 rsg Added tsCxGlobals to tsLibCLI. It establishes
+                 configuration constants and macro-type functions
+                 for the Command Line Interface mode of the
+                 "tsWxGTUI_PyVx" Toolkit.
+
+======================= End-Of-File ========================

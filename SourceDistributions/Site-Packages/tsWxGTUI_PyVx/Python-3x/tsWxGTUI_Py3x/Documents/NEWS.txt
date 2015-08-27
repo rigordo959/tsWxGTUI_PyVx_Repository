@@ -1,0 +1,170 @@
+#-----------------------------------------------------------
+#"Time-stamp: <08/26/2015  4:18:09 PM rsg>"
+#-----------------------------------------------------------
+
+========================= NEWS.txt =========================
+
+   +----+----+  TeamSTARS "tsWxGTUI_PyVx" Toolkit
+   | ts | Wx |      with Python 2x & Python 3x based
+   +----+----+         Command Line Interface (CLI)
+   | G T U I |      and "Curses"-based "wxPython"-style, 
+   +---------+         Graphical-Text User Interface (GUI)
+ 
+   Get that cross-platform, pixel-mode "wxPython" feeling
+   on character-mode 8-/16-color (xterm-family) & non-color
+   (vt100-family) terminals and terminal emulators.
+
+   You can find this and other plain-text files in the
+   Toolkit subdirectory named:
+
+       "./<Toolkit Recipient's Repository>/Documents".
+
+       <Your Working Repository>
+       (e.g. "tsWxGTUI_PyVx_Repository") 
+         |
+         |
+         +-- ["Documents"]
+
+==================== 13 August 2015 News ===================
+
+The pre-alpha release of the TeamSTARS "tsWxGTUI_PyVx-0.0.2"
+Toolkit is available.
+
+Modified Python 2x and 3x site-packages to now include copies
+of the repository contents of the "Documents", "ManPages" and
+"ProjectNotebook" directories. These directories and their
+contents can now be included in the distribution of source
+code created by the "python setup.py sdist" command.
+
+Updated Python 2x and 3x site-packages setup.py and MANIFEST.in
+to support "sdist" command in addition to the previous "build"
+and "install" commands.
+
+Updated CHANGE_LOG.txt, FAQ.txt and GETTING_STARTED.txt to
+improve usability.
+
+POSTSCRIPTS
+=========== 
+
+1. The Python Software Foundation's backporting of Python
+   3.1-3.4 features to Python 2.7 makes it possible for
+   adopters and users of the TeamSTARS "tsWxGTUI_PyVx" Tool-
+   kit to also use the Toolkit's Python 3x source code with
+   later versions of Python 2.7. (This is similar to the
+   backporting of Python 3.0 features to later versions of
+   Python 2.6.)
+
+2. The Python Software Foundation's Python Package Index
+   (PyPI) contains a package named "SIX" which is a Python
+   2 and 3 compatibility library. It provides utility func-
+   tions for smoothing over the differences between Python
+   versions with the goal of writing Python code that is
+   compatible on both Python versions. It supports every
+   Python version since 2.5. It is contained in only one
+   Python file, so it can be easily copied into your pro-
+   ject.
+
+3. The TeamSTARS "tsWxGTUI_PyVx" Toolkit author may eventu-
+   ally apply "SIX" to expand the usability of the Toolkit
+   with older Python versions. Currently, the Toolkit is
+   focussed only on those popular, readily available plat-
+   forms that can be emulated using hypervisor technology
+   to run various Linux, Mac OS X, Microsoft Windows and
+   Unix distributions as guest operating systems on a late
+   model computer with multi-core Intel processors. Attempts
+   to build and use older versions of Python on the same
+   Guest OS have been unsuccessful. The older Pythons work
+   only in Command Line Interface mode. The Graphical User
+   Interface mode cannot work because the older curses in-
+   terfaces fail to build and the Toolkit author lacks the
+   troubleshooting expertise. There is a suspicion that one
+   cannot build an old Python curses interface package when
+   the host platform only has a newer, incompatible curses
+   or ncurses terminal interface library installed.
+
+==================== 06 August 2015 News ===================
+
+The pre-alpha release of the TeamSTARS "tsWxGTUI_PyVx-0.0.1"
+Toolkit is now available.
+
+Updated README.txt, COPYRIGHT.txt and notebooks to improve
+clarity, reflect new platforms and to include platform
+usability considerations. 
+
+===================== 08 July 2015 News ====================
+
+The pre-alpha release of the TeamSTARS "tsWxGTUI_PyVx-0.0.0"
+Toolkit is now available. It includes the following two
+versions abd their associated variants (Python Distribution
+Utilities ("Distutils") installable "Site-Packages" and non-
+installable "Developer-Sandboxes" for enhancement and bug
+fix development and experimentation without interference
+with the already installed Site-Packages):
+
+1. The TeamSTARS "tsWxGTUI_Py2x-0.0.0" Toolkit is released
+   for users of the popular, high-level, cross-platform,
+   second generation Python 2.x programming language which
+   is widely available.
+
+   A wiki posting by the Python Software Foundation announc-
+   ed that Python 3.0 was released in 2008. The final 2.x
+   version 2.7 release came out in mid-2010, with a state-
+   ment of extended support for this end-of-life release.
+   The 2.x branch will see no new major releases after that.
+
+   The source code and documentation is available for down-
+   load at:
+
+      http://pypi.python.org/pypi.
+
+   It supports development and operation of:
+
+   a. Command Line User Interface (CLI) application
+      programs implemented in Python 2.0.0-2.7.9.
+
+   b. Graphical-style User Interface (GUI) application
+      programs implemented in Python 2.6.4-2.7.9.
+
+2. The TeamSTARS "tsWxGTUI_Py3x-0.0.0" Toolkit is released
+   for users of the popular, high-level, cross-platform,
+   third generation Python 3.x programming language which
+   is growing in availability.
+
+   A wiki posting by the Python Software Foundation announc-
+   ed that Python 3.0 was released in 2008. 3.x is under
+   active development and has already seen over five years
+   of stable releases, including version 3.3 in 2012 and
+   3.4 in 2014. This means that all recent standard library
+   improvements, for example, are only available by default
+   in Python 3.x.
+
+   Guido van Rossum (the original creator of the Python
+   language) decided to clean up Python 2.x properly,
+   with less regard for backwards compatibility than is
+   the case for new releases in the 2.x range. The most
+   drastic improvement is the better Unicode support
+   (with all text strings being Unicode by default) as
+   well as saner bytes/Unicode separation.
+
+   Besides, several aspects of the core language (such as
+   print and exec being statements, integers using floor
+   division) have been adjusted to be easier for newcomers
+   to learn and to be more consistent with the rest of the
+   language, and old cruft has been removed (for example,
+   all classes are now new-style, "range()" returns a memory
+   efficient iterable, not a list as in 2.x).
+
+   The source code and documentation is available for down-
+   load at:
+
+      http://pypi.python.org/pypi.
+
+   It supports development and operation of:
+
+   a. Command Line User Interface (CLI) application
+      programs implemented in Python 3.0.0-3.4.2.
+
+   b. Graphical-style User Interface (GUI) application
+      programs implemented in Python 3.1.5-3.4.2.
+
+======================= End-Of-File ========================

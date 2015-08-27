@@ -1,0 +1,161 @@
+#-----------------------------------------------------------
+#"Time-stamp: <08/26/2015  5:31:30 PM rsg>"
+#-----------------------------------------------------------
+
+===================== File: CREDITS.txt ====================
+
+   +----+----+  TeamSTARS "tsWxGTUI_PyVx" Toolkit
+   | ts | Wx |      with Python 2x & Python 3x based
+   +----+----+         Command Line Interface (CLI)
+   | G T U I |      and "Curses"-based "wxPython"-style, 
+   +---------+         Graphical-Text User Interface (GUI)
+ 
+   Get that cross-platform, pixel-mode "wxPython" feeling
+   on character-mode 8-/16-color (xterm-family) & non-color
+   (vt100-family) terminals and terminal emulators.
+
+   You can find this and other plain-text files in the
+   Toolkit subdirectory named:
+
+       "./<Toolkit Recipient's Repository>/Documents".
+
+       <Your Working Repository>
+       (e.g. "tsWxGTUI_PyVx_Repository") 
+         |
+         |
+         +-- ["Documents"]
+
+========================== Credits =========================
+
+   These are the third-party authors of free and open source
+   code (whether Python or non-Python), binary machine code,
+   Application Programming Interface (API), algorithm or
+   display that directly or indirectly contributed to the
+   TeamSTARS "tsWxGTUI_PyVx" Toolkit's functionality or its
+   look and feel.
+
+   Acknowledgment is hereby being given to those whose Work
+   is used in accordance with it's Author's Copyright and
+   License.
+
+   Credits:
+
+        ---------------------------------------------------
+        The TeamSTARS "tsWxGTUI_PyVx" Toolkit copyright and
+        license DO NOT supercede these third-party Authors'
+        Copyrights and Licenses.
+        ----------------------------------------------------
+
+        tsToolkitCLI character-mode Library, Tests, Tools,
+            Utilities, API, Import & Application Launch
+            Features:
+        Copyright (c) 2007-2009 Frederick A. Kier &
+                                Richard S. Gordon,
+                                a.k.a. TeamSTARS.
+                      All rights reserved.
+        GNU General Public License, Version 3, 29 June 2007
+
+        tsToolkitGUI character-mode Library, Tests, Tools,
+            API, Import & Application Launch Features:
+        Copyright (c) 2007-2009 Richard S. Gordon &
+                                Frederick A. Kier,
+                                a.k.a. TeamSTARS.
+                      All rights reserved.
+        GNU General Public License, Version 3, 29 June 2007
+
+        ----------------------------------------------------
+
+        Python Language, Library, API & Virtual Machine
+            Features:
+        Copyright (c) 2001-2015 Python Software Foundation
+                                (PSF).
+                      All rights reserved.
+        PSF License Agreement for Python 2.7.10 & 3.4.3
+
+        Python Logging Module API Features adapted for use
+            in " tsLibCLI" package "tsLoggerPkg" Python
+            module "tsLogger.py":
+        Copyright (c) 2001-2014 by Vinay Sajip.
+                      All rights reserved.
+        PSF License Agreement for Python 2.7.10 & 3.4.3
+
+        ----------------------------------------------------
+
+        wxWidgets (formerly wxWindows) & wxPython pixel-mode
+            Library, Tests, Tools & API Features adapted for
+            use in "tsLibGUI" package "tsWxPkg" Python modules:
+        Copyright (c) 1992-2008 Julian Smart, Robert Roebling,
+                                Vadim Zeitlin and other members
+                                of the wxWidgets team.
+                      All rights reserved.
+        wxWindows Library Licence, Version 3.1
+
+        ----------------------------------------------------
+
+        nCurses character-mode Terminal Control Library for
+            Unix-like systems and API Features adapted for
+            use in "tsLibGUI" package "tsWxPkg" Python module
+            "tsWxGraphicalTextUserInterface.py":
+        Copyright (c) 1998-2011 Free Software Foundation, Inc.
+                      All rights reserved.
+        GNU General Public License, Version 3, 29 June 2007
+
+        ----------------------------------------------------
+
+        SLOCCount 2.26 Source Lines Of Code Algorithm from
+            Perl script "get_sloc" adapted for use in
+            "tsToolsCLI" package "tsLinesOfCodeProjectMetricsPkg"
+            Python module "tsLocPMReportResults.py":
+        Copyright (c) 2001-2004 David A. Wheeler.
+                      All rights reserved.
+        GNU General Public License, Version 3, 29 June 2007
+
+        ----------------------------------------------------
+
+        terminalsize (https://gist.github.com/jtriley/1108174)
+            Algorithm adapted for use in Python module
+            adapted for use in "tsLibCLI" package "tsPlatform-
+            RunTimeEnvironmentPkg" Python module
+            "tsGistGetTerminalSize.py":
+        Copyright (c) 2011 Justin T. Riley.
+                      All rights reserved.
+        GNU General Public License, Version 3, 29 June 2007
+
+        ----------------------------------------------------
+
+        Script to Remove Comments/Docstrings
+             (from a given Python Source File) adapted for use
+             in "tsToolsCLI" package "tsLinesOfCodeProject-
+             MetricsPkg" Python module "tsStripComments.py":
+        Copyright (c) 2009 Dan McDougall,
+             http://stackoverflow.com/questions/1769332/
+             script-to-remove-python-comments-docstrings.
+                      All rights reserved.
+        Creative Commons Attribute-ShareAlike license
+
+        ----------------------------------------------------
+
+        COCOMO(R) 81 (COnstructive COst MOdel) Algorithm
+            Features:
+        Copyright (c) 1981 Dr. Barry W. Boehm,
+             "Software Engineering Economics".
+             Englewood Cliffs, NJ
+             Prentice-Hall, 1981.
+             ISBN 0-13-822122-7.
+                      All rights reserved.
+
+        ----------------------------------------------------
+
+        RGB to Color Name Mapping (Triplet and Hex)
+        Copyright (c) 2010 Kevin J. Walsh
+                      All rights reserved.
+
+        The master copy of this document resides at
+        http://web.njit.edu/~walsh/rgb.html
+
+        This document can be copied with or without
+        modification provided that you indicate that
+        it came from http://web.njit.edu/~walsh and
+        that it is "Copyright (c) 2010 Kevin J. Walsh".
+
+======================= End-Of-File ========================
