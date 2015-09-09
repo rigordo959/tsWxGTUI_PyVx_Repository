@@ -1,5 +1,5 @@
 #-----------------------------------------------------------
-#"Time-stamp: <08/26/2015  4:38:35 PM rsg>
+#"Time-stamp: <09/07/2015  7:37:09 AM rsg>
 #-----------------------------------------------------------
 
 =============== File: README2-Repository.txt ===============
@@ -36,6 +36,12 @@
          |     |  tions and procedures for installing, operating,
          |     |  modifying and redistributing the Toolkit. 
          |     |
+         |     +-- "Announcement.htm"
+         |     +-- "Announcement.pdf"
+         |     +-- "Announcement.rtf"
+         |     +-- "Announcement.txt"
+         |     :
+         |     :
          |     +-- "README.txt"
          |     +-- "README1-Introduction.txt"
          |     +-- "README2-Repository.txt"
@@ -47,6 +53,11 @@
          |     +-- "README8-SitePackages.txt"
          |     +-- "README9-KeyboardMouseInput.txt"
          |     +-- "GETTING_STARTED.txt"
+         |     +-- "INSTALL.txt"
+         |     +-- "DEMO.txt"
+         |     :
+         |     :
+         |     +-- "TROUBLESHOOT.txt"
          |
          +-- ["ManPages"] (Original)
          |     |
@@ -255,6 +266,13 @@
          |
          |    Deliverable POSIX-style Command Line Interface shell
          |    script to extract contents of downloadable "zip" file.
+         |
+         +-- "runLynx_Dump_Announcement.sh"
+         |
+         |    Deliverable POSIX-style Command Line Interface shell
+         |    script to convert a Web Page HTML version of the release
+         |    announcement into the same plain text format as other
+         |    files in the Documents sub-directory.
          |
          +-- "setup_tsWxGTUI_PyVx_Repository_tar_file.sh"
          |

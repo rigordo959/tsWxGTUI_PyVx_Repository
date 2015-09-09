@@ -1,5 +1,5 @@
 #-----------------------------------------------------------
-#"Time-stamp: <06/11/2015  9:14:51 AM rsg>"
+#"Time-stamp: <08/26/2015  4:20:57 PM rsg>"
 #-----------------------------------------------------------
 
 ===================== File: OPERATE.txt ====================
@@ -19,6 +19,12 @@
 
        "./<Toolkit Recipient's Repository>/Documents".
 
+       <Your Working Repository>
+       (e.g. "tsWxGTUI_PyVx_Repository") 
+         |
+         |
+         +-- ["Documents"]
+
 ===================== TABLE OF CONTENTS ====================
 
 1. Getting Started
@@ -35,7 +41,7 @@
 
 7. Troubleshooting
 
-===================== GETTING STARTED ======================
+===================== Getting Started ======================
 
 1. Getting Started
 
@@ -59,28 +65,28 @@
    * Python Download, Development & Training Resources
    * Python Download Gotchas
 
-========================= INSTALL ==========================
+========================= Install ==========================
 
 2. Install
 
    You can find this topic addressed in the Toolkit file
    named "./Documents/INSTALL.txt".
 
-======================== CONFIGURE =========================
+======================== Configure =========================
 
 3. Configure
 
    You can find this topic addressed in the Toolkit file
    named "./Documents/CONFIGURE.txt".
 
-========================= OPERATE ==========================
+========================= Operate ==========================
 
 4. Operate
 
    You can find this topic addressed in the Toolkit file
    named "./Documents/OPERATE.txt".
 
-=========================== DEMO ===========================
+=========================== Demo ===========================
 
 5. Demo
 
@@ -92,14 +98,14 @@
    to demonstrate the operation and features of Toolkit
    components included in the release distribution.
 
-========================== COPYING =========================
+========================== Copying =========================
 
 6. Copying
 
    You can find this topic addressed in the Toolkit file
    named "./Documents/COPYING.txt".
 
-===================== TROUBLESHOOTING ======================
+===================== Troubleshooting ======================
 
 7. Troubleshooting
 

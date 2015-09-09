@@ -1,5 +1,5 @@
 #-----------------------------------------------------------
-#"Time-stamp: <06/11/2015  9:14:18 AM rsg>"
+#"Time-stamp: <08/26/2015  4:16:33 PM rsg>"
 #-----------------------------------------------------------
 
 ===================== File: LICENSE.txt ====================
@@ -18,6 +18,12 @@
    Toolkit subdirectory named:
 
        "./<Toolkit Recipient's Repository>/Documents".
+
+       <Your Working Repository>
+       (e.g. "tsWxGTUI_PyVx_Repository") 
+         |
+         |
+         +-- ["Documents"]
 
 ==================== TABLE OF CONTENTS =====================
 

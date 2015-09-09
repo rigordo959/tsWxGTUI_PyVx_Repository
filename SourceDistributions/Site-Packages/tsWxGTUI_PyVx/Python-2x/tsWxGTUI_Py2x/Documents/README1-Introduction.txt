@@ -1,5 +1,5 @@
 #-----------------------------------------------------------
-#"Time-stamp: <08/26/2015  8:36:50 AM rsg>
+#"Time-stamp: <09/07/2015  7:17:43 AM rsg>
 #-----------------------------------------------------------
 
 ============== File: README1-Introduction.txt ==============
@@ -30,6 +30,11 @@
          |     |  ities, non-goals & limitations, terms & condi-
          |     |  tions and procedures for installing, operating,
          |     |  modifying and redistributing the Toolkit. 
+         |     |
+         |     +-- "Announcement.htm"
+         |     +-- "Announcement.pdf"
+         |     +-- "Announcement.rtf"
+         |     +-- "Announcement.txt"
          |     :
          |     :
          |     +-- "README.txt"
@@ -43,6 +48,7 @@
          |     +-- "README8-SitePackages.txt"
          |     +-- "README9-KeyboardMouseInput.txt"
          |     +-- "GETTING_STARTED.txt"
+         |     +-- "INSTALL.txt"
          |     +-- "DEMO.txt"
          |     :
          |     :

@@ -1,5 +1,5 @@
 #-----------------------------------------------------------
-#"Time-stamp: <06/11/2015  9:12:46 AM rsg>"
+#"Time-stamp: <08/26/2015  3:53:52 PM rsg>"
 #-----------------------------------------------------------
 
 ===================== File: COPYING.txt ====================
@@ -19,28 +19,39 @@
 
        "./<Toolkit Recipient's Repository>/Documents".
 
+       <Your Working Repository>
+       (e.g. "tsWxGTUI_PyVx_Repository") 
+         |
+         |
+         +-- ["Documents"]
+
 =================== Copying Instructions ===================
 
-  Steps to reproduce the "tsWxGTUI_PyVx" Toolkit with its
-  applicable copyright, license and documentation.
+  Steps to reproduce original or modified "tsWxGTUI_PyVx"
+  Toolkit source code and documentation so as to comply with
+  its original copyright and license terms and conditions.
 
-  SoftwareGadgetryWorkingRepository =
-      /WR/SoftwareGadgetry-PyPI/tsWxGTUI_PyVx
+  # Usage: cp [OPTION]... [-T] SOURCE DEST
+  #   or:  cp [OPTION]... SOURCE... DIRECTORY
+  #   or:  cp [OPTION]... -t DIRECTORY SOURCE...
+  # Copy SOURCE to DEST, or multiple SOURCE(s) to DIRECTORY.
+  #
+  # -p                           same as --preserve=mode,ownership,timestamps
+  #     --preserve[=ATTR_LIST]   preserve the specified attributes (default:
+  #                              mode,ownership,timestamps), if possible
+  #                              additional attributes: context, links, xattr,
+  #                              all
+  #
+  # -f, --force                  if an existing destination file cannot be
+  #                              opened, remove it and try again (this option
+  #                              is ignored when the -n option is also used)
+  #
+  # -R, -r, --recursive          copy directories recursively
+   
+  SOURCE=<Your Working Repository>     # Fill in your source path
+  TARGET=<Your Destination Repository> # Fill in your target path
 
-  SourceForgeDistributionRepository =
-      /SourceForgeDev/tsWxGTUI_PyVx
-
-  # Assumes source location is:
-  #    SourceForgeDistributionRepository
-
-  # Assumes target location is:
-  #    /Target/tsWxGTUI_PyVx
-
-  SOURCE=/SourceForgeDev/tsWxGTUI_PyVx
-  TARGET=/Target/tsWxGTUI_PyVx
-  TOOLS=$SOURCE/Python-2.x/tsToolsCLI/tsTreeCopyPkg/src
-  cd TOOLS
-  python ./tsTreeCopy.py -i $SOURCE -o $TARGET
+  cp -prf $SOURCE $TARGET
 
 ======================= End-Of-File ========================
 

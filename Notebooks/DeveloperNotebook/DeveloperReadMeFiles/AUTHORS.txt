@@ -1,5 +1,5 @@
 #-----------------------------------------------------------
-#"Time-stamp: <06/11/2015  9:11:01 AM rsg>"
+#"Time-stamp: <09/08/2015  9:08:26 AM rsg>"
 #-----------------------------------------------------------
 
 ===================== File: AUTHORS.txt ====================
@@ -18,6 +18,12 @@
    Toolkit subdirectory named:
 
        "./<Toolkit Recipient's Repository>/Documents".
+
+       <Your Working Repository>
+       (e.g. "tsWxGTUI_PyVx_Repository") 
+         |
+         |
+         +-- ["Documents"]
 
 ========================= AUTHORS ==========================
 
@@ -46,8 +52,14 @@ and license applicability issues.
 
 RSG     Richard S. Gordon
 
-     (2007-2009)    Prototype co-author and developer.
-     (2010-present) Pre-alpha author, developer & publisher.
+     (2007-2009)    Prototype (for what became known as the
+                    Python 2x & 3x developer-sandboxes)
+                    co-author and developer.
+     (2010-present) Pre-alpha author, developer & publisher
+                    of the developer-sandboxes, site-pack-
+                    ages, guest operating system configur-
+                    ations, tools, demos, documents, man-
+                    pages and notebooks.
      -------------------------------------------------------
 
         # Source Code Distribution and Installlation Setup
@@ -55,10 +67,12 @@ RSG     Richard S. Gordon
 
         MANIFEST.in
         MANIFEST_TREE.sh
-        README_Announcement.txt
-        README-setup.txt
+        README.txt
         say_hello.py
         setup.py
+        setup_tsWxGTUI_PyVx_Repository_tar_file.sh
+        setup_tsWxGTUI_PyVx_Repository_zip_file.sh
+        TermsAndConditions.txt
 
         ----------------------------------------------------
 
@@ -309,6 +323,7 @@ RSG     Richard S. Gordon
                test_tsWxCheckBox.py
                test_tsWxCheckBoxEvent.py
                test_tsWxCliLinesOfCode.py
+               test_tsWxColorPalette.py
                test_tsWxCurses.py
                test_tsWxDiagnostic.py
                test_tsWxDialogDemo.py
@@ -485,7 +500,7 @@ RSG     Richard S. Gordon
 
         ----------------------------------------------------
 
-        # tsDocCLI (character-mode documentation)
+        # Documents (character-mode documentation; formerly tsDocCLI)
 
         Log Files (*.log)
 
@@ -499,7 +514,178 @@ RSG     Richard S. Gordon
 
         ----------------------------------------------------
 
-        # tsDocGUI (pixel-mode documentation)
+        # ManPages (character-mode documentation)
+
+        +-- ["tsManPagesLibCLI"]
+        |     |
+        |     +-- "runPydoc_tsManPagesCLI.sh"
+        |     +-- "runPylint_tsManPagesCLI.sh"
+        |     +-- "tsApplication.man"
+        |     +-- "tsCommandLineEnv.man"
+        |     +-- "tsCommandLineInterface.man"
+        |     +-- "tsCxGlobals.man"
+        |     +-- "tsDoubleLinkedList.man"
+        |     +-- "tsExceptions.man"
+        |     +-- "tsGistGetTerminalSize.man"
+        |     +-- "tsLogger.man"
+        |     +-- "tsOperatorSettingsParser.man"
+        |     +-- "tsPlatformRunTimeEnvironment.man"
+        |     +-- "tsReportUtilities.man"
+        |     +-- "tsSysCommands.man"
+        |
+        +-- ["tsManPagesLibGUI"]
+        |     |
+        |     +-- "runPydoc_tsManPagesGUI.sh"
+        |     +-- "runPylint_tsManPagesGUI.sh"
+        |     +-- "tsWx.man"
+        |     +-- "tsWxAcceleratorEntry.man"
+        |     +-- "tsWxAcceleratorTable.man"
+        |     +-- "tsWxApp.man"
+        |     +-- "tsWxBoxSizer.man"
+        |     +-- "tsWxButton.man"
+        |     +-- "tsWxCallLater.man"
+        |     +-- "tsWxCaret.man"
+        |     +-- "tsWxCheckBox.man"
+        |     +-- "tsWxChoice.man"
+        |     +-- "tsWxColor.man"
+        |     +-- "tsWxColorDatabase.man"
+        |     +-- "tsWxControl.man"
+        |     +-- "tsWxControlWithItems.man"
+        |     +-- "tsWxCursor.man"
+        |     +-- "tsWxDebugHandlers.man"
+        |     +-- "tsWxDialog.man"
+        |     +-- "tsWxDialogButton.man"
+        |     +-- "tsWxDisplay.man"
+        |     +-- "tsWxDoubleLinkedList.man"
+        |     +-- "tsWxEraseEvent.man"
+        |     +-- "tsWxEvent.man"
+        |     +-- "tsWxEventDaemon.man"
+        |     +-- "tsWxEventLoop.man"
+        |     +-- "tsWxEventLoopActivator.man"
+        |     +-- "tsWxEventQueueEntry.man"
+        |     +-- "tsWxEventTableEntry.man"
+        |     +-- "tsWxEvtHandler.man"
+        |     +-- "tsWxFlexGridSizer.man"
+        |     +-- "tsWxFocusEvent.man"
+        |     +-- "tsWxFrame.man"
+        |     +-- "tsWxFrameButton.man"
+        |     +-- "tsWxGauge.man"
+        |     +-- "tsWxGlobals.man"
+        |     +-- "tsWxGraphicalTextUserInterface.man"
+        |     +-- "tsWxGridBagSizer.man"
+        |     +-- "tsWxGridSizer.man"
+        |     +-- "tsWxItemContainer.man"
+        |     +-- "tsWxKeyboardState.man"
+        |     +-- "tsWxKeyEvent.man"
+        |     +-- "tsWxListBox.man"
+        |     +-- "tsWxLog.man"
+        |     +-- "tsWxMenu.man"
+        |     +-- "tsWxMenuBar.man"
+        |     +-- "tsWxMouseEvent.man"
+        |     +-- "tsWxMouseState.man"
+        |     +-- "tsWxMultiFrameEnv.man"
+        |     +-- "tsWxNonLinkedList.man"
+        |     +-- "tsWxObject.man"
+        |     +-- "tsWxPanel.man"
+        |     +-- "tsWxPasswordEntryDialog.man"
+        |     +-- "tsWxPoint.man"
+        |     +-- "tsWxPyApp.man"
+        |     +-- "tsWxPyEventBinder.man"
+        |     +-- "tsWxPyOnDemandOutputWindow.man"
+        |     +-- "tsWxPySimpleApp.man"
+        |     +-- "tsWxPySizer.man"
+        |     +-- "tsWxRadioBox.man"
+        |     +-- "tsWxRadioButton.man"
+        |     +-- "tsWxRect.man"
+        |     +-- "tsWxScreen.man"
+        |     +-- "tsWxScrollBar.man"
+        |     +-- "tsWxScrollBarButton.man"
+        |     +-- "tsWxScrollBarGauge.man"
+        |     +-- "tsWxScrolled.man"
+        |     +-- "tsWxScrolledText.man"
+        |     +-- "tsWxScrolledWindow.man"
+        |     +-- "tsWxShowEvent.man"
+        |     +-- "tsWxSize.man"
+        |     +-- "tsWxSizer.man"
+        |     +-- "tsWxSizerItem.man"
+        |     +-- "tsWxSizerItemList.man"
+        |     +-- "tsWxSizerSpacer.man"
+        |     +-- "tsWxSlider.man"
+        |     +-- "tsWxSplashScreen.man"
+        |     +-- "tsWxStaticBox.man"
+        |     +-- "tsWxStaticBoxSizer.man"
+        |     +-- "tsWxStaticLine.man"
+        |     +-- "tsWxStaticText.man"
+        |     +-- "tsWxStatusBar.man"
+        |     +-- "tsWxSystemSettings.man"
+        |     +-- "tsWxTaskBar.man"
+        |     +-- "tsWxTextCtrl.man"
+        |     +-- "tsWxTextEditBox.man"
+        |     +-- "tsWxTextEntryDialog.man"
+        |     +-- "tsWxTimer.man"
+        |     +-- "tsWxToggleButton.man"
+        |     +-- "tsWxTopLevelWindow.man"
+        |     +-- "tsWxValidator.man"
+        |     +-- "tsWxWindow.man"
+        |
+        +-- ["tsManPagesTestsLibCLI"]
+        |     |
+        |     +-- "buildManPagesTestsCLI.sh"
+        |     +-- "test_tsApplication.man"
+        |     +-- "test_tsCommandLineEnv.man"
+        |     +-- "test_tsDoubleLinkedList.man"
+        |     +-- "test_tsOperatorSettingsParser.man"
+        |     +-- "test_tsPlatformRunTimeEnvironment.man"
+        |     +-- "test_tsSysCommand.man"
+        |
+        +-- ["tsManPagesTestsLibGUI"]
+        |     |
+        |     +-- "buildManPagesTestsGUI.sh"
+        |     +-- "test_tsWxBoxSizer.man"
+        |     +-- "test_tsWxCheckBox.man"
+        |     +-- "test_tsWxDisplay.man"
+        |     +-- "test_tsWxDoubleLinkedList.man"
+        |     +-- "test_tsWxGlobals.man"
+        |     +-- "test_tsWxGraphicalTextUserInterface.man"
+        |     +-- "test_tsWxGridSizer.man"
+        |     +-- "test_tsWxMultiFrameEnv.man"
+        |     +-- "test_tsWxRSM.man"
+        |     +-- "test_tsWxScrolledWindow.man"
+        |     +-- "test_tsWxScrolledWindowDual.man"
+        |     +-- "test_tsWxSplashScreen.man"
+        |     +-- "test_tsWxWidgets.man"
+        |
+        +-- ["tsManPagesToolsCLI"]
+        |     |
+        |     +-- "buildManPagesToolsCLI.sh"
+        |     +-- "runPydoc_tsManPagesToolsCLI.sh"
+        |     +-- "runPylint_tsManPagesToolsCLI.sh"
+        |     +-- "tsLinesOfCodeProjectMetrics.man"
+        |     +-- "tsPlatformQuery.man"
+        |     +-- "tsStripComments.man"
+        |     +-- "tsStripLineNumbers.man"
+        |     +-- "tsTreeCopy.man"
+        |     +-- "tsTreeTrimLines.man"
+        |
+        +-- ["tsManPagesToolsGUI"]     (Future)
+        |     |
+        |     +-- To-Be-Determined
+        |
+        +-- ["tsManPagesToolsLibCLI"]
+        |     |
+        |     +-- To-Be-Determined
+        |
+        +-- ["tsManPagesToolsLibGUI"]  (Future)
+        |     |
+        |     +-- To-Be-Determined
+        |
+        +-- ["tsManPagesUtilitiesCLI"] (Future)
+        |     |
+        |     +-- To-Be-Determined
+        |
+        +-- "README4-ManPages.txt" 
+
+        # Notebooks (pixel-mode documentation; formerly tsDocGUI)
 
         Adobe Portable Document Files (*.pdf)
 
@@ -533,7 +719,9 @@ RSG     Richard S. Gordon
 
 FAK     Frederick A. Kier
 
-     (2007-2009)    Prototype co-author and developer.
+     (2007-2009)    Prototype (for what became known as the
+                    Python 2x & 3x developer-sandboxes)
+                    co-author and developer.
      -------------------------------------------------------
 
         # tsLibraries (prototype for what became
@@ -547,7 +735,8 @@ FAK     Frederick A. Kier
            test
               test_tsApplication.py
 
-        tsConfigObjPkg (now deprecated)
+        tsConfigObjPkg (now deprecated by
+                        tsCxGlobals.py & tsWxGlobals.py)
 
            src
               __init__.py
@@ -558,7 +747,7 @@ FAK     Frederick A. Kier
                             Foord, Nicola Larosa)
            test
 
-        tsDataBasePkg (now deprecated)
+        tsDataBasePkg (now deprecated; never used)
 
            src
               __init__.py
@@ -578,7 +767,8 @@ FAK     Frederick A. Kier
                  PyDbLite.py
            test
 
-        tsDecoratorPkg (now deprecated)
+        tsDecoratorPkg (now deprecated;
+                        used only to declare static classes)
 
            src
               __init__.py
@@ -617,14 +807,15 @@ FAK     Frederick A. Kier
                             application.)
            test
 
-        tsOptionParserPkg (now deprecated)
+        tsOptionParserPkg (now deprecated; replaced by
+                           tsOperatorSettingsParser.py)
 
            src
               __init__.py
               tsOptionParser.py
            test
 
-        tsThreadPoolPkg (now deprecated)
+        tsThreadPoolPkg (now deprecated; never used)
 
            src
               __init__.py

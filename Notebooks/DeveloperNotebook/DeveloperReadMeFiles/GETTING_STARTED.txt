@@ -1,5 +1,5 @@
 #-----------------------------------------------------------
-#"Time-stamp: <06/24/2015  2:46:38 PM rsg>"
+#"Time-stamp: <09/06/2015  7:31:18 PM rsg>"
 #-----------------------------------------------------------
 
 ========= Title Page for File: GETTING_STARTED.txt =========
@@ -20,233 +20,10 @@
        "./<Toolkit Recipient's Repository>/Documents".
 
        <Your Working Repository>
-       (e.g. "tsWxGTUI_PyVx_Preview-Site-Packages") 
+       (e.g. "tsWxGTUI_PyVx_Repository") 
          |
-         |  Working repository containing directories and
-         |  files to be packaged into downloadable "tarball"
-         |  and/or "zip" files via the setup shell scripts
-         |  at the bottom of this diagram.
          |
-         +-- ["Documents"] (Original)
-         |     |
-         |     |  This directory contains a collection of files
-         |     |  which provide the Toolkit recipient with an
-         |     |  understanding of the purpose, goals & capabil-
-         |     |  ities, non-goals & limitations, terms & condi-
-         |     |  tions and procedures for installing, operating,
-         |     |  modifying and redistributing the Toolkit. 
-         |     |
-         |     +-- "GETTING_STARTED.txt"
-         |
-         +-- ["ManPages"] (Original)
-         |     |
-         |     |  Deliverable Toolkit manual pages are a
-         |     |  form of online software documentation
-         |     |  usually found on a Unix or Unix-like oper-
-         |     |  ating system.
-         |     |
-         |     |  Topics covered include computer programs
-         |     |  (including library and system calls),
-         |     |  formal standards and conventions, and even
-         |     |  abstract concepts.
-         |     |
-         |     |  A user may NOT invoke a man page by issu-
-         |     |  ing the man command. Instead, a user may
-         |     |  display a man page by issuing the
-         |     |  less <man document file> command.
-         |     |
-         |     +-- ["tsManPagesLibCLI"]
-         |     +-- ["tsManPagesLibGUI"]
-         |     +-- ["tsManPagesTestsLibCLI"]
-         |     +-- ["tsManPagesTestsLibGUI"]
-         |     +-- ["tsManPagesToolsCLI"]
-         |     +-- ["tsManPagesToolsGUI"]     (Future)
-         |     +-- ["tsManPagesToolsLibCLI"]
-         |     +-- ["tsManPagesToolsLibGUI"]  (Future)
-         |     +-- ["tsManPagesUtilitiesCLI"] (Future)
-         |
-         +-- ["Notebooks"] (Pre-dates Documents)
-         |     |
-         |     |  Contains a collection of commentaries that
-         |     |  express opinions or offerings of explana-
-         |     |  tions about events or situations that might
-         |     |  be useful to Toolkit installers, developers,
-         |     |  operators, troubleshooters and distributors.
-         |     |  The documents may be in Application-specific
-         |     |  formats (Adobe PDF, JPEG Bit-mapped image,
-         |     |  Microsoft Office, Plain text etc.).
-         |     |
-         |     |  The collection includes:
-         |     |
-         |     |  a) DeveloperDocuments (API-References-
-         |     |     Pixel-Mode-wxPython and Developer-
-         |     |     ReadMe-Files); and
-         |     |
-         |     |  b) EngineeringDocuments (Product Marketing
-         |     |     Documentation, Project Documentation and
-         |     |     Technical Documentation). (Pre-dates Documents) 
-         |
-         +-- ["SourceDistributions"] (Original)
-         |     |
-         |     |  Contains a collection of computer program
-         |     |  source code files that the Toolkit recip-
-         |     |  ient will need to install, operate, modify
-         |     |  and re-distribute the Toolkit.
-         |     |
-         |     +-- ["Developer-Sandboxes"] (Pre-dates Site-Packages)
-         |     |     |
-         |     |     |  A sandbox is a testing environment that iso-
-         |     |     |  lates untested code changes and outright
-         |     |     |  experimentation from the production environ-
-         |     |     |  ment or repository.
-         |     |     |
-         |     |     +-- ["tsWxGTUI_PyVx"] (Developer-Sandbox)
-         |     |           |
-         |     |           +-- ["Documents"] (Copy)
-         |     |           |
-         |     |           |  This directory contains a collection of files
-         |     |           |  which provide the Toolkit recipient with an
-         |     |           |  understanding of the purpose, goals & capabil-
-         |     |           |  ities, non-goals & limitations, terms & condi-
-         |     |           |  tions and procedures for installing, operating,
-         |     |           |  modifying and redistributing the Toolkit. 
-         |     |           |
-         |     |           +-- ["ManPages"] (Copy)
-         |     |           |     |
-         |     |           |     |  Deliverable Toolkit manual pages are a
-         |     |           |     |  form of online software documentation
-         |     |           |     |  usually found on a Unix or Unix-like oper-
-         |     |           |     |  ating system.
-         |     |           |     |
-         |     |           |     |  Topics covered include computer programs
-         |     |           |     |  (including library and system calls),
-         |     |           |     |  formal standards and conventions, and even
-         |     |           |     |  abstract concepts.
-         |     |           |     |
-         |     |           |     |  A user may NOT invoke a man page by issu-
-         |     |           |     |  ing the man command. Instead, a user may
-         |     |           |     |  display a man page by issuing the
-         |     |           |     |  less <man document file> command.
-         |     |           |     |
-         |     |           |     +-- ["tsManPagesLibCLI"]
-         |     |           |     +-- ["tsManPagesLibGUI"]
-         |     |           |     +-- ["tsManPagesTestsLibCLI"]
-         |     |           |     +-- ["tsManPagesTestsLibGUI"]
-         |     |           |     +-- ["tsManPagesToolsCLI"]
-         |     |           |     +-- ["tsManPagesToolsGUI"]     (Future)
-         |     |           |     +-- ["tsManPagesToolsLibCLI"]
-         |     |           |     +-- ["tsManPagesToolsLibGUI"]  (Future)
-         |     |           |     +-- ["tsManPagesUtilitiesCLI"] (Future)
-         |     |           |
-         |     |           +-- ["Python-2x"] (Developer-Sandbox)
-         |     |           |     |
-         |     |           |     +-- ["tsWxGTUI_Py2x"]
-         |     |           |
-         |     |           +-- ["Python-3x"]  (Developer-Sandbox,
-         |     |                 |             Ported from Python-2x)
-         |     |                 |
-         |     |                 +-- ["tsWxGTUI_Py3x"]
-         |     |
-         |     +-- ["Site-Packages"]
-         |           |
-         |           |  Site-packages is the location where third-
-         |           |  party packages are installed (i.e., those
-         |           |  not part of the core Python distribution).
-         |           |  NOTE: That with Linux, Mac OS X and Unix
-         |           |  operating systems one must have root priv-
-         |           |  iledges to write to that location.
-         |           |
-         |           +-- ["tsWxGTUI_PyVx"] (Site-Package)
-         |                 |
-         |                 +-- ["Documents"] (Copy)
-         |                 |
-         |                 |  This directory contains a collection of files
-         |                 |  which provide the Toolkit recipient with an
-         |                 |  understanding of the purpose, goals & capabil-
-         |                 |  ities, non-goals & limitations, terms & condi-
-         |                 |  tions and procedures for installing, operating,
-         |                 |  modifying and redistributing the Toolkit. 
-         |                 |
-         |                 +-- ["ManPages"] (Copy)
-         |                 |     |
-         |                 |     |  Deliverable Toolkit manual pages are a
-         |                 |     |  form of online software documentation
-         |                 |     |  usually found on a Unix or Unix-like oper-
-         |                 |     |  ating system.
-         |                 |     |
-         |                 |     |  Topics covered include computer programs
-         |                 |     |  (including library and system calls),
-         |                 |     |  formal standards and conventions, and even
-         |                 |     |  abstract concepts.
-         |                 |     |
-         |                 |     |  A user may NOT invoke a man page by issu-
-         |                 |     |  ing the man command. Instead, a user may
-         |                 |     |  display a man page by issuing the
-         |                 |     |  less <man document file> command.
-         |                 |     |
-         |                 |     +-- ["tsManPagesLibCLI"]
-         |                 |     +-- ["tsManPagesLibGUI"]
-         |                 |     +-- ["tsManPagesTestsLibCLI"]
-         |                 |     +-- ["tsManPagesTestsLibGUI"]
-         |                 |     +-- ["tsManPagesToolsCLI"]
-         |                 |     +-- ["tsManPagesToolsGUI"]     (Future)
-         |                 |     +-- ["tsManPagesToolsLibCLI"]
-         |                 |     +-- ["tsManPagesToolsLibGUI"]  (Future)
-         |                 |     +-- ["tsManPagesUtilitiesCLI"] (Future)
-         |                 |
-         |                 +-- ["Python-2x"] (Site-Package)
-         |                 |     |
-         |                 |     +-- ["tsWxGTUI_Py2x"]
-         |                 |
-         |                 +-- ["Python-3x"] (Site-Package,
-         |                       |            Ported from Python-2x)
-         |                       |
-         |                       +-- ["tsWxGTUI_Py3x"]
-         |
-         +-- "MANIFEST.in"
-         |
-         |    Deliverable File inclusion criteria list.
-         |
-         +-- "MANIFEST_template.in"
-         |
-         |    Deliverable Generic file inclusion criteria list
-         |    template for any Python version-specific TeamSTARS
-         |    "tsWxGTUI_PyVx" Toolkit.
-         |
-         +-- "MANIFEST_TREE.html"
-         |
-         |    Non-Deliverable Diagram (Multi-Level Org Chart)
-         |    depicting the hierarchical relationship between files
-         |    in the release, in Hypertext Markup Language format.
-         |
-         |    Diagram created via Command "./MANIFEST_TREE.sh".
-         |
-         +-- "MANIFEST_TREE.sh"
-         |
-         |    Deliverable POSIX-style Command Line Interface shell
-         |    script to generate diagrams depicting the hierarchical
-         |    relationship between files in the release
-         |    ("MANIFEST_TREE.html" and "MANIFEST_TREE.txt").
-         |
-         +-- "MANIFEST_TREE.txt"
-         |
-         |    Non-Deliverable Diagram (Multi-Level Org Chart)
-         |    depicting the hierarchical relationship between
-         |    files in the release, in Plain Text format.
-         |
-         |    Diagram created via Command "./MANIFEST_TREE.sh".
-         |
-         +-- "setup_tsWxGTUI_PyVx_Preview_tar_file.sh"
-         |
-         |    Deliverable POSIX-style Command Line Interface shell
-         |    script to generate downloadable "tarball" file.
-         |
-         +-- "setup_tsWxGTUI_PyVx_Preview_zip_file.sh"
-         |
-         |    Deliverable POSIX-style Command Line Interface shell
-         |    script to generate downloadable "zip" file.
-         |
-         +-- "README2-Repository.txt"
+         +-- ["Documents"]
 
 ===================== TABLE OF CONTENTS ====================
 
@@ -270,6 +47,7 @@
    2.2 Graphical User Interface
 
        2.2.1 C/C++ packages
+
        2.2.2 Packages in other languages
 
    2.3 Window Manager
@@ -278,16 +56,56 @@
 
    3.1 Linux (POSIX-compatible CLI & GUI)
 
+       3.1.1 Character-mode Command Line Interface
+
+       3.1.2 Character-mode Graphical-style User Interface
+
    3.2 Mac OS X (POSIX-compatible CLI & GUI)
+
+       3.2.1 Character-mode Command Line Interface
+
+       3.2.2 Character-mode Graphical-style User Interface
 
    3.3 Microsoft Windows
 
        3.3.1 "Cygwin" (POSIX-compatible CLI & GUI)
+
+             3.3.1.1 Character-mode Command Line Interface
+
+             3.3.1.2 Character-mode Graphical-style User Interface
+
        3.3.2 "GnuWin32" (POSIX-compatible CLI only)
-       3.3.3 "Windows PowerShell" (Windows-native CLI only)
-       3.3.4 "Command Prompt" (Windows-native CLI only)
+
+             3.3.2.1 Character-mode Command Line Interface
+
+             3.3.2.2 Character-mode Graphical-style User In-
+                     terface (Availability depends on
+                     PDCurses, see the remarks in the
+                     following section 3.3.2.3 PDCurses)
+
+             3.3.2.3 PDCurses
+
+       3.3.3 "Command Prompt" (Windows-native CLI only)
+
+             3.3.3.1 Character-mode Command Line Interface
+
+             3.3.3.2 Character-mode Graphical-style User Interface
+
+       3.3.4 "Windows PowerShell" (Windows-native CLI only.
+             It is a task automation and configuration man-
+             agement framework, consisting of a command-line
+             shell and associated scripting language built
+             on the .NET Framework.)
+
+             3.3.4.1 Character-mode Command Line Interface
+
+             3.3.4.2 Character-mode Graphical-style User Interface
 
    3.4 Unix (POSIX-compatible CLI & GUI)
+
+       3.4.1 Character-mode Command Line Interface
+
+       3.4.2 Character-mode Graphical-style User Interface
 
 4. Toolkit Development Resources
 
@@ -295,6 +113,13 @@
 
        4.1.1 Python 3.x
        4.1.2 Python 2.x
+       4.1.3 Converting Python 2 and Python 3
+             4.1.3.1 2to3
+             4.1.3.2 3to2
+             4.1.3.3 Six (Python Hosted)
+             4.1.3.4 Supporting Python 2 an 3 without conversion
+       4.1.4 Python Package Index
+       4.1.5 Pythonz
 
    4.2 Open Source & Commercial Python Resources
 
@@ -330,7 +155,7 @@
        6.3.1 wxPython Community
        6.3.2 wxPython Cookbook
 
-========================== README ==========================
+=========== What is in the software distribution? ==========
 
 1. What is in the software distribution?
 
@@ -354,13 +179,31 @@
    1.2 How to prepare your computer(s) for use with the
        Toolkit? 
 
-         a) "GETTING_STARTED.txt"
+       Reference citations and commentaries (included in
+       "GETTING_STARTED.txt") on computer jargon and
+       topics associated with:
+
+         a) "User Interfaces"
+         b) "Operating Systems"
+         c) "Toolkit Development Resources"
+         d) "Python Download Gotchas"
+         e) "wxPython/wxWidgets Development Resources"
 
    1.3 How can you become familiar with the features,
        look and feel of the Toolkit? 
 
-         a) "DEMO.txt"
-         b) "TROUBLESHOOT.txt"
+         a) "INSTALL.txt" (includes a "smoke/"sanity" test
+            to reveal installation failures and a concisely
+            scripted "Quick Test Drive" which introduces the
+            look and feel of the Toolkit's user interfaces)
+
+         b) "DEMO.txt" (includes a verbosely scripted "Demo
+            Test Drive" which introduces various local and
+            remote Toolkit usage scenarios)
+
+         c) "TROUBLESHOOT.txt" (includes a verbose
+            "Insight of the "tsWxGTUI" Toolkit
+            Developer(s)" commentary)
 
    1.4 What are the currently known Toolkit limitations,
        bugs and update roadmap? 
@@ -369,7 +212,7 @@
          b) "TO-DO.txt"
 
 
-====================== USER INTERFACES =====================
+====================== User Interfaces =====================
 
 2. User Interfaces
 
@@ -523,7 +366,7 @@
        es: e.g. docks, task bars, program launchers, desktop
        icons, and wallpaper."
 
-===================== OPERATING SYSTEM =====================
+===================== Operating System =====================
 
 3. Operating System
 
@@ -969,44 +812,6 @@
              C-runtime msvcrt.dll, but are usually older
              versions."
 
-             NOTE: PDCurses does not provide the "ncurses"
-                   mouse button interface used by the Team-
-                   STARS "tsWxGTUI_PyVx" Toolkit. It also
-                   does not provide or recognize the xterm
-                   and vt100 terminal emulators.
-
-                   Unfortunately, Python Curses for Micro-
-                   soft Windows traps when it fails to
-                   import "_curses". Furthermore, the
-                   "tsWxGTUI" Toolkit will trap when it
-                   fails to obtain mouse button key codes
-                   from PDCurses 3.4 via these standard
-                   Python Curses module references:
-
-                        curses.BUTTON1_RELEASED
-                        curses.BUTTON1_PRESSED
-                        curses.BUTTON1_CLICKED
-                        curses.BUTTON1_DOUBLE_CLICKED
-                        curses.BUTTON1_TRIPLE_CLICKED
-                        curses.BUTTON2_RELEASED
-                        curses.BUTTON2_PRESSED
-                        curses.BUTTON2_CLICKED
-                        curses.BUTTON2_DOUBLE_CLICKED
-                        curses.BUTTON2_TRIPLE_CLICKED
-                        curses.BUTTON3_RELEASED
-                        curses.BUTTON3_PRESSED
-                        curses.BUTTON3_CLICKED
-                        curses.BUTTON3_DOUBLE_CLICKED
-                        curses.BUTTON3_TRIPLE_CLICKED
-                        curses.BUTTON4_RELEASED
-                        curses.BUTTON4_PRESSED
-                        curses.BUTTON4_CLICKED
-                        curses.BUTTON4_DOUBLE_CLICKED
-                        curses.BUTTON4_TRIPLE_CLICKED
-                        curses.BUTTON_CTRL
-                        curses.BUTTON_SHIFT
-                        curses.BUTTON_ALT
-
              3.3.2.1 Character-mode Command Line Interface
 
                      The GnuWin32 "Terminal" application and
@@ -1019,7 +824,9 @@
                      to conduct local and remote sessions.
 
              3.3.2.2 Character-mode Graphical-style User In-
-                     terface (Availability depends on PDCurses)
+                     terface (Availability depends on
+                     PDCurses, see the remarks in the
+                     following section 3.3.2.3 PDCurses)
 
                      The GnuWin32 "Terminal" application, user
                      selectable terminal emulators (including
@@ -1030,7 +837,193 @@
                      thon"-style, "PDCurses"-based Graphical-
                      Text User Interface (GUI).
 
-       3.3.3 "Windows PowerShell" (Windows-native CLI only)
+             3.3.2.3 PDCurses
+
+                     Excerpts From Wikipedia, the free encyclopedia at:
+
+                         https://en.wikipedia.org/wiki/
+                                 Curses_(programming_library)
+
+                       "Overview
+
+                       The curses API is described in several places.
+                       Most implementations of curses use a database
+                       that can describe the capabilities of thousands
+                       of different terminals. There are a few imple-
+                       mentations, such as PDCurses, which use special-
+                       ized device drivers rather than a terminal
+                       database. Most implementations use terminfo;
+                       some use termcap. Curses has the advantage of
+                       back-portability to character-cell terminals
+                       and simplicity. For an application that does
+                       not require bit-mapped graphics or multiple
+                       fonts, an interface implementation using curses
+                       will usually be much simpler and faster than
+                       one using an X toolkit.
+
+                       Using curses, programmers are able to write
+                       text-based applications without writing directly
+                       for any specific terminal type. The curses library
+                       on the executing system sends the correct control
+                       characters based on the terminal type. It provides
+                       an abstraction of one or more windows that maps
+                       onto the terminal screen. Each window is repre-
+                       sented by a character matrix. The programmer
+                       sets up each window to look as they want the
+                       display to look, and then tells the curses
+                       package to update the screen. The library
+                       determines a minimal set of changes needed to
+                       update the display and then executes these
+                       using the terminal's specific capabilities
+                       and control sequences.
+
+                       In short, this means that the programmer simply
+                       creates a character matrix of how the screen
+                       should look and lets curses handle the work."
+
+                       "Portability
+
+                       Although the ncurses library was initially
+                       developed under Linux, OpenBSD, FreeBSD, and
+                       NetBSD it has been ported to many other ANSI/
+                       POSIX UNIX systems, mainly by Thomas Dickey.
+                       PDCurses, while not identical to ncurses, uses
+                       the same function calls and operates the same
+                       way as ncurses does except that PDCurses
+                       targets different devices, e.g., console
+                       windows for DOS, Win32, OS/2, as well as
+                       X11. Porting between the two is not difficult.
+                       For example, the roguelike game ADOM was
+                       written for Linux and ncurses, later ported
+                       to DOS and PDCurses."
+
+                     PDCurses use of specialized device drivers
+                     rather than the use of industry-standard
+                     terminal emulators and the database of
+                     terminal capabilities will likely necessi-
+                     tate creating a PDCurses-specific port of
+                     the Toolkit.
+
+                     The following comments may also need to be
+                     considered.
+
+                     The TeamSTARS "tsWxGTUI_PyVx" Toolkit
+                     author has not, as of 25 August 2015,
+                     been able to locate a pre-built PDCurses
+                     plug-in which is compatible with Python 2x
+                     and/or Python 3x.
+
+                     Excerpt from:
+
+                        "http://sourceforge.net/projects/pdcurses/"
+
+                        "PDCurses is an implementation of the curses
+                        library for Win32, DOS, OS/2, X11 and SDL."
+
+                     Excerpt from:
+
+                        "https://github.com/macton/pdcurses"
+
+                        "Welcome to PDCurses!
+                         ====================
+
+                         Public Domain Curses, aka PDCurses, is an
+                         implementation of X/Open curses for multiple
+                         platforms. 
+
+                         This version was forked from PDCurses-3.4 which
+                         can be found at:
+
+                             http://pdcurses.sourceforge.net/
+
+                     Excerpt from:
+
+                        "https://github.com/jmcb/python-pdcurses"
+
+                        "python-pdcurses
+                         ---------------
+
+                        Using pdcurses as a drop-in replacement for
+                        _curses on non-POSIX platforms.
+
+                        General information
+                        -------------------
+
+                        Currently, the state of Python 2.x builds,
+                        for Windows specifically, is that the _curses
+                        base module is not available. On all plat-
+                        forms, the curses wrapper module that sits
+                        on top of this is available. Obviously the
+                        former not being included is due to the fact
+                        that curses support is limited to platforms
+                        that provide curses implementations
+                        -- usually only POSIX compatible platforms.
+
+                        The latter always being included would imply
+                        that the intent is to allow access to this
+                        module agnostically, whenever a Python-
+                        compatible _curses module is available.
+
+                        Thus, the aim of this module is to provide
+                        a drop-in replacement for _curses using
+                        the PDCurses library. This module should
+                        hopefully work for all Python versions
+                        from 2.3 through 2.7.
+
+                        If you're looking to install this module
+                        from a binary package, please see the
+                        INSTALL.rst file."
+
+       3.3.3 "Command Prompt" (Windows-native CLI only)
+
+             From Wikipedia, the free encyclopedia
+
+             "Command Prompt, better known as cmd.exe or just
+             cmd (after its executable file name), is the
+             command-line interpreter on OS/2 and eComStation,
+             Windows CE and Windows NT operating systems
+             (including Windows 2000 and later). It is the
+             analog of COMMAND.COM in DOS and Windows 9x
+             systems (where it is also called "MS-DOS Prompt"),
+             or of the Unix shells used on Unix-like systems.
+
+             Unlike COMMAND.COM, which is a DOS program, cmd
+             is a native Windows application usually running
+             in Win32 console. This allows it to take advantage
+             of features available to native programs on the
+             platform that are otherwise unavailable to DOS
+             programs. For example, since cmd is a native text
+             mode application on OS/2, it can use real pipes
+             in command pipelines, allowing both sides of the
+             pipeline to run concurrently. As a result, it is
+             possible to redirect the standard error in cmd,
+             unlike COMMAND.COM. (COMMAND.COM uses temporary
+             files, and runs the two sides serially, one after
+             the other.)
+
+             In reality, cmd is a Windows program that acts
+             as a DOS-like command line interpreter. It is
+             generally compatible, but provides extensions
+             which address some of the limitations of
+             COMMAND.COM."
+
+             For details, pleae see:
+
+                   http://en.wikipedia.org/wiki/Cmd.exe
+
+             3.3.3.1 Character-mode Command Line Interface
+
+                     The "Command Prompt" application sup-
+                     ports the TeamSTARS "tsWxGTUI_PyVx"
+                     Toolkit with its Python-based Command
+                     Line Interface (CLI).
+
+             3.3.3.2 Character-mode Graphical-style User Interface
+
+                     Not supported by the TeamSTARS
+                     "tsWxGTUI_PyVx" Toolkit.
+
+       3.3.4 "Windows PowerShell" (Windows-native CLI only)
 
              From Wikipedia, the free encyclopedia
 
@@ -1085,58 +1078,9 @@
              Update-Help cmdlet and web based content
              via the -online switch to Get-Help."
 
-             3.3.3.1 Character-mode Command Line Interface
-
-                     The "PowerShell" application sup-
-                     ports the TeamSTARS "tsWxGTUI_PyVx"
-                     Toolkit with its Python-based Command
-                     Line Interface (CLI).
-
-             3.3.3.2 Character-mode Graphical-style User Interface
-
-                     Not supported by the TeamSTARS
-                     "tsWxGTUI_PyVx" Toolkit.
-
-       3.3.4 "Command Prompt" (Windows-native CLI only)
-
-             From Wikipedia, the free encyclopedia
-
-             "Command Prompt, better known as cmd.exe or just
-             cmd (after its executable file name), is the
-             command-line interpreter on OS/2 and eComStation,
-             Windows CE and Windows NT operating systems
-             (including Windows 2000 and later). It is the
-             analog of COMMAND.COM in DOS and Windows 9x
-             systems (where it is also called "MS-DOS Prompt"),
-             or of the Unix shells used on Unix-like systems.
-
-             Unlike COMMAND.COM, which is a DOS program, cmd
-             is a native Windows application usually running
-             in Win32 console. This allows it to take advantage
-             of features available to native programs on the
-             platform that are otherwise unavailable to DOS
-             programs. For example, since cmd is a native text
-             mode application on OS/2, it can use real pipes
-             in command pipelines, allowing both sides of the
-             pipeline to run concurrently. As a result, it is
-             possible to redirect the standard error in cmd,
-             unlike COMMAND.COM. (COMMAND.COM uses temporary
-             files, and runs the two sides serially, one after
-             the other.)
-
-             In reality, cmd is a Windows program that acts
-             as a DOS-like command line interpreter. It is
-             generally compatible, but provides extensions
-             which address some of the limitations of
-             COMMAND.COM."
-
-             For details, pleae see:
-
-                   http://en.wikipedia.org/wiki/Cmd.exe
-
              3.3.4.1 Character-mode Command Line Interface
 
-                     The "Command Prompt" application sup-
+                     The "PowerShell" application sup-
                      ports the TeamSTARS "tsWxGTUI_PyVx"
                      Toolkit with its Python-based Command
                      Line Interface (CLI).
@@ -1279,7 +1223,7 @@
              "wxPython"-style, "Curses"-based Graphical-Text
              User Interface (GUI).
 
-=============== TOOLKIT DEVELOPMENT RESOURCES ==============
+=============== Toolkit Development Resources ==============
 
 4. Toolkit Development Resources
 
@@ -1333,6 +1277,153 @@
 
                    There will a limited number of
                    bug fix updates to Python 2.7.
+
+       4.1.3 Converting Python 2 and Python 3
+
+             4.1.3.1 2to3
+
+                     Excerpt from "https://docs.python.org/2/library/2to3.html"
+                     Copyright 1990-2015, Python Software Foundation. 
+
+                     "2to3 is a Python program that reads Python 2.x source
+                     code and applies a series of fixers to transform it
+                     into valid Python 3.x code. The standard library
+                     contains a rich set of fixers that will handle almost
+                     all code. 2to3 supporting library lib2to3 is, however,
+                     a flexible and generic library, so it is possible to
+                     write your own fixers for 2to3. lib2to3 could also be
+                     adapted to custom applications in which Python code
+                     needs to be edited automatically."
+
+             4.1.3.2 3to2
+
+                     Excerpt from "https://pypi.python.org/pypi/3to2/1.1.1"
+                     Copyright April 13, 2015, Joe Amenta
+
+                     "3to2 1.1.1
+
+                     Refactors valid 3.x syntax into valid 2.x syntax, if
+                     a syntactical conversion is possible
+
+                     Download
+
+                     Release for 2.7 and 3.x (last version I tested was
+                     3.4.3): https://pypi.python.org/pypi/3to2
+
+                     Abstract
+
+                     lib3to2 is a set of fixers that are intended to backport
+                     code written for Python version 3.x into Python version
+                     2.x. The final target 2.x version is the latest version
+                     of the 2.7 branch, as that is the last release in the
+                     Python 2.x branch. Some attempts have been made,
+                     however, to make code compatible as much as possible
+                     with versions of Python back to 2.5, and bug reports
+                     are still welcome for Python features only present in
+                     2.6+ that are not addressed by lib3to2.
+
+                     This project came about as a Google Summer of Code (TM)
+                     project in 2009.
+
+                     Status
+
+                     Because of the nature of the subject matter, 3to2 is not
+                     perfect, so check all output manually. 3to2 does the
+                     bulk of the work, but there is code that simply cannot
+                     be converted into a Python 2 equivalent for one reason
+                     or another.
+
+                     3to2 will either produce working Python 2 code or warn
+                     about why it did not. Any other behavior is a bug and
+                     should be reported.
+
+                     lib3to2's fixers are somewhat well-tested individually,
+                     but there is no testing that is done on interactions
+                     between multiple fixers, so most of the bugs in the
+                     future will likely be found there."
+
+             4.1.3.3 Six (Python Hosted)
+
+                     Excerpt from "https://pythonhosted.org/six"
+                     Copyright 2010-2015, Benjamin Peterson.
+
+                     "Six provides simple utilities for wrapping over
+                     differences between Python 2 and Python 3. It is
+                     intended to support codebases that work on both
+                     Python 2 and 3 without modification. six consists
+                     of only one Python file, so it is painless to copy
+                     into a project.
+
+                     Six can be downloaded on PyPi. Its bug tracker and
+                     code hosting is on BitBucket.
+
+                     The name, 'six', comes from the fact that 2*3 equals
+                     6. Why not addition? Multiplication is more powerful,
+                     and, anyway, 'five' has already been snatched away
+                     by the (admittedly now moribund) Zope Five project."
+
+             4.1.3.4 Supporting Python 2 an 3 without conversion
+
+                     Excerpt from "http://python3porting.com/noconv.html"
+                     Copyright 2011-2015, Lennart Regebro.
+
+                     "Although the official documentation for Python 3
+                     discourages writing code for both Python 2 and
+                     Python 3, in some cases it is desirable. Especially
+                     if you can drop support for Python 2.5 and earlier,
+                     since Python 2.6 introduces quite a lot of forwards
+                     compatibility.
+
+                     It's possible to make the same code run under earlier
+                     versions of Python as well, but then you start getting
+                     into the 'contorted' writing style the Python 3
+                     documentation mentions. I'll take up tricks to do this
+                     and the six module I mention at the end of this chapter
+                     will help a lot. It has been done even for some quite
+                     big projects, but I would in general not recommend it
+                     for a large project. For small projects or parts of
+                     bigger projects, for example bootstrapping scripts,
+                     supporting old versions of Python without using 2to3
+                     is often the best solution.
+
+                     Python 2.7 has some small improvements on Python 3
+                     compatibility, but it's likely that if you want to run
+                     the same code under both Python 2 and Python 3 you will
+                     have to support Python 2.6 for some time to come.
+
+                     Many of the changes you need will be done by 2to3, so
+                     to start converting your code you actually want to first
+                     run 2to3 on your code and make your code run under
+                     Python 3. It is generally easier, or at least less
+                     monotonous, to introduce Python 2 compatibility in
+                     Python 3 code, than to introduce Python 3 compatibility
+                     in Python 2 code.
+
+                     Once you have the project running under Python 3, try
+                     to run it under Python 2.6. At this stage you may run
+                     into syntax errors. They should come from only changes
+                     in the print statement. Once you have fixed them you
+                     can fix the remaining errors and then lastly you do
+                     the same for earlier versions of Python, if you need
+                     to support them as well."
+
+       4.1.4 Python Package Index
+
+             Excerpt from "https://pypi.python.org/pypi"
+
+             "The Python Package Index is a repository of software for the
+             Python programming language. There are currently 64397
+             packages here. 
+
+             To contact the PyPI admins, please use the Support or Bug
+             reports links."
+
+       4.1.5 Pythonz
+
+             Excerpt from "https://github.com/saghul/pythonz"
+
+             "Python installation manager supporting CPython, Stackless,
+             PyPy and Jython"
 
    4.2 Open Source & Commercial Python Resources
 
@@ -1451,7 +1542,7 @@
              Vaults of Parnassus
              Python.facts"
 
-================== PYTHON DOWNLOAD GOTCHAS =================
+================== Python Download Gotchas =================
 
 5. Python Download Gotchas
 
@@ -1509,7 +1600,7 @@
        associated "Curses" or "nCurses" Terminal Con-
        trol Library.
 
-========= WXPYTHON/WXWIDGETS DEVELOPMENT RESOURCES =========
+========= wxPython/wxWidgets Development Resources =========
 
 6. wxPython/wxWidgets Development Resources
 
@@ -1550,6 +1641,5 @@
        6.3.2 wxPython Cookbook
 
        http://wiki.wxpython.org
-
 
 ======================= End-Of-File ========================

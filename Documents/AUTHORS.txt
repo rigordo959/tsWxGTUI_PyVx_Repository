@@ -1,5 +1,5 @@
 #-----------------------------------------------------------
-#"Time-stamp: <08/26/2015  9:56:38 AM rsg>"
+#"Time-stamp: <09/08/2015  9:08:26 AM rsg>"
 #-----------------------------------------------------------
 
 ===================== File: AUTHORS.txt ====================
@@ -53,8 +53,8 @@ and license applicability issues.
 RSG     Richard S. Gordon
 
      (2007-2009)    Prototype (for what became known as the
-                    developer-sandboxes) co-author and
-                    developer.
+                    Python 2x & 3x developer-sandboxes)
+                    co-author and developer.
      (2010-present) Pre-alpha author, developer & publisher
                     of the developer-sandboxes, site-pack-
                     ages, guest operating system configur-
@@ -720,8 +720,8 @@ RSG     Richard S. Gordon
 FAK     Frederick A. Kier
 
      (2007-2009)    Prototype (for what became known as the
-                    developer-sandboxes) co-author and
-                    developer.
+                    Python 2x & 3x developer-sandboxes)
+                    co-author and developer.
      -------------------------------------------------------
 
         # tsLibraries (prototype for what became

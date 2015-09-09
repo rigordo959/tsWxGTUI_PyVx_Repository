@@ -1,5 +1,5 @@
 #-----------------------------------------------------------
-#"Time-stamp: <08/26/2015  4:33:12 PM rsg>"
+#"Time-stamp: <09/09/2015  6:01:21 AM rsg>"
 #-----------------------------------------------------------
 
 ================ File: README3-Documents.txt ===============
@@ -31,6 +31,11 @@
          |     |  ities, non-goals & limitations, terms & condi-
          |     |  tions and procedures for installing, operating,
          |     |  modifying and redistributing the Toolkit.
+         |     |
+         |     +-- "Announcement.htm"
+         |     +-- "Announcement.pdf"
+         |     +-- "Announcement.rtf"
+         |     +-- "Announcement.txt"
          |     |
          |     +-- "AUTHORS.txt"
          |     +-- "BUGS.txt"
@@ -77,28 +82,13 @@
    terms & conditions and procedures and for installing,
    operating, modifying and redistributing the Toolkit.
 
-   "GETTING_STARTED.txt" --- Introduces new recipients to
-                             the system requirements and
-                             third-party resources avail-
-                             able to new Toolkit users.
+   "Announcement.htm" --- Introduces prospective and new
+   "Announcement.pdf"     recipients to the purpose, goals,
+   "Announcement.rtf"     non-goals, design and features of
+   "Announcement.txt"     this computer software. Provided
+                          in single and multi-font formats.
 
-   "README.txt"       --- Introduces new recipients to the
-                          purpose, goals, non-goals, design
-                          and features of the computer
-                          software product. Supplements
-                          include the following:
-
-                          "README1-Introduction.txt"
-                          "README2-Repository.txt"
-                          "README3-Documents.txt"
-                          "README4-ManPages.txt"
-                          "README5-Notebooks.txt"
-                          "README6-SourceDistributions.txt"
-                          "README7-DeveloperSandboxes.txt"
-                          "README8-SitePackages.txt"
-                          "README9-KeyboardMouseInput.txt"
-
-   "AUTHORS.txt"      --- List of the principal "tsWxGTUI"
+   "AUTHORS.txt"      --- List of the principal "tsWxGTUI_PyVx"
                           Toolkit author(s) and authors
                           credited for work covered by a prior
                           copyright and license.
@@ -114,8 +104,29 @@
    "COPYING.txt"      --- Instructions for copying all or a
                           portion of the distribution.
 
+   "COPYRIGHT.txt"    --- Declaration of the exclusive legal
+                          right, given to an originator or an
+                          assignee to use, copy and distribute
+                          computer software, and to authorize
+                          others to do the same.
+
+   "CREDITS.txt"      --- Acknowledgment given to those whose
+                          Copyrighted Work is used in accordance
+                          with it's originator's Copyright and
+                          License.
+
+   "DEMO.txt"         --- Narrated script demonstrating how to
+                          install, configure, operate and trouble-
+                          shoot the TeamSTARS "tsWxGTUI_PyVx"
+                          Toolkit.
+
    "FAQ.txt"          --- Answers to Frequently Asked
                           Questions.
+
+   "GETTING_STARTED.txt" --- Introduces new recipients to
+                             the system requirements and
+                             third-party resources avail-
+                             able to new Toolkit users.
 
    "INSTALL.txt"      --- Describes steps to download, extract
                           install and configure the "tsWxGUI"
@@ -137,6 +148,22 @@
 
    "OPERATE.txt"      --- Describes steps to use the "tsWxGUI"
                           Toolkit.
+
+   "README.txt"       --- Introduces new recipients to the
+                          purpose, goals, non-goals, design
+                          and features of the computer
+                          software product. Supplements
+                          include the following:
+
+                          "README1-Introduction.txt"
+                          "README2-Repository.txt"
+                          "README3-Documents.txt"
+                          "README4-ManPages.txt"
+                          "README5-Notebooks.txt"
+                          "README6-SourceDistributions.txt"
+                          "README7-DeveloperSandboxes.txt"
+                          "README8-SitePackages.txt"
+                          "README9-KeyboardMouseInput.txt"
 
    "THANKS.txt"       --- Acknowledgments to those otherwise
                           unsung heros who contributed time

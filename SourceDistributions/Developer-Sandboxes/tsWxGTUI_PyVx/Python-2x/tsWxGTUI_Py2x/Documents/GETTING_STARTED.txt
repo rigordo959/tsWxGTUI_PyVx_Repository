@@ -1,5 +1,5 @@
 #-----------------------------------------------------------
-#"Time-stamp: <08/26/2015  4:14:39 PM rsg>"
+#"Time-stamp: <09/06/2015  7:31:18 PM rsg>"
 #-----------------------------------------------------------
 
 ========= Title Page for File: GETTING_STARTED.txt =========
@@ -192,11 +192,14 @@
    1.3 How can you become familiar with the features,
        look and feel of the Toolkit? 
 
-         a) "INSTALL.txt" (includes a concise "Quick Test
-            Drive" commentary)
+         a) "INSTALL.txt" (includes a "smoke/"sanity" test
+            to reveal installation failures and a concisely
+            scripted "Quick Test Drive" which introduces the
+            look and feel of the Toolkit's user interfaces)
 
-         b) "DEMO.txt" (includes a verbose "Narrated,
-            Scripted Demo Test Drive" commentary)
+         b) "DEMO.txt" (includes a verbosely scripted "Demo
+            Test Drive" which introduces various local and
+            remote Toolkit usage scenarios)
 
          c) "TROUBLESHOOT.txt" (includes a verbose
             "Insight of the "tsWxGTUI" Toolkit
@@ -835,6 +838,74 @@
                      Text User Interface (GUI).
 
              3.3.2.3 PDCurses
+
+                     Excerpts From Wikipedia, the free encyclopedia at:
+
+                         https://en.wikipedia.org/wiki/
+                                 Curses_(programming_library)
+
+                       "Overview
+
+                       The curses API is described in several places.
+                       Most implementations of curses use a database
+                       that can describe the capabilities of thousands
+                       of different terminals. There are a few imple-
+                       mentations, such as PDCurses, which use special-
+                       ized device drivers rather than a terminal
+                       database. Most implementations use terminfo;
+                       some use termcap. Curses has the advantage of
+                       back-portability to character-cell terminals
+                       and simplicity. For an application that does
+                       not require bit-mapped graphics or multiple
+                       fonts, an interface implementation using curses
+                       will usually be much simpler and faster than
+                       one using an X toolkit.
+
+                       Using curses, programmers are able to write
+                       text-based applications without writing directly
+                       for any specific terminal type. The curses library
+                       on the executing system sends the correct control
+                       characters based on the terminal type. It provides
+                       an abstraction of one or more windows that maps
+                       onto the terminal screen. Each window is repre-
+                       sented by a character matrix. The programmer
+                       sets up each window to look as they want the
+                       display to look, and then tells the curses
+                       package to update the screen. The library
+                       determines a minimal set of changes needed to
+                       update the display and then executes these
+                       using the terminal's specific capabilities
+                       and control sequences.
+
+                       In short, this means that the programmer simply
+                       creates a character matrix of how the screen
+                       should look and lets curses handle the work."
+
+                       "Portability
+
+                       Although the ncurses library was initially
+                       developed under Linux, OpenBSD, FreeBSD, and
+                       NetBSD it has been ported to many other ANSI/
+                       POSIX UNIX systems, mainly by Thomas Dickey.
+                       PDCurses, while not identical to ncurses, uses
+                       the same function calls and operates the same
+                       way as ncurses does except that PDCurses
+                       targets different devices, e.g., console
+                       windows for DOS, Win32, OS/2, as well as
+                       X11. Porting between the two is not difficult.
+                       For example, the roguelike game ADOM was
+                       written for Linux and ncurses, later ported
+                       to DOS and PDCurses."
+
+                     PDCurses use of specialized device drivers
+                     rather than the use of industry-standard
+                     terminal emulators and the database of
+                     terminal capabilities will likely necessi-
+                     tate creating a PDCurses-specific port of
+                     the Toolkit.
+
+                     The following comments may also need to be
+                     considered.
 
                      The TeamSTARS "tsWxGTUI_PyVx" Toolkit
                      author has not, as of 25 August 2015,

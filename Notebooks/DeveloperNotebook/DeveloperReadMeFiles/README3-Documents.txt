@@ -1,5 +1,5 @@
 #-----------------------------------------------------------
-#"Time-stamp: <07/07/2015  7:49:56 PM rsg>"
+#"Time-stamp: <09/07/2015  7:18:28 AM rsg>"
 #-----------------------------------------------------------
 
 ================ File: README3-Documents.txt ===============
@@ -31,6 +31,11 @@
          |     |  ities, non-goals & limitations, terms & condi-
          |     |  tions and procedures for installing, operating,
          |     |  modifying and redistributing the Toolkit.
+         |     |
+         |     +-- "Announcement.htm"
+         |     +-- "Announcement.pdf"
+         |     +-- "Announcement.rtf"
+         |     +-- "Announcement.txt"
          |     |
          |     +-- "AUTHORS.txt"
          |     +-- "BUGS.txt"
@@ -69,7 +74,7 @@
          |
          +-- "README.txt"
 
-====================== ["DOCUMENTS"] =======================
+====================== ["Documents"] =======================
 
    This directory contains a collection of files which pro-
    vide the Toolkit recipient with an understanding of the

@@ -1,5 +1,5 @@
 #-----------------------------------------------------------
-#"Time-stamp: <07/07/2015  7:49:44 PM rsg>
+#"Time-stamp: <09/07/2015  7:37:09 AM rsg>
 #-----------------------------------------------------------
 
 =============== File: README2-Repository.txt ===============
@@ -36,6 +36,12 @@
          |     |  tions and procedures for installing, operating,
          |     |  modifying and redistributing the Toolkit. 
          |     |
+         |     +-- "Announcement.htm"
+         |     +-- "Announcement.pdf"
+         |     +-- "Announcement.rtf"
+         |     +-- "Announcement.txt"
+         |     :
+         |     :
          |     +-- "README.txt"
          |     +-- "README1-Introduction.txt"
          |     +-- "README2-Repository.txt"
@@ -47,6 +53,11 @@
          |     +-- "README8-SitePackages.txt"
          |     +-- "README9-KeyboardMouseInput.txt"
          |     +-- "GETTING_STARTED.txt"
+         |     +-- "INSTALL.txt"
+         |     +-- "DEMO.txt"
+         |     :
+         |     :
+         |     +-- "TROUBLESHOOT.txt"
          |
          +-- ["ManPages"] (Original)
          |     |
@@ -101,16 +112,6 @@
          |     |
          |     +-- ["EngineeringNotebook"] (Future Original
          |     |     |                      Developer-Sandbox)
-         |     |     |
-         |     |     |  Contains a Toolkit User oriented collection of
-         |     |     |     ["EngineeringNotebook"] abstracts:
-         |     |     |
-         |     |     |     Project (purpose,
-         |     |     |              goals,
-         |     |     |              non-goals,
-         |     |     |              features,
-         |     |     |              capabilities,
-         |     |     |              limitations),
          |     |     |
          |     |     |  Contains a Toolkit Developer oriented collection of:
          |     |     |
@@ -261,6 +262,18 @@
          |
          |    Diagram created via Command "./MANIFEST_TREE.sh".
          |
+         +-- "extract_tsWxGTUI_PyVx_Repository_zip_file.sh"
+         |
+         |    Deliverable POSIX-style Command Line Interface shell
+         |    script to extract contents of downloadable "zip" file.
+         |
+         +-- "runLynx_Dump_Announcement.sh"
+         |
+         |    Deliverable POSIX-style Command Line Interface shell
+         |    script to convert a Web Page HTML version of the release
+         |    announcement into the same plain text format as other
+         |    files in the Documents sub-directory.
+         |
          +-- "setup_tsWxGTUI_PyVx_Repository_tar_file.sh"
          |
          |    Deliverable POSIX-style Command Line Interface shell
@@ -273,17 +286,7 @@
          |
          +-- "README.txt"
 
-===================== TABLE OF CONTENTS ====================
-
-1. Repository
-
-   1.1 Documents
-   1.2 ManPages
-   1.3 Notebooks
-   1.4 SourceDistributions
-   1.5 Manifest
-
-======================== REPOSITORY ========================
+======================== Repository ========================
 
 1. Repository
 

@@ -1,5 +1,5 @@
 #-----------------------------------------------------------
-#"Time-stamp: <07/01/2015  8:16:00 AM rsg>"
+#"Time-stamp: <08/26/2015  4:32:16 PM rsg>"
 #-----------------------------------------------------------
 
 ================ File: README5-Notebooks.txt ===============
@@ -20,7 +20,7 @@
        "./<Toolkit Recipient's Repository>/Documents".
 
    <Your Working Repository>
-   (e.g. "Technical_Preview") 
+   (e.g. "tsWxGTUI_PyVx_Repository") 
      |
      +-- ["Documents"]
      |
@@ -154,7 +154,7 @@
 
    2.3 Technical Documentation
 
-================== ["DEVELOPER-DOCUMENTS"] =================
+================== ["Developer-Documents"] =================
 
 1. ["Developer-Documents"]
 
@@ -167,7 +167,7 @@
    1.1 ["API-References-Pixel-Mode-wxPython"]
    1.2 ["DeveloperReadMeFiles"]
 
-================= ["ENGINEERING-DOCUMENTS"] ================
+================= ["Engineering-Documents"] ================
 
 2. ["Engineering-Documents"]
 

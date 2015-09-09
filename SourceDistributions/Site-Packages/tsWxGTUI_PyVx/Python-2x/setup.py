@@ -1,5 +1,5 @@
 #! /usr/bin/env python
-# "Time-stamp: <06/01/2015 10:44:37 AM rsg>"
+# "Time-stamp: <08/11/2015  3:44:33 PM rsg>"
 '''
 setup.py - The common script used by both developers and
 installers of the "tsWxGTUI_PyVx" Toolkit. The difference
@@ -421,6 +421,9 @@ distutils and its setuptools (easy_install) enhancement.
 #    2015/05/02 rsg Clarified setup application for Linux,
 #                   Mac OS X, Microsoft Windows and Unix.
 #
+#    2015/08/11 rsg Updated to distribute Documents, ManPages
+#                   and ProjectNotebook.
+#
 # ToDo:
 #
 #    None
@@ -428,8 +431,8 @@ distutils and its setuptools (easy_install) enhancement.
 #################################################################
 
 __title__     = 'setup'
-__version__   = '0.0.0'
-__date__      = '05/02/2015'
+__version__   = '0.0.2'
+__date__      = '08/11/2015'
 __authors__   = 'Richard S. Gordon'
 __copyright__ = 'Copyright (c) 2007-2015 ' + \
                 '%s.\n\t\tAll rights reserved.' % __authors__
@@ -594,7 +597,7 @@ def is_package(path):
 #--------------------------------------------------------------------------
 
 #
-tsToolkitVersion = '0.0.0'
+tsToolkitVersion = '0.0.2'
 
 ##version = '%s-%s' % (tsPythonVersion, tsToolkitVersion)
 version = tsToolkitVersion
@@ -636,10 +639,10 @@ setup(
         'Host OS with Multi-User, Multi-Process and Multi-Threaded features',
         'Command Line Interface shells (POSIX-type "sh", "bash")',
         'Command Line Interface shells (Microsoft-type "command prompt")',
-        'Remote Command Line Interface shells ("rsh")',
+        'Remote Command Line Interface shells ("ssh", "rsh")',
         'Python Virtual Machine with Python Run Time Library modules',
         'Curses/nCurses Terminal Control Library for POSIX-like systems',
-        'Non-Color Terminals (mouseless with vt100 and vt220)',
+        'Non-Color Terminals (mouse with vt100 and vt220)',
         '8-Color "wxPython" Terminal Emulator (mouse with cygwin mintty)',
         '8-Color "wxPython" Terminal Emulator (mouse with xterm, xterm-color)',
         '16-Color "wxPython" Terminal Emulator (mouse with xterm-16color)',
@@ -692,9 +695,10 @@ setup(
         'Operating System :: POSIX :: CYGWIN :: Windows 10',
         'Operating System :: POSIX :: Linux',
         'Operating System :: POSIX :: Linux :: CentOS 7.0 (Red Hat)',
+        'Operating System :: POSIX :: Linux :: Debian 8',
         'Operating System :: POSIX :: Linux :: Fedora 21 (Red Hat)',
         'Operating System :: POSIX :: Linux :: OpenSUSE 13.1',
-        'Operating System :: POSIX :: Linux :: Scientific 6.5 (Red Hat)',
+        'Operating System :: POSIX :: Linux :: Scientific 7.0 (Red Hat)',
         'Operating System :: POSIX :: Linux :: Ubuntu 12.04 LTS',
         'Operating System :: POSIX :: Linux :: Ubuntu 14.04 LTS',
         'Operating System :: POSIX :: Unix',
@@ -705,8 +709,8 @@ setup(
         'Programming Language :: Python',
 ##        'Programming Language :: Python :: 2.0 (CLI mode only)',
 ##        'Programming Language :: Python :: 2.3 (CLI mode only)',
-        'Programming Language :: Python :: 2.5 (CLI mode only)',
-        'Programming Language :: Python :: 2.6',
+##        'Programming Language :: Python :: 2.5 (CLI mode only)',
+##        'Programming Language :: Python :: 2.6',
         'Programming Language :: Python :: 2.7',
         'Programming Language :: Python :: 3.0 (CLI mode only)',
         'Programming Language :: Python :: 3.1',

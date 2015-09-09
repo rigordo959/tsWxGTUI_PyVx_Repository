@@ -1,5 +1,5 @@
 #-----------------------------------------------------------
-#"Time-stamp: <06/11/2015  9:17:12 AM rsg>"
+#"Time-stamp: <08/26/2015  4:26:08 PM rsg>"
 #-----------------------------------------------------------
 
 ===================== File: THANKS.txt =====================
@@ -19,7 +19,13 @@
 
        "./<Toolkit Recipient's Repository>/Documents".
 
-========================== THANKS ==========================
+       <Your Working Repository>
+       (e.g. "tsWxGTUI_PyVx_Repository") 
+         |
+         |
+         +-- ["Documents"]
+
+========================== Thanks ==========================
 
 Acknowledgments to those otherwise unsung heros who contrib-
 uted time and effort to supporting the Toolkit authors.
