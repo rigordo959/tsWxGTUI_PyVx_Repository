@@ -1,0 +1,640 @@
+#-----------------------------------------------------------
+#"Time-stamp: <06/17/2015  5:31:20 PM rsg>"
+#-----------------------------------------------------------
+
+==== File: PROJECT-14-Built-in_Documentation_Symbols.txt ===
+
+   +----+----+  TeamSTARS "tsWxGTUI_PyVx" Toolkit
+   | ts | Wx |      with Python 2x & Python 3x based
+   +----+----+         Command Line Interface (CLI)
+   | G T U I |      and "Curses"-based "wxPython"-style, 
+   +---------+         Graphical-Text User Interface (GUI)
+ 
+   Get that cross-platform, pixel-mode "wxPython" feeling
+   on character-mode 8-/16-color (xterm-family) & non-color
+   (vt100-family) terminals and terminal emulators.
+
+============== Built-in Documentation Symbols ==============
+
+The Built-in Documentation Symbols those named items having
+a "__" as both a prefix and suffix) provide a means for the
+software developer to re-use built-in package and module
+documentation to facilitate development of the Command Line
+Interface and Graphical-style User Interface.
+
+The Built-in Documentation Symbols are passed via a list of
+keyword-value pairs to the launch wrapper modules named
+"tsCommandLineEnv" and "tsWxMultiFrameEnv".
+
+The following comment appears in each launch wrapper module
+to describe each synbol's applicability and usage:
+
+   #######################################################
+   # All applications (with Command Line Interface or
+   # Graphical-style User Interface) begin with the following
+   # Command Line Interface Launch configuration item list:
+
+   buildTitle=__title__,
+   buildVersion=__version__,
+   buildDate=__date__,
+   buildAuthors=__authors__,
+   buildCopyright=__copyright__,
+   buildLicense=__license__,
+   buildCredits=__credits__,
+   buildTitleVersionDate=mainTitleVersionDate,
+   buildHeader=__header__,
+   buildPurpose=__doc__,
+
+   #######################################################
+   # Python version appropriate Command Line Interface
+   # module(s) may be enabled to obtain non-Application-
+   # specific Keyword-Value pair Options and Positional
+   # Arguments and associated command line help:
+
+   #     "argparse" module - introduced with Python 2.7.0
+   #     "optparse" module - introduced with Python 2.3.0
+   #     "getopt"   module - introduced with Python 1.6.0
+
+   enableDefaultCommandLineParser=False # Disable unless True
+
+   #######################################################
+   # When appropriate, some applications also use the following
+   # Graphical-style User Interface Launch configuration item list:
+
+   guiMessageFilename=None,
+   guiMessageRedirect=True,
+   guiRequired=True,
+   guiTopLevelObject=_Communicate,
+   guiTopLevelObjectId=wx.ID_ANY,
+   guiTopLevelObjectName='Sample',
+   guiTopLevelObjectParent=None,
+   guiTopLevelObjectPosition=wx.DefaultPosition,
+   guiTopLevelObjectSize=wx.DefaultSize,
+   guiTopLevelObjectStatusBar=None,
+   guiTopLevelObjectStyle=wx.DEFAULT_FRAME_STYLE,
+   guiTopLevelObjectTitle='widgets_communicate',
+
+   #######################################################
+   # When customized logging is appropriate, some applica-
+   # tions use the following application-specific Launch
+   # configuration item:
+
+   logs=['1st-Non-Default', ..., 'Nth-Non-Default'],
+
+   # When basic logging is appropriate, some applications
+   # use the following non-application-specific Launch
+   # configuration item:
+
+   logs=[],
+
+   #######################################################
+   # All applications, with Command Line Interface or with
+   # both Command Line and Graphical-style User Interfaces,
+   # wrapup their Configuration item list as follows:
+
+   runTimeEntryPoint=main)
+
+   #######################################################
+
+   --------------------------------------------------------
+   NOTES:
+
+The Command Line Interface module "tsApplication.py" in the
+"tsLibCLI" library defines and distributes a set of private
+symbols (those having "__" as both a prefix and suffix) that
+are passed, via public symbols, and thereby shared with
+other modules to avoid duplication of data and extra
+developer effort.
+During application program launch:
+The Command Line Interface (CLI) module
+  "tsCommandLineEnv.py" in the "tsLibCLI" library passes
+  the set of CLI public symbols to either the default
+  "tsOperatorSettingsParser" module in the "tsLibCLI"
+  library or to an application-specific surrogate.
+The Graphical User Interface (GUI) module
+  "tsWxMultiFrameEnv.py" in the "tsLibGUI" library passes
+  the set of CLI public symbols and the set of GUI public
+  symbols to either the default "tsOperatorSettingsParser"
+  module in the "tsLibCLI" library or to an application-
+  specific surrogate.
+                                          
+-------------+-------------+----------+-----------------------------
+PUBLIC SYMBOL|PRIVATE      |DEFINITION|NOTES
+             |SYMBOL       |          |
+-------------+-------------+----------+-----------------------------
+                                       (1) Future Python releases
+                                           may enforce adoption of a
+                                           strict adherence to "PEP 8 -
+                                           Style Guide for Python
+                                           Code".
+                                       (2) Justification for
+                                           violation of "PEP 8":
+
+                                           Minimizes the probability
+                                           that software developers
+                                           will alter or override and
+                                           therby interfere with the
+                                           use of these private
+                                           symbols.
+
+                                           Isolated sharing of private
+                                           symbols, via their public
+                                           names, occurs only during
+                                           launcher invocation.
+
+                                           During unit testing of any
+                                           Python module, the
+                                           "__header__" private
+                                           symbol will be available
+                                           for display by the
+                                           software developer or
+                                           tester.
+
+                                           During the launch of any
+                                           Python application program
+                                           with the "-h" or "--help"
+                                           command line option, the
+                                           program's
+                                           "mainTitleVersionDate" and
+                                           "__doc__" private symbol
+                                           will be available for
+                                           display by the software
+                                           developer, tester or user.
+                                          
+-------------+-----------+----------+-------------------------------
+PUBLIC SYMBOL|PRIVATE    |DEFINITION|NOTES
+             |SYMBOL     |          |
+-------------+-----------+----------+-------------------------------
+buildPurpose  __doc__     Custom     (1) For an example see
+                          formatted      "./tsDemoArchive/tsTestsLibC
+                          Python         LI/test_tsCommandLineEnv.py"
+                          docstring  (2) Python will implicitly
+                          describing     use the identifier
+                          Package or     ("__doc__") for docstrings.
+                          Module     (3) The "tsStripComments.py"
+                          Purpose        module, in the "tsToolsCLI"
+                                         utility package, will NOT
+                                         remove those docstrings that
+                                         are associated with an
+                                         assignment statement
+                                         (identifier = """ text
+                                         string(s) """ or identifier
+                                         = ''' text string(s) ''').
+                                         The identifier may be
+                                         explicity named "__doc__".
+                                     (4) The "tsStripComments.py"
+                                         module, in the "tsToolsCLI"
+                                         utility package, will remove
+                                         those docstrings (""" text
+                                         string(s) """ or ''' text
+                                         string(s) ''') that are NOT
+                                         associated with an
+                                         assignment statement. This
+                                         typically results in
+                                         application program traps
+                                         when the
+                                         "tsOperatorSettimgsParser"
+                                         module references non-
+                                         existant information needed
+                                         for built-in help.
+                                          
+-------------+-----------+----------+-------------------------------
+PUBLIC SYMBOL|PRIVATE    |DEFINITION|NOTES
+             |SYMBOL     |          |
+-------------+-----------+----------+-------------------------------
+buildTitle    __title__   Custom     (1) For an example see
+                          formatted      "./tsDemoArchive/tsTestsLibC
+                          Python text    LI/test_tsCommandLineEnv.py"
+                          string
+                          identifies
+                          Package or
+                          Module Name
+                                          
+-------------+-----------+----------+-------------------------------
+PUBLIC SYMBOL|PRIVATE    |DEFINITION|NOTES
+             |SYMBOL     |          |
+-------------+-----------+----------+-------------------------------
+buildVersion  __version__ Custom     (1) For an example see
+                          formatted      "./tsDemoArchive/tsTestsLibC
+                          Python text    LI/test_tsCommandLineEnv.py"
+                          string
+                          identifies
+                          Package or
+                          Module
+                          Version
+                                          
+-------------+-----------+----------+-------------------------------
+PUBLIC SYMBOL|PRIVATE    |DEFINITION|NOTES
+             |SYMBOL     |          |
+-------------+-----------+----------+-------------------------------
+buildDate     __date__    Custom     (1) For an example see
+                          formatted      "./tsDemoArchive/tsTestsLibC
+                          Python text    LI/test_tsCommandLineEnv.py"
+                          string
+                          identifies
+                          Package or
+                          Module
+                          modified
+                          Date
+                                          
+-------------+-----------+----------+-------------------------------
+PUBLIC SYMBOL|PRIVATE    |DEFINITION|NOTES
+             |SYMBOL     |          |
+-------------+-----------+----------+-------------------------------
+buildAuthors  __authors__ Custom     (1) For an example see
+                          formatted      "./tsDemoArchive/tsTestsLibC
+                          Python text    LI/test_tsCommandLineEnv.py"
+                          string
+                          identifies
+                          Package or
+                          Module
+                          Author(s)
+                                          
+-------------+-----------+----------+-------------------------------
+PUBLIC SYMBOL|PRIVATE    |DEFINITION|NOTES
+             |SYMBOL     |          |
+-------------+-----------+----------+-------------------------------
+buildCopyrigh __copyright__ Custom   (1) For an example see
+t                          formatted     "./tsDemoArchive/tsTestsLibC
+                          Python text    LI/test_tsCommandLineEnv.py"
+                          string
+                          identifies
+                          Package or
+                          Module
+                          Copyright
+                          notice
+                                          
+-------------+-----------+----------+-------------------------------
+PUBLIC SYMBOL|PRIVATE    |DEFINITION|NOTES
+             |SYMBOL     |          |
+-------------+-----------+----------+-------------------------------
+buildLicense  __license__ Custom     (1) For an example see
+                          formatted      "./tsDemoArchive/tsTestsLibC
+                          Python text    LI/test_tsCommandLineEnv.py"
+                          string
+                          identifies
+                          Package or
+                          Module
+                          License
+                          notice
+                                          
+-------------+-----------+----------+-------------------------------
+PUBLIC SYMBOL|PRIVATE    |DEFINITION|NOTES
+             |SYMBOL     |          |
+-------------+-----------+----------+-------------------------------
+buildCredits  __credits__ Custom     (1) For an example see
+                          formatted      "./tsDemoArchive/tsTestsLibC
+                          Python text    LI/test_tsCommandLineEnv.py"
+                          string
+                          identifies
+                          Package or
+                          Module Third-
+                          party
+                          Author(s)
+                                          
+-------------+-----------+----------+-------------------------------
+PUBLIC SYMBOL|PRIVATE    |DEFINITION|NOTES
+             |SYMBOL     |          |
+-------------+-----------+----------+-------------------------------
+              __line1__   Custom     (1) For an example see
+                          formatted      "./tsDemoArchive/tsTestsLibC
+                          Python text    LI/test_tsCommandLineEnv.py"
+                          string
+                          formats
+                          Package or
+                          Module
+                          Title,
+                          Version and
+                          Modified
+                          Date header
+                          line(s) for
+                          display at
+                          run time
+                                          
+-------------+-----------+----------+-------------------------------
+PUBLIC SYMBOL|PRIVATE    |DEFINITION|NOTES
+             |SYMBOL     |          |
+-------------+-----------+----------+-------------------------------
+              __line2__   Custom     (1) For an example see
+                          formatted      "./tsDemoArchive/tsTestsLibC
+                          Python text    LI/test_tsCommandLineEnv.py"
+                          string
+                          formats
+                          Package or
+                          Module
+                          Author(s)
+                          header
+                          line(s) for
+                          display at
+                          run time
+                                          
+-------------+-----------+----------+-------------------------------
+PUBLIC SYMBOL|PRIVATE    |DEFINITION|NOTES
+             |SYMBOL     |          |
+-------------+-----------+----------+-------------------------------
+              __line3__   Custom     (1) For an example see
+                          formatted      "./tsDemoArchive/tsTestsLibC
+                          Python text    LI/test_tsCommandLineEnv.py"
+                          string
+                          formats
+                          Package or
+                          Module
+                          Copyright
+                          header
+                          line(s) for
+                          display at
+                          run time
+                                          
+-------------+-----------+----------+-------------------------------
+PUBLIC SYMBOL|PRIVATE    |DEFINITION|NOTES
+             |SYMBOL     |          |
+-------------+-----------+----------+-------------------------------
+              __line4__   Custom     (1) For an example see
+                          formatted      "./tsDemoArchive/tsTestsLibC
+                          Python text    LI/test_tsCommandLineEnv.py"
+                          string
+                          formats
+                          Package or
+                          Module
+                          License and
+                          Third-party
+                          Credits
+                          header
+                          line(s) for
+                          display at
+                          run time
+                                          
+-------------+-----------+----------+-------------------------------
+PUBLIC SYMBOL|PRIVATE    |DEFINITION|NOTES
+             |SYMBOL     |          |
+-------------+-----------+----------+-------------------------------
+buildHeader   __header__  Custom     (1) For an example see
+                          formatted      "./tsDemoArchive/tsTestsLibC
+                          Python text    LI/test_tsCommandLineEnv.py"
+                          string
+                          formats
+                          Package or
+                          Module
+                          header
+                          line(s) 1,
+                          2, 3 and 4
+                          for display
+                          at run time
+                                          
+-------------+-----------+----------+-------------------------------
+PUBLIC SYMBOL|PRIVATE    |DEFINITION|NOTES
+             |SYMBOL     |          |
+-------------+-----------+----------+-------------------------------
+buildTitleVer mainTitleVers Custom        (1) For an example see
+sionDate      ionDate       formatted     "./tsDemoArchive/tsTestsLibC
+                          Python text   LI/test_tsCommandLineEnv.py"
+                          string
+                          formats
+                          Package or
+                          Module
+                          Title,
+                          Version,
+                          modification
+                          Date header
+                          line for
+                          display at
+                          run time
+                                          
+-------------+-----------+----------+-------------------------------
+PUBLIC SYMBOL|PRIVATE    |DEFINITION|NOTES
+             |SYMBOL     |          |
+-------------+-----------+----------+-------------------------------
+enableDefault Not           Python        (1) For an example see
+CommandLinePa Applicable    boolean       "./tsDemoArchive/tsTestsLibC
+rser                       value of      LI/test_tsCommandLineEnv.py"
+                          "True" or     (2) Use "True" to enable use
+                          "False".      of the one and only operator
+                                       settings parser in
+                                       "tsLibCLI"
+                                       (3) Use "False" to disable
+                                       use of the one and only
+                                       operator settings parser in
+                                       "tsLibCLI" and the
+                                       application must supply a
+                                       parser that handles -h/--
+                                       help, -a/--about, -v/--
+                                       version, -d/--debug, -V/--
+                                       Verbose and any other
+                                       keyword-value pair options
+                                       and/or positional arguments.
+                                          
+-------------+-----------+----------+-------------------------------
+PUBLIC SYMBOL|PRIVATE    |DEFINITION|NOTES
+             |SYMBOL     |          |
+-------------+-----------+----------+-------------------------------
+guiMessageFil Not           Python        (1) For an example see
+ename         Applicable    Redirected    "./tsDemoArchive/tsTestsLibG
+                          Output file   UI/test_tsWxMultiFrameEnv.py
+                          path and      "
+                          name.         (2) Use Python's None to
+                                       designate default path and
+                                       name
+                                       (3) Use a Python text string
+                                       to designate an application-
+                                       specific path and name.
+                                          
+-------------+-----------+----------+-------------------------------
+PUBLIC SYMBOL|PRIVATE    |DEFINITION|NOTES
+             |SYMBOL     |          |
+-------------+-----------+----------+-------------------------------
+guiMessageRed Not           Python        (1) For an example see
+irect         Applicable    boolean       "./tsDemoArchive/tsTestsLibG
+                          value of      UI/test_tsWxMultiFrameEnv.py
+                          "True" or     "
+                          "False".      (2) Use "True" to enable
+                                       redirected output.
+                                       (3) Use "False" to disable
+                                       redirected output.
+                                          
+-------------+-----------+----------+-------------------------------
+PUBLIC SYMBOL|PRIVATE    |DEFINITION|NOTES
+             |SYMBOL     |          |
+-------------+-----------+----------+-------------------------------
+guiRequired   Not           Python        (1) For an example see
+             Applicable    boolean       "./tsDemoArchive/tsTestsLibG
+                          value of      UI/test_tsWxMultiFrameEnv.py
+                          "True" or     "
+                          "False".      (2) Use "True" to use GUI
+                                       mode of operation.
+                                       (3) Use "False" to use CLI
+                                       mode of operation
+                                          
+-------------+-----------+----------+-------------------------------
+PUBLIC SYMBOL|PRIVATE    |DEFINITION|NOTES
+             |SYMBOL     |          |
+-------------+-----------+----------+-------------------------------
+guiTopLevelOb Not           Python        (1) For an example see
+ject          Applicable    instance of   "./tsDemoArchive/tsTestsLibG
+                          top-level     UI/test_tsWxMultiFrameEnv.py
+                          wxPython-     "
+                          style GUI
+                          Frame
+                          object.
+                                          
+-------------+-----------+----------+-------------------------------
+PUBLIC SYMBOL|PRIVATE    |DEFINITION|NOTES
+             |SYMBOL     |          |
+-------------+-----------+----------+-------------------------------
+guiTopLevelOb Not           Python        (1) For an example see
+jectId        Applicable    integer       "./tsDemoArchive/tsTestsLibG
+                          value for     UI/test_tsWxMultiFrameEnv.py
+                          top-level     "
+                          wxPython-     (2) Assign a specific value
+                          style GUI     or use wx.ID_ANY to get the
+                          Frame object  default, automatically
+                          ID            assigned value
+                                          
+-------------+-----------+----------+-------------------------------
+PUBLIC SYMBOL|PRIVATE    |DEFINITION|NOTES
+             |SYMBOL     |          |
+-------------+-----------+----------+-------------------------------
+guiTopLevelOb Not           Python text   (1) For an example see
+jectName      Applicable    string value  "./tsDemoArchive/tsTestsLibG
+                          for top-      UI/test_tsWxMultiFrameEnv.py
+                          level         "
+                          wxPython-
+                          style GUI
+                          Frame object
+                          Name
+                                          
+-------------+-----------+----------+-------------------------------
+PUBLIC SYMBOL|PRIVATE    |DEFINITION|NOTES
+             |SYMBOL     |          |
+-------------+-----------+----------+-------------------------------
+guiTopLevelOb Not           Python        (1) For an example see
+jectParent    Applicable    instance of   "./tsDemoArchive/tsTestsLibG
+                          top-level     UI/test_tsWxMultiFrameEnv.py
+                          wxPython-     "
+                          style GUI
+                          Frame
+                          object's
+                          parent or
+                          None as
+                          appropriate.
+                                          
+-------------+-----------+----------+-------------------------------
+PUBLIC SYMBOL|PRIVATE    |DEFINITION|NOTES
+             |SYMBOL     |          |
+-------------+-----------+----------+-------------------------------
+guiTopLevelOb Not           Python        (1) For an example see
+jectPosition  Applicable    instance of   "./tsDemoArchive/tsTestsLibG
+                          top-level     UI/test_tsWxMultiFrameEnv.py
+                          wxPython-     "
+                          style GUI
+                          Frame
+                          object's
+                          position or
+                          wx.DefaultPo
+                          sition as
+                          appropriate.
+                                          
+-------------+-----------+----------+-------------------------------
+PUBLIC SYMBOL|PRIVATE    |DEFINITION|NOTES
+             |SYMBOL     |          |
+-------------+-----------+----------+-------------------------------
+guiTopLevelOb Not           Python        (1) For an example see
+jectSize      Applicable    instance of   "./tsDemoArchive/tsTestsLibG
+                          top-level     UI/test_tsWxMultiFrameEnv.py
+                          wxPython-     "
+                          style GUI
+                          Frame
+                          object's
+                          size or
+                          wx.DefaultSi
+                          ze as
+                          appropriate.
+                                          
+-------------+-----------+----------+-------------------------------
+PUBLIC SYMBOL|PRIVATE    |DEFINITION|NOTES
+             |SYMBOL     |          |
+-------------+-----------+----------+-------------------------------
+guiTopLevelOb Not           Python        (1) For an example see
+jectStatusBar Applicable    instance of   "./tsDemoArchive/tsTestsLibG
+                          top-level     UI/test_tsWxMultiFrameEnv.py
+                          wxPython-     "
+                          style GUI
+                          Frame
+                          object's
+                          StatusBar or
+                          None as
+                          appropriate.
+                                          
+-------------+-----------+----------+-------------------------------
+PUBLIC SYMBOL|PRIVATE    |DEFINITION|NOTES
+             |SYMBOL     |          |
+-------------+-----------+----------+-------------------------------
+guiTopLevelOb Not           Python        (1) For an example see
+jectStyle     Applicable    instance of   "./tsDemoArchive/tsTestsLibG
+                          top-level     UI/test_tsWxMultiFrameEnv.py
+                          wxPython-     "
+                          style GUI
+                          Frame
+                          object's
+                          Style or
+                          wx.DefaultSt
+                          yle as
+                          appropriate.
+                                          
+-------------+-----------+----------+-------------------------------
+PUBLIC SYMBOL|PRIVATE    |DEFINITION|NOTES
+             |SYMBOL     |          |
+-------------+-----------+----------+-------------------------------
+guiTopLevelOb Not           Python        (1) For an example see
+jectTitle     Applicable    instance of   "./tsDemoArchive/tsTestsLibG
+                          top-level     UI/test_tsWxMultiFrameEnv.py
+                          wxPython-     "
+                          style GUI
+                          Frame
+                          object's
+                          Title or
+                          wx.DefaultTi
+                          tle as
+                          appropriate.
+                                          
+-------------+-----------+----------+-------------------------------
+PUBLIC SYMBOL|PRIVATE    |DEFINITION|NOTES
+             |SYMBOL     |          |
+-------------+-----------+----------+-------------------------------
+logs          Not           Python list   (1) For the basic CLI
+             Applicable    of text       example see
+                          strings for   "./tsDemoArchive/tsTestsLibC
+                          any named     LI/test_tsApplication.py"
+                          log file or   (2) For the CLI Enviroment
+                          an empty      Wrapper example see
+                          list as       "./tsDemoArchive/tsTestsLibC
+                          appropriate.  LI/test_tsCommandLineEnv.py"
+                                       (3) For the GUI Enviroment
+                                       Wrapper example see
+                                       "./tsDemoArchive/tsTestsLibG
+                                       UI/test_tsWxMultiFrameEnv.py
+                                       "
+                                          
+-------------+-----------+----------+-------------------------------
+PUBLIC SYMBOL|PRIVATE    |DEFINITION|NOTES
+             |SYMBOL     |          |
+-------------+-----------+----------+-------------------------------
+runTimeEntryP Not           Python        (1) For the basic CLI
+oint          Applicable    instance of   example see
+                          the entry     "./tsDemoArchive/tsTestsLibC
+                          point for     LI/test_tsApplication.py"
+                          either the    (2) For the CLI Enviroment
+                          application   Wrapper example see
+                          program or    "./tsDemoArchive/tsTestsLibC
+                          its           LI/test_tsCommandLineEnv.py"
+                          environment   (3) For the GUI Enviroment
+                          wrapper as    Wrapper example see
+                          appropriate.  "./tsDemoArchive/tsTestsLibG
+                                       UI/test_tsWxMultiFrameEnv.py
+                                       "
+                                          
+-------------+-----------+----------+-------------------------------
+PUBLIC SYMBOL|PRIVATE    |DEFINITION|NOTES
+             |SYMBOL     |          |
+-------------+-----------+----------+-------------------------------
+
+======================= End-Of-File ========================

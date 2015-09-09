@@ -1,0 +1,762 @@
+
+Help on module tsWxEvent:
+
+NAME
+    tsWxEvent
+
+FILE
+    ./tsLibGUI/tsWxPkg/src/tsWxEvent.py
+
+DESCRIPTION
+    tsWxEvent.py - Class to establish the structure holding
+    information about an event that is passed to a callback or
+    member function. It is an abstract base class for other
+    event classes.
+
+CLASSES
+    tsWxObject.Object(__builtin__.object)
+        Event
+    
+    class Event(tsWxObject.Object)
+     |  An event is a structure holding information about an event passed to
+     |  a callback or member function. wx.Event is an abstract base class for
+     |  other event classes.
+     |  
+     |  Method resolution order:
+     |      Event
+     |      tsWxObject.Object
+     |      __builtin__.object
+     |  
+     |  Methods defined here:
+     |  
+     |  CanVeto(self)
+     |  
+     |  Clone(self)
+     |      Returns a copy of the event.
+     |      
+     |      Any event that is posted to the wxWidgets event system for later
+     |      action (via wxEvtHandler::AddPendingEvent, wxEvtHandler::QueueEvent
+     |      or wxPostEvent()) must implement this method.
+     |      
+     |      All wxWidgets events fully implement this method, but any derived
+     |      events implemented by the user should also implement this method
+     |      just in case they (or some event derived from them) are ever posted.
+     |      
+     |      All wxWidgets events implement a copy constructor, so the easiest
+     |      way of implementing the Clone function is to implement a copy
+     |      constructor for a new event (call it MyEvent) and then define the
+     |      Clone function like this:
+     |      
+     |      wxEvent *Clone() const { return new MyEvent(*this); }
+     |  
+     |  GetEventCategory(self)
+     |      Returns a generic category for this event.
+     |      
+     |      wxEvent implementation returns wxEVT_CATEGORY_UI by default.
+     |      
+     |      This function is used to selectively process events in
+     |      wxEventLoopBase::YieldFor.
+     |  
+     |  GetEventCriteria(self)
+     |      Returns the criteria for generating this event.
+     |      
+     |      wxEvent implementation returns None by default.
+     |  
+     |  GetEventData(self)
+     |      Returns instance specific data for this event.
+     |  
+     |  GetEventSource(self)
+     |      Returns the identifier of the given event source.
+     |  
+     |  GetEventType(self)
+     |      Returns the identifier of the given event type, such as
+     |      wxEVT_COMMAND_BUTTON_CLICKED.
+     |  
+     |  GetId(self)
+     |      Returns the identifier associated with this event, such as a button
+     |      command id.
+     |  
+     |  GetSkipped(self)
+     |      Returns true if the event handler should be skipped, false otherwise.
+     |  
+     |  GetTimestamp(self)
+     |      Gets the timestamp for the event.
+     |      
+     |      The timestamp is the time in milliseconds since some fixed moment
+     |      (not necessarily the standard Unix Epoch, so only differences
+     |      between the timestamps and not their absolute values usually make
+     |      sense).
+     |      
+     |      Warning:
+     |      
+     |      wxWidgets returns a non-NULL timestamp only for mouse and key
+     |      events (see wxMouseEvent and wxKeyEvent).
+     |  
+     |  GetVeto(self)
+     |  
+     |  IsCommandEvent(self)
+     |      Returns true if the event is or is derived from wxCommandEvent
+     |      else it returns false.
+     |      
+     |      Note: Exists only for optimization purposes.
+     |  
+     |  ResumePropagation(self, propagationLevel)
+     |      Sets the propagation level to the given value (for example returned
+     |      from an earlier call to wxEvent::StopPropagation).
+     |  
+     |  SetCanVeto(self, canVeto=True)
+     |  
+     |  SetEventCategory(self, category=1)
+     |      Sets the category forthis event.
+     |      
+     |      wxEvent implementation sets wxEVT_CATEGORY_UI by default.
+     |  
+     |  SetEventCriteria(self, criteria=None)
+     |      Sets the criteria for generating this event.
+     |      
+     |      wxEvent implementation sets None by default.
+     |  
+     |  SetEventData(self, data)
+     |      Sets the event data.
+     |  
+     |  SetEventSource(self, src)
+     |      Sets the event source.
+     |  
+     |  SetEventType(self, typ)
+     |      Sets the event type.
+     |  
+     |  SetId(self, id)
+     |      Sets the identifier associated with this event, such as a button
+     |      command id.
+     |  
+     |  SetSkipped(self, skip)
+     |  
+     |  SetTimestamp(self, ts)
+     |      Sets the timestamp for the event.
+     |  
+     |  SetWasProcessed(self, processed)
+     |  
+     |  ShouldProcessOnlyIn(self)
+     |  
+     |  ShouldPropagate(self)
+     |      Test if this event should be propagated or not, i.e.
+     |      if the propagation level is currently greater than 0.
+     |  
+     |  Skip(self, skip=True)
+     |      This method can be used inside an event handler to control whether
+     |      further event handlers bound to this event will be called after the
+     |      current one returns.
+     |      
+     |      Without Skip() (or equivalently if Skip(false) is used), the event
+     |      will not be processed any more. If Skip(true) is called, the event
+     |      processing system continues searching for a further handler function
+     |      for this event, even though it has been processed already in the
+     |      current handler.
+     |      
+     |      In general, it is recommended to skip all non-command events to allow
+     |      the default handling to take place. The command events are, however,
+     |      normally not skipped as usually a single command such as a button
+     |      click or menu item selection must only be processed by one handler.
+     |  
+     |  StopPropagation(self)
+     |      Stop the event from propagating to its parent window.
+     |      
+     |      Returns the old propagation level value which may be later passed
+     |      to ResumePropagation() to allow propagating the event again.
+     |  
+     |  Veto(self, veto=True)
+     |  
+     |  WasProcessed(self)
+     |  
+     |  __init__(self, id=-1, callbackUserData=None, canVeto=False, eventCategory=1, eventCriteria=None, eventData=None, eventObject=None, eventSource=None, eventType=None, handlerToProcessOnlyIn=None, isCommandEvent=False, propagationLevel=0, skipped=False, timeStamp=0L, veto=False, wasProcessed=False)
+     |      Constructor.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Static methods defined here:
+     |  
+     |  tsGetCurrentEvtId()
+     |      Return latest ID.
+     |  
+     |  tsNewEvtId()
+     |      Create a unique ID.
+     |  
+     |  tsRegisterId(usedId)
+     |      Adjust latest ID to reflect specified new one.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  EventCriteria
+     |      Returns the criteria for generating this event.
+     |      
+     |      wxEvent implementation returns None by default.
+     |  
+     |  EventData
+     |      Returns instance specific data for this event.
+     |  
+     |  EventSource
+     |      Returns the identifier of the given event source.
+     |  
+     |  EventTimestamp
+     |      Gets the timestamp for the event.
+     |      
+     |      The timestamp is the time in milliseconds since some fixed moment
+     |      (not necessarily the standard Unix Epoch, so only differences
+     |      between the timestamps and not their absolute values usually make
+     |      sense).
+     |      
+     |      Warning:
+     |      
+     |      wxWidgets returns a non-NULL timestamp only for mouse and key
+     |      events (see wxMouseEvent and wxKeyEvent).
+     |  
+     |  EventType
+     |      Returns the identifier of the given event type, such as
+     |      wxEVT_COMMAND_BUTTON_CLICKED.
+     |  
+     |  Id
+     |      Returns the identifier associated with this event, such as a button
+     |      command id.
+     |  
+     |  Skipped
+     |      Returns true if the event handler should be skipped, false otherwise.
+     |  
+     |  Timestamp
+     |      Gets the timestamp for the event.
+     |      
+     |      The timestamp is the time in milliseconds since some fixed moment
+     |      (not necessarily the standard Unix Epoch, so only differences
+     |      between the timestamps and not their absolute values usually make
+     |      sense).
+     |      
+     |      Warning:
+     |      
+     |      wxWidgets returns a non-NULL timestamp only for mouse and key
+     |      events (see wxMouseEvent and wxKeyEvent).
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes defined here:
+     |  
+     |  CurrentEvtId = 0
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from tsWxObject.Object:
+     |  
+     |  Destroy(self)
+     |      Deletes the C++ object this Python object is a proxy for.
+     |  
+     |  GetClassInfo(self)
+     |      Return information about the class.
+     |  
+     |  GetClassName(self)
+     |      Returns the class name of the C++ class using wxRTTI.
+     |  
+     |  IsSameAs(self, p)
+     |      For wx.Objects that use C++ reference counting internally, this
+     |      method can be used to determine if two objects are referencing
+     |      the same data object.
+     |  
+     |  tsBeginClassRegistration(self, theClass, applicationId)
+     |      Establish connection with application logger. Log the beginning of
+     |      class registration.
+     |      
+     |      Establish application access to display top-level window and to
+     |      curses screen and windows.
+     |  
+     |  tsEndClassRegistration(self, theClass)
+     |      Log the ending of class registration.
+     |  
+     |  tsGetClassNameIndent(self, theClassName)
+     |      Return the hierarchical level associated with the specified class
+     |      for use in indenting the logging of class initialization entry and
+     |      exit.
+     |  
+     |  tsGetTerminalPixelRectangle(self)
+     |      Returns the bounding rectangle the client area of the display,
+     |      i.e., without taskbars and such.
+     |  
+     |  tsGetTheLogger(self)
+     |      Return the logger instance.
+     |  
+     |  tsGetTheTerminal(self, theClass)
+     |      Return the terminal instance.
+     |  
+     |  tsGetTheTerminalScreen(self, theClass)
+     |      Return the screen instance.
+     |  
+     |  tsGetThisOwn(self)
+     |      Return MembershipFlag.
+     |  
+     |  tsInstallTheLoggerAccess(self, indent, theClass, applicationId)
+     |      Establish connection with application logger.
+     |  
+     |  tsInstallTheTerminalAccess(self, indent, theClass, applicationId)
+     |      Establish those display areas reserved for task bar and stdio
+     |      redirection. Create links to the internal information needed
+     |      to monitor and control the physical screen and virtual windows
+     |      of the Graphical Text User Interface.
+     |  
+     |  tsRegisterClassNameAndMembershipFlag(self, theClass)
+     |      Record Class Name and Membership Flag instance variables.
+     |  
+     |  tsUpdateEventAndAcceleratorTables(self, event, handler, source, id=-1, id2=-1, useSystemEventTable=False)
+     |      Bind with event and accelerator System and User tables.
+     |      
+     |      event: One of the EVT_* objects that specifies the
+     |             the type of event to bind.
+     |      
+     |      handler: A callable object to be invoked when the event is
+     |               delivered to self.  Pass None to disconnect an
+     |               event handler.
+     |      
+     |      source: Sometimes the event originates from a different window
+     |              than self, but you still want to catch it in self.  (For
+     |              example, a button event delivered to a frame.)  By passing
+     |              the source of the event, the event handling system is able
+     |              to differentiate between the same event type from different
+     |              controls.
+     |      
+     |      id: Used to specify the event source by ID instead of instance.
+     |      
+     |      id2: Used when it is desirable to bind a handler to a range of ids,
+     |           such as with EVT_MENU_RANGE.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Static methods inherited from tsWxObject.Object:
+     |  
+     |  tsGetCurrentId()
+     |      Return latest ID.
+     |  
+     |  tsGetTheId(mySelf)
+     |      Return the ID associated with this class instance.
+     |  
+     |  tsNewId()
+     |      Create a unique ID.
+     |      
+     |      Remarks:
+     |      Various controls and other parts of wxWidgets need an ID. Sometimes
+     |      the ID may be directly provided by the user or have a predefined
+     |      value, such as wxID_OPEN. Often, however, the value of the ID is
+     |      unimportant and is created automatically by calling
+     |      wxWindow::NewControlId or by passing wxID_ANY as the ID of an
+     |      object.
+     |      
+     |      There are two ways to generate an ID. One way is to start at a
+     |      negative number, and for each new ID, return the next smallest
+     |      number. This is fine for systems that can use the full range of
+     |      negative numbers for IDs, as this provides more than enough IDs
+     |      and it would take a very very long time to run out and wrap
+     |      around. However, some systems cannot use the full range of the
+     |      ID value. Windows, for example, can only use 16 bit IDs, and
+     |      only has about 32000 possible automatic IDs that can be
+     |      generated by wxWindow::NewControlId. If the program runs long
+     |      enough, depending on the program itself, using this first method
+     |      would cause the IDs to wrap around into the positive ID range
+     |      and cause possible clashes with any directly specified ID values.
+     |      
+     |      The other way is to keep track of the IDs returned by
+     |      wxWindow::NewControlId and do not return them again until the
+     |      ID is completely free and not being used by any other objects.
+     |      This will make sure that the ID values do not clash with one
+     |      another. This is accomplished by keeping a reference count for
+     |      each of the IDs that can possibly be returned by
+     |      wxWindow::NewControlId. Other IDs are not reference counted.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from tsWxObject.Object:
+     |  
+     |  ClassName
+     |      Returns the class name of the C++ class using wxRTTI.
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  thisown
+     |      Return MembershipFlag.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes inherited from tsWxObject.Object:
+     |  
+     |  CurrentId = 100
+     |  
+     |  PyApp_EventQueue = None
+     |  
+     |  PyApp_Object = None
+     |  
+     |  TheDisplay = None
+     |  
+     |  TheLogger = None
+     |  
+     |  TheTerminal = None
+     |  
+     |  TheTerminalScreen = None
+
+FUNCTIONS
+    EVT_COMMAND(win, id, cmd, func)
+        Does not fit PyEventBinder.
+    
+    EVT_COMMAND_RANGE(win, id1, id2, cmd, func)
+        Does not fit PyEventBinder.
+
+DATA
+    DEBUG = True
+    EVT_ACTIVATE = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_ACTIVATE_APP = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_BUTTON = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_CHAR = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_CHAR_HOOK = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_CHECKBOX = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_CHECKLISTBOX = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_CHILD_FOCUS = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_CHOICE = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_CLOSE = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_COMBOBOX = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_COMMAND_ENTER = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_COMMAND_KILL_FOCUS = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_COMMAND_LEFT_CLICK = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_COMMAND_LEFT_DCLICK = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_COMMAND_RIGHT_CLICK = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_COMMAND_RIGHT_DCLICK = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_COMMAND_SCROLL = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_COMMAND_SCROLL_BOTTOM = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_COMMAND_SCROLL_CHANGED = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_COMMAND_SCROLL_ENDSCROLL = <tsWxPyEventBinder.PyEventBinder object...
+    EVT_COMMAND_SCROLL_LINEDOWN = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_COMMAND_SCROLL_LINEUP = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_COMMAND_SCROLL_PAGEDOWN = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_COMMAND_SCROLL_PAGEUP = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_COMMAND_SCROLL_THUMBRELEASE = <tsWxPyEventBinder.PyEventBinder obj...
+    EVT_COMMAND_SCROLL_THUMBTRACK = <tsWxPyEventBinder.PyEventBinder objec...
+    EVT_COMMAND_SCROLL_TOP = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_COMMAND_SET_FOCUS = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_CONTEXT_MENU = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_DAEMON_TIMETOSLEEP = 0.2
+    EVT_DETAILED_HELP = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_DETAILED_HELP_RANGE = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_DISPLAY_CHANGED = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_DROP_FILES = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_END_SESSION = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_ENTER_WINDOW = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_ERASE_BACKGROUND = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_FIRST = 10000
+    EVT_HELP = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_HELP_RANGE = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_HIBERNATE = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_HOTKEY = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_HSCROLLWIN = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_HSCROLLWIN_BOTTOM = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_HSCROLLWIN_LINEDOWN = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_HSCROLLWIN_LINEUP = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_HSCROLLWIN_PAGEDOWN = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_HSCROLLWIN_PAGEUP = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_HSCROLLWIN_THUMBRELEASE = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_HSCROLLWIN_THUMBTRACK = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_HSCROLLWIN_TOP = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_ICONIZE = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_IDLE = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_INIT_DIALOG = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_JOYSTICK_EVENTS = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_JOY_BUTTON_DOWN = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_JOY_BUTTON_UP = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_JOY_MOVE = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_JOY_ZMOVE = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_KEY_DOWN = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_KEY_UP = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_KILL_FOCUS = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_LEAVE_WINDOW = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_LEFT_DCLICK = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_LEFT_DOWN = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_LEFT_UP = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_LISTBOX = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_LISTBOX_DCLICK = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_MAXIMIZE = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_MENU = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_MENU_CLOSE = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_MENU_HIGHLIGHT = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_MENU_HIGHLIGHT_ALL = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_MENU_OPEN = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_MENU_RANGE = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_MIDDLE_DCLICK = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_MIDDLE_DOWN = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_MIDDLE_UP = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_MINIMIZE = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_MOTION = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_MOUSEWHEEL = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_MOUSE_CAPTURE_CHANGED = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_MOUSE_CAPTURE_LOST = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_MOUSE_EVENTS = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_MOVE = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_MOVING = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_NAVIGATION_KEY = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_NC_PAINT = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_NULL = 0
+    EVT_PAINT = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_PALETTE_CHANGED = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_QUERY_END_SESSION = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_QUERY_NEW_PALETTE = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_RADIOBOX = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_RADIOBUTTON = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_RESTOREDOWN = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_RIGHT_DCLICK = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_RIGHT_DOWN = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_RIGHT_UP = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_SCROLL = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_SCROLLBAR = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_SCROLLWIN = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_SCROLLWIN_BOTTOM = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_SCROLLWIN_LINEDOWN = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_SCROLLWIN_LINEUP = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_SCROLLWIN_PAGEDOWN = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_SCROLLWIN_PAGEUP = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_SCROLLWIN_THUMBRELEASE = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_SCROLLWIN_THUMBTRACK = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_SCROLLWIN_TOP = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_SCROLL_BOTTOM = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_SCROLL_CHANGED = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_SCROLL_LINEDOWN = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_SCROLL_LINEUP = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_SCROLL_PAGEDOWN = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_SCROLL_PAGEUP = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_SCROLL_THUMBRELEASE = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_SCROLL_THUMBTRACK = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_SCROLL_TOP = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_SET_CURSOR = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_SET_FOCUS = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_SHOW = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_SIZE = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_SIZING = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_SLIDER = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_SYS_COLOUR_CHANGED = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_TEXT_COPY = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_TEXT_CUT = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_TEXT_PASTE = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_TIMER = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_TOOL = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_TOOL_ENTER = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_TOOL_RANGE = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_TOOL_RCLICKED = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_TOOL_RCLICKED_RANGE = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_UPDATE_UI = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_UPDATE_UI_RANGE = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_USER_FIRST = 12000
+    EVT_VLBOX = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_VSCROLLWIN = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_VSCROLLWIN_BOTTOM = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_VSCROLLWIN_LINEDOWN = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_VSCROLLWIN_LINEUP = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_VSCROLLWIN_PAGEDOWN = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_VSCROLLWIN_PAGEUP = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_VSCROLLWIN_THUMBRELEASE = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_VSCROLLWIN_THUMBTRACK = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_VSCROLLWIN_TOP = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_WINDOW_CREATE = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_WINDOW_DESTROY = <tsWxPyEventBinder.PyEventBinder object>
+    VERBOSE = True
+    __authors__ = 'Richard S. Gordon'
+    __copyright__ = 'Copyright (c) 2007-2013 Richard S. Gordon.\n\t\tAll r...
+    __credits__ = '\n\n  Credits: \n\n\t  tsLibGUI Import & Application .....
+    __date__ = '07/01/2013'
+    __header__ = '\n\ntsWxEvent, v1.7.0 (build 07/01/2013)\n\n  Author... ...
+    __license__ = 'GNU General Public License, Version 3, 29 June 2007'
+    __line1__ = 'tsWxEvent, v1.7.0 (build 07/01/2013)'
+    __line2__ = 'Author(s): Richard S. Gordon'
+    __line3__ = 'Copyright (c) 2007-2013 Richard S. Gordon.\n\t\tAll right...
+    __line4__ = 'GNU General Public License, Version 3, 29 June 2...U Gene...
+    __title__ = 'tsWxEvent'
+    __version__ = '1.7.0'
+    mainTitleVersionDate = 'tsWxEvent, v1.7.0 (build 07/01/2013)'
+    wxEVENT_PROPAGATE_MAX = 2147483647
+    wxEVENT_PROPAGATE_NONE = 0
+    wxEVT_ACTIVATE = 409
+    wxEVT_ACTIVATE_APP = 405
+    wxEVT_CATEGORY_ALL = 127
+    wxEVT_CATEGORY_CLIPBOARD = 64
+    wxEVT_CATEGORY_SOCKET = 4
+    wxEVT_CATEGORY_THREAD = 16
+    wxEVT_CATEGORY_TIMER = 8
+    wxEVT_CATEGORY_UI = 1
+    wxEVT_CATEGORY_UNKNOWN = 32
+    wxEVT_CATEGORY_USER_INPUT = 2
+    wxEVT_CHAR = 212
+    wxEVT_CHAR_HOOK = 213
+    wxEVT_CHILD_FOCUS = 114
+    wxEVT_CLOSE_WINDOW = 402
+    wxEVT_COMMAND_BUTTON_CLICKED = 1
+    wxEVT_COMMAND_CHECKBOX_CLICKED = 2
+    wxEVT_COMMAND_CHECKLISTBOX_TOGGLED = 6
+    wxEVT_COMMAND_CHOICE_SELECTED = 3
+    wxEVT_COMMAND_COMBOBOX_SELECTED = 15
+    wxEVT_COMMAND_ENTER = 506
+    wxEVT_COMMAND_KILL_FOCUS = 505
+    wxEVT_COMMAND_LEFT_CLICK = 500
+    wxEVT_COMMAND_LEFT_DCLICK = 501
+    wxEVT_COMMAND_LISTBOX_DOUBLECLICKED = 5
+    wxEVT_COMMAND_LISTBOX_SELECTED = 4
+    wxEVT_COMMAND_MENU_SELECTED = 9
+    wxEVT_COMMAND_RADIOBOX_SELECTED = 11
+    wxEVT_COMMAND_RADIOBUTTON_SELECTED = 12
+    wxEVT_COMMAND_RIGHT_CLICK = 502
+    wxEVT_COMMAND_RIGHT_DCLICK = 503
+    wxEVT_COMMAND_SCROLLBAR_UPDATED = 13
+    wxEVT_COMMAND_SET_FOCUS = 504
+    wxEVT_COMMAND_SLIDER_UPDATED = 10
+    wxEVT_COMMAND_SPINCTRL_UPDATED = 18
+    wxEVT_COMMAND_TEXT_COPY = 444
+    wxEVT_COMMAND_TEXT_CUT = 445
+    wxEVT_COMMAND_TEXT_ENTER = 8
+    wxEVT_COMMAND_TEXT_MAXLEN = 14
+    wxEVT_COMMAND_TEXT_PASTE = 446
+    wxEVT_COMMAND_TEXT_UPDATED = 7
+    wxEVT_COMMAND_TEXT_URL = 13
+    wxEVT_COMMAND_TOOL_CLICKED = 9
+    wxEVT_COMMAND_TOOL_ENTER = 17
+    wxEVT_COMMAND_TOOL_RCLICKED = 16
+    wxEVT_COMMAND_VLBOX_SELECTED = 14
+    wxEVT_COMPARE_ITEM = 437
+    wxEVT_CONTEXT_MENU = 424
+    wxEVT_CREATE = 410
+    wxEVT_DESTROY = 411
+    wxEVT_DETAILED_HELP = 1051
+    wxEVT_DISPLAY_CHANGED = 426
+    wxEVT_DRAW_ITEM = 435
+    wxEVT_DROP_FILES = 434
+    wxEVT_END_SESSION = 403
+    wxEVT_ENTER_WINDOW = 107
+    wxEVT_ERASE_BACKGROUND = 418
+    wxEVT_FIRST = 10000
+    wxEVT_HELP = 1050
+    wxEVT_HIBERNATE = 443
+    wxEVT_HOTKEY = 217
+    wxEVT_HSCROLLWIN_BOTTOM = 331
+    wxEVT_HSCROLLWIN_LINEDOWN = 333
+    wxEVT_HSCROLLWIN_LINEUP = 332
+    wxEVT_HSCROLLWIN_PAGEDOWN = 335
+    wxEVT_HSCROLLWIN_PAGEUP = 334
+    wxEVT_HSCROLLWIN_THUMBRELEASE = 337
+    wxEVT_HSCROLLWIN_THUMBTRACK = 336
+    wxEVT_HSCROLLWIN_TOP = 330
+    wxEVT_ICONIZE = 413
+    wxEVT_IDLE = 439
+    wxEVT_INIT_DIALOG = 438
+    wxEVT_JOY_BUTTON_DOWN = 430
+    wxEVT_JOY_BUTTON_UP = 431
+    wxEVT_JOY_MOVE = 432
+    wxEVT_JOY_ZMOVE = 433
+    wxEVT_KEY_DOWN = 215
+    wxEVT_KEY_UP = 216
+    wxEVT_KILL_FOCUS = 113
+    wxEVT_LEAVE_WINDOW = 108
+    wxEVT_LEFT_DCLICK = 109
+    wxEVT_LEFT_DOWN = 100
+    wxEVT_LEFT_UP = 101
+    wxEVT_MAXIMIZE = 414
+    wxEVT_MEASURE_ITEM = 436
+    wxEVT_MENU_CLOSE = 422
+    wxEVT_MENU_HIGHLIGHT = 423
+    wxEVT_MENU_OPEN = 421
+    wxEVT_MIDDLE_DCLICK = 110
+    wxEVT_MIDDLE_DOWN = 102
+    wxEVT_MIDDLE_UP = 103
+    wxEVT_MINIMIZE = 413
+    wxEVT_MOTION = 106
+    wxEVT_MOUSEWHEEL = 115
+    wxEVT_MOUSE_CAPTURE_CHANGED = 415
+    wxEVT_MOUSE_CAPTURE_LOST = 416
+    wxEVT_MOVE = 401
+    wxEVT_MOVING = 442
+    wxEVT_NAVIGATION_KEY = 214
+    wxEVT_NC_ENTER_WINDOW = 207
+    wxEVT_NC_LEAVE_WINDOW = 208
+    wxEVT_NC_LEFT_DCLICK = 209
+    wxEVT_NC_LEFT_DOWN = 200
+    wxEVT_NC_LEFT_UP = 201
+    wxEVT_NC_MIDDLE_DCLICK = 210
+    wxEVT_NC_MIDDLE_DOWN = 202
+    wxEVT_NC_MIDDLE_UP = 203
+    wxEVT_NC_MOTION = 206
+    wxEVT_NC_PAINT = 419
+    wxEVT_NC_RIGHT_DCLICK = 211
+    wxEVT_NC_RIGHT_DOWN = 204
+    wxEVT_NC_RIGHT_UP = 205
+    wxEVT_NULL = 0
+    wxEVT_PAINT = 417
+    wxEVT_PAINT_ICON = 420
+    wxEVT_PALETTE_CHANGED = 429
+    wxEVT_QUERY_END_SESSION = 404
+    wxEVT_QUERY_NEW_PALETTE = 428
+    wxEVT_RIGHT_DCLICK = 111
+    wxEVT_RIGHT_DOWN = 104
+    wxEVT_RIGHT_UP = 105
+    wxEVT_SCROLLWIN_BOTTOM = 321
+    wxEVT_SCROLLWIN_LINEDOWN = 323
+    wxEVT_SCROLLWIN_LINEUP = 322
+    wxEVT_SCROLLWIN_PAGEDOWN = 325
+    wxEVT_SCROLLWIN_PAGEUP = 324
+    wxEVT_SCROLLWIN_THUMBRELEASE = 327
+    wxEVT_SCROLLWIN_THUMBTRACK = 326
+    wxEVT_SCROLLWIN_TOP = 320
+    wxEVT_SCROLL_BOTTOM = 301
+    wxEVT_SCROLL_CHANGED = 308
+    wxEVT_SCROLL_LINEDOWN = 303
+    wxEVT_SCROLL_LINEUP = 302
+    wxEVT_SCROLL_PAGEDOWN = 305
+    wxEVT_SCROLL_PAGEUP = 304
+    wxEVT_SCROLL_THUMBRELEASE = 307
+    wxEVT_SCROLL_THUMBTRACK = 306
+    wxEVT_SCROLL_TOP = 300
+    wxEVT_SETTING_CHANGED = 427
+    wxEVT_SET_CURSOR = 230
+    wxEVT_SET_FOCUS = 112
+    wxEVT_SHOW = 412
+    wxEVT_SIZE = 400
+    wxEVT_SIZING = 441
+    wxEVT_SYS_COLOUR_CHANGED = 425
+    wxEVT_TIMER = 80
+    wxEVT_UPDATE_UI = 440
+    wxEVT_USER_FIRST = 12000
+    wxEVT_VSCROLLWIN_BOTTOM = 341
+    wxEVT_VSCROLLWIN_LINEDOWN = 343
+    wxEVT_VSCROLLWIN_LINEUP = 342
+    wxEVT_VSCROLLWIN_PAGEDOWN = 345
+    wxEVT_VSCROLLWIN_PAGEUP = 344
+    wxEVT_VSCROLLWIN_THUMBRELEASE = 347
+    wxEVT_VSCROLLWIN_THUMBTRACK = 346
+    wxEVT_VSCROLLWIN_TOP = 340
+    wxRESTOREDOWN = 414
+
+VERSION
+    1.7.0
+
+DATE
+    07/01/2013
+
+CREDITS
+    
+    
+      Credits: 
+    
+    	  tsLibGUI Import & Application Launch Features: 
+    	  Copyright (c) 2007-2009 Frederick A. Kier.
+    			All rights reserved.
+    
+    	  Python Curses Module API & Run Time Library Features:
+    	  Copyright (c) 2001-2013 Python Software Foundation.
+    			All rights reserved.
+    	  PSF License Agreement for Python 2.7.3 & 3.3.0
+    
+    	  wxWidgets (formerly wxWindows) & wxPython API Features:
+    	  Copyright (c) 1992-2008 Julian Smart, Robert Roebling,
+    			Vadim Zeitlin and other members of the 
+    			wxWidgets team.
+    			All rights reserved.
+    	  wxWindows Library License
+    
+    	  nCurses API & Run Time Library Features:
+    	  Copyright (c) 1998-2011 Free Software Foundation, Inc.
+    			All rights reserved.
+    	  GNU General Public License, Version 3, 29 June 2007
+
+

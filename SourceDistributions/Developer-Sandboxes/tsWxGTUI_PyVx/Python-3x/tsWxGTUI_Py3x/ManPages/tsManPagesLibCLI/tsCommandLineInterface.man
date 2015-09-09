@@ -1,0 +1,80 @@
+Help on module tsCommandLineInterface:
+
+NAME
+    tsCommandLineInterface
+
+FILE
+    /cygdrive/d/WR/Technical_Preview-Draft/tsWxGTUI_PyVx/Python-2x/tsWxGTUI_Py2x/tsLibCLI/tsCommandLineInterface.py
+
+DESCRIPTION
+    tsCommandLineInterface.py - Class establishes methods that
+    prompt or re-prompt the operator for input, validate that the
+    operator has supplied the expected number of inputs and that
+    each is of the expected type.
+
+CLASSES
+    __builtin__.object
+        CommandLineInterface
+    
+    class CommandLineInterface(__builtin__.object)
+     |  Class establishes methods that prompt or re-prompt the operator
+     |  for input, validate that the operator has supplied the expected
+     |  number of inputs and that each is of the expected type.
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self)
+     |      Instantiate class variables.
+     |  
+     |  errorDisplay(self, theError, indent=0)
+     |      Output message to the standard error console.
+     |  
+     |  infoDisplay(self, theInfo, indent=0)
+     |      Output message to the standard output console.
+     |  
+     |  keyboard(self, thePrompt, indent=0)
+     |      Display a prompt and input text from the console keyboard.
+     |  
+     |  multiFieldInput(self, prompt, fmt='%s', delimeter=',', container=None, indent=0, debug=False)
+     |      Display a prompt and input multiple entries from the console keyboard.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+
+DATA
+    __authors__ = 'Richard S. Gordon'
+    __copyright__ = 'Copyright (c) 2007-2013 Richard S. Gordon.\n\t\tAll r...
+    __credits__ = '\n\n  Credits: \n\n\t  tsLibCLI Import & Application .....
+    __date__ = '06/01/2013'
+    __header__ = '\n\ntsCommandLineInterface, v1.2.2 (build 06/01/20...200...
+    __license__ = 'GNU General Public License, Version 3, 29 June 2007'
+    __line1__ = 'tsCommandLineInterface, v1.2.2 (build 06/01/2013)'
+    __line2__ = 'Author(s): Richard S. Gordon'
+    __line3__ = 'Copyright (c) 2007-2013 Richard S. Gordon.\n\t\tAll right...
+    __line4__ = 'GNU General Public License, Version 3, 29 June 2...-2009 ...
+    __title__ = 'tsCommandLineInterface'
+    __version__ = '1.2.2'
+    mainTitleVersionDate = 'tsCommandLineInterface, v1.2.2 (build 06/01/20...
+
+VERSION
+    1.2.2
+
+DATE
+    06/01/2013
+
+CREDITS
+    
+    
+      Credits: 
+    
+    	  tsLibCLI Import & Application Launch Features: 
+    	  Copyright (c) 2007-2009 Frederick A. Kier. 
+    			All rights reserved.
+
+

@@ -1,0 +1,273 @@
+#-----------------------------------------------------------
+#"Time-stamp: <06/18/2015  4:45:26 AM rsg>"
+#-----------------------------------------------------------
+
+================ File: PROJECT-11-Features.txt =============
+
+   +----+----+  TeamSTARS "tsWxGTUI_PyVx" Toolkit
+   | ts | Wx |      with Python 2x & Python 3x based
+   +----+----+         Command Line Interface (CLI)
+   | G T U I |      and "Curses"-based "wxPython"-style, 
+   +---------+         Graphical-Text User Interface (GUI)
+ 
+   Get that cross-platform, pixel-mode "wxPython" feeling
+   on character-mode 8-/16-color (xterm-family) & non-color
+   (vt100-family) terminals and terminal emulators.
+
+========================= FEATURES =========================
+
+The "tsWxGTUI" Toolkit building-block components are gen-
+eral purpose and re-usable. They enable the application
+developer to focus on the application specific function-
+ality and not waste effort re-inventing and re-implementing
+the general purpose functionality and appearance typical of
+Command Line Interface (CLI) and Graphical-style User
+Interface (GUI):
+
+1. The Command Line Interface (CLI) library, ["tsLibCLI"],
+   provides building blocks that create a sophisticated
+   Unix-like terminal interface featuring the following
+   capabilities:
+
+   a. Startup and shutdown control utility that can be
+      launched from a local or remote host computer's
+      operating system shell. It wraps the application with
+      exception handlers that control exit codes and mes-
+      sages. It also starts a run-time message logger for
+      the application.
+
+   b. Input/output utility that, upon application request,
+      outputs messages that prompt the operator to input
+      one or more data items of a specified format. Upon
+      receiving the data. it validates the format of data.
+      Upon validation success, it returns the validated
+      data. Upon validation failure, it repeats the pro-
+      cess, beginning with the prompt message output.
+
+   c. Configuration file utility that reads and writes
+      text files that support nested sections.
+
+   d. Decorator pre-processor utility that provides a form
+      of meta-programming (such as "@static-method"). It
+      modifies the action of the function or method to
+      which the "decorator" has been applied.
+
+   e. Run-time exception control utility that defines and
+      handles error exceptions. It maps various error
+      exceptions into an 8-bit exit code that can be used
+      to coordinate the actions of a set of shell scripts.
+
+   f. Run-time message logging utility that defines and
+      handles event message timestamping, formatting and
+      output. It supports logging of assert and check case
+      results. It support the following message severity
+      levels: NOTSET (lowest priority), DEBUG, INFO,
+      NOTICE, WARNING, ALERT, ERROR, CRITICAL, EMERGENCY
+      (highest operating priority) and PRIVATE (highest
+      troubleshooting priority).
+
+      This utility also defines and handles event message
+      processing associated with the following: wxPython/
+      wxWidget exceptions: wxASSERT, wxASSERT_MSG, wxCHECK,
+      wxCHECK2, wxCHECK2_MSG, wxCHECK_MSG, wxCHECK_RET,
+      wxFAIL, wxFAIL_COND_MSG, wxFAIL_MSG and wxTRAP.
+
+   g. Command line option and argument parser utility that
+      extracts values for key-word named options and posit-
+      ional arguments.
+
+   h. Platform run time environment utility that captures
+      current hardware and software information about the
+      run time environment of the user process.
+
+   i. Report utility that defines methods used to format
+      information such as time, date, data size, elapsed
+      time and nested dictionary contents.
+
+   j. System command utility that formats and issues shell
+      commands to the host operating system. It receives
+      and reports any associated host operating system
+      response.
+
+   k. Thread pool utility that allocates and coordinates
+      work among a set of concurrently executing worker
+      threads.
+
+   l. Configuration file containing Command Line Interface
+      Toolkit and Application specific data constants. The
+      contents can be modified by those software developers
+      authorized to establish and maintain the overall
+      "look" and "feel" of the Toolkit and Applications.
+      The contents are available, at run-time, for inter-
+      rogation and use by any Toolkit building-block
+      or Application component.
+
+2. The Graphical-style User Interface (GUI) library,
+   ["tsLibGUI"], provides a character-mode, platform
+   independent alternative for a popular pixel-mode,
+   cross-platform Graphical User Interface Toolkit.
+   It provides the following emulated pixel-mode
+   capabilities:
+
+   a. Set of building-blocks to create a graphical-style
+      display with window objects that are laid-out in
+      application dependent tiled (side-by-side) and over-
+      laid (stacked top-to-bottom) designs.
+
+   b. Capability to receive input from users via a terminal
+      keyboard and optional mouse.
+
+   c. Capability to transmit output to users via a terminal
+      display with a limited set of alphabetic, numeric and
+      punctuation characters supplemented with special line
+      drawing characters, when available.
+
+   d. Set of widget functions to create top-level container
+      objects (Frames and Dialogs) and lower-level container
+      objects (Panels).
+
+   e. Set of widget functions to create "control objects"
+      (Buttons, Check Boxes, Gauges, Menu Bars & Menus,
+      Radio Button Groups, Scroll Bars, Static Text,
+      Scrolled Text, Text Ctrl, Status Bars and Toolbars).
+
+   f. Set of widget layout functions (Box and Grid sizers)
+      to automate the layout of displayed object size and
+      position.
+
+   g. Capability to either initialize the character-mode
+      color palette so as to actually reproduce the pixel-
+      mode color palette or map the pixel-mode color
+      palette into the available character-mode color
+      palette and then apply, upon request, the Foreground/
+      Background color pair combination for the character
+      cell attributes of a single or group of displayed
+      characters.
+
+   h. Capability to apply the character-mode color attri-
+      butes (Normal and Reversed Foreground/ Background
+      color pair selectable from the character-mode color
+      palette as the attributes of a single or group of
+      displayed characters.
+
+   i. Capability to apply the character-mode font attributes
+      (Blink, Bold, Dim, Highlighted, Normal, Reverse and
+      Underline) to a single or group of displayed charact-
+      ers.
+
+   j. Capability to map pixel-mode object border optional
+      features into the available character-mode ones
+      (None, Normal (line) or Customized (text character
+      other than an alphabetic or numeric)) before their
+      application.
+
+   k. Capability to map pixel-mode object alignment features
+      into the available character-mode ones (Left, Right,
+      Top, Bottom and Centered) before their application.
+
+   l. Capability to map character-mode terminal events
+      (Keyboard, Mouse Button and Timer) into the associ-
+      ated set of the pixel-mode terminal events (Button
+      Down, Button Released, Button Clicked, Button Double
+      Clicked). Its analysis establishes which pixel-mode
+      object triggered the event (established by a top-to-
+      bottom poll of the object overlaying (stacking)
+      sequence and identifying the one non-overlayed object
+      that contained the triggering mouse position).
+
+   m. Capability for a "Redirected Output" Frame to capture
+      and scroll application error messages as they are out-
+      put via "stderr" and progress/diagnostic messages as
+      they are output via "stdout".
+
+   n. Capability for a "Task Bar" Frame used by the operator
+      to select and change which application Frame or Dialog
+      has the designated focus (i.e., which one should
+      appear, with its child objects, on top of the overlay
+      stack).
+
+   o. Startup and shutdown control component for the Graphi-
+      cal-style User Interface application that starts the
+      Low-Level Character-Mode Graphical User Interface. It
+      starts the "Task Bar" Frame, the "Redirected Output"
+      Frame, and then the primary Application Frame. It
+      shuts down the Low-Level Character-Mode Graphical
+      User Interface upon termination of the Graphical-
+      style User Interface Application.
+
+   p. Configuration file containing Graphical-style User
+      Interface Toolkit and Application specific data
+      constants. The contents can be modified by those
+      software developers authorized to establish and main-
+      tain the overall "look" and "feel" of the Toolkit and
+      Applications. The contents are available, at run-time,
+      for interrogation and use by any Toolkit building-
+      block or Application component.
+
+3. Improved Productivity - The "tsWxGTUI" Toolkit API
+   provides a character-mode emulation of the popular
+   pixel-mode "wxWidgets" GUI Toolkit API. It can be used
+   to produce applications that can work on diverse
+   platforms:
+
+   a. Software platforms running operating systems such as
+      "Linux", "Mac OS X", "MS Windows" (the latter re-
+      quires the free Cygwin Linux-like command line inter-
+      face and GNU tool add-on from Red Hat) and "Unix".
+
+   b. Hardware platforms such as ARM micro-processors (cell
+      phones), Intel x86 (desktop, laptop and workstation),
+      Motorola PowerPC (desktop, laptop and workstation),
+      multi-core IBM Cell Broadband Engines (Sony Playsta-
+      tion III) and multi-chassis super computers (Cray).
+
+   c. Pixel-mode "wxPython" applications can run in charact-
+      er-mode with little, if any, change if they neither
+      use icons or other bit-mapped images, nor use pro-
+      portional sized fonts or associated special features.
+
+4. Operator Console features:
+
+   OPERATING                   COLOR XTERM  NON-COLOR XTERM
+   SYSTEM(1)     SHELL(2)    with Mouse(3) with Hot-Keys(4)
+  ---------- ------------ ---------------- ----------------
+       Linux   bash & ssh         Terminal    vt100 & vt220
+
+    Mac OS X   bash & ssh iTERM & Terminal    vt100 & vt220
+
+  MS Windows
+  with Cygwin  bash & ssh           mintty    vt100 & vt220
+
+        Unix   bash & ssh         Terminal    vt100 & vt220
+
+  ----------
+      Notes:
+
+         1) Host Operating System Kernels (POSIX compat-
+            ible):
+
+            a. Linux (Fedora 17, Ubuntu 12.04)
+
+            b. Mac OS X (10.7.5)
+
+            c. MS Windows (8 Pro, 7 Pro with SPK1 and XP
+               Pro with SPK3). Windows users must also
+               install POSIX compatibility via RedHat's
+               Cygwin add-on).
+
+            d. Solaris (OpenIndiana/SunOS 5.11)
+
+            e. Unix (FreeBSD, HP-UX)
+
+         2) Host Operating System Shells: Bash (local login
+            & Command Line Interface session), ssh (remote
+            login & Command Line Interface session)
+
+         3) Graphical User Interface Mouse: 2-3 buttons
+            (with optional Wheel), Track-Ball or Touchpad
+
+         4) Hot-Keys (a future enhancement) are short multi-
+            character strings that substitute for Mouse but-
+            ton clicks.
+
+======================= End-Of-File ========================

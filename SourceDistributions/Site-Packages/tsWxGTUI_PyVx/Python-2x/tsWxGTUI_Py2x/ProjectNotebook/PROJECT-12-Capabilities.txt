@@ -1,0 +1,154 @@
+#-----------------------------------------------------------
+#"Time-stamp: <07/01/2015  3:57:44 AM rsg>"
+#-----------------------------------------------------------
+
+============= File: PROJECT-12-Capabilities.txt ============
+
+   +----+----+  TeamSTARS "tsWxGTUI_PyVx" Toolkit
+   | ts | Wx |      with Python 2x & Python 3x based
+   +----+----+         Command Line Interface (CLI)
+   | G T U I |      and "Curses"-based "wxPython"-style, 
+   +---------+         Graphical-Text User Interface (GUI)
+ 
+   Get that cross-platform, pixel-mode "wxPython" feeling
+   on character-mode 8-/16-color (xterm-family) & non-color
+   (vt100-family) terminals and terminal emulators.
+
+=================== CURRENT CAPABILITIES ===================
+
+This section details the achievements of the functional,
+interface, design, implementation, operation, quality and
+reliability goals.
+
+1. A library of general-purpose, re-usable building block
+   modules for embedded systems. The building blocks:
+
+   a. Provides both Command Line and Graphical-style User
+      Interfaces that enable application developers to
+      focus on the application specific functionality and
+      not waste effort reinventing the functionality
+      typical of Command Line and Graphical User Interfaces.
+
+   b. Can operate in an isolated system (Stand-Alone mode)
+      or in a networked system (Stand-Among mode).
+
+   c. Are implemented in Python 2.x.
+
+   d. Are ported to Python 3.x using a Python program
+      (2to3) which reads Python 2.x source code and applies
+      a series of fixers to transform it into valid Python
+      3.x code. Debugging of the Python 3.x code may be
+      required to identify and resolve such runtime issues
+      as decoding the type of data returned by Python
+      curses modules.
+
+2. Cross-platform designs run, without change, on Linux,
+   Mac OS X and Microsoft Windows (the latter requires
+   Cygwin, a Linux-like command line interface and GNU
+   tool add-on from Red Hat).
+
+3. Command Line Interface includes building blocks that
+   create a sophisticated POSIX-/ Unix-like terminal
+   interface. It features:
+
+   a. Command line keyword option and positional argument
+      parsing;
+
+   b. Error/exception handling;
+
+   c. Event logging to application designated terminals,
+      files or devices;
+
+   d. Launching,  event dispatching and terminating of the
+      Graphical-style User Interface;
+
+   e. Wrapper used to ensure that each application termin-
+      ates with the exit code and message appropriate for
+      co-ordination of a sequence of multiple applications;
+
+   f. Tool to scan an operator designated directory tree
+      and strip lines of source code of any superfluous
+      trailing blank characters;
+
+   g. Tool to create a copy of an operator designated
+      directory tree after stripping comments and doc
+      strings from Python source code to reduce required
+      embedded system storage resources;
+
+   h. Tool to scan an operator designated directory tree
+      and report on the total number of files, total number
+      of lines of code, total number of blank/comment lines
+      and their distribution among the file name extensions
+      associated with various programming language such as
+      Ada, Assembler, C/C++, Fortran, Pascal, Python, and
+      shell script.
+
+4. Graphical-style User Interface includes building blocks
+   that create a sophisticated Desktop, Laptop and Work-
+   station Computer-like terminal interface. Using the
+   "nCurses" character-mode and xterm libraries of the
+   host platform, it emulates a subset of the "wxPython"
+   pixel-mode Graphical User Interface.  This enables
+   "wxPython" applications to run with little, if any,
+   change if they neither use icons nor other bit-mapped
+   images, nor use proportional sized fonts or associated
+   special features. The emulation features the following
+   widgets:
+
+   a. Tiled (side-by-side) and overlapped (partially hidden)
+      windows;
+
+   b. Frames / Dialogs (top-level windows containing other
+      widgets);
+
+   c. Menu bars (windows) containing drop down menus
+      (windows);
+
+   d. Tool bars (windows) containing a collection of
+      windows for on-screen buttons, menus, or other input
+      or output widgets;
+
+   e. Status bars (windows) containing an information
+      window, at the bottom of a top-level window, some-
+      times divided into sections, each of which shows
+      different information);
+
+   f. Task bar (a top-level window) containing buttons for
+      windows used to control which top-level window has
+      focus and is not partially hidden;
+
+   g. Sizers (non-windows) containing sizers or windows for
+      tables of data or buttons;
+
+   h. Panels (windows) containing sizers or windows;
+
+   i. Buttons (windows) for operator control action trig-
+      gers,
+
+   j. Check boxes (windows) containing buttons for enab-
+      ling/disabling any one or combination of several
+      operator mode and option control action triggers;
+
+   k. Radio boxes (windows) containing buttons for choice
+      of one of several operator mode and option control
+      action triggers;
+
+   l. Gauges (windows) for horizontal and vertical bar graph
+      widgets;
+
+   m. Scrolled windows (windows) containing a scrollable
+      text window and horizonta and/or vertical scrollbars
+      (each with associated scroll position gauge and
+      scroll control buttons for action triggers;
+
+   n. Redirected output (a top-level window or log file)
+      containing system and application messages annotated
+      with date, time and event severity levels that are
+      printed or sent to syslog, stderr, stdout or scrolled
+      windows;
+
+   o. Splash screen (bit-mapped image) that notifies the
+      operator that the program is in the lengthy process
+      of loading.
+
+======================= End-Of-File ========================

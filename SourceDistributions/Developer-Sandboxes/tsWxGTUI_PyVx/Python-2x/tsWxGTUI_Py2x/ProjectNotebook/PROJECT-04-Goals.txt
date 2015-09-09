@@ -1,0 +1,178 @@
+#-----------------------------------------------------------
+#"Time-stamp: <06/18/2015 12:35:26 PM rsg>"
+#-----------------------------------------------------------
+
+================= File: PROJECT-04-Goals.txt ===============
+
+   +----+----+  TeamSTARS "tsWxGTUI_PyVx" Toolkit
+   | ts | Wx |      with Python 2x & Python 3x based
+   +----+----+         Command Line Interface (CLI)
+   | G T U I |      and "Curses"-based "wxPython"-style, 
+   +---------+         Graphical-Text User Interface (GUI)
+ 
+   Get that cross-platform, pixel-mode "wxPython" feeling
+   on character-mode 8-/16-color (xterm-family) & non-color
+   (vt100-family) terminals and terminal emulators.
+
+========================== GOALS ===========================
+
+This is a high-level view of functional, interface, design,
+implementation, operation, quality and reliability require-
+ments that are within the project work scope.
+
+1. A means for one or more operators to use local and remote
+   computer operating systems, as appropriate to the appli-
+   cation:
+
+   a. Concurrently and/or sequentially login to local and
+      remote computer operating systems.
+
+   b. Concurrently and/or sequentially launch, interact
+      with and terminate one or more operating system
+      and/or application processes which may concurrently
+      and/or sequentially launch, interact with and ter-
+      minate one or more associated task threads.
+
+   c. Concurrently and/or sequentially logoff local and
+      remote computer operating systems.
+
+2. A means for one or more operators to interactively
+   monitor and control local and remote computer equipment
+   via either or both of the followng, as appropriate to
+   the application:
+
+   a. Command Line Interface (CLI) --- Must support the
+      Python 2.6.8 and Python 3.2.3 releases and compatible
+      later and earlier releases.
+
+   b. Graphical User Interface (GUI) --- Must support the
+      character-mode compatible emulation of the Application
+      Programming Interface of the wxPython 2.8.9.2 release
+      and compatible later and earlier releases.
+
+3. A means for the application developer to interact with
+   the local and remote computer equipment and operator(s)
+   via:
+
+   a. Popular, cross-platform Application Programming
+      Interfaces (APIs). The Command Line Interface and
+      Graphical User Interface APIs must be free, open
+      source and field-proven. The APIs must also have
+      an ongoing and extensive track record of active
+      use, maintenance and enhancement.
+
+   b. Libraries of building block modules, tools, util-
+      ities and tests.
+
+   c. Designs suitable for installation and use in embed-
+      ded systems which typically have limited, appli-
+      cation-specific processing, memory, communication,
+      input/output and file storage resources. Some systems
+      may only have character-mode operator interface
+      hardware suitable for the host computer operating
+      system's command line interface console.
+
+   d. CLI and GUI interfaces that are attractive and user
+      friendly.
+
+4. A means for the developer to re-use existing desktop,
+   laptop, workstation and embedded system applications on
+   an extensive variety of platforms including cell phones,
+   laptops, desktops, workstations and super computers
+   with 32-bit and 64-bit processors from various manu-
+   facturers.
+
+5. A means for the developer to re-use built-in package
+   and module documentation (see PROJECT-15-Built-in_Docu-
+   mentation_Symbols.txt) to facilitate development of the
+   Command Line Interface and Graphical-style User Inter-
+   face.
+
+6. A means for the developer to launch application programs
+   to facilitate development of the Command Line Interface
+   and Graphical-style User Interface (see PROJECT-16-Appli-
+   caion_Launch_Modules.txt).
+
+7. A means for the developer to import packages and modules
+   to facilitate development of the Command Line Interface and
+   Graphical-style User Interface (see PROJECT-17-Directory-
+   _and_Import_Guide.txt).
+
+8. A means for the developer to install and troubleshoot
+   modified packages and modules to facilitate development
+   of the Command Line Interface and Graphical-style User
+   Interface (see PROJECT-18-Site-Package_Install_Guide.txt).  
+
+9. A means for the developer to troubleshoot design and
+   user issues via date and time stamped operational,
+   diagnostic and exception logs.
+
+10. A means for the developer to co-ordinate the automated
+    operation and failure recovery of multiple applications
+    by use of 8-bit, POXIX-style exit codes and error mes-
+    sages.
+
+11. A means for the operator to use a mouse, trackball,
+    touchpad or touchscreen to select GUI objects when
+    the platform supports such a device. Support shall
+    include:
+
+    a. Left, Right and Wheel/Middle mouse button features
+       such as single-click, double-click and triple-click.
+
+    b. Scrollbar features such as Left, Right, Up and Down
+       arrow.
+
+    c. Scrollbar and Slider gauge display whose horizontal
+       or vertical bar shows the relative position (via a
+       single non-blank fill character) and size (via addi-
+       tional non-blank fill characters) of the view area
+       within the associated scrolled text. Gauges are also
+       clickable windows that trigger an associated event
+       (such as scroll the associated displayed text left,
+       right, up or down). A single Left-Click on a Scroll-
+       BarGauge moves the text toward or away from the top
+       (first) or bottom (last) horizontal or vertical char-
+       acter in proportion to how close the mouse caret
+       (pointer) was to the arrow buttons at either end of
+       the associated gauge. The relative position and size
+       of the highlighted area in the ScrollBarGauge alerts
+       the operator to the availability of text currently
+       hidden from view. It eliminates any justification
+       for wasting screen real estate by alerting the oper-
+       ator to hidden text via the tilde ("~") char-
+       acter. 
+
+12. A means for the operator to use a keyboard to select
+    GUI objects, via hot-keys, when the platform does not
+    support a  mouse, trackball, touchpad or touchscreen.
+
+13. A means for the operator to use a Task bar (a top-level
+    window) that contains buttons for each application frame
+    and dialog window that can be used to control which ap-
+    plication frame or dialog window has focus and is not
+    partially hidden behind any other frame and dialog win-
+    dow. 
+
+14. A means for the application and toolkit developer to
+    import application and library building-block compo-
+    nents from a nested, multi-level directory file system.
+    This is intended to facilitate development without and
+    before the creation and installation of released site-
+    packages. This eliminates the need for building and
+    installing candidate bug fixes to the site-pakages
+    before they can even be tested.
+
+15. A means for the application and toolkit developer to
+    import application and library building-block components
+    from a single-level (Global Module Index-style) direc-
+    tory file system. This is intended to facilitate instal-
+    lation and use of released site-packages. 
+
+16. Sufficient reliability, availability and maintain-
+    ability to continuously operate unattended and without
+    failure for extended periods of time on an "AS IS"
+    basis unless otherwise certified by suitably qualified
+    system integrators.
+
+======================= End-Of-File ========================

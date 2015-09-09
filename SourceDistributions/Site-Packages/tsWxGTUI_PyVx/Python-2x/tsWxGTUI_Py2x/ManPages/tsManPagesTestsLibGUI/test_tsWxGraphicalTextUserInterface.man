@@ -1,0 +1,78 @@
+      init in tsCxGlobalsPkg
+<open file './logs/2014-04-08-at-06-26-57/test_tsWxGraphicalTextUserInterface.log', mode 'w' at 0x7fe30f98>
+tsCommandLineEnv: ImportError (tsLibCLI); importCode=No module named tsOperatorSettingsParser
+
+
+	EntryPoint (parameters:
+		Args=();
+		Options={}
+
+
+usage: test_tsWxGraphicalTextUserInterface.py [-h] [-v] [-a] [-d] [-V]
+                                              [-m {argparse}]
+
+Purpose:
+
+	test_tsWxGraphicalTextUserInterface.py - Operator verification
+	test of the foreground/background color pairs provided by the
+	Graphical Text User Interface.
+
+Syntax:
+
+    <python-interpreter> <program> [Keyword-Value Option(s)] ... \
+                                   [Positional Argument(s)] ...
+
+Examples:
+
+    Interpreter   program app.      operator settings
+    -----------   ----------------  -----------------------------
+    python        test_tsWxGraphicalTextUserInterface.py
+
+    python2.7     test_tsWxGraphicalTextUserInterface.py \
+                                    [-h] [-v]
+                                    [-a] [-d] [-V]
+                                    [-m PARSER_MODULE]
+                                    {argparse}
+
+    python3.3     test_tsWxGraphicalTextUserInterface.py \
+                                    [--help]  [--version]
+                                    [--about] [--debug] [--Verbose]
+                                    [--module PARSER_MODULE]
+                                    {argparse}
+
+        ---------------------------------------------------------
+        Key:
+
+            "python"    - Default interpreter for platform
+
+            "python2.7" - First alternate interpreter for platform
+
+            "python3.3" - Second alternate interpreter for platform
+
+            "[]" - Brackets enclose option keywords and values
+
+            "{}" - Braces enclose option value choices and
+                   positional arguments
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -v, --version         show the build version of this software (including its
+                        title, version and date) and exit
+  -a, --about           show a summary of the terms & conditions for users of
+                        this software (including the applicable product
+                        identification, authors, contributors, copyrights,
+                        licenses and purpose) and exit
+  -d, --debug           log/display application program progress and
+                        diagnostic messages useful in debugging and
+                        troubleshooting. (default = False).
+  -V, --Verbose         log/display verbose troubleshooting details for
+                        application program activity tracking diagnostic
+                        messages (default = False)
+  -m {argparse}, --module {argparse}
+                        sets default for standard Python parser module. (To
+                        demonstrate the similarity and differences between
+                        Optional and Positional Arguments, an Optional
+                        Argument is used to set the latest Python
+                        recommendation, "argparse", while a Positional
+                        Argument is used to override it with a now Python
+                        deprecated "optparse" or "getopt")

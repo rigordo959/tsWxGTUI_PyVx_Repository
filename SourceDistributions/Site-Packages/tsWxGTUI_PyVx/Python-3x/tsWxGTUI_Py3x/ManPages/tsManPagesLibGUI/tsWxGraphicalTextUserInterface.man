@@ -1,0 +1,1876 @@
+
+Help on module tsWxGraphicalTextUserInterface:
+
+NAME
+    tsWxGraphicalTextUserInterface
+
+FILE
+    ./tsLibGUI/tsWxPkg/src/tsWxGraphicalTextUserInterface.py
+
+DESCRIPTION
+    tsWxGraphicalTextUserInterface.py - Class uses the Standard
+    Python Curses API to initialize, manage and shutdown input
+    (from a keyboard and mouse) and output (to a two-dimensional
+    display screen).
+
+CLASSES
+    __builtin__.object
+        tsLibCLI.tsReportUtilityPkg.src.tsReportUtilities.TsReportUtilities
+        tsLibCLI.tsSysCommandPkg.src.tsSysCommands.TsSysCommands
+        GraphicalTextUserInterface
+        PrivateLogger
+    
+    class GraphicalTextUserInterface(__builtin__.object)
+     |  Class uses the Standard Python Curses API to initialize, manage and
+     |  shutdown input (from a keyboard and mouse) and output (to a two-
+     |  dimensional display screen).
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, theCallerClass, **kw)
+     |      Initialize Curses and publish related information.
+     |  
+     |  baudrate(self)
+     |      Returns the output speed of the terminal in bits per second. On
+     |      software terminal emulators it will have a fixed high value.
+     |      Included for historical reasons; in former times, it was used to
+     |      write output loops for time delays and occasionally to change
+     |      interfaces depending on the line speed.
+     |  
+     |  beep(self)
+     |      Emit a short attention sound.
+     |  
+     |  can_change_color(self)
+     |      Returns true or false, depending on whether the programmer can
+     |      change the colors displayed by the terminal.
+     |  
+     |  cbreak(self)
+     |      Enter cbreak mode. In cbreak mode (sometimes called "rare" mode)
+     |      normal tty line buffering is turned off and characters are available
+     |      to be read one by one. However, unlike raw mode, special characters
+     |      (interrupt, quit, suspend, and flow control) retain their effects on
+     |      the tty driver and calling program. Calling first raw() then cbreak()
+     |      leaves the terminal in cbreak mode.
+     |  
+     |  color_content(self, color_number)
+     |      Returns the intensity of the red, green, and blue (RGB) components
+     |      in the color color_number, which must be between 0 and COLORS. A
+     |      3-tuple is returned, containing the R,G,B values for the given color,
+     |      which will be between 0 (no component) and 1000 (maximum amount of
+     |      component).
+     |  
+     |  color_pair(self, color_number)
+     |      Returns the attribute value for displaying text in the specified
+     |      color. This attribute value can be combined with A_STANDOUT,
+     |      A_REVERSE, and the other A_* attributes. pair_number() is the
+     |      counterpart to this function.
+     |  
+     |  curs_set(self, visibility)
+     |      Sets the cursor state. visibility can be set to 0, 1, or 2, for
+     |      invisible, normal, or very visible. If the terminal supports the
+     |      visibility requested, the previous cursor state is returned;
+     |      otherwise, an exception is raised. On many terminals, the "visible"
+     |      mode is an underline cursor and the "very visible" mode is a block
+     |      cursor.
+     |  
+     |  def_prog_mode(self)
+     |      Saves the current terminal mode as the "program" mode, the mode when
+     |      the running program is using curses. (Its counterpart is the "shell"
+     |      mode, for when the program is not in curses.) Subsequent calls to
+     |      reset_prog_mode() will restore this mode.
+     |  
+     |  def_shell_mode(self)
+     |      Saves the current terminal mode as the "shell" mode, the mode when
+     |      the running program is not using curses. (Its counterpart is the
+     |      "program" mode, when the program is using curses capabilities.)
+     |      Subsequent calls to reset_shell_mode() will restore this mode.
+     |  
+     |  delay_output(self, ms)
+     |      Inserts an ms millisecond pause in output.
+     |  
+     |  doupdate(self)
+     |      Update the physical screen. The curses library keeps two data
+     |      structures, one representing the current physical screen contents
+     |      and a virtual screen representing the desired next state. The
+     |      doupdate() ground updates the physical screen to match the virtual
+     |      screen.
+     |      
+     |      The virtual screen may be updated by a noutrefresh() call after
+     |      write operations such as addstr() have been performed on a window.
+     |      The normal refresh() call is simply noutrefresh() followed by
+     |      doupdate(); if you have to update multiple windows, you can speed
+     |      performance and perhaps reduce screen flicker by issuing noutrefresh()
+     |      calls on all windows, followed by a single doupdate().
+     |  
+     |  echo(self)
+     |      Enter echo mode. In echo mode, each character input is echoed to
+     |      the screen as it is entered.
+     |  
+     |  endwin(self)
+     |      De-initialize the library, and return terminal to normal status.
+     |  
+     |  erasechar(self)
+     |      Returns the user current erase character. Under Unix operating
+     |      systems this is a property of the controlling tty of the curses
+     |      program, and is not set by the curses library itself.
+     |  
+     |  filter(self)
+     |      The filter() routine, if used, must be called before initscr() is
+     |      called. The effect is that, during those calls, LINES is set to 1;
+     |      the capabilities clear, cup, cud, cud1, cuu1, cuu, vpa are disabled;
+     |      and the home string is set to the value of cr. The effect is that
+     |      the cursor is confined to the current line, and so are screen updates.
+     |      This may be used for enabling character-at-a-time line editing
+     |      without touching the rest of the screen.
+     |  
+     |  flash(self)
+     |      Flash the screen. That is, change it to reverse-video and then
+     |      change it back in a short interval. Some people prefer such as
+     |      "visible bell" to the audible attention signal produced by beep().
+     |  
+     |  flushinp(self)
+     |      Flush all input buffers. This throws away any typeahead that has
+     |      been typed by the user and has not yet been processed by the program.
+     |  
+     |  getmouse(self)
+     |      After getch() returns KEY_MOUSE to signal a mouse event, this method
+     |      should be call to retrieve the queued mouse event, represented as a
+     |      5-tuple (id, x, y, z, bstate). id is an ID value used to distinguish
+     |      multiple devices, and x, y, z are the event coordinates. (z is
+     |      currently unused.). bstate is an integer value whose bits will be
+     |      set to indicate the type of event, and will be the bitwise OR of one
+     |      or more of the following constants, where n is the button number from
+     |      1 to 4: BUTTONn_PRESSED, BUTTONn_RELEASED, BUTTONn_CLICKED,
+     |      BUTTONn_DOUBLE_CLICKED, BUTTONn_TRIPLE_CLICKED, BUTTON_SHIFT,
+     |      BUTTON_CTRL, BUTTON_ALT.
+     |  
+     |  getsyx(self)
+     |      Returns the current coordinates of the virtual screen cursor in y
+     |      and x. If leaveok is currently true, then -1,-1 is returned.
+     |  
+     |  getwin(self, file)
+     |      Reads window related data stored in the file by an earlier putwin()
+     |      call. The routine then creates and initializes a new window using
+     |      that data, returning the new window object.
+     |  
+     |  halfdelay(self, tenths)
+     |      Used for half-delay mode, which is similar to cbreak mode in that
+     |      characters typed by the user are immediately available to the
+     |      program. However, after blocking for tenths tenths of seconds, an
+     |      exception is raised if nothing has been typed. The value of tenths
+     |      must be a number between 1 and 255. Use nocbreak() to leave
+     |      half-delay mode.
+     |  
+     |  has_colors(self)
+     |      Returns true if the terminal can display colors; otherwise, it
+     |      returns false.
+     |  
+     |  has_ic(self)
+     |      Returns true if the terminal has insert- and delete- character
+     |      capabilities. This function is included for historical reasons
+     |      only, as all modern software terminal emulators have such
+     |      capabilities.
+     |  
+     |  has_il(self)
+     |      Returns true if the terminal has insert- and delete-line
+     |      capabilities, or can simulate them using scrolling regions. This
+     |      function is included for historical reasons only, as all modern
+     |      software terminal emulators have such capabilities.
+     |  
+     |  has_key(self, ch)
+     |      Takes a key value ch, and returns true if the current terminal type
+     |      recognizes a key with that value.
+     |  
+     |  init_color(self, color_number, r, g, b)
+     |      Changes the definition of a color, taking the number of the color to
+     |      be changed followed by three RGB values (for the amounts of red,
+     |      green, and blue components). The value of color_number must be
+     |      between 0 and COLORS. Each of r, g, b, must be a value between 0 and
+     |      1000. When init_color() is used, all occurrences of that color on
+     |      the screen immediately change to the new definition. This function
+     |      is a no-op on most terminals; it is active only if can_change_color()
+     |      returns 1.
+     |  
+     |  init_pair(self, pair_number, fg, bg)
+     |      Changes the definition of a color-pair. It takes three arguments:
+     |      the number of the color-pair to be changed, the foreground color
+     |      number, and the background color number. The value of pair_number
+     |      must be between 1 and COLOR_PAIRS - 1 (the 0 color pair is wired
+     |      to white on black and cannot be changed). The value of fg and bg
+     |      arguments must be between 0 and COLORS. If the color-pair was
+     |      previously initialized, the screen is refreshed and all occurrences
+     |      of that color-pair are changed to the new definition.
+     |  
+     |  initscr(self)
+     |      Initialize the library. Returns a WindowObject which represents the
+     |      whole screen. Note: If there is an error opening the terminal, the
+     |      underlying curses library may cause the interpreter to exit.
+     |  
+     |  isendwin(self)
+     |      Returns true if endwin() has been called (that is, the curses
+     |      library has been deinitialized).
+     |  
+     |  keyname(self, k)
+     |      Return the name of the key numbered k. The name of a key generating
+     |      printable ASCII character is the key character. The name of a
+     |      control-key combination is a two-character string consisting of
+     |      a caret followed by the corresponding printable ASCII character. The
+     |      name of an alt-key combination (128-255) is a string consisting of
+     |      the prefix "M-" followed by the name of the corresponding ASCII
+     |      character.
+     |  
+     |  killchar(self)
+     |      Returns the user current line kill character. Under Unix operating
+     |      systems this is a property of the controlling tty of the curses
+     |      program, and is not set by the curses library itself.
+     |  
+     |  longname(self)
+     |      Returns a string containing the terminfo long name field describing
+     |      the current terminal. The maximum length of a verbose description
+     |      is 128 characters. It is defined only after the call to initscr().
+     |  
+     |  meta(self, yes)
+     |      If yes is 1, allow 8-bit characters to be input. If yes is 0, allow
+     |      only 7-bit chars.
+     |  
+     |  mouseinterval(self, interval)
+     |      Sets the maximum time in milliseconds that can elapse between press
+     |      and release events in order for them to be recognized as a click,
+     |      and returns the previous interval value. The default value is 200
+     |      msec, or one fifth of a second.
+     |  
+     |  mousemask(self, mousemask)
+     |      Sets the mouse events to be reported, and returns a tuple (availmask,
+     |      oldmask). availmask indicates which of the specified mouse events
+     |      can be reported; on complete failure it returns 0. oldmask is the
+     |      previous value of the given window mouse event mask. If this function
+     |      is never called, no mouse events are ever reported.
+     |  
+     |  napms(self, ms)
+     |      Sleep for ms milliseconds.
+     |  
+     |  newpad(self, nlines, ncols)
+     |      Creates and returns a pointer to a new pad data structure with the
+     |      given number of lines and columns. A pad is returned as a window
+     |      object.
+     |      
+     |      A pad is like a window, except that it is not restricted by the
+     |      screen size, and is not necessarily associated with a particular
+     |      part of the screen. Pads can be used when a large window is needed,
+     |      and only a part of the window will be on the screen at one time.
+     |      Automatic refreshes of pads (such as from scrolling or echoing of
+     |      input) do not occur. The refresh() and noutrefresh() methods of a
+     |      pad require 6 arguments to specify the part of the pad to be
+     |      displayed and the location on the screen to be used for the display.
+     |      The arguments are pminrow, pmincol, sminrow, smincol, smaxrow,
+     |      smaxcol; the p arguments refer to the upper left corner of the pad
+     |      region to be displayed and the s arguments define a clipping box
+     |      on the screen within which the pad region is to be displayed.
+     |  
+     |  newwin(self, nlines, ncols, begin_y, begin_x)
+     |      Return a new window, whose left-upper corner is at (begin_y,
+     |      begin_x), and whose height/width is nlines/ncols.
+     |      
+     |      By default, the window will extend from the specified position to
+     |      the lower right corner of the screen.
+     |  
+     |  nl(self)
+     |      Enter newline mode. This mode translates the return key into newline
+     |      on input, and translates newline into return and line-feed on output.
+     |      Newline mode is initially on.
+     |  
+     |  nocbreak(self)
+     |      Leave cbreak mode. Return to normal "cooked" mode with line buffering.
+     |  
+     |  noecho(self)
+     |      Leave echo mode. Echoing of input characters is turned off.
+     |  
+     |  nonl(self)
+     |              Leave newline mode. Disable translation of return into newline on
+     |              input, and disable low-level translation of newline into newline/
+     |              return on output (but this does not change the behavior of
+     |              addch("
+     |      "), which always does the equivalent of return and line
+     |              feed on the virtual screen). With translation off, curses can
+     |              sometimes speed up vertical motion a little; also, it will be able
+     |              to detect the return key on input.
+     |  
+     |  noqiflush(self)
+     |      When the noqiflush routine is used, normal flush of input and output
+     |      queues associated with the INTR, QUIT and SUSP characters will not
+     |      be done. You may want to call noqiflush() in a signal handler if
+     |      you want output to continue as though the interrupt had not
+     |      occurred, after the handler exits.
+     |  
+     |  noraw(self)
+     |      Leave raw mode. Return to normal "cooked" mode with line buffering.
+     |  
+     |  pair_content(self, pair_number)
+     |      Returns a tuple (fg, bg) containing the colors for the requested
+     |      color pair. The value of pair_number must be between 1 and
+     |      COLOR_PAIRS - 1.
+     |  
+     |  pair_number(self, attr)
+     |      Returns the number of the color-pair set by the attribute value
+     |      attr. color_pair() is the counterpart to this function.
+     |  
+     |  putp(self, string)
+     |      Equivalent to tputs(str, 1, putchar); emits the value of a specified
+     |      terminfo capability for the current terminal. Note that the output
+     |      of putp always goes to standard output.
+     |  
+     |  qiflush(self, flag=True)
+     |      If flag is false, the effect is the same as calling noqiflush().
+     |      If flag is true, or no argument is provided, the queues will be
+     |      flushed when these control characters are read.
+     |  
+     |  raw(self)
+     |      Enter raw mode. In raw mode, normal line buffering and processing
+     |      of interrupt, quit, suspend, and flow control keys are turned
+     |      off; characters are presented to curses input functions one by one.
+     |  
+     |  reset_prog_mode(self)
+     |      Restores the terminal to "program" mode, as previously saved by
+     |      def_prog_mode().
+     |  
+     |  reset_shell_mode(self)
+     |      Restores the terminal to "shell" mode, as previously saved by
+     |      def_shell_mode().
+     |  
+     |  runWrapper(self, mainProgram)
+     |      Calls mainProgram in fullscreen mode.  Returns to normal on exit.
+     |      
+     |      This method should be called to wrap the main program loop of
+     |      an application.
+     |      
+     |      Exception tracebacks are displayed in normal mode.
+     |  
+     |  setsyx(self, y, x)
+     |      Sets the virtual screen cursor to y, x. If y and x are both -1,
+     |      then leaveok is set.
+     |  
+     |  setupterm(self, termstr, fd)
+     |      Initializes the terminal. termstr is a string giving the terminal
+     |      name; if omitted, the value of the TERM environment variable will
+     |      be used. fd is the file descriptor to which any initialization
+     |      sequences will be sent; if not supplied, the file descriptor for
+     |      sys.stdout will be used.
+     |  
+     |  start(self)
+     |      Initialize the curses keyboard, display and optional mouse.
+     |  
+     |  start_color(self)
+     |      Must be called if the programmer wants to use colors, and before
+     |      any other color manipulation routine is called. It is good
+     |      practice to call this routine right after initscr().
+     |      
+     |      start_color() initializes eight basic colors (black, red, green,
+     |      yellow, blue, magenta, cyan, and white), and two global variables
+     |      in the curses module, COLORS and COLOR_PAIRS, containing the
+     |      maximum number of colors and color-pairs the terminal can support.
+     |      It also restores the colors on the terminal to the values they had
+     |      when the terminal was just turned on.
+     |  
+     |  stop(self)
+     |      Restore the screen to its previouse command line interface mode
+     |      state.
+     |  
+     |  termattrs(self)
+     |      Returns a logical OR of all video attributes supported by the
+     |      terminal. This information is useful when a curses program needs
+     |      complete control over the appearance of the screen.
+     |  
+     |  termname(self)
+     |      Returns the value of the environment variable TERM, truncated
+     |      to 14 characters.
+     |  
+     |  tigetflag(self, capname)
+     |      Returns the value of the Boolean capability corresponding to the
+     |      terminfo capability name capname. The value -1 is returned if
+     |      capname is not a Boolean capability, or 0 if it is canceled or
+     |      absent from the terminal description.
+     |  
+     |  tigetnum(self, capname)
+     |      Returns the value of the numeric capability corresponding to the
+     |      terminfo capability name capname. The value -2 is returned if
+     |      capname is not a numeric capability, or -1 if it is canceled or
+     |      absent from the terminal description.
+     |  
+     |  tigetstr(self, capname)
+     |      Returns the value of the string capability corresponding to the
+     |      terminfo capability name capname. None is returned if capname is
+     |      not a string capability, or is canceled or absent from the
+     |      terminal description.
+     |  
+     |  tparm(self, *strarg)
+     |      Instantiates the string str with the supplied parameters, where
+     |      str should be a parameterized string obtained from the terminfo
+     |      database. E.g. tparm(tigetstr("cup"), 5, 3) could result in
+     |      "[6;4H", the exact result depending on terminal type.
+     |  
+     |  tsBuildCursesDataBase(self)
+     |      Build the curses database for toolkit and application debugging.
+     |  
+     |  tsBuildSplashScreen(self)
+     |      Build the SplashScreen to fit available screen.
+     |      
+     |      1. Traditional (Color SVGA) application SplashScreens:
+     |         (1024 x 768 pixel) / (128 columns x 64 rows)
+     |         include a Trademark, Copyright and License.
+     |      
+     |      2. Traditional (Color VGA) application SplashScreens:
+     |         (640 x 480 pixel) / (80 columns x 40 rows)
+     |         include a Copyright and License.
+     |      
+     |      3. Traditional (Non-Color VT100) application SplashScreens:
+     |         (640 x 300 pixel) / (80 columns x 25 rows)
+     |         include a Copyright and License.
+     |      
+     |      4. Barely usable application SplashScreens:
+     |         (480 x 192 pixels) / (60 columns x 16 rows)
+     |         include a brief Notice that identifies external text files.
+     |  
+     |  tsBuildWindowDataBase(self)
+     |      Build the emulated wxPython database for toolkit and application
+     |      debugging.
+     |  
+     |  tsCreateColorPairs(self)
+     |      Activate available foreground and background color combinations.
+     |  
+     |  tsErrorConsole(self, errorMsg, indent=0)
+     |      Output message to the standard error console.
+     |  
+     |  tsExitForTerminalNotSupported(self, termname)
+     |      Simulate Program Exception handling when the runMain
+     |      method is neither monitoring nor controlling class
+     |      initialization.
+     |  
+     |  tsGetAttributeValueFromColorPair(self, foreground, background)
+     |      Encode foreground and background color into the associated
+     |      curses color attribute value.
+     |  
+     |  tsGetBuiltInColorCount(self)
+     |      Return the number of built-in curses colors, those colors which
+     |      cannot be changed.
+     |  
+     |  tsGetColorCodes(self)
+     |      Return the curses color codes.
+     |  
+     |  tsGetColorNames(self)
+     |      Return the curses color names.
+     |  
+     |  tsGetColorPairNumber(self, foreground, background)
+     |      Encode foreground and background color into the associated
+     |      curses color pair number.
+     |  
+     |  tsGetColorRGBCodes(self)
+     |      Return the RGB color codes for the current terminal emulator.
+     |  
+     |  tsGetCursesBottomPanel(self)
+     |      Returns the bottom panel in the panel stack.
+     |  
+     |  tsGetCursesColorContent(self, color_number)
+     |      Returns the intensity of the red, green, and blue (RGB) components
+     |      in the color designated by the color_number, which must be between
+     |      0 and COLORS. A 3-tuple is returned, containing the R,G,B values
+     |      for the given color, which will be between 0 (no component) and
+     |      255 (maximum amount of component).
+     |      
+     |      NOTE: Curses returns an R, G, B values between 0  and 1000.
+     |  
+     |  tsGetCursesColorPair(self, pair_number)
+     |      Returns the attribute value for displaying text in the specified
+     |      color. This attribute value can be combined with A_STANDOUT,
+     |      A_REVERSE, and the other A_* attributes. pair_number() is the
+     |      counterpart to this function.
+     |  
+     |  tsGetCursesDefaultColors(self)
+     |      Gather the initial curses color palette and register it in
+     |      the GraphicalTextUserInterface.ColorDataBaseRGB.
+     |  
+     |  tsGetCursesNewPanel(self, win)
+     |      Returns a panel object, associating it with the given window win.
+     |      Be aware that you need to keep the returned panel object referenced
+     |      explicitly. If you do not, the panel object is garbage collected
+     |      and removed from the panel stack.
+     |  
+     |  tsGetCursesPairContent(self, pair_number)
+     |      Returns a tuple (fg, bg) containing the colors for the requested
+     |      color pair. The value of pair_number must be between 1 and
+     |      COLOR_PAIRS - 1
+     |  
+     |  tsGetCursesTopPanel(self)
+     |      Returns the top panel in the panel stack.
+     |  
+     |  tsGetMouseButtonCodes(self)
+     |  
+     |  tsGetSetToUseForColorCodeFromName(self)
+     |      Return the set_to_use appropriate for the current terminal
+     |      emulator. Stripped of its dictionary name to faciliate the
+     |      determination of the number of colors, the set_to_use can be
+     |      used to return the color code number associated with the
+     |      specified color name.
+     |  
+     |  tsGetSetToUseForColorNameFromCode(self)
+     |      Return the set_to_use appropriate for the current terminal
+     |      emulator. Stripped of its dictionary name to faciliate the
+     |      determination of the number of colors, the set_to_use can be
+     |      used to return the color name associated with the specified
+     |      color code number.
+     |  
+     |  tsGetTopLevelApplication(self)
+     |      Return the class instance of the Top Level Application GUI object.
+     |  
+     |  tsGetWxPythonColorContent(self, color_number)
+     |      Returns the intensity of the red, green, and blue (RGB) components
+     |      in the color color_number, which must be between 0 and COLORS. A
+     |      3-tuple is returned, containing the R,G,B values for the given
+     |      color, which will be between 0 (no component) and 255 (maximum
+     |      amount of component).
+     |  
+     |  tsInfoConsole(self, infoMsg, indent=0)
+     |      Output message to the standard output console.
+     |  
+     |  tsInstallDefaultColorDataBase(self)
+     |      Install the default (8-/16-color) database.
+     |  
+     |  tsInstallExtendedColorDataBase(self)
+     |      Install the extended (upto 256-color) database.
+     |  
+     |  tsInstallMonochromeDataBase(self)
+     |      Install the monochrome (non-color black & white) database.
+     |  
+     |  tsPrintDataBases(self)
+     |  
+     |  tsPrintWindow(self, window, row, col, printMsg, attrib=None, EnableClearToEndOfLine=False)
+     |      Output message to window.
+     |  
+     |  tsSetCursesColorNumber(self, color_number, red, green, blue)
+     |      Changes the definition of a color, taking the number of the color
+     |      to be changed followed by three RGB values (for the amounts of red,
+     |      green, and blue components). The value of color_number must be
+     |      between 0 and COLORS. Each of r, g, b, must be a value between 0
+     |      and 1000. When init_color() is used, all occurrences of that color
+     |      on the screen immediately change to the new definition. This
+     |      function is a no-op on most terminals; it is active only if
+     |      can_change_color() returns 1.
+     |  
+     |  tsSetCursesColorPair(self, pair_number, fg, bg)
+     |      Changes the definition of a color-pair. It takes three arguments:
+     |      the number of the color-pair to be changed, the foreground color
+     |      number, and the background color number. The value of pair_number
+     |      must be between 1 and COLOR_PAIRS - 1 (the 0 color pair is wired
+     |      to white on black and cannot be changed). The value of fg and bg
+     |      arguments must be between 0 and COLORS. If the color-pair was
+     |      previously initialized, the screen is refreshed and all occurrences
+     |      of that color-pair are changed to the new definition.
+     |  
+     |  tsSetCursesCursor(self, visibility)
+     |      Sets the cursor state. visibility can be set to 0, 1, or 2, for
+     |      invisible, normal, or very visible. If the terminal supports the
+     |      visibility requested, the previous cursor state is returned;
+     |      otherwise, an exception is raised. On many terminals, the
+     |      "visible" mode is an underline cursor and the "very visible"
+     |      mode is a block cursor.
+     |  
+     |  tsSetDefaultClientTerminalDataBase(self)
+     |      Enter the terminal-independent features of the client dictionary.
+     |  
+     |  tsSetDetectedClientTerminalDataBase(self, background=None, builtin_palette=None, can_change_color=None, curses_color_pairs=None, curses_colors=None, curses_panels=None, foreground=None, geometry=None, geometryPixels=None, has_colors=False, has_default_colors=False, has_display=False, has_keyboard=False, has_logger=False, has_mouse=False, longname='', mmask=0, mouseButtonCodes=None, stdscr=None, termname='')
+     |      Enter the terminal-specific features of the client dictionary.
+     |  
+     |  tsSetMouseButtonCodes(self, has_mouse)
+     |      Establish dictionary of curses default mouse codes, if applicable.
+     |  
+     |  tsSetTopLevelApplication(self, theApplication)
+     |      Set the class instance of the Top Level Application GUI object.
+     |  
+     |  tsStripDictionaryName(self, inputDictionary)
+     |      Return a copy of the specified dictionary, without its name
+     |      annotation, so that its size (derived from len(dictionary)) reflects
+     |      the number of color codes/names (curses or emulated wxPython)
+     |      available to the toolkit and application with the current terminal
+     |      emulator.
+     |  
+     |  tsUpdateCursesPanels(self)
+     |      Updates the virtual screen after changes in the panel stack.
+     |      This does not call curses.doupdate(), so you will have to do
+     |      this yourself.
+     |  
+     |  typeahead(self, fd)
+     |      Specifies that the file descriptor fd be used for typeahead
+     |      checking. If fd is -1, then no typeahead checking is done.
+     |      The curses library does "line-breakout optimization" by
+     |      looking for typeahead periodically while updating the screen.
+     |      If input is found, and it is coming from a tty, the current
+     |      update is postponed until refresh or doupdate is called again,
+     |      allowing faster response to commands typed in advance. This
+     |      function allows specifying a different file descriptor for
+     |      typeahead checking.
+     |  
+     |  unctrl(self, ch)
+     |      Returns a string which is a printable representation of the
+     |      character ch. Control characters are displayed as a caret
+     |      followed by the character, for example as ^C. Printing
+     |      characters are left as they are.
+     |  
+     |  ungetch(self, ch)
+     |      Push ch so the next getch() will return it. Note: Only one ch
+     |      can be pushed before getch() is called.
+     |  
+     |  ungetmouse(self, id, x, y, z, bstate)
+     |      Push a KEY_MOUSE event onto the input queue, associating the given
+     |      state data with it.
+     |  
+     |  use_default_colors(self)
+     |      Allow use of default values for colors on terminals supporting this
+     |      feature. Use this to support transparency in your application. The
+     |      default color is assigned to the color number -1. After calling this
+     |      function, init_pair(x, curses.COLOR_RED, -1) initializes, for
+     |      instance, color pair x to a red foreground color on the default
+     |      background.
+     |  
+     |  use_env(self, flag)
+     |      If used, this function should be called before initscr() or
+     |      newterm are called. When flag is false, the values of lines and
+     |      columns specified in the terminfo database will be used, even
+     |      if environment variables LINES and COLUMNS (used by default)
+     |      are set, or if curses is running in a window (in which case
+     |      default behavior would be to use the window size if LINES and
+     |      COLUMNS are not set).
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes defined here:
+     |  
+     |  AcceleratorKeysByEarliestAssignedId = {'name': 'AcceleratorKeysByEarli...
+     |  
+     |  AcceleratorTableByAssignedId = {'name': 'AcceleratorTableByAssignedId'...
+     |  
+     |  BackgroundColor = None
+     |  
+     |  BuiltinPaletteRGB = None
+     |  
+     |  CanChangeColor = None
+     |  
+     |  ColorDataBase = None
+     |  
+     |  ColorDataBaseID = None
+     |  
+     |  ColorDataBasePairID = None
+     |  
+     |  ColorSubstitutionDataBase = None
+     |  
+     |  CursesColorPairs = None
+     |  
+     |  CursesColors = None
+     |  
+     |  CursesDataBase = None
+     |  
+     |  CursesPanels = None
+     |  
+     |  EventAssociationsByEarliestAssignedId = {'name': 'EventAssociationsByE...
+     |  
+     |  ForegroundColor = None
+     |  
+     |  HasColors = None
+     |  
+     |  HasDisplay = None
+     |  
+     |  HasKeyboard = None
+     |  
+     |  HasLogger = None
+     |  
+     |  HasMouse = None
+     |  
+     |  HostOS = 'CYGWIN_NT-6.1'
+     |  
+     |  KeyboardInputRecipients = {'lifoList': [], 'name': 'KeyboardInputRecip...
+     |  
+     |  LongName = None
+     |  
+     |  Mmask = None
+     |  
+     |  MouseButtonCodes = None
+     |  
+     |  OperationsShutdown = True
+     |  
+     |  PythonVersion = 'Python-2.7.3'
+     |  
+     |  Stdscr = None
+     |  
+     |  StdscrGeometry = None
+     |  
+     |  StdscrGeometryPixels = None
+     |  
+     |  TermName = None
+     |  
+     |  TheWindows = {'name': 'TheWindows', 'windowIndex': -1}
+     |  
+     |  TopLevelApplication = None
+     |  
+     |  TopLevelWindows = {'name': 'TopLevelWindows'}
+     |  
+     |  WindowDataBase = None
+     |  
+     |  WindowHandles = {'name': 'WindowHandles'}
+     |  
+     |  WindowTopLevelAncestors = {'name': 'WindowTopLevelAncestors'}
+     |  
+     |  WindowTopLevelTasks = []
+     |  
+     |  WindowsByAssignedId = {'name': 'WindowsByAssignedId'}
+     |  
+     |  WindowsByHandle = {'name': 'WindowsByHandle'}
+     |  
+     |  WindowsById = {'name': 'WindowsById'}
+     |  
+     |  WindowsByName = {'name': 'WindowsByName'}
+     |  
+     |  WindowsByPanelLayer = {'name': 'WindowsByPanelLayer'}
+     |  
+     |  WindowsByShowOrder = {'AssignedIdByPanelLayer': {'name': 'AssignedIdBy...
+    
+    class PrivateLogger(__builtin__.object)
+     |  The PrivateLogger class.
+     |  
+     |  It should only be needed when this module is itself the main program.
+     |  It will not be needed when tsApplication establishes a fully funtional
+     |  logger.
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self)
+     |  
+     |  alert(self, msg, *args, **kwargs)
+     |      Log 'msg % args' with severity 'ALERT'.
+     |      
+     |      To pass exception information, use the keyword argument exc_info with
+     |      a true value, e.g.
+     |      
+     |      logger.warning("Houston, we have a %s", "bit of a problem",
+     |      exc_info = 1)
+     |  
+     |  critical(self, msg, *args, **kwargs)
+     |      Log 'msg % args' with severity 'CRITICAL'.
+     |      
+     |      To pass exception information, use the keyword argument exc_info with
+     |      a true value, e.g.
+     |      
+     |      logger.critical("Houston, we have a %s", "major disaster",
+     |      exc_info = 1)
+     |  
+     |  debug(self, msg, *args, **kwargs)
+     |      Log 'msg % args' with severity 'DEBUG'.
+     |      
+     |      To pass exception information, use the keyword argument exc_info with
+     |      a true value, e.g.
+     |      
+     |      logger.debug("Houston, we have a %s", "thorny problem", exc_info = 1)
+     |  
+     |  emergency(self, msg, *args, **kwargs)
+     |      Log 'msg % args' with severity 'EMERGENCY'.
+     |      
+     |      To pass exception information, use the keyword argument exc_info with
+     |      a true value, e.g.
+     |      
+     |      logger.critical("Houston, we have a %s", "major disaster",
+     |      exc_info = 1)
+     |  
+     |  error(self, msg, *args, **kwargs)
+     |      Log 'msg % args' with severity 'ERROR'.
+     |      
+     |      To pass exception information, use the keyword argument exc_info with
+     |      a true value, e.g.
+     |      
+     |      logger.error("Houston, we have a %s", "major problem", exc_info = 1)
+     |  
+     |  exception(self, msg, *args)
+     |      Convenience method for logging an ERROR with exception information.
+     |  
+     |  info(self, msg, *args, **kwargs)
+     |      Log 'msg % args' with severity 'INFO'.
+     |      
+     |      To pass exception information, use the keyword argument exc_info with
+     |      a true value, e.g.
+     |      
+     |      logger.info("Houston, we have a %s", "interesting problem",
+     |      exc_info = 1)
+     |  
+     |  log(self, level, msg, *args, **kwargs)
+     |      Log 'msg % args' with the integer severity 'level'.
+     |      
+     |      To pass exception information, use the keyword argument exc_info with
+     |      a true value, e.g.
+     |      
+     |      logger.log(level, "We have a %s", "mysterious problem", exc_info = 1)
+     |  
+     |  notice(self, msg, *args, **kwargs)
+     |      Log 'msg % args' with severity 'NOTICE'.
+     |      
+     |      To pass exception information, use the keyword argument exc_info with
+     |      a true value, e.g.
+     |      
+     |      logger.info("Houston, we have a %s", "interesting problem",
+     |      exc_info = 1)
+     |  
+     |  warning(self, msg, *args, **kwargs)
+     |      Log 'msg % args' with severity 'WARNING'.
+     |      
+     |      To pass exception information, use the keyword argument exc_info with
+     |      a true value, e.g.
+     |      
+     |      logger.warning("Houston, we have a %s", "bit of a problem", exc_info = 1)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes defined here:
+     |  
+     |  ALERT = 35
+     |  
+     |  APPEND = 'a'
+     |  
+     |  CRITICAL = 50
+     |  
+     |  DEBUG = 10
+     |  
+     |  DEBUG_TRACE_LEVEL = 5
+     |  
+     |  DEFAULT_LOG_FILE_MODE = 'w'
+     |  
+     |  EMERGENCY = 55
+     |  
+     |  ERROR = 40
+     |  
+     |  INFO = 20
+     |  
+     |  LOG_EXTENSION = '.log'
+     |  
+     |  LOG_NAME = 'message'
+     |  
+     |  LOG_PATH = './'
+     |  
+     |  NOTICE = 25
+     |  
+     |  NOTSET = 0
+     |  
+     |  PRIVATE = 60
+     |  
+     |  PRIVATENAME = 'PRIVATE'
+     |  
+     |  TRUNCATE = 'w'
+     |  
+     |  WARNING = 30
+     |  
+     |  category = {0: 'NOTSET', 10: 'DEBUG', 20: 'INFO', 25: 'NOTICE', 30: 'W...
+     |  
+     |  threshold = {0: 0, 10: 10, 20: 20, 25: 25, 30: 30, 35: 35, 40: 40, 50:...
+    
+    class TsSysCommands(__builtin__.object)
+     |  This class wraps the Python subprocess module which allows you to spawn
+     |  new processes, connect to their input/output/error pipes, and obtain
+     |  their return codes.
+     |  
+     |  Static methods defined here:
+     |  
+     |  tsCall(args, bufsize=0, executable=None, stdin=None, stdout=None, stderr=None, preexec_fn=None, close_fds=False, shell=False, cwd=None, env=None, universal_newlines=False, startupinfo=None, creationflags=0)
+     |      Run command with arguments. Wait for command to complete,
+     |      then return the returncode attribute.
+     |      
+     |      The arguments are the same as for the Popen constructor.
+     |      
+     |      Example: retcode = call(["ls", "-l"])
+     |  
+     |  tsCheckCall(args, bufsize=0, executable=None, stdin=None, stdout=None, stderr=None, preexec_fn=None, close_fds=False, shell=False, cwd=None, env=None, universal_newlines=False, startupinfo=None, creationflags=0)
+     |      Run command with arguments. Wait for command to complete.
+     |      If the exit code was zero then return, otherwise raise
+     |      CalledProcessError. The CalledProcessError object will
+     |      have the return code in the returncode attribute.
+     |      
+     |      The arguments are the same as for the Popen constructor.
+     |      
+     |      Example: check_call(["ls", "-l"])
+     |  
+     |  tsGetOutput(theCmd)
+     |      Like getstatusoutput(), except the exit status is ignored and the
+     |      return value is a string containing the command output.
+     |  
+     |  tsGetStatus(theFile)
+     |      Return the output of "ls -ld theFile" as a string. This
+     |      function uses the getoutput() function, and properly
+     |      escapes backslashes and dollar signs in the argument.
+     |  
+     |  tsGetStatusOutput(cmd)
+     |      Execute the string cmd in a shell with os.popen() and return a
+     |      2-tuple (status, output). cmd is actually run as { cmd ; } 2>&1,
+     |      so that the returned output will contain output or error messages.
+     |      A trailing newline is stripped from the output. The exit status
+     |      for the command can be interpreted according to the rules for
+     |      the C function wait().
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    tsru = class TsReportUtilities(__builtin__.object)
+     |  Class defining methods used to format information: date and time
+     |  (begin, end and elapsed), file size (with kilo-, mega-, giga-,
+     |  tera-, peta-, exa-, zeta- and yotta-byte units) and nested Python
+     |  dictionaries.
+     |  
+     |  Static methods defined here:
+     |  
+     |  displayDictionary(level, myDictionary, myFile, myLogger=None)
+     |      Recursive method to display nested entries in configuration dictionary.
+     |  
+     |  getByteCountStrings(bytes)
+     |      Return a tupple with the text representations of a value.
+     |      Labeled     - TB (Terabyte),
+     |                    GB (Gigabyte),
+     |                    MB (Megabyte),
+     |                    KB (Kilobyte) and
+     |                    B (Byte)
+     |      Decimal     - ASCII Numeric
+     |      Hexadecimal - Hex ASCII
+     |      
+     |      Ref: http://www.answers.com/topic/terabyte?cat=health
+     |  
+     |  getDateAndTimeString(seconds)
+     |      Construct timestamp string (in "Date at Time" format).
+     |  
+     |  getDateTimeString(seconds, msec=False, filename=False)
+     |      Construct timestamp string suitable for use as label or alternatively
+     |      for use as filename.
+     |      
+     |      Label output uses "Year/Month/Day Hour:Minute:Second" format
+     |      with optional ".millisecond" suffix). For example,
+     |      "2010/05/13-04:17:49.123" is returned for 123 milliseconds after
+     |      May 13, 2010 at 04:17:49).
+     |      
+     |      Filename output uses "Year/Month/Day" and "Hour:Minute:Second" data
+     |      separated by "-at-" and with "-" replacing "/" and ":" separators.
+     |      For example, "2010-05-13-at-04-17-49" is returned for May 13, 2010
+     |      at 04:17:49).
+     |      
+     |      From: http://www.portfoliofaq.com/pfaq/FAQ00352.htm
+     |      
+     |              The following list is fairly exhaustive and pulls together
+     |              references from various sources. Although not mentioned
+     |              explicitly, Unix seems to have few - if any - restrictions.
+     |              Compliance with these conventions as assets are added to
+     |              your library will allow widest use of the assets without
+     |              subsequent manual intervention to re-path/name, etc. The
+     |              rules take into account the use of assets on local &
+     |              network hard drives, CD/DVD, removable drives and online
+     |              (web/ftp) using Mac OS9/OSX and Windows OSs:
+     |      
+     |              1.  Illegal filename characters, (e.g. : or ?). (All OSs).
+     |      
+     |              2.  Deprecated filename characters (; and ,). (All OSs).
+     |      
+     |              3.  >31 filename characters including extension.
+     |                  (Mac Classic).
+     |      
+     |              4.  >64 filename characters including extension.
+     |                  (Windows: ISO9660+Joliet CD or Hybrid CD partition).
+     |      
+     |              5.  No extension - extensions are mandatory for Windows and
+     |                  the only means for Portfolio to tell file type.
+     |                  (Windows, Mac OS X).
+     |      
+     |              6.  Filename has >1 period - Portfolio may misinterpret
+     |                  extension. (Windows, Mac OS X).
+     |      
+     |              7.  Extension may be wrong, i.e. not 3 characters.
+     |                  (Windows, Mac OS X).
+     |      
+     |              8.  Illegal characters in path to file - same issue
+     |                  as #1 but for path. (All OSs).
+     |      
+     |              9.  Deprecated characters in path to file - same issue
+     |                  as #2 but for path. (All OSs).
+     |      
+     |              10. Filename may not begin with a period. (Windows not
+     |                  allowed, Mac treats as a hidden file)
+     |      
+     |              11.  Filename may not end in a period. (Windows not
+     |                   allowed - OS "throws away" the trailing period
+     |                   when naming/reading so incorrect matching vs.
+     |                   Mac name)
+     |      
+     |              12. Names conflicting with some of Win OS old DOS
+     |                  functions (Not allowed in either upper or lowercase
+     |                  and with or without a file extension or as a file
+     |                  extension: COM1 to COM9 inclusive, LPT1 to LPT9
+     |                  inclusive, CON, PRN, AUX, CLOCK$ and NUL)
+     |      
+     |              13. Case sensitivity. Windows OSs (and IIS web servers)
+     |                  are not case sensitive. Most other OSs (and web
+     |                  servers) are.
+     |      
+     |              14. Filenames ought not to begin with a hyphen (Unix
+     |                  systems my interpret the filename as a flag to a
+     |                  command line call).
+     |      
+     |      From: http://msdn.microsoft.com/en-us/library/windows/
+     |            desktop/aa365247%28v=vs.85%29.aspx#naming_conventions
+     |      
+     |              Use any character in the current code page for a name,
+     |              including Unicode characters and characters in the
+     |              extended character set, except for the following:
+     |      
+     |                  The following reserved characters:
+     |                      < (less than)
+     |                      > (greater than)
+     |                      : (colon)
+     |                      " (double quote)
+     |                      / (forward slash)
+     |                      \ (backslash)
+     |                      | (vertical bar or pipe)
+     |                      ? (question mark)
+     |                      * (asterisk)
+     |  
+     |  getDayHourMinuteSecondString(inputSeconds=0, firstDelimiter='-')
+     |      Convert time from seconds to string format.
+     |  
+     |  getElapsedTimeString(startupTime, currentTime)
+     |      Construct elapsed time in days, hours, minutes, seconds between
+     |      supplied startup and current time inputs in seconds since the
+     |      UNIX epoch.
+     |  
+     |  getHourMinuteSecondString(seconds)
+     |      Construct time string (in "Hour:Minute:Second" format) from time in
+     |      seconds since UNIX epoch.
+     |  
+     |  getIndentString(indent)
+     |      Construct a string of white space appropriate for indenting level.
+     |  
+     |  getNextPathName(theDirectory, theName)
+     |      Construct the path to the next log file.
+     |      
+     |      Get the next filename
+     |        theName + _ + number + .txt
+     |        log_1.txt, log_2.txt
+     |      theDirectory : path to the directory containing the files
+     |      theName      : string at the beginning of the simple filename
+     |  
+     |  getSecondsTimeFromHoursMinutesSecondsString(timeString=None)
+     |      Convert time from string to seconds format.
+     |  
+     |  getSeparatorString(title=None, indent=0, position=39, separatorCharacter='-', tab=4)
+     |      Construct a string of title and white space to separate one section
+     |      of text from another.
+     |  
+     |  getStatisticsList(startupTime, currentTime, numberOfTestRuns, numberOfTestPasses, numberOfTestFailures)
+     |      Create test summary after elapesed time and statistics details
+     |      on the number of test runs, number of passing test runs, number
+     |      of failing test runs, startup timestamp, shutdown timestamp
+     |      and elapsed timesrtamp.
+     |  
+     |  getTimeStatisticsList(startupTime, currentTime)
+     |      Generate Startup, Current (or Shutdown) and Elapsed Time strings.
+     |  
+     |  getYearMonthDayString(seconds)
+     |      Construct date string (in "Year-Month-Day" format) from time in seconds
+     |      since UNIX epoch.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes defined here:
+     |  
+     |  layout = {'TitleCenter': 39, 'TitleIndent': 8, 'TitleLeft': 0, 'TitleP...
+     |  
+     |  pageLength = 66
+     |  
+     |  pageWidth = 80
+
+DATA
+    BlackOnWhiteDefault = ['xterm-256color', 'xterm-88color', 'xterm-16col...
+    COLOR_ALICE_BLUE = 'alice blue'
+    COLOR_ANTIQUE_WHITE = 'antique white'
+    COLOR_AQUAMARINE = 'aquamarine'
+    COLOR_AZURE = 'azure'
+    COLOR_BEIGE = 'beige'
+    COLOR_BISQUE = 'bisque'
+    COLOR_BLACK = 'black'
+    COLOR_BLANCHED_ALMOND = 'blanched almond'
+    COLOR_BLUE = 'blue'
+    COLOR_BLUE_VIOLET = 'blue violet'
+    COLOR_BROWN = 'brown'
+    COLOR_BURLYWOOD = 'burlywood'
+    COLOR_CADET_BLUE = 'cadet blue'
+    COLOR_CHARTREUSE = 'chartreuse'
+    COLOR_CHOCOLATE = 'chocolate'
+    COLOR_CORAL = 'coral'
+    COLOR_CORNFLOWER_BLUE = 'cornflower blue'
+    COLOR_CORNSILK = 'cornsilk'
+    COLOR_CRIMSON = 'crimson'
+    COLOR_CYAN = 'cyan'
+    COLOR_DARK_BLUE = 'dark blue'
+    COLOR_DARK_CYAN = 'dark cyan'
+    COLOR_DARK_GOLDENROD = 'dark goldenrod'
+    COLOR_DARK_GRAY = 'dark gray'
+    COLOR_DARK_GREEN = 'dark green'
+    COLOR_DARK_KHAKI = 'dark khaki'
+    COLOR_DARK_MAGENTA = 'dark magenta'
+    COLOR_DARK_OLIVE_GREEN = 'dark olive green'
+    COLOR_DARK_ORANGE = 'dark orange'
+    COLOR_DARK_ORCHID = 'dark orchid'
+    COLOR_DARK_RED = 'dark red'
+    COLOR_DARK_SALMON = 'dark salmon'
+    COLOR_DARK_SEA_GREEN = 'dark sea green'
+    COLOR_DARK_SLATE_BLUE = 'dark slate blue'
+    COLOR_DARK_SLATE_GRAY = 'dark slate gray'
+    COLOR_DARK_TURQUOISE = 'dark turquoise'
+    COLOR_DARK_VIOLET = 'dark violet'
+    COLOR_DEEP_PINK = 'deep pink'
+    COLOR_DEEP_SKY_BLUE = 'deep sky blue'
+    COLOR_DIM_GRAY = 'dim gray'
+    COLOR_DODGER_BLUE = 'dodger blue'
+    COLOR_FIREBRICK = 'firebrick'
+    COLOR_FLORAL_WHITE = 'floral white'
+    COLOR_FOREST_GREEN = 'forest green'
+    COLOR_GAINSBORO = 'gainsboro'
+    COLOR_GHOST_WHITE = 'ghost white'
+    COLOR_GOLD = 'gold'
+    COLOR_GOLDENROD = 'goldenrod'
+    COLOR_GRAY = 'gray'
+    COLOR_GREEN = 'green'
+    COLOR_GREEN_YELLOW = 'green yellow'
+    COLOR_HONEYDEW = 'honeydew'
+    COLOR_HOT_PINK = 'hot pink'
+    COLOR_INDIAN_RED = 'indian red'
+    COLOR_INDIGO = 'indigo'
+    COLOR_IVORY = 'ivory'
+    COLOR_KHAKI = 'khaki'
+    COLOR_LAVENDER = 'lavender'
+    COLOR_LAVENDER_BLUSH = 'lavender blush'
+    COLOR_LAWN_GREEN = 'lawn green'
+    COLOR_LEMON_CHIFFON = 'lemon chiffon'
+    COLOR_LIGHT_BLUE = 'light blue'
+    COLOR_LIGHT_CORAL = 'light coral'
+    COLOR_LIGHT_CYAN = 'light cyan'
+    COLOR_LIGHT_GOLDENROD_YELLOW = 'light goldenrod yellow'
+    COLOR_LIGHT_GRAY = 'light gray'
+    COLOR_LIGHT_GREEN = 'light green'
+    COLOR_LIGHT_PINK = 'light pink'
+    COLOR_LIGHT_SALMON = 'light salmon'
+    COLOR_LIGHT_SEA_GREEN = 'light sea green'
+    COLOR_LIGHT_SKY_BLUE = 'light sky blue'
+    COLOR_LIGHT_SLATE_GRAY = 'light slate gray'
+    COLOR_LIGHT_STEEL_BLUE = 'light steel blue'
+    COLOR_LIGHT_YELLOW = 'light yellow'
+    COLOR_LIME_GREEN = 'lime green'
+    COLOR_LINEN = 'linen'
+    COLOR_MAGENTA = 'magenta'
+    COLOR_MAROON = 'maroon'
+    COLOR_MEDIUM_AQUAMARINE = 'medium aquamarine'
+    COLOR_MEDIUM_BLUE = 'medium blue'
+    COLOR_MEDIUM_FOREST_GREEN = 'medium forest green'
+    COLOR_MEDIUM_GOLDENROD = 'medium goldenrod'
+    COLOR_MEDIUM_ORCHID = 'medium orchid'
+    COLOR_MEDIUM_PURPLE = 'medium purple'
+    COLOR_MEDIUM_SEA_GREEN = 'medium sea green'
+    COLOR_MEDIUM_SLATE_BLUE = 'medium slate blue'
+    COLOR_MEDIUM_SPRING_GREEN = 'medium spring green'
+    COLOR_MEDIUM_TURQUOISE = 'medium turquoise'
+    COLOR_MEDIUM_VIOLET_RED = 'medium violet red'
+    COLOR_MIDNIGHT_BLUE = 'midnight blue'
+    COLOR_MINT_CREAM = 'mint cream'
+    COLOR_MISTY_ROSE = 'misty rose'
+    COLOR_MOCCASIN = 'moccasin'
+    COLOR_NAVAJO_WHITE = 'navajo white'
+    COLOR_NAVY = 'navy'
+    COLOR_OLD_LACE = 'old lace'
+    COLOR_OLIVE = 'olive'
+    COLOR_OLIVE_DRAB = 'olive drab'
+    COLOR_ORANGE = 'orange'
+    COLOR_ORANGE_RED = 'orange red'
+    COLOR_ORCHID = 'orchid'
+    COLOR_PALE_GOLDENROD = 'pale goldenrod'
+    COLOR_PALE_GREEN = 'pale green'
+    COLOR_PALE_TURQUOISE = 'pale turquoise'
+    COLOR_PALE_VIOLET_RED = 'pale violet red'
+    COLOR_PAPAYA_WHIP = 'papaya whip'
+    COLOR_PEACH_PUFF = 'peach puff'
+    COLOR_PERU = 'peru'
+    COLOR_PINK = 'pink'
+    COLOR_PLUM = 'plum'
+    COLOR_POWDER_BLUE = 'powder blue'
+    COLOR_PURPLE = 'purple'
+    COLOR_RED = 'red'
+    COLOR_RGB_ALICE_BLUE = 'alice blue'
+    COLOR_RGB_ANTIQUE_WHITE = 'antique white'
+    COLOR_RGB_ANTIQUE_WHITE1 = 'antique white1'
+    COLOR_RGB_ANTIQUE_WHITE2 = 'antique white2'
+    COLOR_RGB_ANTIQUE_WHITE3 = 'antique white3'
+    COLOR_RGB_ANTIQUE_WHITE4 = 'antique white4'
+    COLOR_RGB_AQUAMARINE = 'aquamarine'
+    COLOR_RGB_AQUAMARINE1 = 'aquamarine1'
+    COLOR_RGB_AQUAMARINE2 = 'aquamarine2'
+    COLOR_RGB_AQUAMARINE3 = 'aquamarine3'
+    COLOR_RGB_AQUAMARINE4 = 'aquamarine4'
+    COLOR_RGB_AZURE = 'azure'
+    COLOR_RGB_AZURE1 = 'azure1'
+    COLOR_RGB_AZURE2 = 'azure2'
+    COLOR_RGB_AZURE3 = 'azure3'
+    COLOR_RGB_AZURE4 = 'azure4'
+    COLOR_RGB_BEIGE = 'beige'
+    COLOR_RGB_BISQUE = 'bisque'
+    COLOR_RGB_BISQUE1 = 'bisque1'
+    COLOR_RGB_BISQUE2 = 'bisque2'
+    COLOR_RGB_BISQUE3 = 'bisque3'
+    COLOR_RGB_BISQUE4 = 'bisque4'
+    COLOR_RGB_BLACK = 'black'
+    COLOR_RGB_BLANCHED_ALMOND = 'blanched almond'
+    COLOR_RGB_BLUE = 'blue'
+    COLOR_RGB_BLUE1 = 'blue1'
+    COLOR_RGB_BLUE2 = 'blue2'
+    COLOR_RGB_BLUE3 = 'blue3'
+    COLOR_RGB_BLUE4 = 'blue4'
+    COLOR_RGB_BLUE_VIOLET = 'blue violet'
+    COLOR_RGB_BROWN = 'brown'
+    COLOR_RGB_BROWN1 = 'brown1'
+    COLOR_RGB_BROWN2 = 'brown2'
+    COLOR_RGB_BURLYWOOD = 'burlywood'
+    COLOR_RGB_BURLYWOOD1 = 'burlywood1'
+    COLOR_RGB_BURLYWOOD2 = 'burlywood2'
+    COLOR_RGB_BURLYWOOD3 = 'burlywood3'
+    COLOR_RGB_BURLYWOOD4 = 'burlywood4'
+    COLOR_RGB_CADET_BLUE = 'cadet blue'
+    COLOR_RGB_CADET_BLUE1 = 'cadet blue1'
+    COLOR_RGB_CADET_BLUE2 = 'cadet blue2'
+    COLOR_RGB_CADET_BLUE3 = 'cadet blue3'
+    COLOR_RGB_CADET_BLUE4 = 'cadet blue4'
+    COLOR_RGB_CHARTREUSE = 'chartreuse'
+    COLOR_RGB_CHARTREUSE1 = 'chartreuse1'
+    COLOR_RGB_CHARTREUSE2 = 'chartreuse2'
+    COLOR_RGB_CHARTREUSE3 = 'chartreuse3'
+    COLOR_RGB_CHARTREUSE4 = 'chartreuse4'
+    COLOR_RGB_CHOCOLATE = 'chocolate'
+    COLOR_RGB_CHOCOLATE1 = 'chocolate1'
+    COLOR_RGB_CHOCOLATE2 = 'chocolate2'
+    COLOR_RGB_CHOCOLATE3 = 'chocolate3'
+    COLOR_RGB_CHOCOLATE4 = 'chocolate4'
+    COLOR_RGB_CORAL = 'coral'
+    COLOR_RGB_CORAL1 = 'coral1'
+    COLOR_RGB_CORAL2 = 'coral2'
+    COLOR_RGB_CORAL3 = 'coral3'
+    COLOR_RGB_CORAL4 = 'coral4'
+    COLOR_RGB_CORNFLOWER_BLUE = 'cornflower blue'
+    COLOR_RGB_CORNSILK = 'cornsilk'
+    COLOR_RGB_CORNSILK1 = 'cornsilk1'
+    COLOR_RGB_CORNSILK2 = 'cornsilk2'
+    COLOR_RGB_CORNSILK3 = 'cornsilk3'
+    COLOR_RGB_CORNSILK4 = 'cornsilk4'
+    COLOR_RGB_CRIMSON = 'crimson'
+    COLOR_RGB_CYAN = 'cyan'
+    COLOR_RGB_CYAN1 = 'cyan1'
+    COLOR_RGB_CYAN2 = 'cyan2'
+    COLOR_RGB_CYAN3 = 'cyan3'
+    COLOR_RGB_CYAN4 = 'cyan4'
+    COLOR_RGB_DARK_BLUE = 'dark blue'
+    COLOR_RGB_DARK_CYAN = 'dark cyan'
+    COLOR_RGB_DARK_GOLDENROD = 'dark goldenrod'
+    COLOR_RGB_DARK_GOLDENROD1 = 'dark goldenrod1'
+    COLOR_RGB_DARK_GOLDENROD2 = 'dark goldenrod2'
+    COLOR_RGB_DARK_GOLDENROD3 = 'dark goldenrod3'
+    COLOR_RGB_DARK_GRAY = 'dark gray'
+    COLOR_RGB_DARK_GREEN = 'dark green'
+    COLOR_RGB_DARK_KHAKI = 'dark khaki'
+    COLOR_RGB_DARK_MAGENTA = 'dark magenta'
+    COLOR_RGB_DARK_OLIVE_GREEN = 'dark olive green'
+    COLOR_RGB_DARK_OLIVE_GREEN1 = 'dark olive green1'
+    COLOR_RGB_DARK_OLIVE_GREEN2 = 'dark olive green2'
+    COLOR_RGB_DARK_OLIVE_GREEN3 = 'dark olive green3'
+    COLOR_RGB_DARK_OLIVE_GREEN4 = 'dark olive green4'
+    COLOR_RGB_DARK_ORANGE = 'dark orange'
+    COLOR_RGB_DARK_ORANGE1 = 'dark orange1'
+    COLOR_RGB_DARK_ORANGE2 = 'dark orange2'
+    COLOR_RGB_DARK_ORANGE3 = 'dark orange3'
+    COLOR_RGB_DARK_ORANGE4 = 'dark orange4'
+    COLOR_RGB_DARK_ORCHID = 'dark orchid'
+    COLOR_RGB_DARK_ORCHID1 = 'dark orchid1'
+    COLOR_RGB_DARK_ORCHID2 = 'dark orchid2'
+    COLOR_RGB_DARK_ORCHID3 = 'dark orchid3'
+    COLOR_RGB_DARK_ORCHID4 = 'dark orchid4'
+    COLOR_RGB_DARK_RED = 'dark red'
+    COLOR_RGB_DARK_SALMON = 'dark salmon'
+    COLOR_RGB_DARK_SEA_GREEN = 'dark sea green'
+    COLOR_RGB_DARK_SEA_GREEN1 = 'dark sea green1'
+    COLOR_RGB_DARK_SEA_GREEN2 = 'dark sea green2'
+    COLOR_RGB_DARK_SEA_GREEN3 = 'dark sea green3'
+    COLOR_RGB_DARK_SEA_GREEN4 = 'dark sea green4'
+    COLOR_RGB_DARK_SLATE_BLUE = 'dark slate blue'
+    COLOR_RGB_DARK_SLATE_GRAY = 'dark slate gray'
+    COLOR_RGB_DARK_TURQUOISE = 'dark turquoise'
+    COLOR_RGB_DARK_VIOLET = 'dark violet'
+    COLOR_RGB_DEEP_PINK = 'deep pink'
+    COLOR_RGB_DEEP_PINK4 = 'deep pink4'
+    COLOR_RGB_DEEP_SKY_BLUE = 'deep sky blue'
+    COLOR_RGB_DEEP_SKY_BLUE1 = 'deep sky blue1'
+    COLOR_RGB_DEEP_SKY_BLUE2 = 'deep sky blue2'
+    COLOR_RGB_DEEP_SKY_BLUE3 = 'deep sky blue3'
+    COLOR_RGB_DEEP_SKY_BLUE4 = 'deep sky blue4'
+    COLOR_RGB_DIM_GRAY = 'dim gray'
+    COLOR_RGB_DODGER_BLUE = 'dodger blue'
+    COLOR_RGB_DODGER_BLUE1 = 'dodger blue1'
+    COLOR_RGB_DODGER_BLUE2 = 'dodger blue2'
+    COLOR_RGB_DODGER_BLUE3 = 'dodger blue3'
+    COLOR_RGB_DODGER_BLUE4 = 'dodger blue4'
+    COLOR_RGB_FIREBRICK = 'firebrick'
+    COLOR_RGB_FIREBRICK1 = 'firebrick1'
+    COLOR_RGB_FIREBRICK2 = 'firebrick2'
+    COLOR_RGB_FIREBRICK3 = 'firebrick3'
+    COLOR_RGB_FIREBRICK4 = 'firebrick4'
+    COLOR_RGB_FLORAL_WHITE = 'floral white'
+    COLOR_RGB_FOREST_GREEN = 'forest green'
+    COLOR_RGB_GAINSBORO = 'gainsboro'
+    COLOR_RGB_GHOST_WHITE = 'ghost white'
+    COLOR_RGB_GOLD = 'gold'
+    COLOR_RGB_GOLD1 = 'gold1'
+    COLOR_RGB_GOLD2 = 'gold2'
+    COLOR_RGB_GOLD3 = 'gold3'
+    COLOR_RGB_GOLD4 = 'gold4'
+    COLOR_RGB_GOLDENROD = 'goldenrod'
+    COLOR_RGB_GOLDENROD1 = 'goldenrod1'
+    COLOR_RGB_GOLDENROD2 = 'goldenrod2'
+    COLOR_RGB_GOLDENROD3 = 'goldenrod3'
+    COLOR_RGB_GOLDENROD4 = 'goldenrod4'
+    COLOR_RGB_GRAY = 'gray'
+    COLOR_RGB_GRAY10 = 'gray10'
+    COLOR_RGB_GRAY100 = 'gray100'
+    COLOR_RGB_GRAY11 = 'gray11'
+    COLOR_RGB_GRAY12 = 'gray12'
+    COLOR_RGB_GRAY13 = 'gray13'
+    COLOR_RGB_GRAY14 = 'gray14'
+    COLOR_RGB_GRAY15 = 'gray15'
+    COLOR_RGB_GRAY16 = 'gray16'
+    COLOR_RGB_GRAY17 = 'gray17'
+    COLOR_RGB_GRAY18 = 'gray18'
+    COLOR_RGB_GRAY19 = 'gray19'
+    COLOR_RGB_GRAY2 = 'gray2'
+    COLOR_RGB_GRAY20 = 'gray20'
+    COLOR_RGB_GRAY21 = 'gray21'
+    COLOR_RGB_GRAY22 = 'gray22'
+    COLOR_RGB_GRAY23 = 'gray23'
+    COLOR_RGB_GRAY24 = 'gray24'
+    COLOR_RGB_GRAY25 = 'gray25'
+    COLOR_RGB_GRAY26 = 'gray26'
+    COLOR_RGB_GRAY3 = 'gray3'
+    COLOR_RGB_GRAY36 = 'gray36'
+    COLOR_RGB_GRAY37 = 'gray37'
+    COLOR_RGB_GRAY38 = 'gray38'
+    COLOR_RGB_GRAY39 = 'gray39'
+    COLOR_RGB_GRAY4 = 'gray4'
+    COLOR_RGB_GRAY40 = 'gray40'
+    COLOR_RGB_GRAY41 = 'gray41'
+    COLOR_RGB_GRAY42 = 'gray42'
+    COLOR_RGB_GRAY43 = 'gray43'
+    COLOR_RGB_GRAY44 = 'gray44'
+    COLOR_RGB_GRAY45 = 'gray45'
+    COLOR_RGB_GRAY46 = 'gray46'
+    COLOR_RGB_GRAY47 = 'gray47'
+    COLOR_RGB_GRAY48 = 'gray48'
+    COLOR_RGB_GRAY49 = 'gray49'
+    COLOR_RGB_GRAY5 = 'gray5'
+    COLOR_RGB_GRAY50 = 'gray50'
+    COLOR_RGB_GRAY51 = 'gray51'
+    COLOR_RGB_GRAY52 = 'gray52'
+    COLOR_RGB_GRAY53 = 'gray53'
+    COLOR_RGB_GRAY54 = 'gray54'
+    COLOR_RGB_GRAY55 = 'gray55'
+    COLOR_RGB_GRAY56 = 'gray56'
+    COLOR_RGB_GRAY57 = 'gray57'
+    COLOR_RGB_GRAY58 = 'gray58'
+    COLOR_RGB_GRAY59 = 'gray59'
+    COLOR_RGB_GRAY6 = 'gray6'
+    COLOR_RGB_GRAY60 = 'gray60'
+    COLOR_RGB_GRAY7 = 'gray7'
+    COLOR_RGB_GRAY74 = 'gray74'
+    COLOR_RGB_GRAY75 = 'gray75'
+    COLOR_RGB_GRAY76 = 'gray76'
+    COLOR_RGB_GRAY77 = 'gray77'
+    COLOR_RGB_GRAY78 = 'gray78'
+    COLOR_RGB_GRAY79 = 'gray79'
+    COLOR_RGB_GRAY8 = 'gray8'
+    COLOR_RGB_GRAY80 = 'gray80'
+    COLOR_RGB_GRAY81 = 'gray81'
+    COLOR_RGB_GRAY82 = 'gray82'
+    COLOR_RGB_GRAY83 = 'gray83'
+    COLOR_RGB_GRAY84 = 'gray84'
+    COLOR_RGB_GRAY85 = 'gray85'
+    COLOR_RGB_GRAY86 = 'gray86'
+    COLOR_RGB_GRAY87 = 'gray87'
+    COLOR_RGB_GRAY88 = 'gray88'
+    COLOR_RGB_GRAY89 = 'gray89'
+    COLOR_RGB_GRAY9 = 'gray9'
+    COLOR_RGB_GRAY90 = 'gray90'
+    COLOR_RGB_GRAY91 = 'gray91'
+    COLOR_RGB_GRAY92 = 'gray92'
+    COLOR_RGB_GRAY93 = 'gray93'
+    COLOR_RGB_GRAY94 = 'gray94'
+    COLOR_RGB_GRAY95 = 'gray95'
+    COLOR_RGB_GRAY96 = 'gray96'
+    COLOR_RGB_GRAY97 = 'gray97'
+    COLOR_RGB_GRAY98 = 'gray98'
+    COLOR_RGB_GRAY99 = 'gray99'
+    COLOR_RGB_GREEN = 'green'
+    COLOR_RGB_GREEN1 = 'green1'
+    COLOR_RGB_GREEN2 = 'green2'
+    COLOR_RGB_GREEN3 = 'green3'
+    COLOR_RGB_GREEN4 = 'green4'
+    COLOR_RGB_GREEN_YELLOW = 'green yellow'
+    COLOR_RGB_HONEYDEW = 'honeydew'
+    COLOR_RGB_HONEYDEW1 = 'honeydew1'
+    COLOR_RGB_HONEYDEW2 = 'honeydew2'
+    COLOR_RGB_HONEYDEW3 = 'honeydew3'
+    COLOR_RGB_HONEYDEW4 = 'honeydew4'
+    COLOR_RGB_HOT_PINK = 'hot pink'
+    COLOR_RGB_HOT_PINK1 = 'hot pink1'
+    COLOR_RGB_HOT_PINK2 = 'hot pink2'
+    COLOR_RGB_HOT_PINK3 = 'hot pink3'
+    COLOR_RGB_HOT_PINK4 = 'hot pink4'
+    COLOR_RGB_INDIAN_RED = 'indian red'
+    COLOR_RGB_INDIGO = 'indigo'
+    COLOR_RGB_IVORY = 'ivory'
+    COLOR_RGB_IVORY1 = 'ivory1'
+    COLOR_RGB_IVORY2 = 'ivory2'
+    COLOR_RGB_IVORY3 = 'ivory3'
+    COLOR_RGB_IVORY4 = 'ivory4'
+    COLOR_RGB_KHAKI = 'khaki'
+    COLOR_RGB_KHAKI1 = 'khaki1'
+    COLOR_RGB_KHAKI2 = 'khaki2'
+    COLOR_RGB_KHAKI3 = 'khaki3'
+    COLOR_RGB_KHAKI4 = 'khaki4'
+    COLOR_RGB_LAVENDER = 'lavender'
+    COLOR_RGB_LAVENDER_BLUSH = 'lavender blush'
+    COLOR_RGB_LAVENDER_BLUSH1 = 'lavender blush1'
+    COLOR_RGB_LAVENDER_BLUSH2 = 'lavender blush2'
+    COLOR_RGB_LAVENDER_BLUSH3 = 'lavender blush3'
+    COLOR_RGB_LAVENDER_BLUSH4 = 'lavender blush4'
+    COLOR_RGB_LAWN_GREEN = 'lawn green'
+    COLOR_RGB_LEMON_CHIFFON = 'lemon chiffon'
+    COLOR_RGB_LEMON_CHIFFON1 = 'lemon chiffon1'
+    COLOR_RGB_LEMON_CHIFFON2 = 'lemon chiffon2'
+    COLOR_RGB_LEMON_CHIFFON3 = 'lemon chiffon3'
+    COLOR_RGB_LEMON_CHIFFON4 = 'lemon chiffon4'
+    COLOR_RGB_LIGHT_BLUE = 'light blue'
+    COLOR_RGB_LIGHT_BLUE1 = 'light blue1'
+    COLOR_RGB_LIGHT_BLUE2 = 'light blue2'
+    COLOR_RGB_LIGHT_BLUE3 = 'light blue3'
+    COLOR_RGB_LIGHT_BLUE4 = 'light blue4'
+    COLOR_RGB_LIGHT_CORAL = 'light coral'
+    COLOR_RGB_LIGHT_CYAN = 'light cyan'
+    COLOR_RGB_LIGHT_CYAN1 = 'light cyan1'
+    COLOR_RGB_LIGHT_CYAN2 = 'light cyan2'
+    COLOR_RGB_LIGHT_CYAN3 = 'light cyan3'
+    COLOR_RGB_LIGHT_CYAN4 = 'light cyan4'
+    COLOR_RGB_LIGHT_GOLDENROD = 'light goldenrod'
+    COLOR_RGB_LIGHT_GOLDENROD1 = 'light goldenrod1'
+    COLOR_RGB_LIGHT_GOLDENROD2 = 'light goldenrod2'
+    COLOR_RGB_LIGHT_GOLDENROD3 = 'light goldenrod3'
+    COLOR_RGB_LIGHT_GOLDENROD4 = 'light goldenrod4'
+    COLOR_RGB_LIGHT_GOLDENROD_YELLOW = 'light goldenrod yellow'
+    COLOR_RGB_LIGHT_GRAY = 'light gray'
+    COLOR_RGB_LIGHT_GREEN = 'light green'
+    COLOR_RGB_LIGHT_PINK = 'light pink'
+    COLOR_RGB_LIGHT_PINK1 = 'light pink1'
+    COLOR_RGB_LIGHT_PINK2 = 'light pink2'
+    COLOR_RGB_LIGHT_PINK3 = 'light pink3'
+    COLOR_RGB_LIGHT_PINK4 = 'light pink4'
+    COLOR_RGB_LIGHT_SALMON = 'light salmon'
+    COLOR_RGB_LIGHT_SALMON1 = 'light salmon1'
+    COLOR_RGB_LIGHT_SALMON2 = 'light salmon2'
+    COLOR_RGB_LIGHT_SALMON3 = 'light salmon3'
+    COLOR_RGB_LIGHT_SALMON4 = 'light salmon4'
+    COLOR_RGB_LIGHT_SEA_GREEN = 'light sea green'
+    COLOR_RGB_LIGHT_SKY_BLUE = 'light sky blue'
+    COLOR_RGB_LIGHT_SKY_BLUE1 = 'light sky blue1'
+    COLOR_RGB_LIGHT_SKY_BLUE2 = 'light sky blue2'
+    COLOR_RGB_LIGHT_SKY_BLUE3 = 'light sky blue3'
+    COLOR_RGB_LIGHT_SKY_BLUE4 = 'light sky blue4'
+    COLOR_RGB_LIGHT_SLATE_BLUE = 'light slate blue'
+    COLOR_RGB_LIGHT_SLATE_GRAY = 'light slate gray'
+    COLOR_RGB_LIGHT_STEEL_BLUE = 'light steel blue'
+    COLOR_RGB_LIGHT_STEEL_BLUE1 = 'light steel blue1'
+    COLOR_RGB_LIGHT_STEEL_BLUE2 = 'light steel blue2'
+    COLOR_RGB_LIGHT_STEEL_BLUE3 = 'light steel blue3'
+    COLOR_RGB_LIGHT_STEEL_BLUE4 = 'light steel blue4'
+    COLOR_RGB_LIGHT_YELLOW = 'light yellow'
+    COLOR_RGB_LIGHT_YELLOW1 = 'light yellow1'
+    COLOR_RGB_LIGHT_YELLOW2 = 'light yellow2'
+    COLOR_RGB_LIGHT_YELLOW3 = 'light yellow3'
+    COLOR_RGB_LIGHT_YELLOW4 = 'light yellow4'
+    COLOR_RGB_LIME_GREEN = 'lime green'
+    COLOR_RGB_LINEN = 'linen'
+    COLOR_RGB_MAGENTA = 'magenta'
+    COLOR_RGB_MAGENTA1 = 'magenta1'
+    COLOR_RGB_MAGENTA2 = 'magenta2'
+    COLOR_RGB_MAGENTA3 = 'magenta3'
+    COLOR_RGB_MAGENTA4 = 'magenta4'
+    COLOR_RGB_MAROON = 'maroon'
+    COLOR_RGB_MAROON1 = 'maroon1'
+    COLOR_RGB_MAROON2 = 'maroon2'
+    COLOR_RGB_MAROON3 = 'maroon3'
+    COLOR_RGB_MAROON4 = 'maroon4'
+    COLOR_RGB_MEDIUM_AQUAMARINE = 'medium aquamarine'
+    COLOR_RGB_MEDIUM_BLUE = 'medium blue'
+    COLOR_RGB_MEDIUM_FOREST_GREEN = 'medium forest green'
+    COLOR_RGB_MEDIUM_GOLDENROD = 'medium goldenrod'
+    COLOR_RGB_MEDIUM_ORCHID = 'medium orchid'
+    COLOR_RGB_MEDIUM_ORCHID1 = 'medium orchid1'
+    COLOR_RGB_MEDIUM_ORCHID2 = 'medium orchid2'
+    COLOR_RGB_MEDIUM_ORCHID3 = 'medium orchid3'
+    COLOR_RGB_MEDIUM_ORCHID4 = 'medium orchid4'
+    COLOR_RGB_MEDIUM_PURPLE = 'medium purple'
+    COLOR_RGB_MEDIUM_SEA_GREEN = 'medium sea green'
+    COLOR_RGB_MEDIUM_SLATE_BLUE = 'medium slate blue'
+    COLOR_RGB_MEDIUM_SPRING_GREEN = 'medium spring green'
+    COLOR_RGB_MEDIUM_TURQUOISE = 'medium turquoise'
+    COLOR_RGB_MEDIUM_VIOLET_RED = 'medium violet red'
+    COLOR_RGB_MIDNIGHT_BLUE = 'midnight blue'
+    COLOR_RGB_MINT_CREAM = 'mint cream'
+    COLOR_RGB_MISTY_ROSE = 'misty rose'
+    COLOR_RGB_MISTY_ROSE1 = 'misty rose1'
+    COLOR_RGB_MISTY_ROSE2 = 'misty rose2'
+    COLOR_RGB_MISTY_ROSE3 = 'misty rose3'
+    COLOR_RGB_MISTY_ROSE4 = 'misty rose4'
+    COLOR_RGB_MOCCASIN = 'moccasin'
+    COLOR_RGB_NAVAJO_WHITE = 'navajo white'
+    COLOR_RGB_NAVAJO_WHITE1 = 'navajo white1'
+    COLOR_RGB_NAVAJO_WHITE2 = 'navajo white2'
+    COLOR_RGB_NAVAJO_WHITE3 = 'navajo white3'
+    COLOR_RGB_NAVAJO_WHITE4 = 'navajo white4'
+    COLOR_RGB_NAVY = 'navy'
+    COLOR_RGB_NAVY_BLUE = 'navy blue'
+    COLOR_RGB_OLD_LACE = 'old lace'
+    COLOR_RGB_OLIVE = 'olive'
+    COLOR_RGB_OLIVE_DRAB = 'olive drab'
+    COLOR_RGB_OLIVE_DRAB1 = 'olive drab1'
+    COLOR_RGB_OLIVE_DRAB2 = 'olive drab2'
+    COLOR_RGB_OLIVE_DRAB3 = 'olive drab3'
+    COLOR_RGB_OLIVE_DRAB4 = 'olive drab4'
+    COLOR_RGB_ORANGE = 'orange'
+    COLOR_RGB_ORANGE1 = 'orange1'
+    COLOR_RGB_ORANGE2 = 'orange2'
+    COLOR_RGB_ORANGE3 = 'orange3'
+    COLOR_RGB_ORANGE4 = 'orange4'
+    COLOR_RGB_ORANGE_RED = 'orange red'
+    COLOR_RGB_ORANGE_RED1 = 'orange red1'
+    COLOR_RGB_ORANGE_RED2 = 'orange red2'
+    COLOR_RGB_ORCHID = 'orchid'
+    COLOR_RGB_ORCHID1 = 'orchid1'
+    COLOR_RGB_ORCHID2 = 'orchid2'
+    COLOR_RGB_ORCHID3 = 'orchid3'
+    COLOR_RGB_ORCHID4 = 'orchid4'
+    COLOR_RGB_PALE_GOLDENROD = 'pale goldenrod'
+    COLOR_RGB_PALE_GREEN = 'pale green'
+    COLOR_RGB_PALE_GREEN1 = 'pale green1'
+    COLOR_RGB_PALE_GREEN2 = 'pale green2'
+    COLOR_RGB_PALE_GREEN3 = 'pale green3'
+    COLOR_RGB_PALE_GREEN4 = 'pale green4'
+    COLOR_RGB_PALE_TURQUOISE = 'pale turquoise'
+    COLOR_RGB_PALE_TURQUOISE1 = 'pale turquoise1'
+    COLOR_RGB_PALE_TURQUOISE2 = 'pale turquoise2'
+    COLOR_RGB_PALE_TURQUOISE3 = 'pale turquoise3'
+    COLOR_RGB_PALE_TURQUOISE4 = 'pale turquoise4'
+    COLOR_RGB_PALE_VIOLET_RED = 'pale violet red'
+    COLOR_RGB_PALE_VIOLET_RED1 = 'pale violet red1'
+    COLOR_RGB_PALE_VIOLET_RED2 = 'pale violet red2'
+    COLOR_RGB_PALE_VIOLET_RED3 = 'pale violet red3'
+    COLOR_RGB_PALE_VIOLET_RED4 = 'pale violet red4'
+    COLOR_RGB_PAPAYA_WHIP = 'papaya whip'
+    COLOR_RGB_PEACH_PUFF = 'peach puff'
+    COLOR_RGB_PEACH_PUFF1 = 'peach puff1'
+    COLOR_RGB_PEACH_PUFF2 = 'peach puff2'
+    COLOR_RGB_PEACH_PUFF3 = 'peach puff3'
+    COLOR_RGB_PEACH_PUFF4 = 'peach puff4'
+    COLOR_RGB_PERU = 'peru'
+    COLOR_RGB_PINK = 'pink'
+    COLOR_RGB_PINK1 = 'pink1'
+    COLOR_RGB_PINK2 = 'pink2'
+    COLOR_RGB_PINK3 = 'pink3'
+    COLOR_RGB_PINK4 = 'pink4'
+    COLOR_RGB_PLUM = 'plum'
+    COLOR_RGB_PLUM1 = 'plum1'
+    COLOR_RGB_PLUM2 = 'plum2'
+    COLOR_RGB_PLUM3 = 'plum3'
+    COLOR_RGB_PLUM4 = 'plum4'
+    COLOR_RGB_POWDER_BLUE = 'powder blue'
+    COLOR_RGB_PURPLE = 'purple'
+    COLOR_RGB_PURPLE1 = 'purple1'
+    COLOR_RGB_PURPLE2 = 'purple2'
+    COLOR_RGB_PURPLE3 = 'purple3'
+    COLOR_RGB_PURPLE4 = 'purple4'
+    COLOR_RGB_RED = 'red'
+    COLOR_RGB_ROSY_BROWN = 'rosy brown'
+    COLOR_RGB_ROYAL_BLUE = 'royal blue'
+    COLOR_RGB_ROYAL_BLUE1 = 'royal blue1'
+    COLOR_RGB_ROYAL_BLUE2 = 'royal blue2'
+    COLOR_RGB_ROYAL_BLUE3 = 'royal blue3'
+    COLOR_RGB_ROYAL_BLUE4 = 'royal blue4'
+    COLOR_RGB_SADDLE_BROWN = 'saddle brown'
+    COLOR_RGB_SALMON = 'salmon'
+    COLOR_RGB_SALMON2 = 'salmon2'
+    COLOR_RGB_SALMON3 = 'salmon3'
+    COLOR_RGB_SALMON4 = 'salmon4'
+    COLOR_RGB_SANDY_BROWN = 'sandy brown'
+    COLOR_RGB_SEA_GREEN = 'sea green'
+    COLOR_RGB_SEA_GREEN1 = 'sea green1'
+    COLOR_RGB_SEA_GREEN2 = 'sea green2'
+    COLOR_RGB_SEA_GREEN3 = 'sea green3'
+    COLOR_RGB_SEA_GREEN4 = 'sea green4'
+    COLOR_RGB_SEA_SHELL = 'sea shell'
+    COLOR_RGB_SEA_SHELL1 = 'sea shell1'
+    COLOR_RGB_SEA_SHELL2 = 'sea shell2'
+    COLOR_RGB_SEA_SHELL3 = 'sea shell3'
+    COLOR_RGB_SEA_SHELL4 = 'sea shell4'
+    COLOR_RGB_SIENNA = 'sienna'
+    COLOR_RGB_SIENNA2 = 'sienna2'
+    COLOR_RGB_SIENNA3 = 'sienna3'
+    COLOR_RGB_SIENNA4 = 'sienna4'
+    COLOR_RGB_SILVER = 'silver'
+    COLOR_RGB_SKY_BLUE = 'sky blue'
+    COLOR_RGB_SKY_BLUE1 = 'sky blue1'
+    COLOR_RGB_SKY_BLUE2 = 'sky blue2'
+    COLOR_RGB_SKY_BLUE3 = 'sky blue3'
+    COLOR_RGB_SKY_BLUE4 = 'sky blue4'
+    COLOR_RGB_SLATE_BLUE = 'slate blue'
+    COLOR_RGB_SLATE_BLUE1 = 'slate blue1'
+    COLOR_RGB_SLATE_BLUE2 = 'slate blue2'
+    COLOR_RGB_SLATE_BLUE3 = 'slate blue3'
+    COLOR_RGB_SLATE_BLUE4 = 'slate blue4'
+    COLOR_RGB_SLATE_GRAY = 'slate gray'
+    COLOR_RGB_SNOW = 'snow'
+    COLOR_RGB_SNOW1 = 'snow1'
+    COLOR_RGB_SNOW2 = 'snow2'
+    COLOR_RGB_SNOW3 = 'snow3'
+    COLOR_RGB_SNOW4 = 'snow4'
+    COLOR_RGB_SPRING_GREEN = 'spring green'
+    COLOR_RGB_SPRING_GREEN1 = 'spring green1'
+    COLOR_RGB_SPRING_GREEN2 = 'spring green2'
+    COLOR_RGB_SPRING_GREEN3 = 'spring green3'
+    COLOR_RGB_SPRING_GREEN4 = 'spring green4'
+    COLOR_RGB_STEEL_BLUE = 'steel blue'
+    COLOR_RGB_STEEL_BLUE1 = 'steel blue1'
+    COLOR_RGB_STEEL_BLUE2 = 'steel blue2'
+    COLOR_RGB_STEEL_BLUE3 = 'steel blue3'
+    COLOR_RGB_STEEL_BLUE4 = 'steel blue4'
+    COLOR_RGB_TAN = 'tan'
+    COLOR_RGB_TAN1 = 'tan1'
+    COLOR_RGB_TAN2 = 'tan2'
+    COLOR_RGB_TAN3 = 'tan3'
+    COLOR_RGB_TAN4 = 'tan4'
+    COLOR_RGB_TEAL = 'teal'
+    COLOR_RGB_THISTLE = 'thistle'
+    COLOR_RGB_TOMATO = 'tomato'
+    COLOR_RGB_TOMATO1 = 'tomato1'
+    COLOR_RGB_TOMATO2 = 'tomato2'
+    COLOR_RGB_TOMATO3 = 'tomato3'
+    COLOR_RGB_TOMATO4 = 'tomato4'
+    COLOR_RGB_TURQUOISE = 'turquoise'
+    COLOR_RGB_TURQUOISE1 = 'turquoise1'
+    COLOR_RGB_TURQUOISE2 = 'turquoise2'
+    COLOR_RGB_TURQUOISE3 = 'turquoise3'
+    COLOR_RGB_TURQUOISE4 = 'turquoise4'
+    COLOR_RGB_VIOLET = 'violet'
+    COLOR_RGB_VIOLET_RED = 'violet red'
+    COLOR_RGB_VIOLET_RED1 = 'violet red1'
+    COLOR_RGB_VIOLET_RED2 = 'violet red2'
+    COLOR_RGB_VIOLET_RED3 = 'violet red3'
+    COLOR_RGB_VIOLET_RED4 = 'violet red4'
+    COLOR_RGB_WHEAT = 'wheat'
+    COLOR_RGB_WHEAT1 = 'wheat1'
+    COLOR_RGB_WHEAT2 = 'wheat2'
+    COLOR_RGB_WHEAT3 = 'wheat3'
+    COLOR_RGB_WHEAT4 = 'wheat4'
+    COLOR_RGB_WHITE = 'white'
+    COLOR_RGB_WHITE_SMOKE = 'white smoke'
+    COLOR_RGB_YELLOW = 'yellow'
+    COLOR_RGB_YELLOW1 = 'yellow1'
+    COLOR_RGB_YELLOW2 = 'yellow2'
+    COLOR_RGB_YELLOW3 = 'yellow3'
+    COLOR_RGB_YELLOW4 = 'yellow4'
+    COLOR_RGB_YELLOW_GREEN = 'yellow green'
+    COLOR_ROSY_BROWN = 'rosy brown'
+    COLOR_ROYAL_BLUE = 'royal blue'
+    COLOR_SADDLE_BROWN = 'saddle brown'
+    COLOR_SALMON = 'salmon'
+    COLOR_SANDY_BROWN = 'sandy brown'
+    COLOR_SEA_GREEN = 'sea green'
+    COLOR_SEA_SHELL = 'sea shell'
+    COLOR_SIENNA = 'sienna'
+    COLOR_SILVER = 'silver'
+    COLOR_SKY_BLUE = 'sky blue'
+    COLOR_SLATE_BLUE = 'slate blue'
+    COLOR_SLATE_GRAY = 'slate gray'
+    COLOR_SNOW = 'snow'
+    COLOR_SPRING_GREEN = 'spring green'
+    COLOR_STEEL_BLUE = 'steel blue'
+    COLOR_TAN = 'tan'
+    COLOR_TEAL = 'teal'
+    COLOR_THISTLE = 'thistle'
+    COLOR_TOMATO = 'tomato'
+    COLOR_TURQUOISE = 'turquoise'
+    COLOR_VIOLET = 'violet'
+    COLOR_VIOLET_RED = 'violet red'
+    COLOR_WHEAT = 'wheat'
+    COLOR_WHITE = 'white'
+    COLOR_WHITE_SMOKE = 'white smoke'
+    COLOR_YELLOW = 'yellow'
+    COLOR_YELLOW_GREEN = 'yellow green'
+    DEBUG = True
+    DISPLAY_BLINK = 524288
+    DISPLAY_BOLD = 2097152
+    DISPLAY_DIM = 1048576
+    DISPLAY_NORMAL = 0
+    DISPLAY_REVERSE = 262144
+    DISPLAY_STANDOUT = 65536
+    DISPLAY_UNDERLINE = 131072
+    DefaultPosition = (-1, -1)
+    DefaultSize = (-1, -1)
+    EmptyString = ''
+    KEYBOARD_TIMEOUT = -1
+    KeyCodes = {0: 'NULL CHAR', 1: 'START OF HEADING', 2: 'START OF TEXT',...
+    MouseButtonCodes = {1: 'button 1 released', 2: 'button 1 pressed', 4: ...
+    SCREEN_HEIGHT_CHARACTERS_DEFAULT = 40
+    SCREEN_HEIGHT_PIXELS_DEFAULT = 480
+    SCREEN_WIDTH_CHARACTERS_DEFAULT = 80
+    SCREEN_WIDTH_PIXELS_DEFAULT = 640
+    UseDefaultValue = -1
+    VERBOSE = True
+    WhiteOnBlackDefault = ['cygwin', 'vt100', 'vt220']
+    __authors__ = 'Richard S. Gordon'
+    __copyright__ = 'Copyright (c) 2007-2014 Richard S. Gordon.\n\t\tAll r...
+    __credits__ = '\n\n  Credits: \n\n\t  tsLibGUI Import & Application .....
+    __date__ = '02/04/2014'
+    __header__ = '\n\ntsWxGraphicalTextUserInterface, v2.20.1 (build...ts ...
+    __license__ = 'GNU General Public License, Version 3, 29 June 2007'
+    __line1__ = 'tsWxGraphicalTextUserInterface, v2.20.1 (build 02/04/2014...
+    __line2__ = 'Author(s): Richard S. Gordon'
+    __line3__ = 'Copyright (c) 2007-2014 Richard S. Gordon.\n\t\tAll right...
+    __line4__ = 'GNU General Public License, Version 3, 29 June 2...hts re...
+    __title__ = 'tsWxGraphicalTextUserInterface'
+    __version__ = '2.20.1'
+    color16SubstitutionMap = {'aquamarine': 'cyan', 'black': 'black', 'blu...
+    color8SubstitutionMap = {'aquamarine': 'cyan', 'black': 'black', 'blue...
+    colorCode = 101
+    colorName = 'ivory'
+    cursesColorContentRGB = 1000
+    cursesMonochromeCodeFromName = {'black': 0, 'name': 'cursesMonochromeC...
+    cursesMonochromeNameFromCode = {0: 'black', 'name': 'cursesMonochromeN...
+    defaultDBaseFileMode = 'w+'
+    defaultDBaseFileName = 'TerminalRunTimeEnvironment.log'
+    defaultLogFileMode = 'w+'
+    defaultLogFileName = '$tsWxGTUI-CYGWIN_NT-6.1-Log.txt'
+    e = OSError(17, 'File exists')
+    extendedColorDataBaseRGB = {'alice blue': (240, 248, 255), 'antique wh...
+    hostOS = 'CYGWIN_NT-6.1'
+    importCode = ImportError('No module named tsLibGUI',)
+    mainTitleVersionDate = 'tsWxGraphicalTextUserInterface, v2.20.1 (build...
+    mkdirsHead = './logs/bmp/'
+    mkdirsMode = 511
+    nonColorTerminals = ['vt100', 'vt220']
+    pixelHeightPerCharacter = 12
+    pixelWidthPerCharacter = 8
+    pythonVersion = 'Python-2.7.3'
+    readme_bmp_text = '# File: ".logs/bmp/README_BMP.txt"\n# "Time-stamp.....
+    splashScreenConfig = {'Copyright': {'BackgroundColour': 'black', 'Fore...
+    supportedTermCaps = ['cygwin', 'vt100', 'vt220', 'xterm', 'xterm-color...
+    terminalConfig = {'BlackOnWhiteDefault': ['xterm-256color', 'xterm-88c...
+    thLicenseBackgroundColour = 'black'
+    thLicenseForegroundColour = 'yellow'
+    theCopyrightBackgroundColour = 'black'
+    theCopyrightForegroundColour = 'white'
+    theDefaultModuleName = 'tsWxGTUI'
+    theNoticesBackgroundColour = 'black'
+    theNoticesForegroundColour = 'yellow'
+    theSplashScreenCopyright = '\ntsWxGTUI, v0.0.0 (pre-alpha build 03/15/...
+    theSplashScreenEnabled = True
+    theSplashScreenFileName = 'SplashScreen.bmp'
+    theSplashScreenImage = {'FileName': 'SplashScreen.bmp', 'MakeReusable'...
+    theSplashScreenLicense = '\nThe "tsWxGTUI" Toolkit and its third-party...
+    theSplashScreenMakeReusable = True
+    theSplashScreenNotices = '\nThe Terms & Conditions which permit YOUR u...
+    theSplashScreenPath = './logs/bmp/'
+    theSplashScreenShowSeconds = 15
+    theSplashScreenTrademark = '\n+----+----+  TeamSTARS "tsWxGTUI" Toolki...
+    theTrademarkBackgroundColour = 'black'
+    theTrademarkForegroundColour = 'cyan'
+    tsPreserve255RGB = False
+    unsupportedTermCaps = ['ansi']
+    wxThemeToUse = {'BackgroundColour': 'blue', 'CharacterCellAlignment': ...
+    xterm16ColorCodeFromName = {'black': 0, 'blue': 12, 'cyan': 14, 'gray'...
+    xterm16ColorNameFromCode = {0: 'black', 1: 'maroon', 2: 'green', 3: 'o...
+    xterm256ColorCodeFromName = {'alice blue': 71, 'antique white': 72, 'a...
+    xterm256ColorNameFromCode = {0: 'black', 1: 'maroon', 2: 'green', 3: '...
+    xterm88ColorCodeFromName = {'aquamarine': 16, 'black': 0, 'blue': 12, ...
+    xterm88ColorNameFromCode = {0: 'black', 1: 'maroon', 2: 'green', 3: 'o...
+    xterm8ColorCodeFromName = {'black': 0, 'blue': 4, 'cyan': 6, 'green': ...
+    xterm8ColorNameFromCode = {0: 'black', 1: 'red', 2: 'green', 3: 'yello...
+
+VERSION
+    2.20.1
+
+DATE
+    02/04/2014
+
+CREDITS
+    
+    
+      Credits: 
+    
+    	  tsLibGUI Import & Application Launch Features: 
+    	  Copyright (c) 2007-2009 Frederick A. Kier.
+    			All rights reserved.
+    
+    	  Python Curses Module API & Run Time Library Features:
+    	  Copyright (c) 2001-2013 Python Software Foundation.
+    			All rights reserved.
+    	  PSF License Agreement for Python 2.7.3 & 3.3.0
+    
+    	  wxWidgets (formerly wxWindows) & wxPython API Features:
+    	  Copyright (c) 1992-2008 Julian Smart, Robert Roebling,
+    			Vadim Zeitlin and other members of the 
+    			wxWidgets team.
+    			All rights reserved.
+    	  wxWindows Library License
+    
+    	  nCurses character-mode Terminal Control Library
+    			for Unix-like systems and API Features:
+    	  Copyright (c) 1998-2004, 2006 Free Software 
+    			Foundation, Inc.
+    			All rights reserved.
+    	  nCurses README,v 1.23 2006/04/22
+
+

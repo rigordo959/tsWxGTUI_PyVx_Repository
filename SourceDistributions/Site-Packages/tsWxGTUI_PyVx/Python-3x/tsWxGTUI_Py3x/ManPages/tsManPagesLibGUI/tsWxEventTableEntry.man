@@ -1,0 +1,113 @@
+
+Help on module tsWxEventTableEntry:
+
+NAME
+    tsWxEventTableEntry
+
+FILE
+    ./tsLibGUI/tsWxPkg/src/tsWxEventTableEntry.py
+
+DESCRIPTION
+    tsWxEventTableEntry.py - Class to establish a container for
+    event table information (eventType, id, lastId, func, userData).
+
+CLASSES
+    __builtin__.object
+        EventTableEntry
+    
+    class EventTableEntry(__builtin__.object)
+     |  Establish a container for event table information (eventType, id,
+     |  lastId, func, userData).
+     |  
+     |  Note: eventSink is the reference to the object that contains
+     |        the func.  Should not be needed in pure python
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, eventType, id, lastId, func=None, userData=None)
+     |  
+     |  getEventType(self)
+     |  
+     |  getFunc(self)
+     |  
+     |  getId(self)
+     |  
+     |  getLastId(self)
+     |  
+     |  getUserData(self)
+     |      TBD userData??
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  EventType
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  eventType
+     |  
+     |  evtType
+     |  
+     |  func
+     |  
+     |  id
+     |  
+     |  lastId
+     |  
+     |  userData
+     |      TBD userData??
+
+DATA
+    DEBUG = True
+    VERBOSE = True
+    __authors__ = 'Richard S. Gordon'
+    __copyright__ = 'Copyright (c) 2007-2013 Richard S. Gordon.\n\t\tAll r...
+    __credits__ = '\n\n  Credits: \n\n\t  tsLibGUI Import & Application .....
+    __date__ = '04/01/2013'
+    __header__ = '\n\ntsWxEventTableEntry, v1.1.0 (build 04/01/2013)... Ge...
+    __license__ = 'GNU General Public License, Version 3, 29 June 2007'
+    __line1__ = 'tsWxEventTableEntry, v1.1.0 (build 04/01/2013)'
+    __line2__ = 'Author(s): Richard S. Gordon'
+    __line3__ = 'Copyright (c) 2007-2013 Richard S. Gordon.\n\t\tAll right...
+    __line4__ = 'GNU General Public License, Version 3, 29 June 2...U Gene...
+    __title__ = 'tsWxEventTableEntry'
+    __version__ = '1.1.0'
+    mainTitleVersionDate = 'tsWxEventTableEntry, v1.1.0 (build 04/01/2013)...
+
+VERSION
+    1.1.0
+
+DATE
+    04/01/2013
+
+CREDITS
+    
+    
+      Credits: 
+    
+    	  tsLibGUI Import & Application Launch Features: 
+    	  Copyright (c) 2007-2009 Frederick A. Kier.
+    			All rights reserved.
+    
+    	  Python Curses Module API & Run Time Library Features:
+    	  Copyright (c) 2001-2013 Python Software Foundation.
+    			All rights reserved.
+    	  PSF License Agreement for Python 2.7.3 & 3.3.0
+    
+    	  wxWidgets (formerly wxWindows) & wxPython API Features:
+    	  Copyright (c) 1992-2008 Julian Smart, Robert Roebling,
+    			Vadim Zeitlin and other members of the 
+    			wxWidgets team.
+    			All rights reserved.
+    	  wxWindows Library License
+    
+    	  nCurses API & Run Time Library Features:
+    	  Copyright (c) 1998-2011 Free Software Foundation, Inc.
+    			All rights reserved.
+    	  GNU General Public License, Version 3, 29 June 2007
+
+

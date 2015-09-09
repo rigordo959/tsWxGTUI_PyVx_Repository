@@ -1,0 +1,112 @@
+
+Help on module tsWxEventQueueEntry:
+
+NAME
+    tsWxEventQueueEntry
+
+FILE
+    /cygdrive/d/WR/SoftwareGadgetry-PyPI/Python-2x/tsWxGTUI_Py2x/tsManPagesLibGUI/tsWxEventQueueEntry.py
+
+DESCRIPTION
+    tsWxEventQueueEntry.py - Class to establish a container for
+    the triggering object, triggering data and triggering event.
+
+CLASSES
+    __builtin__.object
+        EventQueueEntry
+    
+    class EventQueueEntry(__builtin__.object)
+     |  Establish a  a container for the triggering object, triggering data and
+     |  triggering event.
+     |  
+     |  Methods defined here:
+     |  
+     |  GetTriggeringData(self)
+     |      Return TriggeringData
+     |  
+     |  GetTriggeringEvent(self)
+     |      Return TriggeringEvent
+     |  
+     |  GetTriggeringObject(self)
+     |      Return TriggeringObject
+     |  
+     |  GetTriggeringObjectParent(self)
+     |      Return Parent of TriggeringObject
+     |  
+     |  __del__(self)
+     |      Destroy a container for triggering object and triggering event.
+     |  
+     |  __init__(self, triggeringObject=None, triggeringEvent=None, triggeringData=None)
+     |      Construct a container for triggering object and triggering event.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  TriggeringData
+     |      Return TriggeringData
+     |  
+     |  TriggeringEvent
+     |      Return TriggeringEvent
+     |  
+     |  TriggeringObject
+     |      Return TriggeringObject
+     |  
+     |  TriggeringObjectParent
+     |      Return Parent of TriggeringObject
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+
+DATA
+    DEBUG = True
+    VERBOSE = True
+    __authors__ = 'Richard S. Gordon'
+    __copyright__ = 'Copyright (c) 2007-2013 Richard S. Gordon.\n\t\tAll r...
+    __credits__ = '\n\n  Credits: \n\n\t  tsLibGUI Import & Application .....
+    __date__ = '04/01/2013'
+    __header__ = '\n\ntsWxEventQueueEntry, v1.1.0 (build 04/01/2013)... Ge...
+    __license__ = 'GNU General Public License, Version 3, 29 June 2007'
+    __line1__ = 'tsWxEventQueueEntry, v1.1.0 (build 04/01/2013)'
+    __line2__ = 'Author(s): Richard S. Gordon'
+    __line3__ = 'Copyright (c) 2007-2013 Richard S. Gordon.\n\t\tAll right...
+    __line4__ = 'GNU General Public License, Version 3, 29 June 2...U Gene...
+    __title__ = 'tsWxEventQueueEntry'
+    __version__ = '1.1.0'
+    mainTitleVersionDate = 'tsWxEventQueueEntry, v1.1.0 (build 04/01/2013)...
+
+VERSION
+    1.1.0
+
+DATE
+    04/01/2013
+
+CREDITS
+    
+    
+      Credits: 
+    
+    	  tsLibGUI Import & Application Launch Features: 
+    	  Copyright (c) 2007-2009 Frederick A. Kier.
+    			All rights reserved.
+    
+    	  Python Curses Module API & Run Time Library Features:
+    	  Copyright (c) 2001-2013 Python Software Foundation.
+    			All rights reserved.
+    	  PSF License Agreement for Python 2.7.3 & 3.3.0
+    
+    	  wxWidgets (formerly wxWindows) & wxPython API Features:
+    	  Copyright (c) 1992-2008 Julian Smart, Robert Roebling,
+    			Vadim Zeitlin and other members of the 
+    			wxWidgets team.
+    			All rights reserved.
+    	  wxWindows Library License
+    
+    	  nCurses API & Run Time Library Features:
+    	  Copyright (c) 1998-2011 Free Software Foundation, Inc.
+    			All rights reserved.
+    	  GNU General Public License, Version 3, 29 June 2007
+
+

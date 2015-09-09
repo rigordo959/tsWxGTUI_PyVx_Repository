@@ -1,0 +1,96 @@
+#-----------------------------------------------------------
+#"Time-stamp: <06/19/2015  5:14:02 AM rsg>"
+#-----------------------------------------------------------
+
+=== File: PROJECT-19-Developer-Sandbox_Install_Guide.txt ===
+
+   +----+----+  TeamSTARS "tsWxGTUI_PyVx" Toolkit
+   | ts | Wx |      with Python 2x & Python 3x based
+   +----+----+         Command Line Interface (CLI)
+   | G T U I |      and "Curses"-based "wxPython"-style, 
+   +---------+         Graphical-Text User Interface (GUI)
+ 
+   Get that cross-platform, pixel-mode "wxPython" feeling
+   on character-mode 8-/16-color (xterm-family) & non-color
+   (vt100-family) terminals and terminal emulators.
+
+=========== Developer-Sandbox Installation Guide ===========
+
+1. Developer-Sandbox Install Guide:
+
+   Upon downloading and then extracting the contents of the
+   TeamSTARS "tsWxGTUI_PyVx" Toolkit "tar" or "zip" file,
+   the recipient will find both "Developer-Sandbox" and
+   "Site-Package" versions for Python 2x and Python 3x.
+
+   WARNING: The repository contains both Developer-Sandboxes
+            and Site-Packages but is NOT itself either one.
+
+            Developer-Sandboxes are used in the location
+            assigned by their location in the "tar" or "zip"
+            file extraction.
+
+            The recipient must NOT attempt to install the
+            entire repository or any Developer-Sandbox with
+            any other Python version specific Site-Packages.
+
+   1.1 Python Version Specific Developer-Sandbox Test
+
+       You must use the Python Version Specific command
+       for each version you extracted.
+
+       1.1.1 Python 2x Test Examples
+
+             # Set path to top-level directory containing
+             # toolkit libraries
+             cd ./SourceDistributions/
+                  Developer-Sandboxes/tsWxGTUI_PyVx/
+                  Python-2x/tsWxGTUI_Py2x
+
+             # Copy collection of tests into top-level
+             # directory containing toolkit libraries
+             cp -p ./tsDemoArchive/src/test_*.py .
+
+             # Run one of the Command Line Interface tests
+             # using python, python2, python2.6 or python2.7
+             # as appropriate
+             a. python2 test_tsPlatformRunTimeEnvironment.py
+
+             # Run one of the Graphical User Interface tests
+             # using python, python2, python2.6 or python2.7
+             # as appropriate
+             b. python2 test_tsWxSystemSettings.py
+
+             # Run another Graphical User Interface test
+             # using python, python2, python2.6 or python2.7
+             # as appropriate
+             c. python2 test_tsWxColorPalette.py
+
+       1.1.2 Python 3x Test Examples
+
+             # Set path to top-level directory containing
+             # toolkit libraries
+             cd ./SourceDistributions/
+                  Developer-Sandboxes/tsWxGTUI_PyVx/
+                  Python-3x/tsWxGTUI_Py3x
+
+             # Copy collection of tests into top-level
+             # directory containing toolkit libraries
+             cp -p ./tsDemoArchive/src/test_*.py .
+
+             # Run one of the Command Line Interface tests
+             # using python3, python3.2 or python3.4
+             # as appropriate
+             a. python3 test_tsPlatformRunTimeEnvironment.py
+
+             # Run one of the Graphical User Interface tests
+             # using python3, python3.2 or python3.4
+             # as appropriate
+             b. python3 test_tsWxSystemSettings.py
+
+             # Run another Graphical User Interface test
+             # using python3, python3.2 or python3.4
+             # as appropriate
+             c. python3 test_tsWxColorPalette.py
+
+======================= End-Of-File ========================

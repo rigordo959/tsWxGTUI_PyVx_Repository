@@ -1,0 +1,510 @@
+      init in tsCxGlobalsPkg
+<open file './logs/2014-04-08-at-06-26-55/test_tsWxGlobals.log', mode 'w' at 0x7fe2be90>
+tsCommandLineEnv: ImportError (tsLibCLI); importCode=No module named tsOperatorSettingsParser
+
+
+test_tsWxGlobals, v1.0.0 (build 01/31/2014)
+
+  Author(s): Richard S. Gordon
+  Copyright (c) 2014 Richard S. Gordon.
+		All rights reserved.
+  GNU General Public License, Version 3, 29 June 2007
+
+  Credits: 
+
+	  terminalsize (https://gist.github.com/jtriley/1108174) Features: 
+	  Copyright (c) 2011 Justin T. Riley.
+			All rights reserved.
+	  GNU General Public License, Version 3, 29 June 2007
+
+
+   ----- Begin "ThemeTeamSTARS" at level 0 -----
+
+             BackgroundColour = blue
+       CharacterCellAlignment = 1 (0x1)
+
+         ----- Begin "Dialog" at level 1 -----
+
+                BackgroundColour = white
+                ButtonBarDefault = [?][X]
+                CloseButtonLabel = &X	Ctrl-X
+                ForegroundColour = blue
+                 HelpButtonLabel = &?	Ctrl-?
+              IconizeButtonLabel = &_	Ctrl-_
+             MaximizeButtonLabel = &Z	Ctrl-Z
+          RestoreDownButtonLabel = &z	Ctrl-z
+                            name = Dialog
+
+         ----- End   "Dialog" at level 1 -----
+
+             ForegroundColour = white
+
+         ----- Begin "Frame" at level 1 -----
+
+                ButtonBarDefault = [_][Z][X]
+                CloseButtonLabel = &X	Ctrl-X
+                 HelpButtonLabel = &?	Ctrl-?
+              IconizeButtonLabel = &_	Ctrl-_
+             MaximizeButtonLabel = &Z	Ctrl-Z
+          RestoreDownButtonLabel = &z	Ctrl-z
+                            name = Frame
+
+         ----- End   "Frame" at level 1 -----
+
+
+         ----- Begin "Logging" at level 1 -----
+
+                             name = Logging
+
+               ----- Begin "tsLoggerLevels" at level 2 -----
+
+                    Alert = 35 (0x23)
+                 Critical = 50 (0x32)
+                    Debug = 10 (0xA)
+                Emergency = 55 (0x37)
+                    Error = 40 (0x28)
+                     Info = 20 (0x14)
+                   NotSet = 0 (0x0)
+                   Notice = 25 (0x19)
+                  Warning = 30 (0x1E)
+                     name = tsLoggerLevels
+
+               ----- End   "tsLoggerLevels" at level 2 -----
+
+
+               ----- Begin "tsLoggerStandardTargets" at level 2 -----
+
+                 StandardErrorDevice = stderr
+                StandardOutputDevice = stdout
+                  StandardOutputFile = 
+                StandardScreenDevice = stdscr
+                     SystemLogDevice = syslog
+                                name = tsLoggerStandardTargets
+
+               ----- End   "tsLoggerStandardTargets" at level 2 -----
+
+
+               ----- Begin "wxLogLevels" at level 2 -----
+
+                     LOG_Debug = 10 (0xA)
+                     LOG_Error = 40 (0x28)
+                LOG_FatalError = 50 (0x32)
+                      LOG_Info = 20 (0x14)
+                   LOG_Message = 25 (0x19)
+                  LOG_Progress = 25 (0x19)
+                    LOG_Status = 25 (0x19)
+                     LOG_Trace = 10 (0xA)
+                      LOG_User = 25 (0x19)
+                   LOG_Warning = 30 (0x1E)
+                          name = wxLogLevels
+
+               ----- End   "wxLogLevels" at level 2 -----
+
+
+               ----- Begin "wxLogStandardTargets" at level 2 -----
+
+                       name = wxLogStandardTargets
+                   wxLogGui = stdscr
+                  wxLogNull = bitbucket
+                wxLogStderr = stderr
+                wxLogStream = stdout
+                wxLogWindow = window
+
+               ----- End   "wxLogStandardTargets" at level 2 -----
+
+
+         ----- End   "Logging" at level 1 -----
+
+
+         ----- Begin "MenuBar" at level 1 -----
+
+          WindowHeight = 36 (0x24)
+                  name = MenuBar
+
+         ----- End   "MenuBar" at level 1 -----
+
+
+         ----- Begin "MinScreenDimensions" at level 1 -----
+
+                FrameHeight = 36 (0x24)
+                 FrameWidth = 272 (0x110)
+              MenuBarHeight = 36 (0x24)
+          RedirectionHeight = 36 (0x24)
+            StatusBarHeight = 36 (0x24)
+              TaskBarHeight = 36 (0x24)
+              ToolBarHeight = 36 (0x24)
+                       name = MinScreenDimensions
+
+         ----- End   "MinScreenDimensions" at level 1 -----
+
+
+         ----- Begin "PasswordEntryDialog" at level 1 -----
+
+                 BackgroundColour = white
+              ButtonSeparatorLine = 1 (0x1)
+                 ForegroundColour = blue
+                          MinSize = (400, 96)
+
+               ----- Begin "Modal" at level 2 -----
+
+                CursesTextpadTextbox = 1 (0x1)
+                                name = Modal
+
+               ----- End   "Modal" at level 2 -----
+
+                      StripSpaces = 1 (0x1)
+          TextBoxBackgroundColour = yellow
+          TextBoxForegroundColour = black
+                             name = PasswordEntryDialog
+
+         ----- End   "PasswordEntryDialog" at level 1 -----
+
+                  ProductName = "tsWxGTUI" Toolkit
+
+         ----- Begin "ReportUtilities" at level 1 -----
+
+
+               ----- Begin "layout" at level 2 -----
+
+                    TitleCenter = 39 (0x27)
+                    TitleIndent = 8 (0x8)
+                      TitleLeft = 0 (0x0)
+                    TitlePrefix =  
+                    TitleSuffix =  
+                     TitleWidth = 78 (0x4E)
+                           name = layout
+                spacesPerIndent = 2 (0x2)
+
+               ----- End   "layout" at level 2 -----
+
+                name = ReportUtilities
+          pageLength = 80 (0x50)
+           pageWidth = 80 (0x50)
+
+         ----- End   "ReportUtilities" at level 1 -----
+
+
+         ----- Begin "ScrollBar" at level 1 -----
+
+                  ArrowBorder = 1 (0x1)
+                    ArrowDown = v
+                    ArrowLeft = <
+                   ArrowRight = >
+                      ArrowUp = ^
+             BackgroundColour = white
+          DualScrollBarSpacer = 1 (0x1)
+             ForegroundColour = black
+                      Overlap = 1 (0x1)
+               ThumbEmulation = 1 (0x1)
+           ThumbHorizontalMin = 20 (0x14)
+             ThumbVerticalMin = 3 (0x3)
+                         name = ScrollBar
+
+         ----- End   "ScrollBar" at level 1 -----
+
+
+         ----- Begin "SplashScreen" at level 1 -----
+
+
+               ----- Begin "Copyright" at level 2 -----
+
+                BackgroundColour = black
+                ForegroundColour = white
+                            name = Copyright
+                            text = 
+tsWxGTUI, v0.0.0 (pre-alpha build 03/15/2014)
+
+  Author(s): Richard S. Gordon
+
+  Copyright (c) 2010-2014 Richard S. Gordon,
+                          a.k.a Software Gadgetry
+                          (formerly TeamSTARS),
+                All rights reserved.
+  GNU General Public License (GPL), Version 3,
+                29 June 2007  
+  GNU Free Documentation License (GFDL) 1.3,
+                3 November 2008
+
+  Third-party components are subject to their author`s
+  designated copyright and license notices.
+
+
+               ----- End   "Copyright" at level 2 -----
+
+              Enabled = 1 (0x1)
+
+               ----- Begin "Image" at level 2 -----
+
+                    FileName = SplashScreen.bmp
+                MakeReusable = 1 (0x1)
+                        Path = ./logs/bmp/
+                        name = Image
+
+               ----- End   "Image" at level 2 -----
+
+
+               ----- Begin "License" at level 2 -----
+
+                BackgroundColour = black
+                ForegroundColour = yellow
+                            name = License
+                            text = 
+The "tsWxGTUI" Toolkit and its third-party components
+are distributed as free and open source software.
+You may use, modify and redistribute it only under the
+terms and conditions set forth in the files
+"COPYRIGHT.txt" and "LICENSE.txt" located in directory
+"./tsWxGTUI/tsDocCLI/Usage_Terms_and_Conditions".
+
+The "tsWxGTUI" Toolkit and its third-party components
+are distributed in the hope that they will be useful,
+but WITHOUT ANY WARRANTY; WITHOUT EVEN THE IMPLIED
+WARRANTY OF MERCHANTABILITY OR FITNESS FOR A PARTICULAR
+PURPOSE.
+
+
+               ----- End   "License" at level 2 -----
+
+
+               ----- Begin "Notices" at level 2 -----
+
+                BackgroundColour = black
+                ForegroundColour = yellow
+                            name = Notices
+                            text = 
+The Terms & Conditions which permit YOUR use, modifica-
+tion and redistribution of the "tsWxGTUI" Toolkit may be
+found in the file "NOTICES.txt" located in directory
+"./tsWxGTUI/tsDocCLI/Usage_Terms_and_Conditions".
+
+
+               ----- End   "Notices" at level 2 -----
+
+          ShowSeconds = 15 (0xF)
+
+               ----- Begin "Trademark" at level 2 -----
+
+                BackgroundColour = black
+                ForegroundColour = cyan
+                            name = Trademark
+                            text = 
++----+----+  TeamSTARS "tsWxGTUI" Toolkit
+| ts | Wx |      with Python-based
++----+----+         Command Line Interface (CLI)
+| G T U I |      and "wxPython"-style, "nCurses"-based
++---------+         Graphical-Text User Interface (GUI)
+
+Get that cross-platform, pixel-mode "wxPython" feeling
+on character-mode terminals and terminal emulators.
+
+
+               ----- End   "Trademark" at level 2 -----
+
+                 name = SplashScreen
+
+         ----- End   "SplashScreen" at level 1 -----
+
+
+         ----- Begin "StandardTerminalEmulators" at level 1 -----
+
+          BlackOnWhiteDefault = ['xterm-256color', 'xterm-88color', 'xterm-16color', 'xterm-color', 'xterm', 'ansi']
+          WhiteOnBlackDefault = ['cygwin', 'vt100', 'vt220']
+                         name = StandardTerminalEmulators
+            nonColorTerminals = ['vt100', 'vt220']
+            supportedTermCaps = ['cygwin', 'vt100', 'vt220', 'xterm', 'xterm-color', 'xterm-16color', 'xterm-88color', 'xterm-256color']
+          unsupportedTermCaps = ['ansi']
+
+         ----- End   "StandardTerminalEmulators" at level 1 -----
+
+
+         ----- Begin "StatusBar" at level 1 -----
+
+              Ellipses = 1 (0x1)
+                Margin = (8, 12)
+               Overlay = 1 (0x1)
+          WindowHeight = 36 (0x24)
+                  name = StatusBar
+
+         ----- End   "StatusBar" at level 1 -----
+
+
+         ----- Begin "Stdio" at level 1 -----
+
+           BackgroundColour = black
+           ForegroundColour = white
+                     Margin = (0, 0)
+
+               ----- Begin "Markup" at level 2 -----
+
+
+                     ----- Begin "ALERT" at level 3 -----
+
+                      Attributes = [0]
+                      Background = black
+                      Foreground = cyan
+                            name = ALERT
+
+                     ----- End   "ALERT" at level 3 -----
+
+
+                     ----- Begin "CRITICAL" at level 3 -----
+
+                      Attributes = [0, 524288]
+                      Background = black
+                      Foreground = yellow
+                            name = CRITICAL
+
+                     ----- End   "CRITICAL" at level 3 -----
+
+
+                     ----- Begin "DEBUG" at level 3 -----
+
+                      Attributes = [0]
+                      Background = magenta
+                      Foreground = white
+                            name = DEBUG
+
+                     ----- End   "DEBUG" at level 3 -----
+
+
+                     ----- Begin "DEFAULT" at level 3 -----
+
+                      Attributes = [0]
+                      Background = black
+                      Foreground = white
+                            name = DEFAULT
+
+                     ----- End   "DEFAULT" at level 3 -----
+
+
+                     ----- Begin "EMERGENCY" at level 3 -----
+
+                      Attributes = [0, 524288]
+                      Background = black
+                      Foreground = white
+                            name = EMERGENCY
+
+                     ----- End   "EMERGENCY" at level 3 -----
+
+
+                     ----- Begin "ERROR" at level 3 -----
+
+                      Attributes = [0]
+                      Background = black
+                      Foreground = red
+                            name = ERROR
+
+                     ----- End   "ERROR" at level 3 -----
+
+
+                     ----- Begin "INFO" at level 3 -----
+
+                      Attributes = [0]
+                      Background = blue
+                      Foreground = cyan
+                            name = INFO
+
+                     ----- End   "INFO" at level 3 -----
+
+
+                     ----- Begin "NOTICE" at level 3 -----
+
+                      Attributes = [0]
+                      Background = blue
+                      Foreground = white
+                            name = NOTICE
+
+                     ----- End   "NOTICE" at level 3 -----
+
+
+                     ----- Begin "WARNING" at level 3 -----
+
+                      Attributes = [0, 524288]
+                      Background = black
+                      Foreground = yellow
+                            name = WARNING
+
+                     ----- End   "WARNING" at level 3 -----
+
+                     name = Markup
+
+               ----- End   "Markup" at level 2 -----
+
+          ScrollableLogFile = 1 (0x1)
+                  Timestamp = 1 (0x1)
+                      Title = Redirected Output: stdout/stderr
+                       name = Stdio
+
+         ----- End   "Stdio" at level 1 -----
+
+                SubSystemName = "tsToolkitGUI"
+
+         ----- Begin "TaskBar" at level 1 -----
+
+            ActiveFocusBackgroundColour = black
+            ActiveFocusForegroundColour = yellow
+                       BackgroundColour = black
+                                 Enable = 1 (0x1)
+                       ForegroundColour = white
+          InactiveFocusBackgroundColour = black
+          InactiveFocusForegroundColour = cyan
+                                  Title = Tasks
+                           WindowHeight = 36 (0x24)
+                                   name = TaskBar
+
+         ----- End   "TaskBar" at level 1 -----
+
+
+         ----- Begin "TextEditBox" at level 1 -----
+
+          EventDriven = 1 (0x1)
+                 name = TextEditBox
+
+         ----- End   "TextEditBox" at level 1 -----
+
+
+         ----- Begin "TextEntryDialog" at level 1 -----
+
+                 BackgroundColour = white
+              ButtonSeparatorLine = 1 (0x1)
+                 ForegroundColour = blue
+                          MinSize = (400, 96)
+
+               ----- Begin "Modal" at level 2 -----
+
+                CursesTextpadTextbox = 0 (0x0)
+                                name = Modal
+
+               ----- End   "Modal" at level 2 -----
+
+                      StripSpaces = 1 (0x1)
+          TextBoxBackgroundColour = yellow
+          TextBoxForegroundColour = black
+                             name = TextEntryDialog
+
+         ----- End   "TextEntryDialog" at level 1 -----
+
+                    ThemeDate = 04/05/2014
+                    ThemeName = ThemeTeamSTARS
+
+         ----- Begin "Troubleshooting" at level 1 -----
+
+          Debug_CLI_Configuration = 0 (0x0)
+             Debug_CLI_Exceptions = 0 (0x0)
+                 Debug_CLI_Launch = 0 (0x0)
+               Debug_CLI_Progress = 0 (0x0)
+            Debug_CLI_Termination = 0 (0x0)
+          Debug_GUI_Configuration = 0 (0x0)
+             Debug_GUI_Exceptions = 0 (0x0)
+                 Debug_GUI_Launch = 0 (0x0)
+               Debug_GUI_Progress = 0 (0x0)
+            Debug_GUI_Termination = 0 (0x0)
+                             name = Troubleshooting
+
+         ----- End   "Troubleshooting" at level 1 -----
+
+                   VendorName = Richard S. Gordon, a.k.a. Software Gadgetry
+                         name = ThemeTeamSTARS
+
+   ----- End   "ThemeTeamSTARS" at level 0 -----
+

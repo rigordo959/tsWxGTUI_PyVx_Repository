@@ -1,0 +1,1724 @@
+
+Help on module tsWx:
+
+NAME
+    tsWx
+
+FILE
+    ./tsLibGUI/tsWxPkg/src/tsWx.py
+
+DESCRIPTION
+    tsWx.py - Module to load all symbols that should appear within
+    the wxPython.wx emulation namespace. Included are various
+    classes, constants, functions and methods available for use
+    by applications built with components from the wxPython emulation
+    infrastructure.
+
+CLASSES
+    __builtin__.object
+        tsLibCLI.tsReportUtilityPkg.src.tsReportUtilities.TsReportUtilities
+    
+    tsrpu = class TsReportUtilities(__builtin__.object)
+     |  Class defining methods used to format information: date and time
+     |  (begin, end and elapsed), file size (with kilo-, mega-, giga-,
+     |  tera-, peta-, exa-, zeta- and yotta-byte units) and nested Python
+     |  dictionaries.
+     |  
+     |  Static methods defined here:
+     |  
+     |  displayDictionary(level, myDictionary, myFile, myLogger=None)
+     |      Recursive method to display nested entries in configuration dictionary.
+     |  
+     |  getByteCountStrings(bytes)
+     |      Return a tupple with the text representations of a value.
+     |      Labeled     - TB (Terabyte),
+     |                    GB (Gigabyte),
+     |                    MB (Megabyte),
+     |                    KB (Kilobyte) and
+     |                    B (Byte)
+     |      Decimal     - ASCII Numeric
+     |      Hexadecimal - Hex ASCII
+     |      
+     |      Ref: http://www.answers.com/topic/terabyte?cat=health
+     |  
+     |  getDateAndTimeString(seconds)
+     |      Construct timestamp string (in "Date at Time" format).
+     |  
+     |  getDateTimeString(seconds, msec=False, filename=False)
+     |      Construct timestamp string suitable for use as label or alternatively
+     |      for use as filename.
+     |      
+     |      Label output uses "Year/Month/Day Hour:Minute:Second" format
+     |      with optional ".millisecond" suffix). For example,
+     |      "2010/05/13-04:17:49.123" is returned for 123 milliseconds after
+     |      May 13, 2010 at 04:17:49).
+     |      
+     |      Filename output uses "Year/Month/Day" and "Hour:Minute:Second" data
+     |      separated by "-at-" and with "-" replacing "/" and ":" separators.
+     |      For example, "2010-05-13-at-04-17-49" is returned for May 13, 2010
+     |      at 04:17:49).
+     |      
+     |      From: http://www.portfoliofaq.com/pfaq/FAQ00352.htm
+     |      
+     |              The following list is fairly exhaustive and pulls together
+     |              references from various sources. Although not mentioned
+     |              explicitly, Unix seems to have few - if any - restrictions.
+     |              Compliance with these conventions as assets are added to
+     |              your library will allow widest use of the assets without
+     |              subsequent manual intervention to re-path/name, etc. The
+     |              rules take into account the use of assets on local &
+     |              network hard drives, CD/DVD, removable drives and online
+     |              (web/ftp) using Mac OS9/OSX and Windows OSs:
+     |      
+     |              1.  Illegal filename characters, (e.g. : or ?). (All OSs).
+     |      
+     |              2.  Deprecated filename characters (; and ,). (All OSs).
+     |      
+     |              3.  >31 filename characters including extension.
+     |                  (Mac Classic).
+     |      
+     |              4.  >64 filename characters including extension.
+     |                  (Windows: ISO9660+Joliet CD or Hybrid CD partition).
+     |      
+     |              5.  No extension - extensions are mandatory for Windows and
+     |                  the only means for Portfolio to tell file type.
+     |                  (Windows, Mac OS X).
+     |      
+     |              6.  Filename has >1 period - Portfolio may misinterpret
+     |                  extension. (Windows, Mac OS X).
+     |      
+     |              7.  Extension may be wrong, i.e. not 3 characters.
+     |                  (Windows, Mac OS X).
+     |      
+     |              8.  Illegal characters in path to file - same issue
+     |                  as #1 but for path. (All OSs).
+     |      
+     |              9.  Deprecated characters in path to file - same issue
+     |                  as #2 but for path. (All OSs).
+     |      
+     |              10. Filename may not begin with a period. (Windows not
+     |                  allowed, Mac treats as a hidden file)
+     |      
+     |              11.  Filename may not end in a period. (Windows not
+     |                   allowed - OS "throws away" the trailing period
+     |                   when naming/reading so incorrect matching vs.
+     |                   Mac name)
+     |      
+     |              12. Names conflicting with some of Win OS old DOS
+     |                  functions (Not allowed in either upper or lowercase
+     |                  and with or without a file extension or as a file
+     |                  extension: COM1 to COM9 inclusive, LPT1 to LPT9
+     |                  inclusive, CON, PRN, AUX, CLOCK$ and NUL)
+     |      
+     |              13. Case sensitivity. Windows OSs (and IIS web servers)
+     |                  are not case sensitive. Most other OSs (and web
+     |                  servers) are.
+     |      
+     |              14. Filenames ought not to begin with a hyphen (Unix
+     |                  systems my interpret the filename as a flag to a
+     |                  command line call).
+     |      
+     |      From: http://msdn.microsoft.com/en-us/library/windows/
+     |            desktop/aa365247%28v=vs.85%29.aspx#naming_conventions
+     |      
+     |              Use any character in the current code page for a name,
+     |              including Unicode characters and characters in the
+     |              extended character set, except for the following:
+     |      
+     |                  The following reserved characters:
+     |                      < (less than)
+     |                      > (greater than)
+     |                      : (colon)
+     |                      " (double quote)
+     |                      / (forward slash)
+     |                      \ (backslash)
+     |                      | (vertical bar or pipe)
+     |                      ? (question mark)
+     |                      * (asterisk)
+     |  
+     |  getDayHourMinuteSecondString(inputSeconds=0, firstDelimiter='-')
+     |      Convert time from seconds to string format.
+     |  
+     |  getElapsedTimeString(startupTime, currentTime)
+     |      Construct elapsed time in days, hours, minutes, seconds between
+     |      supplied startup and current time inputs in seconds since the
+     |      UNIX epoch.
+     |  
+     |  getHourMinuteSecondString(seconds)
+     |      Construct time string (in "Hour:Minute:Second" format) from time in
+     |      seconds since UNIX epoch.
+     |  
+     |  getIndentString(indent)
+     |      Construct a string of white space appropriate for indenting level.
+     |  
+     |  getNextPathName(theDirectory, theName)
+     |      Construct the path to the next log file.
+     |      
+     |      Get the next filename
+     |        theName + _ + number + .txt
+     |        log_1.txt, log_2.txt
+     |      theDirectory : path to the directory containing the files
+     |      theName      : string at the beginning of the simple filename
+     |  
+     |  getSecondsTimeFromHoursMinutesSecondsString(timeString=None)
+     |      Convert time from string to seconds format.
+     |  
+     |  getSeparatorString(title=None, indent=0, position=39, separatorCharacter='-', tab=4)
+     |      Construct a string of title and white space to separate one section
+     |      of text from another.
+     |  
+     |  getStatisticsList(startupTime, currentTime, numberOfTestRuns, numberOfTestPasses, numberOfTestFailures)
+     |      Create test summary after elapesed time and statistics details
+     |      on the number of test runs, number of passing test runs, number
+     |      of failing test runs, startup timestamp, shutdown timestamp
+     |      and elapsed timesrtamp.
+     |  
+     |  getTimeStatisticsList(startupTime, currentTime)
+     |      Generate Startup, Current (or Shutdown) and Elapsed Time strings.
+     |  
+     |  getYearMonthDayString(seconds)
+     |      Construct date string (in "Year-Month-Day" format) from time in seconds
+     |      since UNIX epoch.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes defined here:
+     |  
+     |  layout = {'TitleCenter': 39, 'TitleIndent': 8, 'TitleLeft': 0, 'TitleP...
+     |  
+     |  pageLength = 66
+     |  
+     |  pageWidth = 80
+
+DATA
+    ACCEL_ALT = 1
+    ACCEL_CMD = 2
+    ACCEL_CTRL = 2
+    ACCEL_NORMAL = 0
+    ACCEL_SHIFT = 4
+    ADJUST_MINSIZE = 0
+    ALERT = 35
+    ALIGN_BOTTOM = 1024
+    ALIGN_CENTER = 2304
+    ALIGN_CENTER_HORIZONTAL = 256
+    ALIGN_CENTER_VERTICAL = 2048
+    ALIGN_LEFT = 0
+    ALIGN_MASK = 3840
+    ALIGN_NOT = 0
+    ALIGN_RIGHT = 512
+    ALIGN_TOP = 0
+    ALL = 240
+    ALPHA_OPAQUE = 255
+    ALPHA_TRANSPARENT = 0
+    ALWAYS_SHOW_SB = 8388608
+    Above = 3
+    Absolute = 8
+    AsIs = 1
+    BACKGROUNDSTYLE = [8, 2, 0, 2, 1, 4]
+    BACKINGSTORE = 0
+    BACKWARD = 8192
+    BG_STYLE_COLOUR = 8
+    BG_STYLE_CUSTOM = 2
+    BG_STYLE_ERASE = 0
+    BG_STYLE_PAINT = 2
+    BG_STYLE_SYSTEM = 1
+    BG_STYLE_TRANSPARENT = 4
+    BI_EXPAND = 8192
+    BORDER = 33554432
+    BORDER_DEFAULT = 0
+    BORDER_DOUBLE = 268435456
+    BORDER_MASK = 522190848
+    BORDER_NONE = 2097152
+    BORDER_RAISED = 67108864
+    BORDER_SIMPLE = 33554432
+    BORDER_STATIC = 16777216
+    BORDER_SUNKEN = 134217728
+    BORDER_THEME = 268435456
+    BOTH = 12
+    BOTTOM = 128
+    BU_BOTTOM = 512
+    BU_EXACTFIT = 1
+    BU_LEFT = 64
+    BU_RIGHT = 256
+    BU_TOP = 128
+    Below = 4
+    BitmapRadioButtonNameStr = 'radioButton'
+    ButtonNameStr = 'button'
+    ButtonSizerFlags = 32926
+    CANCEL = 16
+    CAPTION = 536870912
+    CB_DROPDOWN = 32
+    CB_READONLY = 16
+    CB_SIMPLE = 4
+    CB_SORT = 8
+    CENTER = 1
+    CENTER_FRAME = 0
+    CENTER_ON_SCREEN = 2
+    CENTRE = 1
+    CENTRE_ON_SCREEN = 2
+    CHK_2STATE = 0
+    CHK_3STATE = 4096
+    CHK_ALLOW_3RD_STATE_FOR_USER = 8192
+    CHK_CHECKED = 1
+    CHK_UNCHECKED = 0
+    CHK_UNDETERMINED = 2
+    CLIP_CHILDREN = 4194304
+    CLIP_SIBLINGS = 536870912
+    CLOSE_BOX = 4096
+    COLOR_ALICE_BLUE = 'alice blue'
+    COLOR_ANTIQUE_WHITE = 'antique white'
+    COLOR_ANTIQUE_WHITE1 = 'antique white1'
+    COLOR_ANTIQUE_WHITE2 = 'antique white2'
+    COLOR_ANTIQUE_WHITE3 = 'antique white3'
+    COLOR_ANTIQUE_WHITE4 = 'antique white4'
+    COLOR_AQUAMARINE = 'aquamarine'
+    COLOR_AQUAMARINE1 = 'aquamarine1'
+    COLOR_AQUAMARINE2 = 'aquamarine2'
+    COLOR_AQUAMARINE3 = 'aquamarine3'
+    COLOR_AQUAMARINE4 = 'aquamarine4'
+    COLOR_AZURE = 'azure'
+    COLOR_AZURE1 = 'azure1'
+    COLOR_AZURE2 = 'azure2'
+    COLOR_AZURE3 = 'azure3'
+    COLOR_AZURE4 = 'azure4'
+    COLOR_BEIGE = 'beige'
+    COLOR_BISQUE = 'bisque'
+    COLOR_BISQUE1 = 'bisque1'
+    COLOR_BISQUE2 = 'bisque2'
+    COLOR_BISQUE3 = 'bisque3'
+    COLOR_BISQUE4 = 'bisque4'
+    COLOR_BLACK = 'black'
+    COLOR_BLANCHED_ALMOND = 'blanched almond'
+    COLOR_BLUE = 'blue'
+    COLOR_BLUE1 = 'blue1'
+    COLOR_BLUE2 = 'blue2'
+    COLOR_BLUE3 = 'blue3'
+    COLOR_BLUE4 = 'blue4'
+    COLOR_BLUE_VIOLET = 'blue violet'
+    COLOR_BROWN = 'brown'
+    COLOR_BROWN1 = 'brown1'
+    COLOR_BROWN2 = 'brown2'
+    COLOR_BURLYWOOD = 'burlywood'
+    COLOR_BURLYWOOD1 = 'burlywood1'
+    COLOR_BURLYWOOD2 = 'burlywood2'
+    COLOR_BURLYWOOD3 = 'burlywood3'
+    COLOR_BURLYWOOD4 = 'burlywood4'
+    COLOR_CADET_BLUE = 'cadet blue'
+    COLOR_CADET_BLUE1 = 'cadet blue1'
+    COLOR_CADET_BLUE2 = 'cadet blue2'
+    COLOR_CADET_BLUE3 = 'cadet blue3'
+    COLOR_CADET_BLUE4 = 'cadet blue4'
+    COLOR_CHARTREUSE = 'chartreuse'
+    COLOR_CHARTREUSE1 = 'chartreuse1'
+    COLOR_CHARTREUSE2 = 'chartreuse2'
+    COLOR_CHARTREUSE3 = 'chartreuse3'
+    COLOR_CHARTREUSE4 = 'chartreuse4'
+    COLOR_CHOCOLATE = 'chocolate'
+    COLOR_CHOCOLATE1 = 'chocolate1'
+    COLOR_CHOCOLATE2 = 'chocolate2'
+    COLOR_CHOCOLATE3 = 'chocolate3'
+    COLOR_CHOCOLATE4 = 'chocolate4'
+    COLOR_CORAL = 'coral'
+    COLOR_CORAL1 = 'coral1'
+    COLOR_CORAL2 = 'coral2'
+    COLOR_CORAL3 = 'coral3'
+    COLOR_CORAL4 = 'coral4'
+    COLOR_CORNFLOWER_BLUE = 'cornflower blue'
+    COLOR_CORNSILK = 'cornsilk'
+    COLOR_CORNSILK1 = 'cornsilk1'
+    COLOR_CORNSILK2 = 'cornsilk2'
+    COLOR_CORNSILK3 = 'cornsilk3'
+    COLOR_CORNSILK4 = 'cornsilk4'
+    COLOR_CRIMSON = 'crimson'
+    COLOR_CYAN = 'cyan'
+    COLOR_CYAN1 = 'cyan1'
+    COLOR_CYAN2 = 'cyan2'
+    COLOR_CYAN3 = 'cyan3'
+    COLOR_CYAN4 = 'cyan4'
+    COLOR_DARK_BLUE = 'dark blue'
+    COLOR_DARK_CYAN = 'dark cyan'
+    COLOR_DARK_GOLDENROD = 'dark goldenrod'
+    COLOR_DARK_GOLDENROD1 = 'dark goldenrod1'
+    COLOR_DARK_GOLDENROD2 = 'dark goldenrod2'
+    COLOR_DARK_GOLDENROD3 = 'dark goldenrod3'
+    COLOR_DARK_GRAY = 'dark gray'
+    COLOR_DARK_GREEN = 'dark green'
+    COLOR_DARK_KHAKI = 'dark khaki'
+    COLOR_DARK_MAGENTA = 'dark magenta'
+    COLOR_DARK_OLIVE_GREEN = 'dark olive green'
+    COLOR_DARK_OLIVE_GREEN1 = 'dark olive green1'
+    COLOR_DARK_OLIVE_GREEN2 = 'dark olive green2'
+    COLOR_DARK_OLIVE_GREEN3 = 'dark olive green3'
+    COLOR_DARK_OLIVE_GREEN4 = 'dark olive green4'
+    COLOR_DARK_ORANGE = 'dark orange'
+    COLOR_DARK_ORANGE1 = 'dark orange1'
+    COLOR_DARK_ORANGE2 = 'dark orange2'
+    COLOR_DARK_ORANGE3 = 'dark orange3'
+    COLOR_DARK_ORANGE4 = 'dark orange4'
+    COLOR_DARK_ORCHID = 'dark orchid'
+    COLOR_DARK_ORCHID1 = 'dark orchid1'
+    COLOR_DARK_ORCHID2 = 'dark orchid2'
+    COLOR_DARK_ORCHID3 = 'dark orchid3'
+    COLOR_DARK_ORCHID4 = 'dark orchid4'
+    COLOR_DARK_RED = 'dark red'
+    COLOR_DARK_SALMON = 'dark salmon'
+    COLOR_DARK_SEA_GREEN = 'dark sea green'
+    COLOR_DARK_SEA_GREEN1 = 'dark sea green1'
+    COLOR_DARK_SEA_GREEN2 = 'dark sea green2'
+    COLOR_DARK_SEA_GREEN3 = 'dark sea green3'
+    COLOR_DARK_SEA_GREEN4 = 'dark sea green4'
+    COLOR_DARK_SLATE_BLUE = 'dark slate blue'
+    COLOR_DARK_SLATE_GRAY = 'dark slate gray'
+    COLOR_DARK_TURQUOISE = 'dark turquoise'
+    COLOR_DARK_VIOLET = 'dark violet'
+    COLOR_DEEP_PINK = 'deep pink'
+    COLOR_DEEP_PINK4 = 'deep pink4'
+    COLOR_DEEP_SKY_BLUE = 'deep sky blue'
+    COLOR_DEEP_SKY_BLUE1 = 'deep sky blue1'
+    COLOR_DEEP_SKY_BLUE2 = 'deep sky blue2'
+    COLOR_DEEP_SKY_BLUE3 = 'deep sky blue3'
+    COLOR_DEEP_SKY_BLUE4 = 'deep sky blue4'
+    COLOR_DIM_GRAY = 'dim gray'
+    COLOR_DODGER_BLUE = 'dodger blue'
+    COLOR_DODGER_BLUE1 = 'dodger blue1'
+    COLOR_DODGER_BLUE2 = 'dodger blue2'
+    COLOR_DODGER_BLUE3 = 'dodger blue3'
+    COLOR_DODGER_BLUE4 = 'dodger blue4'
+    COLOR_FIREBRICK = 'firebrick'
+    COLOR_FIREBRICK1 = 'firebrick1'
+    COLOR_FIREBRICK2 = 'firebrick2'
+    COLOR_FIREBRICK3 = 'firebrick3'
+    COLOR_FIREBRICK4 = 'firebrick4'
+    COLOR_FLORAL_WHITE = 'floral white'
+    COLOR_FOREST_GREEN = 'forest green'
+    COLOR_GAINSBORO = 'gainsboro'
+    COLOR_GHOST_WHITE = 'ghost white'
+    COLOR_GOLD = 'gold'
+    COLOR_GOLD1 = 'gold1'
+    COLOR_GOLD2 = 'gold2'
+    COLOR_GOLD3 = 'gold3'
+    COLOR_GOLD4 = 'gold4'
+    COLOR_GOLDENROD = 'goldenrod'
+    COLOR_GOLDENROD1 = 'goldenrod1'
+    COLOR_GOLDENROD2 = 'goldenrod2'
+    COLOR_GOLDENROD3 = 'goldenrod3'
+    COLOR_GOLDENROD4 = 'goldenrod4'
+    COLOR_GRAY = 'gray'
+    COLOR_GRAY10 = 'gray10'
+    COLOR_GRAY100 = 'gray100'
+    COLOR_GRAY11 = 'gray11'
+    COLOR_GRAY12 = 'gray12'
+    COLOR_GRAY13 = 'gray13'
+    COLOR_GRAY14 = 'gray14'
+    COLOR_GRAY15 = 'gray15'
+    COLOR_GRAY16 = 'gray16'
+    COLOR_GRAY17 = 'gray17'
+    COLOR_GRAY18 = 'gray18'
+    COLOR_GRAY19 = 'gray19'
+    COLOR_GRAY2 = 'gray2'
+    COLOR_GRAY20 = 'gray20'
+    COLOR_GRAY21 = 'gray21'
+    COLOR_GRAY22 = 'gray22'
+    COLOR_GRAY23 = 'gray23'
+    COLOR_GRAY24 = 'gray24'
+    COLOR_GRAY25 = 'gray25'
+    COLOR_GRAY26 = 'gray26'
+    COLOR_GRAY3 = 'gray3'
+    COLOR_GRAY36 = 'gray36'
+    COLOR_GRAY37 = 'gray37'
+    COLOR_GRAY38 = 'gray38'
+    COLOR_GRAY39 = 'gray39'
+    COLOR_GRAY4 = 'gray4'
+    COLOR_GRAY40 = 'gray40'
+    COLOR_GRAY41 = 'gray41'
+    COLOR_GRAY42 = 'gray42'
+    COLOR_GRAY43 = 'gray43'
+    COLOR_GRAY44 = 'gray44'
+    COLOR_GRAY45 = 'gray45'
+    COLOR_GRAY46 = 'gray46'
+    COLOR_GRAY47 = 'gray47'
+    COLOR_GRAY48 = 'gray48'
+    COLOR_GRAY49 = 'gray49'
+    COLOR_GRAY5 = 'gray5'
+    COLOR_GRAY50 = 'gray50'
+    COLOR_GRAY51 = 'gray51'
+    COLOR_GRAY52 = 'gray52'
+    COLOR_GRAY53 = 'gray53'
+    COLOR_GRAY54 = 'gray54'
+    COLOR_GRAY55 = 'gray55'
+    COLOR_GRAY56 = 'gray56'
+    COLOR_GRAY57 = 'gray57'
+    COLOR_GRAY58 = 'gray58'
+    COLOR_GRAY59 = 'gray59'
+    COLOR_GRAY6 = 'gray6'
+    COLOR_GRAY60 = 'gray60'
+    COLOR_GRAY7 = 'gray7'
+    COLOR_GRAY74 = 'gray74'
+    COLOR_GRAY75 = 'gray75'
+    COLOR_GRAY76 = 'gray76'
+    COLOR_GRAY77 = 'gray77'
+    COLOR_GRAY78 = 'gray78'
+    COLOR_GRAY79 = 'gray79'
+    COLOR_GRAY8 = 'gray8'
+    COLOR_GRAY80 = 'gray80'
+    COLOR_GRAY81 = 'gray81'
+    COLOR_GRAY82 = 'gray82'
+    COLOR_GRAY83 = 'gray83'
+    COLOR_GRAY84 = 'gray84'
+    COLOR_GRAY85 = 'gray85'
+    COLOR_GRAY86 = 'gray86'
+    COLOR_GRAY87 = 'gray87'
+    COLOR_GRAY88 = 'gray88'
+    COLOR_GRAY89 = 'gray89'
+    COLOR_GRAY9 = 'gray9'
+    COLOR_GRAY90 = 'gray90'
+    COLOR_GRAY91 = 'gray91'
+    COLOR_GRAY92 = 'gray92'
+    COLOR_GRAY93 = 'gray93'
+    COLOR_GRAY94 = 'gray94'
+    COLOR_GRAY95 = 'gray95'
+    COLOR_GRAY96 = 'gray96'
+    COLOR_GRAY97 = 'gray97'
+    COLOR_GRAY98 = 'gray98'
+    COLOR_GRAY99 = 'gray99'
+    COLOR_GREEN = 'green'
+    COLOR_GREEN1 = 'green1'
+    COLOR_GREEN2 = 'green2'
+    COLOR_GREEN3 = 'green3'
+    COLOR_GREEN4 = 'green4'
+    COLOR_GREEN_YELLOW = 'green yellow'
+    COLOR_HONEYDEW = 'honeydew'
+    COLOR_HONEYDEW1 = 'honeydew1'
+    COLOR_HONEYDEW2 = 'honeydew2'
+    COLOR_HONEYDEW3 = 'honeydew3'
+    COLOR_HONEYDEW4 = 'honeydew4'
+    COLOR_HOT_PINK = 'hot pink'
+    COLOR_HOT_PINK1 = 'hot pink1'
+    COLOR_HOT_PINK2 = 'hot pink2'
+    COLOR_HOT_PINK3 = 'hot pink3'
+    COLOR_HOT_PINK4 = 'hot pink4'
+    COLOR_INDIAN_RED = 'indian red'
+    COLOR_INDIGO = 'indigo'
+    COLOR_IVORY = 'ivory'
+    COLOR_IVORY1 = 'ivory1'
+    COLOR_IVORY2 = 'ivory2'
+    COLOR_IVORY3 = 'ivory3'
+    COLOR_IVORY4 = 'ivory4'
+    COLOR_KHAKI = 'khaki'
+    COLOR_KHAKI1 = 'khaki1'
+    COLOR_KHAKI2 = 'khaki2'
+    COLOR_KHAKI3 = 'khaki3'
+    COLOR_KHAKI4 = 'khaki4'
+    COLOR_LAVENDER = 'lavender'
+    COLOR_LAVENDER_BLUSH = 'lavender blush'
+    COLOR_LAVENDER_BLUSH1 = 'lavender blush1'
+    COLOR_LAVENDER_BLUSH2 = 'lavender blush2'
+    COLOR_LAVENDER_BLUSH3 = 'lavender blush3'
+    COLOR_LAVENDER_BLUSH4 = 'lavender blush4'
+    COLOR_LAWN_GREEN = 'lawn green'
+    COLOR_LEMON_CHIFFON = 'lemon chiffon'
+    COLOR_LEMON_CHIFFON1 = 'lemon chiffon1'
+    COLOR_LEMON_CHIFFON2 = 'lemon chiffon2'
+    COLOR_LEMON_CHIFFON3 = 'lemon chiffon3'
+    COLOR_LEMON_CHIFFON4 = 'lemon chiffon4'
+    COLOR_LIGHT_BLUE = 'light blue'
+    COLOR_LIGHT_BLUE1 = 'light blue1'
+    COLOR_LIGHT_BLUE2 = 'light blue2'
+    COLOR_LIGHT_BLUE3 = 'light blue3'
+    COLOR_LIGHT_BLUE4 = 'light blue4'
+    COLOR_LIGHT_CORAL = 'light coral'
+    COLOR_LIGHT_CYAN = 'light cyan'
+    COLOR_LIGHT_CYAN1 = 'light cyan1'
+    COLOR_LIGHT_CYAN2 = 'light cyan2'
+    COLOR_LIGHT_CYAN3 = 'light cyan3'
+    COLOR_LIGHT_CYAN4 = 'light cyan4'
+    COLOR_LIGHT_GOLDENROD = 'light goldenrod'
+    COLOR_LIGHT_GOLDENROD1 = 'light goldenrod1'
+    COLOR_LIGHT_GOLDENROD2 = 'light goldenrod2'
+    COLOR_LIGHT_GOLDENROD3 = 'light goldenrod3'
+    COLOR_LIGHT_GOLDENROD4 = 'light goldenrod4'
+    COLOR_LIGHT_GOLDENROD_YELLOW = 'light goldenrod yellow'
+    COLOR_LIGHT_GRAY = 'light gray'
+    COLOR_LIGHT_GREEN = 'light green'
+    COLOR_LIGHT_PINK = 'light pink'
+    COLOR_LIGHT_PINK1 = 'light pink1'
+    COLOR_LIGHT_PINK2 = 'light pink2'
+    COLOR_LIGHT_PINK3 = 'light pink3'
+    COLOR_LIGHT_PINK4 = 'light pink4'
+    COLOR_LIGHT_SALMON = 'light salmon'
+    COLOR_LIGHT_SALMON1 = 'light salmon1'
+    COLOR_LIGHT_SALMON2 = 'light salmon2'
+    COLOR_LIGHT_SALMON3 = 'light salmon3'
+    COLOR_LIGHT_SALMON4 = 'light salmon4'
+    COLOR_LIGHT_SEA_GREEN = 'light sea green'
+    COLOR_LIGHT_SKY_BLUE = 'light sky blue'
+    COLOR_LIGHT_SKY_BLUE1 = 'light sky blue1'
+    COLOR_LIGHT_SKY_BLUE2 = 'light sky blue2'
+    COLOR_LIGHT_SKY_BLUE3 = 'light sky blue3'
+    COLOR_LIGHT_SKY_BLUE4 = 'light sky blue4'
+    COLOR_LIGHT_SLATE_BLUE = 'light slate blue'
+    COLOR_LIGHT_SLATE_GRAY = 'light slate gray'
+    COLOR_LIGHT_STEEL_BLUE = 'light steel blue'
+    COLOR_LIGHT_STEEL_BLUE1 = 'light steel blue1'
+    COLOR_LIGHT_STEEL_BLUE2 = 'light steel blue2'
+    COLOR_LIGHT_STEEL_BLUE3 = 'light steel blue3'
+    COLOR_LIGHT_STEEL_BLUE4 = 'light steel blue4'
+    COLOR_LIGHT_YELLOW = 'light yellow'
+    COLOR_LIGHT_YELLOW1 = 'light yellow1'
+    COLOR_LIGHT_YELLOW2 = 'light yellow2'
+    COLOR_LIGHT_YELLOW3 = 'light yellow3'
+    COLOR_LIGHT_YELLOW4 = 'light yellow4'
+    COLOR_LIME_GREEN = 'lime green'
+    COLOR_LINEN = 'linen'
+    COLOR_MAGENTA = 'magenta'
+    COLOR_MAGENTA1 = 'magenta1'
+    COLOR_MAGENTA2 = 'magenta2'
+    COLOR_MAGENTA3 = 'magenta3'
+    COLOR_MAGENTA4 = 'magenta4'
+    COLOR_MAROON = 'maroon'
+    COLOR_MAROON1 = 'maroon1'
+    COLOR_MAROON2 = 'maroon2'
+    COLOR_MAROON3 = 'maroon3'
+    COLOR_MAROON4 = 'maroon4'
+    COLOR_MEDIUM_AQUAMARINE = 'medium aquamarine'
+    COLOR_MEDIUM_BLUE = 'medium blue'
+    COLOR_MEDIUM_FOREST_GREEN = 'medium forest green'
+    COLOR_MEDIUM_GOLDENROD = 'medium goldenrod'
+    COLOR_MEDIUM_ORCHID = 'medium orchid'
+    COLOR_MEDIUM_ORCHID1 = 'medium orchid1'
+    COLOR_MEDIUM_ORCHID2 = 'medium orchid2'
+    COLOR_MEDIUM_ORCHID3 = 'medium orchid3'
+    COLOR_MEDIUM_ORCHID4 = 'medium orchid4'
+    COLOR_MEDIUM_PURPLE = 'medium purple'
+    COLOR_MEDIUM_SEA_GREEN = 'medium sea green'
+    COLOR_MEDIUM_SLATE_BLUE = 'medium slate blue'
+    COLOR_MEDIUM_SPRING_GREEN = 'medium spring green'
+    COLOR_MEDIUM_TURQUOISE = 'medium turquoise'
+    COLOR_MEDIUM_VIOLET_RED = 'medium violet red'
+    COLOR_MIDNIGHT_BLUE = 'midnight blue'
+    COLOR_MINT_CREAM = 'mint cream'
+    COLOR_MISTY_ROSE = 'misty rose'
+    COLOR_MISTY_ROSE1 = 'misty rose1'
+    COLOR_MISTY_ROSE2 = 'misty rose2'
+    COLOR_MISTY_ROSE3 = 'misty rose3'
+    COLOR_MISTY_ROSE4 = 'misty rose4'
+    COLOR_MOCCASIN = 'moccasin'
+    COLOR_NAVAJO_WHITE = 'navajo white'
+    COLOR_NAVAJO_WHITE1 = 'navajo white1'
+    COLOR_NAVAJO_WHITE2 = 'navajo white2'
+    COLOR_NAVAJO_WHITE3 = 'navajo white3'
+    COLOR_NAVAJO_WHITE4 = 'navajo white4'
+    COLOR_NAVY = 'navy'
+    COLOR_NAVY_BLUE = 'navy blue'
+    COLOR_OLD_LACE = 'old lace'
+    COLOR_OLIVE = 'olive'
+    COLOR_OLIVE_DRAB = 'olive drab'
+    COLOR_OLIVE_DRAB1 = 'olive drab1'
+    COLOR_OLIVE_DRAB2 = 'olive drab2'
+    COLOR_OLIVE_DRAB3 = 'olive drab3'
+    COLOR_OLIVE_DRAB4 = 'olive drab4'
+    COLOR_ORANGE = 'orange'
+    COLOR_ORANGE1 = 'orange1'
+    COLOR_ORANGE2 = 'orange2'
+    COLOR_ORANGE3 = 'orange3'
+    COLOR_ORANGE4 = 'orange4'
+    COLOR_ORANGE_RED = 'orange red'
+    COLOR_ORANGE_RED1 = 'orange red1'
+    COLOR_ORANGE_RED2 = 'orange red2'
+    COLOR_ORCHID = 'orchid'
+    COLOR_ORCHID1 = 'orchid1'
+    COLOR_ORCHID2 = 'orchid2'
+    COLOR_ORCHID3 = 'orchid3'
+    COLOR_ORCHID4 = 'orchid4'
+    COLOR_PALE_GOLDENROD = 'pale goldenrod'
+    COLOR_PALE_GREEN = 'pale green'
+    COLOR_PALE_GREEN1 = 'pale green1'
+    COLOR_PALE_GREEN2 = 'pale green2'
+    COLOR_PALE_GREEN3 = 'pale green3'
+    COLOR_PALE_GREEN4 = 'pale green4'
+    COLOR_PALE_TURQUOISE = 'pale turquoise'
+    COLOR_PALE_TURQUOISE1 = 'pale turquoise1'
+    COLOR_PALE_TURQUOISE2 = 'pale turquoise2'
+    COLOR_PALE_TURQUOISE3 = 'pale turquoise3'
+    COLOR_PALE_TURQUOISE4 = 'pale turquoise4'
+    COLOR_PALE_VIOLET_RED = 'pale violet red'
+    COLOR_PALE_VIOLET_RED1 = 'pale violet red1'
+    COLOR_PALE_VIOLET_RED2 = 'pale violet red2'
+    COLOR_PALE_VIOLET_RED3 = 'pale violet red3'
+    COLOR_PALE_VIOLET_RED4 = 'pale violet red4'
+    COLOR_PAPAYA_WHIP = 'papaya whip'
+    COLOR_PEACH_PUFF = 'peach puff'
+    COLOR_PEACH_PUFF1 = 'peach puff1'
+    COLOR_PEACH_PUFF2 = 'peach puff2'
+    COLOR_PEACH_PUFF3 = 'peach puff3'
+    COLOR_PEACH_PUFF4 = 'peach puff4'
+    COLOR_PERU = 'peru'
+    COLOR_PINK = 'pink'
+    COLOR_PINK1 = 'pink1'
+    COLOR_PINK2 = 'pink2'
+    COLOR_PINK3 = 'pink3'
+    COLOR_PINK4 = 'pink4'
+    COLOR_PLUM = 'plum'
+    COLOR_PLUM1 = 'plum1'
+    COLOR_PLUM2 = 'plum2'
+    COLOR_PLUM3 = 'plum3'
+    COLOR_PLUM4 = 'plum4'
+    COLOR_POWDER_BLUE = 'powder blue'
+    COLOR_PURPLE = 'purple'
+    COLOR_PURPLE1 = 'purple1'
+    COLOR_PURPLE2 = 'purple2'
+    COLOR_PURPLE3 = 'purple3'
+    COLOR_PURPLE4 = 'purple4'
+    COLOR_RED = 'red'
+    COLOR_ROSY_BROWN = 'rosy brown'
+    COLOR_ROYAL_BLUE = 'royal blue'
+    COLOR_ROYAL_BLUE1 = 'royal blue1'
+    COLOR_ROYAL_BLUE2 = 'royal blue2'
+    COLOR_ROYAL_BLUE3 = 'royal blue3'
+    COLOR_ROYAL_BLUE4 = 'royal blue4'
+    COLOR_SADDLE_BROWN = 'saddle brown'
+    COLOR_SALMON = 'salmon'
+    COLOR_SALMON2 = 'salmon2'
+    COLOR_SALMON3 = 'salmon3'
+    COLOR_SALMON4 = 'salmon4'
+    COLOR_SANDY_BROWN = 'sandy brown'
+    COLOR_SEA_GREEN = 'sea green'
+    COLOR_SEA_GREEN1 = 'sea green1'
+    COLOR_SEA_GREEN2 = 'sea green2'
+    COLOR_SEA_GREEN3 = 'sea green3'
+    COLOR_SEA_GREEN4 = 'sea green4'
+    COLOR_SEA_SHELL = 'sea shell'
+    COLOR_SEA_SHELL1 = 'sea shell1'
+    COLOR_SEA_SHELL2 = 'sea shell2'
+    COLOR_SEA_SHELL3 = 'sea shell3'
+    COLOR_SEA_SHELL4 = 'sea shell4'
+    COLOR_SIENNA = 'sienna'
+    COLOR_SIENNA2 = 'sienna2'
+    COLOR_SIENNA3 = 'sienna3'
+    COLOR_SIENNA4 = 'sienna4'
+    COLOR_SILVER = 'silver'
+    COLOR_SKY_BLUE = 'sky blue'
+    COLOR_SKY_BLUE1 = 'sky blue1'
+    COLOR_SKY_BLUE2 = 'sky blue2'
+    COLOR_SKY_BLUE3 = 'sky blue3'
+    COLOR_SKY_BLUE4 = 'sky blue4'
+    COLOR_SLATE_BLUE = 'slate blue'
+    COLOR_SLATE_BLUE1 = 'slate blue1'
+    COLOR_SLATE_BLUE2 = 'slate blue2'
+    COLOR_SLATE_BLUE3 = 'slate blue3'
+    COLOR_SLATE_BLUE4 = 'slate blue4'
+    COLOR_SLATE_GRAY = 'slate gray'
+    COLOR_SNOW = 'snow'
+    COLOR_SNOW1 = 'snow1'
+    COLOR_SNOW2 = 'snow2'
+    COLOR_SNOW3 = 'snow3'
+    COLOR_SNOW4 = 'snow4'
+    COLOR_SPRING_GREEN = 'spring green'
+    COLOR_SPRING_GREEN1 = 'spring green1'
+    COLOR_SPRING_GREEN2 = 'spring green2'
+    COLOR_SPRING_GREEN3 = 'spring green3'
+    COLOR_SPRING_GREEN4 = 'spring green4'
+    COLOR_STEEL_BLUE = 'steel blue'
+    COLOR_STEEL_BLUE1 = 'steel blue1'
+    COLOR_STEEL_BLUE2 = 'steel blue2'
+    COLOR_STEEL_BLUE3 = 'steel blue3'
+    COLOR_STEEL_BLUE4 = 'steel blue4'
+    COLOR_TAN = 'tan'
+    COLOR_TAN1 = 'tan1'
+    COLOR_TAN2 = 'tan2'
+    COLOR_TAN3 = 'tan3'
+    COLOR_TAN4 = 'tan4'
+    COLOR_TEAL = 'teal'
+    COLOR_THISTLE = 'thistle'
+    COLOR_TOMATO = 'tomato'
+    COLOR_TOMATO1 = 'tomato1'
+    COLOR_TOMATO2 = 'tomato2'
+    COLOR_TOMATO3 = 'tomato3'
+    COLOR_TOMATO4 = 'tomato4'
+    COLOR_TURQUOISE = 'turquoise'
+    COLOR_TURQUOISE1 = 'turquoise1'
+    COLOR_TURQUOISE2 = 'turquoise2'
+    COLOR_TURQUOISE3 = 'turquoise3'
+    COLOR_TURQUOISE4 = 'turquoise4'
+    COLOR_VIOLET = 'violet'
+    COLOR_VIOLET_RED = 'violet red'
+    COLOR_VIOLET_RED1 = 'violet red1'
+    COLOR_VIOLET_RED2 = 'violet red2'
+    COLOR_VIOLET_RED3 = 'violet red3'
+    COLOR_VIOLET_RED4 = 'violet red4'
+    COLOR_WHEAT = 'wheat'
+    COLOR_WHEAT1 = 'wheat1'
+    COLOR_WHEAT2 = 'wheat2'
+    COLOR_WHEAT3 = 'wheat3'
+    COLOR_WHEAT4 = 'wheat4'
+    COLOR_WHITE = 'white'
+    COLOR_WHITE_SMOKE = 'white smoke'
+    COLOR_YELLOW = 'yellow'
+    COLOR_YELLOW1 = 'yellow1'
+    COLOR_YELLOW2 = 'yellow2'
+    COLOR_YELLOW3 = 'yellow3'
+    COLOR_YELLOW4 = 'yellow4'
+    COLOR_YELLOW_GREEN = 'yellow green'
+    COLOURED = 2048
+    CRITICAL = 50
+    CURSOR_ARROW = 1
+    CURSOR_ARROWWAIT = 27
+    CURSOR_ARROWWAIT_NAME = 'CURSOR_ARROWWAIT'
+    CURSOR_ARROW_NAME = 'CURSOR_ARROW'
+    CURSOR_BLANK = 26
+    CURSOR_BLANK_NAME = 'CURSOR_BLANK'
+    CURSOR_BULLSEYE = 3
+    CURSOR_BULLSEYE_NAME = 'CURSOR_BULLSEYE'
+    CURSOR_CHAR = 4
+    CURSOR_CHAR_NAME = 'CURSOR_CHAR'
+    CURSOR_COPY_ARROW = 1
+    CURSOR_COPY_ARROW_NAME = 'CURSOR_COPY_ARROW'
+    CURSOR_CROSS = 5
+    CURSOR_CROSS_NAME = 'CURSOR_CROSS'
+    CURSOR_DEFAULT = 1
+    CURSOR_DEFAULT_NAME = 'CURSOR_DEFAULT'
+    CURSOR_HAND = 6
+    CURSOR_HAND_NAME = 'CURSOR_HAND'
+    CURSOR_IBEAM = 7
+    CURSOR_IBEAM_NAME = 'CURSOR_IBEAM'
+    CURSOR_LEFT_BUTTON = 8
+    CURSOR_LEFT_BUTTON_NAME = 'CURSOR_LEFT_BUTTON'
+    CURSOR_MAGNIFIER = 9
+    CURSOR_MAGNIFIER_NAME = 'CURSOR_MAGNIFIER'
+    CURSOR_MIDDLE_BUTTON = 10
+    CURSOR_MIDDLE_BUTTON_NAME = 'CURSOR_MIDDLE_BUTTON'
+    CURSOR_NO_ENTRY = 11
+    CURSOR_NO_ENTRY_NAME = 'CURSOR_NO_ENTRY'
+    CURSOR_PAINT_BRUSH = 12
+    CURSOR_PAINT_BRUSH_NAME = 'CURSOR_PAINT_BRUSH'
+    CURSOR_PENCIL = 13
+    CURSOR_PENCIL_NAME = 'CURSOR_PENCIL'
+    CURSOR_POINT_LEFT = 14
+    CURSOR_POINT_LEFT_NAME = 'CURSOR_POINT_LEFT'
+    CURSOR_POINT_RIGHT = 15
+    CURSOR_POINT_RIGHT_NAME = 'CURSOR_POINT_RIGHT'
+    CURSOR_QUESTION_ARROW = 16
+    CURSOR_QUESTION_ARROW_NAME = 'CURSOR_QUESTION_ARROW'
+    CURSOR_RIGHT_ARROW = 2
+    CURSOR_RIGHT_ARROW_NAME = 'CURSOR_RIGHT_ARROW'
+    CURSOR_RIGHT_BUTTON = 17
+    CURSOR_RIGHT_BUTTON_NAME = 'CURSOR_RIGHT_BUTTON'
+    CURSOR_SIZENESW = 18
+    CURSOR_SIZENES_NAME = 'CURSOR_SIZENESW'
+    CURSOR_SIZENS = 19
+    CURSOR_SIZENS_NAME = 'CURSOR_SIZENS'
+    CURSOR_SIZENWSE = 20
+    CURSOR_SIZENWSE_NAME = 'CURSOR_SIZENWSE'
+    CURSOR_SIZEWE = 21
+    CURSOR_SIZEWE_NAME = 'CURSOR_SIZEWE'
+    CURSOR_SIZING = 22
+    CURSOR_SIZING_NAME = 'CURSOR_SIZING'
+    CURSOR_SPRAYCAN = 23
+    CURSOR_SPRAYCAN_NAME = 'CURSOR_SPRAYCAN'
+    CURSOR_WAIT = 24
+    CURSOR_WAIT_NAME = 'CURSOR_WAIT'
+    CURSOR_WATCH = 25
+    CURSOR_WATCH_NAME = 'CURSOR_WATCH'
+    CheckBoxNameStr = 'check'
+    ChoiceNameStr = 'choice'
+    ComboBoxNameStr = 'comboBox'
+    ControlNameStr = 'control'
+    CursorNameStr = 'cursor'
+    DEBUG = True
+    DEFAULT_CONTROL_BORDER = 134217728
+    DEFAULT_DIALOG_STYLE = 570433088
+    DEFAULT_FRAME_STYLE = 570433088
+    DEFAULT_MENUBAR_STYLE = 33554432
+    DEFAULT_PANEL_STYLE = 2621440
+    DEFAULT_SPLASHSCREEN_STYLE = 1048576
+    DEFAULT_STATUSBAR_STYLE = 33619984
+    DEFAULT_STDIO_STYLE = 570425344
+    DEFAULT_TASK_STYLE = 570425408
+    DEFAULT_TEXTEDITBOX_STYLE = 2097152
+    DEFAULT_WIDGET_STYLE = 2097152
+    DIALOG_EX_CONTEXTHELP = 128
+    DIALOG_EX_METAL = 64
+    DISPLAY_ALTCHARSET = 4194304
+    DISPLAY_BLINK = 524288
+    DISPLAY_BOLD = 2097152
+    DISPLAY_DIM = 1048576
+    DISPLAY_NORMAL = 0
+    DISPLAY_REVERSE = 262144
+    DISPLAY_STANDOUT = 65536
+    DISPLAY_UNDERLINE = 131072
+    DOUBLE_BORDER = 268435456
+    DOWN = 128
+    Debug_CLI_Configuration = (True,)
+    Debug_CLI_Exceptions = True
+    Debug_CLI_Launch = True
+    Debug_CLI_Progress = True
+    Debug_CLI_Termination = True
+    Debug_GUI_Configuration = True
+    Debug_GUI_Exceptions = True
+    Debug_GUI_Launch = True
+    Debug_GUI_Progress = True
+    Debug_GUI_Termination = True
+    DefaultCoord = -1
+    DefaultPosition = (-1, -1)
+    DefaultRectangle = (-1, -1, -1, -1)
+    DefaultSize = (-1, -1)
+    DefaultValidator = None
+    DefaultValue = -1
+    DefaultVideoMode = 'Curses'
+    DialogButtonNameStr = 'dialogButton'
+    DialogNameStr = 'dialog'
+    EAST = 32
+    EMERGENCY = 55
+    ENABLE_CURSES_RESIZE = False
+    ERROR = 40
+    EVT_ACTIVATE = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_ACTIVATE_APP = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_BUTTON = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_CHAR = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_CHAR_HOOK = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_CHECKBOX = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_CHECKLISTBOX = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_CHILD_FOCUS = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_CHOICE = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_CLOSE = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_COMBOBOX = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_COMMAND_ENTER = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_COMMAND_KILL_FOCUS = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_COMMAND_LEFT_CLICK = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_COMMAND_LEFT_DCLICK = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_COMMAND_RIGHT_CLICK = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_COMMAND_RIGHT_DCLICK = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_COMMAND_SCROLL = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_COMMAND_SCROLL_BOTTOM = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_COMMAND_SCROLL_CHANGED = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_COMMAND_SCROLL_ENDSCROLL = <tsWxPyEventBinder.PyEventBinder object...
+    EVT_COMMAND_SCROLL_LINEDOWN = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_COMMAND_SCROLL_LINEUP = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_COMMAND_SCROLL_PAGEDOWN = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_COMMAND_SCROLL_PAGEUP = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_COMMAND_SCROLL_THUMBRELEASE = <tsWxPyEventBinder.PyEventBinder obj...
+    EVT_COMMAND_SCROLL_THUMBTRACK = <tsWxPyEventBinder.PyEventBinder objec...
+    EVT_COMMAND_SCROLL_TOP = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_COMMAND_SET_FOCUS = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_CONTEXT_MENU = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_DAEMON_TIMETOSLEEP = 0.2
+    EVT_DETAILED_HELP = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_DETAILED_HELP_RANGE = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_DISPLAY_CHANGED = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_DROP_FILES = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_END_SESSION = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_ENTER_WINDOW = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_ERASE_BACKGROUND = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_FIRST = 10000
+    EVT_HELP = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_HELP_RANGE = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_HIBERNATE = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_HOTKEY = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_HSCROLLWIN = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_HSCROLLWIN_BOTTOM = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_HSCROLLWIN_LINEDOWN = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_HSCROLLWIN_LINEUP = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_HSCROLLWIN_PAGEDOWN = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_HSCROLLWIN_PAGEUP = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_HSCROLLWIN_THUMBRELEASE = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_HSCROLLWIN_THUMBTRACK = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_HSCROLLWIN_TOP = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_ICONIZE = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_IDLE = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_INIT_DIALOG = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_JOYSTICK_EVENTS = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_JOY_BUTTON_DOWN = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_JOY_BUTTON_UP = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_JOY_MOVE = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_JOY_ZMOVE = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_KEY_DOWN = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_KEY_UP = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_KILL_FOCUS = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_LEAVE_WINDOW = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_LEFT_DCLICK = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_LEFT_DOWN = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_LEFT_UP = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_LISTBOX = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_LISTBOX_DCLICK = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_MAXIMIZE = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_MENU = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_MENU_CLOSE = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_MENU_HIGHLIGHT = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_MENU_HIGHLIGHT_ALL = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_MENU_OPEN = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_MENU_RANGE = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_MIDDLE_DCLICK = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_MIDDLE_DOWN = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_MIDDLE_UP = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_MINIMIZE = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_MOTION = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_MOUSEWHEEL = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_MOUSE_CAPTURE_CHANGED = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_MOUSE_CAPTURE_LOST = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_MOUSE_EVENTS = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_MOVE = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_MOVING = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_NAVIGATION_KEY = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_NC_PAINT = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_NULL = 0
+    EVT_PAINT = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_PALETTE_CHANGED = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_QUERY_END_SESSION = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_QUERY_NEW_PALETTE = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_RADIOBOX = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_RADIOBUTTON = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_RESTOREDOWN = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_RIGHT_DCLICK = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_RIGHT_DOWN = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_RIGHT_UP = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_SCROLL = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_SCROLLBAR = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_SCROLLWIN = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_SCROLLWIN_BOTTOM = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_SCROLLWIN_LINEDOWN = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_SCROLLWIN_LINEUP = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_SCROLLWIN_PAGEDOWN = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_SCROLLWIN_PAGEUP = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_SCROLLWIN_THUMBRELEASE = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_SCROLLWIN_THUMBTRACK = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_SCROLLWIN_TOP = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_SCROLL_BOTTOM = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_SCROLL_CHANGED = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_SCROLL_LINEDOWN = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_SCROLL_LINEUP = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_SCROLL_PAGEDOWN = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_SCROLL_PAGEUP = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_SCROLL_THUMBRELEASE = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_SCROLL_THUMBTRACK = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_SCROLL_TOP = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_SET_CURSOR = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_SET_FOCUS = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_SHOW = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_SIZE = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_SIZING = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_SLIDER = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_SYS_COLOUR_CHANGED = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_TEXT_COPY = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_TEXT_CUT = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_TEXT_PASTE = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_TIMER = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_TOOL = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_TOOL_ENTER = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_TOOL_RANGE = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_TOOL_RCLICKED = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_TOOL_RCLICKED_RANGE = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_UPDATE_UI = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_UPDATE_UI_RANGE = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_USER_FIRST = 12000
+    EVT_VLBOX = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_VSCROLLWIN = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_VSCROLLWIN_BOTTOM = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_VSCROLLWIN_LINEDOWN = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_VSCROLLWIN_LINEUP = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_VSCROLLWIN_PAGEDOWN = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_VSCROLLWIN_PAGEUP = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_VSCROLLWIN_THUMBRELEASE = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_VSCROLLWIN_THUMBTRACK = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_VSCROLLWIN_TOP = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_WINDOW_CREATE = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_WINDOW_DESTROY = <tsWxPyEventBinder.PyEventBinder object>
+    EXPAND = 8192
+    EmptyList = []
+    EmptyString = ''
+    FIXED_LENGTH = 1024
+    FIXED_MINSIZE = 32768
+    FLEX_GROWMODE_ALL = 2
+    FLEX_GROWMODE_NONE = 0
+    FLEX_GROWMODE_SPECIFIED = 1
+    FORWARD = 4096
+    FRAME_DRAWER = 32
+    FRAME_EX_CONTEXTHELP = 128
+    FRAME_EX_METAL = 64
+    FRAME_NO_WINDOW_MENU = 256
+    FRAME_SHAPED = 16
+    FRAME_TOOL_WINDOW = 4
+    FULL_REPAINT_ON_RESIZE = 65536
+    FrameButtonNameStr = 'frameButton'
+    FrameNameStr = 'frame'
+    GA_HORIZONTAL = 4
+    GA_VERTICAL = 8
+    GROW = 8192
+    GaugeNameStr = 'gauge'
+    GetPasswordFromUserPromptStr = 'Enter Password'
+    GetTextFromUserPromptStr = 'Input Text'
+    HELP = 32768
+    HORIZONTAL = 4
+    HSCROLL = 1073741824
+    HorizontalScrollBarNameStr = 'horizontalScrollBar'
+    ICON_ASTERISK = 2048
+    ICON_ERROR = 512
+    ICON_EXCLAMATION = 256
+    ICON_HAND = 512
+    ICON_INFORMATION = 2048
+    ICON_MASK = 3840
+    ICON_QUESTION = 1024
+    ICON_STOP = 512
+    ICON_WARNING = 256
+    ID_ABOUT = '&About'
+    ID_ADD = 'Add'
+    ID_ANY = -1
+    ID_APPLY = '&Apply'
+    ID_BACKWARD = '&Back'
+    ID_BOLD = '&Bold'
+    ID_CANCEL = '&Cancel'
+    ID_CLEAR = '&Clear'
+    ID_CLOSE = '&Close'
+    ID_COPY = '&Copy'
+    ID_CUT = 'Cu&t'
+    ID_DELETE = '&Delete'
+    ID_DOWN = '&Down'
+    ID_EDIT = '&Edit'
+    ID_EXIT = '&Quit'
+    ID_FILE = '&File'
+    ID_FIND = '&Find'
+    ID_FORWARD = '&Forward'
+    ID_HELP = '&Help'
+    ID_HIGHEST = 5999
+    ID_HOME = '&Home'
+    ID_INDENT = 'Indent'
+    ID_INDEX = '&Index'
+    ID_ITALIC = '&Italic'
+    ID_JUSTIFY_CENTER = 'Centered'
+    ID_JUSTIFY_FILL = 'Justified'
+    ID_JUSTIFY_LEFT = 'Align Left'
+    ID_JUSTIFY_RIGHT = 'Align Right'
+    ID_LOWEST = 4999
+    ID_NEW = '&New'
+    ID_NO = '&No'
+    ID_NONE = -3
+    ID_OK = '&OK'
+    ID_OPEN = '&Open'
+    ID_PASTE = '&Paste'
+    ID_PREFERENCES = '&Preferences'
+    ID_PREVIEW = 'Print previe&w'
+    ID_PRINT = '&Print'
+    ID_PROPERTIES = '&Properties'
+    ID_REDO = '&Redo'
+    ID_REFRESH = 'Refresh'
+    ID_REMOVE = 'Remove'
+    ID_REPLACE = 'Rep&lace'
+    ID_REVERT_TO_SAVED = 'Revert to Saved'
+    ID_SAVE = '&Save'
+    ID_SAVEAS = 'Save &As...'
+    ID_SELECTALL = 'Select all'
+    ID_SEPARATOR = -2
+    ID_STOP = '&Stop'
+    ID_TEXT = 3000
+    ID_UNDELETE = 'Undelete'
+    ID_UNDERLINE = '&Underline'
+    ID_UNDO = '&Undo'
+    ID_UNINDENT = '&Unindent'
+    ID_UP = '&Up'
+    ID_YES = '&Yes'
+    ID_ZOOM_100 = '&Actual Size'
+    ID_ZOOM_FIT = 'Zoom to &Fit'
+    ID_ZOOM_IN = 'Zoom &In'
+    ID_ZOOM_OUT = 'Zoom &Out'
+    INFO = 20
+    ITEM_CHECK = 1
+    ITEM_MAX = 3
+    ITEM_NORMAL = 0
+    ITEM_RADIO = 2
+    ITEM_SEPARATOR = -1
+    Item_Max = 4
+    Item_None = 0
+    Item_Sizer = 2
+    Item_Spacer = 3
+    Item_Window = 1
+    LB_ALWAYS_SB = 1024
+    LB_EXTENDED = 128
+    LB_HSCROLL = 1073741824
+    LB_INT_HEIGHT = 2048
+    LB_MULTIPLE = 64
+    LB_NEEDED_SB = 512
+    LB_OWNERDRAW = 256
+    LB_SINGLE = 32
+    LB_SORT = 16
+    LEFT = 16
+    LI_HORIZONTAL = 4
+    LI_VERTICAL = 8
+    LOG_Debug = 6
+    LOG_Error = 1
+    LOG_FatalError = 0
+    LOG_Info = 5
+    LOG_Max = 10000
+    LOG_Message = 3
+    LOG_Progress = 8
+    LOG_Status = 4
+    LOG_Trace = 7
+    LOG_User = 100
+    LOG_Warning = 2
+    Layout_Default = 0
+    Layout_LeftToRight = 1
+    Layout_RightToLeft = 2
+    LeftOf = 5
+    ListBoxNameStr = 'listBox'
+    MAXIMIZE_BOX = 512
+    MB_DOCKABLE = 1
+    MENU_TEAROFF = 1
+    MINIMIZE_BOX = 1024
+    MORE = 65536
+    MOUSE_BTN_ANY = -1
+    MOUSE_BTN_LEFT = 0
+    MOUSE_BTN_MIDDLE = 1
+    MOUSE_BTN_NONE = -1
+    MOUSE_BTN_RIGHT = 2
+    MenuBarNameStr = 'menuBar'
+    NO = 8
+    NORTH = 64
+    NOTICE = 25
+    NOTSET = 0
+    NOT_FOUND = -1
+    NO_BORDER = 2097152
+    NO_DEFAULT = 128
+    NO_FULL_REPAINT_ON_RESIZE = 0
+    NotebookNameStr = 'notebook'
+    NullAcceleratorTable = []
+    OK = 4
+    OrderAfter = 1
+    OrderBefore = 0
+    PASSWORD_ENTRY_DIALOG_STYLE = 570433109
+    POPUP_WINDOW = 131072
+    PYAPP_ASSERT_DIALOG = 4
+    PYAPP_ASSERT_EXCEPTION = 2
+    PYAPP_ASSERT_LOG = 8
+    PYAPP_ASSERT_SURPRESS = 1
+    PanelNameStr = 'panel'
+    PasswordEntryDialogNameStr = 'passwordEntryDialog'
+    PercentOf = 2
+    Platform = '__TSWXCURSES__'
+    ProductName = '"tsWxGTUI" Toolkit'
+    PyEmptyStringArray = []
+    RAISED_BORDER = 67108864
+    RA_HORIZONTAL = 4
+    RA_LEFTTORIGHT = 1
+    RA_SPECIFY_COLS = 4
+    RA_SPECIFY_ROWS = 8
+    RA_TOPTOBOTTOM = 2
+    RA_USE_CHECKBOX = 16
+    RA_VERTICAL = 8
+    RB_GROUP = 4
+    RB_SINGLE = 8
+    RB_USE_CHECKBOX = 16
+    RESERVE_SPACE_EVEN_IF_HIDDEN = 2
+    RESET = 16384
+    RESIZE_BORDER = 64
+    RETAINED = 0
+    RIGHT = 32
+    RadioBoxNameStr = 'radioBox'
+    RadioButtonNameStr = 'radioButton'
+    ReadyForIntegration = True
+    RedirectedWindowHeight = {'maxHeightPercent': 20, 'minDisplay': (272, ...
+    RightOf = 6
+    SB_HORIZONTAL = 4
+    SB_VERTICAL = 8
+    SCREEN_HEIGHT_CHARACTERS_DEFAULT = 40
+    SCREEN_HEIGHT_PIXELS_DEFAULT = 480
+    SCREEN_STYLE_DEFAULT = 0
+    SCREEN_WIDTH_CHARACTERS_DEFAULT = 80
+    SCREEN_WIDTH_PIXELS_DEFAULT = 640
+    SETUP = 131072
+    SHAPED = 16384
+    SHARED_IMAGE = 1048576
+    SHRINK = 4096
+    SIMPLE_BORDER = 33554432
+    SIZE_ALLOW_MINUS_ONE = 4
+    SIZE_AUTO = 3
+    SIZE_AUTO_HEIGHT = 2
+    SIZE_AUTO_WIDTH = 1
+    SIZE_FORCE = 16
+    SIZE_FORCE_EVENT = 32
+    SIZE_NO_ADJUSTMENTS = 8
+    SIZE_USE_EXISTING = 0
+    SL_HORIZONTAL = 4
+    SL_VERTICAL = 8
+    SOUTH = 128
+    SP_ARROW_KEYS = 4096
+    SP_HORIZONTAL = 4
+    SP_VERTICAL = 8
+    SP_WRAP = 8192
+    STATIC_BORDER = 16777216
+    STAY_ON_TOP = 32768
+    STRETCH_NOT = 0
+    ST_DOTS_END = 4
+    ST_DOTS_MIDDLE = 2
+    ST_NO_AUTORESIZE = 1
+    ST_SIZEGRIP = 16
+    SUNKEN_BORDER = 134217728
+    SYSTEM_MENU = 2048
+    SameAs = 7
+    ScreenNameStr = 'screen'
+    ScrollBarButtonNameStr = 'scrollBarButton'
+    ScrollBarGaugeNameStr = 'scrollBarGauge'
+    ScrollBarNameStr = 'scrollBar'
+    ScrolledNameStr = 'scrolled'
+    ScrolledTextNameStr = 'scrolledText'
+    SliderNameStr = 'slider'
+    SplashScreenNameStr = 'splashScreen'
+    StaticBitmapNameStr = 'staticBitmap'
+    StaticBoxNameStr = 'groupBox'
+    StaticLineNameStr = 'staticLine'
+    StaticTextNameStr = 'staticText'
+    StatusBarNameStr = 'statusBar'
+    StatusLineNameStr = 'status_line'
+    StdioNameStr = 'stdio'
+    StdioRedirectedTitleStr = 'Redirected Output: stdout/stderr'
+    StdioTitleStr = 'tsWxPython: stdout/stderr'
+    SubSystemName = '"tsToolkitGUI"'
+    System = 'CYGWIN_NT-6.1'
+    TAB_TRAVERSAL = 524288
+    TC_BOTTOM = 128
+    TC_FIXEDWIDTH = 32
+    TC_LEFT = 32
+    TC_MULTILINE = 512
+    TC_OWNERDRAW = 1024
+    TC_RIGHT = 64
+    TC_RIGHTJUSTIFY = 16
+    TC_TOP = 0
+    TEXT_ENTRY_DIALOG_STYLE = 570433109
+    TE_AUTO_SCROLL = 8
+    TE_AUTO_URL = 4096
+    TE_BESTWRAP = 0
+    TE_CENTER = 256
+    TE_CENTRE = 256
+    TE_CHARWRAP = 16384
+    TE_DONTWRAP = 1073741824
+    TE_LEFT = 0
+    TE_MULTILINE = 32
+    TE_NOHIDESEL = 8192
+    TE_NO_VSCROLL = 2
+    TE_PASSWORD = 2048
+    TE_PROCESS_ENTER = 1024
+    TE_PROCESS_TAB = 64
+    TE_READONLY = 16
+    TE_RICH = 128
+    TE_RIGHT = 512
+    TE_WORDWRAP = 1
+    TITLE = 49152
+    TOP = 64
+    TRANSPARENT_WINDOW = 1048576
+    TaskBarNameStr = 'TaskBar'
+    TaskBarTitleStr = 'Tasks'
+    TextCtrlNameStr = 'text'
+    TextEditBoxNameStr = 'textEditBox'
+    TextEntryDialogNameStr = 'textEntryDialog'
+    TextEntryDialogStyle = 570433109
+    ThemeDate = '04/05/2014'
+    ThemeTeamSTARS = {'BackgroundColour': 'blue', 'CharacterCellAlignment'...
+    ThemeToUse = {'BackgroundColour': 'blue', 'CharacterCellAlignment': Tr...
+    ThemeWxPython = {'BackgroundColour': 'blue', 'CharacterCellAlignment':...
+    ToggleButtonNameStr = 'wxToggleButton'
+    ToolBarNameStr = 'toolbar'
+    TopLevelClasses = ['Frame', 'Dialog', 'PasswordEntryDialog', 'Screen',...
+    TreeCtrlNameStr = 'treeCtrl'
+    Troubleshooting = {'Debug_CLI_Configuration': True, 'Debug_CLI_Excepti...
+    UP = 64
+    UPDATE_UI_FROMIDLE = 2
+    UPDATE_UI_NONE = (0,)
+    UPDATE_UI_RECURSE = (1,)
+    USE_ACCESSIBILITY = False
+    USE_BORDER_BY_DEFAULT = True
+    USE_CARET = False
+    USE_CONSTRAINTS = False
+    USE_CURSES_PANEL_STACK = True
+    USE_DRAG_AND_DROP = False
+    USE_HELP = False
+    USE_MENUS = False
+    USE_PALETTE = False
+    USE_SYSTEM_OPTIONS = False
+    USE_TOOLTIPS = False
+    USE_VALIDATORS = False
+    Unconstrained = 0
+    UseDefaultValue = -1
+    VERBOSE = True
+    VERTICAL = 8
+    VSCROLL = 2147483648L
+    VendorName = 'Richard S. Gordon, a.k.a. Software Gadgetry'
+    VerticalScrollBarNameStr = 'verticalScrollBar'
+    WANTS_CHARS = 262144
+    WARNING = 30
+    WEST = 16
+    WINDOW_DEFAULT_VARIANT = 'window-default-variant'
+    WINDOW_STYLE_MASK = 4294901760L
+    WINDOW_VARIANT_NORMAL = 0
+    WS_EX_BLOCK_EVENTS = 2
+    WS_EX_CONTEXTHELP = 128
+    WS_EX_PROCESS_IDLE = 16
+    WS_EX_PROCESS_UI_UPDATES = 32
+    WS_EX_THEMED_BACKGROUND = 8
+    WS_EX_TRANSIENT = 4
+    WS_EX_VALIDATE_RECURSIVELY = 1
+    WXK_ADD = 335
+    WXK_ALT = 307
+    WXK_BACK = 8
+    WXK_CANCEL = 303
+    WXK_CAPITAL = 311
+    WXK_CLEAR = 305
+    WXK_COMMAND = 396
+    WXK_CONTROL = 308
+    WXK_DECIMAL = 338
+    WXK_DELETE = 127
+    WXK_DIVIDE = 339
+    WXK_DOWN = 317
+    WXK_END = 312
+    WXK_ESCAPE = 27
+    WXK_EXECUTE = 320
+    WXK_F1 = 340
+    WXK_F10 = 349
+    WXK_F11 = 350
+    WXK_F12 = 351
+    WXK_F13 = 352
+    WXK_F14 = 353
+    WXK_F15 = 354
+    WXK_F16 = 355
+    WXK_F17 = 356
+    WXK_F18 = 357
+    WXK_F19 = 358
+    WXK_F2 = 341
+    WXK_F20 = 359
+    WXK_F21 = 360
+    WXK_F22 = 361
+    WXK_F23 = 362
+    WXK_F24 = 363
+    WXK_F3 = 342
+    WXK_F4 = 343
+    WXK_F5 = 344
+    WXK_F6 = 345
+    WXK_F7 = 346
+    WXK_F8 = 347
+    WXK_F9 = 348
+    WXK_HELP = 323
+    WXK_HOME = 313
+    WXK_INSERT = 322
+    WXK_LBUTTON = 301
+    WXK_LEFT = 314
+    WXK_MBUTTON = 304
+    WXK_MENU = 309
+    WXK_MULTIPLY = 334
+    WXK_NUMLOCK = 364
+    WXK_NUMPAD0 = 324
+    WXK_NUMPAD1 = 325
+    WXK_NUMPAD2 = 326
+    WXK_NUMPAD3 = 327
+    WXK_NUMPAD4 = 328
+    WXK_NUMPAD5 = 329
+    WXK_NUMPAD6 = 330
+    WXK_NUMPAD7 = 331
+    WXK_NUMPAD8 = 332
+    WXK_NUMPAD9 = 333
+    WXK_NUMPAD_ADD = 388
+    WXK_NUMPAD_BEGIN = 383
+    WXK_NUMPAD_DECIMAL = 391
+    WXK_NUMPAD_DELETE = 385
+    WXK_NUMPAD_DIVIDE = 392
+    WXK_NUMPAD_DOWN = 379
+    WXK_NUMPAD_END = 382
+    WXK_NUMPAD_ENTER = 370
+    WXK_NUMPAD_EQUAL = 386
+    WXK_NUMPAD_F1 = 371
+    WXK_NUMPAD_F2 = 372
+    WXK_NUMPAD_F3 = 373
+    WXK_NUMPAD_F4 = 374
+    WXK_NUMPAD_HOME = 375
+    WXK_NUMPAD_INSERT = 384
+    WXK_NUMPAD_LEFT = 376
+    WXK_NUMPAD_MULTIPLY = 387
+    WXK_NUMPAD_PAGEDOWN = 381
+    WXK_NUMPAD_PAGEUP = 380
+    WXK_NUMPAD_RIGHT = 378
+    WXK_NUMPAD_SEPARATOR = 389
+    WXK_NUMPAD_SPACE = 368
+    WXK_NUMPAD_SUBTRACT = 390
+    WXK_NUMPAD_TAB = 369
+    WXK_NUMPAD_UP = 377
+    WXK_PAGEDOWN = 367
+    WXK_PAGEUP = 366
+    WXK_PAUSE = 310
+    WXK_PRINT = 319
+    WXK_RBUTTON = 302
+    WXK_RETURN = 13
+    WXK_RIGHT = 316
+    WXK_SCROLL = 365
+    WXK_SELECT = 318
+    WXK_SEPARATOR = 336
+    WXK_SHIFT = 306
+    WXK_SNAPSHOT = 321
+    WXK_SPACE = 32
+    WXK_SPECIAL1 = 193
+    WXK_SPECIAL10 = 202
+    WXK_SPECIAL11 = 203
+    WXK_SPECIAL12 = 204
+    WXK_SPECIAL13 = 205
+    WXK_SPECIAL14 = 206
+    WXK_SPECIAL15 = 207
+    WXK_SPECIAL16 = 208
+    WXK_SPECIAL17 = 209
+    WXK_SPECIAL18 = 210
+    WXK_SPECIAL19 = 211
+    WXK_SPECIAL2 = 194
+    WXK_SPECIAL3 = 195
+    WXK_SPECIAL4 = 196
+    WXK_SPECIAL5 = 197
+    WXK_SPECIAL6 = 198
+    WXK_SPECIAL7 = 199
+    WXK_SPECIAL8 = 200
+    WXK_SPECIAL9 = 201
+    WXK_START = 300
+    WXK_SUBTRACT = 337
+    WXK_TAB = 9
+    WXK_UP = 315
+    WXK_WINDOWS_LEFT = 393
+    WXK_WINDOWS_MENU = 395
+    WXK_WINDOWS_RIGHT = 394
+    YES = 2
+    YES_DEFAULT = 0
+    YES_NO = 10
+    __authors__ = 'Richard S. Gordon'
+    __copyright__ = 'Copyright (c) 2007-2013 Richard S. Gordon.\n\t\tAll r...
+    __credits__ = '\n\n  Credits: \n\n\t  tsLibGUI Import & Application .....
+    __date__ = '09/12/2013'
+    __header__ = '\n\ntsWx, v1.17.0 (build 09/12/2013)\n\n  Author(s):... ...
+    __license__ = 'GNU General Public License, Version 3, 29 June 2007'
+    __line1__ = 'tsWx, v1.17.0 (build 09/12/2013)'
+    __line2__ = 'Author(s): Richard S. Gordon'
+    __line3__ = 'Copyright (c) 2007-2013 Richard S. Gordon.\n\t\tAll right...
+    __line4__ = 'GNU General Public License, Version 3, 29 June 2...U Gene...
+    __title__ = 'tsWx'
+    __version__ = '1.17.0'
+    caretBlinkMilliseconds = 1000
+    caretInvisible = 0
+    caretNormal = 1
+    caretVeryVisible = 2
+    cliLoggerNameStr = 'cliAPP'
+    guiLoggerNameStr = 'guiAPP'
+    importCode = ImportError('No module named tsLibGUI',)
+    indentation = {'AcceleratorEntry': 1, 'AcceleratorTable': 2, 'App': 4,...
+    lastWindowId = None
+    mainTitleVersionDate = 'tsWxEvent, v1.7.0 (build 07/01/2013)'
+    minRedirectedHeight = 36
+    minScreenHeight = 216
+    minScreenWidth = 272
+    nCursesEncoding = 'UTF-8'
+    napTimeMilliseconds = 5000
+    pageLength = 66
+    pageWidth = 80
+    pixelHeightPerCharacter = 12
+    pixelWidthPerCharacter = 8
+    theCopyright = '\ntsWxGTUI, v0.0.0 (pre-alpha build 03/15/2014)\n\n......
+    theLicense = '\nThe "tsWxGTUI" Toolkit and its third-party comp...HANT...
+    theNotices = '\nThe Terms & Conditions which permit YOUR use, m..../ts...
+    theTrademark = '\n+----+----+  TeamSTARS "tsWxGTUI" Toolkit\n| ts ...c...
+    wxEVENT_PROPAGATE_MAX = 2147483647
+    wxEVENT_PROPAGATE_NONE = 0
+    wxEVT_ACTIVATE = 409
+    wxEVT_ACTIVATE_APP = 405
+    wxEVT_CATEGORY_ALL = 127
+    wxEVT_CATEGORY_CLIPBOARD = 64
+    wxEVT_CATEGORY_SOCKET = 4
+    wxEVT_CATEGORY_THREAD = 16
+    wxEVT_CATEGORY_TIMER = 8
+    wxEVT_CATEGORY_UI = 1
+    wxEVT_CATEGORY_UNKNOWN = 32
+    wxEVT_CATEGORY_USER_INPUT = 2
+    wxEVT_CHAR = 212
+    wxEVT_CHAR_HOOK = 213
+    wxEVT_CHILD_FOCUS = 114
+    wxEVT_CLOSE_WINDOW = 402
+    wxEVT_COMMAND_BUTTON_CLICKED = 1
+    wxEVT_COMMAND_CHECKBOX_CLICKED = 2
+    wxEVT_COMMAND_CHECKLISTBOX_TOGGLED = 6
+    wxEVT_COMMAND_CHOICE_SELECTED = 3
+    wxEVT_COMMAND_COMBOBOX_SELECTED = 15
+    wxEVT_COMMAND_ENTER = 506
+    wxEVT_COMMAND_KILL_FOCUS = 505
+    wxEVT_COMMAND_LEFT_CLICK = 500
+    wxEVT_COMMAND_LEFT_DCLICK = 501
+    wxEVT_COMMAND_LISTBOX_DOUBLECLICKED = 5
+    wxEVT_COMMAND_LISTBOX_SELECTED = 4
+    wxEVT_COMMAND_MENU_SELECTED = 9
+    wxEVT_COMMAND_RADIOBOX_SELECTED = 11
+    wxEVT_COMMAND_RADIOBUTTON_SELECTED = 12
+    wxEVT_COMMAND_RIGHT_CLICK = 502
+    wxEVT_COMMAND_RIGHT_DCLICK = 503
+    wxEVT_COMMAND_SCROLLBAR_UPDATED = 13
+    wxEVT_COMMAND_SET_FOCUS = 504
+    wxEVT_COMMAND_SLIDER_UPDATED = 10
+    wxEVT_COMMAND_SPINCTRL_UPDATED = 18
+    wxEVT_COMMAND_TEXT_COPY = 444
+    wxEVT_COMMAND_TEXT_CUT = 445
+    wxEVT_COMMAND_TEXT_ENTER = 8
+    wxEVT_COMMAND_TEXT_MAXLEN = 14
+    wxEVT_COMMAND_TEXT_PASTE = 446
+    wxEVT_COMMAND_TEXT_UPDATED = 7
+    wxEVT_COMMAND_TEXT_URL = 13
+    wxEVT_COMMAND_TOOL_CLICKED = 9
+    wxEVT_COMMAND_TOOL_ENTER = 17
+    wxEVT_COMMAND_TOOL_RCLICKED = 16
+    wxEVT_COMMAND_VLBOX_SELECTED = 14
+    wxEVT_COMPARE_ITEM = 437
+    wxEVT_CONTEXT_MENU = 424
+    wxEVT_CREATE = 410
+    wxEVT_DESTROY = 411
+    wxEVT_DETAILED_HELP = 1051
+    wxEVT_DISPLAY_CHANGED = 426
+    wxEVT_DRAW_ITEM = 435
+    wxEVT_DROP_FILES = 434
+    wxEVT_END_SESSION = 403
+    wxEVT_ENTER_WINDOW = 107
+    wxEVT_ERASE_BACKGROUND = 418
+    wxEVT_FIRST = 10000
+    wxEVT_HELP = 1050
+    wxEVT_HIBERNATE = 443
+    wxEVT_HOTKEY = 217
+    wxEVT_HSCROLLWIN_BOTTOM = 331
+    wxEVT_HSCROLLWIN_LINEDOWN = 333
+    wxEVT_HSCROLLWIN_LINEUP = 332
+    wxEVT_HSCROLLWIN_PAGEDOWN = 335
+    wxEVT_HSCROLLWIN_PAGEUP = 334
+    wxEVT_HSCROLLWIN_THUMBRELEASE = 337
+    wxEVT_HSCROLLWIN_THUMBTRACK = 336
+    wxEVT_HSCROLLWIN_TOP = 330
+    wxEVT_ICONIZE = 413
+    wxEVT_IDLE = 439
+    wxEVT_INIT_DIALOG = 438
+    wxEVT_JOY_BUTTON_DOWN = 430
+    wxEVT_JOY_BUTTON_UP = 431
+    wxEVT_JOY_MOVE = 432
+    wxEVT_JOY_ZMOVE = 433
+    wxEVT_KEY_DOWN = 215
+    wxEVT_KEY_UP = 216
+    wxEVT_KILL_FOCUS = 113
+    wxEVT_LEAVE_WINDOW = 108
+    wxEVT_LEFT_DCLICK = 109
+    wxEVT_LEFT_DOWN = 100
+    wxEVT_LEFT_UP = 101
+    wxEVT_MAXIMIZE = 414
+    wxEVT_MEASURE_ITEM = 436
+    wxEVT_MENU_CLOSE = 422
+    wxEVT_MENU_HIGHLIGHT = 423
+    wxEVT_MENU_OPEN = 421
+    wxEVT_MIDDLE_DCLICK = 110
+    wxEVT_MIDDLE_DOWN = 102
+    wxEVT_MIDDLE_UP = 103
+    wxEVT_MINIMIZE = 413
+    wxEVT_MOTION = 106
+    wxEVT_MOUSEWHEEL = 115
+    wxEVT_MOUSE_CAPTURE_CHANGED = 415
+    wxEVT_MOUSE_CAPTURE_LOST = 416
+    wxEVT_MOVE = 401
+    wxEVT_MOVING = 442
+    wxEVT_NAVIGATION_KEY = 214
+    wxEVT_NC_ENTER_WINDOW = 207
+    wxEVT_NC_LEAVE_WINDOW = 208
+    wxEVT_NC_LEFT_DCLICK = 209
+    wxEVT_NC_LEFT_DOWN = 200
+    wxEVT_NC_LEFT_UP = 201
+    wxEVT_NC_MIDDLE_DCLICK = 210
+    wxEVT_NC_MIDDLE_DOWN = 202
+    wxEVT_NC_MIDDLE_UP = 203
+    wxEVT_NC_MOTION = 206
+    wxEVT_NC_PAINT = 419
+    wxEVT_NC_RIGHT_DCLICK = 211
+    wxEVT_NC_RIGHT_DOWN = 204
+    wxEVT_NC_RIGHT_UP = 205
+    wxEVT_NULL = 0
+    wxEVT_PAINT = 417
+    wxEVT_PAINT_ICON = 420
+    wxEVT_PALETTE_CHANGED = 429
+    wxEVT_QUERY_END_SESSION = 404
+    wxEVT_QUERY_NEW_PALETTE = 428
+    wxEVT_RIGHT_DCLICK = 111
+    wxEVT_RIGHT_DOWN = 104
+    wxEVT_RIGHT_UP = 105
+    wxEVT_SCROLLWIN_BOTTOM = 321
+    wxEVT_SCROLLWIN_LINEDOWN = 323
+    wxEVT_SCROLLWIN_LINEUP = 322
+    wxEVT_SCROLLWIN_PAGEDOWN = 325
+    wxEVT_SCROLLWIN_PAGEUP = 324
+    wxEVT_SCROLLWIN_THUMBRELEASE = 327
+    wxEVT_SCROLLWIN_THUMBTRACK = 326
+    wxEVT_SCROLLWIN_TOP = 320
+    wxEVT_SCROLL_BOTTOM = 301
+    wxEVT_SCROLL_CHANGED = 308
+    wxEVT_SCROLL_LINEDOWN = 303
+    wxEVT_SCROLL_LINEUP = 302
+    wxEVT_SCROLL_PAGEDOWN = 305
+    wxEVT_SCROLL_PAGEUP = 304
+    wxEVT_SCROLL_THUMBRELEASE = 307
+    wxEVT_SCROLL_THUMBTRACK = 306
+    wxEVT_SCROLL_TOP = 300
+    wxEVT_SETTING_CHANGED = 427
+    wxEVT_SET_CURSOR = 230
+    wxEVT_SET_FOCUS = 112
+    wxEVT_SHOW = 412
+    wxEVT_SIZE = 400
+    wxEVT_SIZING = 441
+    wxEVT_SYS_COLOUR_CHANGED = 425
+    wxEVT_TIMER = 80
+    wxEVT_UPDATE_UI = 440
+    wxEVT_USER_FIRST = 12000
+    wxEVT_VSCROLLWIN_BOTTOM = 341
+    wxEVT_VSCROLLWIN_LINEDOWN = 343
+    wxEVT_VSCROLLWIN_LINEUP = 342
+    wxEVT_VSCROLLWIN_PAGEDOWN = 345
+    wxEVT_VSCROLLWIN_PAGEUP = 344
+    wxEVT_VSCROLLWIN_THUMBRELEASE = 347
+    wxEVT_VSCROLLWIN_THUMBTRACK = 346
+    wxEVT_VSCROLLWIN_TOP = 340
+    wxMOD_ALL = 65535
+    wxMOD_ALT = 1
+    wxMOD_ALTGR = 3
+    wxMOD_CMD = 2
+    wxMOD_CONTROL = 2
+    wxMOD_META = 8
+    wxMOD_NONE = 0
+    wxMOD_SHIFT = 4
+    wxMOD_WIN = 8
+    wxRESTOREDOWN = 414
+
+VERSION
+    1.17.0
+
+DATE
+    09/12/2013
+
+CREDITS
+    
+    
+      Credits: 
+    
+    	  tsLibGUI Import & Application Launch Features: 
+    	  Copyright (c) 2007-2009 Frederick A. Kier.
+    			All rights reserved.
+    
+    	  Python Curses Module API & Run Time Library Features:
+    	  Copyright (c) 2001-2013 Python Software Foundation.
+    			All rights reserved.
+    	  PSF License Agreement for Python 2.7.3 & 3.3.0
+    
+    	  wxWidgets (formerly wxWindows) & wxPython API Features:
+    	  Copyright (c) 1992-2008 Julian Smart, Robert Roebling,
+    			Vadim Zeitlin and other members of the 
+    			wxWidgets team.
+    			All rights reserved.
+    	  wxWindows Library License
+    
+    	  nCurses API & Run Time Library Features:
+    	  Copyright (c) 1998-2011 Free Software Foundation, Inc.
+    			All rights reserved.
+    	  GNU General Public License, Version 3, 29 June 2007
+
+

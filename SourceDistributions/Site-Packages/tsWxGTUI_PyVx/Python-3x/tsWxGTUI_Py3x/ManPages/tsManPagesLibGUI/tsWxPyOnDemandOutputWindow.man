@@ -1,0 +1,174 @@
+  init in tsLibCLI
+    tsLibCLI = ./tsLibCLI
+    Importing tsLibCLI.tsCxGlobalsPkg.src
+      init in tsCxGlobalsPkg
+    Importing tsLibCLI.tsCommandLineInterfacePkg.src
+      init in tsCommandLineInterfacePkg
+        Importing tsLibCLI.tsCommandLineInterfacePkg.src.tsCommandLineInterface
+    Importing tsLibCLI.tsExceptionPkg.src
+      init in tsExceptionPkg
+        Importing tsLibCLI.tsExceptionPkg.src.tsExceptions
+    Importing tsLibCLI.tsReportUtilityPkg.src
+      init in tsReportUtilityPkg
+        Importing tsLibCLI.tsReportUtilityPkg.src.tsReportUtilities
+    Importing tsLibCLI.tsLoggerPkg.src
+      init in tsLoggerPkg
+        Importing tsLibCLI.tsLoggerPkg.src.tsLogger
+<open file '/usr/bin/logs/2014-04-09-at-04-00-52/pydoc.log', mode 'w' at 0x7fd16230>
+    Importing tsLibCLI.tsDoubleLinkedListPkg.src
+      init in tsDoubleLinkedListPkg
+        Importing tsLibCLI.tsDoubleLinkedListPkg.src.tsDoubleLinkedList
+    Importing tsLibCLI.tsPlatformRunTimeEnvironmentPkg.src
+      init in tsPlatformRunTimeEnvironmentPkg
+        Importing tsLibCLI.tsPlatformRunTimeEnvironmentPkg.src.tsGistGetTerminalSize
+        Importing tsLibCLI.tsPlatformRunTimeEnvironmentPkg.src.tsPlatformRunTimeEnvironment
+    Importing tsLibCLI.tsApplicationPkg.src
+      init in tsApplicationPkg
+        Importing tsLibCLI.tsApplicationPkg.src.tsApplication
+    Importing tsLibCLI.tsCommandLineEnvPkg.src
+      init in tsCommandLineEnvPkg
+        Importing tsLibCLI.tsCommandLineEnvPkg.src.tsCommandLineEnv
+    Importing tsLibCLI.tsOperatorSettingsParserPkg.src
+      init in tsOperatorSettingsParserPkg
+        Importing tsLibCLI.tsOperatorSettingsParserPkg.src.tsOperatorSettingsParser
+    Importing tsLibCLI.tsSysCommandPkg.src
+      init in tsSysCommandPkg
+        Importing tsLibCLI.tsSysCommandPkg.src.tsSysCommands
+  Begin Cleanup tsLibCLI.tsSysCommandPkg.src
+    Deleting tsLibCLI.tsCxGlobalsPkg.src.struct
+    Deleting tsLibCLI.tsLoggerPkg.src.thread
+    Deleting tsLibCLI.tsOperatorSettingsParserPkg.src.tsCommandLineEnv
+    Deleting tsLibCLI.tsOperatorSettingsParserPkg.src.os
+    Deleting tsLibCLI.tsCommandLineEnvPkg.src.tsLogger
+    Deleting tsLibCLI.tsExceptionPkg.src
+    Deleting tsLibCLI.tsCommandLineInterfacePkg.src.os
+    Deleting tsLibCLI.sys
+    Deleting tsLibCLI.tsDoubleLinkedListPkg.src
+    Deleting tsLibCLI.tsSysCommandPkg.src.subprocess
+    Deleting tsLibCLI.tsCxGlobalsPkg.src.imp
+    Deleting tsLibCLI.tsPlatformRunTimeEnvironmentPkg.src.sys
+    Deleting tsLibCLI.tsCxGlobalsPkg.src.platform
+    Deleting tsLibCLI.tsCommandLineEnvPkg
+    Deleting tsLibCLI.tsPlatformRunTimeEnvironmentPkg.src.socket
+    Deleting tsLibCLI.tsCxGlobalsPkg.src.sys
+    Deleting tsLibCLI.tsLoggerPkg.src.threading
+    Deleting tsLibCLI.tsPlatformRunTimeEnvironmentPkg.src.optparse
+    Deleting tsLibCLI.tsApplicationPkg.src.tsExceptions
+    Deleting tsLibCLI.tsCommandLineEnvPkg.src.imp
+    Deleting tsLibCLI.tsApplicationPkg.src.imp
+    Deleting tsLibCLI.tsCxGlobalsPkg
+    Deleting tsLibCLI.imp
+    Deleting tsLibCLI.tsOperatorSettingsParserPkg.src
+    Deleting tsLibCLI.tsLoggerPkg.src.errno
+    Deleting tsLibCLI.tsCxGlobalsPkg.src
+    Deleting tsLibCLI.tsLoggerPkg.src.tsReportUtilities
+    Deleting tsLibCLI.tsCommandLineEnvPkg.src.tsCxGlobals
+    Deleting tsLibCLI.tsReportUtilityPkg.src.glob
+    Deleting tsLibCLI.tsSysCommandPkg
+    Deleting tsLibCLI.tsSysCommandPkg.src.tsLogger
+    Deleting tsLibCLI.tsExceptionPkg.src.os
+    Deleting tsLibCLI.tsSysCommandPkg.src.sys
+    Deleting tsLibCLI.tsOperatorSettingsParserPkg.src.string
+    Deleting tsLibCLI.tsApplicationPkg.src.time
+    Deleting tsLibCLI.tsCxGlobalsPkg.src.termios
+    Deleting tsLibCLI.tsApplicationPkg.src.tsCxGlobals
+    Deleting tsLibCLI.tsApplicationPkg
+    Deleting tsLibCLI.tsLoggerPkg
+    Deleting tsLibCLI.tsSysCommandPkg.src.tsCxGlobals
+    Deleting tsLibCLI.tsExceptionPkg.src.math
+    Deleting tsLibCLI.tsLoggerPkg.src.tsExceptions
+    Deleting tsLibCLI.tsApplicationPkg.src.tsPlatformRunTimeEnvironment
+    Deleting tsLibCLI.tsCommandLineInterfacePkg.src.imp
+    Deleting tsLibCLI.tsOperatorSettingsParserPkg.src.textwrap
+    Deleting tsLibCLI.tsReportUtilityPkg.src.sys
+    Deleting tsLibCLI.tsSysCommandPkg.src.optparse
+    Deleting tsLibCLI.tsCommandLineEnvPkg.src.tsLibCLI
+    Deleting tsLibCLI.tsPlatformRunTimeEnvironmentPkg.src.struct
+    Deleting tsLibCLI.tsReportUtilityPkg.src.imp
+    Deleting tsLibCLI.tsDoubleLinkedListPkg.src.imp
+    Deleting tsLibCLI.tsOperatorSettingsParserPkg.src.tsLogger
+    Deleting tsLibCLI.tsCxGlobalsPkg.src.shlex
+    Deleting tsLibCLI.tsCommandLineEnvPkg.src.tsOperatorSettingsParser
+    Deleting tsLibCLI.tsOperatorSettingsParserPkg.src.tsLibCLI
+    Deleting tsLibCLI.tsApplicationPkg.src.tsLibCLI
+    Deleting tsLibCLI.tsPlatformRunTimeEnvironmentPkg.src.textwrap
+    Deleting tsLibCLI.tsOperatorSettingsParserPkg.src.platform
+    Deleting tsLibCLI.tsReportUtilityPkg.src.tsLibCLI
+    Deleting tsLibCLI.tsOperatorSettingsParserPkg.src.imp
+    Deleting tsLibCLI.tsApplicationPkg.src.sys
+    Deleting tsLibCLI.tsReportUtilityPkg.src
+    Deleting tsLibCLI.tsExceptionPkg.src.tsLibCLI
+    Deleting tsLibCLI.tsApplicationPkg.src.os
+    Deleting tsLibCLI.tsCxGlobalsPkg.src.subprocess
+    Deleting tsLibCLI.tsPlatformRunTimeEnvironmentPkg.src.tsCxGlobals
+    Deleting tsLibCLI.tsSysCommandPkg.src
+    Deleting tsLibCLI.tsCxGlobalsPkg.src.syslog
+    Deleting tsLibCLI.tsExceptionPkg
+    Deleting tsLibCLI.os
+    Deleting tsLibCLI.tsCommandLineInterfacePkg.src.tsCxGlobals
+    Deleting tsLibCLI.tsDoubleLinkedListPkg.src.os
+    Deleting tsLibCLI.tsPlatformRunTimeEnvironmentPkg
+    Deleting tsLibCLI.tsLoggerPkg.src.imp
+    Deleting tsLibCLI.tsSysCommandPkg.src.tsReportUtilities
+    Deleting tsLibCLI.tsPlatformRunTimeEnvironmentPkg.src.os
+    Deleting tsLibCLI.tsDoubleLinkedListPkg.src.tsCxGlobals
+    Deleting tsLibCLI.tsCxGlobalsPkg.src.fcntl
+    Deleting tsLibCLI.tsApplicationPkg.src
+    Deleting tsLibCLI.tsReportUtilityPkg.src.tsCxGlobals
+    Deleting tsLibCLI.tsDoubleLinkedListPkg.src.sys
+    Deleting tsLibCLI.tsLoggerPkg.src.tsCxGlobals
+    Deleting tsLibCLI.tsExceptionPkg.src.imp
+    Deleting tsLibCLI.tsPlatformRunTimeEnvironmentPkg.src.traceback
+    Deleting tsLibCLI.tsPlatformRunTimeEnvironmentPkg.src
+    Deleting tsLibCLI.tsLoggerPkg.src.tsLibCLI
+    Deleting tsLibCLI.tsPlatformRunTimeEnvironmentPkg.src.tsLibCLI
+    Deleting tsLibCLI.tsCommandLineInterfacePkg.src.sys
+    Deleting tsLibCLI.tsSysCommandPkg.src.os
+    Deleting tsLibCLI.tsPlatformRunTimeEnvironmentPkg.src.imp
+    Deleting tsLibCLI.tsLoggerPkg.src.sys
+    Deleting tsLibCLI.tsPlatformRunTimeEnvironmentPkg.src.platform
+    Deleting tsLibCLI.tsReportUtilityPkg.src.types
+    Deleting tsLibCLI.tsLoggerPkg.src
+    Deleting tsLibCLI.tsCxGlobalsPkg.src.os
+    Deleting tsLibCLI.tsPlatformRunTimeEnvironmentPkg.src.shlex
+    Deleting tsLibCLI.tsPlatformRunTimeEnvironmentPkg.src.tsReportUtilities
+    Deleting tsLibCLI.tsExceptionPkg.src.traceback
+    Deleting tsLibCLI.tsLoggerPkg.src.syslog
+    Deleting tsLibCLI.tsSysCommandPkg.src.tsLibCLI
+    Deleting tsLibCLI.tsCommandLineEnvPkg.src.traceback
+    Deleting tsLibCLI.tsCommandLineEnvPkg.src.sys
+    Deleting tsLibCLI.tsLoggerPkg.src.os
+    Deleting tsLibCLI.tsPlatformRunTimeEnvironmentPkg.src.subprocess
+    Deleting tsLibCLI.tsLoggerPkg.src.logging
+    Deleting tsLibCLI.tsOperatorSettingsParserPkg.src.tsCxGlobals
+    Deleting tsLibCLI.tsExceptionPkg.src.sys
+    Deleting tsLibCLI.tsCommandLineEnvPkg.src.tsApplication
+    Deleting tsLibCLI.tsLoggerPkg.src.time
+    Deleting tsLibCLI.tsReportUtilityPkg.src.time
+    Deleting tsLibCLI.tsPlatformRunTimeEnvironmentPkg.src.tsGistGetTerminalSize
+    Deleting tsLibCLI.tsCxGlobalsPkg.src.copy
+    Deleting tsLibCLI.tsPlatformRunTimeEnvironmentPkg.src.termios
+    Deleting tsLibCLI.tsPlatformRunTimeEnvironmentPkg.src.tsLogger
+    Deleting tsLibCLI.tsCommandLineEnvPkg.src.tsExceptions
+    Deleting tsLibCLI.tsCommandLineEnvPkg.src.os
+    Deleting tsLibCLI.tsReportUtilityPkg.src.tsExceptions
+    Deleting tsLibCLI.tsCommandLineInterfacePkg.src
+    Deleting tsLibCLI.tsReportUtilityPkg.src.os
+    Deleting tsLibCLI.tsReportUtilityPkg
+    Deleting tsLibCLI.tsSysCommandPkg.src.tsExceptions
+    Deleting tsLibCLI.tsSysCommandPkg.src.imp
+    Deleting tsLibCLI.tsApplicationPkg.src.tsLogger
+    Deleting tsLibCLI.tsLoggerPkg.src.textwrap
+    Deleting tsLibCLI.tsPlatformRunTimeEnvironmentPkg.src.tsExceptions
+    Deleting tsLibCLI.tsOperatorSettingsParserPkg.src.sys
+    Deleting tsLibCLI.tsDoubleLinkedListPkg
+    Deleting tsLibCLI.tsCommandLineEnvPkg.src
+    Deleting tsLibCLI.tsExceptionPkg.src.tsCxGlobals
+    Deleting tsLibCLI.tsPlatformRunTimeEnvironmentPkg.src.time
+    Deleting tsLibCLI.tsCxGlobalsPkg.src.tsCxGlobals
+    Deleting tsLibCLI.tsCommandLineInterfacePkg
+    Deleting tsLibCLI.tsOperatorSettingsParserPkg
+    Deleting tsLibCLI.tsPlatformRunTimeEnvironmentPkg.src.fcntl
+    Deleting tsLibCLI.tsCxGlobals
+  End Cleanup tsLibCLI.tsSysCommandPkg.src
+problem in ./tsWxPyOnDemandOutputWindow.py - <type 'exceptions.AttributeError'>: 'NoneType' object has no attribute 'path'

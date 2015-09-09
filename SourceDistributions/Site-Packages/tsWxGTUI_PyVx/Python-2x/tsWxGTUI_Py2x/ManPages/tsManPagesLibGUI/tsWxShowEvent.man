@@ -1,0 +1,455 @@
+
+Help on module tsWxShowEvent:
+
+NAME
+    tsWxShowEvent
+
+FILE
+    ./tsLibGUI/tsWxPkg/src/tsWxShowEvent.py
+
+DESCRIPTION
+    tsWxShowEvent.py - Class to emulate the wxPython API for non-graphical,
+    curses-based platforms.
+
+CLASSES
+    tsWxEvent.Event(tsWxObject.Object)
+        ShowEvent
+    
+    class ShowEvent(tsWxEvent.Event)
+     |  An EVT_SHOW event is sent when a window is shown or hidden
+     |  
+     |  Method resolution order:
+     |      ShowEvent
+     |      tsWxEvent.Event
+     |      tsWxObject.Object
+     |      __builtin__.object
+     |  
+     |  Methods defined here:
+     |  
+     |  GetShow(self)
+     |  
+     |  SetShow(self, show)
+     |  
+     |  __init__(self, winid=0, show=False)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  Show
+     |      See 'GetShow' and 'GetShow'
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from tsWxEvent.Event:
+     |  
+     |  CanVeto(self)
+     |  
+     |  Clone(self)
+     |      Returns a copy of the event.
+     |      
+     |      Any event that is posted to the wxWidgets event system for later
+     |      action (via wxEvtHandler::AddPendingEvent, wxEvtHandler::QueueEvent
+     |      or wxPostEvent()) must implement this method.
+     |      
+     |      All wxWidgets events fully implement this method, but any derived
+     |      events implemented by the user should also implement this method
+     |      just in case they (or some event derived from them) are ever posted.
+     |      
+     |      All wxWidgets events implement a copy constructor, so the easiest
+     |      way of implementing the Clone function is to implement a copy
+     |      constructor for a new event (call it MyEvent) and then define the
+     |      Clone function like this:
+     |      
+     |      wxEvent *Clone() const { return new MyEvent(*this); }
+     |  
+     |  GetEventCategory(self)
+     |      Returns a generic category for this event.
+     |      
+     |      wxEvent implementation returns wxEVT_CATEGORY_UI by default.
+     |      
+     |      This function is used to selectively process events in
+     |      wxEventLoopBase::YieldFor.
+     |  
+     |  GetEventCriteria(self)
+     |      Returns the criteria for generating this event.
+     |      
+     |      wxEvent implementation returns None by default.
+     |  
+     |  GetEventData(self)
+     |      Returns instance specific data for this event.
+     |  
+     |  GetEventSource(self)
+     |      Returns the identifier of the given event source.
+     |  
+     |  GetEventType(self)
+     |      Returns the identifier of the given event type, such as
+     |      wxEVT_COMMAND_BUTTON_CLICKED.
+     |  
+     |  GetId(self)
+     |      Returns the identifier associated with this event, such as a button
+     |      command id.
+     |  
+     |  GetSkipped(self)
+     |      Returns true if the event handler should be skipped, false otherwise.
+     |  
+     |  GetTimestamp(self)
+     |      Gets the timestamp for the event.
+     |      
+     |      The timestamp is the time in milliseconds since some fixed moment
+     |      (not necessarily the standard Unix Epoch, so only differences
+     |      between the timestamps and not their absolute values usually make
+     |      sense).
+     |      
+     |      Warning:
+     |      
+     |      wxWidgets returns a non-NULL timestamp only for mouse and key
+     |      events (see wxMouseEvent and wxKeyEvent).
+     |  
+     |  GetVeto(self)
+     |  
+     |  IsCommandEvent(self)
+     |      Returns true if the event is or is derived from wxCommandEvent
+     |      else it returns false.
+     |      
+     |      Note: Exists only for optimization purposes.
+     |  
+     |  ResumePropagation(self, propagationLevel)
+     |      Sets the propagation level to the given value (for example returned
+     |      from an earlier call to wxEvent::StopPropagation).
+     |  
+     |  SetCanVeto(self, canVeto=True)
+     |  
+     |  SetEventCategory(self, category=1)
+     |      Sets the category forthis event.
+     |      
+     |      wxEvent implementation sets wxEVT_CATEGORY_UI by default.
+     |  
+     |  SetEventCriteria(self, criteria=None)
+     |      Sets the criteria for generating this event.
+     |      
+     |      wxEvent implementation sets None by default.
+     |  
+     |  SetEventData(self, data)
+     |      Sets the event data.
+     |  
+     |  SetEventSource(self, src)
+     |      Sets the event source.
+     |  
+     |  SetEventType(self, typ)
+     |      Sets the event type.
+     |  
+     |  SetId(self, id)
+     |      Sets the identifier associated with this event, such as a button
+     |      command id.
+     |  
+     |  SetSkipped(self, skip)
+     |  
+     |  SetTimestamp(self, ts)
+     |      Sets the timestamp for the event.
+     |  
+     |  SetWasProcessed(self, processed)
+     |  
+     |  ShouldProcessOnlyIn(self)
+     |  
+     |  ShouldPropagate(self)
+     |      Test if this event should be propagated or not, i.e.
+     |      if the propagation level is currently greater than 0.
+     |  
+     |  Skip(self, skip=True)
+     |      This method can be used inside an event handler to control whether
+     |      further event handlers bound to this event will be called after the
+     |      current one returns.
+     |      
+     |      Without Skip() (or equivalently if Skip(false) is used), the event
+     |      will not be processed any more. If Skip(true) is called, the event
+     |      processing system continues searching for a further handler function
+     |      for this event, even though it has been processed already in the
+     |      current handler.
+     |      
+     |      In general, it is recommended to skip all non-command events to allow
+     |      the default handling to take place. The command events are, however,
+     |      normally not skipped as usually a single command such as a button
+     |      click or menu item selection must only be processed by one handler.
+     |  
+     |  StopPropagation(self)
+     |      Stop the event from propagating to its parent window.
+     |      
+     |      Returns the old propagation level value which may be later passed
+     |      to ResumePropagation() to allow propagating the event again.
+     |  
+     |  Veto(self, veto=True)
+     |  
+     |  WasProcessed(self)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Static methods inherited from tsWxEvent.Event:
+     |  
+     |  tsGetCurrentEvtId()
+     |      Return latest ID.
+     |  
+     |  tsNewEvtId()
+     |      Create a unique ID.
+     |  
+     |  tsRegisterId(usedId)
+     |      Adjust latest ID to reflect specified new one.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from tsWxEvent.Event:
+     |  
+     |  EventCriteria
+     |      Returns the criteria for generating this event.
+     |      
+     |      wxEvent implementation returns None by default.
+     |  
+     |  EventData
+     |      Returns instance specific data for this event.
+     |  
+     |  EventSource
+     |      Returns the identifier of the given event source.
+     |  
+     |  EventTimestamp
+     |      Gets the timestamp for the event.
+     |      
+     |      The timestamp is the time in milliseconds since some fixed moment
+     |      (not necessarily the standard Unix Epoch, so only differences
+     |      between the timestamps and not their absolute values usually make
+     |      sense).
+     |      
+     |      Warning:
+     |      
+     |      wxWidgets returns a non-NULL timestamp only for mouse and key
+     |      events (see wxMouseEvent and wxKeyEvent).
+     |  
+     |  EventType
+     |      Returns the identifier of the given event type, such as
+     |      wxEVT_COMMAND_BUTTON_CLICKED.
+     |  
+     |  Id
+     |      Returns the identifier associated with this event, such as a button
+     |      command id.
+     |  
+     |  Skipped
+     |      Returns true if the event handler should be skipped, false otherwise.
+     |  
+     |  Timestamp
+     |      Gets the timestamp for the event.
+     |      
+     |      The timestamp is the time in milliseconds since some fixed moment
+     |      (not necessarily the standard Unix Epoch, so only differences
+     |      between the timestamps and not their absolute values usually make
+     |      sense).
+     |      
+     |      Warning:
+     |      
+     |      wxWidgets returns a non-NULL timestamp only for mouse and key
+     |      events (see wxMouseEvent and wxKeyEvent).
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes inherited from tsWxEvent.Event:
+     |  
+     |  CurrentEvtId = 0
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from tsWxObject.Object:
+     |  
+     |  Destroy(self)
+     |      Deletes the C++ object this Python object is a proxy for.
+     |  
+     |  GetClassInfo(self)
+     |      Return information about the class.
+     |  
+     |  GetClassName(self)
+     |      Returns the class name of the C++ class using wxRTTI.
+     |  
+     |  IsSameAs(self, p)
+     |      For wx.Objects that use C++ reference counting internally, this
+     |      method can be used to determine if two objects are referencing
+     |      the same data object.
+     |  
+     |  tsBeginClassRegistration(self, theClass, applicationId)
+     |      Establish connection with application logger. Log the beginning of
+     |      class registration.
+     |      
+     |      Establish application access to display top-level window and to
+     |      curses screen and windows.
+     |  
+     |  tsEndClassRegistration(self, theClass)
+     |      Log the ending of class registration.
+     |  
+     |  tsGetClassNameIndent(self, theClassName)
+     |      Return the hierarchical level associated with the specified class
+     |      for use in indenting the logging of class initialization entry and
+     |      exit.
+     |  
+     |  tsGetTerminalPixelRectangle(self)
+     |      Returns the bounding rectangle the client area of the display,
+     |      i.e., without taskbars and such.
+     |  
+     |  tsGetTheLogger(self)
+     |      Return the logger instance.
+     |  
+     |  tsGetTheTerminal(self, theClass)
+     |      Return the terminal instance.
+     |  
+     |  tsGetTheTerminalScreen(self, theClass)
+     |      Return the screen instance.
+     |  
+     |  tsGetThisOwn(self)
+     |      Return MembershipFlag.
+     |  
+     |  tsInstallTheLoggerAccess(self, indent, theClass, applicationId)
+     |      Establish connection with application logger.
+     |  
+     |  tsInstallTheTerminalAccess(self, indent, theClass, applicationId)
+     |      Establish those display areas reserved for task bar and stdio
+     |      redirection. Create links to the internal information needed
+     |      to monitor and control the physical screen and virtual windows
+     |      of the Graphical Text User Interface.
+     |  
+     |  tsRegisterClassNameAndMembershipFlag(self, theClass)
+     |      Record Class Name and Membership Flag instance variables.
+     |  
+     |  tsUpdateEventAndAcceleratorTables(self, event, handler, source, id=-1, id2=-1, useSystemEventTable=False)
+     |      Bind with event and accelerator System and User tables.
+     |      
+     |      event: One of the EVT_* objects that specifies the
+     |             the type of event to bind.
+     |      
+     |      handler: A callable object to be invoked when the event is
+     |               delivered to self.  Pass None to disconnect an
+     |               event handler.
+     |      
+     |      source: Sometimes the event originates from a different window
+     |              than self, but you still want to catch it in self.  (For
+     |              example, a button event delivered to a frame.)  By passing
+     |              the source of the event, the event handling system is able
+     |              to differentiate between the same event type from different
+     |              controls.
+     |      
+     |      id: Used to specify the event source by ID instead of instance.
+     |      
+     |      id2: Used when it is desirable to bind a handler to a range of ids,
+     |           such as with EVT_MENU_RANGE.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Static methods inherited from tsWxObject.Object:
+     |  
+     |  tsGetCurrentId()
+     |      Return latest ID.
+     |  
+     |  tsGetTheId(mySelf)
+     |      Return the ID associated with this class instance.
+     |  
+     |  tsNewId()
+     |      Create a unique ID.
+     |      
+     |      Remarks:
+     |      Various controls and other parts of wxWidgets need an ID. Sometimes
+     |      the ID may be directly provided by the user or have a predefined
+     |      value, such as wxID_OPEN. Often, however, the value of the ID is
+     |      unimportant and is created automatically by calling
+     |      wxWindow::NewControlId or by passing wxID_ANY as the ID of an
+     |      object.
+     |      
+     |      There are two ways to generate an ID. One way is to start at a
+     |      negative number, and for each new ID, return the next smallest
+     |      number. This is fine for systems that can use the full range of
+     |      negative numbers for IDs, as this provides more than enough IDs
+     |      and it would take a very very long time to run out and wrap
+     |      around. However, some systems cannot use the full range of the
+     |      ID value. Windows, for example, can only use 16 bit IDs, and
+     |      only has about 32000 possible automatic IDs that can be
+     |      generated by wxWindow::NewControlId. If the program runs long
+     |      enough, depending on the program itself, using this first method
+     |      would cause the IDs to wrap around into the positive ID range
+     |      and cause possible clashes with any directly specified ID values.
+     |      
+     |      The other way is to keep track of the IDs returned by
+     |      wxWindow::NewControlId and do not return them again until the
+     |      ID is completely free and not being used by any other objects.
+     |      This will make sure that the ID values do not clash with one
+     |      another. This is accomplished by keeping a reference count for
+     |      each of the IDs that can possibly be returned by
+     |      wxWindow::NewControlId. Other IDs are not reference counted.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from tsWxObject.Object:
+     |  
+     |  ClassName
+     |      Returns the class name of the C++ class using wxRTTI.
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  thisown
+     |      Return MembershipFlag.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes inherited from tsWxObject.Object:
+     |  
+     |  CurrentId = 100
+     |  
+     |  PyApp_EventQueue = None
+     |  
+     |  PyApp_Object = None
+     |  
+     |  TheDisplay = None
+     |  
+     |  TheLogger = None
+     |  
+     |  TheTerminal = None
+     |  
+     |  TheTerminalScreen = None
+
+DATA
+    DEBUG = True
+    VERBOSE = True
+    __authors__ = 'Richard S. Gordon'
+    __copyright__ = 'Copyright (c) 2007-2013 Richard S. Gordon.\n\t\tAll r...
+    __credits__ = '\n\n  Credits: \n\n\t  tsLibGUI Import & Application .....
+    __date__ = '04/01/2013'
+    __header__ = '\n\ntsWxShowEvent, v0.1.0 (build 04/01/2013)\n\n  Au... ...
+    __license__ = 'GNU General Public License, Version 3, 29 June 2007'
+    __line1__ = 'tsWxShowEvent, v0.1.0 (build 04/01/2013)'
+    __line2__ = 'Author(s): Richard S. Gordon'
+    __line3__ = 'Copyright (c) 2007-2013 Richard S. Gordon.\n\t\tAll right...
+    __line4__ = 'GNU General Public License, Version 3, 29 June 2...U Gene...
+    __title__ = 'tsWxShowEvent'
+    __version__ = '0.1.0'
+    mainTitleVersionDate = 'tsWxShowEvent, v0.1.0 (build 04/01/2013)'
+
+VERSION
+    0.1.0
+
+DATE
+    04/01/2013
+
+CREDITS
+    
+    
+      Credits: 
+    
+    	  tsLibGUI Import & Application Launch Features: 
+    	  Copyright (c) 2007-2009 Frederick A. Kier.
+    			All rights reserved.
+    
+    	  Python Curses Module API & Run Time Library Features:
+    	  Copyright (c) 2001-2013 Python Software Foundation.
+    			All rights reserved.
+    	  PSF License Agreement for Python 2.7.3 & 3.3.0
+    
+    	  wxWidgets (formerly wxWindows) & wxPython API Features:
+    	  Copyright (c) 1992-2008 Julian Smart, Robert Roebling,
+    			Vadim Zeitlin and other members of the 
+    			wxWidgets team.
+    			All rights reserved.
+    	  wxWindows Library License
+    
+    	  nCurses API & Run Time Library Features:
+    	  Copyright (c) 1998-2011 Free Software Foundation, Inc.
+    			All rights reserved.
+    	  GNU General Public License, Version 3, 29 June 2007
+
+

@@ -1,0 +1,157 @@
+#-----------------------------------------------------------
+#"Time-stamp: <06/18/2015  7:52:55 PM rsg>"
+#-----------------------------------------------------------
+
+========== File: PROJECT-02-Table_Of_Contents.txt ==========
+
+   +----+----+  TeamSTARS "tsWxGTUI_PyVx" Toolkit
+   | ts | Wx |      with Python 2x & Python 3x based
+   +----+----+         Command Line Interface (CLI)
+   | G T U I |      and "Curses"-based "wxPython"-style, 
+   +---------+         Graphical-Text User Interface (GUI)
+ 
+   Get that cross-platform, pixel-mode "wxPython" feeling
+   on character-mode 8-/16-color (xterm-family) & non-color
+   (vt100-family) terminals and terminal emulators.
+
+==================== TABLE OF CONTENTS =====================
+
+1. PROJECT-01-Title_Page.txt
+
+   Name, title, logo and catch phrase of the "tsWxGTUI"
+   Toolkit.
+
+   Milestone definition for "tsWxGTUI" Toolkit Develop-
+   ment Project Status.
+
+   Preface, an introduction to a book or other literary work
+   written by the work's author. An introductory essay writ-
+   ten by a different person is a foreword and precedes an
+   author's preface. The preface often closes with acknowl-
+   edgments of those who assisted in the literary work.
+
+2. PROJECT-02-Table_Of_Contents.txt
+
+   User Guide document index for the "tsWxGTUI" Toolkit.
+
+3. PROJECT-03-Purpose.txt
+
+   Describes role in development of Application Programs
+   and Embedded Systems.
+
+4. PROJECT-04-Goals.txt
+
+   High-level view of functional, interface, design,
+   implementation, operation, quality and reliability
+   requirements that are WITHIN the work scope.
+
+5. PROJECT-05-Non-Goals.txt
+
+   High-level view of functional, interface, design,
+   implementation, operation, quality and reliability
+   requirements that are BEYOND the work scope.
+
+6. PROJECT-06-Design_Strategy.txt
+
+   Describes the utilization of popular, field-proven,
+   free and open source technology including Python,
+   wxWidgets/wxPython and nCurses whose track record of
+   performance in development, enhancement, maintenance
+   and support is comparable to Commercial-Off-The-Shelf
+   (COTS) products.
+
+7. PROJECT-07-Design_Architecture.txt
+
+   Describes the strategy for goal achievement begin-
+   ning with a Block Diagram that depicts interfaces
+   between components of the "tsWxGTUI" Toolkit and
+   its Operator(s).
+
+8. PROJECT-08-Release_Strategy.txt.txt
+
+   Describes the strategy for phased development test and
+   abd release of the "tsWxGTUI" Toolkit.
+
+9. PROJECT-09-Software_Configuration_Management.txt
+
+   Identifes the tool(s) chosen to register, store and
+   retrieve evolutionary changes in various software
+   components.
+
+10. PROJECT-10-Software_Repository.txt
+
+    Identifies the relative location of information that
+    has been collected and organized into various direc-
+    tories based on subject and usage.
+
+11. PROJECT-11-Features.txt
+
+    Describes functional, interface, design, implement-
+    ation, operation, quality and reliability charact-
+    eristics.
+
+12. PROJECT-12-Capabilities.txt
+
+    Details the achievements of the functional, inter-
+    face, design, implementation, operation, quality
+    and reliability goals.
+
+13. PROJECT-13-Limitations.txt
+
+    Details the limitations of the functional, inter-
+    face, design, implementation, operation, quality
+    and reliability goals.
+
+14. PROJECT-14-Reference_Documents.txt
+
+    Reference document index for the "tsWxGTUI" Toolkit
+    distribution.
+
+15. PROJECT-15-Built-in_Documentation_Symbols.txt
+
+    Describes those named items having a "__" as both a pre-
+    fix and suffix which provide a means for the software
+    developer to re-use built-in package and module documen-
+    tation to facilitate development of the Command Line
+    Interface and Graphical-style User Interface.
+
+    The Built-in Documentation Symbols are passed via a list
+    of keyword-value pairs to the launch wrapper modules
+    named "tsCommandLineEnv" and "tsWxMultiFrameEnv". 
+
+16. PROJECT-16-Applicaion_Launch_Modules.txt
+
+    Describes two Python modules used to launch Python
+    application programs which use a Command Line Inter-
+    face.
+
+    It also describes a Python module used to launch
+    Python application programs which use a Command Line
+    Interface to launch a Graphical User Interface.
+
+17. PROJECT-17-Directory_and_Import_Guide.txt
+
+    Describes those file organization and module import
+    techniques needed to augment the Python Standard Library
+    with a "tsWxGTUI" Toolkit Site-Package, user enhancement
+    and bug fix.
+
+    It also describes how use of a Developer-Sandbox file
+    organization can avoid the constraints imposed by a
+    Site-Package organization.
+
+18. PROJECT-18-Site-Package_Install_Guide.txt
+
+    Describes the steps used to install a Site_Package
+    and the "gotchas" to avoid.
+
+19. PROJECT-19-Developer-Sandbox_Install_Guide.txt
+
+    Describes the steps used to extract and use a Developer-
+    Sandbox and the "gotchas" to avoid.
+
+19. PROJECT-20-Splash_Screen_Guide.txt
+
+    TBD.
+
+======================= End-Of-File ========================

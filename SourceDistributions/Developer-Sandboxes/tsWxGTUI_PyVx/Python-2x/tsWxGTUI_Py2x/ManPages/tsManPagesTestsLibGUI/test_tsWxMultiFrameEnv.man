@@ -1,0 +1,97 @@
+      init in tsCxGlobalsPkg
+<open file './logs/2014-04-08-at-06-27-04/test_tsWxMultiFrameEnv.log', mode 'w' at 0x7fe2cf40>
+tsCommandLineEnv: ImportError (tsLibCLI); importCode=No module named tsOperatorSettingsParser
+
+
+  EntryPoint:
+
+    myLogger=<tsLibCLI.tsLoggerPkg.src.tsLogger.TsLogger object at 0x7fd2b4cc>
+
+    appLogger=<open file './logs/2014-04-08-at-06-27-04/test_tsWxMultiFrameEnv.log', mode 'w' at 0x7fe2cf40>
+
+    theLogName=./logs/2014-04-08-at-06-27-04/EntryPoint
+
+    theLogPath=./logs/2014-04-08-at-06-27-04
+
+    theLogThreshold=10
+
+
+
+
+	EntryPoint (parameters:
+		Args=();
+		Options={}
+
+test_tsWxMultiFrameEnv, v2.4.0 (build 06/18/2013)
+
+	rawArgsOptions=['-h']
+
+
+usage: test_tsWxMultiFrameEnv.py [-h] [-v] [-a] [-d] [-V] [-m {argparse}]
+
+Purpose:
+
+	test_tsWxMultiFrameEnv.py - Test application for class to
+	establish environment for a Multi-Frame Graphical User Interface.
+	It creates a simple Frame and displays "Hello World!" as
+	StaticText.
+
+Syntax:
+
+    <python-interpreter> <program> [Keyword-Value Option(s)] ... \
+                                   [Positional Argument(s)] ...
+
+Examples:
+
+    Interpreter   program app.      operator settings
+    -----------   ----------------  -----------------------------
+    python        test_tsWxMultiFrameEnv.py
+
+    python2.7     test_tsWxMultiFrameEnv.py \
+                                    [-h] [-v]
+                                    [-a] [-d] [-V]
+                                    [-m PARSER_MODULE]
+                                    {argparse}
+
+    python3.3     test_tsWxMultiFrameEnv.py \
+                                    [--help]  [--version]
+                                    [--about] [--debug] [--Verbose]
+                                    [--module PARSER_MODULE]
+                                    {argparse}
+
+        ---------------------------------------------------------
+        Key:
+
+            "python"    - Default interpreter for platform
+
+            "python2.7" - First alternate interpreter for platform
+
+            "python3.3" - Second alternate interpreter for platform
+
+            "[]" - Brackets enclose option keywords and values
+
+            "{}" - Braces enclose option value choices and
+                   positional arguments
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -v, --version         show the build version of this software (including its
+                        title, version and date) and exit
+  -a, --about           show a summary of the terms & conditions for users of
+                        this software (including the applicable product
+                        identification, authors, contributors, copyrights,
+                        licenses and purpose) and exit
+  -d, --debug           log/display application program progress and
+                        diagnostic messages useful in debugging and
+                        troubleshooting. (default = False).
+  -V, --Verbose         log/display verbose troubleshooting details for
+                        application program activity tracking diagnostic
+                        messages (default = False)
+  -m {argparse}, --module {argparse}
+                        sets default for standard Python parser module. (To
+                        demonstrate the similarity and differences between
+                        Optional and Positional Arguments, an Optional
+                        Argument is used to set the latest Python
+                        recommendation, "argparse", while a Positional
+                        Argument is used to override it with a now Python
+                        deprecated "optparse" or "getopt")

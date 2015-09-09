@@ -1,0 +1,325 @@
+<open file '/usr/bin/logs/2015-04-20-at-06-25-47/pydoc.log', mode 'w' at 0x7fe4b4f0>
+Help on module tsLogger:
+
+NAME
+    tsLogger
+
+FILE
+    /cygdrive/d/WR/Technical_Preview-Draft/tsWxGTUI_PyVx/Python-2x/tsWxGTUI_Py2x/tsLibCLI/tsLogger.py
+
+DESCRIPTION
+    tsLogger.py - Class that emulates a subset of Python logging
+    API. It defines and handles prioritized, time and date stamped
+    event message formatting and output to files and devices. Files
+    are organized in a date and time stamped directory named for the
+    launched application. Unix-type devices include syslog, stderr,
+    stdout and stdscr (the ncurses display screen). It also supports
+    "wxPython"-style logging of assert and check case results.
+
+CLASSES
+    localLogger(__builtin__.object)
+        TsLogger(localLogger, wxPythonAsserts)
+    wxPythonAsserts(__builtin__.object)
+        TsLogger(localLogger, wxPythonAsserts)
+    
+    class TsLogger(localLogger, wxPythonAsserts)
+     |  Class that emulates a subset of Python logging API. It defines and
+     |  handles prioritized, time and date stamped event message formatting
+     |  and output to files and devices. Files are organized in a date and
+     |  time stamped directory named for the launched application. Unix-type
+     |  devices include syslog, stderr, stdout and stdscr (the ncurses display
+     |  screen). It also supports "wxPython"-style logging of assert and
+     |  check case results.
+     |  
+     |  Method resolution order:
+     |      TsLogger
+     |      localLogger
+     |      wxPythonAsserts
+     |      __builtin__.object
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, **kw)
+     |      Initialze the class.
+     |  
+     |  tsGetDefaultStandardOutputFileID(self)
+     |  
+     |  tsGetLoggerName(self)
+     |  
+     |  tsGetLoggerPath(self)
+     |  
+     |  tsGetLoggerThreshold(self)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  appLogger
+     |  
+     |  theLogName
+     |  
+     |  theLogPath
+     |  
+     |  theLogThreshold
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes defined here:
+     |  
+     |  activeLoggerIDs = {'name': 'activeLoggerIDs'}
+     |  
+     |  applicationName = 'pydoc'
+     |  
+     |  argv = ['/usr/bin/pydoc', './tsLogger.py']
+     |  
+     |  defaultStandardOutputFileID = <open file '/usr/bin/logs/2015-04-20-at-...
+     |  
+     |  defaultStandardOutputFileName = '/usr/bin/logs/2015-04-20-at-06-25-47/...
+     |  
+     |  defaultStandardOutputPath = '/usr/bin/logs/2015-04-20-at-06-25-47'
+     |  
+     |  fileExt = ''
+     |  
+     |  fileLabel = '2015-04-20-at-06-25-47'
+     |  
+     |  fileName = 'pydoc'
+     |  
+     |  head = '/usr/bin'
+     |  
+     |  mkdirsHead = '/usr/bin/logs/2015-04-20-at-06-25-47'
+     |  
+     |  mkdirsMode = 511
+     |  
+     |  msg = ['Unable to create default log file.']
+     |  
+     |  path = '/usr/bin/logs/2015-04-20-at-06-25-47'
+     |  
+     |  tail = 'pydoc'
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from localLogger:
+     |  
+     |  alert(self, msg, *args, **kwargs)
+     |      Log 'msg % args' with severity 'ALERT'.
+     |      
+     |      To pass exception information, use the keyword argument exc_info with
+     |      a true value, e.g.
+     |      
+     |      logger.warning("Houston, we have a %s", "bit of a problem",
+     |      exc_info = 1)
+     |  
+     |  close(self)
+     |      Close access with self named device or file.
+     |  
+     |  critical(self, msg, *args, **kwargs)
+     |      Log 'msg % args' with severity 'CRITICAL'.
+     |      
+     |      To pass exception information, use the keyword argument exc_info with
+     |      a true value, e.g.
+     |      
+     |      logger.critical("Houston, we have a %s", "major disaster",
+     |      exc_info = 1)
+     |  
+     |  debug(self, msg, *args, **kwargs)
+     |      Log 'msg % args' with severity 'DEBUG'.
+     |      
+     |      To pass exception information, use the keyword argument exc_info with
+     |      a true value, e.g.
+     |      
+     |      logger.debug("Houston, we have a %s", "thorny problem",
+     |      exc_info = 1)
+     |  
+     |  description(self, message, title=None, level=0, width=80, initial_indent='', subsequent_indent='', indent=0, tab=4)
+     |      Output timestamped message on new line.
+     |  
+     |  emergency(self, msg, *args, **kwargs)
+     |      Log 'msg % args' with severity 'EMERGENCY'.
+     |      
+     |      To pass exception information, use the keyword argument exc_info with
+     |      a true value, e.g.
+     |      
+     |      logger.critical("Houston, we have a %s", "major disaster",
+     |      exc_info = 1)
+     |  
+     |  error(self, msg, *args, **kwargs)
+     |      Log 'msg % args' with severity 'ERROR'.
+     |      
+     |      To pass exception information, use the keyword argument exc_info with
+     |      a true value, e.g.
+     |      
+     |      logger.error("Houston, we have a %s", "major problem", exc_info = 1)
+     |  
+     |  event(self, message, level=0)
+     |      Output timestamped message on new line.
+     |  
+     |  exception(self, msg, *args)
+     |      Convenience method for logging an ERROR with exception information.
+     |  
+     |  getLogger(self, name)
+     |      Get a logger with the specified name (channel name), creating it
+     |      if it doesn't yet exist. This name is a dot-separated hierarchical
+     |      name, such as "a", "a.b", "a.b.c" or similar.
+     |      
+     |      If a PlaceHolder existed for the specified name [i.e. the logger
+     |      didn't exist but a child of it did], replace it with the created
+     |      logger and fix up the parent/child references which pointed to the
+     |      placeholder to now point to the logger.
+     |  
+     |  info(self, msg, *args, **kwargs)
+     |      Log 'msg % args' with severity 'INFO'.
+     |      
+     |      To pass exception information, use the keyword argument exc_info with
+     |      a true value, e.g.
+     |      
+     |      logger.info("Houston, we have a %s", "interesting problem",
+     |      exc_info = 1)
+     |  
+     |  log(self, level, msg, *args, **kwargs)
+     |      Log 'msg % args' with the integer severity 'level'.
+     |      
+     |      To pass exception information, use the keyword argument exc_info with
+     |      a true value, e.g.
+     |      
+     |      logger.log(level, "We have a %s", "mysterious problem", exc_info = 1)
+     |  
+     |  notice(self, msg, *args, **kwargs)
+     |      Log 'msg % args' with severity 'NOTICE'.
+     |      
+     |      To pass exception information, use the keyword argument exc_info with
+     |      a true value, e.g.
+     |      
+     |      logger.info("Houston, we have a %s", "interesting problem",
+     |      exc_info = 1)
+     |  
+     |  open(self, name, mode)
+     |      Create access with named device or file. NOTE: Must not be
+     |      used for StandardScreenDevice.
+     |  
+     |  progress(self, message, level=0)
+     |      Output timestamped message on same line.
+     |      NOTE: Only outputs to same line.
+     |  
+     |  warning(self, msg, *args, **kwargs)
+     |      Log 'msg % args' with severity 'WARNING'.
+     |      
+     |      To pass exception information, use the keyword argument exc_info with
+     |      a true value, e.g.
+     |      
+     |      logger.warning("Houston, we have a %s", "bit of a problem",
+     |      exc_info = 1)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from localLogger:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from wxPythonAsserts:
+     |  
+     |  wxASSERT(self, cond)
+     |      assert checks if the condition is true and calls the assert handler
+     |      with a default message if it is not
+     |      
+     |      NB: the macro is defined like this to ensure that nested if/else
+     |      statements containing it are compiled in the same way whether
+     |      it is defined as empty or not
+     |  
+     |  wxASSERT_MSG(self, cond, msg=None)
+     |      assert checks if the condition is true and calls the assert handler
+     |      with the provided message if it is not
+     |      
+     |      NB: the macro is defined like this to ensure that nested if/else
+     |      statements containing it are compiled in the same way whether
+     |      it is defined as empty or not
+     |  
+     |  wxCHECK(self, cond, rc)
+     |      check which returns with the specified return code if the condition
+     |      fails
+     |  
+     |  wxCHECK2(self, cond, op=None)
+     |      check that expression is true, perform op if not
+     |  
+     |  wxCHECK2_MSG(self, cond, op=None, msg=None)
+     |      the generic macro: takes the condition to check, the statement to
+     |      be execute in case the condition is false and the message to pass
+     |      to the assert handler
+     |  
+     |  wxCHECK_MSG(self, cond, rc, msg=None)
+     |      check which returns with the specified return code if the condition
+     |      fails
+     |  
+     |  wxCHECK_RET(self, cond, msg=None)
+     |      special form of wxCHECK2: as wxCHECK, but for use in void functions
+     |      
+     |      NB: there is only one form (with msg parameter) and it is intentional:
+     |      there is no other way to tell the caller what exactly went wrong
+     |      from the void function (of course, the function should not be void
+     |      to begin with...)
+     |  
+     |  wxFAIL(self)
+     |      wxFAIL is a special form of assert: it always triggers (and so is
+     |      usually used in normally unreachable code
+     |  
+     |  wxFAIL_COND_MSG(self, cond, msg=None)
+     |      wxFAIL is a special form of assert: it always triggers (and so is
+     |      usually used in normally unreachable code
+     |  
+     |  wxFAIL_MSG(self, msg=None)
+     |      wxFAIL is a special form of assert: it always triggers (and so is
+     |      usually used in normally unreachable code
+     |  
+     |  wxTRAP(self)
+     |      wxTRAP is a special form of assert: it always triggers (and so is
+     |      usually used in application trap handler code
+
+DATA
+    ALERT = 35
+    CRITICAL = 50
+    DEBUG = 10
+    DEBUG_TRACE_LEVEL = 5
+    EMERGENCY = 55
+    ERROR = 40
+    INFO = 20
+    NOTICE = 25
+    NOTSET = 0
+    PRIVATE = 1
+    StandardErrorDevice = 'stderr'
+    StandardOutputDevice = 'stdout'
+    StandardOutputFile = ''
+    SystemLogDevice = 'syslog'
+    WARNING = 30
+    __all__ = ['ALERT', 'CRITICAL', 'DEBUG', 'DEBUG_TRACE_LEVEL', 'DummyLo...
+    __authors__ = 'Richard S. Gordon'
+    __copyright__ = 'Copyright (c) 2007-2013 Richard S. Gordon.\n\t\tAll r...
+    __credits__ = '\n\n  Credits: \n\n\t  Python Logging Module API Feat.....
+    __date__ = '11/13/2013'
+    __header__ = '\n\ntsLogger.py, v2.2.0 (build 11/13/2013)\n\n  Auth... ...
+    __license__ = 'GNU General Public License, Version 3, 29 June 2007'
+    __line1__ = 'tsLogger.py, v2.2.0 (build 11/13/2013)'
+    __line2__ = 'Author(s): Richard S. Gordon'
+    __line3__ = 'Copyright (c) 2007-2013 Richard S. Gordon.\n\t\tAll right...
+    __line4__ = 'GNU General Public License, Version 3, 29 June 2...\t  PS...
+    __title__ = 'tsLogger.py'
+    __version__ = '2.2.0'
+
+VERSION
+    2.2.0
+
+DATE
+    11/13/2013
+
+CREDITS
+    
+    
+      Credits: 
+    
+    	  Python Logging Module API Features: 
+    	  Copyright (C) 2001-2010 Vinay Sajip. 
+    			All rights reserved.
+    	  Copyright (c) 2001-2013 Python Software Foundation.
+    			All rights reserved.
+    	  PSF License Agreement for Python 2.7.3 & 3.3.0
+
+

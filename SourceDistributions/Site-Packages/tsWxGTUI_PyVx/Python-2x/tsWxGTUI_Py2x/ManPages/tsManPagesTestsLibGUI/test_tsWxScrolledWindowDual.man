@@ -1,0 +1,86 @@
+
+
+test_tsWxScrolledWindowDual, v2.0.0 (build 06/04/2013)
+
+  Authors: Richard S. Gordon
+  Copyright (c) 2007-2013 Richard S. Gordon. All rights reserved.
+
+      init in tsCxGlobalsPkg
+<open file './logs/2014-04-08-at-06-27-24/test_tsWxScrolledWindowDual.log', mode 'w' at 0x7fd62288>
+tsCommandLineEnv: ImportError (tsLibCLI); importCode=No module named tsOperatorSettingsParser
+
+
+	EntryPoint (parameters:
+		Args=();
+		Options={}
+
+
+usage: test_tsWxScrolledWindowDual.py [-h] [-v] [-a] [-d] [-V] [-m {argparse}]
+
+Purpose:
+
+	test_tsWxScrolledWindowDual.py - Test application program.
+	It demonstrates features and operation of the tsWxScrolled,
+	tsWxScrolledText, tsWxScrollBar, tsWxScrolBarButtons and
+	tsWxScrollBarGauge and associated building block components
+	of tsLibCLI and tsLibGUI..
+
+Syntax:
+
+    <python-interpreter> <program> [Keyword-Value Option(s)] ... \
+                                   [Positional Argument(s)] ...
+
+Examples:
+
+    Interpreter   program app.      operator settings
+    -----------   ----------------  -----------------------------
+    python        test_tsWxScrolledWindowDual.py
+
+    python2.7     test_tsWxScrolledWindowDual.py \
+                                    [-h] [-v]
+                                    [-a] [-d] [-V]
+                                    [-m PARSER_MODULE]
+                                    {argparse}
+
+    python3.3     test_tsWxScrolledWindowDual.py \
+                                    [--help]  [--version]
+                                    [--about] [--debug] [--Verbose]
+                                    [--module PARSER_MODULE]
+                                    {argparse}
+
+        ---------------------------------------------------------
+        Key:
+
+            "python"    - Default interpreter for platform
+
+            "python2.7" - First alternate interpreter for platform
+
+            "python3.3" - Second alternate interpreter for platform
+
+            "[]" - Brackets enclose option keywords and values
+
+            "{}" - Braces enclose option value choices and
+                   positional arguments
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -v, --version         show the build version of this software (including its
+                        title, version and date) and exit
+  -a, --about           show a summary of the terms & conditions for users of
+                        this software (including the applicable product
+                        identification, authors, contributors, copyrights,
+                        licenses and purpose) and exit
+  -d, --debug           log/display application program progress and
+                        diagnostic messages useful in debugging and
+                        troubleshooting. (default = False).
+  -V, --Verbose         log/display verbose troubleshooting details for
+                        application program activity tracking diagnostic
+                        messages (default = False)
+  -m {argparse}, --module {argparse}
+                        sets default for standard Python parser module. (To
+                        demonstrate the similarity and differences between
+                        Optional and Positional Arguments, an Optional
+                        Argument is used to set the latest Python
+                        recommendation, "argparse", while a Positional
+                        Argument is used to override it with a now Python
+                        deprecated "optparse" or "getopt")

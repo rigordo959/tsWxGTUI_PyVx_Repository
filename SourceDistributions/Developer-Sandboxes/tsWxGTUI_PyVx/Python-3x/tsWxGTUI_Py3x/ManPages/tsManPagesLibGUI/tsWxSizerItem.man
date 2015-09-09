@@ -1,0 +1,576 @@
+
+Help on module tsWxSizerItem:
+
+NAME
+    tsWxSizerItem
+
+FILE
+    ./tsLibGUI/tsWxPkg/src/tsWxSizerItem.py
+
+DESCRIPTION
+    tsWxSizerItem.py - Class used to track the position, size and other
+    attributes of each item managed by a wx.Sizer.
+
+CLASSES
+    tsWxObject.Object(__builtin__.object)
+        SizerItem
+    
+    class SizerItem(tsWxObject.Object)
+     |  The wx.SizerItem class is used to track the position, size and other
+     |  attributes of each item managed by a wx.Sizer. It is not usually
+     |  necessary to use this class because the sizer elements can also be
+     |  identified by their positions or window or sizer references but
+     |  sometimes it may be more convenient to use wx.SizerItem directly.
+     |  Also, custom classes derived from wx.PySizer will probably need to
+     |  use the collection of wx.SizerItems held by wx.Sizer when calculating
+     |  layout.
+     |  
+     |  Method resolution order:
+     |      SizerItem
+     |      tsWxObject.Object
+     |      __builtin__.object
+     |  
+     |  Methods defined here:
+     |  
+     |  CalcMin(self)
+     |      Calculates the minimum desired size for the item, including any space
+     |      needed by borders.
+     |      
+     |      Modeled after CalcMin in sizer.cpp file of wxWidgets.
+     |  
+     |  DeleteWindows(self)
+     |      Destroy the window or the windows in a subsizer, depending on the type
+     |      of item.
+     |      
+     |      Modeled after DeleteWindows in sizer.cpp file of wxWidgets.
+     |  
+     |  DetachSizer(self)
+     |      Enable deleting the SizerItem without destroying the contained sizer.
+     |      
+     |      Modeled after DetachSizer in sizer.h file of wxWidgets.
+     |  
+     |  DoSetSizer(self, sizer)
+     |      Modeled after DoSetSizer in sizer.cpp file of wxWidgets.
+     |  
+     |  DoSetSpacer(self, size)
+     |      Modeled after DoSetSpacer in sizer.cpp file of wxWidgets.
+     |  
+     |  DoSetWindow(self, window)
+     |      Modeled after DoSetWindow in sizer.cpp file of wxWidgets.
+     |  
+     |  Free(self)
+     |      Modeled after Free in sizer.cpp file of wxWidgets.
+     |  
+     |  GetBorder(self)
+     |      Get the border value for this item.
+     |      
+     |      Modeled after GetBorder in sizer.h file of wxWidgets.
+     |  
+     |  GetFlag(self)
+     |      Get the flag value for this item.
+     |      
+     |      Modeled after GetFlag in sizer.h file of wxWidgets.
+     |  
+     |  GetMinSize(self)
+     |      Get the minimum size needed for the item.
+     |      
+     |      Modeled after GetMinSize in sizer.h file of wxWidgets.
+     |  
+     |  GetMinSizeWithBorder(self)
+     |      Get the minimum size needed for the item with space for the borders
+     |      added, if needed.
+     |      
+     |      Modeled after GetMinSizeWithBorder in sizer.cpp file of wxWidgets.
+     |  
+     |  GetOption(self, *args, **kwargs)
+     |      Please use GetProportion instead.
+     |      # Deprecated in 2.6, use {G,S}etProportion instead.
+     |      
+     |      Modeled after GetOption in sizer.h file of wxWidgets.
+     |  
+     |  GetPosition(self)
+     |      Returns the current position of the item, as set in the last Layout.
+     |      
+     |      Modeled after GetPosition in sizer.h file of wxWidgets.
+     |  
+     |  GetProportion(self)
+     |      Get the proportion value for this item.
+     |      
+     |      Modeled after GetProportion in sizer.h file of wxWidgets.
+     |  
+     |  GetRatio(self)
+     |      Get the ratio item attribute.
+     |      
+     |      Modeled after GetRatio in sizer.h file of wxWidgets.
+     |  
+     |  GetRect(self)
+     |      Returns the rectangle that the sizer item should occupy
+     |      
+     |      Modeled after GetRect in sizer.h file of wxWidgets.
+     |  
+     |  GetSize(self)
+     |      Get the current size of the item, as set in the last Layout.
+     |      
+     |      Modeled after GetSize in sizer.cpp file of wxWidgets.
+     |  
+     |  GetSizer(self)
+     |      Get the subsizer (if any) that is managed by this sizer item.
+     |      
+     |      Modeled after GetSizer in sizer.h file of wxWidgets.
+     |  
+     |  GetSpacer(self)
+     |      Get the size of the spacer managed by this sizer item.
+     |      
+     |      Modeled after GetSpacer in sizer.h file of wxWidgets.
+     |  
+     |  GetUserData(self)
+     |      Returns the userData associated with this sizer item, or None if
+     |      there is not any.
+     |      
+     |      Modeled after GetUserData in sizer.h file of wxWidgets.
+     |  
+     |  GetWindow(self)
+     |      Get the window (if any) that is managed by this sizer item.
+     |      
+     |      Modeled after GetWindow in sizer.h file of wxWidgets.
+     |  
+     |  InformFirstDirection(self, direction, size, availableOtherDir)
+     |      Modeled after InformFirstDirection in sizer.cpp file of wxWidgets.
+     |  
+     |  IsNullDouble(self, x)
+     |      Compare a double precision floating point value with zero.
+     |      
+     |      Modeled after IsNullDouble in sizer.cpp file of wxWidgets.
+     |  
+     |  IsSameDouble(self, x, y)
+     |      Compare two double precision floating point values for equality.
+     |      
+     |      Modeled after IsSameDouble in sizer.cpp file of wxWidgets.
+     |  
+     |  IsShown(self)
+     |      Is the item to be shown in the layout?
+     |      
+     |      This function behaves obviously for the windows and spacers but for the
+     |      sizers it returns true if any sizer element is shown and only returns
+     |      false if all of them are hidden.
+     |      
+     |      Modeled after IsShown in sizer.cpp file of wxWidgets.
+     |  
+     |  IsSizer(self)
+     |      Is this sizer item a subsizer?
+     |      
+     |      Modeled after IsSizer in sizer.h file of wxWidgets.
+     |  
+     |  IsSpacer(self)
+     |      Is this sizer item a spacer?
+     |      
+     |      Modeled after IsSpacer in sizer.h file of wxWidgets.
+     |  
+     |  IsWindow(self)
+     |      Is this sizer item a window?
+     |      
+     |      Modeled after IsWindow in sizer.h file of wxWidgets.
+     |  
+     |  SetBorder(self, border)
+     |      Set the border value for this item.
+     |      
+     |      Modeled after SetBorder in sizer.h file of wxWidgets.
+     |  
+     |  SetDimension(self, *args)
+     |      Set the position and size of the space allocated for this item by
+     |      the sizer, and adjust the position and size of the item (window or
+     |      subsizer) to be within that space taking alignment and borders into
+     |      account.
+     |      
+     |      Modeled after SetDimension in sizer.cpp file of wxWidgets.
+     |  
+     |  SetFlag(self, flag)
+     |      Set the flag value for this item.
+     |      
+     |      Modeled after SetFlag in sizer.h file of wxWidgets.
+     |  
+     |  SetInitSize(self, size)
+     |      Modeled after SetInitSize in sizer.h file of wxWidgets.
+     |  
+     |  SetInitSizeXY(self, x, y)
+     |      Modeled after SetInitSize in sizer.h file of wxWidgets.
+     |  
+     |  SetItemBounds(self, item, x, y, w, h)
+     |      Modeled after TBD in sizer.cpp file of wxWidgets.
+     |  
+     |  SetMinSize(self, size)
+     |      Modeled after SetMinSize in sizer.h file of wxWidgets.
+     |  
+     |  SetMinSizeXY(self, x, y)
+     |      Modeled after SetMinSize in sizer.h file of wxWidgets.
+     |  
+     |  SetOption(self, *args, **kwargs)
+     |      Please use SetProportion instead.
+     |      # Deprecated in 2.6, use {G,S}etProportion instead.
+     |      
+     |      Modeled after SetOption in sizer.h file of wxWidgets.
+     |  
+     |  SetProportion(self, proportion)
+     |      Set the proportion value for this item.
+     |      
+     |      Modeled after SetProportion in sizer.h file of wxWidgets.
+     |  
+     |  SetRatio(self, ratio)
+     |      Set the ratio item attribute.
+     |      
+     |      Modeled after SetRatio in sizer.h file of wxWidgets.
+     |  
+     |  SetRatioSize(self, size)
+     |      Set the ratio item attribute.
+     |      
+     |      Modeled after SetRatioSize in sizer.cpp file of wxWidgets.
+     |  
+     |  SetRatioWH(self, width, height)
+     |      Set the ratio item attribute.
+     |      
+     |      Modeled after SetRatioWH in sizer.h file of wxWidgets.
+     |  
+     |  SetSizer(self, sizer)
+     |      Set the subsizer to be managed by this sizer item.
+     |      
+     |      Modeled after SetSizer in sizer.h file of wxWidgets.
+     |  
+     |  SetSpacer(self, size)
+     |      Set the size of the spacer to be managed by this sizer item.
+     |      
+     |      Modeled after SetSpacer in sizer.h file of wxWidgets.
+     |  
+     |  SetUserData(self, userData)
+     |      Associate a Python object with this sizer item.
+     |      
+     |      Modeled after SetUserData in sizer.h file of wxWidgets.
+     |  
+     |  SetWindow(self, window)
+     |      Set the window to be managed by this sizer item.
+     |      
+     |      Modeled after SetWindow in sizer.h file of wxWidgets.
+     |  
+     |  Show(self, show)
+     |      Set the show item attribute, which sizers use to determine if the
+     |      item is to be made part of the layout or not. If the item is tracking
+     |      a window then it is shown or hidden as needed.
+     |      
+     |      Modeled after Show in sizer.cpp file of wxWidgets.
+     |  
+     |  __del__(self)
+     |      Modeled after ~wxSizerItem in sizer.cpp file of wxWidgets.
+     |  
+     |  __init_Item_Sizer__(self, *args, **kwargs)
+     |  
+     |  __init_Item_Spacer__(self, *args, **kwargs)
+     |  
+     |  __init_Item_Window__(self, *args, **kwargs)
+     |  
+     |  __init_No_Args_No_KwArgs__(self)
+     |  
+     |  __init__(self, *args, **kwargs)
+     |      Constructor for Sizer, Spacer and Window variants of SizerItem.
+     |      
+     |      Design for wxPython 2.8.12 supported no arguments and no key word
+     |      arguments. The application first had to instantiate the SizerItem
+     |      Class and then use various Set methods to configure the kind of
+     |      SizerItem.
+     |      
+     |      Design for wxWidgets 2.9.2.2 supported optional arguments and key
+     |      word arguments. The application could instantiate the SizerItem
+     |      Class in the manner of wxPython 2.8.12 or optionally instantiate
+     |      the Sizer, Spacer or Window variant via the appropriate args and
+     |      kwargs.
+     |      
+     |      Since there is no wxPython 2.9.2.2, the following implementation
+     |      attempts to cover all wxWidgets 2.9.2.2 instantiation forms.
+     |  
+     |  nextSizerItemId(self)
+     |      Generate next in sequence of unique IDs upon request of the application
+     |      program. NOTE: This is independent of internal assignedID generation.
+     |  
+     |  tsGetBorderCharacterDimensions(self, thickness)
+     |      Return width and height of border character in pixels.
+     |      
+     |      Parameter:
+     |      
+     |      thickness --- Border line thickness in pixels.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  Border
+     |      Get the border value for this item.
+     |      
+     |      Modeled after GetBorder in sizer.h file of wxWidgets.
+     |  
+     |  Flag
+     |      Get the flag value for this item.
+     |      
+     |      Modeled after GetFlag in sizer.h file of wxWidgets.
+     |  
+     |  MinSize
+     |      Get the minimum size needed for the item.
+     |      
+     |      Modeled after GetMinSize in sizer.h file of wxWidgets.
+     |  
+     |  MinSizeWithBorder
+     |      Get the minimum size needed for the item with space for the borders
+     |      added, if needed.
+     |      
+     |      Modeled after GetMinSizeWithBorder in sizer.cpp file of wxWidgets.
+     |  
+     |  Position
+     |      Returns the current position of the item, as set in the last Layout.
+     |      
+     |      Modeled after GetPosition in sizer.h file of wxWidgets.
+     |  
+     |  Proportion
+     |      Get the proportion value for this item.
+     |      
+     |      Modeled after GetProportion in sizer.h file of wxWidgets.
+     |  
+     |  Ratio
+     |      Get the ratio item attribute.
+     |      
+     |      Modeled after GetRatio in sizer.h file of wxWidgets.
+     |  
+     |  Rect
+     |      Returns the rectangle that the sizer item should occupy
+     |      
+     |      Modeled after GetRect in sizer.h file of wxWidgets.
+     |  
+     |  Size
+     |      Get the current size of the item, as set in the last Layout.
+     |      
+     |      Modeled after GetSize in sizer.cpp file of wxWidgets.
+     |  
+     |  Sizer
+     |      Get the subsizer (if any) that is managed by this sizer item.
+     |      
+     |      Modeled after GetSizer in sizer.h file of wxWidgets.
+     |  
+     |  Spacer
+     |      Get the size of the spacer managed by this sizer item.
+     |      
+     |      Modeled after GetSpacer in sizer.h file of wxWidgets.
+     |  
+     |  UserData
+     |      Returns the userData associated with this sizer item, or None if
+     |      there is not any.
+     |      
+     |      Modeled after GetUserData in sizer.h file of wxWidgets.
+     |  
+     |  Window
+     |      Get the window (if any) that is managed by this sizer item.
+     |      
+     |      Modeled after GetWindow in sizer.h file of wxWidgets.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from tsWxObject.Object:
+     |  
+     |  Destroy(self)
+     |      Deletes the C++ object this Python object is a proxy for.
+     |  
+     |  GetClassInfo(self)
+     |      Return information about the class.
+     |  
+     |  GetClassName(self)
+     |      Returns the class name of the C++ class using wxRTTI.
+     |  
+     |  IsSameAs(self, p)
+     |      For wx.Objects that use C++ reference counting internally, this
+     |      method can be used to determine if two objects are referencing
+     |      the same data object.
+     |  
+     |  tsBeginClassRegistration(self, theClass, applicationId)
+     |      Establish connection with application logger. Log the beginning of
+     |      class registration.
+     |      
+     |      Establish application access to display top-level window and to
+     |      curses screen and windows.
+     |  
+     |  tsEndClassRegistration(self, theClass)
+     |      Log the ending of class registration.
+     |  
+     |  tsGetClassNameIndent(self, theClassName)
+     |      Return the hierarchical level associated with the specified class
+     |      for use in indenting the logging of class initialization entry and
+     |      exit.
+     |  
+     |  tsGetTerminalPixelRectangle(self)
+     |      Returns the bounding rectangle the client area of the display,
+     |      i.e., without taskbars and such.
+     |  
+     |  tsGetTheLogger(self)
+     |      Return the logger instance.
+     |  
+     |  tsGetTheTerminal(self, theClass)
+     |      Return the terminal instance.
+     |  
+     |  tsGetTheTerminalScreen(self, theClass)
+     |      Return the screen instance.
+     |  
+     |  tsGetThisOwn(self)
+     |      Return MembershipFlag.
+     |  
+     |  tsInstallTheLoggerAccess(self, indent, theClass, applicationId)
+     |      Establish connection with application logger.
+     |  
+     |  tsInstallTheTerminalAccess(self, indent, theClass, applicationId)
+     |      Establish those display areas reserved for task bar and stdio
+     |      redirection. Create links to the internal information needed
+     |      to monitor and control the physical screen and virtual windows
+     |      of the Graphical Text User Interface.
+     |  
+     |  tsRegisterClassNameAndMembershipFlag(self, theClass)
+     |      Record Class Name and Membership Flag instance variables.
+     |  
+     |  tsUpdateEventAndAcceleratorTables(self, event, handler, source, id=-1, id2=-1, useSystemEventTable=False)
+     |      Bind with event and accelerator System and User tables.
+     |      
+     |      event: One of the EVT_* objects that specifies the
+     |             the type of event to bind.
+     |      
+     |      handler: A callable object to be invoked when the event is
+     |               delivered to self.  Pass None to disconnect an
+     |               event handler.
+     |      
+     |      source: Sometimes the event originates from a different window
+     |              than self, but you still want to catch it in self.  (For
+     |              example, a button event delivered to a frame.)  By passing
+     |              the source of the event, the event handling system is able
+     |              to differentiate between the same event type from different
+     |              controls.
+     |      
+     |      id: Used to specify the event source by ID instead of instance.
+     |      
+     |      id2: Used when it is desirable to bind a handler to a range of ids,
+     |           such as with EVT_MENU_RANGE.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Static methods inherited from tsWxObject.Object:
+     |  
+     |  tsGetCurrentId()
+     |      Return latest ID.
+     |  
+     |  tsGetTheId(mySelf)
+     |      Return the ID associated with this class instance.
+     |  
+     |  tsNewId()
+     |      Create a unique ID.
+     |      
+     |      Remarks:
+     |      Various controls and other parts of wxWidgets need an ID. Sometimes
+     |      the ID may be directly provided by the user or have a predefined
+     |      value, such as wxID_OPEN. Often, however, the value of the ID is
+     |      unimportant and is created automatically by calling
+     |      wxWindow::NewControlId or by passing wxID_ANY as the ID of an
+     |      object.
+     |      
+     |      There are two ways to generate an ID. One way is to start at a
+     |      negative number, and for each new ID, return the next smallest
+     |      number. This is fine for systems that can use the full range of
+     |      negative numbers for IDs, as this provides more than enough IDs
+     |      and it would take a very very long time to run out and wrap
+     |      around. However, some systems cannot use the full range of the
+     |      ID value. Windows, for example, can only use 16 bit IDs, and
+     |      only has about 32000 possible automatic IDs that can be
+     |      generated by wxWindow::NewControlId. If the program runs long
+     |      enough, depending on the program itself, using this first method
+     |      would cause the IDs to wrap around into the positive ID range
+     |      and cause possible clashes with any directly specified ID values.
+     |      
+     |      The other way is to keep track of the IDs returned by
+     |      wxWindow::NewControlId and do not return them again until the
+     |      ID is completely free and not being used by any other objects.
+     |      This will make sure that the ID values do not clash with one
+     |      another. This is accomplished by keeping a reference count for
+     |      each of the IDs that can possibly be returned by
+     |      wxWindow::NewControlId. Other IDs are not reference counted.
+     |  
+     |  tsRegisterId(usedId)
+     |      Adjust latest ID to reflect specified new one.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from tsWxObject.Object:
+     |  
+     |  ClassName
+     |      Returns the class name of the C++ class using wxRTTI.
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  thisown
+     |      Return MembershipFlag.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes inherited from tsWxObject.Object:
+     |  
+     |  CurrentId = 100
+     |  
+     |  PyApp_EventQueue = None
+     |  
+     |  PyApp_Object = None
+     |  
+     |  TheDisplay = None
+     |  
+     |  TheLogger = None
+     |  
+     |  TheTerminal = None
+     |  
+     |  TheTerminalScreen = None
+
+DATA
+    DEBUG = True
+    VERBOSE = True
+    __authors__ = 'Richard S. Gordon'
+    __copyright__ = 'Copyright (c) 2007-2013 Richard S. Gordon.\n\t\tAll r...
+    __credits__ = '\n\n  Credits: \n\n\t  tsLibGUI Import & Application .....
+    __date__ = '04/01/2013'
+    __header__ = '\n\ntsWxSizerItem, v1.3.0 (build 04/01/2013)\n\n  Au... ...
+    __license__ = 'GNU General Public License, Version 3, 29 June 2007'
+    __line1__ = 'tsWxSizerItem, v1.3.0 (build 04/01/2013)'
+    __line2__ = 'Author(s): Richard S. Gordon'
+    __line3__ = 'Copyright (c) 2007-2013 Richard S. Gordon.\n\t\tAll right...
+    __line4__ = 'GNU General Public License, Version 3, 29 June 2...U Gene...
+    __title__ = 'tsWxSizerItem'
+    __version__ = '1.3.0'
+    mainTitleVersionDate = 'tsWxSizerItem, v1.3.0 (build 04/01/2013)'
+
+VERSION
+    1.3.0
+
+DATE
+    04/01/2013
+
+CREDITS
+    
+    
+      Credits: 
+    
+    	  tsLibGUI Import & Application Launch Features: 
+    	  Copyright (c) 2007-2009 Frederick A. Kier.
+    			All rights reserved.
+    
+    	  Python Curses Module API & Run Time Library Features:
+    	  Copyright (c) 2001-2013 Python Software Foundation.
+    			All rights reserved.
+    	  PSF License Agreement for Python 2.7.3 & 3.3.0
+    
+    	  wxWidgets (formerly wxWindows) & wxPython API Features:
+    	  Copyright (c) 1992-2008 Julian Smart, Robert Roebling,
+    			Vadim Zeitlin and other members of the 
+    			wxWidgets team.
+    			All rights reserved.
+    	  wxWindows Library License
+    
+    	  nCurses API & Run Time Library Features:
+    	  Copyright (c) 1998-2011 Free Software Foundation, Inc.
+    			All rights reserved.
+    	  GNU General Public License, Version 3, 29 June 2007
+
+

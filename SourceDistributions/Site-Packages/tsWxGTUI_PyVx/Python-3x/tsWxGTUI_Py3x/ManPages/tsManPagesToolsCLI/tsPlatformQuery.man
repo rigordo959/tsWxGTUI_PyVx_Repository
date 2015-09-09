@@ -1,0 +1,46 @@
+      init in tsCxGlobalsPkg
+<open file './logs/2014-04-08-at-06-27-40/tsPlatformQuery.log', mode 'w' at 0x7fd735a0>
+tsCommandLineEnv: ImportError (tsLibCLI); importCode=No module named tsOperatorSettingsParser
+
+tsPlatformQuery, v2.1.0 (build 02/12/2014)
+
+Usage: 
+
+    tsPlatformQuery [Option(s)]
+
+Examples:
+
+    tsPlatformQuery
+
+    tsPlatformQuery  [-h] [-v] [-a] \
+                        [-o] \
+                        [-d] [-V]
+
+    tsPlatformQuery  [--help] [--version] [--about] \
+                        [-output] \
+                        [--debug] [--Verbose]
+
+Purpose:
+
+     Capture current hardware and software information about
+     the run time environment available to computer programs.
+
+
+Options:
+  -h, --help            show this help message and exit
+  -v, --version           show the build version of this software (including
+                        its title, version and date) and exit
+  -a, --about             show a summary of the terms & conditions for users
+                        of this software (including the applicable product
+                        identification, authors, contributors, copyrights,
+                        licenses and purpose) and exit
+  -o OUTPUT, --output=OUTPUT
+                          log/display current hardware and software
+                        information about the run time environment to this
+                        output file (default = "./tsPlatformQuery.txt")
+  -d, --debug             log/display application program progress and
+                        diagnostic messages useful in debugging and
+                        troubleshooting. (default = False).
+  -V, --Verbose           log/display verbose troubleshooting details for
+                        application program activity tracking diagnostic
+                        messages (default = False)

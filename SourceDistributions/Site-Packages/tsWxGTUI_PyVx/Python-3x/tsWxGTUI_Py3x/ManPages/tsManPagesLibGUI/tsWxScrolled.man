@@ -1,0 +1,4467 @@
+
+Help on module tsWxScrolled:
+
+NAME
+    tsWxScrolled
+
+FILE
+    ./tsLibGUI/tsWxPkg/src/tsWxScrolled.py
+
+DESCRIPTION
+    tsWxScrolled.py - Template Class to manage scrolling for its
+    client area, transforming the coordinates according to the
+    scrollbar positions, and setting the scroll positions, thumb
+    sizes and ranges according to the area in view.
+
+CLASSES
+    tsWxPanel.Panel(tsWxWindow.Window)
+        Scrolled
+    
+    class Scrolled(tsWxPanel.Panel)
+     |  The wxScrolled class manages scrolling for its client area, transforming
+     |  the coordinates according to the scrollbar positions, and setting the
+     |  scroll positions, thumb sizes and ranges according to the area in view.
+     |  
+     |  There are two commonly used (but not the only possible!) specializations
+     |  of this class:
+     |  
+     |  wxScrolledWindow, aka wxScrolled<wxPanel>, is equivalent to
+     |  wxScrolledWindow from earlier versions. Derived from wxPanel, it shares
+     |  wxPanel behaviour with regard to TAB traversal and focus handling. Use
+     |  this if the scrolled window will have child controls.
+     |  
+     |  wxScrolledCanvas, aka wxScrolled<wxWindow>, derives from wxWindow and
+     |  so does not handle children specially. This is suitable e.g. for
+     |  implementing scrollable controls such as tree or list controls.
+     |  
+     |  Starting from version 2.4 of wxWidgets, there are several ways to use
+     |  a wxScrolledWindow (and now wxScrolled). In particular, there are three
+     |  ways to set the size of the scrolling area:
+     |  
+     |  One way is to set the scrollbars directly using a call to SetScrollbars().
+     |  This is the way it used to be in any previous version of wxWidgets and
+     |  it will be kept for backwards compatibility.
+     |  
+     |  An additional method of manual control, which requires a little less
+     |  computation of your own, is to set the total size of the scrolling area
+     |  by calling either wxWindow::SetVirtualSize(), or wxWindow::FitInside(),
+     |  and setting the scrolling increments for it by calling SetScrollRate().
+     |  Scrolling in some orientation is enabled by setting a non-zero increment
+     |  for it.
+     |  
+     |  The most automatic and newest way is to simply let sizers determine the
+     |  scrolling area. This is now the default when you set an interior sizer
+     |  into a wxScrolled with wxWindow::SetSizer(). The scrolling area will be
+     |  set to the size requested by the sizer and the scrollbars will be
+     |  assigned for each orientation according to the need for them and the
+     |  scrolling increment set by SetScrollRate(). As above, scrolling is only
+     |  enabled in orientations with a non-zero increment. You can influence
+     |  the minimum size of the scrolled area controlled by a sizer by calling
+     |  wxWindow::SetVirtualSizeHints(). (Calling SetScrollbars() has analogous
+     |  effects in wxWidgets 2.4 -- in later versions it may not continue to
+     |  override the sizer.)
+     |  
+     |  Note that if maximum size hints are still supported by
+     |  wxWindow::SetVirtualSizeHints(), use them at your own dire risk.
+     |  They may or may not have been removed for 2.4, but it really only makes
+     |  sense to set minimum size hints here. We should probably replace
+     |  wxWindow::SetVirtualSizeHints() with wxWindow::SetMinVirtualSize() or
+     |  similar and remove it entirely in future.
+     |  
+     |  Todo: review docs for this class replacing SetVirtualSizeHints() with
+     |  SetMinClientSize(). As with all windows, an application can draw onto
+     |  a wxScrolled using a device context.
+     |  
+     |  You have the option of handling the OnPaint handler or overriding the
+     |  wxScrolled::OnDraw() function, which is passed a pre-scrolled device
+     |  context (prepared by wxScrolled::DoPrepareDC()).
+     |  
+     |  If you do not wish to calculate your own scrolling, you must call
+     |  DoPrepareDC() when not drawing from within OnDraw(), to set the device
+     |  origin for the device context according to the current scroll position.
+     |  
+     |  A wxScrolled will normally scroll itself and therefore its child windows
+     |  as well. It might however be desired to scroll a different window than
+     |  itself: e.g. when designing a spreadsheet, you will normally only have
+     |  to scroll the (usually white) cell area, whereas the (usually grey) label
+     |  area will scroll very differently. For this special purpose, you can
+     |  call SetTargetWindow() which means that pressing the scrollbars will
+     |  scroll a different window.
+     |  
+     |  Note that the underlying system knows nothing about scrolling coordinates,
+     |  so that all system functions (mouse events, expose events, refresh calls
+     |  etc) as well as the position of subwindows are relative to the
+     |  "physical" origin of the scrolled window. If the user insert a child
+     |  window at position (10,10) and scrolls the window down 100 pixels
+     |  (moving the child window out of the visible area), the child window
+     |  will report a position of (10,-90).
+     |  
+     |  Styles
+     |  This class supports the following styles:
+     |  
+     |  wxRETAINED:
+     |  Uses a backing pixmap to speed refreshes. Motif only.
+     |  Events emitted by this class
+     |  The following event handler macros redirect the events to member
+     |  function handlers (func) with prototypes like:
+     |  
+     |  void handlerFuncName(wxScrollWinEvent& event)
+     |  Event macros for events emitted by this class:
+     |  
+     |  EVT_SCROLLWIN(func):
+     |  Process all scroll events.
+     |  EVT_SCROLLWIN_TOP(func):
+     |  Process wxEVT_SCROLLWIN_TOP scroll-to-top events.
+     |  EVT_SCROLLWIN_BOTTOM(func):
+     |  Process wxEVT_SCROLLWIN_BOTTOM scroll-to-bottom events.
+     |  EVT_SCROLLWIN_LINEUP(func):
+     |  Process wxEVT_SCROLLWIN_LINEUP line up events.
+     |  EVT_SCROLLWIN_LINEDOWN(func):
+     |  Process wxEVT_SCROLLWIN_LINEDOWN line down events.
+     |  EVT_SCROLLWIN_PAGEUP(func):
+     |  Process wxEVT_SCROLLWIN_PAGEUP page up events.
+     |  EVT_SCROLLWIN_PAGEDOWN(func):
+     |  Process wxEVT_SCROLLWIN_PAGEDOWN page down events.
+     |  EVT_SCROLLWIN_THUMBTRACK(func):
+     |  Process wxEVT_SCROLLWIN_THUMBTRACK thumbtrack events (frequent events
+     |  sent as the user drags the thumbtrack).
+     |  EVT_SCROLLWIN_THUMBRELEASE(func):
+     |  Process wxEVT_SCROLLWIN_THUMBRELEASE thumb release events.
+     |  Note:
+     |  Do not confuse wxScrollWinEvents generated by this class with
+     |  wxScrollEvent objects generated by wxScrollBar and wxSlider.
+     |  
+     |  Remarks:
+     |  Use wxScrolled for applications where the user scrolls by a fixed amount,
+     |  and where a (page) can be interpreted to be the current visible portion
+     |  of the window. For more sophisticated applications, use the wxScrolled
+     |  implementation as a guide to build your own scroll behaviour or use
+     |  wxVScrolledWindow or its variants.
+     |  
+     |  Since:
+     |  The wxScrolled template exists since version 2.9.0. In older versions,
+     |  only wxScrolledWindow (equivalent of wxScrolled<wxPanel>) was available.
+     |  
+     |  Method resolution order:
+     |      Scrolled
+     |      tsWxPanel.Panel
+     |      tsWxWindow.Window
+     |      tsWxEvtHandler.EvtHandler
+     |      tsWxObject.Object
+     |      __builtin__.object
+     |  
+     |  Methods defined here:
+     |  
+     |  AdjustScrollbars(self)
+     |      TBD - Under Construction.
+     |  
+     |  CalcScrollInc(self, event)
+     |      TBD - Under Construction.
+     |  
+     |  CalcScrolledPosition(self, x, y, xx, yy)
+     |      Translates the logical coordinates to the device ones.
+     |      For example, if a window is scrolled 10 pixels to the bottom,
+     |      the device coordinates of the origin are (0, 0) (as always),
+     |      but the logical coordinates are (0, 10) and so the call to
+     |      CalcScrolledPosition(0, 10, &xx, &yy) will return 0 in yy.
+     |  
+     |  CalcUnscrolledPosition(self, x, y, xx, yy)
+     |      Translates the device coordinates to the logical ones. For
+     |      example, if a window is scrolled 10 pixels to the bottom,
+     |      the device coordinates of the origin are (0, 0) (as always),
+     |      but the logical coordinates are (0, 10) and so the call to
+     |      CalcUnscrolledPosition(0, 0, &xx, &yy) will return 10 in yy.
+     |  
+     |  Create(self, parent, id=1, pos=(-1, -1), size=(-1, -1), style=3221225472L, name='panel', pixels=True)
+     |      Creates the window for two-step construction. Derived classes
+     |      should call or replace this function.
+     |  
+     |  DisableKeyboardScrolling(self)
+     |      Disable use of keyboard keys for scrolling.
+     |      
+     |      By default cursor movement keys (including Home, End, Page Up and
+     |      Down) are used to scroll the window appropriately. If the derived
+     |      class uses these keys for something else, e.g. changing the
+     |      currently selected item, this function can be used to disable this
+     |      behaviour as it is not only not necessary then but can actually
+     |      be actively harmful if another object forwards a keyboard event
+     |      corresponding to one of the above keys to us using
+     |      ProcessWindowEvent() because the event will always be processed
+     |      which can be undesirable.
+     |  
+     |  DoPrepareDC(self, dc)
+     |      Call this function to prepare the device context for drawing a
+     |      scrolled image. It sets the device origin according to the current
+     |      scroll position.
+     |      
+     |      DoPrepareDC is called automatically within the default
+     |      wxScrolledWindow::OnPaint event handler, so your
+     |      wxScrolledWindow::OnDraw override will be passed a pre-scrolled
+     |      device context. However, if you wish to draw from outside of
+     |      OnDraw (via OnPaint), or you wish to implement OnPaint yourself,
+     |      you must call this function yourself.
+     |  
+     |  EnableScrolling(self, x_scrolling=False, y_scrolling=False)
+     |      Enable or disable physical scrolling in the given direction.
+     |      Physical scrolling is the physical transfer of bits up or down
+     |      the screen when a scroll event occurs. If the application
+     |      scrolls by a variable amount (e.g. if there are different font
+     |      sizes) then physical scrolling will not work, and you should
+     |      switch it off. Note that you will have to reposition child
+     |      windows yourself, if physical scrolling is disabled.
+     |      
+     |      Parameters
+     |      
+     |      xScrolling
+     |      
+     |      If true, enables physical scrolling in the x direction.
+     |      yScrolling
+     |      
+     |      If true, enables physical scrolling in the y direction.
+     |      Remarks
+     |      
+     |      Physical scrolling may not be available on all platforms.
+     |      Where it is available, it is enabled by default.
+     |  
+     |  GetScaleX(self)
+     |      Return the ScaleX status of tsWxScrolledText.
+     |  
+     |  GetScaleY(self)
+     |      Return the ScaleY status of tsWxScrolledText.
+     |  
+     |  GetScrollPageSize(self, orient)
+     |      Return the ScalePageSize status of tsWxScrolledText for the
+     |      designated orientation.
+     |  
+     |  GetScrollPixelsPerUnit(self)
+     |      Get the number of pixels per scroll unit (line) of tsWxScrolledText,
+     |      in each direction, as set by wxScrolledWindow::SetScrollbars. A
+     |      value of zero indicates no scrolling in that direction.
+     |      
+     |      Parameters
+     |      
+     |      xUnit
+     |      
+     |      Receives the number of pixels per horizontal unit.
+     |      yUnit
+     |      
+     |      Receives the number of pixels per vertical unit.
+     |  
+     |  GetScrollRect(self)
+     |      Return the Scrolled Window Rectangle of tsWxScrolledText.
+     |  
+     |  GetSizeAvailableForScrollTarget(self)
+     |      Function which must be overridden to implement the size available
+     |      for the scroll target for the given size of the main window.
+     |      
+     |      This method must be overridden if SetTargetWindow() is used
+     |      (it is never called otherwise). The implementation should decrease
+     |      the size to account for the size of the non-scrollable parts of the
+     |      main window and return only the size available for the scrollable
+     |      window itself. E.g. in the example given in SetTargetWindow()
+     |      documentation the function would subtract the height of the
+     |      header window from the vertical component of size.
+     |  
+     |  GetTargetRect(self)
+     |      Return Target Rectangle.
+     |  
+     |  GetTargetSize(self)
+     |      Return Target Size.
+     |  
+     |  GetTargetWindow(self)
+     |      Return Target Window.
+     |  
+     |  GetViewStart(self)
+     |      Get the position at which the visible portion of the window starts.
+     |      
+     |      Parameters
+     |      
+     |      x - Receives the first visible x position in scroll units.
+     |      y - Receives the first visible y position in scroll units.
+     |  
+     |  GetVirtualSize(self)
+     |      Gets the size in device units of the scrollable window area
+     |      (as opposed to the client size, which is the area of the
+     |      window currently visible).
+     |      
+     |      Parameters
+     |      
+     |      x - Receives the length of the scrollable window, in pixels.
+     |      y - Receives the height of the scrollable window, in pixels.
+     |  
+     |  IsAutoScrolling(self)
+     |      Return True only if AutoScrolling is currently active.
+     |  
+     |  IsRetained(self)
+     |      Motif only: true if the window has a backing bitmap.
+     |  
+     |  OnDraw(self, dc)
+     |      Called by the default paint event handler to allow the
+     |      application to define painting behaviour without having to
+     |      worry about calling wxScrolledWindow::DoPrepareDC.
+     |      
+     |      Instead of overriding this function you may also just process
+     |      the paint event in the derived class as usual, but then you
+     |      will have to call DoPrepareDC() yourself.
+     |  
+     |  PrepareDC(self, dc)
+     |      This function is for backwards compatibility only and simply
+     |      calls DoPrepareDC now. Notice that it is not called by the
+     |      default paint event handle (DoPrepareDC() is), so overriding
+     |      this method in your derived class is useless.
+     |  
+     |  Scroll(self, x_pos, y_pos)
+     |      Scrolls a window so the view start is at the given point.
+     |      
+     |      Parameters
+     |      
+     |      x_pos - The x position to scroll to, in scroll units.
+     |      
+     |      y_pos - The y position to scroll to, in scroll units.
+     |      
+     |      Remarks
+     |      
+     |      The positions are in scroll units, not pixels, so to convert
+     |      to pixels you will have to multiply by the number of pixels
+     |      per scroll increment. If either parameter is -1, that position
+     |      will be ignored (no change in that direction).
+     |      
+     |      Column 0, Row 0 Position (x_pos, y_pos) = (0, 0) is left-most
+     |      column on top-most row.
+     |      
+     |      Column 1, Row 1 Position (x_pos, y_pos) = (1, 1) is one column
+     |      to the right and one row down.
+     |  
+     |  SetScale(self, xs, ys)
+     |      TBD - Under Construction.
+     |  
+     |  SetScrollPageSize(self, orient, pageSize)
+     |      TBD - Under Construction.
+     |  
+     |  SetScrollRate(self, xstep, ystep)
+     |      Set the horizontal and vertical scrolling increment only.
+     |      See the pixelsPerUnit parameter in SetScrollbars.
+     |  
+     |  SetScrollbars(self, pixelsPerUnitX, pixelsPerUnitY, noUnitsX, noUnitsY, xPos=0, yPos=0, noRefresh=False)
+     |      Sets up vertical and/or horizontal scrollbars.
+     |      
+     |      Parameters
+     |      
+     |      pixelsPerUnitX
+     |      Pixels per scroll unit in the horizontal direction.
+     |      
+     |      pixelsPerUnitY
+     |      Pixels per scroll unit in the vertical direction.
+     |      
+     |      noUnitsX
+     |      Number of units in the horizontal direction.
+     |      
+     |      noUnitsY
+     |      Number of units in the vertical direction.
+     |      
+     |      xPos
+     |      Position to initialize the scrollbars in the horizontal
+     |      direction, in scroll units.
+     |      
+     |      yPos
+     |      Position to initialize the scrollbars in the vertical
+     |      direction, in scroll units.
+     |      
+     |      noRefresh
+     |      Will not refresh window if true.
+     |      
+     |      Remarks
+     |      
+     |      The first pair of parameters give the number of pixels per
+     |      scroll step, i.e. amount moved when the up or down scroll
+     |      arrows are pressed. The second pair gives the length of
+     |      scrollbar in scroll steps, which sets the size of the virtual window.
+     |      
+     |      xPos and yPos optionally specify a position to scroll to immediately.
+     |      
+     |      For example, the following gives a window horizontal and vertical
+     |      scrollbars with 20 pixels per scroll step, and a size of 50 steps
+     |      (1000 pixels) in each direction.
+     |      
+     |      window->SetScrollbars(20, 20, 50, 50);
+     |      
+     |      wxScrolledWindow manages the page size itself, using the current
+     |      client window size as the page size.
+     |      
+     |      Note that for more sophisticated scrolling applications, for
+     |      example where scroll steps may be variable according to the
+     |      position in the document, it will be necessary to derive a
+     |      new class from wxWindow, overriding OnSize and adjusting the
+     |      scrollbars appropriately.
+     |  
+     |  SetTargetWindow(self, target)
+     |      Call this function to tell wxScrolled to perform the actual
+     |      scrolling on a different window (and not on itself).
+     |      
+     |      This method is useful when only a part of the window should be
+     |      scrolled. A typical example is a control consisting of a fixed
+     |      header and the scrollable contents window: the scrollbars are
+     |      attached to the main window itself, hence it, and not the
+     |      contents window must be derived from wxScrolled, but only
+     |      the contents window scrolls when the scrollbars are used.
+     |      To implement such setup, you need to call this method with
+     |      the contents window as argument.
+     |      
+     |      Notice that if this method is used,
+     |      GetSizeAvailableForScrollTarget() method must be overridden.
+     |  
+     |  ShowScrollbars(self, horiz=False, vert=False)
+     |      Set the scrollbar visibility.
+     |      
+     |      By default the scrollbar in the corresponding direction is only
+     |      shown if it is needed, i.e. if the virtual size of the scrolled
+     |      window in this direction is greater than the current physical
+     |      window size. Using this function the scrollbar visibility can be
+     |      changed to be:
+     |      
+     |      wxSHOW_SB_ALWAYS: To always show the scrollbar, even if it is not
+     |      needed currently (wxALWAYS_SHOW_SB style can be used during the
+     |      window creation to achieve the same effect but it applies in both
+     |      directions).
+     |      
+     |      wxSHOW_SB_NEVER: To never show the scrollbar at all. In this case
+     |      the program should presumably provide some other way for the user
+     |      to scroll the window.
+     |      
+     |      wxSHOW_SB_DEFAULT: To restore the default behaviour described above.
+     |      
+     |      Parameters:
+     |      horz    The desired visibility for the horizontal scrollbar.
+     |      vert    The desired visibility for the vertical scrollbar.
+     |  
+     |  __init__(self, parent, id=-1, label='', pos=(-1, -1), size=(-1, -1), style=3221225472L, name='scrolled')
+     |      Construct and show a generic Window.
+     |  
+     |  tsAppendText(self, text, markup=None)
+     |              Appends the text argument to the end of the text in the control.
+     |              The insertion point also moves to the end of the control.
+     |      
+     |              Parameters:
+     |      
+     |              text - String of ascii text characters. Accepted values include
+     |                     empty string, simple string, and compound string separated
+     |                     by embedded "
+     |      ".
+     |      
+     |              markup - curses text markup ored with color pair number
+     |  
+     |  tsGet_AutoScrolling(self)
+     |      Return the AutoScrolling status of tsWxScrolledText.
+     |  
+     |  tsGet_MaxTextCols(self)
+     |      Return the MaxTextCols status of tsWxScrolledText.
+     |  
+     |  tsGet_MaxTextRows(self)
+     |      Return the MaxTextRows status of tsWxScrolledText.
+     |  
+     |  tsGet_Retained(self)
+     |      Return the Retained status of tsWxScrolledText.
+     |  
+     |  tsGet_ScaleX(self)
+     |      Return the ScaleX status of tsWxScrolledText.
+     |  
+     |  tsGet_ScaleY(self)
+     |      Return the ScaleY status of tsWxScrolledText.
+     |  
+     |  tsGet_ScrolledTextLines(self)
+     |      Return the ScrolledTextLines status of tsWxScrolledText.
+     |  
+     |  tsGet_TargetWindow(self)
+     |      Return the TargetWindow status of tsWxScrolledText.
+     |  
+     |  tsGet_ViewStart(self)
+     |      Return the ViewStart status of tsWxScrolledText.
+     |  
+     |  tsGet_xScrollLines(self)
+     |      Return the xScrollLines status of tsWxScrolledText.
+     |  
+     |  tsGet_xScrollLinesPerPage(self)
+     |      Return the xScrollLinesPerPage status of tsWxScrolledText.
+     |  
+     |  tsGet_xScrollPixelsPerLine(self)
+     |      Return the xScrollPixelsPerLine status of tsWxScrolledText.
+     |  
+     |  tsGet_xScrollPosition(self)
+     |      Return the xScrollPosition status of tsWxScrolledText.
+     |  
+     |  tsGet_xScrollingEnabled(self)
+     |      Return the xScrollingEnabled status of tsWxScrolledText.
+     |  
+     |  tsGet_yScrollLines(self)
+     |      Return the yScrollLines status of tsWxScrolledText.
+     |  
+     |  tsGet_yScrollLinesPerPage(self)
+     |      Return the yScrollLinesPerPage status of tsWxScrolledText.
+     |  
+     |  tsGet_yScrollPixelsPerLine(self)
+     |      Return the yScrollPixelsPerLine status of tsWxScrolledText.
+     |  
+     |  tsGet_yScrollPosition(self)
+     |      Return the yScrollPosition status of tsWxScrolledText.
+     |  
+     |  tsGet_yScrollingEnabled(self)
+     |      Return the yScrollingEnabled status of tsWxScrolledText.
+     |  
+     |  tsOnHScrollWin(self, evt)
+     |  
+     |  tsOnHScrollWinBottom(self, evt)
+     |      Set scroll position to page containing right-most column.
+     |  
+     |  tsOnHScrollWinLineDown(self, evt)
+     |      Set scroll position to next column.
+     |  
+     |  tsOnHScrollWinLineUp(self, evt)
+     |      Set scroll position to previous column.
+     |  
+     |  tsOnHScrollWinPageDown(self, evt)
+     |      Set scroll position to next page column.
+     |  
+     |  tsOnHScrollWinPageUp(self, evt)
+     |      Set scroll position to previous page column.
+     |  
+     |  tsOnHScrollWinThumbRelease(self, evt)
+     |  
+     |  tsOnHScrollWinThumbTrack(self, evt)
+     |  
+     |  tsOnHScrollWinTop(self, evt)
+     |      Set scroll position to left-most column.
+     |  
+     |  tsOnVScrollWin(self, evt)
+     |  
+     |  tsOnVScrollWinBottom(self, evt)
+     |      Set scroll position to page containing bottom-most row.
+     |  
+     |  tsOnVScrollWinLineDown(self, evt)
+     |      Set scroll position to next row.
+     |  
+     |  tsOnVScrollWinLineUp(self, evt)
+     |      Set scroll position to previous row.
+     |  
+     |  tsOnVScrollWinPageDown(self, evt)
+     |      Set scroll position to next page row.
+     |  
+     |  tsOnVScrollWinPageUp(self, evt)
+     |      Set scroll position to previous page row.
+     |  
+     |  tsOnVScrollWinThumbRelease(self, evt)
+     |  
+     |  tsOnVScrollWinThumbTrack(self, evt)
+     |  
+     |  tsOnVScrollWinTop(self, evt)
+     |      Set scroll position to top-most row.
+     |  
+     |  tsScrolledFeatureLayout(self, clientRect, style)
+     |      Calculate position and size of Scroll Bar features based upon
+     |      arguments.
+     |  
+     |  tsScrolledLayout(self, parent, pos=(-1, -1), size=(-1, -1), style=3221225472L, name='scrolled', dryRun=False, pixels=True)
+     |      Calculate position and size of Scroll Bar based upon arguments.
+     |  
+     |  tsSet_AutoScrolling(self, value=False)
+     |      Set the AutoScrolling status of tsWxScrolledText.
+     |  
+     |  tsSet_MaxTextCols(self, value=0)
+     |      Set the MaxTextCols status of tsWxScrolledText.
+     |  
+     |  tsSet_MaxTextRows(self, value=0)
+     |      Set the MaxTextRows status of tsWxScrolledText.
+     |  
+     |  tsSet_Retained(self, value=False)
+     |      Set the Retained status of tsWxScrolledText.
+     |  
+     |  tsSet_ScrolledTextLines(self, value=0)
+     |      Set the ScrolledTextLines status of tsWxScrolledText.
+     |  
+     |  tsSet_TargetWindow(self, value=None)
+     |      Set the TargetWindow status of tsWxScrolledText.
+     |  
+     |  tsSet_ViewStart(self, value=False)
+     |      Set the ViewStart status of tsWxScrolledText.
+     |  
+     |  tsSet_xScrollLines(self, value=0)
+     |      Set the xScrollLines status of tsWxScrolledText.
+     |  
+     |  tsSet_xScrollLinesPerPage(self, value=0)
+     |      Set the xScrollLinesPerPage status of tsWxScrolledText.
+     |  
+     |  tsSet_xScrollPixelsPerLine(self, value=0)
+     |      Set the xScrollPixelsPerLine status of tsWxScrolledText.
+     |  
+     |  tsSet_xScrollPosition(self, value=0)
+     |      Set the xScrollPosition status of tsWxScrolledText.
+     |  
+     |  tsSet_xScrollingEnabled(self, value=False)
+     |      Set the xScrollingEnabled status of tsWxScrolledText.
+     |  
+     |  tsSet_yScrollLines(self, value=0)
+     |      Set the yScrollLines status of tsWxScrolledText.
+     |  
+     |  tsSet_yScrollLinesPerPage(self, value=0)
+     |      Set the yScrollLinesPerPage status of tsWxScrolledText.
+     |  
+     |  tsSet_yScrollPixelsPerLine(self, value=0)
+     |      Set the yScrollPixelsPerLine status of tsWxScrolledText.
+     |  
+     |  tsSet_yScrollPosition(self, value=0)
+     |      Set the yScrollPosition status of tsWxScrolledText.
+     |  
+     |  tsSet_yScrollingEnabled(self, value=False)
+     |      Set the yScrollingEnabled status of tsWxScrolledText.
+     |  
+     |  tsShow(self)
+     |      Create and update Scrolled Window specific native GUI.
+     |  
+     |  tsUpdate(self)
+     |      Draw the actual features of the Scrolled Window.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Static methods defined here:
+     |  
+     |  GetClassDefaultAttributes(variant=0)
+     |      Get the default attributes for this class. This is useful if you want
+     |      to use the same font or colour in your own control as in a standard
+     |      control -- which is a much better idea than hard coding specific
+     |      colours or fonts which might look completely out of place on the
+     |      users system, especially if it uses themes.
+     |      
+     |      The variant parameter is only relevant under Mac currently and is
+     |      ignore under other platforms. Under Mac, it will change the size of
+     |      the returned font. See wx.Window.SetWindowVariant for more about this.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  AutoScrolling
+     |      Return the AutoScrolling status of tsWxScrolledText.
+     |  
+     |  MaxTextCols
+     |      Return the MaxTextCols status of tsWxScrolledText.
+     |  
+     |  MaxTextRows
+     |      Return the MaxTextRows status of tsWxScrolledText.
+     |  
+     |  Retained
+     |      Return the Retained status of tsWxScrolledText.
+     |  
+     |  ScaleX
+     |      Return the ScaleX status of tsWxScrolledText.
+     |  
+     |  ScaleY
+     |      Return the ScaleY status of tsWxScrolledText.
+     |  
+     |  ScrolledTextLines
+     |      Return the ScrolledTextLines status of tsWxScrolledText.
+     |  
+     |  TargetWindow
+     |      Return the TargetWindow status of tsWxScrolledText.
+     |  
+     |  ViewStart
+     |      Return the ViewStart status of tsWxScrolledText.
+     |  
+     |  xScrollLines
+     |      Return the xScrollLines status of tsWxScrolledText.
+     |  
+     |  xScrollLinesPerPage
+     |      Return the xScrollLinesPerPage status of tsWxScrolledText.
+     |  
+     |  xScrollPixelsPerLine
+     |      Return the xScrollPixelsPerLine status of tsWxScrolledText.
+     |  
+     |  xScrollPosition
+     |      Return the xScrollPosition status of tsWxScrolledText.
+     |  
+     |  xScrollingEnabled
+     |      Return the xScrollingEnabled status of tsWxScrolledText.
+     |  
+     |  yScrollLines
+     |      Return the yScrollLines status of tsWxScrolledText.
+     |  
+     |  yScrollLinesPerPage
+     |      Return the yScrollLinesPerPage status of tsWxScrolledText.
+     |  
+     |  yScrollPixelsPerLine
+     |      Return the yScrollPixelsPerLine status of tsWxScrolledText.
+     |  
+     |  yScrollPosition
+     |      Return the yScrollPosition status of tsWxScrolledText.
+     |  
+     |  yScrollingEnabled
+     |      Return the yScrollingEnabled status of tsWxScrolledText.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from tsWxPanel.Panel:
+     |  
+     |  SetFocusIgnoringChildren(self)
+     |      In contrast to SetFocus (see above) this will set the focus to
+     |      the panel even of there are child windows in the panel.
+     |  
+     |  tsGetClientArea(self, pixels=True)
+     |      Returns the bounding rectangle the client area of the Panel.
+     |  
+     |  tsPanelLayout(self, parent, pos, size, style, name)
+     |      Calculate position and size of panel based upon arguments.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from tsWxPanel.Panel:
+     |  
+     |  ClientArea
+     |      Returns the bounding rectangle the client area of the Panel.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from tsWxWindow.Window:
+     |  
+     |  AcceptsFocus(self)
+     |      This method may be overridden in the derived classes to return false
+     |      to indicate that this control does not accept input at all
+     |  
+     |  AcceptsFocusFromKeyboard(self)
+     |      This method may be overridden in the derived classes to return false
+     |      to indicate that while this control can, in principle, have focus if
+     |      the user clicks it with the mouse, it should not be included in the
+     |      TAB traversal chain when using the keyboard.
+     |  
+     |  AcceptsFocusRecursively(self)
+     |      Overridden to indicate whether this window or one of its children
+     |      accepts focus.
+     |  
+     |  AddChild(self, child)
+     |      Adds a child window. This is called automatically by window creation
+     |      functions so should not be required by the application programmer.
+     |  
+     |  AddPendingEvent(self, event)
+     |      See ProcessEvent() for more info about why you should not use
+     |      this function and the reason for making this function protected
+     |      in wxWindow.
+     |      
+     |      Reimplemented from wxEvtHandler.
+     |  
+     |  AdjustForLayoutDirection(self, x, width, widthTotal)
+     |      Mirror coordinates for RTL layout if this window uses it and
+     |      if the mirroring is not done automatically like Win32.
+     |  
+     |  AdjustForParentClientOriginXY(self, x, y, sizeFlags)
+     |  
+     |  AlwaysShowScrollbars(self)
+     |      Call this function to force one or both scrollbars to be always
+     |      shown, even if the window is big enough to show its entire contents
+     |      without scrolling.
+     |  
+     |  AssociateHandle(self, handle)
+     |      Associate the window with a new native handle.
+     |  
+     |  CacheBestSize(self, size)
+     |      Sets the cached best size value.
+     |  
+     |  CanScroll(self, orient)
+     |      Returns True if this window can have a scroll bar in this
+     |      orientation.
+     |  
+     |  CanSetTransparent(self)
+     |      Returns true if the system supports transparent windows and
+     |      calling SetTransparent() may succeed.
+     |      
+     |      If this function returns false, transparent windows are definitely
+     |      not supported by the current system.
+     |      
+     |      Reimplemented in wxTopLevelWindow.
+     |      
+     |      NOTE: On X-windows systems the X server must have the composite
+     |      extension loaded, and there must be a composite manager program
+     |      (such as xcompmgr) running.
+     |  
+     |  CaptureMouse(self)
+     |      Directs all mouse input to this window.
+     |      
+     |      Call ReleaseMouse() to release the capture.
+     |      
+     |      Note that wxWindows maintains the stack of windows having captured
+     |      the mouse and when the mouse is released the capture returns to the
+     |      window which had had captured it previously and it is only really
+     |      released if there were no previous window. In particular, this means
+     |      that you must release the mouse as many times as you capture it,
+     |      unless the window receives the wx.MouseCaptureLostEvent event.
+     |      
+     |      Any application which captures the mouse in the beginning of some
+     |      operation must handle wx.MouseCaptureLostEvent and cancel this
+     |      operation when it receives the event. The event handler must not
+     |      recapture mouse.
+     |  
+     |  Center(self, direction=12)
+     |      Centers the window. The parameter specifies the direction for
+     |      cetering, and may be wx.HORIZONTAL, wx.VERTICAL or wx.BOTH. It may
+     |      also include wx.CENTER_ON_SCREEN flag if you want to center the
+     |      window on the entire screen and not on its parent window. If it is
+     |      a top-level window and has no parent then it will always be centered
+     |      relative to the screen.
+     |  
+     |  CenterOnParent(self, dir=12)
+     |      Center with respect to the the parent window.
+     |  
+     |  CenterOnScreen(self, direction=12)
+     |      Center the window on screen.
+     |  
+     |  Centre(self, direction=12)
+     |      Centers the window. The parameter specifies the direction for
+     |      cetering, and may be wx.HORIZONTAL, wx.VERTICAL or wx.BOTH. It may
+     |      also include wx.CENTER_ON_SCREEN flag if you want to center the
+     |      window on the entire screen and not on its parent window. If it is
+     |      a top-level window and has no parent then it will always be centered
+     |      relative to the screen.
+     |  
+     |  CentreOnParent(self, dir=12)
+     |      Center with respect to the the parent window.
+     |  
+     |  CentreOnScreen(self, direction=12)
+     |      Center the window on screen.
+     |  
+     |  ClearBackground(self)
+     |      Clears the window by filling it with the current background colour.
+     |      
+     |      Does not cause an erase background event to be generated.
+     |      
+     |      Notice that this uses wxClientDC to draw on the window and the
+     |      results of doing it while also drawing on wxPaintDC for this
+     |      window are undefined. Hence this method should not be used
+     |      from EVT_PAINT handlers, just use wxDC::Clear() on the wxPaintDC
+     |      you already use there instead.
+     |  
+     |  ClientToScreen(self, pt)
+     |      Converts to screen coordinates from coordinates relative to this
+     |      window.
+     |  
+     |  ClientToScreenXY(self, x, y)
+     |      Converts to screen coordinates from coordinates relative to this
+     |      window.
+     |  
+     |  ClientToWindowSize(self, size)
+     |      Converts client area size size to corresponding window size.
+     |  
+     |  Close(self, force=True)
+     |      This function simply generates a wxCloseEvent whose handler usually
+     |      tries to close the window.
+     |      
+     |      It does not close the window itself, however.
+     |      
+     |      Parameters:
+     |      force   false if the windows close handler should be able to veto
+     |      the destruction of this window, true if it cannot.
+     |      
+     |      Remarks:
+     |      Close calls the close handler for the window, providing an
+     |      opportunity for the window to choose whether to destroy the window.
+     |      Usually it is only used with the top level windows (wxFrame and
+     |      wxDialog classes) as the others are not supposed to have any special
+     |      OnClose() logic. The close handler should check whether the window
+     |      is being deleted forcibly, using wxCloseEvent::CanVeto, in which
+     |      case it should destroy the window using wxWindow::Destroy. Note
+     |      that calling Close does not guarantee that the window will be
+     |      destroyed; but it provides a way to simulate a manual close of
+     |      a window, which may or may not be implemented by destroying the
+     |      window. The default implementation of wxDialog::OnCloseWindow
+     |      does not necessarily delete the dialog, since it will simply
+     |      simulate an wxID_CANCEL event which is handled by the appropriate
+     |      button event handler and may do anything at all. To guarantee
+     |      that the window will be destroyed, call wxWindow::Destroy instead.
+     |  
+     |  ConvertDialogPixels(self, pt)
+     |      Converts a point or size from dialog units to pixels.
+     |      
+     |      For the x dimension, the dialog units are multiplied by the
+     |      fixed point character width. For the y dimension, the dialog
+     |      units are multiplied by the fixed point character height.
+     |      
+     |      Remarks:
+     |      Dialog units are used for maintaining a dialogs proportions
+     |      even if the font changes. You can also use these functions
+     |      programmatically. A convenience macro is defined:
+     |      define wxDLG_UNIT(parent, pt) parent->ConvertDialogToPixels(pt)
+     |  
+     |  ConvertDialogPointToPixels(self, pt)
+     |      Converts a point or size from dialog units to pixels.
+     |  
+     |  ConvertDialogSizeToPixels(self, sz)
+     |      Converts a point or size from dialog units to pixels.
+     |  
+     |  ConvertPixelPointToDialog(self, pt)
+     |      Converts a point or size from pixel units to dialog units.
+     |  
+     |  ConvertPixelSizeToDialog(self, sz)
+     |      Converts a point or size from pixel units to dialog units.
+     |  
+     |  ConvertPixelsToDialog(self, pt)
+     |      Converts a point or size from pixels to dialog units.
+     |      
+     |      For the x dimension, the pixels are divided by the fixed point
+     |      character width. For the y dimension, the pixels are divided
+     |      by the fixed point character height.
+     |      
+     |      Remarks:
+     |      Dialog units are used for maintaining a dialogs proportions even
+     |      if the font changes.
+     |  
+     |  DLG_PNT(self, pt)
+     |      Converts a point or size from dialog units to pixels. Dialog units
+     |      are used for maintaining a dialog proportions even if the font
+     |      changes. For the x dimension, the dialog units are multiplied by the
+     |      average character width and then divided by 4. For the y dimension,
+     |      the dialog units are multiplied by the average character height and
+     |      then divided by 8.
+     |  
+     |  DLG_SZE(self, sz)
+     |      Converts a point or size from dialog units to pixels. Dialog units
+     |      are used for maintaining a dialog proportions even if the font
+     |      changes. For the x dimension, the dialog units are multiplied by the
+     |      average character width and then divided by 4. For the y dimension,
+     |      the dialog units are multiplied by the average character height and
+     |      then divided by 8.
+     |  
+     |  Destroy(self)
+     |      Destroys the window safely.
+     |      
+     |      Use this function instead of the delete operator, since different
+     |      window classes can be destroyed differently. Frames and dialogs
+     |      are not destroyed immediately when this function is called -- they
+     |      are added to a list of windows to be deleted on idle time, when
+     |      all the windows events have been processed. This prevents problems
+     |      with events being sent to non-existent windows.
+     |      
+     |      Returns:
+     |      true if the window has either been successfully deleted, or it has
+     |      been added to the list of windows pending real deletion.
+     |  
+     |  DestroyChildren(self)
+     |      Destroys all children of a window.
+     |  
+     |  Disable(self)
+     |      Disables the window for user input, same as Enable(False).
+     |  
+     |  DissociateHandle(self)
+     |      Dissociate the current native handle from the window.
+     |  
+     |  DoCaptureMouse(self)
+     |  
+     |  DoCentre(self, dir)
+     |      Centres the window.
+     |      
+     |      Parameters:
+     |      direction  Specifies the direction for the centring. May be
+     |      wxHORIZONTAL, wxVERTICAL or wxBOTH. It may also include the
+     |      wxCENTRE_ON_SCREEN flag.
+     |      
+     |      Remarks:
+     |      This function is not meant to be called directly by user code,
+     |      but via Centre, Center, CentreOnParent, or CenterOnParent. This
+     |      function can be overriden to fine-tune centring behaviour.
+     |  
+     |  DoFindFocus(self)
+     |      Finds the window or control which currently has the keyboard focus.
+     |      
+     |      Remarks:
+     |      
+     |      Note that this should have been a static function, so it can be
+     |      called without needing a wxWindow pointer.
+     |  
+     |  DoGetBestClientSize(self)
+     |  
+     |  DoGetBestSize(self)
+     |      Gets the size which best suits the window: for a control, it
+     |      would be the minimal size which does not truncate the control,
+     |      for a panel - the same size as it would have after a call to Fit().
+     |      The default implementation of this function is designed for use
+     |      in container windows, such as wxPanel, and works something like
+     |      this:
+     |      
+     |      1) If the window has a sizer then it is used to calculate the
+     |      best size.
+     |      
+     |      2) Otherwise if the window has layout constraints then those are
+     |      used to calculate the best size.
+     |      
+     |      3) Otherwise if the window has children then the best size is set
+     |      to be large enough to show all the children.
+     |      
+     |      4) Otherwise if there are no children then the windows minimal
+     |      size will be used as its best size.
+     |      
+     |      5) Otherwise if there is no minimal size set, then the current
+     |      size is used for the best size.
+     |  
+     |  DoGetBorderSize(self)
+     |      Return the thickness (width and height) of the display
+     |      occupied by the top, bottom, left and right border
+     |  
+     |  DoGetScreenPosition(self, x, y)
+     |  
+     |  DoGetSibling(self, order)
+     |      Return the sibling of the window that is in the specified order.
+     |  
+     |  DoGetVirtualSize(self)
+     |  
+     |  DoPhase(self, phase)
+     |      Do a phase of evaluating child constraints
+     |  
+     |  DoReleaseMouse(self)
+     |  
+     |  DoSetSizeHints(self, minW, minH, maxW, maxH, incW=None, incH=None)
+     |  
+     |  DoSetVirtualSize(self, x, y)
+     |  
+     |  DoSetWindowVariant(self, variant=None)
+     |      Adjust the font height to correspond to our new variant (notice that
+     |      we are only called if something really changed)
+     |  
+     |  DoUpdateWindowUI(self, event)
+     |      Does the window-specific updating after processing the update event.
+     |      
+     |      This function is called by UpdateWindowUI() in order to check
+     |      return values in the wxUpdateUIEvent and act appropriately.
+     |      For example, to allow frame and dialog title updating, wxWidgets
+     |      implements this function as follows:
+     |      
+     |      // do the window-specific processing after processing the update event
+     |      void wxTopLevelWindowBase::DoUpdateWindowUI(wxUpdateUIEvent& event)
+     |      {
+     |          if ( event.GetSetEnabled() )
+     |              Enable(event.GetEnabled());
+     |      
+     |          if ( event.GetSetText() )
+     |          {
+     |              if ( event.GetText() != GetTitle() )
+     |                  SetTitle(event.GetText());
+     |          }
+     |      }
+     |  
+     |  DragAcceptFiles(self, accept)
+     |      Enables or disables eligibility for drop file events (OnDropFiles).
+     |      
+     |      Parameters:
+     |      accept  If true, the window is eligible for drop file events. If
+     |      false, the window will not accept drop file events.
+     |      
+     |      Remarks:
+     |      Windows only until version 2.8.9, available on all platforms since
+     |      2.8.10. Cannot be used together with SetDropTarget() on non-Windows
+     |      platforms.
+     |  
+     |  Enable(self, enable=True)
+     |      Enable or disable the window for user input.
+     |      
+     |      Note that when a parent window is disabled, all of its children
+     |      are disabled as well and they are reenabled again when the parent is.
+     |      
+     |      Parameters:
+     |      enable  If true, enables the window for input. If false, disables
+     |      the window.
+     |      
+     |      Returns:
+     |      Returns true if the window has been enabled or disabled, false if
+     |      nothing was done, i.e. if the window had already been in the
+     |      specified state.
+     |  
+     |  FindFocus(self)
+     |      Finds the window or control which currently has the keyboard focus.
+     |      
+     |      Remarks:
+     |      
+     |      Note that this should have been a static function, so it can be
+     |      called without needing a wxWindow pointer.
+     |  
+     |  FindWindowById(self, winid, parent=None)
+     |      Find the first window with the given id.
+     |      
+     |      If parent is NULL, the search will start from all top-level frames
+     |      and dialog boxes; if non-NULL, the search will be limited to the
+     |      given window hierarchy. The search is recursive in both cases.
+     |  
+     |  FindWindowByLabel(self, label, parent=None)
+     |      Find a window by its label.
+     |      
+     |      Depending on the type of window, the label may be a window title
+     |      or panel item label. If parent is NULL, the search will start from
+     |      all top-level frames and dialog boxes; if non-NULL, the search will
+     |      be limited to the given window hierarchy. The search is recursive
+     |      in both cases.
+     |  
+     |  FindWindowByName(self, name, parent=None)
+     |      Find a window by its name (as given in a window constructor or
+     |      Create() function call).
+     |      
+     |      If parent is NULL, the search will start from all top-level frames
+     |      and dialog boxes; if non-NULL, the search will be limited to the
+     |      given window hierarchy.
+     |      
+     |      The search is recursive in both cases. If no window with such name
+     |      is found, FindWindowByLabel() is called.
+     |  
+     |  Fit(self)
+     |      Sizes the window so that it fits around its subwindows. This function
+     |      will not do anything if there are no subwindows and will only really
+     |      work correctly if sizers are used for the subwindows layout.
+     |      
+     |      Also, if the window has exactly one subwindow it is better (faster
+     |      and the result is more precise as Fit adds some margin to account for
+     |      fuzziness of its calculations) to call
+     |      window.SetClientSize(child.GetSize()) instead of calling Fit.
+     |  
+     |  FitInside(self)
+     |      Similar to Fit(), but sizes the interior (virtual) size of a
+     |      window.
+     |      
+     |      Mainly useful with scrolled windows to reset scrollbars after
+     |      sizing changes that do not trigger a size event, and/or scrolled
+     |      windows without an interior sizer. This function similarly will
+     |      not do anything if there are no subwindows.
+     |  
+     |  Freeze(self)
+     |      Freezes the window or, in other words, prevents any updates from
+     |      taking place on screen, the window is not redrawn at all.
+     |      
+     |      Thaw() must be called to reenable window redrawing. Calls to these
+     |      two functions may be nested but to ensure that the window is
+     |      properly repainted again, you must thaw it exactly as many times
+     |      as you froze it.
+     |      
+     |      If the window has any children, they are recursively frozen too.
+     |      
+     |      This method is useful for visual appearance optimization (for
+     |      example, it is a good idea to use it before doing many large
+     |      text insertions in a row into a wxTextCtrl under wxGTK) but
+     |      is not implemented on all platforms nor for all controls so
+     |      it is mostly just a hint to wxWidgets and not a mandatory
+     |      directive.
+     |  
+     |  GetAcceleratorTable(self)
+     |      Gets the accelerator table for this window.
+     |  
+     |  GetAccessible(self)
+     |      Returns the accessible object for this window, if any.
+     |  
+     |  GetAdjustedBestSize(self, *args, **kwargs)
+     |      Use GetEffectiveMinSize instead.
+     |  
+     |  GetAttributeValueFromColorPair(self, foreground, background)
+     |      Use Get Curses Attribute from Color Pair.
+     |  
+     |  GetAutoLayout(self)
+     |      Returns the sizer of which this window is a member, if any,
+     |      otherwise NULL.
+     |  
+     |  GetBackgroundColour(self)
+     |      Returns the background colour of the window.
+     |  
+     |  GetBackgroundStyle(self)
+     |      Returns the background style of the window.
+     |  
+     |  GetBestFittingSize(self, *args, **kwargs)
+     |      Use GetEffectiveMinSize instead.
+     |  
+     |  GetBestSize(self)
+     |      This function returns the best acceptable minimal size for the
+     |      window, if applicable.
+     |      
+     |      For example, for a static text control, it will be the minimal
+     |      size such that the control label is not truncated. For windows
+     |      containing subwindows (such as wx.Panel), the size returned by
+     |      this function will be the same as the size the window would have
+     |      had after calling Fit.
+     |      
+     |      Note that when you write your own widget you need to override
+     |      the DoGetBestSize() function instead of this (non-virtual!)
+     |      function.
+     |  
+     |  GetBestSizeTuple(self)
+     |      This function returns the best acceptable minimal size for the window,
+     |      if applicable. For example, for a static text control, it will be the
+     |      minimal size such that the control label is not truncated. For windows
+     |      containing subwindows (suzh as wx.Panel), the size returned by this
+     |      function will be the same as the size the window would have had after
+     |      calling Fit.
+     |  
+     |  GetBestVirtualSize(self)
+     |      Return the largest of ClientSize and BestSize (as determined by a
+     |      sizer, interior children, or other means)
+     |  
+     |  GetBorder(self, flags=None)
+     |      Get the window border style from the given flags: this is different
+     |      from simply doing flags & wxBORDER_MASK because it uses
+     |      GetDefaultBorder() to translate wxBORDER_DEFAULT to something
+     |      reasonable.
+     |  
+     |  GetCaret(self)
+     |      Returns the caret() associated with the window.
+     |  
+     |  GetCharHeight(self)
+     |      Returns the character height for this window.
+     |  
+     |  GetCharWidth(self)
+     |      Returns the character width for this window.
+     |  
+     |  GetChildren(self)
+     |      Returns an object containing a list of the window children.
+     |  
+     |  GetClientAreaOrigin(self)
+     |      Get the origin of the client area of the window relative to the
+     |      window top left corner (the client area may be shifted because
+     |      of the borders, scrollbars, other decorations...).
+     |  
+     |  GetClientRect(self)
+     |      Get the client area position and size as a wx.Rect object.
+     |  
+     |  GetClientSize(self)
+     |      This gets the size of the window client area in pixels.
+     |      
+     |      The client area is the area which may be drawn on by the programmer,
+     |      excluding title bar, border, scrollbars, etc. Note that if this
+     |      window is a top-level one and it is currently minimized, the return
+     |      size is empty (both width and height are 0).
+     |  
+     |  GetClientSizeConstraintWH(self)
+     |  
+     |  GetClientSizeTuple(self)
+     |      This gets the size of the window client area in pixels.
+     |  
+     |  GetConstraints(self)
+     |      Returns a pointer to the window layout constraints, or None if
+     |      there are none.
+     |  
+     |  GetContainingSizer(self)
+     |      Return the sizer that this window is a member of, if any,
+     |      otherwise None.
+     |  
+     |  GetCursor(self)
+     |      Return the cursor associated with this window.
+     |  
+     |  GetDefaultAttributes(self)
+     |      Currently this is the same as calling
+     |      wxWindow::GetClassDefaultAttributes(wxWindow::GetWindowVariant()).
+     |      
+     |      One advantage of using this function compared to the static
+     |      version is that the call is automatically dispatched to the
+     |      correct class (as usual with virtual functions) and you do not
+     |      have to specify the class name explicitly.
+     |      
+     |      The other one is that in the future this function could return
+     |      different results, for example it might return a different font
+     |      for an "Ok" button than for a generic button if the users GUI
+     |      is configured to show such buttons in bold font. Of course, the
+     |      down side is that it is impossible to call this function without
+     |      actually having an object to apply it to whereas the static
+     |      version can be used without having to create an object first.
+     |  
+     |  GetDefaultBorder(self)
+     |      Get default border for this window.
+     |  
+     |  GetDefaultBorderForControl(self)
+     |      Get default border for this control.
+     |  
+     |  GetDlgUnitBase(self)
+     |      Windows computes dialog units using average character width over
+     |      upper- and lower-case ASCII alphabet and not using the average
+     |      character width metadata stored in the font; see
+     |      http://support.microsoft.com/default.aspx/kb/145994 for detailed
+     |      discussion.
+     |      
+     |      It is important that we perform the conversion in identical way,
+     |      because dialog units natively exist only on Windows and Windows
+     |      HIG is expressed using them.
+     |  
+     |  GetDropTarget(self)
+     |      Returns the associated drop target, which may be None.
+     |  
+     |  GetEffectiveMinSize(self)
+     |      Merges the windows best size into the min size and returns the
+     |      result.
+     |      
+     |      This is the value used by sizers to determine the appropriate
+     |      amount of space to allocate for the widget.
+     |      
+     |      This is the method called by a wxSizer when it queries the size
+     |      of a window or control.
+     |  
+     |  GetEventHandler(self)
+     |      Returns the event handler for this window.
+     |      
+     |      By default, the window is its own event handler.
+     |  
+     |  GetExtraStyle(self)
+     |      Returns the extra style bits for the window.
+     |  
+     |  GetFont(self)
+     |      Returns the font for this window.
+     |  
+     |  GetForegroundColour(self)
+     |      Returns the foreground colour of the window.
+     |      
+     |      Remarks:
+     |      The meaning of foreground colour varies according to the window
+     |      class; it may be the text colour or other colour, or it may not
+     |      be used at all.
+     |  
+     |  GetFullTextExtent(self, string, font)
+     |      Get the width, height, decent and leading of the text using the
+     |      current or specified font.
+     |  
+     |  GetGrandParent(self)
+     |      Returns the parent of the parent of this window, or None if there
+     |      is not one.
+     |  
+     |  GetGtkWidget(self)
+     |      On wxGTK returns a pointer to the GtkWidget for this window as a
+     |      long integer.
+     |  
+     |  GetHandle(self)
+     |      Returns the platform-specific handle of the physical window.
+     |      
+     |      Cast it to an appropriate handle, such as HWND for Windows,
+     |      Widget for Motif, GtkWidget for GTK or WinHandle for PalmOS.
+     |  
+     |  GetHelpText(self)
+     |      Gets the help text to be used as context-sensitive help for this
+     |      window.
+     |      
+     |      Note that the text is actually stored by the current wxHelpProvider
+     |      implementation, and not in the window object itself.
+     |  
+     |  GetHelpTextAtPoint(self, point, origin)
+     |      Gets the help text to be used as context-sensitive help for this
+     |      window.
+     |      
+     |      This method should be overridden if the help message depends on
+     |      the position inside the window, otherwise GetHelpText() can be
+     |      used.
+     |      
+     |      Parameters:
+     |      point   Coordinates of the mouse at the moment of help event emission.
+     |      
+     |      origin  Help event origin, see also wxHelpEvent::GetOrigin.
+     |  
+     |  GetId(self)
+     |      Returns the identifier of the window.
+     |      
+     |      Remarks:
+     |      Each window has an integer identifier. If the application has
+     |      not provided one (or the default wxID_ANY) a unique identifier
+     |      with a negative value will be generated.
+     |  
+     |  GetLabel(self)
+     |      Generic way of getting a label from any window, for identification
+     |      purposes.
+     |      
+     |      Remarks:
+     |      The interpretation of this function differs from class to class.
+     |      For frames and dialogs, the value returned is the title.
+     |      For buttons or static text controls, it is the button text. This
+     |      function can be useful for meta-programs such as testing tools or
+     |      special-needs access programs)which need to identify windows by name.
+     |  
+     |  GetLayoutDirection(self)
+     |      Returns the layout direction for this window, Note that
+     |      wxLayout_Default is returned if layout direction is not
+     |      supported.
+     |  
+     |  GetMainWindowOfCompositeControl(self)
+     |      Returns the main window of composite control; this is the window
+     |      that FindFocus returns if the focus is in one of composite
+     |      control windows
+     |  
+     |  GetMaxClientSize(self)
+     |      Returns the maximum size of windows client area.
+     |      
+     |      This is an indication to the sizer layout mechanism that this is
+     |      the maximum possible size as well as the upper bound on windows
+     |      size settable using SetClientSize().
+     |  
+     |  GetMaxHeight(self)
+     |  
+     |  GetMaxSize(self)
+     |      Returns the maximum size of the window.
+     |      
+     |      This is an indication to the sizer layout mechanism that this is
+     |      the maximum possible size as well as the upper bound on windows
+     |      size settable using SetSize().
+     |  
+     |  GetMaxWidth(self)
+     |  
+     |  GetMinClientSize(self)
+     |      Returns the minimum size of windows client area, an indication
+     |      to the sizer layout mechanism that this is the minimum required
+     |      size of its client area.
+     |      
+     |      It normally just returns the value set by SetMinClientSize(),
+     |      but it can be overridden to do the calculation on demand.
+     |  
+     |  GetMinHeight(self)
+     |  
+     |  GetMinSize(self)
+     |      Returns the minimum size of the window, an indication to the sizer
+     |      layout mechanism that this is the minimum required size.
+     |      
+     |      This method normally just returns the value set by SetMinSize(),
+     |      but it can be overridden to do the calculation on demand.
+     |  
+     |  GetMinWidth(self)
+     |  
+     |  GetName(self)
+     |      Returns the windows name.
+     |      
+     |      Remarks:
+     |      This name is not guaranteed to be unique; it is up to the
+     |      programmer to supply an appropriate name in the window
+     |      constructor or via SetName().
+     |  
+     |  GetNextSibling(self)
+     |      Returns the next window after this one among the parents
+     |      children or None if this window is the last child
+     |  
+     |  GetParent(self)
+     |      Returns the parent window of this window, or None if there is not one.
+     |  
+     |  GetPopupMenuSelectionFromUser(self, menu, pos=(-1, -1))
+     |      This function shows a popup menu at the given position in this
+     |      window and returns the selected id.
+     |      
+     |      It can be more convenient than the general purpose PopupMenu()
+     |      function for simple menus proposing a choice in a list of strings
+     |      to the user.
+     |      
+     |      Notice that to avoid unexpected conflicts between the (usually
+     |      consecutive range of) ids used by the menu passed to this function
+     |      and the existing EVT_UPDATE_UI() handlers, this function
+     |      temporarily disables UI updates for the window, so you need to
+     |      manually disable (or toggle or ...) any items which should be
+     |      disabled in the menu before showing it.
+     |      
+     |      The parameter menu is the menu to show. The parameter pos (or the
+     |      parameters x and y) is the position at which to show the menu in
+     |      client coordinates. It is recommended to not explicitly specify
+     |      coordinates when calling this method in response to mouse click,
+     |      because some of the ports (namely, wxGTK) can do a better job of
+     |      positioning the menu in that case.
+     |      
+     |      Returns:
+     |      The selected menu item id or wxID_NONE if none selected or an
+     |      error occurred.
+     |  
+     |  GetPopupMenuSelectionFromUserXY(self, menu, x, y)
+     |      This is an overloaded member function, provided for convenience.
+     |      It differs from the above function only in what argument(s) it
+     |      accepts.
+     |  
+     |  GetPosition(self)
+     |      Get the window position. Notice that the position is in client
+     |      coordinates for child windows and screen coordinates for the top
+     |      level ones, use GetScreenPosition if you need screen coordinates
+     |      for all kinds of windows.
+     |  
+     |  GetPositionConstraintXY(self)
+     |  
+     |  GetPositionTuple(self)
+     |      Get the window position. Notice that the position is in client
+     |      coordinates for child windows and screen coordinates for the top
+     |      level ones, use GetScreenPosition if you need screen coordinates
+     |      for all kinds of windows.
+     |  
+     |  GetPrevSibling(self)
+     |      Returns the previous window before this one among the parents
+     |      children or None if this window is the first child
+     |  
+     |  GetRect(self)
+     |      Returns the position and size of the window as a wxRect object.
+     |  
+     |  GetScreenPosition(self)
+     |      Returns the window position in screen coordinates, whether the
+     |      window is a child window or a top level one.
+     |  
+     |  GetScreenPositionTuple(self)
+     |      Get the position of the window in screen coordinantes.
+     |  
+     |  GetScreenRect(self)
+     |      Returns the position and size of the window on the screen as a
+     |      wxRect object.
+     |  
+     |  GetScrollPos(self, orientation)
+     |      Returns the built-in scrollbar position.
+     |  
+     |  GetScrollRange(self, orientation)
+     |      Returns the built-in scrollbar range.
+     |  
+     |  GetScrollThumb(self, orientation)
+     |      Returns the built-in scrollbar thumb size.
+     |  
+     |  GetSize(self)
+     |      Returns the size of the entire window in pixels, including title
+     |      bar, border, scrollbars, etc.
+     |      
+     |      Note that if this window is a top-level one and it is currently
+     |      minimized, the returned size is the restored window size, not
+     |      the size of the window icon.
+     |  
+     |  GetSizeConstraintWH(self)
+     |  
+     |  GetSizeTuple(self)
+     |      Get the window size.
+     |  
+     |  GetSizer(self)
+     |      Return the sizer associated with the window by a previous call to
+     |      SetSizer or None if there is not one.
+     |  
+     |  GetStyle(self)
+     |      Get the window syle.
+     |  
+     |  GetTextExtent(self, string)
+     |      Gets the dimensions of the string as it would be drawn on the
+     |      window with the currently selected font.
+     |  
+     |  GetThemeEnabled(self)
+     |      Return the themeEnabled flag.
+     |  
+     |  GetToolTip(self)
+     |      Get the associated tooltip or NULL if none.
+     |  
+     |  GetToolTipText(self)
+     |      Get the text of the associated tooltip or empty string if none.
+     |  
+     |  GetTopLevelAncestor(self)
+     |      Return top-level GUI object of our earliest ancestor.
+     |  
+     |  GetTopLevelParent(self)
+     |      Returns the first frame or dialog in this window parental hierarchy.
+     |  
+     |  GetTopLevelSiblings(self)
+     |  
+     |  GetUpdateClientRect(self)
+     |      Get the update rectangle region bounding box in client coords.
+     |  
+     |  GetUpdateRegion(self)
+     |      Returns the region specifying which parts of the window have
+     |      been damaged.
+     |      
+     |      Should only be called within an wxPaintEvent handler.
+     |  
+     |  GetValidator(self)
+     |      Returns a pointer to the current validator for the window,
+     |      or NULL if there is none.
+     |  
+     |  GetVirtualSizeTuple(self)
+     |      Get the the virtual size of the window in pixels.
+     |  
+     |  GetWindowBorderSize(self)
+     |      Returns the size of the left/right and top/bottom borders of
+     |      this window in x and y components of the result respectively.
+     |  
+     |  GetWindowStyle(self)
+     |      See GetWindowStyleFlag() for more info.
+     |  
+     |  GetWindowStyleFlag(self)
+     |      Gets the window style that was passed to the constructor or
+     |      Create() method.
+     |      
+     |      GetWindowStyle() is another name for the same function.
+     |      
+     |      Reimplemented in wxAuiToolBar.
+     |  
+     |  GetWindowVariant(self)
+     |      Returns the value previously passed to SetWindowVariant().
+     |  
+     |  HandleAsNavigationKey(self, event)
+     |      This function will generate the appropriate call to Navigate()
+     |      if the key event is one normally used for keyboard navigation
+     |      and return true in this case.
+     |      
+     |      Returns:
+     |      Returns true if the key pressed was for navigation and was
+     |      handled, false otherwise.
+     |  
+     |  HandleWindowEvent(self, event)
+     |      Shorthand for:
+     |      GetEventHandler()->SafelyProcessEvent(event)
+     |  
+     |  HasCapture(self)
+     |      Returns true if this window has the current mouse capture.
+     |  
+     |  HasExtraStyle(self, exFlag)
+     |      Returns true if the window has the given exFlag bit set in
+     |      its extra styles.
+     |  
+     |  HasFlag(self, flag)
+     |      Returns true if the window has the given flag bit set.
+     |  
+     |  HasFocus(self)
+     |      Returns true if the window (or in case of composite controls,
+     |      its main child window) has focus.
+     |  
+     |  HasMultiplePages(self)
+     |      This method should be overridden to return true if this window
+     |      has multiple pages.
+     |      
+     |      All standard class with multiple pages such as wxNotebook,
+     |      wxListbook and wxTreebook already override it to return true
+     |      and user-defined classes with similar behaviour should also
+     |      do so, to allow the library to handle such windows appropriately.
+     |  
+     |  HasScrollbar(self, orient)
+     |      Returns true if this window currently has a scroll bar for
+     |      this orientation.
+     |  
+     |  HasTransparentBackground(self)
+     |      Returns true if this window background is transparent (as, for
+     |      example, for wxStaticText) and should show the parent window
+     |      background.
+     |      
+     |      This method is mostly used internally by the library itself and
+     |      you normally should not have to call it. You may, however, have
+     |      to override it in your wxWindow-derived class to ensure that
+     |      background is painted correctly.
+     |  
+     |  Hide(self)
+     |      Equivalent to calling Show(False).
+     |  
+     |  HideWithEffect(self, effect, timeout=0)
+     |      This function hides a window, like Hide(), but using a special
+     |      visual effect if possible.
+     |      
+     |      The parameters of this function are the same as for ShowWithEffect(),
+     |      please see their description there.
+     |  
+     |  HitTest(self, pt)
+     |      Get the window border style from the given flags: this is different
+     |      from simply doing flags & wxBORDER_MASK because it uses
+     |      GetDefaultBorder() to translate wxBORDER_DEFAULT to something
+     |      reasonable.
+     |  
+     |  HitTestXY(self, x, y)
+     |      Get the window border style from the given flags: this is different
+     |      from simply doing flags & wxBORDER_MASK because it uses
+     |      GetDefaultBorder() to translate wxBORDER_DEFAULT to something
+     |      reasonable.
+     |  
+     |  InformFirstDirection(self, direction, size, availableOtherDir)
+     |  
+     |  InheritAttributes(self)
+     |      This function is (or should be, in case of custom controls) called
+     |      during window creation to intelligently set up the window visual
+     |      attributes, that is the font and the foreground and background
+     |      colours.
+     |      
+     |      By "intelligently" the following is meant: by default, all
+     |      windows use their own GetClassDefaultAttributes() default
+     |      attributes. However if some of the parents attributes are
+     |      explicitly (that is, using SetFont() and not wxWindow::SetOwnFont)
+     |      changed and if the corresponding attribute had not been explicitly
+     |      set for this window itself, then this window takes the same value
+     |      as used by the parent. In addition, if the window overrides
+     |      ShouldInheritColours() to return false, the colours will not
+     |      be changed no matter what and only the font might.
+     |      
+     |      This rather complicated logic is necessary in order to accommodate
+     |      the different usage scenarios. The most common one is when all
+     |      default attributes are used and in this case, nothing should be
+     |      inherited as in modern GUIs different controls use different fonts
+     |      (and colours) than their siblings so they cannot inherit the same
+     |      value from the parent. However it was also deemed desirable to
+     |      allow to simply change the attributes of all children at once
+     |      by just changing the font or colour of their common parent,
+     |      hence in this case we do inherit the parents attributes.
+     |  
+     |  InheritsBackgroundColour(self)
+     |  
+     |  InitDialog(self)
+     |      Sends an EVT_INIT_DIALOG event, whose handler usually transfers data
+     |      to the dialog via validators.
+     |      
+     |      Reimplemented in wxPanel.
+     |  
+     |  InternalOnSize(self, event)
+     |  
+     |  InvalidateBestSize(self)
+     |      Reset the cached best size value so it will be recalculated the next
+     |      time it is needed.
+     |  
+     |  IsBeingDeleted(self)
+     |      Returns true if this window is in process of being destroyed.
+     |      
+     |      Top level windows are not deleted immediately but are rather
+     |      scheduled for later destruction to give them time to process
+     |      any pending messages; see Destroy() description.
+     |      
+     |      This function returns true if this window, or one of its parent
+     |      windows, is scheduled for destruction and can be useful to avoid
+     |      manipulating it as it is usually useless to do something with
+     |      a window which is on the point of disappearing anyhow.
+     |  
+     |  IsDoubleBuffered(self)
+     |      Returns true if the window contents is double-buffered by the
+     |      system, i.e. if any drawing done on the window is really done
+     |      on a temporary backing surface and transferred to the screen
+     |      all at once later.
+     |  
+     |  IsEnabled(self)
+     |      Returns true if the window is enabled, i.e. if it accepts user
+     |      input, false otherwise.
+     |      
+     |      Notice that this method can return false even if this window itself
+     |      had not been explicitly disabled when one of its parent windows is
+     |      disabled. To get the intrinsic status of this window, use
+     |      IsThisEnabled().
+     |  
+     |  IsExposed(self, x, y, w=0, h=0)
+     |      Returns true if the given point or rectangle area has been exposed
+     |      since the last repaint.
+     |      
+     |      Call this in an paint event handler to optimize redrawing by only
+     |      redrawing those areas, which have been exposed.
+     |  
+     |  IsExposedPoint(self, pt)
+     |      Returns true if the given point or rectangle area has been exposed
+     |      since the last repaint.
+     |  
+     |  IsExposedRect(self, rect)
+     |      Returns true if the given point or rectangle area has been exposed
+     |      since the last repaint.
+     |  
+     |  IsFrozen(self)
+     |      Returns true if the window is currently frozen by a call to Freeze().
+     |  
+     |  IsScrollbarAlwaysShown(self, orient)
+     |      Return whether a scrollbar is always shown.
+     |  
+     |  IsShown(self)
+     |      Returns true if the window is shown, false if it has been hidden.
+     |  
+     |  IsShownOnScreen(self)
+     |      Returns true if the window is physically visible on the screen,
+     |      i.e. it is shown and all its parents up to the toplevel window
+     |      are shown as well.
+     |  
+     |  IsThisEnabled(self)
+     |      Returns true if this window is intrinsically enabled for user input,
+     |      false otherwise, i.e. if Enable() Enable(false) had been called.
+     |      This method is mostly used for wxWidgets itself, user code
+     |      should normally use IsEnabled() instead.
+     |  
+     |  IsTopLevel(self)
+     |      Returns true if the given window is a top-level one.
+     |      
+     |      Currently all frames and dialogs are considered to be top-level
+     |      windows (even if they have a parent window).
+     |  
+     |  Layout(self)
+     |      Invokes the constraint-based layout algorithm or the sizer-based
+     |      algorithm for this window.
+     |      
+     |      This function does not get called automatically when the window
+     |      is resized because lots of windows deriving from wxWindow do
+     |      not need this functionality. If you want to have Layout() called
+     |      automatically, you should derive from wxPanel (see wxPanel::Layout).
+     |      
+     |      See also:
+     |      Window Sizing Overview
+     |      
+     |      Reimplemented in wxPanel, and wxTopLevelWindow.
+     |  
+     |  LayoutPhase1(self, noChanges)
+     |      First phase of the constraints evaluation: set our own constraints.
+     |  
+     |  LayoutPhase2(self, noChanges)
+     |      Second phase: set the constraints for our children.
+     |  
+     |  LineDown(self)
+     |      This is just a wrapper for ScrollLines(1).
+     |  
+     |  LineUp(self)
+     |      This is just a wrapper for ScrollLines(-1).
+     |  
+     |  Lower(self)
+     |      Lowers the window to the bottom of the window hierarchy (Z-order).
+     |  
+     |  MakeModal(self, modal)
+     |      Disables all other windows in the application so that the user can
+     |      only interact with this window.
+     |      
+     |      Parameters:
+     |      modal   If true, this call disables all other windows in the
+     |      application so that the user can only interact with this window.
+     |      If false, the effect is reversed.
+     |  
+     |  Move(self, pt, flags)
+     |      Moves the window to the given position.
+     |      
+     |      Parameters:
+     |      pt      wxPoint object representing the position.
+     |      flags   See SetSize() for more info about this parameter.
+     |      
+     |      Remarks:
+     |      Implementations of SetSize() can also implicitly implement the Move()
+     |      function, which is defined in the base wxWindow class as the call:
+     |      SetSize(x, y, wxDefaultCoord, wxDefaultCoord, wxSIZE_USE_EXISTING)
+     |  
+     |  MoveAfterInTabOrder(self, win)
+     |      Moves this window in the tab navigation order after the specified
+     |      win.
+     |      
+     |      This means that when the user presses TAB key on that other window,
+     |      the focus switches to this window.
+     |      
+     |      Default tab order is the same as creation order, this function and
+     |      MoveBeforeInTabOrder() allow to change it after creating all the
+     |      windows.
+     |      
+     |      Parameters:
+     |      win     A sibling of this window which should precede it in tab
+     |      order, must not be NULL
+     |  
+     |  MoveBeforeInTabOrder(self, win)
+     |      Same as MoveAfterInTabOrder() except that it inserts this window
+     |      just before win instead of putting it right after it.
+     |  
+     |  MoveConstraint(self, x, y)
+     |  
+     |  MoveXY(self, x, y, flags)
+     |      Moves the window to the given position.
+     |  
+     |  Navigate(self, flags)
+     |      Performs a keyboard navigation action starting from this window.
+     |      
+     |      This method is equivalent to calling NavigateIn() method on the
+     |      parent window.
+     |      
+     |      Parameters:
+     |      flags   A combination of wxNavigationKeyEvent::IsForward and
+     |      wxNavigationKeyEvent::WinChange.
+     |      
+     |      Returns:
+     |      Returns true if the focus was moved to another window or false if
+     |      nothing changed.
+     |      
+     |      Remarks:
+     |      You may wish to call this from a text control custom keypress
+     |      handler to do the default navigation behaviour for the tab key,
+     |      since the standard default behaviour for a multiline text control
+     |      with the wxTE_PROCESS_TAB style is to insert a tab and not navigate
+     |      to the next control. See also wxNavigationKeyEvent and
+     |      HandleAsNavigationKey.
+     |  
+     |  NavigateIn(self, flags)
+     |      Performs a keyboard navigation action inside this window.
+     |      
+     |      See Navigate() for more information.
+     |  
+     |  NotifyWindowOnEnableChange(self, enabled)
+     |  
+     |  OnClose(self, evt)
+     |  
+     |  OnHelp(self, evt)
+     |      Show help for this window.
+     |  
+     |  OnInitDialog(self, evt)
+     |      The default action is to populate dialog with data when it is
+     |      created, and nudge the UI into displaying itself correctly
+     |      in case we havee turned the wxUpdateUIEvents frequency
+     |      down low.
+     |  
+     |  OnInternalIdle(self)
+     |      This virtual function is normally only used internally, but
+     |      sometimes an application may need it to implement functionality
+     |      that should not be disabled by an application defining an OnIdle
+     |      handler in a derived class.
+     |      
+     |      This function may be used to do delayed painting, for example,
+     |      and most implementations call UpdateWindowUI() in order to send
+     |      update events to the window in idle time.
+     |  
+     |  OnMaximize(self, evt)
+     |  
+     |  OnMinimize(self, evt)
+     |  
+     |  OnRestoreDown(self, evt)
+     |  
+     |  PageDown(self)
+     |      This is just a wrapper for ScrollPages(1).
+     |  
+     |  PageUp(self)
+     |      This is just a wrapper for ScrollPages(-1).
+     |  
+     |  PopEventHandler(self, deleteHandler)
+     |      Removes and returns the top-most event handler on the event handler
+     |      stack.
+     |      ...
+     |      when calling W->PopEventHandler(), the event handler A will be
+     |      removed and B will be the first handler of the stack.
+     |      
+     |      Note that it is an error to call this function when no event
+     |      handlers were pushed on this window (i.e. when the window itself
+     |      is its only event handler).
+     |      
+     |      Parameters:
+     |      deleteHandler   If this is true, the handler will be deleted
+     |      after it is removed (and the returned value will be NULL).
+     |  
+     |  PopupMenu(self, menu, pos=(-1, -1))
+     |      Pops up the given menu at the specified coordinates, relative to
+     |      this window, and returns control when the user has dismissed the
+     |      menu.
+     |      
+     |      If a menu item is selected, the corresponding menu event is
+     |      generated and will be processed as usual. If coordinates are not
+     |      specified, the current mouse cursor position is used.
+     |      
+     |      Parameters:
+     |      menu is the menu to pop up.
+     |      
+     |      The position where the menu will appear can be specified either as
+     |      a wxPoint pos or by two integers (x and y).
+     |      
+     |      Remarks:
+     |      Just before the menu is popped up, wxMenu::UpdateUI is called to
+     |      ensure that the menu items are in the correct state. The menu does
+     |      not get deleted by the window. It is recommended to not explicitly
+     |      specify coordinates when calling PopupMenu in response to mouse
+     |      click, because some of the ports (namely, wxGTK) can do a better
+     |      job of positioning the menu in that case.
+     |  
+     |  PopupMenuXY(self, menu, x, y)
+     |      Pops up the given menu at the specified coordinates, relative to
+     |      this window, and returns control when the user has dismissed the
+     |      menu.
+     |      
+     |      If a menu item is selected, the corresponding menu event is
+     |      generated and will be processed as usual. If coordinates are not
+     |      specified, the current mouse cursor position is used.
+     |      
+     |      Parameters:
+     |      menu is the menu to pop up.
+     |      
+     |      The position where the menu will appear can be specified either as
+     |      a wxPoint pos or by two integers (x and y).
+     |      
+     |      Remarks:
+     |      Just before the menu is popped up, wxMenu::UpdateUI is called to
+     |      ensure that the menu items are in the correct state. The menu does
+     |      not get deleted by the window. It is recommended to not explicitly
+     |      specify coordinates when calling PopupMenu in response to mouse
+     |      click, because some of the ports (namely, wxGTK) can do a better
+     |      job of positioning the menu in that case.
+     |  
+     |  PostCreate(self, pre)
+     |      Phase 3 of the 2-phase create <wink!> Call this method after
+     |      precreating the window with the 2-phase create method.
+     |  
+     |  PostSizeEvent(self)
+     |      Posts a size event to the window.
+     |      
+     |      This is the same as SendSizeEvent() with wxSEND_EVENT_POST argument.
+     |  
+     |  PostSizeEventToParent(self)
+     |      Posts a size event to the parent of this window.
+     |      
+     |      This is the same as SendSizeEventToParent() with wxSEND_EVENT_POST
+     |      argument.
+     |  
+     |  ProcessEvent(self, event)
+     |      This function is public in wxEvtHandler but protected in wxWindow
+     |      because for wxWindows you should always call ProcessEvent() on
+     |      the pointer returned by GetEventHandler() and not on the wxWindow
+     |      object itself.
+     |      
+     |      For convenience, a ProcessWindowEvent() method is provided as a
+     |      synonym for GetEventHandler()->ProcessEvent()
+     |      
+     |      Note that it is still possible to call these functions directly on
+     |      the wxWindow object (e.g. casting it to wxEvtHandler) but doing
+     |      that will create subtle bugs when windows with event handlers
+     |      pushed on them are involved.
+     |      
+     |      This holds also for all other wxEvtHandler functions.
+     |      
+     |      Reimplemented from wxEvtHandler.
+     |  
+     |  ProcessPendingEvents(self)
+     |      See ProcessEvent() for more info about why you should not use
+     |      this function and the reason for making this function protected
+     |      in wxWindow.
+     |      
+     |      Reimplemented from wxEvtHandler.
+     |  
+     |  ProcessThreadEvent(self, event)
+     |      See ProcessEvent() for more info about why you should not use
+     |      this function and the reason for making this function protected
+     |      in wxWindow.
+     |      
+     |      Reimplemented from wxEvtHandler.
+     |  
+     |  ProcessWindowEvent(self, event)
+     |      Convenient wrapper for ProcessEvent().
+     |      
+     |      This is the same as writing:
+     |      GetEventHandler()->ProcessEvent(event)
+     |      but more convenient. Notice that ProcessEvent() itself cannot be
+     |      called for wxWindow objects as it ignores the event handlers
+     |      associated with the window; use this function instead.
+     |  
+     |  ProcessWindowEventLocally(self, event)
+     |      Wrapper for wxEvtHandler::ProcessEventLocally().
+     |      
+     |      This method is similar to ProcessWindowEvent() but can be used
+     |      to search for the event handler only in this window and any event
+     |      handlers pushed on top of it. Unlike ProcessWindowEvent() it
+     |      will not propagate the event upwards. But it will use the
+     |      validator and event handlers associated with this window, if any.
+     |  
+     |  PushEventHandler(self, handler)
+     |      Pushes this event handler onto the event stack for the window.
+     |      
+     |      An event handler is an object that is capable of processing the
+     |      events sent to a window. By default, the window is its own event
+     |      handler, but an application may wish to substitute another,
+     |      for example to allow central implementation of event-handling
+     |      for a variety of different window classes.
+     |      
+     |      wxWindow::PushEventHandler allows an application to set up a
+     |      stack of event handlers, where an event not handled by one event
+     |      handler is handed to the next one in the chain.
+     |      
+     |      E.g. if you have two event handlers A and B and a wxWindow
+     |      instance W and you call:
+     |      W->PushEventHandler(A);
+     |      W->PushEventHandler(B);
+     |      you will end up with the following situation: ....
+     |      
+     |      Note that you can use wxWindow::PopEventHandler to remove
+     |      the event handler.
+     |      
+     |      Parameters:
+     |      handler         Specifies the handler to be pushed. It must
+     |      not be part of a wxEvtHandler chain; an assert will fail if
+     |      it is not unlinked (see wxEvtHandler::IsUnlinked).
+     |  
+     |  QueueEvent(self, event)
+     |      See ProcessEvent() for more info about why you should not use
+     |      this function and the reason for making this function protected
+     |      in wxWindow.
+     |      
+     |      Reimplemented from wxEvtHandler.
+     |  
+     |  Raise(self)
+     |      Raises the window to the top of the window hierarchy (Z-order).
+     |  
+     |  Refresh(self, eraseBackground=True, rect=None)
+     |      Causes this window, and all of its children recursively
+     |      (except under wxGTK1 where this is not implemented), to be
+     |      repainted.
+     |      
+     |      Note that repainting does not happen immediately but only
+     |      during the next event loop iteration, if you need to update
+     |      the window immediately you should use Update() instead.
+     |      
+     |      Parameters:
+     |      eraseBackground         If true, the background will be erased.
+     |      
+     |      rect                    If non-NULL, only the given rectangle
+     |                              will be treated as damaged.
+     |      
+     |      See also:
+     |      RefreshRect()
+     |      
+     |      Reimplemented in wxMenuBar.
+     |  
+     |  RefreshRect(self, rect, eraseBackground=True)
+     |      Redraws the contents of the given rectangle: the area inside it
+     |      will be repainted.
+     |      
+     |      This is the same as Refresh() but has a nicer syntax as it can be
+     |      called with a temporary wxRect object as argument like this
+     |      RefreshRect(wxRect(x, y, w, h)).
+     |  
+     |  RegisterHotKey(self, hotkeyId, modifiers, virtualKeyCode)
+     |      Registers a system wide hotkey.
+     |      
+     |      Every time the user presses the hotkey registered here, this
+     |      window will receive a hotkey event.
+     |      
+     |      It will receive the event even if the application is in the
+     |      background and does not have the input focus because the user
+     |      is working with some other application.
+     |      
+     |      Parameters:
+     |      hotkeyId        Numeric identifier of the hotkey. For applications
+     |      this must be between 0 and 0xBFFF. If this function is called from
+     |      a shared DLL, it must be a system wide unique identifier between
+     |      0xC000 and 0xFFFF. This is a MSW specific detail.
+     |      
+     |      modifiers       A bitwise combination of wxMOD_SHIFT, wxMOD_CONTROL,
+     |      wxMOD_ALT or wxMOD_WIN specifying the modifier keys that have to be
+     |      pressed along with the key.
+     |      
+     |      virtualKeyCode  The virtual key code of the hotkey.
+     |      
+     |      Returns:
+     |      true if the hotkey was registered successfully. false if some other
+     |      application already registered a hotkey with this modifier/
+     |      virtualKeyCode combination.
+     |      
+     |      Remarks:
+     |      Use EVT_HOTKEY(hotkeyId, fnc) in the event table to capture the
+     |      event. This function is currently only implemented under Windows.
+     |      It is used in the Windows CE port for detecting hardware button
+     |      presses.
+     |  
+     |  ReleaseMouse(self)
+     |      Releases mouse input captured with CaptureMouse().
+     |  
+     |  RemoveChild(self, child)
+     |      Removes a child window.
+     |  
+     |  RemoveEventHandler(self, handler)
+     |      Find the given handler in the windows event handler stack and
+     |      removes (but does not delete) it from the stack.
+     |      
+     |      See wxEvtHandler::Unlink() for more info.
+     |      
+     |      Parameters:
+     |      handler         The event handler to remove, must be non-NULL
+     |      and must be present in this windows event handlers stack.
+     |      
+     |      Returns:
+     |      Returns true if it was found and false otherwise (this also
+     |      results in an assert failure so this function should only be
+     |      called when the handler is supposed to be there).
+     |  
+     |  Reparent(self, newParent)
+     |      Reparents the window, i.e the window will be removed from its current
+     |      parent window (e.g.
+     |  
+     |  ResetConstraints(self)
+     |  
+     |  SafelyProcessEvent(self, event)
+     |      See ProcessEvent() for more info about why you should not use
+     |      this function and the reason for making this function protected
+     |      in wxWindow.
+     |      
+     |      Reimplemented from wxEvtHandler.
+     |  
+     |  SatisfyConstraints(self)
+     |  
+     |  ScreenToClient(self, pt)
+     |      Converts from screen to client window coordinates.
+     |      
+     |      Parameters:
+     |      pt      The screen position.
+     |  
+     |  ScreenToClientXY(self, x, y)
+     |      Converts from screen to client window coordinates.
+     |  
+     |  ScrollLines(self, lines)
+     |      If the platform and window class supports it, scrolls the window
+     |      by the given number of lines down, if lines is positive, or up if
+     |      lines is negative.
+     |  
+     |  ScrollPages(self, pages)
+     |      If the platform and window class supports it, scrolls the window
+     |      by the given number of pages down, if pages is positive, or up
+     |      if pages is negative.
+     |  
+     |  ScrollWindow(self, dx, dy, rect=None)
+     |      Physically scrolls the pixels in the window and move child windows
+     |      accordingly.
+     |  
+     |  SendDestroyEvent(self)
+     |      Generate wxWindowDestroyEvent for this window.
+     |      
+     |      This is called by the window itself when it is being destroyed and
+     |      usually there is no need to call it but see wxWindowDestroyEvent
+     |      for explanations of when you might want to do it.
+     |  
+     |  SendIdleEvents(self, event)
+     |      Send idle event to window and all subwindows
+     |  
+     |  SendSizeEvent(self, flags=0)
+     |      This function sends a dummy size event to the window allowing it
+     |      to re-layout its children positions.
+     |      
+     |      It is sometimes useful to call this function after adding or
+     |      deleting a children after the frame creation or if a child size
+     |      changes. Note that if the frame is using either sizers or
+     |      constraints for the children layout, it is enough to call
+     |      wxWindow::Layout() directly and this function should not be
+     |      used in this case.
+     |      
+     |      If flags includes wxSEND_EVENT_POST value, this function posts
+     |      the event, i.e. schedules it for later processing, instead of
+     |      dispatching it directly. You can also use PostSizeEvent() as
+     |      a more readable equivalent of calling this function with
+     |      this flag.
+     |      
+     |      Parameters:
+     |      
+     |      flags   May include wxSEND_EVENT_POST. Default value is 0.
+     |  
+     |  SendSizeEventToParent(self, flags=0)
+     |      Safe wrapper for GetParent()->SendSizeEvent().
+     |      
+     |      This function simply checks that the window has a valid parent
+     |      which is not in process of being deleted and calls SendSizeEvent()
+     |      on it. It is used internally by windows such as toolbars changes
+     |      to whose state should result in parent re-layout (e.g. when a
+     |      toolbar is added to the top of the window, all the other windows
+     |      must be shifted down).
+     |  
+     |  SetAcceleratorTable(self, accel)
+     |      Sets the accelerator table for this window.
+     |  
+     |  SetAccessible(self, accessible)
+     |      Sets the accessible for this window.
+     |      
+     |      Any existing accessible for this window will be deleted first,
+     |      if not identical to accessible.
+     |  
+     |  SetAutoLayout(self, autoLayout)
+     |      Determines whether the Layout function will be called automatically
+     |      when the window is resized. Please note that this only happens for
+     |      the windows usually used to contain children, namely wx.Panel and
+     |      wx.TopLevelWindow (and the classes deriving from them).
+     |      
+     |      This method is called implicitly by SetSizer but if you use
+     |      SetConstraints you should call it manually or otherwise the window
+     |      layout will not be correctly updated when the window is resized.
+     |  
+     |  SetBackgroundColour(self, colour)
+     |      Sets the background colour of the window.
+     |      
+     |      Please see InheritAttributes() for explanation of the
+     |      difference between this method and SetOwnBackgroundColour().
+     |      
+     |      Parameters:
+     |      colour  The colour to be used as the background colour; pass
+     |      wxNullColour to reset to the default colour. Note that you
+     |      may want to use wxSystemSettings::GetColour() to retrieve a
+     |      suitable colour to use rather than setting an hard-coded one.
+     |      
+     |      Remarks:
+     |      The background colour is usually painted by the default
+     |      wxEraseEvent event handler function under Windows and
+     |      automatically under GTK. Note that setting the background
+     |      colour does not cause an immediate refresh, so you may wish
+     |      to call wxWindow::ClearBackground or wxWindow::Refresh after
+     |      calling this function. Using this function will disable
+     |      attempts to use themes for this window, if the system
+     |      supports them. Use with care since usually the themes
+     |      represent the appearance chosen by the user to be used
+     |      for all applications on the system.
+     |      
+     |      Returns:
+     |      True if the colour was really changed, false if it was already set
+     |      to this colour and nothing was done.
+     |  
+     |  SetBackgroundStyle(self, style)
+     |      Sets the background style of the window.
+     |      
+     |      The default background style is wxBG_STYLE_ERASE which
+     |      indicates that the window background may be erased in
+     |      EVT_ERASE_BACKGROUND handler. This is a safe, compatibility
+     |      default; however you may want to change it to wxBG_STYLE_SYSTEM
+     |      if you do not define any erase background event handlers
+     |      at all, to avoid unnecessary generation of erase background
+     |      events and always let system erase the background. And you
+     |      should change the background style to wxBG_STYLE_PAINT if
+     |      you define an EVT_PAINT handler which completely overwrites
+     |      the window background as in this case erasing it previously,
+     |      either in EVT_ERASE_BACKGROUND handler or in the system
+     |      default handler, would result in flicker as the background
+     |      pixels will be repainted twice every time the window is
+     |      redrawn. Do ensure that the background is entirely erased
+     |      by your EVT_PAINT handler in this case however as otherwise
+     |      garbage may be left on screen.
+     |      
+     |      Notice that in previous versions of wxWidgets a common way
+     |      to work around the above mentioned flickering problem was
+     |      to define an empty EVT_ERASE_BACKGROUND handler. Setting
+     |      background style to wxBG_STYLE_PAINT is a simpler and
+     |      more efficient solution to the same problem.
+     |  
+     |  SetBestSize(self, *args, **kwargs)
+     |      This function returns the best acceptable minimal size for the
+     |      window, if applicable. For example, for a static text control,
+     |      it will be the minimal size such that the control label is not
+     |      truncated. For windows containing subwindows (such as wx.Panel),
+     |      the size returned by this function will be the same as the size
+     |      the window would have had after calling Fit.
+     |  
+     |  SetBestVirtualSize(self, *args, **kwargs)
+     |      This function returns the best acceptable minimal size for the
+     |      window, if applicable. For example, for a static text control,
+     |      it will be the minimal size such that the control label is not
+     |      truncated. For windows containing subwindows (such as wx.Panel),
+     |      the size returned by this function will be the same as the size
+     |      the window would have had after calling Fit.
+     |  
+     |  SetBorder(self, flags)
+     |  
+     |  SetCanFocus(self, canFocus)
+     |      his method is only implemented by ports which have support for
+     |      native TAB traversal (such as GTK+ 2.0).
+     |  
+     |  SetCaret(self, caret)
+     |      Sets the caret() associated with the window.
+     |  
+     |  SetClientAreaOrigin(self, pos)
+     |  
+     |  SetClientRect(self, rect)
+     |      This sets the size of the window client area in pixels.
+     |  
+     |  SetClientSize(self, size)
+     |      This sets the size of the window client area in pixels.
+     |      
+     |      Using this function to size a window tends to be more device-
+     |      independent than SetSize(), since the application need not worry
+     |      about what dimensions the border or title bar have when trying
+     |      to fit the window around panel items, for example.
+     |  
+     |  SetClientSizeWH(self, width, height)
+     |      This sets the size of the window client area in pixels.
+     |      
+     |      Using this function to size a window tends to be more device-
+     |      independent than SetSize(), since the application need not worry
+     |      about what dimensions the border or title bar have when trying
+     |      to fit the window around panel items, for example.
+     |  
+     |  SetConstraintSizes(self, Recurse=False)
+     |  
+     |  SetConstraints(self, constraints)
+     |      Sets the window to have the given layout constraints.
+     |  
+     |  SetContainingSizer(self, sizer)
+     |      This normally does not need to be called by user code.
+     |      
+     |      It is called when a window is added to a sizer, and is used so
+     |      the window can remove itself from the sizer when it is destroyed.
+     |  
+     |  SetCursor(self, cursor)
+     |      Sets the window cursor.
+     |      
+     |      Notice that the window cursor also sets it for the children of
+     |      the window implicitly.
+     |      
+     |      The cursor may be wxNullCursor in which case the window cursor
+     |      will be reset back to default.
+     |      
+     |      Parameters:
+     |      cursor  Specifies the cursor that the window should normally
+     |      display.
+     |  
+     |  SetDimensions(self, x, y, width, height, sizeFlags=3)
+     |      Sets the position and size of the window in pixels. The sizeFlags
+     |      parameter indicates the interpretation of the other params if they
+     |      are equal to -1.
+     |  
+     |  SetDoubleBuffered(self, on)
+     |      Currently wxGTK2 only.
+     |  
+     |  SetDropTarget(self, dropTarget)
+     |      Associates a drop target with this window.
+     |      
+     |      If the window already has a drop target, it is deleted.
+     |  
+     |  SetEventHandler(self, handler)
+     |      Sets the event handler for this window.
+     |      
+     |      Note that if you use this function you may want to use as the
+     |      "next" handler of handler the window itself; in this way when
+     |      handler does not process an event, the window itself will have
+     |      a chance to do it.
+     |      
+     |      Parameters:
+     |      handler         Specifies the handler to be set. Cannot be NULL.
+     |  
+     |  SetExtraStyle(self, exStyle)
+     |      Sets the extra style bits for the window.
+     |      
+     |      The currently defined extra style bits are reported in the
+     |      class description.
+     |  
+     |  SetFocus(self)
+     |      This sets the window to receive keyboard input.
+     |  
+     |  SetFocusFromKbd(self)
+     |      This function is called by wxWidgets keyboard navigation code when
+     |      the user gives the focus to this window from keyboard.
+     |  
+     |  SetFont(self, font)
+     |      Sets the font for this window.
+     |      
+     |      This function should not be called for the parent window if
+     |      you do not want its font to be inherited by its children, use
+     |      SetOwnFont() instead in this case and see InheritAttributes()
+     |      for more explanations.
+     |      
+     |      Please notice that the given font is not automatically used
+     |      for wxPaintDC objects associated with this window, you need
+     |      to call wxDC::SetFont too. However this font is used by any
+     |      standard controls for drawing their text as well as by
+     |      GetTextExtent().
+     |      
+     |      Parameters:
+     |      font    Font to associate with this window, pass wxNullFont
+     |      to reset to the default font.
+     |      
+     |      Returns:
+     |      True if the font was really changed, False if it was already
+     |      set to this font and nothing was done.
+     |  
+     |  SetForegroundColour(self, colour)
+     |      Sets the foreground colour of the window.
+     |      
+     |      Please see InheritAttributes() for explanation of the difference
+     |      between this method and SetOwnForegroundColour().
+     |      
+     |      Parameters:
+     |      colour  The colour to be used as the foreground colour; pass
+     |      wxNullColour to reset to the default colour.
+     |      
+     |      Remarks:
+     |      The meaning of foreground colour varies according to the window
+     |      class; it may be the text colour or other colour, or it may not
+     |      be used at all.
+     |      
+     |      Returns:
+     |      true if the colour was really changed, false if it was already
+     |      set to this colour and nothing was done.
+     |  
+     |  SetHelpText(self, helpText)
+     |      Sets the help text to be used as context-sensitive help for this
+     |      window.
+     |      
+     |      Note that the text is actually stored by the current wxHelpProvider
+     |      implementation, and not in the window object itself.
+     |  
+     |  SetHelpTextForId(self, text)
+     |      Associate this help text with all windows with the same id as this one.
+     |  
+     |  SetId(self, winid)
+     |      Sets the identifier of the window.
+     |      
+     |      Remarks:
+     |      Each window has an integer identifier. If the application has not
+     |      provided one, an identifier will be generated. Normally, the
+     |      identifier should be provided on creation and should not be
+     |      modified subsequently.
+     |  
+     |  SetInitialBestSize(self, size=(-1, -1))
+     |      Sets the initial window size if none is given (i.e. at least one
+     |      of the components of the size passed to ctor/Create() is
+     |      wxDefaultCoord).
+     |      
+     |      Deprecated.
+     |  
+     |  SetInitialSize(self, size=(-1, -1))
+     |      A "Smart" SetSize that will fill in default size components with the
+     |      window best size values.
+     |      
+     |      Also sets the windows minsize to the value passed in for use with
+     |      sizers. This means that if a full or partial size is passed to this
+     |      function then the sizers will use that size instead of the results
+     |      of GetBestSize() to determine the minimum needs of the window for
+     |      layout.
+     |      
+     |      Most controls will use this to set their initial size, and their
+     |      min size to the passed in value (if any.)
+     |  
+     |  SetLabel(self, label)
+     |      Sets the windows label.
+     |      
+     |      Parameters:
+     |      label   The window label.
+     |  
+     |  SetLayoutDirection(self, dir)
+     |      Set the layout direction (LTR or RTL) for this window.
+     |  
+     |  SetMaxClientSize(self, size=(-1, -1))
+     |      Sets the maximum client size of the window, to indicate to the
+     |      sizer layout mechanism that this is the maximum possible size
+     |      of its client area.
+     |      
+     |      Note that this method is just a shortcut for:
+     |      SetMaxSize(ClientToWindowSize(size))
+     |  
+     |  SetMaxSize(self, maxSize)
+     |      Sets the maximum size of the window, to indicate to the sizer
+     |      layout mechanism that this is the maximum possible size.
+     |  
+     |  SetMinClientSize(self, size=(-1, -1))
+     |      Sets the minimum client size of the window, to indicate to the sizer
+     |      layout mechanism that this is the minimum required size of windows
+     |      client area.
+     |      
+     |      You may need to call this if you change the window size after
+     |      construction and before adding to its parent sizer.
+     |      
+     |      Note, that just as with SetMinSize(), calling this method does not
+     |      prevent the program from explicitly making the window smaller than
+     |      the specified size.
+     |      
+     |      Note that this method is just a shortcut for:
+     |      SetMinSize(ClientToWindowSize(size))
+     |  
+     |  SetMinSize(self, minSize)
+     |      Sets the minimum size of the window, to indicate to the sizer layout
+     |      mechanism that this is the minimum required size.
+     |      
+     |      You may need to call this if you change the window size after
+     |      construction and before adding to its parent sizer.
+     |      
+     |      Notice that calling this method does not prevent the program from
+     |      making the window explicitly smaller than the specified size by
+     |      calling SetSize(), it just ensures that it will not become smaller
+     |      than this size during the automatic layout.
+     |  
+     |  SetName(self, name)
+     |      Sets the windows name.
+     |      
+     |      Parameters:
+     |      name    A name to set for the window.
+     |  
+     |  SetNextHandler(self, handler)
+     |      wxWindows cannot be used to form event handler chains; this
+     |      function thus will assert when called.
+     |      
+     |      Note that instead you can use PushEventHandler() or
+     |      SetEventHandler() to implement a stack of event handlers
+     |      to override wxWindow own event handling mechanism.
+     |      
+     |      Reimplemented from wxEvtHandler.
+     |  
+     |  SetOwnBackgroundColour(self, colour)
+     |      Sets the background colour of the window but prevents it from
+     |      being inherited by the children of this window.
+     |  
+     |  SetOwnFont(self, font)
+     |      Sets the font of the window but prevents it from being inherited
+     |      by the children of this window.
+     |  
+     |  SetOwnForegroundColour(self, colour)
+     |      Sets the foreground colour of the window but prevents it from
+     |      being inherited by the children of this window.
+     |  
+     |  SetPalette(self, pal)
+     |      Deprecated:
+     |      use wxDC::SetPalette instead.
+     |  
+     |  SetParent(self, parent)
+     |      Set the parent window of this window, or None if there is not one.
+     |  
+     |  SetPosition(self, pt, flags=0)
+     |      Moves the window to the given position.
+     |  
+     |  SetPreviousHandler(self, handler)
+     |      wxWindows cannot be used to form event handler chains; this
+     |      function thus will assert when called.
+     |      
+     |      Note that instead you can use PushEventHandler() or SetEventHandler()
+     |      to implement a stack of event handlers to override wxWindows own
+     |      event handling mechanism.
+     |      
+     |      Reimplemented from wxEvtHandler.
+     |  
+     |  SetRect(self, rect, sizeFlags=3)
+     |      Sets the position and size of the window in pixels using a wx.Rect.
+     |  
+     |  SetScrollPos(self, orientation, pos, refresh=True)
+     |      Sets the position of one of the built-in scrollbars.
+     |  
+     |  SetScrollbar(self, orientation, position, thumbSize, range, refresh=True)
+     |      Sets the scrollbar properties of a built-in scrollbar.
+     |      
+     |      Parameters:
+     |      
+     |      
+     |      orientation     Determines the scrollbar whose page size is to
+     |                      be set. May be wxHORIZONTAL or wxVERTICAL.
+     |      position        The position of the scrollbar in scroll units.
+     |      
+     |      thumbSize       The size of the thumb, or visible portion of the
+     |                      scrollbar, in scroll units.
+     |      
+     |      range           The maximum position of the scrollbar.
+     |      
+     |      refresh         true to redraw the scrollbar, false otherwise.
+     |      
+     |      Remarks:
+     |      
+     |      Let us say you wish to display 50 lines of text, using the same
+     |      font. The window is sized so that you can only see 16 lines at
+     |      a time. You would use:
+     |      
+     |                  scrollbar->SetScrollbar(wxVERTICAL, 0, 16, 50);
+     |      
+     |      The page size is 1 less than the thumb size so that the last
+     |      line of the previous page will be visible on the next page,
+     |      to help orient the user. Note that with the window at this
+     |      size, the thumb position can never go above 50 minus 16, or 34.
+     |      You can determine how many lines are currently visible by
+     |      dividing the current view size by the character height in
+     |      pixels. When defining your own scrollbar behaviour, you will
+     |      always need to recalculate the scrollbar settings when the
+     |      window size changes. You could therefore put your scrollbar
+     |      calculations and SetScrollbar() call into a function named
+     |      AdjustScrollbars, which can be called initially and also
+     |      from a wxSizeEvent event handler function.
+     |  
+     |  SetSize(self, size)
+     |      Sets the size of the window in pixels.
+     |      
+     |      The size is specified using a wxRect, wxSize or by a couple of
+     |      int objects.
+     |      
+     |      Remarks:
+     |      This form must be used with non-default width and height values.
+     |  
+     |  SetSizeConstraint(self, x, y, w, h)
+     |  
+     |  SetSizeHints(self, minSize, maxSize=(-1, -1), incSize=(-1, -1))
+     |      Use of this function for windows which are not toplevel windows
+     |      (such as wxDialog or wxFrame) is discouraged.
+     |      
+     |      Please use SetMinSize() and SetMaxSize() instead.
+     |  
+     |  SetSizeWH(self, width, height)
+     |      Sets the size of the window in pixels.
+     |  
+     |  SetSizer(self, sizer, deleteOld=True)
+     |      Sets the window to have the given layout sizer.
+     |      
+     |      The window will then own the object, and will take care of its
+     |      deletion. If an existing layout constraints object is already
+     |      owned by the window, it will be deleted if the deleteOld parameter
+     |      is true.
+     |      
+     |      Note that this function will also call SetAutoLayout() implicitly
+     |      with true parameter if the sizer is non-NULL and false otherwise
+     |      so that the sizer will be effectively used to layout the window
+     |      children whenever it is resized.
+     |      
+     |      Parameters:
+     |      sizer   The sizer to set. Pass NULL to disassociate and
+     |      conditionally delete the windows sizer. See below.
+     |      
+     |      deleteOld       If true (the default), this will delete any
+     |      pre-existing sizer. Pass false if you wish to handle deleting
+     |      the old sizer yourself but remember to do it yourself in this
+     |      case to avoid memory leaks.
+     |      
+     |      Remarks:
+     |      SetSizer enables and disables Layout automatically.
+     |  
+     |  SetSizerAndFit(self, sizer, deleteOld=True)
+     |      This method calls SetSizer() and then wxSizer::SetSizeHints which
+     |      sets the initial window size to the size needed to accommodate all
+     |      sizer elements and sets the size hints which, if this window is a
+     |      top level one, prevent the user from resizing it to be less than
+     |      this minimal size.
+     |  
+     |  SetStyle(self, style)
+     |      Sets the style of the window.
+     |  
+     |  SetThemeEnabled(self, enableTheme)
+     |      This function tells a window if it should use the systems "theme"
+     |      code to draw the windows background instead of its own background
+     |      drawing code.
+     |      
+     |      This does not always have any effect since the underlying platform
+     |      obviously needs to support the notion of themes in user defined
+     |      windows. One such platform is GTK+ where windows can have (very
+     |      colourful) backgrounds defined by a users selected theme.
+     |      
+     |      Dialogs, notebook pages and the status bar have this flag set to
+     |      true by default so that the default look and feel is simulated best.
+     |  
+     |  SetToolTip(self, tip)
+     |      Attach a tooltip to the window.
+     |      
+     |      wxToolTip pointer can be NULL in the overload taking the pointer,
+     |      meaning to unset any existing tooltips; however UnsetToolTip()
+     |      provides a more readable alternative to this operation.
+     |      
+     |      Notice that these methods are always available, even if wxWidgets
+     |      was compiled with wxUSE_TOOLTIPS set to 0, but do not do anything
+     |      in this case.
+     |  
+     |  SetToolTipString(self, tip)
+     |      Attach a tooltip to the window.
+     |      
+     |      wxToolTip pointer can be NULL in the overload taking the pointer,
+     |      meaning to unset any existing tooltips; however UnsetToolTip()
+     |      provides a more readable alternative to this operation.
+     |      
+     |      Notice that these methods are always available, even if wxWidgets
+     |      was compiled with wxUSE_TOOLTIPS set to 0, but do not do anything
+     |      in this case.
+     |  
+     |  SetTopLevelAncestor(self, candidate)
+     |      Set top-level GUI object of our earliest ancestor.
+     |  
+     |  SetTopLevelSiblings(self, candidate)
+     |  
+     |  SetTransparent(self, alpha)
+     |      Set the transparency of the window.
+     |      
+     |      If the system supports transparent windows, returns true, otherwise
+     |      returns false and the window remains fully opaque. See also
+     |      CanSetTransparent().
+     |      
+     |      The parameter alpha is in the range 0..255 where 0 corresponds to
+     |      a fully transparent window and 255 to the fully opaque one. The
+     |      constants wxIMAGE_ALPHA_TRANSPARENT and wxIMAGE_ALPHA_OPAQUE can
+     |      be used.
+     |      
+     |      Reimplemented in wxTopLevelWindow.
+     |  
+     |  SetValidator(self, validator)
+     |      Deletes the current validator (if any) and sets the window validator,
+     |      having called wx.Validator.Clone to create a new validator of this
+     |      type.
+     |  
+     |  SetVirtualSize(self, size)
+     |      Sets the virtual size of the window in pixels.
+     |  
+     |  SetVirtualSizeHints(self, minW, minH, maxW=-1, maxH=-1)
+     |      Allows specification of minimum and maximum virtual window sizes.
+     |      If a pair of values is not set (or set to -1), the default values
+     |      will be used. If this function is called, the user will not be able
+     |      to size the virtual area of the window outside the given bounds.
+     |  
+     |  SetVirtualSizeHintsSz(self, minSize, maxSize=(-1, -1))
+     |      Allows specification of minimum and maximum virtual window sizes.
+     |      If a pair of values is not set (or set to -1), the default values
+     |      will be used. If this function is called, the user will not be able
+     |      to size the virtual area of the window outside the given bounds.
+     |  
+     |  SetVirtualSizeWH(self, w, h)
+     |      Set the the virtual size of a window in pixels. For most windows
+     |      this is just the client area of the window, but for some like
+     |      scrolled windows it is more or less independent of the screen
+     |      window size.
+     |  
+     |  SetWindowStyle(self, style)
+     |      See SetWindowStyleFlag() for more info.
+     |      
+     |      Reimplemented in wxTreeCtrl.
+     |  
+     |  SetWindowStyleFlag(self, style)
+     |      Sets the style of the window.
+     |      
+     |      Please note that some styles cannot be changed after the window
+     |      creation and that Refresh() might need to be called after changing
+     |      the others for the change to take place immediately.
+     |      
+     |      See Window styles for more information about flags.
+     |      
+     |      See also:
+     |      GetWindowStyleFlag()
+     |      
+     |      Reimplemented in wxAuiToolBar, and wxListCtrl.
+     |  
+     |  SetWindowVariant(self, variant)
+     |      This function can be called under all platforms but only does
+     |      anything under Mac OS X 10.3+ currently.
+     |      
+     |      Under this system, each of the standard control can exist in
+     |      several sizes which correspond to the elements of wxWindowVariant
+     |      enum.
+     |      
+     |      By default the controls use the normal size, of course, but this
+     |      function can be used to change this.
+     |      
+     |      Variant values are:
+     |      
+     |      wx.WINDOW_VARIANT_NORMAL        Normal size
+     |      
+     |      wx.WINDOW_VARIANT_SMALL         Smaller size (about 25 % smaller
+     |                                      than normal)
+     |      
+     |      wx.WINDOW_VARIANT_MINI          Mini size (about 33 % smaller than
+     |                                      normal)
+     |      
+     |      wx.WINDOW_VARIANT_LARGE         Large size (about 25 % larger than
+     |                                      normal)
+     |  
+     |  ShouldInheritColours(self)
+     |      Return true from here to allow the colours of this window to be
+     |      changed by InheritAttributes().
+     |      
+     |      Returning false forbids inheriting them from the parent window.
+     |      
+     |      The base class version returns false, but this method is
+     |      overridden in wxControl where it returns true.
+     |  
+     |  Show(self, show=True)
+     |      Shows or hides the window. You may need to call Raise for a top
+     |      level window if you want to bring it to top, although this is not
+     |      needed if Show is called immediately after the frame creation.
+     |      Returns True if the window has been shown or hidden or False if
+     |      nothing was done because it already was in the requested state.
+     |  
+     |  ShowWithEffect(self, effect, timeout=0)
+     |      This function shows a window, like Show(), but using a special
+     |      visual effect if possible.
+     |      
+     |      Parameters:
+     |      effect  The effect to use.
+     |      
+     |      timeout         The timeout parameter specifies the time of the
+     |      
+     |      animation, in milliseconds. If the default value of 0 is used, the
+     |      default animation time for the current platform is used.
+     |      
+     |      Note:
+     |      Currently this function is only implemented in wxMSW and wxOSX
+     |      (for wxTopLevelWindows only in Carbon version and for any kind of
+     |      windows in Cocoa) and does the same thing as Show() in the other
+     |      ports.
+     |  
+     |  Thaw(self)
+     |      Re-enables window updating after a previous call to Freeze().
+     |      
+     |      To really thaw the control, it must be called exactly the same
+     |      number of times as Freeze().
+     |      
+     |      If the window has any children, they are recursively thawed too.
+     |  
+     |  ToggleWindowStyle(self, flag)
+     |      Turns the given flag on if it is currently turned off and vice versa.
+     |      
+     |      This function cannot be used if the value of the flag is 0 (which
+     |      is often the case for default flags).
+     |      
+     |      Also, please notice that not all styles can be changed after the
+     |      control creation.
+     |      
+     |      Returns:
+     |      Returns true if the style was turned on by this function, false if
+     |      it was switched off.
+     |  
+     |  TransferDataFromWindow(self)
+     |      Transfers values from child controls to data areas specified by their
+     |      validators.
+     |      
+     |      Returns false if a transfer failed. If the window has
+     |      wx.WS_EX_VALIDATE_RECURSIVELY extra style flag set, the method will
+     |      also call TransferDataFromWindow() of all child windows.
+     |  
+     |  TransferDataToWindow(self)
+     |      Transfers values to child controls from data areas specified by their
+     |      validators.
+     |      
+     |      If the window has wx.WS_EX_VALIDATE_RECURSIVELY extra
+     |      style flag set, the method will also call TransferDataToWindow() of
+     |      all child windows.
+     |  
+     |  UnregisterHotKey(self, hotkeyId)
+     |      Unregisters a system wide hotkey.
+     |      
+     |      Parameters:
+     |      hotkeyId        Numeric identifier of the hotkey. Must be the
+     |      same id that was passed to RegisterHotKey().
+     |      
+     |      Returns:
+     |      true if the hotkey was unregistered successfully, false if the
+     |      id was invalid.
+     |      
+     |      Remarks:
+     |      This function is currently only implemented under MSW.
+     |  
+     |  UnsetConstraints(self, c)
+     |      This removes any dangling pointers to this window in other window
+     |      constraintsInvolvedIn lists.
+     |  
+     |  UnsetToolTip(self)
+     |      Unset any existing tooltip.
+     |  
+     |  Update(self)
+     |      Calling this method immediately repaints the invalidated area of
+     |      the window and all of its children recursively (this normally
+     |      only happens when the flow of control returns to the event loop).
+     |      
+     |      Notice that this function does not invalidate any area of the
+     |      window so nothing happens if nothing has been invalidated
+     |      (i.e. marked as requiring a redraw). Use Refresh() first if
+     |      you want to immediately redraw the window unconditionally.
+     |  
+     |  UpdateWindowUI(self, flags=(0,))
+     |      This function sends EVT_UPDATE_UI events to the window.
+     |      
+     |      The particular implementation depends on the window; for example
+     |      a wx.ToolBar will send an update UI event for each toolbar button,
+     |      and a wx.Frame will send an update UI event for each menubar menu
+     |      item.
+     |      
+     |      You can call this function from your application to ensure that
+     |      your UI is up-to-date at a particular point in time (as far as
+     |      your EVT_UPDATE_UI handlers are concerned). This may be necessary
+     |      if you have called wx.UpdateUIEvent.SetMode or
+     |      wx.UpdateUIEvent.SetUpdateInterval to limit the overhead that
+     |      wxWindows incurs by sending update UI events in idle time.
+     |      The flags should be a bitlist of one or more of the following
+     |      values:
+     |      
+     |      wx.UPDATE_UI_NONE       No particular value
+     |      wx.UPDATE_UI_RECURSE    Call the function for descendants
+     |      wx.UPDATE_UI_FROMIDLE   Invoked from OnIdle
+     |      
+     |      If you are calling this function from an OnInternalIdle or OnIdle
+     |      function, make sure you pass the wxUPDATE_UI_FROMIDLE flag, since
+     |      this tells the window to only update the UI elements that need to
+     |      be updated in idle time. Some windows update their elements only
+     |      when necessary, for example when a menu is about to be shown.
+     |      The following is an example of how to call UpdateWindowUI from an
+     |      idle function.
+     |      
+     |      void MyWindow::OnInternalIdle()
+     |      {
+     |          if (wxUpdateUIEvent::CanUpdate(this))
+     |              UpdateWindowUI(wxUPDATE_UI_FROMIDLE);
+     |      }
+     |  
+     |  UseBgCol(self)
+     |  
+     |  Validate(self)
+     |      Validates the current values of the child controls using their
+     |      validators.
+     |      
+     |      If the window has wx.WS_EX_VALIDATE_RECURSIVELY extra
+     |      style flag set, the method will also call Validate() of all child
+     |      windows.
+     |      
+     |      Returns:
+     |      Returns false if any of the validations failed.
+     |  
+     |  WarpPointer(self, x, y)
+     |      Moves the pointer to the given position on the window.
+     |      
+     |      NOTE:
+     |      Apple Human Interface Guidelines forbid moving the mouse cursor
+     |      programmatically so you should avoid using this function in Mac
+     |      applications (and probably avoid using it under the other platforms
+     |      without good reason as well).
+     |      
+     |      Parameters:
+     |      x       The new x position for the cursor.
+     |      
+     |      y       The new y position for the cursor.
+     |  
+     |  WindowToClientSize(self, size)
+     |      Converts window size size to corresponding client area size In other
+     |      words, the returned value is what would GetClientSize() return if
+     |      this window had given window size.
+     |  
+     |  __del__(self)
+     |      Destructor.
+     |      
+     |      Deletes all sub-windows, then deletes itself. Instead of using the
+     |      delete operator explicitly, you should normally use Destroy() so
+     |      that wxWidgets can delete a window only when it is safe to do so,
+     |      in idle time.
+     |  
+     |  tsBuildCursesNewWindowGenealogy(self)
+     |      Gather genealogy information about the creator of a new curses window.
+     |  
+     |  tsCreateBorder(self)
+     |      Create the pixel pattern that fills the outermost horizontal,
+     |      vertical and corner areas of the window.
+     |      
+     |      Note - Use distinctive patterns that are platform independent.
+     |  
+     |  tsCreateButton(self)
+     |      Create single or multi-line buttons.
+     |  
+     |  tsCreateButtonLine(self, theLabel)
+     |      Create single line button.
+     |  
+     |  tsCreateButtonMultiLine(self, text)
+     |      Create multi-line button.
+     |  
+     |  tsCreateLabel(self)
+     |      Create single or multi-line label.
+     |  
+     |  tsCreateLabelLine(self, text)
+     |      Create single line label.
+     |  
+     |  tsCreateLabelMultiLine(self, text)
+     |      Create multi-line label.
+     |  
+     |  tsCreateMenuBar(self)
+     |      Create the pixel pattern that fills the outermost horizontal,
+     |      vertical and corner areas of the window.
+     |      
+     |      Note - Use distinctive patterns that are platform independent.
+     |  
+     |  tsCreateScrollBarButton(self)
+     |      Create single or multi-line buttons.
+     |  
+     |  tsCreateScrollBarButtonLine(self, theLabel)
+     |      Create single line button.
+     |  
+     |  tsCreateScrollBarButtonMultiLine(self, text)
+     |      Create multi-line button.
+     |  
+     |  tsCreateStatusLabel(self)
+     |      Create single or multi-line Status Label.
+     |  
+     |  tsCreateStatusLabelLine(self, text)
+     |      Create single line Status Label.
+     |  
+     |  tsCreateStatusLabelMultiLine(self, text)
+     |      Create multi-line Status Label.
+     |  
+     |  tsCreateTitleLine(self, text)
+     |      Create single line Title.
+     |  
+     |  tsCursesAddCh(self, x, y, character, attr=None, pixels=True)
+     |      Paint character ch at (y, x) with attributes attr, overwriting any
+     |      character previously painter at that location. By default, the
+     |      character position and attributes are the current settings for
+     |      the window object
+     |  
+     |  tsCursesAddNStr(self, x, y, string, n, attr=None, pixels=True)
+     |      Paint at most n characters of the string str at (y, x) with
+     |      attributes attr, overwriting anything previously on the display.
+     |  
+     |  tsCursesAddStr(self, x, y, string, attr=None, pixels=True)
+     |      Paint the string str at (y, x) with attributes attr, overwriting
+     |      anything previously on the display.
+     |  
+     |  tsCursesAttrOff(self, attr)
+     |      Remove attribute attr from the ``background'' set applied to all
+     |      writes to the current window.
+     |  
+     |  tsCursesAttrOn(self, attr)
+     |      Add attribute attr from the ``background'' set applied to all
+     |      writes to the current window.
+     |  
+     |  tsCursesAttrSet(self, attr)
+     |      Set the ``background set of attributes to attr. This set is
+     |      initially 0 (no attributes).
+     |  
+     |  tsCursesBeep(self)
+     |      Emit a short attention sound.
+     |  
+     |  tsCursesBkgd(self, ch=' ', attr=None)
+     |      Sets the background property of the window to the character ch, with
+     |      attributes attr. The change is then applied to every character
+     |      position in that window:
+     |      
+     |      * The attribute of every character in the window is changed to the
+     |      new background attribute.
+     |      
+     |      * Wherever the former background character appears, it is changed to
+     |      the new background character.
+     |  
+     |  tsCursesBkgdSet(self, ch=' ', attr=None)
+     |      Sets the window background. A window background consists of a
+     |      character and any combination of attributes. The attribute part
+     |      of the background is combined (ORed) with all non-blank characters
+     |      that are written into the window. Both the character and attribute
+     |      parts of the background are combined with the blank characters.
+     |      The background becomes a property of the character and moves with
+     |      the character through any scrolling and insert/delete line/character
+     |      operations.
+     |  
+     |  tsCursesBorder(self, ls, rs, ts, bs, tl, tr, bl, br)
+     |      Draw a border around the edges of the window. Each parameter specifies
+     |      the character to use for a specific part of the border; see the table
+     |      below for more details. The characters can be specified as integers or
+     |      as one-character strings.
+     |  
+     |  tsCursesBox(self, vertch=None, horch=None)
+     |      Similar to border(), but both ls and rs are vertch and both ts and
+     |      bs are horch. The default corner characters are always used by this
+     |      function.
+     |  
+     |  tsCursesCaretVisibility(self, visibility=0)
+     |      Sets the cursor state. visibility can be set to 0, 1, or 2, for
+     |      invisible, normal, or very visible. If the terminal supports the
+     |      visibility requested, the previous cursor state is returned;
+     |      otherwise, an exception is raised. On many terminals, the
+     |      "visible" mode is an underline cursor and the "very visible"
+     |      mode is a block cursor.
+     |  
+     |  tsCursesChgAt(self, x=-1, y=-1, num=-1, attr=0, pixels=True)
+     |      Sets the attributes of num characters at the current cursor
+     |      position, or at position (y, x) if supplied. If no value of
+     |      num is given or num = -1, the attribute will be set on all the
+     |      characters to the end of the line. This function does not move
+     |      the cursor. The changed line will be touched using the touchline()
+     |      method so that the contents will be redisplayed by the next
+     |      window refresh.
+     |  
+     |  tsCursesClear(self)
+     |      Like erase(), but also causes the whole window to be repainted
+     |      upon next call to refresh().
+     |  
+     |  tsCursesClearOk(self, yes)
+     |      If yes is 1, the next call to refresh() will clear the window
+     |      completely.
+     |  
+     |  tsCursesClrToBot(self)
+     |      Erase from cursor to the end of the window: all lines below
+     |      the cursor are deleted, and then the equivalent of clrtoeol()
+     |      is performed.
+     |  
+     |  tsCursesClrToEol(self)
+     |      Erase from cursor to the end of the line.
+     |  
+     |  tsCursesDoUpdate(self)
+     |      Update the physical screen. The curses library keeps two data
+     |      structures, one representing the current physical screen contents
+     |      and a virtual screen representing the desired next state. The
+     |      doupdate() ground updates the physical screen to match the virtual
+     |      screen.
+     |      
+     |      The virtual screen may be updated by a noutrefresh() call after
+     |      write operations such as addstr() have been performed on a window.
+     |      The normal refresh() call is simply noutrefresh() followed by
+     |      doupdate(); if you have to update multiple windows, you can speed
+     |      performance and perhaps reduce screen flicker by issuing
+     |      noutrefresh() calls on all windows, followed by a single
+     |      doupdate().
+     |  
+     |  tsCursesEcho(self)
+     |      Enter echo mode. In echo mode, each character input is echoed
+     |      to the screen as it is entered.
+     |  
+     |  tsCursesErase(self)
+     |      Clear the window.
+     |  
+     |  tsCursesFlash(self)
+     |      Flash the screen. That is, change it to reverse-video and then
+     |      change it back in a short interval. Some people prefer such as
+     |      "visible bell" to the audible attention signal produced by
+     |      beep().
+     |  
+     |  tsCursesFlushInp(self)
+     |      Flush all input buffers. This throws away any typeahead that has
+     |      been typed by the user and has not yet been processed by the
+     |      program.
+     |  
+     |  tsCursesGetBegYX(self, pixels=True)
+     |      Return a tuple (y, x) of co-ordinates of upper-left corner.
+     |  
+     |  tsCursesGetMaxYX(self, pixels=True)
+     |      Return a tuple (y, x) of the height and width of the window.
+     |  
+     |  tsCursesGetParYX(self, pixels=True)
+     |      Returns the beginning coordinates of this window relative to its
+     |      parent window into two integer variables y and x. Returns -1,-1
+     |      if this window has no parent.
+     |  
+     |  tsCursesGetYX(self, pixels=True)
+     |      Return a tuple (y, x) of current cursor position relative to the
+     |      window upper-left corner.
+     |  
+     |  tsCursesHasColors(self)
+     |      Returns true if the terminal can display colors; otherwise, it
+     |      returns false.
+     |  
+     |  tsCursesInch(self, x, y, win=None, pixels=True)
+     |      Return the character and its associated attributes at the specified
+     |      caret horizontal (x) and vertical (y) position for the curses window
+     |      associated with the default or specified GUI object.
+     |      
+     |      The position may be specified in pixel or character cell units.
+     |  
+     |  tsCursesInstr(self, x, y, n=None, pixels=True)
+     |      Returns a string of characters, extracted from the window starting
+     |      at the current cursor position, or at y, x if specified. Attributes
+     |      are stripped, by curses window.instr(), from the characters. If n
+     |      is specified, curses window.instr() returns a string at most n
+     |      characters long (exclusive of the trailing NUL).
+     |  
+     |  tsCursesMoveCursor(self, window, new_x, new_y, pixels=True)
+     |      Move cursor to (new_y, new_x).
+     |  
+     |  tsCursesNewWindow(self, rect, pixels=True)
+     |      Create native curses GUI window.
+     |  
+     |  tsCursesNewWindowGenealogy(self)
+     |      Record genealogy information about the creator of a new curses window.
+     |  
+     |  tsCursesNoEcho(self)
+     |      Leave echo mode. Echoing of input characters is turned off.
+     |  
+     |  tsCursesPanelUpdatePanels(self)
+     |      Updates the virtual screen after changes in the panel stack. This
+     |      does not call curses.doupdate(), so you will have to do this
+     |      yourself.
+     |  
+     |  tsCursesScroll(self, lines=1)
+     |      Scroll the screen or scrolling region upward by lines lines.
+     |  
+     |  tsCursesScrollOk(self, flag)
+     |      Controls what happens when the cursor of a window is moved off the
+     |      edge of the window or scrolling region, either as a result of a
+     |      newline action on the bottom line, or typing the last character of
+     |      the last line. If flag is false, the cursor is left on the bottom
+     |      line. If flag is true, the window is scrolled up one line. Note that
+     |      in order to get the physical scrolling effect on the terminal, it
+     |      is also necessary to call idlok().
+     |  
+     |  tsCursesTermname(self)
+     |      Return name of display terminal.
+     |  
+     |  tsCursesTextpad(self, win)
+     |      The curses.textpad module provides a Textbox class that handles
+     |      elementary text editing in a curses window, supporting a set of
+     |      keybindings resembling those of Emacs (thus, also of Netscape
+     |      Navigator, BBedit 6.x, FrameMaker, and many other programs).
+     |      The module also provides a rectangle-drawing function useful for
+     |      framing text boxes or for other purposes.
+     |      
+     |      Return a textbox widget object. The win argument should be a
+     |      curses WindowObject in which the textbox is to be contained.
+     |      The edit cursor of the textbox is initially located at the upper
+     |      left hand corner of the containing window, with coordinates (0, 0).
+     |      The instance stripspaces flag is initially on.
+     |  
+     |  tsCursesTextpadDoCommand(self, textBox, ch)
+     |      Process a single command keystroke. Here are the supported special
+     |      keystrokes:
+     |      
+     |      Keystroke Action
+     |      Control-A Go to left edge of window.
+     |      Control-B Cursor left, wrapping to previous line if appropriate.
+     |      Control-D Delete character under cursor.
+     |      Control-E Go to right edge (stripspaces off) or end of line
+     |                (stripspaces on).
+     |      Control-F Cursor right, wrapping to next line when appropriate.
+     |      Control-G Terminate, returning the window contents.
+     |      Control-H Delete character backward.
+     |      Control-J Terminate if the window is 1 line, otherwise insert newline.
+     |      Control-K If line is blank, delete it, otherwise clear to end of line.
+     |      Control-L Refresh screen.
+     |      Control-N Cursor down; move down one line.
+     |      Control-O Insert a blank line at cursor location.
+     |      Control-P Cursor up; move up one line.
+     |      
+     |      Move operations do nothing if the cursor is at an edge where the
+     |      movement is not possible. The following synonyms are supported
+     |      where possible:
+     |      
+     |      Constant      Keystroke
+     |      KEY_LEFT      Control-B
+     |      KEY_RIGHT     Control-F
+     |      KEY_UP        Control-P
+     |      KEY_DOWN      Control-N
+     |      KEY_BACKSPACE Control-h
+     |      
+     |      All other keystrokes are treated as a command to insert the given
+     |      character and move right (with line wrapping).
+     |  
+     |  tsCursesTextpadEdit(self, textBox, validator)
+     |      This is the entry point you will normally use. It accepts editing
+     |      keystrokes until one of the termination keystrokes is entered. If
+     |      validator is supplied, it must be a function. It will be called
+     |      for each keystroke entered with the keystroke as a parameter;
+     |      command dispatch is done on the result. This method returns the
+     |      window contents as a string; whether blanks in the window are
+     |      included is affected by the stripspaces member.
+     |  
+     |  tsCursesTextpadGather(self, textBox)
+     |      This method returns the window contents as a string; whether blanks
+     |      in the window are included is affected by the stripspaces member.
+     |  
+     |  tsCursesTextpadStripspaces(self)
+     |      This data member is a flag which controls the interpretation of
+     |      blanks in the window. When it is on, trailing blanks on each line
+     |      are ignored; any cursor motion that would land the cursor on a
+     |      trailing blank goes to the end of that line instead, and trailing
+     |      blanks are stripped when the window contents are gathered.
+     |  
+     |  tsCursesWindowNoutRefresh(self, win)
+     |      Mark for refresh but wait. This function updates the data structure
+     |      representing the desired state of the window, but does not force an
+     |      update of the physical screen. To accomplish that, call doupdate().
+     |  
+     |  tsCursesWindowRedrawWin(self, win)
+     |      Touches the entire window, causing it to be completely redrawn on
+     |      the next refresh() call.
+     |  
+     |  tsFindWindowByAssignedId(self, winid)
+     |      Find a child of this window by window ID.
+     |  
+     |  tsGetCharacterRectangle(self, pixelCols, pixelRows, pixelWidth, pixelHeight)
+     |      Convert pixel measurments (position and size) to their
+     |      equivalent character ones.
+     |  
+     |  tsGetCharacterSize(self, pixelCols, pixelRows)
+     |      Convert from pixel to character dimensions.
+     |  
+     |  tsGetCharacterValues(self, pixelCols, pixelRows)
+     |      Convert pixel measurments (size or position) to their
+     |      equivalent character ones.
+     |  
+     |  tsGetClassInstanceFromTuple(self, theTuple, theClass)
+     |      Generate the specified class instance from the specified tuple.
+     |  
+     |  tsGetParentCharacterRectangleData(self, pos=(-1, -1), size=(-1, -1))
+     |  
+     |  tsGetParentPosition(self, parent)
+     |      Get the beginning coordinates of the parent window.
+     |  
+     |  tsGetParentSize(self, parent)
+     |      Get the width and height dimensions of the parent window.
+     |  
+     |  tsGetPixelSize(self, characterCols, characterRows)
+     |      Convert from character to pixel dimensions.
+     |  
+     |  tsGetPixelValues(self, characterCols, characterRows)
+     |      Convert character measurments (size or position) to their
+     |      equivalent pixel ones.
+     |  
+     |  tsGetRectangle(self, pos=(-1, -1), size=(-1, -1))
+     |      Return wx.Rect object from wx.Point and wx.Size objects.
+     |  
+     |  tsGetTheId(self)
+     |      Return the ID associated with this class instance.
+     |  
+     |  tsInternalOnSize(self)
+     |  
+     |  tsIsBorderStyle(self, style=2097152)
+     |      Return True if window has a border; else return False.
+     |  
+     |  tsIsBorderThickness(self, style=2097152, pixels=True)
+     |      Return size of window border in pixel or character thickness units.
+     |  
+     |  tsIsShowPermitted(self)
+     |      Return False if the earliest ancestor of this window has been
+     |      permanently CLOSED or temporarily ICONIZED. Else, return True.
+     |      
+     |      This facilitates the imposition of a permanent CLOSE or temporary
+     |      ICONIZE override to the permission for showing of a window, ita
+     |      children and its ancestors.
+     |  
+     |  tsOnHelp(self, evt)
+     |  
+     |  tsOnInitDialog(self, evt)
+     |  
+     |  tsOnMiddleDown(self, evt)
+     |  
+     |  tsOnSysColourChanged(self, evt)
+     |  
+     |  tsParseAcceleratorTextLabel(self, text)
+     |      Parse label text for prefix string, hot key character, suffix and
+     |      flag strings. Where "&"  precedes the Hot-key character and "   "
+     |      prefixes the "Alt-" / "Ctrl-" / "Shift-" accelerator markup.
+     |      
+     |      Example: text = "S&ample        Ctrl-a" should produce:
+     |      prefix = "S"
+     |      hot key character = "a"
+     |      suffix = "mple"
+     |      accelerator = "Ctrl-a"
+     |  
+     |  tsRegisterClassWindow(self)
+     |      Capture window information needed for debugging.
+     |  
+     |  tsRegisterKeyboardInputOrder(self)
+     |      Register caller windows in KeyboardInput order list.
+     |  
+     |  tsRegisterShowOrder(self)
+     |      Register caller windows in show order list.
+     |  
+     |  tsResetShowOrder(self)
+     |      Erase all previously registered windows from show order list.
+     |  
+     |  tsRoundHorizontal(self, value, nSplits=1)
+     |      Return the horizontal position aligned to the nearest text column.
+     |  
+     |  tsRoundVertical(self, value, nSplits=1)
+     |      Return the vertical position aligned to the nearest text row.
+     |  
+     |  tsRoundXY(self, xValue, yValue, xSplits=1, ySplits=1)
+     |      Return the horizontal (x) and vertical (y) values aligned to the
+     |      nearest text column and row position.
+     |  
+     |  tsSetCharHeight(self, pixels)
+     |      Sets the (average) character size for the current font.
+     |  
+     |  tsSetCharWidth(self, pixels)
+     |      Sets the (average) character size for the current font.
+     |  
+     |  tsStripAcceleratorTextLabel(self, text)
+     |  
+     |  tsTaskBarDumpPanelStack(self)
+     |  
+     |  tsTaskBarTopChild(self, child, earliestAncestor)
+     |      Show that focus has been shifted to the earliest ancestor of
+     |      designated child task and its associated descendants.
+     |      
+     |      Beginning with the earliest ancestor, move the associated overlay
+     |      layer(s) to the top of the stack. Update the display whether or not
+     |      there were any moves.
+     |  
+     |  tsTaskBarTopTask(self, earliestAncestor)
+     |      Show that focus has been shifted to the earliest ancestor of
+     |      designated top task and its associated descendants.
+     |      
+     |      Beginning with the earliest ancestor, move the associated overlay
+     |      layer(s) to the top of the stack. Update the display whether or not
+     |      there were any moves.
+     |  
+     |  tsTrapIfTooSmall(self, name, myRect)
+     |  
+     |  tsUnRegisterKeyboardInputOrder(self)
+     |      Remove registered caller window from KeyboardInput order list.
+     |  
+     |  tsWindowLayout(self, parent, pos, size, style, name)
+     |      Calculate position and size of frame based upon arguments.
+     |  
+     |  wxGetMetricOrDefault(self, what, win)
+     |      helper of GetWindowBorderSize(): as many ports do not implement
+     |      support for wxSYS_BORDER/EDGE_X/Y metrics in their wxSystemSettings,
+     |      use hard coded fallbacks in this case
+     |  
+     |  wxHasRealChildren(self, win)
+     |      On Mac, host scrollbars are explicitly children.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Static methods inherited from tsWxWindow.Window:
+     |  
+     |  GetCapture()
+     |      Returns the currently captured window.
+     |  
+     |  NewControlId(count=1)
+     |      Create a new ID or range of IDs that are not currently in use.
+     |      
+     |      The IDs will be reserved until assigned to a wxWindow ID or
+     |      unreserved with UnreserveControlId().
+     |      
+     |      See Window IDs for more information.
+     |      
+     |      Parameters:
+     |      count   The number of sequential IDs to reserve.
+     |      
+     |      Returns:
+     |      Returns the ID or the first ID of the range (i.e. the most negative),
+     |      or wxID_NONE if the specified number of identifiers could not be
+     |      allocated.
+     |      
+     |      Remarks:
+     |      The Ncurses-based tsWx implementation creates new control Ids via
+     |      a non-static method (See Object.tsNewId()). It currently does not
+     |      support the reference count feature.
+     |  
+     |  NextControlId(winid)
+     |      Get the id of the control following the one with the given
+     |      autogenerated) id.
+     |  
+     |  PrevControlId(winid)
+     |      Get the id of the control preceding the one with the given
+     |      autogenerated) id.
+     |  
+     |  UnreserveControlId(id, count=1)
+     |      Unreserve an ID or range of IDs that was reserved by NewControlId().
+     |      
+     |      See Window IDs for more information.
+     |      
+     |      Parameters:
+     |      id      The starting ID of the range of IDs to unreserve.
+     |      
+     |      count   The number of sequential IDs to unreserve.
+     |      
+     |      
+     |      Remarks:
+     |      The Ncurses-based tsWx implementation creates new control Ids via
+     |      a non-static method (See Object.tsNewId()). It currently does not
+     |      support the reference count feature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from tsWxWindow.Window:
+     |  
+     |  AcceleratorTable
+     |      Gets the accelerator table for this window.
+     |  
+     |  AutoLayout
+     |      Returns the sizer of which this window is a member, if any,
+     |      otherwise NULL.
+     |  
+     |  BackgroundColour
+     |      Returns the background colour of the window.
+     |  
+     |  BackgroundStyle
+     |      Returns the background style of the window.
+     |  
+     |  BestSize
+     |      This function returns the best acceptable minimal size for the
+     |      window, if applicable.
+     |      
+     |      For example, for a static text control, it will be the minimal
+     |      size such that the control label is not truncated. For windows
+     |      containing subwindows (such as wx.Panel), the size returned by
+     |      this function will be the same as the size the window would have
+     |      had after calling Fit.
+     |      
+     |      Note that when you write your own widget you need to override
+     |      the DoGetBestSize() function instead of this (non-virtual!)
+     |      function.
+     |  
+     |  BestVirtualSize
+     |      Return the largest of ClientSize and BestSize (as determined by a
+     |      sizer, interior children, or other means)
+     |  
+     |  Border
+     |      Get the window border style from the given flags: this is different
+     |      from simply doing flags & wxBORDER_MASK because it uses
+     |      GetDefaultBorder() to translate wxBORDER_DEFAULT to something
+     |      reasonable.
+     |  
+     |  Caret
+     |      Returns the caret() associated with the window.
+     |  
+     |  CharHeight
+     |      Returns the character height for this window.
+     |  
+     |  CharWidth
+     |      Returns the character width for this window.
+     |  
+     |  Children
+     |      Returns an object containing a list of the window children.
+     |  
+     |  ClientAreaOrigin
+     |      Get the origin of the client area of the window relative to the
+     |      window top left corner (the client area may be shifted because
+     |      of the borders, scrollbars, other decorations...).
+     |  
+     |  ClientRect
+     |      Get the client area position and size as a wx.Rect object.
+     |  
+     |  ClientSize
+     |      This gets the size of the window client area in pixels.
+     |      
+     |      The client area is the area which may be drawn on by the programmer,
+     |      excluding title bar, border, scrollbars, etc. Note that if this
+     |      window is a top-level one and it is currently minimized, the return
+     |      size is empty (both width and height are 0).
+     |  
+     |  Constraints
+     |      Returns a pointer to the window layout constraints, or None if
+     |      there are none.
+     |  
+     |  ContainingSizer
+     |      Return the sizer that this window is a member of, if any,
+     |      otherwise None.
+     |  
+     |  Cursor
+     |      Return the cursor associated with this window.
+     |  
+     |  DefaultAttributes
+     |      Currently this is the same as calling
+     |      wxWindow::GetClassDefaultAttributes(wxWindow::GetWindowVariant()).
+     |      
+     |      One advantage of using this function compared to the static
+     |      version is that the call is automatically dispatched to the
+     |      correct class (as usual with virtual functions) and you do not
+     |      have to specify the class name explicitly.
+     |      
+     |      The other one is that in the future this function could return
+     |      different results, for example it might return a different font
+     |      for an "Ok" button than for a generic button if the users GUI
+     |      is configured to show such buttons in bold font. Of course, the
+     |      down side is that it is impossible to call this function without
+     |      actually having an object to apply it to whereas the static
+     |      version can be used without having to create an object first.
+     |  
+     |  DropTarget
+     |      Returns the associated drop target, which may be None.
+     |  
+     |  EffectiveMinSize
+     |      Merges the windows best size into the min size and returns the
+     |      result.
+     |      
+     |      This is the value used by sizers to determine the appropriate
+     |      amount of space to allocate for the widget.
+     |      
+     |      This is the method called by a wxSizer when it queries the size
+     |      of a window or control.
+     |  
+     |  Enabled
+     |      Returns true if the window is enabled, i.e. if it accepts user
+     |      input, false otherwise.
+     |      
+     |      Notice that this method can return false even if this window itself
+     |      had not been explicitly disabled when one of its parent windows is
+     |      disabled. To get the intrinsic status of this window, use
+     |      IsThisEnabled().
+     |  
+     |  EventHandler
+     |      Returns the event handler for this window.
+     |      
+     |      By default, the window is its own event handler.
+     |  
+     |  ExtraStyle
+     |      Returns the extra style bits for the window.
+     |  
+     |  Font
+     |      Returns the font for this window.
+     |  
+     |  ForegroundColour
+     |      Returns the foreground colour of the window.
+     |      
+     |      Remarks:
+     |      The meaning of foreground colour varies according to the window
+     |      class; it may be the text colour or other colour, or it may not
+     |      be used at all.
+     |  
+     |  GrandParent
+     |      Returns the parent of the parent of this window, or None if there
+     |      is not one.
+     |  
+     |  GtkWidget
+     |      On wxGTK returns a pointer to the GtkWidget for this window as a
+     |      long integer.
+     |  
+     |  Handle
+     |      Returns the platform-specific handle of the physical window.
+     |      
+     |      Cast it to an appropriate handle, such as HWND for Windows,
+     |      Widget for Motif, GtkWidget for GTK or WinHandle for PalmOS.
+     |  
+     |  HelpText
+     |      Gets the help text to be used as context-sensitive help for this
+     |      window.
+     |      
+     |      Note that the text is actually stored by the current wxHelpProvider
+     |      implementation, and not in the window object itself.
+     |  
+     |  Id
+     |      Returns the identifier of the window.
+     |      
+     |      Remarks:
+     |      Each window has an integer identifier. If the application has
+     |      not provided one (or the default wxID_ANY) a unique identifier
+     |      with a negative value will be generated.
+     |  
+     |  Label
+     |      Generic way of getting a label from any window, for identification
+     |      purposes.
+     |      
+     |      Remarks:
+     |      The interpretation of this function differs from class to class.
+     |      For frames and dialogs, the value returned is the title.
+     |      For buttons or static text controls, it is the button text. This
+     |      function can be useful for meta-programs such as testing tools or
+     |      special-needs access programs)which need to identify windows by name.
+     |  
+     |  LayoutDirection
+     |      Returns the layout direction for this window, Note that
+     |      wxLayout_Default is returned if layout direction is not
+     |      supported.
+     |  
+     |  MaxHeight
+     |  
+     |  MaxSize
+     |      Returns the maximum size of the window.
+     |      
+     |      This is an indication to the sizer layout mechanism that this is
+     |      the maximum possible size as well as the upper bound on windows
+     |      size settable using SetSize().
+     |  
+     |  MaxWidth
+     |  
+     |  MinHeight
+     |  
+     |  MinSize
+     |      Returns the minimum size of the window, an indication to the sizer
+     |      layout mechanism that this is the minimum required size.
+     |      
+     |      This method normally just returns the value set by SetMinSize(),
+     |      but it can be overridden to do the calculation on demand.
+     |  
+     |  MinWidth
+     |  
+     |  Name
+     |      Returns the windows name.
+     |      
+     |      Remarks:
+     |      This name is not guaranteed to be unique; it is up to the
+     |      programmer to supply an appropriate name in the window
+     |      constructor or via SetName().
+     |  
+     |  Parent
+     |      Returns the parent window of this window, or None if there is not one.
+     |  
+     |  Position
+     |      Get the window position. Notice that the position is in client
+     |      coordinates for child windows and screen coordinates for the top
+     |      level ones, use GetScreenPosition if you need screen coordinates
+     |      for all kinds of windows.
+     |  
+     |  Rect
+     |      Returns the position and size of the window as a wxRect object.
+     |  
+     |  ScreenPosition
+     |      Returns the window position in screen coordinates, whether the
+     |      window is a child window or a top level one.
+     |  
+     |  ScreenRect
+     |      Returns the position and size of the window on the screen as a
+     |      wxRect object.
+     |  
+     |  Shown
+     |      Returns true if the window is shown, false if it has been hidden.
+     |  
+     |  Size
+     |      Returns the size of the entire window in pixels, including title
+     |      bar, border, scrollbars, etc.
+     |      
+     |      Note that if this window is a top-level one and it is currently
+     |      minimized, the returned size is the restored window size, not
+     |      the size of the window icon.
+     |  
+     |  Sizer
+     |      Return the sizer associated with the window by a previous call to
+     |      SetSizer or None if there is not one.
+     |  
+     |  ThemeEnabled
+     |      Return the themeEnabled flag.
+     |  
+     |  ToolTip
+     |      Get the associated tooltip or NULL if none.
+     |  
+     |  TopLevel
+     |      Returns true if the given window is a top-level one.
+     |      
+     |      Currently all frames and dialogs are considered to be top-level
+     |      windows (even if they have a parent window).
+     |  
+     |  TopLevelParent
+     |      Returns the first frame or dialog in this window parental hierarchy.
+     |  
+     |  UpdateClientRect
+     |      Get the update rectangle region bounding box in client coords.
+     |  
+     |  UpdateRegion
+     |      Returns the region specifying which parts of the window have
+     |      been damaged.
+     |      
+     |      Should only be called within an wxPaintEvent handler.
+     |  
+     |  Validator
+     |      Returns a pointer to the current validator for the window,
+     |      or NULL if there is none.
+     |  
+     |  VirtualSize
+     |      This gets the virtual size of the window in pixels.
+     |      
+     |      By default it returns the client size of the window, but after
+     |      a call to SetVirtualSize() it will return the size set with that
+     |      method.
+     |  
+     |  WindowStyle
+     |      See GetWindowStyleFlag() for more info.
+     |  
+     |  WindowStyleFlag
+     |      Gets the window style that was passed to the constructor or
+     |      Create() method.
+     |      
+     |      GetWindowStyle() is another name for the same function.
+     |      
+     |      Reimplemented in wxAuiToolBar.
+     |  
+     |  WindowVariant
+     |      Returns the value previously passed to SetWindowVariant().
+     |  
+     |  tsTopLevelAncestor
+     |      Return top-level GUI object of our earliest ancestor.
+     |  
+     |  tsTopLevelSiblings
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes inherited from tsWxWindow.Window:
+     |  
+     |  TheKeyboardInputRecipients = []
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from tsWxEvtHandler.EvtHandler:
+     |  
+     |  Bind(self, event, handler=None, source=None, id=-1, id2=-1, useSystemEventTable=False)
+     |      Bind an event to an event handler.
+     |      
+     |      This offers basically the same functionality as Connect(), but
+     |      it is more flexible as it also allows you to use ordinary
+     |      functions and arbitrary functors as event handlers. It is also
+     |      less restrictive then Connect() because you can use an arbitrary
+     |      method as an event handler, where as Connect() requires a
+     |      wxEvtHandler derived handler.
+     |      
+     |      See Dynamic Event Handling for more detailed explanation of this
+     |      function and the Event Sample sample for usage examples.
+     |      
+     |      event: One of the EVT_* objects that specifies the
+     |             the type of event to bind.
+     |      
+     |      handler: A callable object to be invoked when the event is
+     |               delivered to self.  Pass None to disconnect an
+     |               event handler.
+     |      
+     |      source: Sometimes the event originates from a different window
+     |              than self, but you still want to catch it in self.  (For
+     |              example, a button event delivered to a frame.)  By passing
+     |              the source of the event, the event handling system is able
+     |              to differentiate between the same event type from different
+     |              controls.
+     |      
+     |      id: Used to specify the event source by ID instead of instance.
+     |      
+     |      id2: Used, as lastId, when it is desirable to bind a handler to a
+     |           range of ids, such as with EVT_MENU_RANGE.
+     |  
+     |  Connect(self, id, lastId, eventType, func, userData=None, eventSink=None)
+     |      Connects the given function dynamically with the event handler,
+     |      id and event type.
+     |      
+     |      Notice that Bind() provides a more flexible and safer way to do
+     |      the same thing as Connect(), please use it in any new code -- while
+     |      Connect() is not formally deprecated due to its existing widespread
+     |      usage, it has no advantages compared to Bind().
+     |      
+     |      This is an alternative to the use of static event tables. It is more
+     |      flexible as it allows to connect events generated by some object to
+     |      an event handler defined in a different object of a different class
+     |      (which is impossible to do directly with the event tables -- the
+     |      events can be only handled in another object if they are propagated
+     |      upwards to it). Do make sure to specify the correct eventSink when
+     |      connecting to an event of a different object.
+     |      
+     |      See Dynamic Event Handling for more detailed explanation of this
+     |      function and the Event Sample sample for usage examples.
+     |      
+     |      This specific overload allows you to connect an event handler to a
+     |      range of source IDs. Do not confuse source IDs with event types:
+     |      source IDs identify the event generator objects (typically wxMenuItem
+     |      or wxWindow objects) while the event type identify which type of
+     |      events should be handled by the given function (an event generator
+     |      object may generate many different types of events!).
+     |  
+     |  DeletePendingEvents(self)
+     |      Deletes all events queued on this event handler using QueueEvent()
+     |      or AddPendingEvent().
+     |      
+     |      Use with care because the events which are deleted are (obviously)
+     |      not processed and this may have unwanted consequences (e.g. user
+     |      actions events will be lost).
+     |      
+     |      Reimplemented in wxAppConsole.
+     |  
+     |  Disconnect(self, id, lastId, eventType, func=None, userData=None, eventSink=None)
+     |      Disconnects the given function dynamically from the event handler,
+     |      using the specified parameters as search criteria and returning
+     |      true if a matching function has been found and removed.
+     |      
+     |      This method can only disconnect functions which have been added
+     |      using the Connect() method. There is no way to disconnect functions
+     |      connected using the (static) event tables.
+     |  
+     |  DoTryChain(self, event)
+     |  
+     |  FilterEvent(self)
+     |  
+     |  FindRefInTrackerList(self, eventSink)
+     |  
+     |  GetClientData(self)
+     |      Returns user-supplied client data.
+     |      
+     |      Remarks:
+     |      
+     |      Normally, any extra data the programmer wishes to associate with the
+     |      object should be made available by deriving a new class with new data
+     |      members.
+     |      
+     |      See also:
+     |      
+     |      SetClientData()
+     |  
+     |  GetClientObject(self)
+     |      Returns a pointer to the user-supplied client data object.
+     |      
+     |      See also:
+     |      
+     |      SetClientObject(), wxClientData
+     |  
+     |  GetEventHashTable(self)
+     |  
+     |  GetEvtHandlerEnabled(self)
+     |      Returns true if the event handler is enabled, false otherwise.
+     |      
+     |      See also:
+     |      
+     |      SetEvtHandlerEnabled()
+     |  
+     |  GetNextHandler(self)
+     |      Returns the pointer to the next handler in the chain.
+     |      
+     |      See also:
+     |      
+     |      SetNextHandler(), GetPreviousHandler(), SetPreviousHandler(),
+     |      wxWindow::PushEventHandler, wxWindow::PopEventHandler
+     |  
+     |  GetPreviousHandler(self)
+     |      Returns the pointer to the previous handler in the chain.
+     |      
+     |      See also:
+     |      
+     |      SetPreviousHandler(), GetNextHandler(), SetNextHandler(),
+     |      wxWindow::PushEventHandler, wxWindow::PopEventHandler
+     |  
+     |  InactivatedProcessEvent(self, event)
+     |      From: http://docs.wxwidgets.org/trunk/
+     |            classwx_evt_handler.html#65968dd27f3aac7718f2dd6b2ddd5a08
+     |      
+     |      Processes an event, searching event tables and calling zero or more
+     |      suitable event handler function(s).
+     |      
+     |      Normally, your application would not call this function: it is
+     |      called in the wxWidgets implementation to dispatch incoming user
+     |      interface events to the framework (and application).
+     |      
+     |      However, you might need to call it if implementing new functionality
+     |      (such as a new control) where you define new event types, as opposed
+     |      to allowing the user to override virtual functions.
+     |      
+     |      Notice that you do not usually need to override ProcessEvent() to
+     |      customize the event handling, overriding the specially provided
+     |      TryBefore() and TryAfter() functions is usually enough. For example,
+     |      wxMDIParentFrame may override TryBefore() to ensure that the menu
+     |      events are processed in the active child frame before being processed
+     |      in the parent frame itself.
+     |      
+     |      The normal order of event table searching is as follows:
+     |      
+     |      1) wxApp::FilterEvent() is called. If it returns anything but -1
+     |      (default) the processing stops here.
+     |      
+     |      2) TryBefore() is called (this is where wxValidator are taken into
+     |      account for wxWindow objects). If this returns true, the function
+     |      exits.
+     |      
+     |      3) If the object is disabled (via a call to
+     |      wxEvtHandler::SetEvtHandlerEnabled) the function skips to step (7).
+     |      
+     |      4) Dynamic event table of the handlers bound using Bind<>() is
+     |      searched. If a handler is found, it is executed and the function
+     |      returns true unless the handler used wxEvent::Skip() to indicate
+     |      that it did not handle the event in which case the search continues.
+     |      
+     |      5) Static events table of the handlers bound using event table
+     |      macros is searched for this event handler. If this fails, the base
+     |      class event table table is tried, and so on until no more tables
+     |      exist or an appropriate function was found. If a handler is found,
+     |      the same logic as in the previous step applies.
+     |      
+     |      6) The search is applied down the entire chain of event handlers
+     |      (usually the chain has a length of one). This chain can be formed
+     |      using wxEvtHandler::SetNextHandler():
+     |      
+     |      (referring to the image, if A->ProcessEvent is called and it does
+     |      not handle the event, B->ProcessEvent will be called and so on...).
+     |      Note that in the case of wxWindow you can build a stack of event
+     |      handlers (see wxWindow::PushEventHandler() for more info). If any
+     |      of the handlers of the chain return true, the function exits.
+     |  
+     |  IsUnlinked(self)
+     |      Returns true if the next and the previous handler pointers of this
+     |      event handler instance are None.
+     |      
+     |      Since:
+     |      
+     |      2.9.0
+     |      
+     |      See also:
+     |      
+     |      SetPreviousHandler(), SetNextHandler()
+     |  
+     |  ProcessEventIfMatchesId(self, entry, event)
+     |  
+     |  ProcessEventLocally(self, event)
+     |      Try to process the event in this handler and all those chained to it.
+     |      
+     |      As explained in ProcessEvent() documentation, the event handlers
+     |      may be chained in a doubly-linked list. This function tries to
+     |      process the event in this handler (including performing any
+     |      pre-processing done in TryBefore(), e.g. applying validators)
+     |      and all those following it in the chain until the event is processed
+     |      or the chain is exhausted.
+     |      
+     |      This function is called from ProcessEvent() and, in turn, calls
+     |      TryThis() for each handler in turn. It is not virtual and so cannot
+     |      be overridden but can, and should, be called to forward an event to
+     |      another handler instead of ProcessEvent() which would result in a
+     |      duplicate call to TryAfter(), e.g. resulting in all unprocessed
+     |      events being sent to the application object multiple times.
+     |      
+     |      Since:
+     |      
+     |      2.9.1
+     |      
+     |      Parameters:
+     |      
+     |      event   Event to process.
+     |      
+     |      Returns:
+     |      
+     |      true if this handler of one of those chained to it processed the
+     |      event.
+     |  
+     |  ReceivePendingEventHandler(self)
+     |  
+     |  RemovePendingEventHandler(self)
+     |  
+     |  SearchDynamicEventTable(self, event)
+     |  
+     |  SearchEventTable(self, table, event)
+     |      Searches the event table, executing an event handler function if
+     |      an appropriate one is found.
+     |      
+     |      Parameters:
+     |      
+     |      table   Event table to be searched.
+     |      
+     |      event   Event to be matched against an event table entry.
+     |      
+     |      Returns:
+     |      
+     |      true if a suitable event handler function was found and executed,
+     |      and the function did not call wxEvent::Skip.
+     |      
+     |      Remarks:
+     |      
+     |      This function looks through the object event table and tries to
+     |      find an entry that will match the event. An entry will match if:
+     |      
+     |      The event type matches, and
+     |      
+     |      the identifier or identifier range matches, or the event table entry
+     |      identifier is zero.
+     |      
+     |      If a suitable function is called but calls wxEvent::Skip, this
+     |      function will fail, and searching will continue.
+     |      
+     |      Todo:
+     |      
+     |      this function in the header is listed as an "implementation only"
+     |      function; are we sure we want to document it?
+     |      
+     |      See also:
+     |      
+     |      ProcessEvent()
+     |  
+     |  SetClientData(self, data)
+     |      Sets user-supplied client data.
+     |      
+     |      Parameters:
+     |      
+     |      data    Data to be associated with the event handler.
+     |      
+     |      Remarks:
+     |      
+     |      Normally, any extra data the programmer wishes to associate with the
+     |      object should be made available by deriving a new class with new data
+     |      members. You must not call this method and SetClientObject on the
+     |      same class - only one of them.
+     |      
+     |      See also:
+     |      
+     |      GetClientData()
+     |  
+     |  SetClientObject(self, data)
+     |      Set the client data object.
+     |      
+     |      Any previous object will be deleted.
+     |      
+     |      See also:
+     |      
+     |      GetClientObject(), wxClientData
+     |  
+     |  SetEvtHandlerEnabled(self, enabled)
+     |      Enables or disables the event handler.
+     |      
+     |      Parameters:
+     |      
+     |      enabled         true if the event handler is to be enabled, false
+     |      if it is to be disabled.
+     |      
+     |      Remarks:
+     |      
+     |      You can use this function to avoid having to remove the event
+     |      handler from the chain, for example when implementing a dialog
+     |      editor and changing from edit to test mode.
+     |      
+     |      See also:
+     |      
+     |      GetEvtHandlerEnabled()
+     |  
+     |  TryAfter(self, event)
+     |      Method called by ProcessEvent() as last resort.
+     |      
+     |      This method can be overridden to implement post-processing for
+     |      the events which were not processed anywhere else.
+     |      
+     |      The base class version handles forwarding the unprocessed events
+     |      to wxApp at wxEvtHandler level and propagating them upwards the
+     |      window child-parent chain at wxWindow level and so should usually
+     |      be called when overriding this method:
+     |      
+     |      class MyClass : public BaseClass // inheriting from wxEvtHandler
+     |      {
+     |      ...
+     |      protected:
+     |          virtual bool TryAfter(wxEvent& event)
+     |          {
+     |              if ( BaseClass::TryAfter(event) )
+     |                  return true;
+     |      
+     |              return MyPostProcess(event);
+     |          }
+     |      };
+     |      
+     |      See also:
+     |      
+     |      ProcessEvent()
+     |  
+     |  TryBefore(self, event)
+     |      Method called by ProcessEvent() before examining this object
+     |      event tables.
+     |      
+     |      This method can be overridden to hook into the event processing
+     |      logic as early as possible. You should usually call the base
+     |      class version when overriding this method, even if wxEvtHandler
+     |      itself does nothing here, some derived classes do use this
+     |      method, e.g. wxWindow implements support for wxValidator in it.
+     |      
+     |      Example:
+     |      
+     |      class MyClass : public BaseClass // inheriting from wxEvtHandler
+     |      {
+     |      ...
+     |      protected:
+     |          virtual bool TryBefore(wxEvent& event)
+     |          {
+     |              if ( MyPreProcess(event) )
+     |                  return true;
+     |      
+     |              return BaseClass::TryBefore(event);
+     |          }
+     |      };
+     |      
+     |      See also:
+     |      
+     |      ProcessEvent()
+     |  
+     |  TryBeforeAndHere(self, event)
+     |  
+     |  TryHereOnly(self, event)
+     |  
+     |  TryParent(self, event)
+     |      TBD
+     |  
+     |  TryThis(self, event)
+     |      Try to process the event in this event handler.
+     |      
+     |      This method is called from ProcessEventLocally() and thus,
+     |      indirectly, from ProcessEvent(), please see the detailed
+     |      description of the event processing logic there.
+     |      
+     |      It is currently not virtual and so may not be overridden.
+     |      
+     |      Since:
+     |      
+     |      2.9.1
+     |      
+     |      Parameters:
+     |      
+     |      event   Event to process.
+     |      
+     |      Returns:
+     |      
+     |      true if this object itself defines a handler for this event and
+     |      the handler did not skip the event.
+     |  
+     |  TryValidator(self, event)
+     |      TBD
+     |  
+     |  Unbind(self, event, source=None, id=-1, id2=-1, useSystemEventTable=False)
+     |      Disconencts the given function from the event handler, using the
+     |      specified parameters as search criteria and returning true if
+     |      a matching function has been found and removed.
+     |  
+     |  Unlink(self)
+     |      Unlinks this event handler from the chain it is part of (if any);
+     |      then links the "previous" event handler to the "next" one (so that
+     |      the chain will not be interrupted).
+     |  
+     |  tsProcessEventTables(self, objectCriteria=None, objectId=None, triggeringEvent=None, triggeringObject=None)
+     |      Dispatch the triggering event to one or more event handlers
+     |      identified in the system or user event table of the triggering
+     |      object and its ancestors.
+     |      
+     |      Return True if an event handler found. False if no event handler
+     |      found.
+     |  
+     |  tsProcessPyEventBinderEvent(self, event)
+     |      Processes an event, searching event tables and call zero or more
+     |      suitable event handler function(s).
+     |      
+     |      This method is used by "ProcessEvent" to handle events created
+     |      via "PyEventBinder". Such events do not have access to the methods
+     |      and instance variables associated with the "Event" class.
+     |      
+     |      Parameter:
+     |      
+     |      event - PyEventBinder type object (NOT an Event class instance)
+     |  
+     |  tsProcessSelectedEventTable(self, objectCriteria=None, objectId=None, triggeringEvent=None, triggeringObject=None, useSystemEventTable=True)
+     |      Return True after dispatching the triggering event to an event
+     |      handler identified in the system or user event table of the.
+     |      triggering object. Return False if no event handler found.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from tsWxEvtHandler.EvtHandler:
+     |  
+     |  EvtHandlerEnabled
+     |      Returns true if the event handler is enabled, false otherwise.
+     |      
+     |      See also:
+     |      
+     |      SetEvtHandlerEnabled()
+     |  
+     |  NextHandler
+     |      Returns the pointer to the next handler in the chain.
+     |      
+     |      See also:
+     |      
+     |      SetNextHandler(), GetPreviousHandler(), SetPreviousHandler(),
+     |      wxWindow::PushEventHandler, wxWindow::PopEventHandler
+     |  
+     |  PreviousHandler
+     |      Returns the pointer to the previous handler in the chain.
+     |      
+     |      See also:
+     |      
+     |      SetPreviousHandler(), GetNextHandler(), SetNextHandler(),
+     |      wxWindow::PushEventHandler, wxWindow::PopEventHandler
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from tsWxObject.Object:
+     |  
+     |  GetClassInfo(self)
+     |      Return information about the class.
+     |  
+     |  GetClassName(self)
+     |      Returns the class name of the C++ class using wxRTTI.
+     |  
+     |  IsSameAs(self, p)
+     |      For wx.Objects that use C++ reference counting internally, this
+     |      method can be used to determine if two objects are referencing
+     |      the same data object.
+     |  
+     |  tsBeginClassRegistration(self, theClass, applicationId)
+     |      Establish connection with application logger. Log the beginning of
+     |      class registration.
+     |      
+     |      Establish application access to display top-level window and to
+     |      curses screen and windows.
+     |  
+     |  tsEndClassRegistration(self, theClass)
+     |      Log the ending of class registration.
+     |  
+     |  tsGetClassNameIndent(self, theClassName)
+     |      Return the hierarchical level associated with the specified class
+     |      for use in indenting the logging of class initialization entry and
+     |      exit.
+     |  
+     |  tsGetTerminalPixelRectangle(self)
+     |      Returns the bounding rectangle the client area of the display,
+     |      i.e., without taskbars and such.
+     |  
+     |  tsGetTheLogger(self)
+     |      Return the logger instance.
+     |  
+     |  tsGetTheTerminal(self, theClass)
+     |      Return the terminal instance.
+     |  
+     |  tsGetTheTerminalScreen(self, theClass)
+     |      Return the screen instance.
+     |  
+     |  tsGetThisOwn(self)
+     |      Return MembershipFlag.
+     |  
+     |  tsInstallTheLoggerAccess(self, indent, theClass, applicationId)
+     |      Establish connection with application logger.
+     |  
+     |  tsInstallTheTerminalAccess(self, indent, theClass, applicationId)
+     |      Establish those display areas reserved for task bar and stdio
+     |      redirection. Create links to the internal information needed
+     |      to monitor and control the physical screen and virtual windows
+     |      of the Graphical Text User Interface.
+     |  
+     |  tsRegisterClassNameAndMembershipFlag(self, theClass)
+     |      Record Class Name and Membership Flag instance variables.
+     |  
+     |  tsUpdateEventAndAcceleratorTables(self, event, handler, source, id=-1, id2=-1, useSystemEventTable=False)
+     |      Bind with event and accelerator System and User tables.
+     |      
+     |      event: One of the EVT_* objects that specifies the
+     |             the type of event to bind.
+     |      
+     |      handler: A callable object to be invoked when the event is
+     |               delivered to self.  Pass None to disconnect an
+     |               event handler.
+     |      
+     |      source: Sometimes the event originates from a different window
+     |              than self, but you still want to catch it in self.  (For
+     |              example, a button event delivered to a frame.)  By passing
+     |              the source of the event, the event handling system is able
+     |              to differentiate between the same event type from different
+     |              controls.
+     |      
+     |      id: Used to specify the event source by ID instead of instance.
+     |      
+     |      id2: Used when it is desirable to bind a handler to a range of ids,
+     |           such as with EVT_MENU_RANGE.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Static methods inherited from tsWxObject.Object:
+     |  
+     |  tsGetCurrentId()
+     |      Return latest ID.
+     |  
+     |  tsNewId()
+     |      Create a unique ID.
+     |      
+     |      Remarks:
+     |      Various controls and other parts of wxWidgets need an ID. Sometimes
+     |      the ID may be directly provided by the user or have a predefined
+     |      value, such as wxID_OPEN. Often, however, the value of the ID is
+     |      unimportant and is created automatically by calling
+     |      wxWindow::NewControlId or by passing wxID_ANY as the ID of an
+     |      object.
+     |      
+     |      There are two ways to generate an ID. One way is to start at a
+     |      negative number, and for each new ID, return the next smallest
+     |      number. This is fine for systems that can use the full range of
+     |      negative numbers for IDs, as this provides more than enough IDs
+     |      and it would take a very very long time to run out and wrap
+     |      around. However, some systems cannot use the full range of the
+     |      ID value. Windows, for example, can only use 16 bit IDs, and
+     |      only has about 32000 possible automatic IDs that can be
+     |      generated by wxWindow::NewControlId. If the program runs long
+     |      enough, depending on the program itself, using this first method
+     |      would cause the IDs to wrap around into the positive ID range
+     |      and cause possible clashes with any directly specified ID values.
+     |      
+     |      The other way is to keep track of the IDs returned by
+     |      wxWindow::NewControlId and do not return them again until the
+     |      ID is completely free and not being used by any other objects.
+     |      This will make sure that the ID values do not clash with one
+     |      another. This is accomplished by keeping a reference count for
+     |      each of the IDs that can possibly be returned by
+     |      wxWindow::NewControlId. Other IDs are not reference counted.
+     |  
+     |  tsRegisterId(usedId)
+     |      Adjust latest ID to reflect specified new one.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from tsWxObject.Object:
+     |  
+     |  ClassName
+     |      Returns the class name of the C++ class using wxRTTI.
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  thisown
+     |      Return MembershipFlag.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes inherited from tsWxObject.Object:
+     |  
+     |  CurrentId = 100
+     |  
+     |  PyApp_EventQueue = None
+     |  
+     |  PyApp_Object = None
+     |  
+     |  TheDisplay = None
+     |  
+     |  TheLogger = None
+     |  
+     |  TheTerminal = None
+     |  
+     |  TheTerminalScreen = None
+
+DATA
+    DEBUG = True
+    EVT_HSCROLLWIN_BOTTOM = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_HSCROLLWIN_LINEDOWN = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_HSCROLLWIN_LINEUP = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_HSCROLLWIN_PAGEDOWN = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_HSCROLLWIN_PAGEUP = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_HSCROLLWIN_TOP = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_VSCROLLWIN_BOTTOM = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_VSCROLLWIN_LINEDOWN = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_VSCROLLWIN_LINEUP = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_VSCROLLWIN_PAGEDOWN = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_VSCROLLWIN_PAGEUP = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_VSCROLLWIN_TOP = <tsWxPyEventBinder.PyEventBinder object>
+    VERBOSE = True
+    __authors__ = 'Richard S. Gordon'
+    __copyright__ = 'Copyright (c) 2007-2013 Richard S. Gordon.\n\t\tAll r...
+    __credits__ = '\n\n  Credits: \n\n\t  tsLibGUI Import & Application .....
+    __date__ = '07/18/2013'
+    __header__ = '\n\ntsWxScrolled, v1.7.0 (build 07/18/2013)\n\n  Aut... ...
+    __license__ = 'GNU General Public License, Version 3, 29 June 2007'
+    __line1__ = 'tsWxScrolled, v1.7.0 (build 07/18/2013)'
+    __line2__ = 'Author(s): Richard S. Gordon'
+    __line3__ = 'Copyright (c) 2007-2013 Richard S. Gordon.\n\t\tAll right...
+    __line4__ = 'GNU General Public License, Version 3, 29 June 2...U Gene...
+    __title__ = 'tsWxScrolled'
+    __version__ = '1.7.0'
+    mainTitleVersionDate = 'tsWxScrolled, v1.7.0 (build 07/18/2013)'
+
+VERSION
+    1.7.0
+
+DATE
+    07/18/2013
+
+CREDITS
+    
+    
+      Credits: 
+    
+    	  tsLibGUI Import & Application Launch Features: 
+    	  Copyright (c) 2007-2009 Frederick A. Kier.
+    			All rights reserved.
+    
+    	  Python Curses Module API & Run Time Library Features:
+    	  Copyright (c) 2001-2013 Python Software Foundation.
+    			All rights reserved.
+    	  PSF License Agreement for Python 2.7.3 & 3.3.0
+    
+    	  wxWidgets (formerly wxWindows) & wxPython API Features:
+    	  Copyright (c) 1992-2008 Julian Smart, Robert Roebling,
+    			Vadim Zeitlin and other members of the 
+    			wxWidgets team.
+    			All rights reserved.
+    	  wxWindows Library License
+    
+    	  nCurses API & Run Time Library Features:
+    	  Copyright (c) 1998-2011 Free Software Foundation, Inc.
+    			All rights reserved.
+    	  GNU General Public License, Version 3, 29 June 2007
+
+

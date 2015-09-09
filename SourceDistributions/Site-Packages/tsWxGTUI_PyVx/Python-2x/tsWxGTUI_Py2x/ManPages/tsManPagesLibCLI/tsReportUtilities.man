@@ -1,0 +1,235 @@
+Help on module tsReportUtilities:
+
+NAME
+    tsReportUtilities
+
+FILE
+    /cygdrive/d/WR/Technical_Preview-Draft/tsWxGTUI_PyVx/Python-2x/tsWxGTUI_Py2x/tsLibCLI/tsReportUtilities.py
+
+DESCRIPTION
+    tsReportUtilities.py - Class defining methods used to format
+    information: date and time (begin, end and elapsed), file size
+    (with kilo-, mega-, giga-, tera-, peta-, exa-, zeta- and
+    yotta-byte units) and nested Python dictionaries.
+
+CLASSES
+    __builtin__.object
+        TsReportUtilities
+    
+    class TsReportUtilities(__builtin__.object)
+     |  Class defining methods used to format information: date and time
+     |  (begin, end and elapsed), file size (with kilo-, mega-, giga-,
+     |  tera-, peta-, exa-, zeta- and yotta-byte units) and nested Python
+     |  dictionaries.
+     |  
+     |  Static methods defined here:
+     |  
+     |  displayDictionary(level, myDictionary, myFile, myLogger=None)
+     |      Recursive method to display nested entries in configuration dictionary.
+     |  
+     |  getByteCountStrings(bytes)
+     |      Return a tupple with the text representations of a value.
+     |      Labeled     - TB (Terabyte),
+     |                    GB (Gigabyte),
+     |                    MB (Megabyte),
+     |                    KB (Kilobyte) and
+     |                    B (Byte)
+     |      Decimal     - ASCII Numeric
+     |      Hexadecimal - Hex ASCII
+     |      
+     |      Ref: http://www.answers.com/topic/terabyte?cat=health
+     |  
+     |  getDateAndTimeString(seconds)
+     |      Construct timestamp string (in "Date at Time" format).
+     |  
+     |  getDateTimeString(seconds, msec=False, filename=False)
+     |      Construct timestamp string suitable for use as label or alternatively
+     |      for use as filename.
+     |      
+     |      Label output uses "Year/Month/Day Hour:Minute:Second" format
+     |      with optional ".millisecond" suffix). For example,
+     |      "2010/05/13-04:17:49.123" is returned for 123 milliseconds after
+     |      May 13, 2010 at 04:17:49).
+     |      
+     |      Filename output uses "Year/Month/Day" and "Hour:Minute:Second" data
+     |      separated by "-at-" and with "-" replacing "/" and ":" separators.
+     |      For example, "2010-05-13-at-04-17-49" is returned for May 13, 2010
+     |      at 04:17:49).
+     |      
+     |      From: http://www.portfoliofaq.com/pfaq/FAQ00352.htm
+     |      
+     |              The following list is fairly exhaustive and pulls together
+     |              references from various sources. Although not mentioned
+     |              explicitly, Unix seems to have few - if any - restrictions.
+     |              Compliance with these conventions as assets are added to
+     |              your library will allow widest use of the assets without
+     |              subsequent manual intervention to re-path/name, etc. The
+     |              rules take into account the use of assets on local &
+     |              network hard drives, CD/DVD, removable drives and online
+     |              (web/ftp) using Mac OS9/OSX and Windows OSs:
+     |      
+     |              1.  Illegal filename characters, (e.g. : or ?). (All OSs).
+     |      
+     |              2.  Deprecated filename characters (; and ,). (All OSs).
+     |      
+     |              3.  >31 filename characters including extension.
+     |                  (Mac Classic).
+     |      
+     |              4.  >64 filename characters including extension.
+     |                  (Windows: ISO9660+Joliet CD or Hybrid CD partition).
+     |      
+     |              5.  No extension - extensions are mandatory for Windows and
+     |                  the only means for Portfolio to tell file type.
+     |                  (Windows, Mac OS X).
+     |      
+     |              6.  Filename has >1 period - Portfolio may misinterpret
+     |                  extension. (Windows, Mac OS X).
+     |      
+     |              7.  Extension may be wrong, i.e. not 3 characters.
+     |                  (Windows, Mac OS X).
+     |      
+     |              8.  Illegal characters in path to file - same issue
+     |                  as #1 but for path. (All OSs).
+     |      
+     |              9.  Deprecated characters in path to file - same issue
+     |                  as #2 but for path. (All OSs).
+     |      
+     |              10. Filename may not begin with a period. (Windows not
+     |                  allowed, Mac treats as a hidden file)
+     |      
+     |              11.  Filename may not end in a period. (Windows not
+     |                   allowed - OS "throws away" the trailing period
+     |                   when naming/reading so incorrect matching vs.
+     |                   Mac name)
+     |      
+     |              12. Names conflicting with some of Win OS old DOS
+     |                  functions (Not allowed in either upper or lowercase
+     |                  and with or without a file extension or as a file
+     |                  extension: COM1 to COM9 inclusive, LPT1 to LPT9
+     |                  inclusive, CON, PRN, AUX, CLOCK$ and NUL)
+     |      
+     |              13. Case sensitivity. Windows OSs (and IIS web servers)
+     |                  are not case sensitive. Most other OSs (and web
+     |                  servers) are.
+     |      
+     |              14. Filenames ought not to begin with a hyphen (Unix
+     |                  systems my interpret the filename as a flag to a
+     |                  command line call).
+     |      
+     |      From: http://msdn.microsoft.com/en-us/library/windows/
+     |            desktop/aa365247%28v=vs.85%29.aspx#naming_conventions
+     |      
+     |              Use any character in the current code page for a name,
+     |              including Unicode characters and characters in the
+     |              extended character set, except for the following:
+     |      
+     |                  The following reserved characters:
+     |                      < (less than)
+     |                      > (greater than)
+     |                      : (colon)
+     |                      " (double quote)
+     |                      / (forward slash)
+     |                      \ (backslash)
+     |                      | (vertical bar or pipe)
+     |                      ? (question mark)
+     |                      * (asterisk)
+     |  
+     |  getDayHourMinuteSecondString(inputSeconds=0, firstDelimiter='-')
+     |      Convert time from seconds to string format.
+     |  
+     |  getElapsedTimeString(startupTime, currentTime)
+     |      Construct elapsed time in days, hours, minutes, seconds between
+     |      supplied startup and current time inputs in seconds since the
+     |      UNIX epoch.
+     |  
+     |  getHourMinuteSecondString(seconds)
+     |      Construct time string (in "Hour:Minute:Second" format) from time in
+     |      seconds since UNIX epoch.
+     |  
+     |  getIndentString(indent)
+     |      Construct a string of white space appropriate for indenting level.
+     |  
+     |  getNextPathName(theDirectory, theName)
+     |      Construct the path to the next log file.
+     |      
+     |      Get the next filename
+     |        theName + _ + number + .txt
+     |        log_1.txt, log_2.txt
+     |      theDirectory : path to the directory containing the files
+     |      theName      : string at the beginning of the simple filename
+     |  
+     |  getSecondsTimeFromHoursMinutesSecondsString(timeString=None)
+     |      Convert time from string to seconds format.
+     |  
+     |  getSeparatorString(title=None, indent=0, position=39, separatorCharacter='-', tab=4)
+     |      Construct a string of title and white space to separate one section
+     |      of text from another.
+     |  
+     |  getStatisticsList(startupTime, currentTime, numberOfTestRuns, numberOfTestPasses, numberOfTestFailures)
+     |      Create test summary after elapesed time and statistics details
+     |      on the number of test runs, number of passing test runs, number
+     |      of failing test runs, startup timestamp, shutdown timestamp
+     |      and elapsed timesrtamp.
+     |  
+     |  getTimeStatisticsList(startupTime, currentTime)
+     |      Generate Startup, Current (or Shutdown) and Elapsed Time strings.
+     |  
+     |  getYearMonthDayString(seconds)
+     |      Construct date string (in "Year-Month-Day" format) from time in seconds
+     |      since UNIX epoch.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes defined here:
+     |  
+     |  layout = {'TitleCenter': 39, 'TitleIndent': 8, 'TitleLeft': 0, 'TitleP...
+     |  
+     |  pageLength = 66
+     |  
+     |  pageWidth = 80
+
+DATA
+    DEBUG = False
+    FileNameTimeDashFormat = True
+    StringTypes = (<type 'str'>, <type 'unicode'>)
+    __authors__ = 'Richard S. Gordon'
+    __copyright__ = 'Copyright (c) 2007-2013 Richard S. Gordon.\n\t\tAll r...
+    __credits__ = '\n\n  Credits: \n\n\t  tsLibCLI Import & Application .....
+    __date__ = '06/30/2013'
+    __header__ = '\n\ntsReportUtilities.py, v2.1.0 (build 06/30/2013...-20...
+    __license__ = 'GNU General Public License, Version 3, 29 June 2007'
+    __line1__ = 'tsReportUtilities.py, v2.1.0 (build 06/30/2013)'
+    __line2__ = 'Author(s): Richard S. Gordon'
+    __line3__ = 'Copyright (c) 2007-2013 Richard S. Gordon.\n\t\tAll right...
+    __line4__ = 'GNU General Public License, Version 3, 29 June 2...7-2009...
+    __title__ = 'tsReportUtilities.py'
+    __version__ = '2.1.0'
+    mainTitleVersionDate = 'tsReportUtilities.py, v2.1.0 (build 06/30/2013...
+    msecDelimiter = ','
+    pythonLoggingMsecDelimiter = ','
+    tsLoggerMsecDelimiter = '.'
+
+VERSION
+    2.1.0
+
+DATE
+    06/30/2013
+
+CREDITS
+    
+    
+      Credits: 
+    
+    	  tsLibCLI Import & Application Launch Features: 
+    	  Copyright (c) 2007-2009 Frederick A. Kier.
+    			All rights reserved.
+
+

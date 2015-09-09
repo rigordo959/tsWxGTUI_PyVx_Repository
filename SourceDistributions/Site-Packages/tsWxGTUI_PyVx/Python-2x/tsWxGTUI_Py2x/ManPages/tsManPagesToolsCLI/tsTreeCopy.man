@@ -1,0 +1,37 @@
+      init in tsCxGlobalsPkg
+<open file './logs/2014-04-08-at-06-27-43/tsTreeCopy.log', mode 'w' at 0x7fd6c6a8>
+tsCommandLineEnv: ImportError (tsLibCLI); importCode=No module named tsOperatorSettingsParser
+
+
+tsTreeCopy.py, v2.0.0 (build 06/09/2013)
+
+  Author(s): Richard S. Gordon
+  Copyright (c) 2007-2013 Richard S. Gordon.
+		All rights reserved.
+  GNU General Public License, Version 3, 29 June 2007
+
+  Credits: 
+
+	  tsLibCLI Import & Application Launch Features: 
+	  Copyright (c) 2007-2009 Frederick A. Kier. 
+			All rights reserved.
+
+	  Python Logging Module API Features: 
+	  Copyright (c) 2001-2013 Python Software Foundation.
+			All rights reserved.
+	  PSF License Agreement for Python 2.7.3 & 3.3.0
+
+Usage:         tsTreeCopy.py [options]... -i input -o output
+
+        Copies a directory tree from the specified source to destination.
+        
+
+Options:
+  -h, --help            show this help message and exit
+  -i INPUT, --input=INPUT
+                        topLevel directory [default = ./]
+  -o OUTPUT, --output=OUTPUT
+                        output directory [default = ../published]
+  -s, --symlinks        Copy symbolic links, if True, ' +
+                        'or contents of linked files, if False ' +
+                        '[default = False].
