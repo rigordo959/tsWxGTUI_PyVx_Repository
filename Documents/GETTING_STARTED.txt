@@ -1,5 +1,5 @@
 #-----------------------------------------------------------
-#"Time-stamp: <09/06/2015  7:31:18 PM rsg>"
+#"Time-stamp: <09/12/2015  4:10:43 AM rsg>"
 #-----------------------------------------------------------
 
 ========= Title Page for File: GETTING_STARTED.txt =========
@@ -184,10 +184,37 @@
        topics associated with:
 
          a) "User Interfaces"
+
          b) "Operating Systems"
+
          c) "Toolkit Development Resources"
+
          d) "Python Download Gotchas"
+
          e) "wxPython/wxWidgets Development Resources"
+
+            Begin by learning wxPython basics at:
+
+                http://wiki.wxpython.org/
+                       How%20to%20Learn%20wxPython
+
+            The cross-platform "wxPython/wxWidgets" toolkits
+            and training materials have been developed, per-
+            fected and used by a worldwide audience since
+            1992.
+
+            Keep in mind that the TeamSTARS "tsWxGTUI_PyVx"
+            Toolkit began development in 2007 and the first
+            pre-alpha release became available in 2015. It
+            emulates only a character-mode subset of the
+            pixel-mode wxPython Application Programming
+            Interface.
+
+            The wxPython programming examples can usually be
+            adapted for charater-mode operation by omitting
+            use of unsupported classes, methods, functions
+            and the bit-mapped graphic images associated
+            with icons and fonts. 
 
    1.3 How can you become familiar with the features,
        look and feel of the Toolkit? 
@@ -210,7 +237,6 @@
 
          a) "BUGS.txt"
          b) "TO-DO.txt"
-
 
 ====================== User Interfaces =====================
 
