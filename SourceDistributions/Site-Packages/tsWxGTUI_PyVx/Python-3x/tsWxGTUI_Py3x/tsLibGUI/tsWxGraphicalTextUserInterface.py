@@ -1,5 +1,5 @@
 #! /usr/bin/env python
-# "Time-stamp: <08/01/2015  4:20:29 AM rsg>"
+# "Time-stamp: <09/14/2015  5:44:37 AM rsg>"
 '''
 tsWxGraphicalTextUserInterface.py - Class uses the Standard
 Python Curses API to initialize, manage and shutdown input
@@ -39,8 +39,23 @@ display screen).
 #
 #       Required: Computer Monitor (industry standard 256-color,
 #       8-color recommended minimum or monochrome) able to display
-#       text characters (80-column by 25-row is recommended minimum
-#       format).
+#       text characters:
+#
+#       Minimum Format: 60-column by 25-row;
+#           based on SplashScreen component options in tsWxGlobals
+#           (and associated content in tsCxGlobals):
+#
+#              theMasthead
+#              theCopyright
+#              theLicense
+#              theNotices
+#
+#       Recommended Format: 80-column by 50-row;
+#           based on MultiFrameEnv options in tsWxDisplay:
+#
+#              Application Frame    (Client Area)
+#              StdIO Output Frame   (Optional)
+#              Task Bar Outut Frame (Optional)
 #
 #       Optional: Font type, font size, screen columns and screen
 #       rows are established by manual user actions.
@@ -947,6 +962,11 @@ display screen).
 #    2015/08/01 rsg Updated "readme_bmp_text" doc string for
 #                   official Microsoft Windows 10.0 release.
 #
+#    2015/09/14 rsg Added __init__ code to handle SIGWINCH
+#                   when operator resizes the terminal.
+#
+#                   Also added _sigWinchHandler.
+#
 # ToDo:
 #
 #    2010/04/03 rsg Resolve various pylint findings.
@@ -1051,8 +1071,8 @@ display screen).
 ##############################################################
 
 __title__     = 'tsWxGraphicalTextUserInterface'
-__version__   = '2.43.0'
-__date__      = '03/17/2015'
+__version__   = '2.44.0'
+__date__      = '09/14/2015'
 __authors__   = 'Richard S. Gordon'
 __copyright__ = 'Copyright (c) 2007-2015 ' + \
                 '%s.\n\t\tAll rights reserved.' % __authors__
@@ -1818,9 +1838,6 @@ if DEBUG_tsInstallExtendedColorDataBase:
     print('\n\n xterm16BuiltinColorCodeFromName=%s' % str(
         xterm16BuiltinColorCodeFromName))
     debug_via_tsrpu(myDictionary=xterm16BuiltinColorCodeFromName)
-
-
-##from tsWxPythonColor88DataBase import *
 
 if DEBUG_tsInstallExtendedColorDataBase:
     print('\n\n xterm88ColorNameFromCode=%s' % str(
@@ -3857,6 +3874,7 @@ class GraphicalTextUserInterface(CursesServices):
             self.runningChildren = []
             signal.signal(signal.SIGINT, self._sigIntHandler)
             signal.signal(signal.SIGABRT, self._sigAbrtHandler)
+            signal.signal(signal.SIGWINCH, self._sigWinchHandler)
 
             # Initialize curses
             self.ClassName = theClass
@@ -3975,6 +3993,19 @@ class GraphicalTextUserInterface(CursesServices):
 
     #-----------------------------------------------------------------------
  
+    def _sigWinchHandler(self, dummy, unused):
+        '''
+        Resize Curses-based GUI on SIGWINCH.
+        '''
+        try:
+            self.logger.warning('Received SIGWINCH')
+        except AttributeError:
+            pass
+ 
+        self._resizeWhenSignalReceived()
+
+    #-----------------------------------------------------------------------
+ 
     def _cleanupWhenSignalReceived(self):
         '''
         Shutdown cleanly on signals.
@@ -4022,6 +4053,21 @@ class GraphicalTextUserInterface(CursesServices):
 ##                self.logger.warning('    Child terminated')
 ##            except AttributeError:
 ##                pass
+
+    #-----------------------------------------------------------------------
+ 
+    def _resizeWhenSignalReceived(self):
+        '''
+        Resize or shutdown cleanly on signal.
+        '''
+        fmt1 = "%s" % __title__
+        fmt2 = "_resizeWhenSignalReceived"
+        fmt3 = "SIGWINCH handler NOT implemented"
+        msg = "%s.%s: %s." % (fmt1, fmt2, fmt3)
+        print(msg)
+        self.logger.error(msg)
+        self.stop()
+        exit(0)
 
     #-----------------------------------------------------------------------
 
