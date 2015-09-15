@@ -1,5 +1,5 @@
 #! /usr/bin/env python
-#"Time-stamp: <09/14/2015  4:57:07 PM rsg>"
+#"Time-stamp: <09/15/2015  6:50:13 AM rsg>"
 '''
 tsApplication.py - Base class to initialize and configure the
 application program launched by an operator. It enables an
@@ -446,6 +446,9 @@ with a Graphical-style User Interface (GUI).
 #                   operator of guessing at the proper size
 #                   to avoid application traps upon launch.
 #
+#    2015/09/15 rsg Correct missing print statement parentheses in
+#                   resizeConsoleDisplay method.
+#
 # ToDo:
 #
 #    2013/05/30 rsg Revise design to eliminate need for
@@ -457,8 +460,8 @@ with a Graphical-style User Interface (GUI).
 #################################################################
 
 __title__     = 'tsApplication'
-__version__   = '2.8.0'
-__date__      = '09/14/2015'
+__version__   = '2.8.1'
+__date__      = '09/15/2015'
 __authors__   = 'Frederick A. Kier & Richard S. Gordon'
 __copyright__ = 'Copyright (c) 2007-2015 ' + \
                 '%s.\n\t\tAll rights reserved.' % __authors__
@@ -1760,7 +1763,7 @@ class TsApplication(object):
             rows = MinimumDisplaySize['Rows']
             cols = MinimumDisplaySize['Cols']
 
-            print("\x1b[8;%s;%st") % (str(rows), str(cols))
+            print(("\x1b[8;%s;%st") % (str(rows), str(cols)))
 
     #----------------------------------------------------------------------
 
