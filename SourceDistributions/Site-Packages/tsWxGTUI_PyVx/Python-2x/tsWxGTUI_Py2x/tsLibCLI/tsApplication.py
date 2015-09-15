@@ -1,5 +1,5 @@
 #! /usr/bin/env python
-#"Time-stamp: <03/28/2015  2:13:15 AM rsg>"
+#"Time-stamp: <09/14/2015  4:57:07 PM rsg>"
 '''
 tsApplication.py - Base class to initialize and configure the
 application program launched by an operator. It enables an
@@ -343,6 +343,9 @@ with a Graphical-style User Interface (GUI).
 #    runTimeTrap - Trap unresolved "runTimeEntryPoint" KeyError
 #           and AttributeError for Pylint.
 #
+#    resizeConsoleDisplay - Resize the Console Display if is
+#           smaller than the minimum.
+#
 # Modifications:
 #
 #    2008/06/08 rsg Added comments depicting usage of "logs"
@@ -436,6 +439,13 @@ with a Graphical-style User Interface (GUI).
 #
 #    2013/06/12 rsg Add getLaunchSettings method.
 #
+#    2015/09/14 rsg Add resizeConsoleDisplay method to resize
+#                   the console only if it smaller than the
+#                   tsMinimumDisplaySize now specified in
+#                   tsCxGlobals. The intent is relieve the
+#                   operator of guessing at the proper size
+#                   to avoid application traps upon launch.
+#
 # ToDo:
 #
 #    2013/05/30 rsg Revise design to eliminate need for
@@ -447,10 +457,10 @@ with a Graphical-style User Interface (GUI).
 #################################################################
 
 __title__     = 'tsApplication'
-__version__   = '2.7.0'
-__date__      = '06/12/2013'
+__version__   = '2.8.0'
+__date__      = '09/14/2015'
 __authors__   = 'Frederick A. Kier & Richard S. Gordon'
-__copyright__ = 'Copyright (c) 2007-2013 ' + \
+__copyright__ = 'Copyright (c) 2007-2015 ' + \
                 '%s.\n\t\tAll rights reserved.' % __authors__
 __license__   = 'GNU General Public License, ' + \
                 'Version 3, 29 June 2007'
@@ -575,6 +585,8 @@ class TsApplication(object):
 
         # Initialize inherited base class
         # TsCommandLineParser.__init__(self)
+
+        self.resizeConsoleDisplay()
 
         #------------------------------------------------------------------
 
@@ -1707,6 +1719,32 @@ class TsApplication(object):
                     'tsApplication.TsApplication: ' + \
                     '\n\tDerived "runTimeEntryPoint" = <"%s">.' % str(
                         self.runTimeEntryPoint))
+
+    #----------------------------------------------------------------------
+
+    def resizeConsoleDisplay(self):
+        '''
+        Resize the Console Display if is smaller than the minimum.
+
+        It must be invoked before the application outputs anything to
+        the console display; else resizing will not occur.
+        '''
+        RecommendedDisplaySize = ThemeCxPython['tsRecommendedDisplaySize']
+        MinimumDisplaySize = ThemeCxPython['tsMinimumDisplaySize']
+        ConsoleDisplaySize = ThemeCxPython['tsConsoleDisplaySize']
+
+        if ((ConsoleDisplaySize['Rows'] >= MinimumDisplaySize['Rows']) and \
+              (ConsoleDisplaySize['Cols'] >= MinimumDisplaySize['Cols'])):
+
+            rows = ConsoleDisplaySize['Rows']
+            cols = ConsoleDisplaySize['Cols']
+
+        else:
+
+            rows = MinimumDisplaySize['Rows']
+            cols = MinimumDisplaySize['Cols']
+
+            print("\x1b[8;%s;%st") % (str(rows), str(cols))
 
     #----------------------------------------------------------------------
 

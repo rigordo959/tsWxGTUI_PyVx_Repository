@@ -1,5 +1,5 @@
 #! /usr/bin/env python
-# "Time-stamp: <08/20/2015  7:33:12 AM rsg>"
+# "Time-stamp: <09/14/2015  8:01:11 AM rsg>"
 '''
 tsCxGlobals.py - Module to establish configuration constants and
 macro-type functions for the Command Line Interface mode of the
@@ -158,6 +158,10 @@ macro-type functions for the Command Line Interface mode of the
 #    2015/08/20 rsg Updated ReleaseNumber to "0.0.2" and associated
 #                   information.
 #
+#    2015/09/14 rsg Added:
+#                       tsMinimumDisplaySize
+#                       tsRecommendedDisplaySize.
+#
 # ToDo:
 #
 #    TBD.
@@ -165,8 +169,8 @@ macro-type functions for the Command Line Interface mode of the
 #################################################################
 
 __title__     = 'tsCxGlobals'
-__version__   = '1.6.2'
-__date__      = '08/20/2015'
+__version__   = '1.7.0'
+__date__      = '09/14/2015'
 __authors__   = 'Richard S. Gordon'
 __copyright__ = 'Copyright (c) 2013-2015 ' + \
                 '%s.\n\t\tAll rights reserved.' % __authors__
@@ -797,6 +801,18 @@ ThemeCxPython = {
         'StandardScreenDevice': 'stdscr',
         'SystemLogDevice': 'syslog',
         'name': 'tsLoggerStandardTargets'
+        },
+
+    'tsMinimumDisplaySize': {
+        'Cols': 60,
+        'Rows': 25,
+        'name': 'MinimumDisplaySize'
+        },
+
+    'tsRecommendedDisplaySize': {
+        'Cols': 80,
+        'Rows': 50,
+        'name': 'MinimumDisplaySize'
         },
 
     'tsConsoleDisplaySize': {

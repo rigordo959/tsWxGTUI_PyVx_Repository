@@ -1,5 +1,5 @@
 #! /usr/bin/env python
-# "Time-stamp: <09/14/2015  5:44:37 AM rsg>"
+# "Time-stamp: <09/15/2015  5:45:34 AM rsg>"
 '''
 tsWxGraphicalTextUserInterface.py - Class uses the Standard
 Python Curses API to initialize, manage and shutdown input
@@ -962,7 +962,7 @@ display screen).
 #    2015/08/01 rsg Updated "readme_bmp_text" doc string for
 #                   official Microsoft Windows 10.0 release.
 #
-#    2015/09/14 rsg Added __init__ code to handle SIGWINCH
+#    2015/09/15 rsg Added __init__ code to handle SIGWINCH
 #                   when operator resizes the terminal.
 #
 #                   Also added _sigWinchHandler.
@@ -1072,7 +1072,7 @@ display screen).
 
 __title__     = 'tsWxGraphicalTextUserInterface'
 __version__   = '2.44.0'
-__date__      = '09/14/2015'
+__date__      = '09/15/2015'
 __authors__   = 'Richard S. Gordon'
 __copyright__ = 'Copyright (c) 2007-2015 ' + \
                 '%s.\n\t\tAll rights reserved.' % __authors__
