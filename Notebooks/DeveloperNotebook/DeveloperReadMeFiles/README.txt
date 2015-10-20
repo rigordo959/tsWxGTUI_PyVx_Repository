@@ -1,5 +1,5 @@
 #-----------------------------------------------------------
-#"Time-stamp: <08/26/2015  7:29:13 AM rsg>
+#"Time-stamp: <09/26/2015  4:24:14 AM rsg>
 #-----------------------------------------------------------
 
 ===================== File: README.txt =====================
@@ -266,11 +266,11 @@
                            language. Syntax is associated with
                            Python 3.0.0-3.5.x.
 
-                       Current stable release is Python 3.4.3
-                       as of 25 Feb. 2015.
+                       Current stable release is Python 3.5.0
+                       as of 9 Sep. 2015.
 
-                       Latest (beta) release is Python 3.5.0b2
-                       as of 1 June 2015.
+                       Last release candidate was Python 3.5.0rc4
+                       as of 9 Sep. 2015.
 
                        NOTE: The Python Software Foundation has
                              designated Python 3.x to be under

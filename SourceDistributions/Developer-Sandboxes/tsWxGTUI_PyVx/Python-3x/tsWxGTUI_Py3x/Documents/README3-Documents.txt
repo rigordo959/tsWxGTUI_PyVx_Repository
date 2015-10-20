@@ -1,5 +1,5 @@
 #-----------------------------------------------------------
-#"Time-stamp: <09/09/2015  6:01:21 AM rsg>"
+#"Time-stamp: <09/30/2015 10:14:01 AM rsg>"
 #-----------------------------------------------------------
 
 ================ File: README3-Documents.txt ===============
@@ -32,10 +32,44 @@
          |     |  tions and procedures for installing, operating,
          |     |  modifying and redistributing the Toolkit.
          |     |
-         |     +-- "Announcement.htm"
-         |     +-- "Announcement.pdf"
-         |     +-- "Announcement.rtf"
-         |     +-- "Announcement.txt"
+         |     +-- ["Announcement"]
+         |     |     |
+         |     |     |  Since embedded systems typically do not
+         |     |     |  have access to the engineering Notebooks,
+         |     |     |  this directory contains a collection of
+         |     |     |  files converted from:
+         |     |     |
+         |     |     |      tsWxGTUI_Vol.__0_SDIST_Announcement.doc.
+         |     |     |
+         |     |     |  The following files are usable on character-
+         |     |     |  mode terminals having only a monospaced font
+         |     |     |  of a single type and size (each conversion
+         |     |     |  introduced its own formatting compromises).
+         |     |     |
+         |     |     |  Lynx, the character-mode WEB browser and Hypertext
+         |     |     |  Markup Language file viewer, produced the only
+         |     |     |  conversion which retained information (but not the
+         |     |     |  layout) originally appearing in tables.
+         |     |     |
+         |     |     +-- "Announcement.txt" (Lynx HTM Dump with Layout File)
+         |     |     |
+         |     |     +-- "Announcement.ans" (ANSI Text with Layout File)
+         |     |     +-- "Announcement.asc" (MSDOS Text with Layout File) 
+         |     |     |
+         |     |     |  The following files are usable on graphic-mode
+         |     |     |  terminals having proportional spaced fonts of
+         |     |     |  various types and sizes.
+         |     |     |
+         |     |     |  The graphic-mode application program, associated
+         |     |     |  with the file extenstion, retain the original
+         |     |     |  information and layout.
+         |     |     |
+         |     |     +-- "Announcement.pdf" (Adobe Portable Document File)
+         |     |     +-- "Announcement.htm" (Hypertext Markup Language File)
+         |     |     +-- "Announcement.rtf" (Rich Text Format File)
+         |     |     |
+         |     |     +-- "Announcement.doc" (Microsoft Word Document File)
+         |     |     +-- "4226.jpg"         (JPEG Masthead Image File)
          |     |
          |     +-- "AUTHORS.txt"
          |     +-- "BUGS.txt"

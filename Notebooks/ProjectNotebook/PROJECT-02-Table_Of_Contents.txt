@@ -1,5 +1,5 @@
 #-----------------------------------------------------------
-#"Time-stamp: <06/18/2015  7:52:55 PM rsg>"
+#"Time-stamp: <09/29/2015  4:32:37 AM rsg>"
 #-----------------------------------------------------------
 
 ========== File: PROJECT-02-Table_Of_Contents.txt ==========
@@ -152,6 +152,9 @@
 
 19. PROJECT-20-Splash_Screen_Guide.txt
 
-    TBD.
+    Describes the jargon, content, process, Toolkit building
+    block components and tools for creating an optional
+    splash screen which filters its content to fit the ac-
+    tive display.
 
 ======================= End-Of-File ========================

@@ -1,5 +1,5 @@
 #!/usr/bin/bash
-#"Time-stamp: <09/07/2015  7:01:04 AM rsg>"
+#"Time-stamp: <09/30/2015  7:56:29 AM rsg>"
 #
 # PURPOSE
 #
@@ -35,7 +35,7 @@
 ## whichRepository="" # "./tsWxGTUI_PyVx_Repository"
 ## echo $whichRepository
 
-whichDocuments="./Documents"
+whichDocuments="./Documents/Announcement"
 ## echo $whichDocuments
 
 whichFile="Announcement"

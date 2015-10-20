@@ -1,5 +1,5 @@
 #-----------------------------------------------------------
-#"Time-stamp: <09/07/2015  7:17:43 AM rsg>
+#"Time-stamp: <09/30/2015 11:05:27 AM rsg>
 #-----------------------------------------------------------
 
 ============== File: README1-Introduction.txt ==============
@@ -31,10 +31,7 @@
          |     |  tions and procedures for installing, operating,
          |     |  modifying and redistributing the Toolkit. 
          |     |
-         |     +-- "Announcement.htm"
-         |     +-- "Announcement.pdf"
-         |     +-- "Announcement.rtf"
-         |     +-- "Announcement.txt"
+         |     +-- ["Announcement"]
          |     :
          |     :
          |     +-- "README.txt"
@@ -76,8 +73,8 @@
 
 4. The Latest Versions
 
-   4.1 "tsWxGTUI_Py2x-0.0.0" for Python 2.4.1 - 2.7.9
-   4.2 "tsWxGTUI_Py3x-0.0.0" for Python 3.0.0 - 3.4.3
+   4.1 "tsWxGTUI_Py2x-0.0.2" for Python 2.4.1 - 2.7.10
+   4.2 "tsWxGTUI_Py3x-0.0.2" for Python 3.0.0 - 3.5.0
 
 5. Deliverables
 
@@ -869,7 +866,7 @@
    pre-alpha stage, pre-production release identitified as:
 
    4.1 "tsWxGTUI_Py2x-0.0.2" for Python 2.7.6 - 2.7.10
-   4.2 "tsWxGTUI_Py3x-0.0.2" for Python 3.0.0 - 3.4.3
+   4.2 "tsWxGTUI_Py3x-0.0.2" for Python 3.0.0 - 3.5.0
 
 ======================= Deliverables =======================
 

@@ -1,5 +1,5 @@
 #-----------------------------------------------------------
-#"Time-stamp: <08/26/2015  5:31:30 PM rsg>"
+#"Time-stamp: <10/07/2015  5:44:56 AM rsg>"
 #-----------------------------------------------------------
 
 ===================== File: CREDITS.txt ====================
@@ -70,14 +70,14 @@
         Copyright (c) 2001-2015 Python Software Foundation
                                 (PSF).
                       All rights reserved.
-        PSF License Agreement for Python 2.7.10 & 3.4.3
+        PSF License Agreement for Python 2.7.10 & 3.5.0
 
         Python Logging Module API Features adapted for use
             in " tsLibCLI" package "tsLoggerPkg" Python
             module "tsLogger.py":
         Copyright (c) 2001-2014 by Vinay Sajip.
                       All rights reserved.
-        PSF License Agreement for Python 2.7.10 & 3.4.3
+        PSF License Agreement for Python 2.7.10 & 3.5.0
 
         ----------------------------------------------------
 

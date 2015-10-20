@@ -28,14 +28,14 @@ tsPlatformRunTimeEnvironment.py, v2.6.0 (build 03/21/2015)
 =================== Begin Platform Run Time Environment ====================
 
 
-  Reported Tue, 11-Aug-2015 at 07:45:51
+  Reported Sat, 26-Sep-2015 at 06:28:13
 
 
   Network Identification
   ----------------------
          hostname = <iMacWin7VM>
         aliaslist = <[]> # NOTE: List of Values NOT available.
-       ipaddrlist = <['fe80::5079:ab53:c361:23a4']>
+       ipaddrlist = <['fe80::ad00:9ad1:6a48:df6c']>
 
 
   Host Central Processing Unit
@@ -50,8 +50,8 @@ tsPlatformRunTimeEnvironment.py, v2.6.0 (build 03/21/2015)
   ---------------------
               api = <posix>
            system = <CYGWIN_NT-6.1>
-          release = <2.1.0(0.287/5/3)>
-          version = <2015-07-14 21:26>
+          release = <2.2.1(0.289/5/3)>
+          version = <2015-08-20 11:40>
 
 
   Host Console Display Size
@@ -72,14 +72,14 @@ tsPlatformRunTimeEnvironment.py, v2.6.0 (build 03/21/2015)
 
   Process Parameters
   ------------------
-              pid = <9908> / <0x26B4>
-          getppid = <8264> / <0x2048>
+              pid = <5612> / <0x15EC>
+          getppid = <7188> / <0x1C14>
           getegid = <513>
           geteuid = <1000>
            getgid = <513>
         getgroups = <[513, 197616, 545, 4, 66049, 11, 15, 113, 4095, 66048,
                      262154, 401408]>
-          getpgid = <9908>
+          getpgid = <5612>
            getuid = <1000>
          getlogin = <rsg>
           ctermid = </dev/pty0>
@@ -109,7 +109,9 @@ tsPlatformRunTimeEnvironment.py, v2.6.0 (build 03/21/2015)
              LOCALAPPDATA = <C:\Users\rsg\AppData\Local>
               LOGONSERVER = <\\IMACWIN7VM>
      NUMBER_OF_PROCESSORS = <2>
-                   OLDPWD = </home/rsg>
+                   OLDPWD = </cygdrive/d/WR/tsWxGTUI_PyVx_Repository/Notebooks
+                             /DeveloperNotebook/DeveloperReadMeFiles
+                             /ReadMeFiles-Tutorial/DeveloperTutorialFiles>
             ORIGINAL_PATH = </cygdrive/c/Program Files/Parallels/Parallels Too
                              ls/Applications:/cygdrive/c/Python34:/cygdrive/c/
                              Python34/Scripts:/cygdrive/c/Windows/system32:/cy
@@ -121,6 +123,7 @@ tsPlatformRunTimeEnvironment.py, v2.6.0 (build 03/21/2015)
                              e/c/Program Files/SourceGear/Common/DiffMerge:/cy
                              gdrive/c/Program
                              Files/TortoiseHg:/cygdrive/c/Program
+                             Files/Skype/Phone:/cygdrive/c/Program
                              Files/QuickTime/QTSystem:/cygdrive/c/Program
                              Files/Microsoft SQL
                              Server/100/Tools/Binn:/cygdrive/c/Program
@@ -129,9 +132,7 @@ tsPlatformRunTimeEnvironment.py, v2.6.0 (build 03/21/2015)
                              Files/Microsoft SQL Server/100/Tools/Binn/VSShell
                              /Common7/IDE:/cygdrive/c/Program Files/Microsoft
                              Visual Studio 9.0/Common7/IDE/PrivateAssemblies:/
-                             cygdrive/c/Program
-                             Files/Skype/Phone:/cygdrive/c/Program
-                             Files/Mercurial>
+                             cygdrive/c/Program Files/Mercurial>
                        OS = <Windows_NT>
                      PATH = </usr/local/bin:/usr/bin:/cygdrive/c/Program
                              Files/Parallels/Parallels Tools/Applications:/cyg
@@ -144,6 +145,7 @@ tsPlatformRunTimeEnvironment.py, v2.6.0 (build 03/21/2015)
                              n:/cygdrive/c/Bazaar:/cygdrive/c/Program Files/So
                              urceGear/Common/DiffMerge:/cygdrive/c/Program
                              Files/TortoiseHg:/cygdrive/c/Program
+                             Files/Skype/Phone:/cygdrive/c/Program
                              Files/QuickTime/QTSystem:/cygdrive/c/Program
                              Files/Microsoft SQL
                              Server/100/Tools/Binn:/cygdrive/c/Program
@@ -153,7 +155,6 @@ tsPlatformRunTimeEnvironment.py, v2.6.0 (build 03/21/2015)
                              /Common7/IDE:/cygdrive/c/Program Files/Microsoft
                              Visual Studio 9.0/Common7/IDE/PrivateAssemblies:/
                              cygdrive/c/Program
-                             Files/Skype/Phone:/cygdrive/c/Program
                              Files/Mercurial:/usr/lib/lapack>
                   PATHEXT =
                              <.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH

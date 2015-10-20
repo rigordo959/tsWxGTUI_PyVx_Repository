@@ -1,8 +1,8 @@
 #-----------------------------------------------------------
-#"Time-stamp: <06/01/2015  7:48:18 AM rsg>"
+#"Time-stamp: <10/07/2015  5:52:32 AM rsg>"
 #-----------------------------------------------------------
 
-======= File: $README-SplashScreenDesignersGuide.txt =======
+======== File: README-SplashScreenDesignersGuide.txt =======
 
    +----+----+  TeamSTARS "tsWxGTUI_PyVx" Toolkit
    | ts | Wx |      with Python 2x & Python 3x based
@@ -14,51 +14,159 @@
    on character-mode 8-/16-color (xterm-family) & non-color
    (vt100-family) terminals and terminal emulators.
 
-   You can find this and other files in the following
-   Toolkit subdirectories:
-
    <Your Working Repository>
-   (e.g. "Technical_Preview") 
+   (e.g. "tsWxGTUI_PyVx_Repository") 
      |
-     +-- ["$Notebooks"]
+     +-- ["Documents"]
+     |
+     +-- ["ManPages"]
+     |
+     +-- ["Notebooks"]
      |     |
-     |     +-- ["Engineering-Documents"]
-     |           |
-     |           +-- ["MS-Excel-Files"]
-     |                 |
-     |                 +-- "SplashScreenDesignerGuide.xls"
+     |     +-- ["DeveloperNotebook"]
+     |     |
+     |     +-- ["EngineeringNotebook"]
+     |     |     |
+     |     |     +-- ["MS-Excel-Files"]
+     |     |           |
+     |     |           +-- "SplashScreenDesignerGuide.xls"
+     |     |
+     |     +-- ["ProjectNotebook"]
+     |     |     |
+     |     |     +-- "PROJECT-01-Title_Page.txt"
+     |     |     +-- "PROJECT-02-Table_Of_Contents.txt"
+     |     |     +-- "PROJECT-03-Purpose.txt"
+     |     |     +-- "PROJECT-04-Goals.txt"
+     |     |     +-- "PROJECT-05-Non-Goals.txt"
+     |     |     +-- "PROJECT-06-Design_Strategy.txt"
+     |     |     +-- "PROJECT-07-Design_Architecture.txt"
+     |     |     +-- "PROJECT-08-Release_Strategy.txt"
+     |     |     +-- "PROJECT-09-Software_Configuration_Management.txt"
+     |     |     +-- "PROJECT-10-Software_Repository.txt"
+     |     |     +-- "PROJECT-11-Features.txt"
+     |     |     +-- "PROJECT-12-Capabilities.txt"
+     |     |     +-- "PROJECT-13-Limitations.txt"
+     |     |     +-- "PROJECT-14-Reference_Documents.txt"
+     |     |     +-- "PROJECT-15-Built-in_Documentation_Symbols.txt"
+     |     |     +-- "PROJECT-16-Applicaion_Launch_Modules.txt"
+     |     |     +-- "PROJECT-17-Directory_and_Import_Guide.txt"
+     |     |     +-- "PROJECT-18-Site-Package_Install_Guide.txt"
+     |     |     +-- "PROJECT-19-Developer-Sandbox_Install_Guide.txt"
+     |     |     +-- "PROJECT-20-Splash_Screen_Guide.txt"
+     |     |     |
+     |     |     +-- "README5-ProjectNotebook.txt"
+     |     |
+     |     +-- "README5-Notebooks.txt"
      |
-     +-- "MANIFEST_TREE.txt"
+     +-- ["SourceDistributions"]
+     |
+     +-- "README.txt"
 
 ===================== TABLE OF CONTENTS ====================
 
-1. Sample Layout
+1. Jargon
 
-2. Layout Procdure
+2. Sample Layout
+
+3. Layout Procdure
+
+=========================== JARGON =========================
+
+1. Jargon
+
+   * Splash Screen --- a graphical control element consist-
+     ing of window containing an image, a logo and the cur-
+     rent version of the software. A splash screen usually
+     appears while a program is launching. Splash screens
+     may cover the entire screen, or simply a rectangle
+     near the center of the screen.
+
+     The Splash Screen enabling or disabling is an option
+     within ./tsLibGUI/tsWxGlobals.py.
+
+     The Splash Screen is constructed and displayed by
+     ./tsLibGUI/tsWxGraphicalTextUserInterface.py.
+
+   * Masthead --- a statement printed in all issues of a
+     newspaper, magazine, or the like, usually on the
+     editorial page, giving the publication's name, the
+     names of the owner and staff, etc. The contents
+     are defined within ./tsLibCLI/tsCxGlobals.py.
+
+   * Trademark --- a proprietary term that is usually reg-
+     istered with the Patent and Trademark Office to assure
+     its exclusive use by its owner. It is a distinctive
+     mark or feature particularly characteristic of or
+     identified with a person or thing. A Masthead could be
+     Trademarked. The contents are defined within
+     ./tsLibCLI/tsCxGlobals.py.
+
+   * Copyright --- a form of protection provided by the laws
+     of the United States for "original works of authorship",
+     including literary, dramatic, musical, architectural,
+     cartographic, choreographic, pantomimic, pictorial,
+     graphic, sculptural, and audiovisual creations.
+     "Copyright" literally means the right to copy but has
+     come to mean that body of exclusive rights granted by
+     law to copyright owners for protection of their work.
+     Copyright protection does not extend to any idea,
+     procedure, process, system, title, principle, or dis-
+     covery. Similarly, names, titles, short phrases,
+     slogans, familiar symbols, mere variations of typo-
+     graphic ornamentation, lettering, coloring, and list-
+     ings of contents or ingredients are not subject to
+     copyright. The contents are defined within
+     ./tsLibCLI/tsCxGlobals.py.
+
+   * Copyright Notice --- consists of three elements. They
+     are the "c" in a circle (©), the year of first publi-
+     cation, and the name of the owner of copyright. A
+     copyright notice is no longer legally required to
+     secure copyright on works first published on or after
+     March 1, 1989, but it does provide legal benefits. The
+     contents are defined within ./tsLibCLI/tsCxGlobals.py.
+
+   * License --- allows an intellectual property rights
+     holder (the licensor) to make money from a creative
+     work by charging a user (the licensee) for product
+     use. Licenses protect proprietary rights in things
+     such as software and other computer products. The
+     contents are defined within ./tsLibCLI/tsCxGlobals.py.
+
+   * Notice --- the legal concept describing a requirement
+     that a party be aware of legal process affecting their
+     rights, obligations or duties. The contents
+     are defined within ./tsLibCLI/tsCxGlobals.py.
 
 ======================= SAMPLE LAYOUT ======================
 
-1. Sample Layout
+2. Sample Layout
+
+     A splash screen is a window with a thin border. It dis-
+     plays a "bitmap" (text) describing your application.
+     The splash screen is shown during application initial-
+     ization. The application then either explicitly de-
+     stroys it or lets it time-out.
  
-     1.1 For "abundant" screen size (60+ column x 42+ row)
+     2.1 For "abundant" screen size (60+ column x 42+ row)
          displays:
  
          a. Trademark (60+ column x 10 row)
          b. Copyright (60+ column x 18 row)
          c. License   (60+ column x 14 row)
  
-     1.2 For "usable" screen size  (60+ column x 32+ row)
+     2.2 For "usable" screen size  (60+ column x 32+ row)
          displays:
  
          a. Copyright (60+ column x 18 row)
          b. License   (60+ column x 14 row)
  
-     1.3 For "minimal" screen size  (60+ column x 6 row)
+     2.3 For "minimal" screen size  (60+ column x 6 row)
          displays:
  
          a. Notice    (60+ column x 6 row)
  
-     1.4 For" unusable" screen size  (59- column x 5- row)
+     2.4 For" unusable" screen size  (59- column x 5- row)
          displays:
  
          a. Program error log file.(59- column x 4- row)
@@ -134,11 +242,11 @@
 
 ===================== LAYOUT PROCEDURE =====================
 
-2. Layout Procdure
+3. Layout Procdure
 
-   2.1 For each developer-sandbox and site_package:
+   3.1 For each developer-sandbox and site_package:
 
-   2.2 Find file "tsCxGlobals" and Update to reflect recent
+   3.2 Find file "tsCxGlobals" and Update to reflect recent
        changes to authors, credits, licenses, and notices
        associated with any enhancements and bug fixes.
 
@@ -146,15 +254,15 @@
 
            Locations should appear in "MANIFEST_TREE.txt"
 
-   2.3 Find and run file "test_TermsAndConditions.py"
+   3.3 Find and run file "test_TermsAndConditions.py"
 
        HINT:
 
            Locations should appear in "MANIFEST_TREE.txt"
 
-   2.4 Update file "test_TermsAndConditions.xls"
+   3.4 Update file "test_TermsAndConditions.xls"
 
-   2.5 Repeat steps 2.2-2.5 for next developer-sandbox and
+   3.5 Repeat steps 2.2-2.5 for next developer-sandbox and
        site_package until the required information is both
        aesthetically pleasing and fits the associated cate-
        gory of display screen size.

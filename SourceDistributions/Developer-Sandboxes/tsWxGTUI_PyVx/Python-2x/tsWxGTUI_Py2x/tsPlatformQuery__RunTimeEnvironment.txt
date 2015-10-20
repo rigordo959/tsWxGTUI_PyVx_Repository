@@ -28,14 +28,14 @@ tsPlatformRunTimeEnvironment.py, v2.6.0 (build 03/21/2015)
 =================== Begin Platform Run Time Environment ====================
 
 
-  Reported Mon, 06-Apr-2015 at 05:19:56
+  Reported Sat, 26-Sep-2015 at 06:28:38
 
 
   Network Identification
   ----------------------
          hostname = <iMacWin7VM>
         aliaslist = <[]> # NOTE: List of Values NOT available.
-       ipaddrlist = <['fe80::5079:ab53:c361:23a4']>
+       ipaddrlist = <['fe80::ad00:9ad1:6a48:df6c']>
 
 
   Host Central Processing Unit
@@ -50,8 +50,8 @@ tsPlatformRunTimeEnvironment.py, v2.6.0 (build 03/21/2015)
   ---------------------
               api = <posix>
            system = <CYGWIN_NT-6.1>
-          release = <1.7.35(0.287/5/3)>
-          version = <2015-03-04 12:07>
+          release = <2.2.1(0.289/5/3)>
+          version = <2015-08-20 11:40>
 
 
   Host Console Display Size
@@ -63,28 +63,30 @@ tsPlatformRunTimeEnvironment.py, v2.6.0 (build 03/21/2015)
   Python Platform
   ---------------
            branch = <> # NOTE: Value NOT available.
-            build = <default> number; <Jul 28 2014 01:34:03> date
-         compiler = <GCC 4.8.3>
+            build = <default> number; <Jun  1 2015 18:17:45> date
+         compiler = <GCC 4.9.2>
    implementation = <CPython>
          revision = <> # NOTE: Value NOT available.
-          version = <2.7.8>
+          version = <2.7.10>
 
 
   Process Parameters
   ------------------
-              pid = <51032> / <0xC758>
-          getppid = <46292> / <0xB4D4>
+              pid = <4940> / <0x134C>
+          getppid = <7188> / <0x1C14>
           getegid = <513>
           geteuid = <1000>
            getgid = <513>
         getgroups = <[513, 197616, 545, 4, 66049, 11, 15, 113, 4095, 66048,
                      262154, 401408]>
-          getpgid = <51032>
+          getpgid = <4940>
            getuid = <1000>
          getlogin = <rsg>
           ctermid = </dev/pty0>
-              cwd = </cygdrive/d/WR/SoftwareGadgetry-PyPI/tsWxGTUI_PyVx
-                     /Python-2x-Development/tsWxGTUI_Py2x>
+              cwd =
+                     </cygdrive/d/WR/tsWxGTUI_PyVx_Repository/SourceDistributi
+                     ons/Developer-Sandboxes/tsWxGTUI_PyVx/Python-
+                     2x/tsWxGTUI_Py2x>
 
 
   Environment Variables
@@ -107,25 +109,30 @@ tsPlatformRunTimeEnvironment.py, v2.6.0 (build 03/21/2015)
              LOCALAPPDATA = <C:\Users\rsg\AppData\Local>
               LOGONSERVER = <\\IMACWIN7VM>
      NUMBER_OF_PROCESSORS = <2>
-                   OLDPWD = </home/rsg>
+                   OLDPWD = </cygdrive/d/WR/tsWxGTUI_PyVx_Repository/Notebooks
+                             /DeveloperNotebook/DeveloperReadMeFiles
+                             /ReadMeFiles-Tutorial/DeveloperTutorialFiles>
             ORIGINAL_PATH = </cygdrive/c/Program Files/Parallels/Parallels Too
                              ls/Applications:/cygdrive/c/Python34:/cygdrive/c/
                              Python34/Scripts:/cygdrive/c/Windows/system32:/cy
                              gdrive/c/Windows:/cygdrive/c/Windows/System32/Wbe
                              m:/cygdrive/c/Windows/System32/WindowsPowerShell/
                              v1.0:/cygdrive/c/PROGRA~1/CONDUS~1/DISKEE~1:/cygd
-                             rive/c/Program Files/Microsoft SQL
-                             Server/110/Tools/Binn:/cygdrive/c/Program
-                             Files/Microsoft SQL
-                             Server/110/DTS/Binn:/cygdrive/c/Program
-                             Files/Microsoft SQL Server/110/Tools/Binn/Managem
-                             entStudio:/cygdrive/c/Borland/Bcc55/Bin:/cygdrive
-                             /c/Python27:/cygdrive/c/gnuwin32/bin:/cygdrive/c/
-                             Bazaar:/cygdrive/c/Program Files/SourceGear/Commo
-                             n/DiffMerge:/cygdrive/c/Program
-                             Files/QuickTime/QTSystem:/cygdrive/c/Program
+                             rive/c/Borland/Bcc55/Bin:/cygdrive/c/Python27:/cy
+                             gdrive/c/gnuwin32/bin:/cygdrive/c/Bazaar:/cygdriv
+                             e/c/Program Files/SourceGear/Common/DiffMerge:/cy
+                             gdrive/c/Program
                              Files/TortoiseHg:/cygdrive/c/Program
-                             Files/Mercurial>
+                             Files/Skype/Phone:/cygdrive/c/Program
+                             Files/QuickTime/QTSystem:/cygdrive/c/Program
+                             Files/Microsoft SQL
+                             Server/100/Tools/Binn:/cygdrive/c/Program
+                             Files/Microsoft SQL
+                             Server/100/DTS/Binn:/cygdrive/c/Program
+                             Files/Microsoft SQL Server/100/Tools/Binn/VSShell
+                             /Common7/IDE:/cygdrive/c/Program Files/Microsoft
+                             Visual Studio 9.0/Common7/IDE/PrivateAssemblies:/
+                             cygdrive/c/Program Files/Mercurial>
                        OS = <Windows_NT>
                      PATH = </usr/local/bin:/usr/bin:/cygdrive/c/Program
                              Files/Parallels/Parallels Tools/Applications:/cyg
@@ -133,18 +140,21 @@ tsPlatformRunTimeEnvironment.py, v2.6.0 (build 03/21/2015)
                              gdrive/c/Windows/system32:/cygdrive/c/Windows:/cy
                              gdrive/c/Windows/System32/Wbem:/cygdrive/c/Window
                              s/System32/WindowsPowerShell/v1.0:/cygdrive/c/PRO
-                             GRA~1/CONDUS~1/DISKEE~1:/cygdrive/c/Program
-                             Files/Microsoft SQL
-                             Server/110/Tools/Binn:/cygdrive/c/Program
-                             Files/Microsoft SQL
-                             Server/110/DTS/Binn:/cygdrive/c/Program
-                             Files/Microsoft SQL Server/110/Tools/Binn/Managem
-                             entStudio:/cygdrive/c/Borland/Bcc55/Bin:/cygdrive
-                             /c/Python27:/cygdrive/c/gnuwin32/bin:/cygdrive/c/
-                             Bazaar:/cygdrive/c/Program Files/SourceGear/Commo
-                             n/DiffMerge:/cygdrive/c/Program
-                             Files/QuickTime/QTSystem:/cygdrive/c/Program
+                             GRA~1/CONDUS~1/DISKEE~1:/cygdrive/c/Borland/Bcc55
+                             /Bin:/cygdrive/c/Python27:/cygdrive/c/gnuwin32/bi
+                             n:/cygdrive/c/Bazaar:/cygdrive/c/Program Files/So
+                             urceGear/Common/DiffMerge:/cygdrive/c/Program
                              Files/TortoiseHg:/cygdrive/c/Program
+                             Files/Skype/Phone:/cygdrive/c/Program
+                             Files/QuickTime/QTSystem:/cygdrive/c/Program
+                             Files/Microsoft SQL
+                             Server/100/Tools/Binn:/cygdrive/c/Program
+                             Files/Microsoft SQL
+                             Server/100/DTS/Binn:/cygdrive/c/Program
+                             Files/Microsoft SQL Server/100/Tools/Binn/VSShell
+                             /Common7/IDE:/cygdrive/c/Program Files/Microsoft
+                             Visual Studio 9.0/Common7/IDE/PrivateAssemblies:/
+                             cygdrive/c/Program
                              Files/Mercurial:/usr/lib/lapack>
                   PATHEXT =
                              <.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH
@@ -160,12 +170,12 @@ tsPlatformRunTimeEnvironment.py, v2.6.0 (build 03/21/2015)
                              \[\e[33m\]\w\[\e[0m\]\n\$ >
              PSModulePath =
                              <C:\Windows\system32\WindowsPowerShell\v1.0\Modul
-                             es\;c:\Program Files\Microsoft SQL
-                             Server\110\Tools\PowerShell\Modules\>
+                             es\>
                    PUBLIC = <C:\Users\Public>
-                      PWD = </cygdrive/d/WR/SoftwareGadgetry-
-                             PyPI/tsWxGTUI_PyVx/Python-2x-
-                             Development/tsWxGTUI_Py2x>
+                      PWD =
+                             </cygdrive/d/WR/tsWxGTUI_PyVx_Repository/SourceDi
+                             stributions/Developer-Sandboxes/tsWxGTUI_PyVx
+                             /Python-2x/tsWxGTUI_Py2x>
               ProgramData = <C:\ProgramData>
               SESSIONNAME = <Console>
                     SHELL = </bin/bash>

@@ -1,5 +1,5 @@
 #-----------------------------------------------------------
-#"Time-stamp: <09/12/2015  4:10:43 AM rsg>"
+#"Time-stamp: <09/26/2015  4:14:58 AM rsg>"
 #-----------------------------------------------------------
 
 ========= Title Page for File: GETTING_STARTED.txt =========
@@ -1270,11 +1270,11 @@
        4.1.1 Python 3.x
 
              Stable releases of evolving Python 3x version
-             3.0.0-3.4.3 are available for use with current
+             3.0.0-3.5.0 are available for use with current
              and future computer platforms.
 
-             Latest release candidate is Python 3.5.0rc2
-             as of 9 Mar. 2015.
+             Last release candidate was Python 3.5.0rc4
+             as of 9 Sep. 2015.
 
              NOTE: The Python Software Foundation has
                    designated Python 3.x to be under
@@ -1290,7 +1290,7 @@
        4.1.2 Python 2.x
 
              Stable releases of mature Python 2x versions
-             2.0.0-2.7.9 are available for use with legacy
+             2.0.0-2.7.10 are available for use with legacy
              computer plaforms.
 
              NOTE: The Python Software Foundation has
@@ -1465,8 +1465,8 @@
        evolving needs.
 
        4.2.1 Python Software Foundation Website
-
-             From http://www.python.org/
+             
+             From http://www.python.org/ (ca 2014)
 
              "Python is a programming language that lets
              you work quickly and integrate systems more

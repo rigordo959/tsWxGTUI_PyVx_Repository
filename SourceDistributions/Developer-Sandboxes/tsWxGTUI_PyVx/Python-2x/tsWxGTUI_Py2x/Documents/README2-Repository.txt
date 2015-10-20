@@ -1,5 +1,5 @@
 #-----------------------------------------------------------
-#"Time-stamp: <09/07/2015  7:37:09 AM rsg>
+#"Time-stamp: <09/30/2015 11:06:04 AM rsg>
 #-----------------------------------------------------------
 
 =============== File: README2-Repository.txt ===============
@@ -36,10 +36,7 @@
          |     |  tions and procedures for installing, operating,
          |     |  modifying and redistributing the Toolkit. 
          |     |
-         |     +-- "Announcement.htm"
-         |     +-- "Announcement.pdf"
-         |     +-- "Announcement.rtf"
-         |     +-- "Announcement.txt"
+         |     +-- ["Announcement"]
          |     :
          |     :
          |     +-- "README.txt"

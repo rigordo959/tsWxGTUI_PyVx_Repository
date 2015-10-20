@@ -1,5 +1,5 @@
 #-----------------------------------------------------------
-#"Time-stamp: <09/06/2015  7:31:18 PM rsg>"
+#"Time-stamp: <09/26/2015  4:14:58 AM rsg>"
 #-----------------------------------------------------------
 
 ========= Title Page for File: GETTING_STARTED.txt =========
@@ -184,10 +184,37 @@
        topics associated with:
 
          a) "User Interfaces"
+
          b) "Operating Systems"
+
          c) "Toolkit Development Resources"
+
          d) "Python Download Gotchas"
+
          e) "wxPython/wxWidgets Development Resources"
+
+            Begin by learning wxPython basics at:
+
+                http://wiki.wxpython.org/
+                       How%20to%20Learn%20wxPython
+
+            The cross-platform "wxPython/wxWidgets" toolkits
+            and training materials have been developed, per-
+            fected and used by a worldwide audience since
+            1992.
+
+            Keep in mind that the TeamSTARS "tsWxGTUI_PyVx"
+            Toolkit began development in 2007 and the first
+            pre-alpha release became available in 2015. It
+            emulates only a character-mode subset of the
+            pixel-mode wxPython Application Programming
+            Interface.
+
+            The wxPython programming examples can usually be
+            adapted for charater-mode operation by omitting
+            use of unsupported classes, methods, functions
+            and the bit-mapped graphic images associated
+            with icons and fonts. 
 
    1.3 How can you become familiar with the features,
        look and feel of the Toolkit? 
@@ -210,7 +237,6 @@
 
          a) "BUGS.txt"
          b) "TO-DO.txt"
-
 
 ====================== User Interfaces =====================
 
@@ -1244,11 +1270,11 @@
        4.1.1 Python 3.x
 
              Stable releases of evolving Python 3x version
-             3.0.0-3.4.3 are available for use with current
+             3.0.0-3.5.0 are available for use with current
              and future computer platforms.
 
-             Latest release candidate is Python 3.5.0rc2
-             as of 9 Mar. 2015.
+             Last release candidate was Python 3.5.0rc4
+             as of 9 Sep. 2015.
 
              NOTE: The Python Software Foundation has
                    designated Python 3.x to be under
@@ -1264,7 +1290,7 @@
        4.1.2 Python 2.x
 
              Stable releases of mature Python 2x versions
-             2.0.0-2.7.9 are available for use with legacy
+             2.0.0-2.7.10 are available for use with legacy
              computer plaforms.
 
              NOTE: The Python Software Foundation has
@@ -1439,8 +1465,8 @@
        evolving needs.
 
        4.2.1 Python Software Foundation Website
-
-             From http://www.python.org/
+             
+             From http://www.python.org/ (ca 2014)
 
              "Python is a programming language that lets
              you work quickly and integrate systems more

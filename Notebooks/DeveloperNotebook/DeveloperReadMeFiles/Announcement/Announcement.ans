@@ -1,0 +1,193 @@
+
+
+
+
+                                                                 
+                                                                 
+                                                                 
+                                                                 
+                                                                 
+                                                                 
+                                                                 
+                                                                 
+                                                                 
+                                                                 
+                                                Software Gadgetry
+                                                                 
+                                                     Announcement
+                                 Vol. 0 - "tsWxGTUI_PyVx" Toolkit
+                                                                 
+                                                                 
+                                           Rev. 0.0.3 (Pre-Alpha)
+                                                                 
+                                                                 
+                                     Author(s): Richard S. Gordon
+                                                                 
+
+
+
+Author Copyrights &  User Licenses for "tsWxGTUI_Py2x" &
+"tsWxGTUI_Py3x" Software & Documentation
+§    Copyright (c) 2007-2009 Frederick A. Kier & Richard S.
+  Gordon, a.k.a. TeamSTARS. All rights reserved.
+§    Copyright (c) 2010-2015 Richard S. Gordon, a.k.a.
+  Software Gadgetry. All rights reserved.
+§    GNU General Public License (GPL), Version 3, 29 June 2007
+§    GNU Free Documentation License (GFDL) 1.3, 3 November
+  2008
+Third-Party Component Author Copyrights &  User Licenses
+§    Attribution for third-party work directly or indirectly
+  associated wth the TeamSTARS "tsWxGTUI_PyVx" Toollkit are
+  detailed in the "COPYRIGHT.txt", "LICENSE.txt" and
+  "CREDITS.txt" files located in the directory named
+  "./tsWxGTUI_PyVx_Repository/Documents".
+
+
+
+Contents
+
+
+
+1  ANNOUNCEMENT                                               3
+   1.1About                                                  3
+       1.1.1Platform Hardware and Software Requirements      3
+       1.1.2What is the Toolkit designed do?                 6
+       1.1.3What is included in the release?                 8
+       1.1.4How might you use the Toolkit?                   9
+       1.1.5Where to get further information?               11
+       
+
+
+1    ANNOUNCEMENT
+   
+   
+The TeamSTARS "tsWxGTUI_PyVx" Toolkit, version 0.0.3 (pre-alpha),
+has been released, via "GitHub", for you to freely use, study,
+modify and redistribute.
+
+
+1.1  About
+    
+The TeamSTARS "tsWxGTUI_PyVx" Toolkit's cross-platform virtual
+machine design and implementation supports a broad assortment of
+open and proprietary hardware and software platforms.
+The Toolkit's Python source code has been developed and tested
+only with Intel x86 and x64 processors and representative
+GNU/Linux, Mac OS X, Microsoft Windows and Unix operating system
+releases.
+Its source code has been compiled, interpreted and executed by
+Python 2x and 3x Virtual Machines developed by the Python
+Software Foundation (PSF).
+The PSF also distributes equivalent Python 2x and 3x Virtual
+Machines (and the source code to build them) for other processor
+types and operating systems, some of which are listed below.
+All of the Toolkit's human readable source code:
+1    Is that part of computer software which most users don't
+  ever see; it's the part computer programmers manipulate to change
+  how a computer "program" or "application" works.
+2    Is included in the release for you to freely use, study,
+  modify and redistribute.
+3    May be run on any or all of the platforms which satisfy the
+  following Toolkit hardware and software requirements.
+
+
+1.1.1     Platform Hardware and Software Requirements
+1    Computer Central Processing Unit
+  A single or multi-core 32-/64-bit processor.
+2    Basic Computer Terminal Display and Keyboard for Software
+  Engineering Workstation
+  A pixel-mode multi-font graphics display that supports at
+  least 80 col x 40 row (640 x 480 pixels) and 16,777,216 colors
+  and industry standard terminal emulators.
+  a)   xterm         (8-color, 64-color pairs)
+b)   xterm-16color  (16-color, 256-color-pairs)
+c)   vt100          (1-color ON/OFF, 2-color-pair NORMAl/REVERSE)
+d)   vt220          (1-color ON/OFF, 2-color-pair NORMAl/REVERSE)
+3    Basic Computer Terminal Display and Keyboard for Embedded
+  System Operator
+  A character-mode single font text display that supports at
+  least 80 col x 40 row (640 x 480 pixels) and industry standard
+  terminal emulators:
+  a)   xterm         (8-color, 64-color pairs)
+  b)   xterm-16color (16-color, 256-color-pairs)
+c)   vt100          (1-color ON/OFF, 2-color-pair NORMAl/REVERSE)
+d)   vt220          (1-color ON/OFF, 2-color-pair NORMAl/REVERSE)
+4    Mouse or Trackball for Software Engineering Workstation and
+  Embedded System Operator
+  A cross-platform, industry standard mouse or trackball with:
+  a)   two button (left & right)
+  b)   an optional scroll wheel, which can also act as a third
+    (middle) button
+c)   an optional touchpad or touchscreen with software that can
+recognize one and two finger gestures such as tap, drag and
+scroll
+5    Computer Operating System
+  A multi-user (for local and remote access), multi-process (for
+  interacting with multiple applications) and multi-threaded
+  (for sharing platform resources) operating system such as:
+  a)   GNU/Linux on Intel (x86 and x64) and other architectures
+    Its POSIX-compatible CLI is provided by the GNOME Terminal,
+    KDE Konsole, XTerm and UXTerm applications and a shell such
+    as BASH.
+    Its Curses-based GUI is provided by the ncurses terminal
+    control library for Unix-like systems.
+  b)   Mac OS X (Darwin Unix-based operating system) on
+    Apple–IBM–Motorola alliance (PowerPC) and Intel (x86 and x64)
+    architectures
+    Its POSIX-compatible CLI is provided by the GNOME Terminal
+    and iTerm applications and a shell such as BASH.
+    Its Curses-based GUI is provided by the ncurses terminal
+    control library for Unix-like systems.
+  c)   Microsoft Windows on Intel (x86 and x64) architectures with
+    "Cygwin", the free GNU/Linux-like plug-in from Red Hat.
+    (NOTE: Its DOS-like CLI is provided by the Microsoft Command
+    Prompt terminal application which CANNOT support a Curses-
+    based GUI.)
+    Its POSIX-compatible CLI is provided by the Cygwin Mintty
+    (Terminal) application and a shell such as BASH.
+    Its Curses-based GUI is provided by the ncurses terminal
+    control library for Unix-like systems.
+  d)   Unix on Apple–IBM–Motorola alliance (PowerPC), HP-UX (PA-
+    RISC), IBM-AIX (RS/6000),  Intel (x86 and x64), IRIX (SGI/MIPS),
+    Solaris (Sun/SPARC) and other architectures
+    Its POSIX-compatible CLI is provided by the GNOME Terminal
+    and KDE Konsole applications and a shell such as BASH.
+    Its Curses-based GUI is provided by the curses or ncurses
+    terminal control library for Unix-like systems.
+6    Terminal Control Library
+  A cross-platform, industry-standard library of functions that
+  manage an application's character-mode text display on
+  character-cell terminals:
+  a)   curses
+    The traditional library available on Unix-like systems. It
+    provides a platform-independent  Application Programming
+    Interface (API) that enables the same application source
+    code to work with proprietary hardware. Features (such as
+    vt100/vt220 mouse and xterm-16color support) introduced with
+    ncurses are not necessarily available.
+  b)   ncurses (new curses)
+    The updated library available on Linux-like systems.
+    (including the Cygwin plug-in for Microsoft Windows). It
+    provides a platform-independent Application Programming
+    Interface (API) that enables the same application source
+    code to work with proprietary hardware.
+7    Python Interpreter / Python Virtual Machine
+  One or more cross-platform, industry-standard Python
+  programing languages and associated Interpreter and Virtual
+  Machine.
+  The TeamSTARS "tsWxGTUI_PyVx" Toolkit is implementation in
+  both the mature Python 2x and evolving Python 3x interpreted
+  programming languages.
+  a)   It is precompiled for the platform's processor and operating
+    system by either the operating system or "Cygwin" plug-in
+    manufacturer.
+  b)   It automatically compiles source code into platform
+    independant byte-code during "site-package" installation or else
+    upon Python application launching.
+8    Optional Computer Terminal Display for Software Engineering
+  Workstation
+  Any one of the following may be substituted for the Basic
+  Computer Terminal Display based on your need to simultaneously
+  view multiple software engineering documents and activities.
+  Derived From Wikipedia, the free encyclopedia at
+  "https://en.wikipedia.org/wiki/Display_resolution"

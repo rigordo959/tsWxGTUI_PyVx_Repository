@@ -1,0 +1,234 @@
+On branch master
+Your branch is up-to-date with 'origin/master'.
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+	deleted:    Documents/Announcement.pdf
+	deleted:    Documents/Announcement.rtf
+	deleted:    Documents/Announcement.txt
+	new file:   Documents/Announcement/4226.jpg
+	new file:   Documents/Announcement/Announcement.ans
+	new file:   Documents/Announcement/Announcement.asc
+	new file:   Documents/Announcement/Announcement.doc
+	new file:   Documents/Announcement/Announcement.htm
+	new file:   Documents/Announcement/Announcement.pdf
+	new file:   Documents/Announcement/Announcement.rtf
+	new file:   Documents/Announcement/Announcement.txt
+	modified:   Documents/BUGS.txt
+	modified:   Documents/CONFIGURE.txt
+	modified:   Documents/COPYRIGHT.txt
+	modified:   Documents/CREDITS.txt
+	modified:   Documents/GETTING_STARTED.txt
+	modified:   Documents/LICENSE.txt
+	modified:   Documents/NOTICES.txt
+	modified:   Documents/README.txt
+	modified:   Documents/README1-Introduction.txt
+	modified:   Documents/README2-Repository.txt
+	modified:   Documents/README3-Documents.txt
+	new file:   MANIFEST_CHANGES.txt
+	deleted:    Notebooks/DeveloperNotebook/DeveloperReadMeFiles/Announcement.htm
+	deleted:    Notebooks/DeveloperNotebook/DeveloperReadMeFiles/Announcement.pdf
+	deleted:    Notebooks/DeveloperNotebook/DeveloperReadMeFiles/Announcement.rtf
+	new file:   Notebooks/DeveloperNotebook/DeveloperReadMeFiles/Announcement/4226.jpg
+	new file:   Notebooks/DeveloperNotebook/DeveloperReadMeFiles/Announcement/Announcement.ans
+	new file:   Notebooks/DeveloperNotebook/DeveloperReadMeFiles/Announcement/Announcement.asc
+	new file:   Notebooks/DeveloperNotebook/DeveloperReadMeFiles/Announcement/Announcement.doc
+	renamed:    Documents/Announcement.htm -> Notebooks/DeveloperNotebook/DeveloperReadMeFiles/Announcement/Announcement.htm
+	new file:   Notebooks/DeveloperNotebook/DeveloperReadMeFiles/Announcement/Announcement.pdf
+	new file:   Notebooks/DeveloperNotebook/DeveloperReadMeFiles/Announcement/Announcement.rtf
+	renamed:    Notebooks/DeveloperNotebook/DeveloperReadMeFiles/Announcement.txt -> Notebooks/DeveloperNotebook/DeveloperReadMeFiles/Announcement/Announcement.txt
+	modified:   Notebooks/DeveloperNotebook/DeveloperReadMeFiles/CONFIGURE.txt
+	modified:   Notebooks/DeveloperNotebook/DeveloperReadMeFiles/CREDITS.txt
+	modified:   Notebooks/DeveloperNotebook/DeveloperReadMeFiles/GETTING_STARTED.txt
+	modified:   Notebooks/DeveloperNotebook/DeveloperReadMeFiles/README-SplashScreenDesignersGuide.txt
+	modified:   Notebooks/DeveloperNotebook/DeveloperReadMeFiles/README.txt
+	modified:   Notebooks/DeveloperNotebook/DeveloperReadMeFiles/README1-Introduction.txt
+	modified:   Notebooks/DeveloperNotebook/DeveloperReadMeFiles/README2-Repository.txt
+	modified:   Notebooks/DeveloperNotebook/DeveloperReadMeFiles/README3-Documents.txt
+	modified:   Notebooks/DeveloperNotebook/DeveloperReadMeFiles/ReadMeFiles-Developer-Sandbox/README.txt
+	modified:   Notebooks/DeveloperNotebook/DeveloperReadMeFiles/ReadMeFiles-Site-Package/README.txt
+	deleted:    Notebooks/DeveloperNotebook/DeveloperReadMeFiles/ReadMeFiles-Tutorial/DeveloperTutorialFiles_obsolete/__init__.py
+	deleted:    Notebooks/DeveloperNotebook/DeveloperReadMeFiles/ReadMeFiles-Tutorial/DeveloperTutorialFiles_obsolete/test_tsCxGlobals.py
+	deleted:    Notebooks/DeveloperNotebook/DeveloperReadMeFiles/ReadMeFiles-Tutorial/DeveloperTutorialFiles_obsolete/test_tsWxGlobals.py
+	deleted:    Notebooks/DeveloperNotebook/DeveloperReadMeFiles/ReadMeFiles-Tutorial/DeveloperTutorialFiles_obsolete/tsCxGlobals.py
+	modified:   Notebooks/EngineeringNotebook/Adobe-PDF-Files/Announcement.pdf
+	new file:   Notebooks/EngineeringNotebook/Adobe-PDF-Files/How to Configure Remote Access/Configure Remote Desktop Access on Windows 7 Systems.pdf
+	new file:   Notebooks/EngineeringNotebook/Adobe-PDF-Files/How to Configure Remote Access/Configuring Ubuntu Linux Remote Access using SSH - Techotopia.pdf
+	new file:   "Notebooks/EngineeringNotebook/Adobe-PDF-Files/How to Configure Remote Access/Cygwin \342\200\223 SSHD Configuration \302\267 TechTorials.pdf"
+	new file:   Notebooks/EngineeringNotebook/Adobe-PDF-Files/How to Configure Remote Access/Enable Remote Login to Start SSH Server in Mac OS X.pdf
+	new file:   Notebooks/EngineeringNotebook/Adobe-PDF-Files/How to Configure Remote Access/How to Configure SSH Remote Access - Google Search.pdf
+	new file:   Notebooks/EngineeringNotebook/Adobe-PDF-Files/How to Configure Remote Access/Oracle GlassFish Server 3.1-3.1.1 High Availability Administration Guide-821-2426.pdf
+	new file:   Notebooks/EngineeringNotebook/Adobe-PDF-Files/How to Configure Remote Access/SSH ON WINDOWS 8.1 PC VIA CYGWIN - kossboss.pdf
+	new file:   "Notebooks/EngineeringNotebook/Adobe-PDF-Files/How to Implement with Python/Writing a Python Package by Tarek Ziad\303\251.pdf"
+	new file:   Notebooks/EngineeringNotebook/Adobe-PDF-Files/How to Implement with Python/python pep - Google Search.pdf
+	deleted:    Notebooks/EngineeringNotebook/Adobe-PDF-Files/Platform_Configuration (Host).pdf
+	deleted:    Notebooks/EngineeringNotebook/Adobe-PDF-Files/Platform_Configuration (Terminal).pdf
+	modified:   Notebooks/EngineeringNotebook/Adobe-PDF-Files/Platform_Configuration.pdf
+	new file:   Notebooks/EngineeringNotebook/Adobe-PDF-Files/tsWxGTUI_PyVx_SDIST_Presentation.pdf
+	modified:   Notebooks/EngineeringNotebook/Adobe-PDF-Files/tsWxGTUI_Vol._10_SDIST_Appendixes.pdf
+	modified:   Notebooks/EngineeringNotebook/Adobe-PDF-Files/tsWxGTUI_Vol._11_SDIST_Dictionary.pdf
+	modified:   Notebooks/EngineeringNotebook/Adobe-PDF-Files/tsWxGTUI_Vol._12_SDIST_To-Do.pdf
+	modified:   Notebooks/EngineeringNotebook/Adobe-PDF-Files/tsWxGTUI_Vol._13_SDIST_Use Cases.pdf
+	modified:   Notebooks/EngineeringNotebook/Adobe-PDF-Files/tsWxGTUI_Vol.__0_SDIST_Announcement.pdf
+	modified:   Notebooks/EngineeringNotebook/Adobe-PDF-Files/tsWxGTUI_Vol.__1_SDIST_Brochure.pdf
+	modified:   Notebooks/EngineeringNotebook/Adobe-PDF-Files/tsWxGTUI_Vol.__2_SDIST_Introduction.pdf
+	modified:   Notebooks/EngineeringNotebook/Adobe-PDF-Files/tsWxGTUI_Vol.__3_SDIST_Terms_&_Conditions.pdf
+	modified:   Notebooks/EngineeringNotebook/Adobe-PDF-Files/tsWxGTUI_Vol.__4_SDIST_Software_Development_Plan.pdf
+	modified:   Notebooks/EngineeringNotebook/Adobe-PDF-Files/tsWxGTUI_Vol.__5_SDIST_System_Specification.pdf
+	modified:   "Notebooks/EngineeringNotebook/Adobe-PDF-Files/tsWxGTUI_Vol.__6_SDIST_Interface_Requirements_Specificatio\342\200\246.pdf"
+	modified:   "Notebooks/EngineeringNotebook/Adobe-PDF-Files/tsWxGTUI_Vol.__7_SDIST_Software_Requirements_Specification\342\200\246.pdf"
+	modified:   Notebooks/EngineeringNotebook/Adobe-PDF-Files/tsWxGTUI_Vol.__8_SDIST_Release_Notes.pdf
+	modified:   Notebooks/EngineeringNotebook/Adobe-PDF-Files/tsWxGTUI_Vol.__9_SDIST_Software_Users_Manual.pdf
+	modified:   Notebooks/EngineeringNotebook/JPEG-Image-Files/Sample CLI Display.jpg
+	new file:   Notebooks/EngineeringNotebook/JPEG-Image-Files/Sample GUI Scrolled Windows.jpg
+	new file:   Notebooks/EngineeringNotebook/JPEG-Image-Files/Sample GUI Widgets.jpg
+	new file:   Notebooks/EngineeringNotebook/JPEG-Image-Files/ToolkitBlockDiagram.jpg
+	modified:   Notebooks/EngineeringNotebook/MS-Excel-Files/Platform_Configuration.xls
+	modified:   Notebooks/EngineeringNotebook/MS-PowerPoint-Files/tsWxGTUI_PyVx.ppt
+	modified:   Notebooks/EngineeringNotebook/MS-PowerPoint-Files/tsWxGTUI_PyVx.pptx
+	modified:   Notebooks/EngineeringNotebook/MS-Word-Files/tsWxGTUI_Vol._10_SDIST_Appendixes/tsWxGTUI_Vol._10_SDIST_Appendixes.doc
+	modified:   Notebooks/EngineeringNotebook/MS-Word-Files/tsWxGTUI_Vol._11_SDIST_Dictionary/tsWxGTUI_Vol._11_SDIST_Dictionary.doc
+	modified:   Notebooks/EngineeringNotebook/MS-Word-Files/tsWxGTUI_Vol._12_SDIST_To-Do/tsWxGTUI_Vol._12_SDIST_To-Do.doc
+	modified:   Notebooks/EngineeringNotebook/MS-Word-Files/tsWxGTUI_Vol._13_SDIST_Use Cases/tsWxGTUI_Vol._13_SDIST_Use Cases.doc
+	modified:   Notebooks/EngineeringNotebook/MS-Word-Files/tsWxGTUI_Vol.__0_SDIST_Announcement/tsWxGTUI_Vol.__0_SDIST_Announcement.doc
+	modified:   Notebooks/EngineeringNotebook/MS-Word-Files/tsWxGTUI_Vol.__1_SDIST_Brochure/tsWxGTUI_Vol.__1_SDIST_Brochure.doc
+	modified:   Notebooks/EngineeringNotebook/MS-Word-Files/tsWxGTUI_Vol.__2_SDIST_Introduction/tsWxGTUI_Vol.__2_SDIST_Introduction.doc
+	modified:   Notebooks/EngineeringNotebook/MS-Word-Files/tsWxGTUI_Vol.__3_SDIST_Terms_&_Conditions/tsWxGTUI_Vol.__3_SDIST_Terms_&_Conditions.doc
+	modified:   Notebooks/EngineeringNotebook/MS-Word-Files/tsWxGTUI_Vol.__4_SDIST_Software_Development_Plan/tsWxGTUI_Vol.__4_SDIST_Software_Development_Plan.doc
+	modified:   Notebooks/EngineeringNotebook/MS-Word-Files/tsWxGTUI_Vol.__5_SDIST_System_Specification/tsWxGTUI_Vol.__5_SDIST_System_Specification.doc
+	modified:   Notebooks/EngineeringNotebook/MS-Word-Files/tsWxGTUI_Vol.__6_SDIST_Interface_Requirements_Specification/tsWxGTUI_Vol.__6_SDIST_Interface_Requirements_Specification.doc
+	modified:   Notebooks/EngineeringNotebook/MS-Word-Files/tsWxGTUI_Vol.__7_SDIST_Software_Requirements_Specification/tsWxGTUI_Vol.__7_SDIST_Software_Requirements_Specification.doc
+	modified:   Notebooks/EngineeringNotebook/MS-Word-Files/tsWxGTUI_Vol.__8_SDIST_Release_Notes/tsWxGTUI_Vol.__8_SDIST_Release_Notes.doc
+	modified:   Notebooks/EngineeringNotebook/MS-Word-Files/tsWxGTUI_Vol.__9_SDIST_Software_Users_Manual/tsWxGTUI_Vol.__9_SDIST_Software_Users_Manual.doc
+	modified:   Notebooks/ProjectNotebook/PROJECT-01-Title_Page.txt
+	modified:   Notebooks/ProjectNotebook/PROJECT-02-Table_Of_Contents.txt
+	modified:   Notebooks/ProjectNotebook/PROJECT-20-Splash_Screen_Guide.txt
+	modified:   README.txt
+	modified:   SourceDistributions/Developer-Sandboxes/README.txt
+	new file:   SourceDistributions/Developer-Sandboxes/tsWxGTUI_PyVx/Python-2x/README.txt
+	deleted:    SourceDistributions/Developer-Sandboxes/tsWxGTUI_PyVx/Python-2x/tsWxGTUI_Py2x/Documents/Announcement.htm
+	deleted:    SourceDistributions/Developer-Sandboxes/tsWxGTUI_PyVx/Python-2x/tsWxGTUI_Py2x/Documents/Announcement.pdf
+	deleted:    SourceDistributions/Developer-Sandboxes/tsWxGTUI_PyVx/Python-2x/tsWxGTUI_Py2x/Documents/Announcement.rtf
+	deleted:    SourceDistributions/Developer-Sandboxes/tsWxGTUI_PyVx/Python-2x/tsWxGTUI_Py2x/Documents/Announcement.txt
+	new file:   SourceDistributions/Developer-Sandboxes/tsWxGTUI_PyVx/Python-2x/tsWxGTUI_Py2x/Documents/Announcement/4226.jpg
+	new file:   SourceDistributions/Developer-Sandboxes/tsWxGTUI_PyVx/Python-2x/tsWxGTUI_Py2x/Documents/Announcement/Announcement.ans
+	new file:   SourceDistributions/Developer-Sandboxes/tsWxGTUI_PyVx/Python-2x/tsWxGTUI_Py2x/Documents/Announcement/Announcement.asc
+	new file:   SourceDistributions/Developer-Sandboxes/tsWxGTUI_PyVx/Python-2x/tsWxGTUI_Py2x/Documents/Announcement/Announcement.doc
+	new file:   SourceDistributions/Developer-Sandboxes/tsWxGTUI_PyVx/Python-2x/tsWxGTUI_Py2x/Documents/Announcement/Announcement.htm
+	new file:   SourceDistributions/Developer-Sandboxes/tsWxGTUI_PyVx/Python-2x/tsWxGTUI_Py2x/Documents/Announcement/Announcement.pdf
+	new file:   SourceDistributions/Developer-Sandboxes/tsWxGTUI_PyVx/Python-2x/tsWxGTUI_Py2x/Documents/Announcement/Announcement.rtf
+	new file:   SourceDistributions/Developer-Sandboxes/tsWxGTUI_PyVx/Python-2x/tsWxGTUI_Py2x/Documents/Announcement/Announcement.txt
+	modified:   SourceDistributions/Developer-Sandboxes/tsWxGTUI_PyVx/Python-2x/tsWxGTUI_Py2x/Documents/BUGS.txt
+	modified:   SourceDistributions/Developer-Sandboxes/tsWxGTUI_PyVx/Python-2x/tsWxGTUI_Py2x/Documents/CONFIGURE.txt
+	modified:   SourceDistributions/Developer-Sandboxes/tsWxGTUI_PyVx/Python-2x/tsWxGTUI_Py2x/Documents/COPYRIGHT.txt
+	modified:   SourceDistributions/Developer-Sandboxes/tsWxGTUI_PyVx/Python-2x/tsWxGTUI_Py2x/Documents/CREDITS.txt
+	modified:   SourceDistributions/Developer-Sandboxes/tsWxGTUI_PyVx/Python-2x/tsWxGTUI_Py2x/Documents/GETTING_STARTED.txt
+	modified:   SourceDistributions/Developer-Sandboxes/tsWxGTUI_PyVx/Python-2x/tsWxGTUI_Py2x/Documents/LICENSE.txt
+	modified:   SourceDistributions/Developer-Sandboxes/tsWxGTUI_PyVx/Python-2x/tsWxGTUI_Py2x/Documents/NOTICES.txt
+	modified:   SourceDistributions/Developer-Sandboxes/tsWxGTUI_PyVx/Python-2x/tsWxGTUI_Py2x/Documents/README.txt
+	modified:   SourceDistributions/Developer-Sandboxes/tsWxGTUI_PyVx/Python-2x/tsWxGTUI_Py2x/Documents/README1-Introduction.txt
+	modified:   SourceDistributions/Developer-Sandboxes/tsWxGTUI_PyVx/Python-2x/tsWxGTUI_Py2x/Documents/README2-Repository.txt
+	modified:   SourceDistributions/Developer-Sandboxes/tsWxGTUI_PyVx/Python-2x/tsWxGTUI_Py2x/Documents/README3-Documents.txt
+	renamed:    Notebooks/DeveloperNotebook/DeveloperReadMeFiles/ReadMeFiles-Tutorial/DeveloperTutorialFiles_obsolete/README-DeveloperTutorialFiles.txt -> SourceDistributions/Developer-Sandboxes/tsWxGTUI_PyVx/Python-2x/tsWxGTUI_Py2x/README-DeveloperTutorialFiles.txt
+	renamed:    Notebooks/DeveloperNotebook/DeveloperReadMeFiles/ReadMeFiles-Tutorial/DeveloperTutorialFiles_obsolete/Tutorial_CLI_0_hello_world_print_statement.py -> SourceDistributions/Developer-Sandboxes/tsWxGTUI_PyVx/Python-2x/tsWxGTUI_Py2x/Tutorial_CLI_0_hello_world_print_statement.py
+	renamed:    Notebooks/DeveloperNotebook/DeveloperReadMeFiles/ReadMeFiles-Tutorial/DeveloperTutorialFiles_obsolete/Tutorial_CLI_1_hello_world_print_function.py -> SourceDistributions/Developer-Sandboxes/tsWxGTUI_PyVx/Python-2x/tsWxGTUI_Py2x/Tutorial_CLI_1_hello_world_print_function.py
+	renamed:    Notebooks/DeveloperNotebook/DeveloperReadMeFiles/ReadMeFiles-Tutorial/DeveloperTutorialFiles_obsolete/Tutorial_CLI_2_hello_world_script_environment.py -> SourceDistributions/Developer-Sandboxes/tsWxGTUI_PyVx/Python-2x/tsWxGTUI_Py2x/Tutorial_CLI_2_hello_world_script_environment.py
+	renamed:    Notebooks/DeveloperNotebook/DeveloperReadMeFiles/ReadMeFiles-Tutorial/DeveloperTutorialFiles_obsolete/Tutorial_CLI_3_hello_world_main_module_application.py -> SourceDistributions/Developer-Sandboxes/tsWxGTUI_PyVx/Python-2x/tsWxGTUI_Py2x/Tutorial_CLI_3_hello_world_main_module_application.py
+	renamed:    Notebooks/DeveloperNotebook/DeveloperReadMeFiles/ReadMeFiles-Tutorial/DeveloperTutorialFiles_obsolete/Tutorial_CLI_4_Command_Line_PlatformQuery_Application.py -> SourceDistributions/Developer-Sandboxes/tsWxGTUI_PyVx/Python-2x/tsWxGTUI_Py2x/Tutorial_CLI_4_Command_Line_PlatformQuery_Application.py
+	new file:   SourceDistributions/Developer-Sandboxes/tsWxGTUI_PyVx/Python-2x/tsWxGTUI_Py2x/Tutorial_CLI_4_Command_Line_PlatformQuery_Application.txt
+	renamed:    Notebooks/DeveloperNotebook/DeveloperReadMeFiles/ReadMeFiles-Tutorial/DeveloperTutorialFiles_obsolete/Tutorial_GUI_0_Curses_LowLevel_WidgetApi_application.py -> SourceDistributions/Developer-Sandboxes/tsWxGTUI_PyVx/Python-2x/tsWxGTUI_Py2x/Tutorial_GUI_0_Curses_LowLevel_WidgetApi_application.py
+	renamed:    Notebooks/DeveloperNotebook/DeveloperReadMeFiles/ReadMeFiles-Tutorial/DeveloperTutorialFiles_obsolete/Tutorial_GUI_1_wxPython_HighLevel_WidgetApi_application.py -> SourceDistributions/Developer-Sandboxes/tsWxGTUI_PyVx/Python-2x/tsWxGTUI_Py2x/Tutorial_GUI_1_wxPython_HighLevel_WidgetApi_application.py
+	renamed:    Notebooks/DeveloperNotebook/DeveloperReadMeFiles/ReadMeFiles-Tutorial/DeveloperTutorialFiles_obsolete/Tutorial_GUI_2_tsWxGTUI_HighLevel_BoxSizerApi_application.py -> SourceDistributions/Developer-Sandboxes/tsWxGTUI_PyVx/Python-2x/tsWxGTUI_Py2x/Tutorial_GUI_2_tsWxGTUI_HighLevel_BoxSizerApi_application.py
+	modified:   SourceDistributions/Developer-Sandboxes/tsWxGTUI_PyVx/Python-2x/tsWxGTUI_Py2x/test_tsPlatformRunTimeEnvironment.txt
+	modified:   SourceDistributions/Developer-Sandboxes/tsWxGTUI_PyVx/Python-2x/tsWxGTUI_Py2x/tsPlatformQuery__RunTimeEnvironment.txt
+	modified:   SourceDistributions/Developer-Sandboxes/tsWxGTUI_PyVx/Python-2x/tsWxGTUI_Py2x/tsUtilities/runLynx_Dump_Announcement.sh
+	modified:   SourceDistributions/Developer-Sandboxes/tsWxGTUI_PyVx/Python-3x/README.txt
+	deleted:    SourceDistributions/Developer-Sandboxes/tsWxGTUI_PyVx/Python-3x/tsWxGTUI_Py3x/Documents/Announcement.htm
+	deleted:    SourceDistributions/Developer-Sandboxes/tsWxGTUI_PyVx/Python-3x/tsWxGTUI_Py3x/Documents/Announcement.pdf
+	deleted:    SourceDistributions/Developer-Sandboxes/tsWxGTUI_PyVx/Python-3x/tsWxGTUI_Py3x/Documents/Announcement.rtf
+	deleted:    SourceDistributions/Developer-Sandboxes/tsWxGTUI_PyVx/Python-3x/tsWxGTUI_Py3x/Documents/Announcement.txt
+	new file:   SourceDistributions/Developer-Sandboxes/tsWxGTUI_PyVx/Python-3x/tsWxGTUI_Py3x/Documents/Announcement/4226.jpg
+	new file:   SourceDistributions/Developer-Sandboxes/tsWxGTUI_PyVx/Python-3x/tsWxGTUI_Py3x/Documents/Announcement/Announcement.ans
+	new file:   SourceDistributions/Developer-Sandboxes/tsWxGTUI_PyVx/Python-3x/tsWxGTUI_Py3x/Documents/Announcement/Announcement.asc
+	new file:   SourceDistributions/Developer-Sandboxes/tsWxGTUI_PyVx/Python-3x/tsWxGTUI_Py3x/Documents/Announcement/Announcement.doc
+	new file:   SourceDistributions/Developer-Sandboxes/tsWxGTUI_PyVx/Python-3x/tsWxGTUI_Py3x/Documents/Announcement/Announcement.htm
+	new file:   SourceDistributions/Developer-Sandboxes/tsWxGTUI_PyVx/Python-3x/tsWxGTUI_Py3x/Documents/Announcement/Announcement.pdf
+	new file:   SourceDistributions/Developer-Sandboxes/tsWxGTUI_PyVx/Python-3x/tsWxGTUI_Py3x/Documents/Announcement/Announcement.rtf
+	new file:   SourceDistributions/Developer-Sandboxes/tsWxGTUI_PyVx/Python-3x/tsWxGTUI_Py3x/Documents/Announcement/Announcement.txt
+	modified:   SourceDistributions/Developer-Sandboxes/tsWxGTUI_PyVx/Python-3x/tsWxGTUI_Py3x/Documents/BUGS.txt
+	modified:   SourceDistributions/Developer-Sandboxes/tsWxGTUI_PyVx/Python-3x/tsWxGTUI_Py3x/Documents/CONFIGURE.txt
+	modified:   SourceDistributions/Developer-Sandboxes/tsWxGTUI_PyVx/Python-3x/tsWxGTUI_Py3x/Documents/COPYRIGHT.txt
+	modified:   SourceDistributions/Developer-Sandboxes/tsWxGTUI_PyVx/Python-3x/tsWxGTUI_Py3x/Documents/CREDITS.txt
+	modified:   SourceDistributions/Developer-Sandboxes/tsWxGTUI_PyVx/Python-3x/tsWxGTUI_Py3x/Documents/GETTING_STARTED.txt
+	modified:   SourceDistributions/Developer-Sandboxes/tsWxGTUI_PyVx/Python-3x/tsWxGTUI_Py3x/Documents/LICENSE.txt
+	modified:   SourceDistributions/Developer-Sandboxes/tsWxGTUI_PyVx/Python-3x/tsWxGTUI_Py3x/Documents/NOTICES.txt
+	modified:   SourceDistributions/Developer-Sandboxes/tsWxGTUI_PyVx/Python-3x/tsWxGTUI_Py3x/Documents/README.txt
+	modified:   SourceDistributions/Developer-Sandboxes/tsWxGTUI_PyVx/Python-3x/tsWxGTUI_Py3x/Documents/README1-Introduction.txt
+	modified:   SourceDistributions/Developer-Sandboxes/tsWxGTUI_PyVx/Python-3x/tsWxGTUI_Py3x/Documents/README2-Repository.txt
+	modified:   SourceDistributions/Developer-Sandboxes/tsWxGTUI_PyVx/Python-3x/tsWxGTUI_Py3x/Documents/README3-Documents.txt
+	modified:   SourceDistributions/Developer-Sandboxes/tsWxGTUI_PyVx/Python-3x/tsWxGTUI_Py3x/tsPlatformQuery__RunTimeEnvironment.txt
+	modified:   SourceDistributions/Developer-Sandboxes/tsWxGTUI_PyVx/Python-3x/tsWxGTUI_Py3x/tsUtilities/runLynx_Dump_Announcement.sh
+	modified:   SourceDistributions/Developer-Sandboxes/tsWxGTUI_PyVx/README.txt
+	modified:   SourceDistributions/README.txt
+	modified:   SourceDistributions/Site-Packages/README.txt
+	modified:   SourceDistributions/Site-Packages/tsWxGTUI_PyVx/Python-2x/README.txt
+	deleted:    SourceDistributions/Site-Packages/tsWxGTUI_PyVx/Python-2x/tsWxGTUI_Py2x/Documents/Announcement.htm
+	deleted:    SourceDistributions/Site-Packages/tsWxGTUI_PyVx/Python-2x/tsWxGTUI_Py2x/Documents/Announcement.pdf
+	deleted:    SourceDistributions/Site-Packages/tsWxGTUI_PyVx/Python-2x/tsWxGTUI_Py2x/Documents/Announcement.rtf
+	deleted:    SourceDistributions/Site-Packages/tsWxGTUI_PyVx/Python-2x/tsWxGTUI_Py2x/Documents/Announcement.txt
+	new file:   SourceDistributions/Site-Packages/tsWxGTUI_PyVx/Python-2x/tsWxGTUI_Py2x/Documents/Announcement/4226.jpg
+	new file:   SourceDistributions/Site-Packages/tsWxGTUI_PyVx/Python-2x/tsWxGTUI_Py2x/Documents/Announcement/Announcement.ans
+	new file:   SourceDistributions/Site-Packages/tsWxGTUI_PyVx/Python-2x/tsWxGTUI_Py2x/Documents/Announcement/Announcement.asc
+	new file:   SourceDistributions/Site-Packages/tsWxGTUI_PyVx/Python-2x/tsWxGTUI_Py2x/Documents/Announcement/Announcement.doc
+	new file:   SourceDistributions/Site-Packages/tsWxGTUI_PyVx/Python-2x/tsWxGTUI_Py2x/Documents/Announcement/Announcement.htm
+	new file:   SourceDistributions/Site-Packages/tsWxGTUI_PyVx/Python-2x/tsWxGTUI_Py2x/Documents/Announcement/Announcement.pdf
+	new file:   SourceDistributions/Site-Packages/tsWxGTUI_PyVx/Python-2x/tsWxGTUI_Py2x/Documents/Announcement/Announcement.rtf
+	new file:   SourceDistributions/Site-Packages/tsWxGTUI_PyVx/Python-2x/tsWxGTUI_Py2x/Documents/Announcement/Announcement.txt
+	modified:   SourceDistributions/Site-Packages/tsWxGTUI_PyVx/Python-2x/tsWxGTUI_Py2x/Documents/BUGS.txt
+	modified:   SourceDistributions/Site-Packages/tsWxGTUI_PyVx/Python-2x/tsWxGTUI_Py2x/Documents/CONFIGURE.txt
+	modified:   SourceDistributions/Site-Packages/tsWxGTUI_PyVx/Python-2x/tsWxGTUI_Py2x/Documents/COPYRIGHT.txt
+	modified:   SourceDistributions/Site-Packages/tsWxGTUI_PyVx/Python-2x/tsWxGTUI_Py2x/Documents/CREDITS.txt
+	modified:   SourceDistributions/Site-Packages/tsWxGTUI_PyVx/Python-2x/tsWxGTUI_Py2x/Documents/GETTING_STARTED.txt
+	modified:   SourceDistributions/Site-Packages/tsWxGTUI_PyVx/Python-2x/tsWxGTUI_Py2x/Documents/LICENSE.txt
+	modified:   SourceDistributions/Site-Packages/tsWxGTUI_PyVx/Python-2x/tsWxGTUI_Py2x/Documents/NOTICES.txt
+	modified:   SourceDistributions/Site-Packages/tsWxGTUI_PyVx/Python-2x/tsWxGTUI_Py2x/Documents/README.txt
+	modified:   SourceDistributions/Site-Packages/tsWxGTUI_PyVx/Python-2x/tsWxGTUI_Py2x/Documents/README1-Introduction.txt
+	modified:   SourceDistributions/Site-Packages/tsWxGTUI_PyVx/Python-2x/tsWxGTUI_Py2x/Documents/README2-Repository.txt
+	modified:   SourceDistributions/Site-Packages/tsWxGTUI_PyVx/Python-2x/tsWxGTUI_Py2x/Documents/README3-Documents.txt
+	modified:   SourceDistributions/Site-Packages/tsWxGTUI_PyVx/Python-2x/tsWxGTUI_Py2x/tsUtilities/runLynx_Dump_Announcement.sh
+	modified:   SourceDistributions/Site-Packages/tsWxGTUI_PyVx/Python-3x/README.txt
+	deleted:    SourceDistributions/Site-Packages/tsWxGTUI_PyVx/Python-3x/tsWxGTUI_Py3x/Documents/Announcement.htm
+	deleted:    SourceDistributions/Site-Packages/tsWxGTUI_PyVx/Python-3x/tsWxGTUI_Py3x/Documents/Announcement.pdf
+	deleted:    SourceDistributions/Site-Packages/tsWxGTUI_PyVx/Python-3x/tsWxGTUI_Py3x/Documents/Announcement.rtf
+	deleted:    SourceDistributions/Site-Packages/tsWxGTUI_PyVx/Python-3x/tsWxGTUI_Py3x/Documents/Announcement.txt
+	new file:   SourceDistributions/Site-Packages/tsWxGTUI_PyVx/Python-3x/tsWxGTUI_Py3x/Documents/Announcement/4226.jpg
+	new file:   SourceDistributions/Site-Packages/tsWxGTUI_PyVx/Python-3x/tsWxGTUI_Py3x/Documents/Announcement/Announcement.ans
+	new file:   SourceDistributions/Site-Packages/tsWxGTUI_PyVx/Python-3x/tsWxGTUI_Py3x/Documents/Announcement/Announcement.asc
+	new file:   SourceDistributions/Site-Packages/tsWxGTUI_PyVx/Python-3x/tsWxGTUI_Py3x/Documents/Announcement/Announcement.doc
+	new file:   SourceDistributions/Site-Packages/tsWxGTUI_PyVx/Python-3x/tsWxGTUI_Py3x/Documents/Announcement/Announcement.htm
+	new file:   SourceDistributions/Site-Packages/tsWxGTUI_PyVx/Python-3x/tsWxGTUI_Py3x/Documents/Announcement/Announcement.pdf
+	new file:   SourceDistributions/Site-Packages/tsWxGTUI_PyVx/Python-3x/tsWxGTUI_Py3x/Documents/Announcement/Announcement.rtf
+	new file:   SourceDistributions/Site-Packages/tsWxGTUI_PyVx/Python-3x/tsWxGTUI_Py3x/Documents/Announcement/Announcement.txt
+	modified:   SourceDistributions/Site-Packages/tsWxGTUI_PyVx/Python-3x/tsWxGTUI_Py3x/Documents/BUGS.txt
+	modified:   SourceDistributions/Site-Packages/tsWxGTUI_PyVx/Python-3x/tsWxGTUI_Py3x/Documents/CONFIGURE.txt
+	modified:   SourceDistributions/Site-Packages/tsWxGTUI_PyVx/Python-3x/tsWxGTUI_Py3x/Documents/COPYRIGHT.txt
+	modified:   SourceDistributions/Site-Packages/tsWxGTUI_PyVx/Python-3x/tsWxGTUI_Py3x/Documents/CREDITS.txt
+	modified:   SourceDistributions/Site-Packages/tsWxGTUI_PyVx/Python-3x/tsWxGTUI_Py3x/Documents/GETTING_STARTED.txt
+	modified:   SourceDistributions/Site-Packages/tsWxGTUI_PyVx/Python-3x/tsWxGTUI_Py3x/Documents/LICENSE.txt
+	modified:   SourceDistributions/Site-Packages/tsWxGTUI_PyVx/Python-3x/tsWxGTUI_Py3x/Documents/NOTICES.txt
+	modified:   SourceDistributions/Site-Packages/tsWxGTUI_PyVx/Python-3x/tsWxGTUI_Py3x/Documents/README.txt
+	modified:   SourceDistributions/Site-Packages/tsWxGTUI_PyVx/Python-3x/tsWxGTUI_Py3x/Documents/README1-Introduction.txt
+	modified:   SourceDistributions/Site-Packages/tsWxGTUI_PyVx/Python-3x/tsWxGTUI_Py3x/Documents/README2-Repository.txt
+	modified:   SourceDistributions/Site-Packages/tsWxGTUI_PyVx/Python-3x/tsWxGTUI_Py3x/Documents/README3-Documents.txt
+	modified:   SourceDistributions/Site-Packages/tsWxGTUI_PyVx/Python-3x/tsWxGTUI_Py3x/tsUtilities/runLynx_Dump_Announcement.sh
+	modified:   SourceDistributions/Site-Packages/tsWxGTUI_PyVx/README.txt
+	new file:   junk.log
+	modified:   runLynx_Dump_Announcement.sh
+
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	modified:   MANIFEST_CHANGES.txt
+	deleted:    junk.log
+

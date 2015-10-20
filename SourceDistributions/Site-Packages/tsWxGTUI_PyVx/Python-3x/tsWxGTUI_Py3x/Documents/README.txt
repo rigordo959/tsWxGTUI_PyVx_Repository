@@ -1,5 +1,5 @@
 #-----------------------------------------------------------
-#"Time-stamp: <08/26/2015  7:29:13 AM rsg>
+#"Time-stamp: <10/02/2015  5:43:41 AM rsg>
 #-----------------------------------------------------------
 
 ===================== File: README.txt =====================
@@ -266,11 +266,11 @@
                            language. Syntax is associated with
                            Python 3.0.0-3.5.x.
 
-                       Current stable release is Python 3.4.3
-                       as of 25 Feb. 2015.
+                       Current stable release is Python 3.5.0
+                       as of 9 Sep. 2015.
 
-                       Latest (beta) release is Python 3.5.0b2
-                       as of 1 June 2015.
+                       Last release candidate was Python 3.5.0rc4
+                       as of 9 Sep. 2015.
 
                        NOTE: The Python Software Foundation has
                              designated Python 3.x to be under
@@ -727,7 +727,7 @@
              User Add-on <Path>:
                 /opt/local/lib/pythonX.Y
  
-       5.3.3 Mac OS X (10.3 Panther - 10.10 Yosemite)
+       5.3.3 Mac OS X (10.3 Panther - 10.11 El Capitan)
  
              Built-in <Path>:
                 /Library/Python/X.Y
