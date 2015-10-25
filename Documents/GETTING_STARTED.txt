@@ -1,5 +1,5 @@
 #-----------------------------------------------------------
-#"Time-stamp: <09/26/2015  4:14:58 AM rsg>"
+#"Time-stamp: <10/25/2015  5:57:30 AM rsg>"
 #-----------------------------------------------------------
 
 ========= Title Page for File: GETTING_STARTED.txt =========
@@ -81,9 +81,12 @@
              3.3.2.2 Character-mode Graphical-style User In-
                      terface (Availability depends on
                      PDCurses, see the remarks in the
-                     following section 3.3.2.3 PDCurses)
+                     following sections 3.3.2.3 PDCurses and
+                     3.2.3.4 UniCurses)
 
              3.3.2.3 PDCurses
+
+             3.3.2.4 UniCurses
 
        3.3.3 "Command Prompt" (Windows-native CLI only)
 
@@ -852,7 +855,8 @@
              3.3.2.2 Character-mode Graphical-style User In-
                      terface (Availability depends on
                      PDCurses, see the remarks in the
-                     following section 3.3.2.3 PDCurses)
+                     following sections 3.3.2.3 PDCurses and
+                     3.2.3.4 UniCurses)
 
                      The GnuWin32 "Terminal" application, user
                      selectable terminal emulators (including
@@ -922,6 +926,9 @@
                        For example, the roguelike game ADOM was
                        written for Linux and ncurses, later ported
                        to DOS and PDCurses."
+
+                     See a copy of "README_PDCurses-3.4.txt" in
+                     ./NoteBooks/EngineeringNotebook/ASCII-Text-Files
 
                      PDCurses use of specialized device drivers
                      rather than the use of industry-standard
@@ -999,6 +1006,31 @@
                         If you're looking to install this module
                         from a binary package, please see the
                         INSTALL.rst file."
+
+             3.3.2.4 UniCurses
+
+                     Excerpts From SourceForge at:
+
+                         http://sourceforge.net/projects/pyunicurses/
+
+                         "UniCurses is a wrapper for Python 2.x/3.x
+                         that provides a unified set of Curses functions
+                         on all platforms (MS Windows, Linux, and Mac
+                         OS X) with syntax close to that of the original
+                         NCurses. To provide functionality on MS Windows
+                         it wraps PDCurses."
+
+                     See a copy of "README_UniCurses-1.2.txt" in
+                     ./NoteBooks/EngineeringNotebook/ASCII-Text-Files.
+
+                     The TeamSTARS "tsWxGTUI_PyVx" Toolkit author,
+                     has, as of 25 October 2015, only been able to run
+                     the UniCurses demo applications. Neither the
+                     standard Python Curses demo application, nor the
+                     Toolkit ones, have been compatible with the UniCurses
+                     module. Missing are the Curses Wrapper method,
+                     separately imported Python curses modules and the
+                     various terminal emulators such as xterm and vt100.     
 
        3.3.3 "Command Prompt" (Windows-native CLI only)
 
