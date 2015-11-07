@@ -1,5 +1,5 @@
 #-----------------------------------------------------------
-#"Time-stamp: <10/25/2015  5:57:30 AM rsg>"
+#"Time-stamp: <11/01/2015  8:41:53 AM rsg>"
 #-----------------------------------------------------------
 
 ========= Title Page for File: GETTING_STARTED.txt =========
@@ -14,16 +14,30 @@
    on character-mode 8-/16-color (xterm-family) & non-color
    (vt100-family) terminals and terminal emulators.
 
-   You can find this and other plain-text files in the
-   Toolkit subdirectory named:
-
-       "./<Toolkit Recipient's Repository>/Documents".
+   If you are using a character-mode display on an embedded
+   computer system, you can find this and other plain-text
+   files in the Toolkit subdirectory named:
 
        <Your Working Repository>
        (e.g. "tsWxGTUI_PyVx_Repository") 
          |
          |
          +-- ["Documents"]
+
+   If you are using a pixel-mode graphical display on a
+   general purpose computer system, you can not only find
+   the above but also engineering notebooks (with text in
+   multiple font styles and sizes, tables, diagrams, spread-
+   sheets, databases, slide-show presentations, icons and
+   screenshots) in the following Toolkit subdirectories:
+
+       <Your Working Repository>
+       (e.g. "tsWxGTUI_PyVx_Repository") 
+         |
+         |
+         +-- ["Documents"]
+         |
+         +-- ["EngineeringNotebook"]
 
 ===================== TABLE OF CONTENTS ====================
 
