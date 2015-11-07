@@ -1,5 +1,5 @@
 #-----------------------------------------------------------
-#"Time-stamp: <06/29/2015  3:30:43 AM rsg>"
+#"Time-stamp: <11/01/2015  7:51:21 AM rsg>"
 #-----------------------------------------------------------
 
 ========== File: README-Engineering-Documents.txt ==========
@@ -38,7 +38,7 @@
                  +-- ["MS-Visio-Files"]
                  +-- ["MS-Word-Files"]
                  |
-	         +-- "README-Engineering-Documents.txt"
+                 +-- "README-Engineering-Documents.txt"
 
 ===================== TABLE OF CONTENTS ====================
 
@@ -64,19 +64,20 @@
        a) announcement notice(s)
        b) brochure(s)
        c) introduction
+       d) slide-show presentation
 
    1.2 Project Documentation
 
-       a) goal and capability objectives
-       b) non-goal and limitation constraints
+       a) goal (capability) objectives
+       b) non-goal (limitation) constraints
        c) project plans
 
    1.3 Technical Documentation
 
        a) architectural plans
        b) system specifications
-       c) Interface specifications
-       d) software specifications
+       c) interface specifications
+       d) software requirement specifications
        e) design specifications
        f) test specifications
        g) software user manual
