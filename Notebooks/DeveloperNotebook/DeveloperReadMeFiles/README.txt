@@ -1,5 +1,5 @@
 #-----------------------------------------------------------
-#"Time-stamp: <09/26/2015  4:24:14 AM rsg>
+#"Time-stamp: <10/02/2015  5:43:41 AM rsg>
 #-----------------------------------------------------------
 
 ===================== File: README.txt =====================
@@ -727,7 +727,7 @@
              User Add-on <Path>:
                 /opt/local/lib/pythonX.Y
  
-       5.3.3 Mac OS X (10.3 Panther - 10.10 Yosemite)
+       5.3.3 Mac OS X (10.3 Panther - 10.11 El Capitan)
  
              Built-in <Path>:
                 /Library/Python/X.Y

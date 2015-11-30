@@ -4,7 +4,7 @@
 
    Vol. 0 - "tsWxGTUI_PyVx" Toolkit
 
-   Rev. 0.0.3 (Pre-Alpha)
+   Rev. 0.0.4 (Pre-Alpha)
 
    Author(s): Richard S. Gordon
 
@@ -75,12 +75,12 @@
 
    1.1.8       Where to get further
    information?...........................................................
-   ................................... 19
+   ................................... 21
 
 
 1      ANNOUNCEMENT
 
-   The TeamSTARS "tsWxGTUI_PyVx" Toolkit, version 0.0.3 (pre-alpha), has
+   The TeamSTARS "tsWxGTUI_PyVx" Toolkit, version 0.0.4 (pre-alpha), has
    been released, via "GitHub", for you to freely use, study, modify and
    redistribute.
 
@@ -126,17 +126,17 @@
    cross-platform computer programs which monitor and control
    mission-critical equipment.
 
-   Such equipment is used for Commercial (building energy management),
-   Industrial (power generation), Medical (CAT-scan) or Military (weapon
-   control) applications.
+   Such equipment is used for Commercial (ex. building energy management),
+   Industrial (ex. power generation), Medical (ex. CAT-scan) or Military
+   (ex. weapon control) applications.
 
    Such computer programs feature "operator-friendly" Command Line and
    Graphical User Interfaces. They perform the local and remote
-   supervisory control and data acquisition associated with Automation
-   (robotics), Communication (network traffic), Control (supervisory and
-   feedback), Diagnostic (hardware and software failure detection and
-   analysis), Instrumentation (data acquisition and signal analysis) and
-   Simulation (flight) applications.
+   Supervisory Control And Data Acquisition (SCADA) associated with
+   Automation (ex. robotics), Communication (ex. network traffic), Control
+   (ex. supervisory and feedback), Diagnostic (ex. hardware and software
+   failure detection and analysis), Instrumentation (ex. data acquisition
+   and signal analysis) and Simulation (ex. flight) applications.
 
 
 1.1.1.1     Command Line User Interface (CLI)
@@ -229,6 +229,10 @@
 
 
 1.1.3          Hardware Requirements
+
+   Toolkit operation depends on the availability of those hardware
+   features described in the following sections.
+
 
 1.1.3.1     Central Processing Unit (CPU)
 
@@ -581,6 +585,10 @@ equipment
 
 1.1.4          Software Requirements
 
+   Toolkit operation depends on the availability of those software
+   features described in the following sections.
+
+
 1.1.4.1     Computer Operating System
 
    A multi-user (for local and remote access), multi-process (for
@@ -700,6 +708,12 @@ equipment
 
 
 1.1.5          What is included in the release?
+
+   Toolkit development, maintenance, enhancement, porting, troubleshooting
+   and user training depends on the availability of those release features
+   described in the following sections.
+
+
 
 1.1.5.1     Multi-Project Release
 
@@ -995,7 +1009,7 @@ equipment
 
 
 
-1.1.7.1     Accessorized “Development” Desktop and Guest “Embedded” System
+1.1.7.1     Professional Workstation and Guest “Embedded” System
 
    1        2013 Apple iMac Desktop
 
@@ -1044,7 +1058,7 @@ equipment
    Microsoft Windows (2000)
 
 
-1.1.7.2     Accessorized “Development” Laptop and Guest “Embedded” System
+1.1.7.2     Professional Laptop and Guest “Embedded” System
 
    1        2007 Apple MacBook Pro
 
@@ -1093,7 +1107,7 @@ equipment
    Microsoft Windows (3.1)
 
 
-1.1.7.3     Basic “Development” Laptop_    and Pseudo “Embedded” System
+1.1.7.3     Budget Laptop and Pseudo “Embedded” System
 
    1        1998 Dell Inspiron 7000
 

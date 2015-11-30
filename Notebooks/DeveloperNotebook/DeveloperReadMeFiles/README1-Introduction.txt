@@ -1,5 +1,5 @@
 #-----------------------------------------------------------
-#"Time-stamp: <09/30/2015 11:05:27 AM rsg>
+#"Time-stamp: <11/01/2015  7:39:01 AM rsg>
 #-----------------------------------------------------------
 
 ============== File: README1-Introduction.txt ==============
@@ -800,6 +800,7 @@
                10.8: "Mountain Lion"  (64-bit Intel)
                10.9: "Mavericks"      (64-bit Intel)
                10.10: "Yosemite"      (64-bit Intel)
+               10.11: "El Capitan"    (64-bit Intel)
 
           Versions 10.5 "Leopard" running on Intel proces-
           sors, 10.6 "Snow Leopard", 10.7 "Lion", 10.8 "Moun-
@@ -865,8 +866,8 @@
    The latest TeamSTARS "tsWxGTUI_PyVx" Toolkit version is a
    pre-alpha stage, pre-production release identitified as:
 
-   4.1 "tsWxGTUI_Py2x-0.0.2" for Python 2.7.6 - 2.7.10
-   4.2 "tsWxGTUI_Py3x-0.0.2" for Python 3.0.0 - 3.5.0
+   4.1 "tsWxGTUI_Py2x-0.0.3" for Python 2.7.6 - 2.7.10
+   4.2 "tsWxGTUI_Py3x-0.0.3" for Python 3.0.0 - 3.5.0
 
 ======================= Deliverables =======================
 
