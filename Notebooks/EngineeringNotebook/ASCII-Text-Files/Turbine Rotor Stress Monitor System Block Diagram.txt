@@ -1,0 +1,28 @@
+ SCADA Supervisory Control and Data Acquisition System
+
++-----------+               Control Data              +-------------+
+| Turbine   |<----------------------------------------| Measurement |
+| Instru-   |---------------------------------------->| & Control   |
+| mentation |               Sensor Data               | Unit(s)     |
++-----------+                                         | (SCADA)     |
++-----------+                                         |             |
+| Color     | Video Data              Control Data    |             |
+| Graphic   |<------------------H-------------------->|             |
+| Display   |                   H<--------------------|             |
+| Unit(s)   |                   H     Sensor Data     |             |
+| (SCADA)   |                   H                     |             |
++-----------+     Requests/     H                     +-------------+
++-----------+     Commands/     H                     +-------------+
+| Operator  |     Setpoints     H     Printer Data    | Logging     |
+| Console(s)|------------------>H-------------------->| Unit(s)     |
+| (SCADA)   |<------------------H                     | (SCADA)     |
++-----------+     Indicator/    H                     +-------------+
+                  Status Data   H
+                                H Computer/Highway (SCADA)
+                                H
+                         +------H------+
+                         | Turbine     |
+                         | Rotor       |
+                         | Stress      |
+                         | Monitor     |
+                         +-------------+
