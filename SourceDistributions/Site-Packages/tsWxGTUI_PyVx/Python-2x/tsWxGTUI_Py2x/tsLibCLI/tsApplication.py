@@ -1,5 +1,5 @@
 #! /usr/bin/env python
-#"Time-stamp: <09/15/2015  6:50:13 AM rsg>"
+#"Time-stamp: <01/28/2016  5:53:55 AM rsg>"
 '''
 tsApplication.py - Base class to initialize and configure the
 application program launched by an operator. It enables an
@@ -449,6 +449,9 @@ with a Graphical-style User Interface (GUI).
 #    2015/09/15 rsg Correct missing print statement parentheses in
 #                   resizeConsoleDisplay method.
 #
+#    2016/01/28 rsg Add missing reference to tsCxGlobals:
+#                   "ThemeCxPython = tsCxGlobals.ThemeCxPython".
+#
 # ToDo:
 #
 #    2013/05/30 rsg Revise design to eliminate need for
@@ -460,10 +463,10 @@ with a Graphical-style User Interface (GUI).
 #################################################################
 
 __title__     = 'tsApplication'
-__version__   = '2.8.1'
-__date__      = '09/15/2015'
+__version__   = '2.8.2'
+__date__      = '01/28/2016'
 __authors__   = 'Frederick A. Kier & Richard S. Gordon'
-__copyright__ = 'Copyright (c) 2007-2015 ' + \
+__copyright__ = 'Copyright (c) 2007-2016 ' + \
                 '%s.\n\t\tAll rights reserved.' % __authors__
 __license__   = 'GNU General Public License, ' + \
                 'Version 3, 29 June 2007'
@@ -504,6 +507,7 @@ from tsWxGTUI_Py2x.tsLibCLI import tsExceptions as tse
 from tsWxGTUI_Py2x.tsLibCLI import tsLogger
 
 ThemeToUse = tsCxGlobals.ThemeToUse
+ThemeCxPython = tsCxGlobals.ThemeCxPython
 
 #--------------------------------------------------------------------------
 
