@@ -1,4 +1,4 @@
-#"Time-stamp: <09/08/2015 12:29:34 PM rsg>"
+#"Time-stamp: <01/28/2016  3:37:39 AM rsg>"
 # File: MANIFEST.in
 
 recursive-include tsWxGTUI_Py2x *.py *.sh *.txt
@@ -14,7 +14,7 @@ recursive-include tsWxGTUI_Py2x/tsLibGUI *.*
 recursive-include tsWxGTUI_Py2x/tsToolsCLI *.*
 recursive-include tsWxGTUI_Py2x/tsToolsGUI *.*
 recursive-include tsWxGTUI_Py2x/tsToolsLibCLI *.*
-recursive-include tsWxGTUI_Py2x/tsToolsLibGUI *.*
+## recursive-include tsWxGTUI_Py2x/tsToolsLibGUI *.*
 recursive-include tsWxGTUI_Py2x/tsUtilities *.*
 
 include *.html

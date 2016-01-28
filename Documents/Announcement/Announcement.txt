@@ -4,7 +4,7 @@
 
    Vol. 0 - "tsWxGTUI_PyVx" Toolkit
 
-   Rev. 0.0.4 (Pre-Alpha)
+   Rev. 0.0.6 (Pre-Alpha)
 
    Author(s): Richard S. Gordon
 
@@ -18,7 +18,7 @@
    §         Copyright (c) 2007-2009 Frederick A. Kier & Richard S.
    Gordon, a.k.a. TeamSTARS. All rights reserved.
 
-   §         Copyright (c) 2010-2015 Richard S. Gordon, a.k.a. Software
+   §         Copyright (c) 2010-2016 Richard S. Gordon, a.k.a. Software
    Gadgetry. All rights reserved.
 
    §         GNU General Public License (GPL), Version 3, 29 June 2007
@@ -45,42 +45,42 @@
    .......................................................................
    ......................... 3
 
-   1.1.1       What is the Toolkit designed
+   1.1.1      What is the Toolkit designed
    do?....................................................................
-   ............................. 4
+   ................................ 4
 
-   1.1.2       What is the Toolkit NOT designed to
+   1.1.2      What is the Toolkit NOT designed to
    do?....................................................................
-   .............. 5
+   .................. 6
 
-   1.1.3       Hardware
+   1.1.3      Hardware
    Requirements...........................................................
-   ....................................................... 5
+   .......................................................... 6
 
-   1.1.4       Software
+   1.1.4      Software
    Requirements...........................................................
-   ...................................................... 10
+   .......................................................... 11
 
-   1.1.5       What is included in the
+   1.1.5      What is included in the
    release?...............................................................
-   .................................. 12
+   ...................................... 13
 
-   1.1.6       How might you use the
+   1.1.6      How might you use the
    Toolkit?...............................................................
-   .................................. 14
+   ...................................... 15
 
-   1.1.7       Platform Example
+   1.1.7      Platform Example
    Configurations.........................................................
-   ....................................... 15
+   ........................................... 16
 
-   1.1.8       Where to get further
+   1.1.8      Where to get further
    information?...........................................................
-   ................................... 21
+   ....................................... 21
 
 
 1      ANNOUNCEMENT
 
-   The TeamSTARS "tsWxGTUI_PyVx" Toolkit, version 0.0.4 (pre-alpha), has
+   The TeamSTARS "tsWxGTUI_PyVx" Toolkit, version 0.0.5 (pre-alpha), has
    been released, via "GitHub", for you to freely use, study, modify and
    redistribute.
 
@@ -115,9 +115,9 @@
    3        May be run on any of those developent and embedded systems
    which satisfy the following requirements:
 
-   a)     Hardware Requirements (on page 5)
+   a)     Hardware Requirements (on page 6)
 
-   b)     Software Requirements (on page 10)
+   b)     Software Requirements (on page 11)
 
 
 1.1.1          What is the Toolkit designed do?
@@ -126,23 +126,24 @@
    cross-platform computer programs which monitor and control
    mission-critical equipment.
 
-   Such equipment is used for Commercial (ex. building energy management),
-   Industrial (ex. power generation), Medical (ex. CAT-scan) or Military
-   (ex. weapon control) applications.
+   Such equipment is used for Commercial (such as building energy
+   management), Industrial (such as power generation), Medical (such as
+   CAT-scan) or Military (such as weapon control) applications.
 
    Such computer programs feature "operator-friendly" Command Line and
    Graphical User Interfaces. They perform the local and remote
    Supervisory Control And Data Acquisition (SCADA) associated with
-   Automation (ex. robotics), Communication (ex. network traffic), Control
-   (ex. supervisory and feedback), Diagnostic (ex. hardware and software
-   failure detection and analysis), Instrumentation (ex. data acquisition
-   and signal analysis) and Simulation (ex. flight) applications.
+   Automation (such as robotics), Communication (such as network traffic),
+   Control (such as supervisory and feedback), Diagnostic (such as
+   hardware and software failure detection and analysis), Instrumentation
+   (such as data acquisition and signal analysis) and Simulation (such as
+   flight) applications.
 
 
 1.1.1.1     Command Line User Interface (CLI)
 
-   Application programs may support none, any, or all of these three major
-   types of command line interface mechanisms:
+   Application programs may be launched with any combination of these
+   three major types of command line interface mechanisms:
 
    1        Parameters
 
@@ -180,9 +181,31 @@
 
 1.1.1.2     Graphical User Interface (GUI)
 
-   The Toolkit's character-mode emulation of the pixel-mode "wxPython"
-   Graphical User Interface (GUI) creates displays on terminals and
-   terminal emulators with:
+   To maintain upgradeability to "NCurses 6.0" and simplicity of user
+   installation, configuration, application programming and
+   troubleshooting, the TeamSTARS "tsWxGTUI_PyVx" Toolkit supports only
+   the "Curses" text-mode Terminal Control Library from the Python Global
+   Module Index.
+
+   It does NOT support Third Party alternatives to "Curses" such as
+   "PDCurses", a public-domain "Curses" programming library implemented in
+   the "C" programming language for "Microsoft DOS", "IBM OS/2",
+   "Microsoft Windows", "X11" and "Simple DirectMedia Layer" and
+   "UniCurses", a wrapper for Python 2.x/3.x that provides a unified set
+   of "Curses" functions on all platforms ("Microsoft Windows",
+   "GNU/Linux", "Mac OS X" and "Unix") with syntax close to that of the
+   original "Curses" / "NCurses". To provide functionality on "Microsoft
+   Windows", "UniCurses" wraps "PDCurses".
+
+   Application programs are launched via the Command Line User Interface
+   (CLI) (on page 4) with any combination of the three major types of
+   command line interface mechanisms.
+
+   Once launched, application programs use an Application Programming
+   Interface (API) which emulates a subset of the pixel-mode "wxPython"
+   Graphical User Interface (GUI). The emulation uses text and graphic
+   characters to create displays on text-mode terminals and terminal
+   emulators having the following features:
 
    1        Display Output
 
@@ -194,6 +217,27 @@
    stamped event messages, text with or without color and intensity
    markup, and other GUI objects. Displays may be laid out with or without
    the help of box and grid sizer services.
+
+   On August 8, 2015, Thomas E. Dickey announced the release of ncurses
+   6.0. "The ncurses (new curses) library is a free software emulation of
+   curses in System V Release 4.0 (SVr4), and more. It uses terminfo
+   format, supports pads and color and multiple highlights and forms
+   characters and function-key mapping, and has all the other SVr4-curses
+   enhancements over BSD curses. SVr4 curses is better known today as
+   X/Open Curses."
+
+   The ncurses 6.0 API and Application Binary Interface (ABI) provides:
+
+   a) backward compatible with ncurses 5.0-5.9 on 32-bit processors;
+
+   b) backward compatible with ncurses 5.0-5.9 on 64-bit processors;
+
+   c) new features with ncurses 6.0-6.x on 64-bit processors include
+   support for a wheel mouse and for more than 16 colors and 256 color
+   pairs.
+
+   Future releases of the TeamSTARS "tsWxGTUI_Py_Vx" Toolkit ought to
+   support both the API and ABI for ncurses 5.0-5.9 and for ncurses 6.0.
 
    2        Keyboard Input
 
@@ -545,7 +589,7 @@ equipment
    A character-mode single font text display (whose size could be
    somewhere between that of a 3" smart phone and a 12" tablet) or
    optional pixel-mode graphical display (the same one used for Display
-   for Development of Documentation and Software (on page 9)) that
+   for Development of Documentation and Software (on page 10)) that
    supports the application (or its splash screen) and industry standard
    terminal emulators:
 
@@ -767,7 +811,7 @@ equipment
 
    1        Command Line User Interface (CLI) (on page 4)
 
-   2        Graphical User Interface (GUI) (on page 4)
+   2        Graphical User Interface (GUI) (on page 5)
 
 
 1.1.5.3     Toolkit Components
@@ -796,6 +840,15 @@ equipment
    that express opinions or offerings of explanations about events or
    situations that might be useful to Toolkit installers, developers,
    operators, troubleshooters and distributors.
+
+   Microsoft PowerPoint Presentation (with Adobe PDF copy) highlighting
+   the context and most notable details of the Toolkit's Introduction,
+   Project, Release and Use Case documents. It can be found via the path
+   "./Notebooks/EngineeringNotebook":
+
+           "./MS-PowerPoint-Files/tsWxGTUI_PyVx"
+
+         "./Adobe-PDF-Files/Adobe-PDF-Presentation-Files/tsWxGTUI_PyVx"
 
    4        SourceDistributions
 
@@ -872,6 +925,22 @@ equipment
 
 
 1.1.7          Platform Example Configurations
+
+   To maintain upgradeability to "NCurses 6.0" and simplicity of user
+   installation, configuration, application programming and
+   troubleshooting, the TeamSTARS "tsWxGTUI_PyVx" Toolkit supports only
+   the "Curses" text-mode Terminal Control Library from the Python Global
+   Module Index.
+
+   It does NOT support Third Party alternatives to "Curses" such as
+   "PDCurses", a public-domain "Curses" programming library implemented in
+   the "C" programming language for "Microsoft DOS", "IBM OS/2",
+   "Microsoft Windows", "X11" and "Simple DirectMedia Layer" and
+   "UniCurses", a wrapper for Python 2.x/3.x that provides a unified set
+   of "Curses" functions on all platforms ("Microsoft Windows",
+   "GNU/Linux", "Mac OS X" and "Unix") with syntax close to that of the
+   original "Curses" / "NCurses". To provide functionality on "Microsoft
+   Windows", "UniCurses" wraps "PDCurses".
 
    1        Software Development System Configuration
 
@@ -1155,9 +1224,29 @@ equipment
    and source code (building block libraries, tools, tests and examples)
    at:
 
-   https://github.com/rigordo959/tsWxGTUI_PyVx_Repository
+   "https://github.com/rigordo959/tsWxGTUI_PyVx_Repository"
+
+   a)     For those who are initially only curious and seek more specifics
+   about the features, capabilities and limitations of the TeamSTARS
+   "tsWxGTUI_PyVx" Toolkit building blocks and applications, there are
+   Microsift PowerPoint presentation slide shows and printable copies
+   which can be found via the paths:
+
+   "./Notebooks/EngineeringNotebook/MS-PowerPoint-Files/tsWxGTUI_PyVx"
+
+
+   "./Notebooks/EngineeringNotebook/Adobe-PDF-Files/Adobe-PDF-Presentation
+   -Files/tsWxGTUI_PyVx"
+
+   b)     For those seriously contemplating using the TeamSTARS
+   "tsWxGTUI_PyVx" Toolkit and seek details (for applicable technologies,
+   requirements, design, implemtation, test and troubleshooting) the
+   engineering notebooks can be found at:
+
+   "https://github.com/rigordo959/tsWxGTUI_PyVx_Repository/Notebooks/Engin
+   eeringNotebook"
 
    2        Get your own copy of the Toolkit repository (including its
    records of comments, issue tracking and revisions) via:
 
-   git clone https://github.com/rigordo959/tsWxGTUI_PyVx-Repository
+   "git clone https://github.com/rigordo959/tsWxGTUI_PyVx-Repository"

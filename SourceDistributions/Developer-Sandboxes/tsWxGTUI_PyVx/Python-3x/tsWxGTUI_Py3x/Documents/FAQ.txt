@@ -1,5 +1,5 @@
 #-----------------------------------------------------------
-#"Time-stamp: <08/26/2015  4:13:00 PM rsg>"
+#"Time-stamp: <01/27/2016  9:31:14 AM rsg>"
 #-----------------------------------------------------------
 
 ======================= File: FAQ.txt ======================
@@ -22,8 +22,68 @@
        <Your Working Repository>
        (e.g. "tsWxGTUI_PyVx_Repository") 
          |
+         |  Working repository containing directories and
+         |  files to be packaged into downloadable "tarball"
+         |  and/or "zip" files via the setup shell scripts
+         |  at the bottom of this diagram.
          |
          +-- ["Documents"]
+         |     |
+         |     |  This directory contains a collection of files
+         |     |  which provide the Toolkit recipient with an
+         |     |  understanding of the purpose, goals & capabil-
+         |     |  ities, non-goals & limitations, terms & condi-
+         |     |  tions and procedures for installing, operating,
+         |     |  modifying and redistributing the Toolkit. 
+         |
+         +-- ["ManPages"]
+         |     |
+         |     |  Deliverable Toolkit manual pages are a
+         |     |  form of online software documentation
+         |     |  usually found on a Unix or Unix-like
+         |     |  operating system.
+         |     |
+         |     |  Topics covered include computer programs
+         |     |  (including library and system calls),
+         |     |  formal standards and conventions, and even
+         |     |  abstract concepts.
+         |
+         +-- ["Notebooks"]
+         |     |
+         |     |  Contains a collection of commentaries that
+         |     |  express opinions or offerings of explana-
+         |     |  tions about events or situations that might
+         |     |  be useful to Toolkit installers, developers,
+         |     |  operators, troubleshooters and distributors.
+         |     |  The documents may be in Application-specific
+         |     |  formats (such as Adobe PDF, JPEG Bit-mapped
+         |     |  image, LibreOffice, Microsoft Office, plain
+         |     |  text).
+         |
+         +-- ["SourceDistributions"]
+         |     |
+         |     |  Contains a collection of computer program
+         |     |  source code files that the Toolkit recip-
+         |     |  ient will need to install, operate, modify
+         |     |  and re-distribute the Toolkit.
+         |     |
+         |     +-- ["Developer-Sandboxes"]
+         |     |     |
+         |     |     |  A sandbox is a testing environment that iso-
+         |     |     |  lates untested code changes and outright
+         |     |     |  experimentation from the production environ-
+         |     |     |  ment or repository.
+         |     |
+         |     +-- ["Site-Packages"]
+         |     |     |
+         |     |     |  Site-packages is the location where third-
+         |     |     |  party packages are installed (i.e., those
+         |     |     |  not part of the core Python distribution).
+         |     |     |  NOTE: That with Linux, Mac OS X and Unix
+         |     |     |  operating systems one must have root priv-
+         |     |     |  iledges to write to that location.
+         |
+         +-- "README.txt"
 
 ===================== TABLE OF CONTENTS ====================
 
@@ -47,6 +107,13 @@
 
    3.1 Remote shell
    3.2 wxPython High-Level GUI Toolkit
+
+APPENDIX
+
+   This section provides additional background context for
+   any one not yet ready to wade through the formal software
+   engineering documentation.
+
 
 =================== What is the Toolkit? ===================
 
@@ -375,5 +442,566 @@
         nowadays everybody wants QT, that adopting LGPL license
         mode is now the de-facto preferred cross-platform
         graphical library."
+
+========================= APPENDIX =========================
+
+This section provides additional background context for any
+one not yet ready to wade through the formal software engi-
+neering documentation.
+
+INTRODUCTION
+============
+
+
+tsWxGTUI_PyVx is the name of a set of cross platform soft-
+ware development toolkits and run time libraries that con-
+tain general purpose, reusable building block components.
+
+The toolkits and run time libraries are designed for laptop,
+desktop and workstation computer installations which are
+used for application software development.
+
+The runtime libraries may also be embedded in computer sys-
+tems that monitor and control mission critical equipment
+whose applications include:
+
+1. Automation (as in factory and warehouse robotics)
+
+2. Communication (as in local and wide-area network trans-
+   mitter and receiver traffic)
+
+3. Control (as in supervisory and feedback control of power
+   generating equipment and manufacturing processes)
+
+4. Diagnostic (as in hardware and software failure modes and
+   effects detection and analysis)
+
+5. Instrumentation (as in analog/digital sensor data acqui-
+   sition and actuator output)
+
+6. Simulation (as in aircraft flight control)
+
+Features
+--------
+
+tsWxGTUI_PyVx provides application software users and devel-
+opers with the following functional and interface capabil-
+ities:
+
+1. Python Programming Lanugage Capabilities
+
+   From Wikipedia, the free encyclopedia:
+
+      "Python is a widely used general-purpose, high-level
+      programming language. Its design philosophy emphasizes
+      code readability, and its syntax allows programmers to
+      express concepts in fewer lines of code than would be
+      possible in languages such as C++ or Java. The lan-
+      guage provides constructs intended to enable clear
+      programs on both a small and large scale.
+
+      Python supports multiple programming paradigms, in-
+      cluding object-oriented, imperative and functional
+      programming or procedural styles. It features a dynamic
+      type system and automatic memory management and has a
+      large and comprehensive standard library.
+
+      Python interpreters are available for installation on
+      many operating systems, allowing Python code execution
+      on a wide variety of systems. Using third-party tools,
+      such as Py2exe or Pyinstaller, Python code can be
+      packaged into stand-alone executable programs for some
+      of the most popular operating systems, allowing the
+      distribution of Python-based software for use on those
+      environments without requiring the installation of a
+      Python interpreter.
+
+      CPython, the reference implementation of Python, is
+      free and open-source software and has a community-
+      based development model, as do nearly all of its
+      alternative implementations. CPython is managed by
+      the non-profit Python Software Foundation."
+
+   a. The tsWxGTUI_PyV3 toolkit and its run time library are
+      designed for use with the 3rd generation of the Python
+      programming language. Its latest release is subject
+      only to bug-fixes. New releases only introduce feature
+      and functional enhancements.
+
+   b. The tsWxGTUI_PyV2 toolkit and its run time library are
+      designed for use with the 2nd generation of the Python
+      programming language. Its latest release is subject
+      only to bug-fixes. There is a permanent moratorium on
+      new releases to introduce feature and functional en-
+      hancements.
+
+3. A POSIX-style Command Line User Interface (CLI) Capabili-
+   ties
+
+   a. Enables an operator to install, configure and launch
+      local and remote application programs.
+
+   b. POSIX, an acronym for Portable Operating System Inter-
+      face, is a family of industry standards for maintain-
+      ing compatibility between Unix-like operating systems.
+
+4. A text-mode emulation of the wxPython Graphical User In-
+   terface (GUI) Capabilities
+
+   a. Enables an operator to interactively monitor and con-
+      trol mission-critical hardware, software and process-
+      es.
+
+   b. tsWxGTUI_PyVx is a text-mode emulation of a subset of
+      the wxPython Application Programming Interface (API).
+      Text-mode operation does not use such pixel-mode
+      graphical features as icons, curved shapes and text
+      fonts of almost infinitely adjustable heights, widths,
+      thicknesses and shapes. Consequently, it uses substan-
+      tially fewer computer system and network communication
+      resources than does a pixel-mode GUI. It makes local
+      and remote monioring and control more efficient and
+      economical.
+
+      From Wikipedia, the free encyclopedia:
+
+         "Text-based user interface (TUI) is a retronym that
+         was coined sometime after the invention of graph-
+         ical user interfaces, to distinguish a text-based
+         interface that processes events from command-line
+         interfaces that operate sequentially. An advanced
+         TUI may, like GUIs, use the entire screen area and
+         accept mouse input. A TUI does not necessarily
+         provide line-by-line output, although TUIs only
+         use text, symbols and colors available on a given
+         text environment. VisiCalc and the Emacs and vi
+         visual editors are the earliest examples of TUIs."
+
+      wxPython is a popular wrapper which interfaces Python
+      application programs to the pixel-mode, 24-bit color
+      C++ wxWidgets GUI library.
+      
+      From Wikipedia, the free encyclopedia:
+
+         "wxWidgets enables a program's GUI code to compile
+         and run on several computer platforms with minimal
+         or no code changes. It covers systems such as
+         Microsoft Windows, OS X (Carbon and Cocoa), iOS
+         (Cocoa Touch), Linux/Unix (X11, Motif, and GTK+),
+         OpenVMS, OS/2 and AmigaOS." 
+
+      wxPython and wxWidgets are free and open source soft-
+      ware, distributed under the terms of the wxWidgets
+      License, which satisfies those wishing to produce
+      software under GPL and/or proprietary licenses.
+
+Portable Cross-platform Design
+------------------------------
+
+The tsWxGTUI_PyVx architecture and its general purpose and
+re-usable building block component design fulfill the fol-
+lowing objectives:
+
+1. tsWxGTUI_PyVx is a wrapper around the text-mode Python
+   Curses Terminal Control Interface library which supports
+   display terminals or terminal emulators with:
+
+   a. 4-bit color (8-color as in xterm and 16-color as in
+      xterm-16color, xterm-88color, and xterm-256color)
+
+   b. 1-bit color (a single color "ON" or "OFF" as in vt100
+      and vt220)
+
+2. Once application programs have been designed and debug-
+   ged, they do not need to be modified in order to work on
+   other POSIX-compliant platforms.
+
+3. Application programs operate with the same CLI/GUI look
+   and feel on various releases of:
+
+   a. GNU/Linux (Debian, Fedora, Red Hat, SuSE, Ubuntu etc.)
+
+      From Wikipedia, the free encyclopedia:
+
+         "Linux ... is a Unix-like and mostly POSIX-com-
+         pliant computer operating system (OS) assembled
+         under the model of free and open-source software
+         development and distribution. The defining com-
+         ponent of Linux is the Linux kernel, an operating
+         system kernel first released on 5 October 1991 by
+         Linus Torvalds. The Free Software Foundation uses
+         the name GNU/Linux to describe the operating sys-
+         tem, which has led to some controversy."
+
+             -----------------------------------------------
+             [BTW: The GNU/Linux name is intended to draw
+                   attention to the fact that Linux distri-
+                   butions include substantially more code
+                   associated with the Unix-like GNU com-
+                   pilers and command line interface tools
+                   than the code associated with the Linux
+                   kernal.]
+             -----------------------------------------------
+
+         "Linux was originally developed as a free operating
+         system for personal computers based on the Intel x86
+         architecture, but has since been ported to more com-
+         puter hardware platforms than any other operating
+         system. Thanks to its dominance on smartphones, An-
+         droid, which is built on top of the Linux kernel,
+         has the largest installed base of all general-pur-
+         pose operating systems. Linux, in its original
+         form, is also the leading operating system on serv-
+         ers and other big iron systems such as mainframe
+         computers and virtually all fastest supercomputers,
+         but is used on only around 1.6% of desktop comput-
+         ers with Linux-based Chrome OS taking about 5% of
+         the overall and nearly 20% of the sub-$300 notebook
+         sales. Linux also runs on embedded systems, which
+         are devices whose operating system is typically
+         built into the firmware and is highly tailored to
+         the system; this includes smartphones and tablet
+         computers running Android and other Linux deriv-
+         atives, TiVo and similar DVR devices, network
+         routers, facility automation controls, televis-
+         ions, video game consoles, and smartwatches.
+
+         The development of Linux is one of the most promi-
+         nent examples of free and open-source software col-
+         laboration. The underlying source code may be used,
+         modified and distributed - commercially or non-com-
+         mercially - by anyone under the terms of its re-
+         spective licenses, such as the GNU General Public
+         License. Typically, Linux is packaged in a form
+         known as a Linux distribution, for both desktop
+         and server use. Some of the popular mainstream
+         Linux distributions are Debian, Ubuntu, Linux Mint,
+         Fedora, openSUSE, Arch Linux and Gentoo, together
+         with commercial Red Hat Enterprise Linux and SUSE
+         Linux Enterprise Server distributions. Linux dis-
+         tributions include the Linux kernel, supporting
+         utilities and libraries, and usually a large amount
+         of application software to fulfill the distribu-
+         tion's intended use.
+
+         Distributions oriented toward desktop use typically
+         include a windowing system, such as X11, Mir or a
+         Wayland implementation, and an accompanying desktop
+         environment, such as GNOME or the KDE Software Com-
+         pilation; some distributions may also include a
+         less resource-intensive desktop, such as LXDE or
+         Xfce. Distributions intended to run on servers may
+         omit all graphical environments from the standard
+         install, and instead include other software to set
+         up and operate a solution stack such as LAMP. Be-
+         cause Linux is freely redistributable, anyone may
+         create a distribution for any intended use."
+
+   b. Mac OS X (Leopard - El Capitan))
+
+      From Wikipedia, the free encyclopedia:
+
+         "Darwin is an open source Unix operating system re-
+         leased by Apple Inc. in 2000. It is composed of
+         code developed by Apple, as well as code derived
+         from NeXTSTEP, BSD, and other free software pro-
+         jects.
+
+         Darwin forms the core set of components upon which
+         OS X and iOS are based. It is mostly POSIX compat-
+         ible, but has never, by itself, been certified as
+         being compatible with any version of POSIX. Start-
+         ing with Leopard, OS X has been certified compat-
+         ible with the Single UNIX Specification version 3
+         (SUSv3)."
+
+   c. Microsoft Windows (requires Cygwin, the free GNU/Lin-
+      ux-like plug-in from Red Hat)
+
+      From Wikipedia, the free encyclopedia:
+
+         "Microsoft Windows (or simply Windows) is a meta-
+         family of graphical operating systems developed,
+         marketed, and sold by Microsoft. It consists of
+         several families of operating systems, each of
+         which cater to a certain sector of the comput-
+         ing industry. Active Windows families include
+         Windows NT, Windows Embedded and Windows Phone;
+         these may encompass subfamilies, e.g. Windows
+         Embedded Compact (Windows CE) or Windows Server.
+         Defunct Windows families include Windows 9x and
+         Windows Mobile.
+
+         Microsoft introduced an operating environment named
+         Windows on November 20, 1985, as a graphical operat-
+         ing system shell for MS-DOS in response to the grow-
+         ing interest in graphical user interfaces (GUIs).
+         Microsoft Windows came to dominate the world's per-
+         sonal computer market with over 90% market share,
+         overtaking Mac OS, which had been introduced in
+         1984. However, since 2012, because of the massive
+         growth of smartphones, Windows sells less than
+         Android, which became the most popular operating
+         system in 2014, when counting all of the computing
+         platforms each operating system runs on; in 2014,
+         the number of Windows devices sold were less than
+         25% of Android devices sold. However, comparisons
+         across different markets are not fully relevant;
+         and for personal computers, Windows is still the
+         most popular operating system.
+
+         As of July 2015, the most recent version of Windows
+         for personal computers, tablets and smartphones is
+         Windows 10. The most recent versions for server
+         computers and embedded devices are respectively
+         Windows Server 2012 R2 and Windows Embedded 8. A
+         specialized version of Windows runs on the Xbox One
+         game console.
+
+         The next server version of Windows is Windows Serv-
+         er 2016, which is expected to be released in early
+         2016."
+
+   d. Unix
+
+      From Wikipedia, the free encyclopedia:
+
+         "Unix (trademarked as UNIX) is a family of multi-
+         tasking, multiuser computer operating systems that
+         derive from the original AT&T Unix, developed in
+         the 1970s at the Bell Labs research center by Ken
+         Thompson, Dennis Ritchie, and others.
+
+         Initially intended for use inside the Bell System,
+         AT&T licensed Unix to outside parties from the late
+         1970s, leading to a variety of both academic and
+         commercial variants of Unix from vendors such as
+         the University of California, Berkeley (BSD),
+         Microsoft (Xenix), IBM (AIX) and Sun Microsystems
+         (Solaris). AT&T finally sold its rights in Unix to
+         Novell in the early 1990s, which then sold its Unix
+         business to the Santa Cruz Operation (SCO) in 1995,
+         but the UNIX trademark passed to the industry stand-
+         ards consortium The Open Group, which allows the use
+         of the mark for certified operating systems compli-
+         ant with the Single UNIX Specification (SUS). Among
+         these is Apple's OS X, which is the Unix version
+         with the largest installed base as of 2014.
+
+         From the power user's or programmer's perspective,
+         Unix systems are characterized by a modular design
+         that is sometimes called the "Unix philosophy",
+         meaning that the operating system provides a set of
+         simple tools that each perform a limited, well-
+         defined function, with a unified filesystem as the
+         main means of communication and a shell scripting
+         and command language to combine the tools to per-
+         form complex workflows. Aside from the modular
+         design, Unix also distinguishes itself from its
+         predecessors as the first portable operating
+         system: almost the entire operating system is
+         written in the C programming language that allowed
+         Unix to reach numerous platforms.
+
+         Many clones of Unix have arisen over the years, of
+         which Linux is the most popular, having displaced
+         SUS-certified Unix on many server platforms since
+         its inception in the early 1990s."
+
+   e. Cygwin
+
+      From Wikipedia, the free encyclopedia:
+
+         "Cygwin is a Unix-like environment and command-line
+         interface for Microsoft Windows. Cygwin provides
+         native integration of Windows-based applications,
+         data, and other system resources with applications,
+         software tools, and data of the Unix-like environ-
+         ment. Thus it is possible to launch Windows appli-
+         cations from the Cygwin environment, as well as to
+         use Cygwin tools and applications within the Win-
+         dows operating context.
+
+         Cygwin consists of two parts: a dynamic-link libra-
+         ry (DLL) as an API compatibility layer providing a
+         substantial part of the POSIX API functionality,
+         and an extensive collection of software tools and
+         applications that provide a Unix-like look and feel.
+
+         Cygwin was originally developed by Cygnus Solutions,
+         which was later acquired by Red Hat. It is free and
+         open source software, released under the GNU Gener-
+         al Public License version 3. Today it is maintained
+         by employees of Red Hat, NetApp and many other volun-
+         teers."
+
+         "Cygwin consists of a library that implements the
+         POSIX system call API in terms of Win32 system
+         calls, a GNU development toolchain (including GCC
+         and GDB) to allow software development, and running
+         of a large number of application programs equiva-
+         lent to those on Unix systems. Programmers have
+         ported many Unix, GNU, BSD and Linux programs and
+         packages to Cygwin, including the X Window System,
+         K Desktop Environment 3, GNOME, Apache, and TeX.
+         Cygwin permits installing inetd, syslogd, sshd,
+         Apache, and other daemons as standard Windows
+         services, allowing Microsoft Windows systems to
+         emulate Unix and Linux servers.
+
+         Cygwin programs are installed by running Cygwin's
+         "setup" program, which downloads the necessary
+         program and feature package files from repositories
+         on the Internet. Setup can install, update, and
+         remove programs and their source code packages.
+         A complete installation will take in excess of
+         36 GB of hard disk space, but usable configur-
+         ations may require as little as 1 or 2 GB."
+
+         "Efforts to reconcile concepts that differ between
+         Unix and Windows systems include:
+
+       * A Cygwin-specific version of the Unix mount command
+         allows mounting Windows paths as "filesystems" in
+         the Unix file space. Initial mount-points can be
+         configured in /etc/fstab, which has a very similar
+         format as on Unix systems, except that Windows
+         paths appear in place of devices. Filesystems can
+         be mounted in binary mode (by default), or in text
+         mode, which enables automatic conversion between LF
+         and CRLF endings (which only affects programs that
+         open files without explicitly specifying text or
+         binary mode).
+
+       * Cygwin 1.7 introduced comprehensive support for
+         POSIX locales and many character encodings, whereby
+         the UTF-8 Unicode encoding became the default.
+         Windows file-names and other identifiers, which are
+         encoded as UTF-16, are automatically converted to
+         and from the selected character-encoding.
+
+       * Windows drive letters map to a special directory,
+         so for example C: appears as /cygdrive/c. The
+         /cygdrive prefix can be changed. Windows network
+         paths of the form \\HOST\SHARE\FILE are mapped to
+         //HOST/SHARE/FILE. Windows paths can also be used
+         directly from Cygwin programs, but many programs do
+         not support them correctly, hence this is discour-
+         aged.
+
+       * Full-featured /dev and /proc file-systems are pro-
+         vided. /proc/registry provides direct filesystem
+         access to the registry.
+
+       * Cygwin supports POSIX symbolic links, representing
+         them as plain-text files with the system attribute
+         set. Cygwin 1.5 represented them as Windows Explor-
+         er shortcuts, but this has been changed for reasons
+         of performance and POSIX correctness. Cygwin also
+         recognises NTFS junction points and symbolic links
+         and treats them as POSIX symbolic links, but it
+         does not create them as their semantics are not
+         fully POSIX-compliant.
+
+       * The Solaris API for handling access control lists
+         (ACLs) is supported and maps to the Windows NT ACL
+         system.
+
+       * Special formats of /etc/passwd and /etc/group are
+         provided that include pointers to the Windows equiv-
+         alent SIDs (in the GECOS field), allowing for map-
+         ping between Unix and Windows users and groups.
+
+       * The fork system call for duplicating a process is
+         fully implemented, but it does not map well to the
+         Windows API. For example, the copy-on-write optimi-
+         zation strategy could not be used. As a result,
+         Cygwin's fork is rather slow compared with Linux
+         and others. (That overhead can often be avoided by
+         replacing uses of the fork/exec technique with
+         calls to the spawn functions declared in the Win-
+         dows-specific process.h header).
+
+       * The Cygwin DLL contains a console driver that emu-
+         lates a Unix-style terminal within the Windows
+         console. Cygwin's default user interface is the
+         bash shell running in the Cygwin console.
+
+       * The DLL also implements pseudo terminal (pty) de-
+         vices. Cygwin ships with a number of terminal emul-
+         ators that are based on them, including mintty,
+         rxvt(-unicode), and xterm. These are more compliant
+         with Unix terminal standards and user interface
+         conventions than the Cygwin console, but are less
+         suited for running Windows console programs.
+
+       * Various utilities are provided for converting be-
+         tween Windows and Unix paths and file formats, for
+         handling line ending (CRLF/LF) issues, for display-
+         ing the DLLs that an executable is linked with,
+         etc.
+
+       * Apart from always being linked against the Cygwin
+         DLL, Cygwin executables are normal Windows execut-
+         ables. This means that Cygwin programs have full
+         access to the Windows API and other Windows libra-
+         ries, which allows gradual porting of programs from
+         one platform to the other. However, programmers
+         need to be careful about mixing conflicting POSIX
+         and Windows functions.
+
+         The version of gcc that comes with Cygwin has var-
+         ious extensions for creating Windows DLLs, specify-
+         ing whether a program is a windowing or console-
+         mode program, adding resources, etc. Support for
+         compiling programs that do not require the POSIX
+         compatibility layer provided by the Cygwin DLL used
+         to be included in the default gcc, but as of 2014 is
+         provided by cross-compilers contributed by the
+         MinGW-w64 project.
+
+         Cygwin is used heavily for porting many popular
+         pieces of software to the Windows platform. It is
+         used to compile Sun Java, OpenOffice.org, Libre-
+         Office, and even web server software like Lighttpd
+         and Hiawatha.
+
+         Red Hat normally licenses the Cygwin library under
+         the GNU General Public License version 3 with an
+         exception to allow linking to any free and open
+         source software whose license conforms to the Open
+         Source Definition. Red Hat also sells commercial
+         licenses to those who wish to redistribute pro-
+         grams that use the Cygwin library under propri-
+         etary terms."
+
+4. Does not require any modifications to the Python applica-
+   tion programs.
+
+   a. The computer administrator pre-configures one or more
+      computer terminals/emulators (such as vt100 or xterm).
+
+   b. The computer operator selects which one of the avail-
+      able computer terminals/emulators is to be used.
+
+   c. The computer operator selects and launches the Python
+      2x or Python 3x application program.
+
+   d. Upon launch, the Python application program will be
+      translated into machine readable Python byte-code
+      by the appropriate Python 2x or Python 3x language
+      interpreter.
+
+      The byte-code will then be automatically linked to the
+      required Python libraries (standard or toolkit desig-
+      nated) byte-code.
+
+      The Python virtual machine then executes the byte-
+      code using the appropriate GNU/Linux, Mac OS X,
+      Microsoft Windows or Unix run time library.
+
+   e. Upon the Python aplication termination (pre-programed
+      or via operator action such as Ctrl-C) the associated
+      Python virtual machine will shut down.
 
 ======================= End-Of-File ========================

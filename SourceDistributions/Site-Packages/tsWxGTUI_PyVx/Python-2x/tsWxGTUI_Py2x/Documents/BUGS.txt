@@ -1,5 +1,5 @@
 #-----------------------------------------------------------
-#"Time-stamp: <10/19/2015  4:51:31 AM rsg>"
+#"Time-stamp: <10/30/2015 11:45:16 AM rsg>"
 #-----------------------------------------------------------
 
 ====================== File: BUGS.txt ======================
@@ -952,6 +952,68 @@ via email to "SoftwareGadgetry@comcast.net".
     is relatively painless.
 
    ---------------------------------------------------------
+
+57. STATUS:    OPEN
+    RELEASE:   rigordo959/tsWxGTUI_PyVx_Repository
+    COMPONENT: tsWxGTUI_PyVx Toolkit
+    SYNOPSIS:  is NOT compatible with either PDCurses or UniCurses.
+    COMMENTS:  The tsWxGTUI_PyVx Toolkit is NOT compatible
+    with either PDCurses or UniCurses.
+
+    Here is an update on my development of a cross-platform
+    software development toolkit, in Python, having a
+    text-mode Graphical-style User Interface (GUI) as it
+    relates to PDCurses:
+
+    The toolkit features the high-level GUI application-
+    programming interface of the wxPython wrapper to pixel-
+    mode wxWidgets, which is implemented in C++.
+
+    The toolkit is implemented using the low-level GUI
+    application-programming interface of Curses/Ncurses,
+    which is implemented in C but accessed via a standard-
+    ized multi-level library of Python classes, functions
+    and methods and an application wrapper method, which
+    saves the terminal state before curses 'initscr' and
+    restores it after curses 'endwin'. I recall once
+    coming across a statement that the standard Python
+    Curses/NCurses library had been implemented in the
+    C rather than in the Python language.
+
+    The toolkit source code (100+K executable lines of
+    Python) is usable, without change, on computers having
+    32-/64-bit processors and Linux, Mac OS X, Microsoft
+    Windows (requires Cygwin, the free Linux-like plug-in
+    from Red Hat) or Unix operating systems.
+
+    The toolkit supports 8-/16-color (64-/256-color pair)
+    xterm-family and non-color vt100-family terminal
+    emulators.
+
+    I've investigated the possibility of supporting
+    PDCurses, which is implemented in C, and includes
+    a single-level library of Python functions and methods.
+    Unfortunately, the PDCurses Python library uses an
+    application- programming interface structured like
+    the C-language one, with c-type arguments, rather than
+    one equivalent to the standard Python library. The
+    PDCurses library is not compatible with the standard
+    Python Curses/NCurses library.
+
+    Searching for a multi-level library of Python classes,
+    functions and methods compatible with the standard
+    Python Curses/NCurses library, I discovered UniCurses.
+    It uses whichever library (Curses, NCurses or PDCurses)
+    is available. Like PDCurses, it uses an application-
+    programming interface structured like the C-language
+    one, with c-type arguments, rather than one equivalent
+    to the standard Python library. I unsuccessfully
+    experimented with wrapping its library with a standard-
+    ized multi-level library of Python classes, functions
+    and methods and an application wrapper method, which
+    saves the terminal state before curses 'initscr' and
+    restores it after curses 'endwin'. The c-type arguments
+    precluded operation of my toolkit.
 
    ---------------------------------------------------------
 

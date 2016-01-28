@@ -1,5 +1,5 @@
 #! /usr/bin/env python
-# "Time-stamp: <09/14/2015  8:01:11 AM rsg>"
+# "Time-stamp: <01/26/2016  4:58:32 AM rsg>"
 '''
 tsCxGlobals.py - Module to establish configuration constants and
 macro-type functions for the Command Line Interface mode of the
@@ -162,6 +162,11 @@ macro-type functions for the Command Line Interface mode of the
 #                       tsMinimumDisplaySize
 #                       tsRecommendedDisplaySize.
 #
+#    2016/01/26 rsg Modified built-in test (if __name__ == "__main__"):
+#                   Added missing site-package ("tsWxGTUI_Py2x")
+#                   references. Also updated copyright and release
+#                   info.
+#
 # ToDo:
 #
 #    TBD.
@@ -169,10 +174,10 @@ macro-type functions for the Command Line Interface mode of the
 #################################################################
 
 __title__     = 'tsCxGlobals'
-__version__   = '1.7.0'
-__date__      = '09/14/2015'
+__version__   = '1.7.1'
+__date__      = '01/26/2016'
 __authors__   = 'Richard S. Gordon'
-__copyright__ = 'Copyright (c) 2013-2015 ' + \
+__copyright__ = 'Copyright (c) 2013-2016 ' + \
                 '%s.\n\t\tAll rights reserved.' % __authors__
 __license__   = 'GNU General Public License, ' + \
                 'Version 3, 29 June 2007'
@@ -231,7 +236,7 @@ except ImportError as e:
 #---------------------------------------------------------------------------
 
 ProductName   = 'TeamSTARS "tsWxGTUI_PyVx" Toolkit'
-ReleaseNumber = '0.0.2'
+ReleaseNumber = '0.0.6'
 SubSystemName = '"tsToolkitCLI"'
 VendorName    = 'Richard S. Gordon, a.k.a. Software Gadgetry'
 ThemeDate     = __date__
@@ -337,7 +342,7 @@ theCopyright = '''
                           Richard S. Gordon,
                           a.k.a TeamSTARS.
                 All rights reserved.
-  Copyright (c) 2010-2015 Richard S. Gordon,
+  Copyright (c) 2010-2016 Richard S. Gordon,
                           a.k.a Software Gadgetry.
                 All rights reserved.
   GNU General Public License (GPL), Version 3,
@@ -1120,23 +1125,25 @@ ThemeToUse = Theme_Toolkit_Engineer # Maximum debug verbosity
  
 if __name__ == "__main__":
 
+##    #--------------------------------------------------------------------------
+
+##    try:
+
+##        from tsWxGTUI_Py3x import tsLibCLI
+
+##    except ImportError as importCode:
+
+##        print('%s: ImportError (tsLibCLI); ' % __title__ + \
+##              'importCode=%s' % str(importCode))
+
     #--------------------------------------------------------------------------
 
     try:
 
-        import tsLibCLI
+        from tsWxGTUI_Py3x.tsLibCLI import tsExceptions as tse
+        from tsWxGTUI_Py3x.tsLibCLI import tsLogger as Logger
+        from tsWxGTUI_Py3x.tsLibCLI import tsReportUtilities
 
-    except ImportError as importCode:
-
-        print('%s: ImportError (tsLibCLI); ' % __title__ + \
-              'importCode=%s' % str(importCode))
-
-    #--------------------------------------------------------------------------
-
-    try:
-
-        import tsExceptions as tse
-        import tsLogger as Logger
         from tsReportUtilities import TsReportUtilities as tsrpu
 
     except ImportError as importCode:

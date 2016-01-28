@@ -1,4 +1,4 @@
-#"Time-stamp: <05/05/2015  8:46:10 AM rsg>"
+#"Time-stamp: <01/28/2016  3:06:19 AM rsg>"
 # File: MANIFEST.in
 
 recursive-include tsWxGTUI_PyVx *.py *.sh *.txt
@@ -11,8 +11,8 @@ recursive-include tsWxGTUI_PyVx/Documents/ManPages/tsManPagesTestsLibCLI *.py *.
 recursive-include tsWxGTUI_PyVx/Documents/ManPages/tsManPagesTestsLibGUI *.py *.sh *.txt *.man
 recursive-include tsWxGTUI_PyVx/Documents/ManPages/tsManPagesToolsCLI *.py *.sh *.txt *.man
 recursive-include tsWxGTUI_PyVx/Documents/ManPages/tsManPagesToolsLibCLI *.py *.sh *.txt *.man
-recursive-include tsWxGTUI_PyVx/Documents/wxPython-2.8.9.2-docs *.py *.sh *.txt
-recursive-include tsWxGTUI_PyVx/Documents/wxPython-2.8.9.2-docs/api *.*
+## recursive-include tsWxGTUI_PyVx/Documents/wxPython-2.8.9.2-docs *.py *.sh *.txt
+## recursive-include tsWxGTUI_PyVx/Documents/wxPython-2.8.9.2-docs/api *.*
 
 recursive-include tsWxGTUI_PyVx/Python-2x *.py *.sh *.txt
 recursive-include tsWxGTUI_PyVx/Python-2x/tsWxGTUI_Py2x *.py *.sh *.txt
@@ -21,17 +21,17 @@ recursive-include tsWxGTUI_PyVx/Python-2x/tsWxGTUI_Py2x/tsDemoArchive *.py *.sh 
 recursive-include tsWxGTUI_PyVx/Python-2x/tsWxGTUI_Py2x/tsDemoArchive/tsTestsLibCLI *.py *.sh *.txt
 recursive-include tsWxGTUI_PyVx/Python-2x/tsWxGTUI_Py2x/tsDemoArchive/tsTestsLibGUI *.py *.sh *.txt
 recursive-include tsWxGTUI_PyVx/Python-2x/tsWxGTUI_Py2x/tsDemoArchive/tsTestsToolsCLI *.py *.sh *.txt
-#recursive-include tsWxGTUI_PyVx/Python-2x/tsWxGTUI_Py2x/tsDemoArchive/tsTestsToolsGUI *.py *.sh *.txt
+## recursive-include tsWxGTUI_PyVx/Python-2x/tsWxGTUI_Py2x/tsDemoArchive/tsTestsToolsGUI *.py *.sh *.txt
 recursive-include tsWxGTUI_PyVx/Python-2x/tsWxGTUI_Py2x/tsDemoArchive/tsTestsToolsLibCLI *.py *.sh *.txt
 recursive-include tsWxGTUI_PyVx/Python-2x/tsWxGTUI_Py2x/tsDemoArchive/tsTestsToolsLibCLI/basicFileTypes *.*
 recursive-include tsWxGTUI_PyVx/Python-2x/tsWxGTUI_Py2x/tsDemoArchive/tsTestsToolsLibCLI/regressionTestFileTypes *.*
-#recursive-include tsWxGTUI_PyVx/Python-2x/tsWxGTUI_Py2x/tsDemoArchive/tsTestsToolsLibGUI *.py *.sh *.txt
+## recursive-include tsWxGTUI_PyVx/Python-2x/tsWxGTUI_Py2x/tsDemoArchive/tsTestsToolsLibGUI *.py *.sh *.txt
 recursive-include tsWxGTUI_PyVx/Python-2x/tsWxGTUI_Py2x/tsLibCLI *.py *.sh *.txt
 recursive-include tsWxGTUI_PyVx/Python-2x/tsWxGTUI_Py2x/tsLibGUI *.py *.sh *.txt
 recursive-include tsWxGTUI_PyVx/Python-2x/tsWxGTUI_Py2x/tsToolsCLI *.py *.sh *.txt
 recursive-include tsWxGTUI_PyVx/Python-2x/tsWxGTUI_Py2x/tsToolsGUI *.py *.sh *.txt
 recursive-include tsWxGTUI_PyVx/Python-2x/tsWxGTUI_Py2x/tsToolsLibCLI *.py *.sh *.txt
-recursive-include tsWxGTUI_PyVx/Python-2x/tsWxGTUI_Py2x/tsToolsLibGUI *.py *.sh *.txt
+## recursive-include tsWxGTUI_PyVx/Python-2x/tsWxGTUI_Py2x/tsToolsLibGUI *.py *.sh *.txt
 recursive-include tsWxGTUI_PyVx/Python-2x/tsWxGTUI_Py2x/tsUtilities *.py *.sh *.txt
 
 recursive-include tsWxGTUI_PyVx/Python-3x *.py *.sh *.txt
@@ -40,17 +40,17 @@ recursive-include tsWxGTUI_PyVx/Python-3x/tsWxGTUI_Py3x/tsDemoArchive *.py *.sh 
 recursive-include tsWxGTUI_PyVx/Python-3x/tsWxGTUI_Py3x/tsDemoArchive/tsTestsLibCLI *.py *.sh *.txt
 recursive-include tsWxGTUI_PyVx/Python-3x/tsWxGTUI_Py3x/tsDemoArchive/tsTestsLibGUI *.py *.sh *.txt
 recursive-include tsWxGTUI_PyVx/Python-3x/tsWxGTUI_Py3x/tsDemoArchive/tsTestsToolsCLI *.py *.sh *.txt
-#recursive-include tsWxGTUI_PyVx/Python-3x/tsWxGTUI_Py3x/tsDemoArchive/tsTestsToolsGUI *.py *.sh *.txt
+## recursive-include tsWxGTUI_PyVx/Python-3x/tsWxGTUI_Py3x/tsDemoArchive/tsTestsToolsGUI *.py *.sh *.txt
 recursive-include tsWxGTUI_PyVx/Python-3x/tsWxGTUI_Py3x/tsDemoArchive/tsTestsToolsLibCLI *.py *.sh *.txt
 recursive-include tsWxGTUI_PyVx/Python-3x/tsWxGTUI_Py3x/tsDemoArchive/tsTestsToolsLibCLI/basicFileTypes *.*
 recursive-include tsWxGTUI_PyVx/Python-3x/tsWxGTUI_Py3x/tsDemoArchive/tsTestsToolsLibCLI/regressionTestFileTypes *.*
-#recursive-include tsWxGTUI_PyVx/Python-3x/tsWxGTUI_Py3x/tsDemoArchive/tsTestsToolsLibGUI *.py *.sh *.txt
+## recursive-include tsWxGTUI_PyVx/Python-3x/tsWxGTUI_Py3x/tsDemoArchive/tsTestsToolsLibGUI *.py *.sh *.txt
 recursive-include tsWxGTUI_PyVx/Python-3x/tsWxGTUI_Py3x/tsLibCLI *.py *.sh *.txt
 recursive-include tsWxGTUI_PyVx/Python-3x/tsWxGTUI_Py3x/tsLibGUI *.py *.sh *.txt
 recursive-include tsWxGTUI_PyVx/Python-3x/tsWxGTUI_Py3x/tsToolsCLI *.py *.sh *.txt
 recursive-include tsWxGTUI_PyVx/Python-3x/tsWxGTUI_Py3x/tsToolsGUI *.py *.sh *.txt
 recursive-include tsWxGTUI_PyVx/Python-3x/tsWxGTUI_Py3x/tsToolsLibCLI *.py *.sh *.txt
-recursive-include tsWxGTUI_PyVx/Python-3x/tsWxGTUI_Py3x/tsToolsLibGUI *.py *.sh *.txt
+## recursive-include tsWxGTUI_PyVx/Python-3x/tsWxGTUI_Py3x/tsToolsLibGUI *.py *.sh *.txt
 recursive-include tsWxGTUI_PyVx/Python-3x/tsWxGTUI_Py3x/tsUtilities *.py *.sh *.txt
 
 # recursive-include tests *.py *.c *.sh *.txt

@@ -1,5 +1,5 @@
 #-----------------------------------------------------------
-#"Time-stamp: <09/30/2015 11:06:04 AM rsg>
+#"Time-stamp: <11/01/2015  7:46:46 AM rsg>
 #-----------------------------------------------------------
 
 =============== File: README2-Repository.txt ===============
@@ -139,7 +139,8 @@
          |     |     |
          |     |     |     Test (unit, integration, system, acceptance),
          |     |     |
-         |     |     |     Marketing (announcement, brochure),
+         |     |     |     Marketing (announcement, brochure,
+         |     |     |                slide-show presentation),
          |     |     |
          |     |     |     Release (introduction,
          |     |     |              release notes,
