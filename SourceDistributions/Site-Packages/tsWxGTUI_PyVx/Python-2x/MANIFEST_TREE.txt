@@ -1,8 +1,9 @@
 "./"
 ├── [-rwxr-xr-x    0 Jul 29  5:40]  "__init__.py"
 ├── [-rwxr-xr-x  786 Jan 28  3:37]  "MANIFEST.in"
+├── [-rwxr-xr-x 108K Jan 29  9:36]  "MANIFEST_TREE.html"
 ├── [-rwxr-xr-x 4.4K Jan 28  3:14]  "MANIFEST_TREE.sh"
-├── [-rw-r--r--    0 Jan 28  3:39]  "MANIFEST_TREE.txt"
+├── [-rwxr-xr-x    0 Jan 29  9:38]  "MANIFEST_TREE.txt"
 ├── [-rwxr-xr-x  28K Sep 26  3:52]  "README.txt"
 ├── [-rwxr-xr-x 3.3K Jul  7  2015]  "README-tsWxGTUI_PyVx-Site-Package.txt"
 ├── [-rwxr-xr-x 5.3K Jul 29  5:40]  "say_hello.py"
@@ -247,7 +248,7 @@
     │   │   ├── [-rwxr-xr-x 8.3K Jul 29  5:40]  "test_tsPlatformRunTimeEnvironment.txt"
     │   │   ├── [-rwxr-xr-x  11K Jul 29  5:40]  "test_tsReportUtilities.py"
     │   │   └── [-rwxr-xr-x 4.8K Jul 29  5:40]  "test_tsSysCommands.py"
-    │   ├── [drwxr-xr-x    0 Sep  8  9:13]  "tsTestsLibGUI"
+    │   ├── [drwxr-xr-x    0 Jan 28  6:26]  "tsTestsLibGUI"
     │   │   ├── [-rwxr-xr-x  829 Jul 29  5:40]  "run_2to3_script.sh"
     │   │   ├── [-rwxr-xr-x 5.0K Jul 29  5:40]  "runPylint_script.sh"
     │   │   ├── [-rwxr-xr-x 1.1K Jul 29  5:40]  "test_cursesOverlappingPanels.py"
@@ -330,7 +331,7 @@
     │   ├── [-rwxr-xr-x    0 Jul 29  5:40]  "__init__.py"
     │   ├── [-rwxr-xr-x 9.9K Jul 29  5:40]  "README-tsLibCLI.txt"
     │   ├── [-rwxr-xr-x 1.6K Dec  2  8:32]  "runPylint_tsLibCLI_script.sh"
-    │   ├── [-rwxr-xr-x  72K Sep 15  5:54]  "tsApplication.py"
+    │   ├── [-rwxr-xr-x  72K Jan 28  6:03]  "tsApplication.py"
     │   ├── [-rwxr-xr-x  15K Jul 29  5:40]  "tsCommandLineEnv.py"
     │   ├── [-rwxr-xr-x 7.0K Jul 29  5:40]  "tsCommandLineInterface.py"
     │   ├── [-rwxr-xr-x  43K Jan 26  4:46]  "tsCxGlobals.py"
@@ -516,4 +517,4 @@
         ├── [-rwxr-xr-x  12K Jul 29  5:40]  "which.py"
         └── [-rwxr-xr-x 3.1K Jul 29  5:40]  "which_doc.txt"
 
-29 directories, 487 files
+29 directories, 488 files
