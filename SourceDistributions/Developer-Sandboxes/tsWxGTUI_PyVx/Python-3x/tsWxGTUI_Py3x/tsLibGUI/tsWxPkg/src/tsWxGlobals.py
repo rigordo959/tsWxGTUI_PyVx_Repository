@@ -1,5 +1,5 @@
 #! /usr/bin/env python
-# "Time-stamp: <03/18/2015  5:08:29 AM rsg>"
+# "Time-stamp: <03/15/2016 10:15:23 AM rsg>"
 '''
 tsWxGlobals.py - Module to establish configuration constants and
 macro-type functions for the Graphical-style User Interface mode
@@ -19,7 +19,20 @@ of the "tsWxGTUI" Toolkit.
 #
 #    # Import
 #
-#    import tsWxGlobals as wx
+#    import tsWxGlobals as wx # The tsWxGTUI_PyVx Toolkit emulates the
+#                             # definitions of and references to constant
+#                             # and variable names used by the C++ based
+#                             # wxWidgets API and the wxPython interface
+#                             # wrapper used by Python programmers.
+#                             #
+#                             # The tsWxGlobals module and emulated
+#                             # tsWxPython classes and methods are then
+#                             # imported by the tsWx module to emulate
+#                             # the wxPython wx module.
+#                             #
+#                             # The tsWx module is intended to be im-
+#                             # ported by each Toolkit user applications
+#                             # and Toolkit Test.
 #
 # Capabilities:
 #
@@ -51,16 +64,34 @@ of the "tsWxGTUI" Toolkit.
 #
 # Limitations:
 #
-#    1. The "tsWxGTUI" Toolkit is an "nCurses"-based, character-mode
-#       emulation of the pixel-mode "wxPython" Toolkit. 
+#    1. The "tsWxGTUI" Toolkit is a "curses" or an "nCurses"-based,
+#       character-mode emulation of the pixel-mode "wxPython" Toolkit.
+#
+#       a) Platforms with 32-bit processors, Python 2x or 3x (and 
+#          "curses", "ncurses" 5.x or "ncurses" 6.x) support up to
+#          a 16 color palette (256 foreground-background color pairs).
+#
+#       b) Platforms with 64-bit processors, Python 2x or 3x (and
+#          "curses" or "ncurses" 5.x) support up to a 16 color palette
+#          (256 foreground-background color pairs).
+#
+#          NOTE: The bug-fix only maintenance mode for Python 2.7.x
+#                and Python 3.0.x - 3.5.0 precludes future support
+#                for "ncurses" 6.x.
+#
+#       c) Platforms with 64-bit processors, Python 3.5.1 or later (and
+#          "ncurses" 6.x) support up to a 256 color palette (65536 fore-
+#          ground-background color pairs).
 #
 #    2. Each character-mode "graphical" element occupies a cell that
-#       is 8-pixels wide and 12-pixels high.
+#       is assumed to be 8-pixels wide and 12-pixels high. The terminal
+#       screen size will shrink or expand whenever the computer operator
+#       selects a smaller or larger font.
 #
-#    4. The available set of alphabetic, numeric, punctuation and
+#    3. The available set of alphabetic, numeric, punctuation and
 #       line-drawing characters is quite limited to less than 256.
 #
-#    5. Overlapping the border character cells of "graphical" elements
+#    4. Overlapping the border character cells of "graphical" elements
 #       is frequently used to conserve display screen real estate.
 #
 # Notes:
@@ -288,6 +319,17 @@ of the "tsWxGTUI" Toolkit.
 #                   Copyright, License and Notice text to
 #                   tsCxGlobals.
 #
+#    2016/03/15 rsg Set "USE_256_COLOR_PAIR_LIMIT" = True only for
+#                   32-bit versions of "curses", "ncurses" 5.0 and
+#                   "ncurses" 6.0.
+#
+#                   Set "USE_256_COLOR_PAIR_LIMIT" = False only for
+#                   64-bit versions of "ncurses" 6.0 with Python
+#                   3.5.1 or newer.
+#
+#                   Added 'Use_256_Color_Pair_Limit' entry in
+#                   ThemeWxPython and ThemeTeamSTARS.
+#
 # ToDo:
 #
 #    2012/03/27 rsg Troubleshoot various unit test traps when
@@ -317,10 +359,10 @@ of the "tsWxGTUI" Toolkit.
 #################################################################
 
 __title__     = 'tsWxGlobals'
-__version__   = '1.42.0'
-__date__      = '01/14/2015'
+__version__   = '1.43.0'
+__date__      = '03/15/2016'
 __authors__   = 'Richard S. Gordon'
-__copyright__ = 'Copyright (c) 2007-2015 ' + \
+__copyright__ = 'Copyright (c) 2007-2016 ' + \
                 '%s.\n\t\tAll rights reserved.' % __authors__
 __license__   = 'GNU General Public License, ' + \
                 'Version 3, 29 June 2007'
@@ -371,6 +413,8 @@ import curses
 import os
 import platform
 import sys
+
+#---------------------------------------------------------------------------
 
 tsPythonVersion = sys.version[0:5]
 if (tsPythonVersion >= '1') and (tsPythonVersion < '2'):
@@ -477,9 +521,84 @@ USE_PALETTE = False
 USE_SYSTEM_OPTIONS = False
 USE_TOOLTIPS = False
 USE_VALIDATORS = False
-USE_256_COLOR_PAIR_LIMIT = True
 
 DefaultValidator = None
+
+#---------------------------------------------------------------------------
+
+def tsEnableColorPairLimit():
+    '''
+    Test computer hardware and software color palette configuration.
+
+    Return "True" if "AT&T curses"/"ncurses 5.x" library is 32-bit and
+    therefore supports up to 16 colors and 256 (16x16) color pairs;
+
+       NOTE: Early "AT&T curses"/"ncurses 5.0" 32-bit implementations
+             erroneously reported support for 256 colors with up to
+             32767 color pairs.
+
+    Return "False" if "ncurses 6.0" library, released 8 August 2015,
+    is running on a 64-bit processor and is no longer constrained to
+    emulate "ncurses 5.9" running on a 32-bit processor with up to
+    16 colors.
+
+       From "http://invisible-island.net/ncurses/announce.html":
+
+          "These notes are for ncurses 6.0, released August 8, 2015.
+
+          This release is designed to be source-compatible with ncurses
+          5.0 through 5.9; providing a new application binary interface
+          (ABI). Although the source can still be configured to support
+          the ncurses 5 ABI, the intent of the release is to provide
+          extensions which are generally useful, but binary-incompatible
+          with ncurses 5:
+
+             * Extend the cchar_t structure to allow more than 16 colors
+               to be encoded.
+
+             * Modify the encoding of mouse state to make room for a 5th
+               mouse button. That allows one to use ncurses with a wheel
+               mouse with xterm or similar X terminal emulators.
+    '''
+    
+    myLoggerCLI = Logger.TsLogger(name='',
+                                   threshold=Logger.INFO)
+
+    if (sys.maxsize <= 2**32):
+
+        # 32-bit processors can only support up to 16 colors and up to
+        # 256 color pairs (16 foreground colors x 16 background colors)
+        HAS_256_COLOR_PAIR_LIMIT = True
+        print('ALERT: tsWxGlobals ' + \
+              '32-bit processor with ncurses 5.0:\n' + \
+              'HAS_256_COLOR_PAIR_LIMIT=%s; sys.maxsize=%s' % (
+                  str(HAS_256_COLOR_PAIR_LIMIT), str(sys.maxsize)))
+
+    elif (tsPythonVersion <= '3.5.0'):
+
+        # Regardless if 32-bit or 64-bit processor, Python 2.0.0 - 2.7.11 and
+        # Python 3.0.0 - 3.5.0 can only support a maximum of 256 color pairs 
+        # (16 foreground colors x 16 background colors)
+        HAS_256_COLOR_PAIR_LIMIT = True
+        print('ALERT: tsWxGlobals ' + \
+              '64-bit processr with 32-bit ncurses 5.0/6.0;\n' + \
+              'HAS_256_COLOR_PAIR_LIMIT=%s; tsPythonVersion=%s' % (
+                  str(HAS_256_COLOR_PAIR_LIMIT), str(tsPythonVersion)))
+
+    else:
+
+        # Python, if 64-bit processor, beginning with 3.5.1 can support more
+        # than 256 color pairs
+        # (16 foreground colors x 16 background colors)
+        HAS_256_COLOR_PAIR_LIMIT = False
+        print('ALERT: tsWxGlobals ' + \
+              '64-bit processr with ncurses 6.0;\n' + \
+              'HAS_256_COLOR_PAIR_LIMIT=%s; tsPythonVersion=%s' % (
+                  str(HAS_256_COLOR_PAIR_LIMIT), str(tsPythonVersion)))
+
+    return HAS_256_COLOR_PAIR_LIMIT
+
+USE_256_COLOR_PAIR_LIMIT = tsEnableColorPairLimit()
 
 #--------------------------------------------------------------------------
 
@@ -2089,6 +2208,8 @@ ThemeWxPython = {
     'ThemeName': 'ThemeWxPython',
     'ThemeDate': ThemeDate,
 
+    'Use_256_Color_Pair_Limit': USE_256_COLOR_PAIR_LIMIT,
+
     'name': 'tsWxPython',
 
     'BackgroundColour': COLOR_SILVER,
@@ -2493,6 +2614,8 @@ ThemeTeamSTARS = {
     'VendorName': VendorName,
     'ThemeName': 'ThemeTeamSTARS',
     'ThemeDate': ThemeDate,
+
+    'Use_256_Color_Pair_Limit': USE_256_COLOR_PAIR_LIMIT,
 
     'name': 'ThemeTeamSTARS',
 
