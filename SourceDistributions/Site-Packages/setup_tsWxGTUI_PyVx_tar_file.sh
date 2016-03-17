@@ -1,5 +1,5 @@
 #!/usr/bin/bash
-#"Time-stamp: <07/07/2015  7:20:56 PM rsg>"
+#"Time-stamp: <03/17/2016  3:35:01 AM rsg>"
 #
 # create an archive file (e.g., tarball on Linux, Mac OS X
 # and  Unix) containing your setup script setup.py, and
@@ -7,12 +7,12 @@
 #
 # tar -zcf /path/to/file.tar.gz /path/to/directory
 #
-theDestination="dist"
+# theDestination="dist"
 theSource="tsWxGTUI_PyVx"
-theVersion="0.0.0-Site-Package"
+theVersion="0.0.6-Site-Package"
 theExtension="tar.gz"
 
-rm -rf ../$theDestination
-mkdir ./$theDestination
-tar -zcf ./$theDestination/$theSource-$theVersion.$theExtension ./$theSource
+# rm -rf ../$theDestination
+# mkdir ./$theDestination
+tar -zcf ./$theSource-$theVersion.$theExtension ./$theSource
 

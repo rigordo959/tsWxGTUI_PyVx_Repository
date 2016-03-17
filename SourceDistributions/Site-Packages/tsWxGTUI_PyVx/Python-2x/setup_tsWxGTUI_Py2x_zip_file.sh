@@ -1,12 +1,18 @@
 #!/usr/bin/bash
-#"Time-stamp: <05/05/2015  1:42:29 PM rsg>"
+#"Time-stamp: <03/17/2016  3:31:52 AM rsg>"
 #
-# create an archive file (e.g., ZIP file onWindows) containing
+# create an archive file (e.g., ZIP file on Windows) containing
 # your setup script setup.py, and your module (tsPlatformQuery.py)
 # or package (tsLibCLI).
 #
 # zip options archive inpath inpath .
-# zip -r /path/to/tsWxGTUI_Py2x-0.0.0.zip /path/to/tsWxGTUI_Py2x
+# zip -r /path/to/tsWxGTUI_PyVx-0.0.6.zip /path/to/tsWxGTUI_PyVx
 #
-mkdir ./dist
-zip -r ./dist/tsWxGTUI_Py2x-0.0.0.zip ./tsWxGTUI_Py2x
+# theDestination="dist"
+theSource="tsWxGTUI_Py2x"
+theVersion="0.0.6"
+theExtension="zip"
+
+# rm -rf ../$theDestination
+# mkdir ../$theDestination
+zip -r ../$theSource-$theVersion.$theExtension ./$theSource
