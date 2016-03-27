@@ -1,5 +1,5 @@
 #! /usr/bin/env python
-# "Time-stamp: <01/26/2016  9:44:18 AM rsg>"
+# "Time-stamp: <03/26/2016  3:49:11 PM rsg>"
 '''
 setup.py - The setup script uses features from both the basic
 Python distutils and its setuptools (easy_install) enhancement.
@@ -74,6 +74,10 @@ the "tsWxGTUI_PyVx" Toolkit site-packages.
 #       Interface or Graphical-style User Interface requires the
 #       services of the "tsWxGTUI" Toolkit.
 #
+#    4. The "upload" command option copies the installable "image"
+#       into the Python Package Index (PyPi) site-package of whichever
+#       Python interpretter launched the setup.py script.
+#
 # Limitations:
 #
 #    CLI-mode ("argparse", "optparse", "getopt")
@@ -123,11 +127,13 @@ the "tsWxGTUI_PyVx" Toolkit site-packages.
 #          python3.4.3 setup.py sdist
 #          python3.4.3 setup.py build
 #          python3.4.3 setup.py install
+#          python3.4.3 setup.py upload
 #
 #          # If using default Python 3.x
 #          python setup.py sdist
 #          python setup.py build
 #          python setup.py install
+#          python setup.py upload
 #
 #    # else Python 2.0.0 <= version < 3.0.0:
 #
@@ -137,13 +143,73 @@ the "tsWxGTUI_PyVx" Toolkit site-packages.
 #          python2.7.11 setup.py sdist
 #          python2.7.11 setup.py build
 #          python2.7.11 setup.py install
+#          python2.7.11 setup.py upload
 #
 #          # If using default Python 2.x
 #          python setup.py sdist
 #          python setup.py build
 #          python setup.py install
+#          python setup.py upload
 #
 # Notes:
+#
+#    From: "https://docs.python.org/2/distutils/sourcedist.html":
+#
+#    "As shown in section A Simple Example, you use the sdist command to
+#    create a source distribution. In the simplest case,
+#
+#    python setup.py sdist
+#
+#    (assuming you haven't specified any sdist options in the setup script
+#    or config file), sdist creates the archive of the default format for
+#    the current platform. The default format is a gzip'ed tar file
+#    (.tar.gz) on Unix, and ZIP file on Windows.
+#
+#    You can specify as many formats as you like using the --formats option,
+#    for example:
+#
+#          python setup.py sdist --formats=gztar,zip"
+#
+#    From: "http://pythonhosted.org/an_example_pypi_project/setuptools.html":
+#
+#    "Standard commands:
+#      build             build everything needed to install
+#      build_py          "build" pure Python modules (copy to build directory)
+#      build_ext         build C/C++ extensions (compile/link to build directory)
+#      build_clib        build C/C++ libraries used by Python extensions
+#      build_scripts     "build" scripts (copy and fixup #! line)
+#      clean             clean up temporary files from 'build' command
+#      install           install everything from build directory
+#      install_lib       install all Python modules (extensions and pure Python)
+#      install_headers   install C/C++ header files
+#      install_scripts   install scripts (Python or otherwise)
+#      install_data      install data files
+#      sdist             create a source distribution (tarball, zip file, etc.)
+#      register          register the distribution with the Python package index
+#      bdist             create a built (binary) distribution
+#      bdist_dumb        create a "dumb" built distribution
+#      bdist_rpm         create an RPM distribution
+#      bdist_wininst     create an executable installer for MS Windows
+#      upload            upload binary package to PyPI
+#    
+#    Extra commands:
+#      rotate            delete older distributions, keeping N newest files
+#      develop           install package in 'development mode'
+#      setopt            set an option in setup.cfg or another config file
+#      saveopts          save supplied options to setup.cfg or other config file
+#      egg_info          create a distribution's .egg-info directory
+#      upload_sphinx     Upload Sphinx documentation to PyPI
+#      install_egg_info  Install an .egg-info directory for the package
+#      alias             define a shortcut to invoke one or more commands
+#      easy_install      Find/get/install Python packages
+#      bdist_egg         create an "egg" distribution
+#      test              run unit tests after in-place build
+#      build_sphinx      Build Sphinx documentation
+#    
+#    usage: setup.py [global_opts] cmd1 [cmd1_opts] [cmd2 [cmd2_opts] ...]
+#       or: setup.py --help [cmd1 cmd2 ...]
+#       or: setup.py --help-commands
+#       or: setup.py cmd --help"
 #
 #    From Wikipedia, the free encyclopedia:
 #
@@ -393,6 +459,9 @@ the "tsWxGTUI_PyVx" Toolkit site-packages.
 #
 #                   Updated supported host operating system.
 #
+#    2016/03/26 rsg Updated to support "python setup.py upload"
+#                   to pypi and testpypi.
+#
 # ToDo:
 #
 #    None
@@ -401,7 +470,7 @@ the "tsWxGTUI_PyVx" Toolkit site-packages.
 
 __title__     = 'setup'
 __version__   = '0.0.6'
-__date__      = '01/26/2016'
+__date__      = '03/26/2016'
 __authors__   = 'Richard S. Gordon'
 __copyright__ = 'Copyright (c) 2007-2016 ' + \
                 '%s.\n\t\tAll rights reserved.' % __authors__
@@ -442,6 +511,15 @@ import sys
 #--------------------------------------------------------------------------
 
 tsPythonVersion = sys.version[0:5]
+
+# Debugging the setup script
+
+SETUP_DEBUG = True
+
+if SETUP_DEBUG:
+    DISTUTILS_DEBUG = 'Debugging the setup script.'
+else:
+    DISTUTILS_DEBUG = ''
 
 # patch distutils if it can't cope with the "classifiers" or
 # "download_url" keywords
@@ -575,90 +653,115 @@ setup(
     name = prefix,
     version = version,
     packages = find_packages(exclude=[
-        'ez_setup', 'tests', 'tests.*']),
-    scripts = ['say_hello.py'],
+        "ez_setup", "tests", "tests.*"]),
+    scripts = ["say_hello.py"],
 
     # Project uses reStructuredText, so ensure that the docutils get
     # installed or upgraded on the target machine
-    install_requires = ['docutils>=0.3'],
+    install_requires = ["docutils>=0.3"],
 
 ##    package_data = {
 ##        # If any package contains *.txt or *.rst files, include them:
-##        '': ['*.txt', '*.rst'],
-##        # And include any *.msg files found in the 'hello' package, too:
-##        'hello': ['*.msg'],
+##        "": ["*.txt", "*.rst"],
+##        # And include any *.msg files found in the "hello" package, too:
+##        "hello": ["*.msg"],
 ##      },
 
     include_package_data=True,
 
     # metadata for upload to PyPI
-    author = 'Richard S. Gordon',
-    author_email = 'SoftwareGadgetry@comcast.net',
-    maintainer = 'Richard S. Gordon',
-    maintainer_email = 'SoftwareGadgetry@comcast.net',
+    author = "Richard S. Gordo, a.k.a. Software Gadgetry",
+    author_email = "SoftwareGadgetry@comcast.net",
+    maintainer = "Richard S. Gordon",
+    maintainer_email = "SoftwareGadgetry@comcast.net",
+##    package_index_owner = "rigordo959",
+##    url = "https://pypi.python.org/pypi ",
+
+##    download_url = "https://pypi.python.org/pypi/tsWxGTUI_PyVx ",
+##    home_page = "https://github.com/rigordo959/tsWxGTUI_PyVx_Repository",
+##    download_url = "https://github.com/rigordo959/tsWxGTUI_PyVx_Repository/archive/master.zip",
+    # To download the toolkit as a compressed zip file, click on the <Download ZIP button>.
+    # Extract the dirctories and files via the CLI command <unzip tsWxGTUI_PyVx_Repository-master.zip>.
 
     description = (
-        'Cross platform toolkit for developing Python CLI and GUI applications for POSIX-compatible 32-bit/64-bit platforms. Text-mode emulation of pixel-mode "wxPython" GUI is launced by CLI.'),
+        "Cross-platform toolkit for developing Python CLI and TUI applications for POSIX-compatible 32-bit/64-bit platforms. Text-mode emulation of pixel-mode wxPython GUI is launced by CLI."),
 
-    long_description = read('README.txt'),
-    license = 'GNU GENERAL PUBLIC LICENSE (GPL) Version 3, 29 June 2007 ',
-    keywords = 'CLI,TUI,GUI,Python,Curses,cross-platform ',
-    platforms = [
-        'HOST CPU with 32-bit/64-bit processor ',
-        'Host  OS with Multi-User, Multi-Process and Multi-Threaded features ',
-        'Command Line Interface shells (POSIX-type "bash", "sh") ',
-        'Command Line Interface shells (Microsoft-type "command prompt") ',
-        'Graphical User Interface (wxPython-style "text user interface") ',
-        'Remote Command Line Interface shells ("ssh", "rsh", "sftp", "ftp") ',
-        'Python Virtual Machine with Python Run Time Library modules ',
-        'Curses/nCurses Terminal Control Library for POSIX-like systems ',
-        'Non-Color Console/Terminal/Emulator (mouse with vt100/vt220) ',
-        '8-Color   Console/Terminal/Emulator (mouse with cygwin mintty) ',
-        '8-Color   Console/Terminal/Emulator (mouse with xterm/xterm-color) ',
-        '16-Color  Console/Terminal/Emulator (mouse with xterm-16color) ',
-        '16-Color  Console/Terminal/Emulator (mouse with xterm-88color) ',
-        '16-Color  Console/Terminal/Emulator (mouse with xterm-256color)'
-        ],
-
-    url = 'https://pypi.python.org/pypi ',
-
-    download_url = 'https://pypi.python.org/pypi/tsWxGTUI_PyV3 ',
+    long_description = read("README.txt"),
+    license = "GNU GENERAL PUBLIC LICENSE (GPL) Version 3, 29 June 2007 ",
+    keywords = ["CLI",
+                "Cross-platform",
+                "Curses",
+                "GUI",
+                "Ncurses",
+                "POSIX",
+                "TUI",
+                "wxPython"],
+##    platform_requirements = [
+##        "HOST CPU with 32-bit/64-bit processor ",
+##        "Host  OS with Multi-User, Multi-Process and Multi-Threaded features ",
+##        "Command Line Interface shells (POSIX-type "bash", "sh") ",
+##        "Command Line Interface shells (Microsoft-type "command prompt") ",
+##        "Graphical User Interface (wxPython-style "text user interface") ",
+##        "Remote Command Line Interface shells ("ssh", "rsh", "sftp", "ftp") ",
+##        "Python Virtual Machine with Python Run Time Library modules ",
+##        "Curses/nCurses Terminal Control Library for POSIX-like systems ",
+##        "Non-Color Console/Terminal/Emulator (mouse with vt100/vt220) ",
+##        "8-Color   Console/Terminal/Emulator (mouse with cygwin mintty) ",
+##        "8-Color   Console/Terminal/Emulator (mouse with xterm/xterm-color) ",
+##        "16-Color  Console/Terminal/Emulator (mouse with xterm-16color) ",
+##        "16-Color  Console/Terminal/Emulator (mouse with xterm-88color) ",
+##        "16-Color  Console/Terminal/Emulator (mouse with xterm-256color)"
+##        ],
+##
     classifiers = [
-        'Development Status :: 2 - Pre-Alpha ',
-        'Environment :: Console ',
-        'Environment :: Console :: Curses ',
-##        'Intended Audience :: Customer Service ',
-        'Intended Audience :: Developers ',
-##        'Intended Audience :: Education ',
-##        'Intended Audience :: End Users/Desktop ',
-##        'Intended Audience :: Information Technology ',
-##        'Intended Audience :: Manufacturing ',
-##        'Intended Audience :: Science/Research ',
-##        'Intended Audience :: System Administrators ',
-        'License :: Creative Commons Attribution-ShareAlike 2.5 ',
-        'License :: Creative Commons Attribution-ShareAlike 3.0 ',
-        'License :: GNU Free Documentation License v1.3 (GFDLv1.3) ',
-        'License :: OSI Approved :: GNU General Public License v3 (GPLv3) ',
-        'Natural Language :: English ',
-        'Operating System :: MacOS ',
-##        'Operating System :: MacOS :: MacOS X :: 10.3  (Panther) ',
-##        'Operating System :: MacOS :: MacOS X :: 10.4  (Tiger) ',
-##        'Operating System :: MacOS :: MacOS X :: 10.5  (Leopard) ',
-##        'Operating System :: MacOS :: MacOS X :: 10.6  (Snow Leopard) ',
-        'Operating System :: MacOS :: MacOS X :: 10.7  (Lion) ',
-        'Operating System :: MacOS :: MacOS X :: 10.8  (Mountain Lion) ',
-        'Operating System :: MacOS :: MacOS X :: 10.9  (Mavericks) ',
-        'Operating System :: MacOS :: MacOS X :: 10.10 (Yosemite) ',
-        'Operating System :: MacOS :: MacOS X :: 10.11 (El Capitan) ',
-        'Operating System :: Microsoft ',
-        'Operating System :: Microsoft :: Windows ',
-
+##
+        "Development Status :: 2 - Pre-Alpha ",
+        "Environment :: Console ",
+        "Environment :: Console :: Curses ",
+        "Environment :: MacOS X ",
+        "Environment :: Win32 (MS Windows CLI-mode only) ",
+        "Environment :: Win32 (MS Windows+Cygwin) ",
+        "Environment :: Win64 (MS Windows CLI-mode only) ",
+        "Environment :: Win64 (MS Windows+Cygwin) ",
+        "Environment :: X11 Applications ",
+        "Environment :: X11 Applications :: GNOME ",
+        "Environment :: X11 Applications :: GTK ",
+        "Environment :: X11 Applications :: KDE ",
+##
+##        "Intended Audience :: Customer Service ",
+        "Intended Audience :: Developers ",
+        "Intended Audience :: Education ",
+##        "Intended Audience :: End Users/Desktop ",
+##        "Intended Audience :: Information Technology ",
+##        "Intended Audience :: Manufacturing ",
+##        "Intended Audience :: Science/Research ",
+##        "Intended Audience :: System Administrators ",
+##
+        "License :: Creative Commons Attribution-ShareAlike 2.5 ",
+        "License :: Creative Commons Attribution-ShareAlike 3.0 ",
+        "License :: GNU Free Documentation License v1.3 (GFDLv1.3) ",
+        "License :: OSI Approved ",
+        "License :: OSI Approved :: GNU General Public License v3 (GPLv3) ",
+##
+        "Natural Language :: English ",
+##
+        "Operating System :: MacOS ",
+##        "Operating System :: MacOS :: MacOS X :: 10.3  (Panther) ",
+##        "Operating System :: MacOS :: MacOS X :: 10.4  (Tiger) ",
+##        "Operating System :: MacOS :: MacOS X :: 10.5  (Leopard) ",
+##        "Operating System :: MacOS :: MacOS X :: 10.6  (Snow Leopard) ",
+        "Operating System :: MacOS :: MacOS X :: 10.7  (Lion) ",
+        "Operating System :: MacOS :: MacOS X :: 10.8  (Mountain Lion) ",
+        "Operating System :: MacOS :: MacOS X :: 10.9  (Mavericks) ",
+        "Operating System :: MacOS :: MacOS X :: 10.10 (Yosemite) ",
+        "Operating System :: MacOS :: MacOS X :: 10.11 (El Capitan) ",
+##
 ##### CAUTION ##########################################################
 ##
 ##    From http://windows.microsoft.com/en-us/windows/end-support-help
 ##
 ##       "As of April 8, 2014, support and updates for Windows XP are
-##        no longer available. Don't let your PC go unprotected."
+##        no longer available. Don"t let your PC go unprotected."
 ##
 ##       "How do I stay protected?
 ##        To stay protected now that support has ended, you have two
@@ -672,88 +775,150 @@ setup(
 ##        ed information, read the FAQ.
 ##
 ##        Get a new PC
-##        If your current PC can't run Windows 10, it might be time to
+##        If your current PC can"t run Windows 10, it might be time to
 ##        consider shopping for a new one. Be sure to explore our great
-##        selection of new PCs. They're more powerful, lightweight, and
-##        stylish than ever before -- and with an average price that's
+##        selection of new PCs. They"re more powerful, lightweight, and
+##        stylish than ever before -- and with an average price that"s
 ##        considerably less expensive than the average PC was 12 years
 ##        ago."
 ##
 ########################################################################
-##        'Operating System :: Microsoft :: Windows :: XP  (CLI mode only) ',
-        'Operating System :: Microsoft :: Windows :: 7   (CLI mode only) ',
-        'Operating System :: Microsoft :: Windows :: 8   (CLI mode only) ',
-        'Operating System :: Microsoft :: Windows :: 8.1 (CLI mode only) ',
-        'Operating System :: Microsoft :: Windows :: 10  (CLI mode only) ',
-        'Operating System :: POSIX ',
-        'Operating System :: POSIX :: CYGWIN ',
-##        'Operating System :: POSIX :: CYGWIN :: Windows XP ',
-        'Operating System :: POSIX :: CYGWIN :: Windows 7 ',
-        'Operating System :: POSIX :: CYGWIN :: Windows 8 ',
-        'Operating System :: POSIX :: CYGWIN :: Windows 8.1 ',
-        'Operating System :: POSIX :: CYGWIN :: Windows 10 ',
-        'Operating System :: POSIX :: Linux ',
-        'Operating System :: POSIX :: Linux :: CentOS 7 (Red Hat) ',
-        'Operating System :: POSIX :: Linux :: Fedora 23 (Red Hat) ',
-        'Operating System :: POSIX :: Linux :: OpenSUSE 13 ',
-        'Operating System :: POSIX :: Linux :: Scientific 7 (Red Hat) ',
-        'Operating System :: POSIX :: Linux :: Ubuntu 12.04 LTS ',
-        'Operating System :: POSIX :: Linux :: Ubuntu 14.04 LTS ',
-        'Operating System :: POSIX :: Linux :: Ubuntu 15.10 ',
-        'Operating System :: POSIX :: Unix ',
-        'Operating System :: POSIX :: Unix :: FreeBSD 11.0 ',
-        'Operating System :: POSIX :: Unix :: OpenIndiana 151.a8 ',
-        'Operating System :: POSIX :: Unix :: OpenSolaris 11 ',
-        'Operating System :: POSIX :: Unix :: PC-BSD 11.0 ',
-        'Programming Language :: Python ',
-##        'Programming Language :: Python :: 2.0 (CLI mode only) ',
-##        'Programming Language :: Python :: 2.3 (CLI mode only) ',
-##        'Programming Language :: Python :: 2.5 (CLI mode only) ',
-##        'Programming Language :: Python :: 2.6 ',
-        'Programming Language :: Python :: 2.7 ',
-        'Programming Language :: Python :: 3.0 (CLI mode only) ',
-        'Programming Language :: Python :: 3.1 ',
-        'Programming Language :: Python :: 3.2 ',
-        'Programming Language :: Python :: 3.3 ',
-        'Programming Language :: Python :: 3.4 ',
-        'Programming Language :: Python :: 3.5 ',
-        'Topic :: Software Development :: Embedded Systems ',
-        'Topic :: Software Development :: Libraries :: Python Modules ',
-        'Topic :: Software Development :: Widget Sets ',
-        'Topic :: System :: Distributed Computing ',
-        'Topic :: Utilities '
-##        'Operating System :: BeOS ',
-##        'Operating System :: MacOS ',
-##        'Operating System :: MacOS :: MacOS 9 ',
-##        'Operating System :: Microsoft ',
-##        'Operating System :: Microsoft :: MS-DOS ',
-##        'Operating System :: Microsoft :: Windows :: Windows 3.1 or Earlier ',
-##        'Operating System :: Microsoft :: Windows :: Windows 95/98/2000 ',
-##        'Operating System :: Microsoft :: Windows :: Windows CE ',
-##        'Operating System :: Microsoft :: Windows :: Windows NT/2000 ',
-##        'Operating System :: Microsoft :: Windows :: Windows Server 2003 ',
-##        'Operating System :: Microsoft :: Windows :: Windows Server 2008 ',
-##        'Operating System :: Microsoft :: Windows :: Windows Vista ',
-##        'Operating System :: Microsoft :: Windows ',
-##        'Operating System :: OS Independent ',
-##        'Operating System :: OS/2 ',
-##        'Operating System :: Other OS ',
-##        'Operating System :: PalmOS ',
-##        'Operating System :: PDA Systems ',
-##        'Operating System :: POSIX :: AIX ',
-##        'Operating System :: POSIX :: BSD ',
-##        'Operating System :: POSIX :: BSD :: BSD/OS ',
-##        'Operating System :: POSIX :: BSD :: FreeBSD ',
-##        'Operating System :: POSIX :: BSD :: NetBSD ',
-##        'Operating System :: POSIX :: BSD :: OpenBSD ',
-##        'Operating System :: POSIX :: GNU Hurd ',
-##        'Operating System :: POSIX :: HP-UX ',
-##        'Operating System :: POSIX :: IRIX ',
-##        'Operating System :: POSIX :: Other ',
-##        'Operating System :: POSIX :: SCO ',
-##        'Operating System :: POSIX :: Solaris ',
-##        'Operating System :: POSIX :: SunOS ',
+##
+        "Operating System :: Microsoft ",
+        "Operating System :: Microsoft :: Windows ",
+        "Operating System :: Microsoft :: Windows :: Windows XP  (CLI mode only) ",
+        "Operating System :: Microsoft :: Windows :: Windows 7   (CLI mode only) ",
+        "Operating System :: Microsoft :: Windows :: Windows 8   (CLI mode only) ",
+        "Operating System :: Microsoft :: Windows :: Windows 10  (CLI mode only) ",
+##
+        "Operating System :: POSIX ",
+        "Operating System :: POSIX :: AIX (NOT tested) ",
+        "Operating System :: POSIX :: BSD (NOT tested) ",
+        "Operating System :: POSIX :: BSD :: BSD/OS (NOT tested) ",
+        "Operating System :: POSIX :: BSD :: FreeBSD (NOT tested) ",
+        "Operating System :: POSIX :: BSD :: NetBSD (NOT tested) ",
+        "Operating System :: POSIX :: BSD :: OpenBSD (NOT tested) ",
+        "Operating System :: POSIX :: CYGWIN ",
+        "Operating System :: POSIX :: CYGWIN :: Windows XP ",
+        "Operating System :: POSIX :: CYGWIN :: Windows 7 ",
+        "Operating System :: POSIX :: CYGWIN :: Windows 8 ",
+        "Operating System :: POSIX :: CYGWIN :: Windows 10 ",
+        "Operating System :: POSIX :: GNU Hurd (NOT tested) ",
+        "Operating System :: POSIX :: HP-UX (NOT tested) ",
+        "Operating System :: POSIX :: IRIX (NOT tested) ",
+        "Operating System :: POSIX :: Linux ",
+        "Operating System :: POSIX :: Linux :: CentOS 7 (Red Hat) ",
+        "Operating System :: POSIX :: Linux :: Debian 8 ",
+        "Operating System :: POSIX :: Linux :: Fedora 23 (Red Hat) ",
+        "Operating System :: POSIX :: Linux :: OpenSUSE 13 ",
+        "Operating System :: POSIX :: Linux :: Scientific 7 (Red Hat) ",
+        "Operating System :: POSIX :: Linux :: Ubuntu 12.04 LTS ",
+        "Operating System :: POSIX :: Linux :: Ubuntu 14.04 LTS ",
+        "Operating System :: POSIX :: Linux :: Ubuntu 15.10 ",
+        "Operating System :: POSIX :: Unix ",
+        "Operating System :: POSIX :: Unix :: BSD :: BSD/OS (NOT tested) ",
+        "Operating System :: POSIX :: Unix :: BSD :: FreeBSD 11.0  (CLI mode only) ",
+        "Operating System :: POSIX :: Unix :: BSD :: PC-BSD 11.0 ",
+        "Operating System :: POSIX :: Unix :: Solaris (NOT tested) ",
+        "Operating System :: POSIX :: Unix :: Solaris :: OpenIndiana 151.a8 ",
+        "Operating System :: POSIX :: Unix :: Solaris :: OpenSolaris 11 ",
+        "Operating System :: POSIX :: Unix :: SunOS (NOT tested) ",
+##
+##        "Operating System :: Microsoft :: Windows :: XP  (CLI mode only) ",
+##        "Operating System :: POSIX :: CYGWIN :: Windows XP ",
+##        "Operating System :: BeOS ",
+##        "Operating System :: MacOS ",
+##        "Operating System :: MacOS :: MacOS 9 ",
+##        "Operating System :: Microsoft ",
+##        "Operating System :: Microsoft :: MS-DOS ",
+##        "Operating System :: Microsoft :: Windows :: Windows 3.1 or Earlier ",
+##        "Operating System :: Microsoft :: Windows :: Windows 95/98/2000 ",
+##        "Operating System :: Microsoft :: Windows :: Windows CE ",
+##        "Operating System :: Microsoft :: Windows :: Windows NT/2000 ",
+##        "Operating System :: Microsoft :: Windows :: Windows Server 2003 ",
+##        "Operating System :: Microsoft :: Windows :: Windows Server 2008 ",
+##        "Operating System :: Microsoft :: Windows :: Windows Vista ",
+##        "Operating System :: Microsoft :: Windows ",
+##        "Operating System :: OS Independent ",
+##        "Operating System :: OS/2 ",
+##        "Operating System :: Other OS ",
+##        "Operating System :: PalmOS ",
+##        "Operating System :: PDA Systems ",
+##        "Operating System :: POSIX :: AIX ",
+##        "Operating System :: POSIX :: BSD ",
+##        "Operating System :: POSIX :: BSD :: BSD/OS ",
+##        "Operating System :: POSIX :: BSD :: FreeBSD ",
+##        "Operating System :: POSIX :: BSD :: NetBSD ",
+##        "Operating System :: POSIX :: BSD :: OpenBSD ",
+##        "Operating System :: POSIX :: GNU Hurd ",
+##        "Operating System :: POSIX :: HP-UX ",
+##        "Operating System :: POSIX :: IRIX ",
+##        "Operating System :: POSIX :: Other ",
+##        "Operating System :: POSIX :: SCO ",
+##        "Operating System :: POSIX :: Solaris ",
+##        "Operating System :: POSIX :: SunOS ",
+##
+        "Programming Language :: Python ",
+        "Programming Language :: Python :: 2 ",
+        "Programming Language :: Python :: 2.0 (CLI mode only) ",
+        "Programming Language :: Python :: 2.1 (CLI mode only) ",
+        "Programming Language :: Python :: 2.2 (CLI mode only) ",
+        "Programming Language :: Python :: 2.3 (CLI mode only) ",
+        "Programming Language :: Python :: 2.4 (CLI mode only) ",
+        "Programming Language :: Python :: 2.5 (CLI mode only) ",
+        "Programming Language :: Python :: 2.6 ",
+        "Programming Language :: Python :: 2.7 ",
+        "Programming Language :: Python :: 3 ",
+        "Programming Language :: Python :: 3.0 ",
+        "Programming Language :: Python :: 3.0 (CLI mode only) ",
+        "Programming Language :: Python :: 3.1 ",
+        "Programming Language :: Python :: 3.2 ",
+        "Programming Language :: Python :: 3.3 ",
+        "Programming Language :: Python :: 3.4 ",
+        "Programming Language :: Python :: 3.5 ",
+##
+        "Topic :: Education ",
+        "Topic :: Education :: Software Engineering ",
+        "Topic :: Education :: System Engineering ",
+        "Topic :: Software Development ",
+        "Topic :: Software Development :: Embedded Systems ",
+        "Topic :: Software Development :: Libraries :: Python Modules ",
+        "Topic :: Software Development :: Widget Sets ",
+        "Topic :: System :: Distributed Computing ",
+        "Topic :: Documentation ",
+        "Topic :: Education ",
+        "Topic :: Education :: Software Engineering ",
+        "Topic :: Education :: System Engineering ",
+        "Topic :: Software Development :: User Interfaces ",
+        "Topic :: Software Development :: Widget Sets ",
+        "Topic :: System :: Distributed Computing ",
+        "Topic :: Utilities "
         ],
+
+##
+    platforms = [
+        "Mobile Phone",
+        "Tablet Computer",
+        "Laptop Computer",
+        "Desktop Computer",
+        "Super Computer",
+        "Embedded System",
+        "HOST CPU with 32-bit/64-bit processor ",
+        "Host  OS with Multi-User, Multi-Process and Multi-Threaded features ",
+        "Command Line Interface shells (POSIX-type `bash`, `sh`) ",
+        "Command Line Interface shells (Microsoft-type `command prompt`) ",
+        "Graphical User Interface (wxPython-style `text user interface`) ",
+        "Remote Command Line Interface shells (`ssh`, `rsh`, `sftp`, `ftp`) ",
+        "Python Virtual Machine with Python Run Time Library modules ",
+        "Curses/nCurses Terminal Control Library for POSIX-like systems ",
+        "Non-Color Console/Terminal/Emulator (mouse with vt100/vt220) ",
+        "8-Color   Console/Terminal/Emulator (mouse with cygwin mintty) ",
+        "8-Color   Console/Terminal/Emulator (mouse with xterm/xterm-color) ",
+        "16-Color  Console/Terminal/Emulator (mouse with xterm-16color) ",
+        "16-Color  Console/Terminal/Emulator (mouse with xterm-88color) ",
+        "16-Color  Console/Terminal/Emulator (mouse with xterm-256color)"
+        ],
+##
 
 ##    # packages=find_packages(),
 ##    packages = list(find_packages(mypackage.__path__,
@@ -761,12 +926,12 @@ setup(
 ##    include_package_data = True,
 ##    zip_safe = False,
 
-##    package_data={'tsWxGTUI': ['license.txt']},
-##    package_data={'Usage_Terms_and_Conditions': [
-##      'Usage_Terms_and_Conditions/COPYRIGHT.txt ',
-##      'Usage_Terms_and_Conditions/LICENSE.txt ',
-##      'Usage_Terms_and_Conditions/NOTICES.txt ']
-##                },
+##    package_data={"tsWxGTUI": ["license.txt"]},
+##    package_data={"Usage_Terms_and_Conditions": [
+##        "Usage_Terms_and_Conditions/COPYRIGHT.txt ",
+##        "Usage_Terms_and_Conditions/LICENSE.txt ",
+##        "Usage_Terms_and_Conditions/NOTICES.txt "]
+##                  },
 ##    include_package_data=True,
 
 )
