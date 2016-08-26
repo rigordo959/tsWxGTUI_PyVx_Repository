@@ -1,5 +1,5 @@
 #! /usr/bin/env python
-# "Time-stamp: <09/14/2015  8:01:11 AM rsg>"
+# "Time-stamp: <08/26/2016  5:53:32 AM rsg>"
 '''
 tsCxGlobals.py - Module to establish configuration constants and
 macro-type functions for the Command Line Interface mode of the
@@ -162,6 +162,10 @@ macro-type functions for the Command Line Interface mode of the
 #                       tsMinimumDisplaySize
 #                       tsRecommendedDisplaySize.
 #
+#    2016/08/26 rsg Updated ReleaseNumber to "0.0.7" and associated
+#                   information. This brings release number of
+#                   source code into agreement with documentation.
+#
 # ToDo:
 #
 #    TBD.
@@ -169,10 +173,10 @@ macro-type functions for the Command Line Interface mode of the
 #################################################################
 
 __title__     = 'tsCxGlobals'
-__version__   = '1.7.0'
-__date__      = '09/14/2015'
+__version__   = '1.7.1'
+__date__      = '08/26/2016'
 __authors__   = 'Richard S. Gordon'
-__copyright__ = 'Copyright (c) 2013-2015 ' + \
+__copyright__ = 'Copyright (c) 2013-2016 ' + \
                 '%s.\n\t\tAll rights reserved.' % __authors__
 __license__   = 'GNU General Public License, ' + \
                 'Version 3, 29 June 2007'
@@ -231,7 +235,7 @@ except ImportError as e:
 #---------------------------------------------------------------------------
 
 ProductName   = 'TeamSTARS "tsWxGTUI_PyVx" Toolkit'
-ReleaseNumber = '0.0.2'
+ReleaseNumber = '0.0.7'
 SubSystemName = '"tsToolkitCLI"'
 VendorName    = 'Richard S. Gordon, a.k.a. Software Gadgetry'
 ThemeDate     = __date__
@@ -337,7 +341,7 @@ theCopyright = '''
                           Richard S. Gordon,
                           a.k.a TeamSTARS.
                 All rights reserved.
-  Copyright (c) 2010-2015 Richard S. Gordon,
+  Copyright (c) 2010-2016 Richard S. Gordon,
                           a.k.a Software Gadgetry.
                 All rights reserved.
   GNU General Public License (GPL), Version 3,

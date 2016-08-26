@@ -1,5 +1,5 @@
-#!/bin/bash
-#"Time-stamp: <08/25/2016  8:33:34 AM rsg>"
+#!/usr/bin/bash
+#"Time-stamp: <04/04/2014 12:07:35 AM rsg>"
 #
 # usage: tree [-acdfghilnpqrstuvxACDFQNSUX] [-H baseHREF] [-T title ] [-L level [-R]]
 #         [-P pattern] [-I pattern] [-o filename] [--version] [--help] [--inodes]

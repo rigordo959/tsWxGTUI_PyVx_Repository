@@ -1,5 +1,5 @@
 #! /usr/bin/env python
-# "Time-stamp: <03/22/2015  3:57:04 AM rsg>"
+# "Time-stamp: <08/26/2016  5:50:02 AM rsg>"
 '''
 tsCxGlobals.py - Module to establish configuration constants and
 macro-type functions for the Command Line Interface mode of the
@@ -148,6 +148,24 @@ macro-type functions for the Command Line Interface mode of the
 #                   revealed the need to conditionalize import
 #                   and use of subprocess.
 #
+#    2015/06/01 rsg Updated Masthead, Copyright, License and
+#                   Notices path.
+#
+#    2015/06/28 rsg Updated Masthead, Copyright, License and
+#                   Notices to use "__version__" and "__date__".
+#                   Also added ReleaseNumber.
+#
+#    2015/08/20 rsg Updated ReleaseNumber to "0.0.2" and associated
+#                   information.
+#
+#    2015/09/14 rsg Added:
+#                       tsMinimumDisplaySize
+#                       tsRecommendedDisplaySize.
+#
+#    2016/08/26 rsg Updated ReleaseNumber to "0.0.7" and associated
+#                   information. This brings release number of
+#                   source code into agreement with documentation.
+#
 # ToDo:
 #
 #    TBD.
@@ -155,10 +173,10 @@ macro-type functions for the Command Line Interface mode of the
 #################################################################
 
 __title__     = 'tsCxGlobals'
-__version__   = '1.5.0'
-__date__      = '03/22/2015'
+__version__   = '1.7.1'
+__date__      = '08/26/2016'
 __authors__   = 'Richard S. Gordon'
-__copyright__ = 'Copyright (c) 2013-2015 ' + \
+__copyright__ = 'Copyright (c) 2013-2016 ' + \
                 '%s.\n\t\tAll rights reserved.' % __authors__
 __license__   = 'GNU General Public License, ' + \
                 'Version 3, 29 June 2007'
@@ -217,12 +235,10 @@ except ImportError, e:
 #---------------------------------------------------------------------------
 
 ProductName   = 'TeamSTARS "tsWxGTUI_PyVx" Toolkit'
-SubSystemName   = '"tsToolkitCLI"'
+ReleaseNumber = '0.0.7'
+SubSystemName = '"tsToolkitCLI"'
 VendorName    = 'Richard S. Gordon, a.k.a. Software Gadgetry'
 ThemeDate     = __date__
-
-import platform
-## import types
 
 DEBUG = True # TBD - Retain True to prevent Unimplemented Traps
 VERBOSE = True
@@ -283,14 +299,14 @@ Platform = '__tsToolkitCLI__'
 
 theMasthead = '''
 +----+----+  TeamSTARS "%s" Toolkit
-| ts | Wx |     with Python-based
-+----+----+        Command Line Interface (CLI)
-| G T U I |     and "wxPython"-style, "Curses"-based
-+---------+        Graphical-Text User Interface (GUI)
-
-Get that cross-platform, pixel-mode "wxPython" feeling on
-character-mode color (xterm-family) & non-color (vt100-
-family) terminals.
+| ts | Wx |      with Python 2x & Python 3x based
++----+----+         Command Line Interface (CLI)
+| G T U I |      and "Curses"-based "wxPython"-style
++---------+         Graphical-Text User Interface (GUI)
+ 
+Get that cross-platform, pixel-mode "wxPython" feeling
+on character-mode 8-/16-color (xterm-family) and non-
+color (vt100-family) terminals and terminal emulators.
 ''' % tsWxGTUI_PyVx
 
 #########################################################################
@@ -317,7 +333,7 @@ family) terminals.
 #
 
 theCopyright = '''
-%s, v0.0.0 (pre-alpha build 03/22/2015)
+%s-%s, v%s (pre-alpha build %s)
 
   Author(s): Richard S. Gordon & Frederick A. Kier
 
@@ -325,7 +341,7 @@ theCopyright = '''
                           Richard S. Gordon,
                           a.k.a TeamSTARS.
                 All rights reserved.
-  Copyright (c) 2010-2015 Richard S. Gordon,
+  Copyright (c) 2010-2016 Richard S. Gordon,
                           a.k.a Software Gadgetry.
                 All rights reserved.
   GNU General Public License (GPL), Version 3,
@@ -335,7 +351,7 @@ theCopyright = '''
 
   Each third-party component is subject to its copyright
   holder`s designated copyright and license notices.
-''' % tsWxGTUI_PyVx
+''' % (tsWxGTUI_PyVx, ReleaseNumber, __version__, __date__)
 
 #########################################################################
 
@@ -365,7 +381,7 @@ are distributed as free and open source software. You may
 use, modify and redistribute it only under the terms and
 conditions set forth in the "COPYRIGHT.txt", "CREDITS.txt"
 and "LICENSE.txt" files located in the directory
-"./%s/Documents/tsDistributors".
+"./%s/Documents".
 
 The "%s" Toolkit and its third-party components
 are distributed in the hope that they will be useful, but
@@ -399,7 +415,7 @@ theNotices = '''
 The Terms & Conditions which permit YOUR use, modification
 and redistribution of the "%s" Toolkit may be
 found in the "NOTICES.txt" file located in the directory
-"./%s/Documents/tsDistributors".
+"./%s/Documents".
 ''' % (tsWxGTUI_PyVx, 'tsWxGTUI_PyVx')
 
 #---------------------------------------------------------------------------
@@ -789,6 +805,18 @@ ThemeCxPython = {
         'StandardScreenDevice': 'stdscr',
         'SystemLogDevice': 'syslog',
         'name': 'tsLoggerStandardTargets'
+        },
+
+    'tsMinimumDisplaySize': {
+        'Cols': 60,
+        'Rows': 25,
+        'name': 'MinimumDisplaySize'
+        },
+
+    'tsRecommendedDisplaySize': {
+        'Cols': 80,
+        'Rows': 50,
+        'name': 'MinimumDisplaySize'
         },
 
     'tsConsoleDisplaySize': {

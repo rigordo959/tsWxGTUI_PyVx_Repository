@@ -1,5 +1,5 @@
 #! /usr/bin/env python
-# "Time-stamp: <01/26/2016  4:46:31 AM rsg>"
+# "Time-stamp: <08/26/2016  5:56:46 AM rsg>"
 '''
 tsCxGlobals.py - Module to establish configuration constants and
 macro-type functions for the Command Line Interface mode of the
@@ -167,6 +167,10 @@ macro-type functions for the Command Line Interface mode of the
 #                   references. Also updated copyright and release
 #                   info.
 #
+#    2016/08/26 rsg Updated ReleaseNumber to "0.0.7" and associated
+#                   information. This brings release number of
+#                   source code into agreement with documentation.
+#
 # ToDo:
 #
 #    TBD.
@@ -174,8 +178,8 @@ macro-type functions for the Command Line Interface mode of the
 #################################################################
 
 __title__     = 'tsCxGlobals'
-__version__   = '1.7.1'
-__date__      = '01/26/2016'
+__version__   = '1.7.2'
+__date__      = '08/26/2016'
 __authors__   = 'Richard S. Gordon'
 __copyright__ = 'Copyright (c) 2013-2016 ' + \
                 '%s.\n\t\tAll rights reserved.' % __authors__
@@ -236,7 +240,7 @@ except ImportError, e:
 #---------------------------------------------------------------------------
 
 ProductName   = 'TeamSTARS "tsWxGTUI_PyVx" Toolkit'
-ReleaseNumber = '0.0.6'
+ReleaseNumber = '0.0.7'
 SubSystemName = '"tsToolkitCLI"'
 VendorName    = 'Richard S. Gordon, a.k.a. Software Gadgetry'
 ThemeDate     = __date__

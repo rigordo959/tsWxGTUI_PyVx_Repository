@@ -1,5 +1,5 @@
-#!/bin/bash
-#"Time-stamp: <08/25/2016  8:25:48 AM rsg>"
+#!/usr/bin/bash
+#"Time-stamp: <05/07/2015  7:59:52 AM rsg>"
 # lookForErrors="E:"
 # lookForWarnings="W:"
 # lookFor=lookForErrors

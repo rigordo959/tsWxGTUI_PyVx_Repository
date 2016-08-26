@@ -1,5 +1,5 @@
 #! /usr/bin/env python
-# "Time-stamp: <03/26/2016  3:49:11 PM rsg>"
+# "Time-stamp: <08/26/2016  9:21:41 AM rsg>"
 '''
 setup.py - The setup script uses features from both the basic
 Python distutils and its setuptools (easy_install) enhancement.
@@ -469,8 +469,8 @@ the "tsWxGTUI_PyVx" Toolkit site-packages.
 #################################################################
 
 __title__     = 'setup'
-__version__   = '0.0.6'
-__date__      = '03/26/2016'
+__version__   = '0.0.7'
+__date__      = '08/26/2016'
 __authors__   = 'Richard S. Gordon'
 __copyright__ = 'Copyright (c) 2007-2016 ' + \
                 '%s.\n\t\tAll rights reserved.' % __authors__
@@ -644,14 +644,11 @@ def is_package(path):
 #--------------------------------------------------------------------------
 
 #
-tsToolkitVersion = '0.0.6'
-
-##version = '%s-%s' % (tsPythonVersion, tsToolkitVersion)
-version = tsToolkitVersion
+tsToolkitVersion = '0.0.7'
 
 setup(
     name = prefix,
-    version = version,
+    version = tsToolkitVersion,
     packages = find_packages(exclude=[
         "ez_setup", "tests", "tests.*"]),
     scripts = ["say_hello.py"],

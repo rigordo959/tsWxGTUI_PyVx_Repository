@@ -1,5 +1,5 @@
 #! /usr/bin/env python
-# "Time-stamp: <06/27/2014  7:51:11 AM rsg>"
+# "Time-stamp: <08/26/2016  5:53:32 AM rsg>"
 '''
 tsCxGlobals.py - Module to establish configuration constants and
 macro-type functions for the Command Line Interface mode of the
@@ -130,11 +130,41 @@ macro-type functions for the Command Line Interface mode of the
 #                   1 because nothing should be higher than
 #                   CRITICAL OR EMERGENCY.
 #
-#    2014/01/22 rsg Added list of classes and methods..
+#    2014/01/22 rsg Added list of classes and methods.
 #
 #    2014/04/08 rsg Changed to "ThemeToUse = Theme_SCADA_Operator"
 #                   from "ThemeToUse = Theme_Toolkit_Engineer"
 #                   in order to reduce verbosity of event logging.
+#
+#    2015/01/14 rsg Moved Masthead (formerly called Trademark),
+#                   Copyright, License and Notice text from
+#                   tsWxGlobals.
+#
+#    2015/02/19 rsg Updated Masthead, Copyright, License and
+#                   Notice text.
+#
+#    2015/03/22 rsg PEP 234 introduced the new subprocess module
+#                   in Python 2.4.1. Testing on Python 2.3.5
+#                   revealed the need to conditionalize import
+#                   and use of subprocess.
+#
+#    2015/06/01 rsg Updated Masthead, Copyright, License and
+#                   Notices path.
+#
+#    2015/06/28 rsg Updated Masthead, Copyright, License and
+#                   Notices to use "__version__" and "__date__".
+#                   Also added ReleaseNumber.
+#
+#    2015/08/20 rsg Updated ReleaseNumber to "0.0.2" and associated
+#                   information.
+#
+#    2015/09/14 rsg Added:
+#                       tsMinimumDisplaySize
+#                       tsRecommendedDisplaySize.
+#
+#    2016/08/26 rsg Updated ReleaseNumber to "0.0.7" and associated
+#                   information. This brings release number of
+#                   source code into agreement with documentation.
 #
 # ToDo:
 #
@@ -143,10 +173,10 @@ macro-type functions for the Command Line Interface mode of the
 #################################################################
 
 __title__     = 'tsCxGlobals'
-__version__   = '1.2.0'
-__date__      = '04/08/2014'
+__version__   = '1.7.1'
+__date__      = '08/26/2016'
 __authors__   = 'Richard S. Gordon'
-__copyright__ = 'Copyright (c) 2013 ' + \
+__copyright__ = 'Copyright (c) 2013-2016 ' + \
                 '%s.\n\t\tAll rights reserved.' % __authors__
 __license__   = 'GNU General Public License, ' + \
                 'Version 3, 29 June 2007'
@@ -181,10 +211,22 @@ import os
 import platform
 import shlex
 import struct
-import subprocess
 import sys
+import time
+import types
+
+#---------------------------------------------------------------------------
 
 try:
+    # Feature NOT available before Python 2.4.1
+    import subprocess
+    subprocessAvailable = True
+except ImportError as e:
+    subprocessAvailable = False
+
+try:
+    # Feature NOT available on native Microsoft Windows
+    # Requires on POSIX (Cygwin, Linux, Mac OS X, Unix etc.)
     import syslog
     syslogAvailable = True
 except ImportError as e:
@@ -192,21 +234,189 @@ except ImportError as e:
 
 #---------------------------------------------------------------------------
 
-ProductName   = '"tsWxGTUI" Toolkit'
-SubSystemName   = '"tsToolkitCLI"'
+ProductName   = 'TeamSTARS "tsWxGTUI_PyVx" Toolkit'
+ReleaseNumber = '0.0.7'
+SubSystemName = '"tsToolkitCLI"'
 VendorName    = 'Richard S. Gordon, a.k.a. Software Gadgetry'
 ThemeDate     = __date__
 
-import platform
-## import types
-
 DEBUG = True # TBD - Retain True to prevent Unimplemented Traps
 VERBOSE = True
+
+#--------------------------------------------------------------------------
+
+tsPythonVersion = sys.version[0:5]
+if (tsPythonVersion >= '1') and (tsPythonVersion < '2'):
+
+    # Presume tsWxGTUI_PyVx reflects Python version
+    tsWxGTUI_PyVx = 'tsWxGTUI_Py1x'
+
+elif (tsPythonVersion >= '2') and (tsPythonVersion < '3'):
+
+    # Presume tsWxGTUI_PyVx reflects Python version
+    tsWxGTUI_PyVx = 'tsWxGTUI_Py2x'
+
+elif (tsPythonVersion >= '3') and (tsPythonVersion < '4'):
+
+    # Presume tsWxGTUI_PyVx reflects Python version
+    tsWxGTUI_PyVx = 'tsWxGTUI_Py3x'
+
+else:
+
+    # Presume tsWxGTUI_PyVx reflects default Python version
+    tsWxGTUI_PyVx = 'tsWxGTUI_PyVx'
 
 #---------------------------------------------------------------------------
 
 System = platform.system()
 Platform = '__tsToolkitCLI__'
+
+#--------------------------------------------------------------------------
+
+#########################################################################
+
+# A Masthead is:
+#
+#    1. the highest part of a ship's mast or of the lower section
+#       of a mast.
+#
+#    2. the title of a newspaper or magazine at the head of the front
+#       or editorial page.
+#
+# For an ample splashscreen with two nested borders, it is presumed
+# that the following Python doc string is:
+#
+#    1. Stripped of all but one leading and trailing
+#       blank lines.
+#
+#    2. Stripped of superfluous leading white spaces
+#       (i.e., left justified) except for intentional
+#       indentation
+#
+#    3. Stripped of superfluous trailing white spaces
+#       at end of lines.
+#
+
+theMasthead = '''
++----+----+  TeamSTARS "%s" Toolkit
+| ts | Wx |      with Python 2x & Python 3x based
++----+----+         Command Line Interface (CLI)
+| G T U I |      and "Curses"-based "wxPython"-style
++---------+         Graphical-Text User Interface (GUI)
+ 
+Get that cross-platform, pixel-mode "wxPython" feeling
+on character-mode 8-/16-color (xterm-family) and non-
+color (vt100-family) terminals and terminal emulators.
+''' % tsWxGTUI_PyVx
+
+#########################################################################
+
+# A Copyright is:
+#
+#    1. the exclusive legal right, given to an originator or an
+#       assignee to print, publish, perform, film, or record
+#       literary, artistic, or musical material, and to authorize
+#       others to do the same.
+#
+# For a usable splashscreen with no borders, it is presumed that
+# the following Python doc string is:
+#
+#    1. Stripped of all but one leading and trailing
+#       blank lines.
+#
+#    2. Stripped of superfluous leading white spaces
+#       (i.e., left justified) except for intentional
+#       indentation
+#
+#    3. Stripped of superfluous trailing white spaces
+#       at end of lines.
+#
+
+theCopyright = '''
+%s-%s, v%s (pre-alpha build %s)
+
+  Author(s): Richard S. Gordon & Frederick A. Kier
+
+  Copyright (c) 2007-2009 Frederick A. Kier &
+                          Richard S. Gordon,
+                          a.k.a TeamSTARS.
+                All rights reserved.
+  Copyright (c) 2010-2016 Richard S. Gordon,
+                          a.k.a Software Gadgetry.
+                All rights reserved.
+  GNU General Public License (GPL), Version 3,
+                29 June 2007  
+  GNU Free Documentation License (GFDL) 1.3,
+                3 November 2008
+
+  Each third-party component is subject to its copyright
+  holder`s designated copyright and license notices.
+''' % (tsWxGTUI_PyVx, ReleaseNumber, __version__, __date__)
+
+#########################################################################
+
+# A License is:
+#
+#    1. a permit from an authority to own or use something, do a
+#       particular thing, or carry on a trade (especially in
+#       alcoholic beverages).
+#
+# For a usable splashscreen with no borders, it is presumed that
+# the following Python doc string is:
+#
+#    1. Stripped of all but one leading and trailing
+#       blank lines.
+#
+#    2. Stripped of superfluous leading white spaces
+#       (i.e., left justified) except for intentional
+#       indentation
+#
+#    3. Stripped of superfluous trailing white spaces
+#       at end of lines.
+#
+
+theLicense = '''
+The "%s" Toolkit and its third-party components
+are distributed as free and open source software. You may
+use, modify and redistribute it only under the terms and
+conditions set forth in the "COPYRIGHT.txt", "CREDITS.txt"
+and "LICENSE.txt" files located in the directory
+"./%s/Documents".
+
+The "%s" Toolkit and its third-party components
+are distributed in the hope that they will be useful, but
+WITHOUT ANY WARRANTY; without even the IMPLIED WARRANTY
+OF MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE.
+''' % (tsWxGTUI_PyVx, 'tsWxGTUI_PyVx', tsWxGTUI_PyVx)
+
+#########################################################################
+
+# A Notice is:
+#
+#    1. attention; observation.
+#    2. notification or warning of something, especially to allow
+#       preparations to be made.
+#
+# For a minimal splashscreen with no borders, it is presumed that
+# the following Python doc string is:
+#
+#    1. Stripped of all but one leading and trailing
+#       blank lines.
+#
+#    2. Stripped of superfluous leading white spaces
+#       (i.e., left justified) except for intentional
+#       indentation
+#
+#    3. Stripped of superfluous trailing white spaces
+#       at end of lines.
+#
+
+theNotices = '''
+The Terms & Conditions which permit YOUR use, modification
+and redistribution of the "%s" Toolkit may be
+found in the "NOTICES.txt" file located in the directory
+"./%s/Documents".
+''' % (tsWxGTUI_PyVx, 'tsWxGTUI_PyVx')
 
 #---------------------------------------------------------------------------
 
@@ -517,11 +727,19 @@ def _get_terminal_size_tput():
     # get terminal width
     # src: http://stackoverflow.com/questions/263890/
     #             how-do-i-find-the-width-height-of-a-terminal-window
-    try:
-        cols = int(subprocess.check_call(shlex.split('tput cols')))
-        rows = int(subprocess.check_call(shlex.split('tput lines')))
-        return (cols, rows)
-    except:
+    #
+    # Modified by rsg to conditionalize use of subprocess.
+    if subprocessAvailable:
+
+        try:
+            cols = int(subprocess.check_call(shlex.split('tput cols')))
+            rows = int(subprocess.check_call(shlex.split('tput lines')))
+            return (cols, rows)
+        except:
+            pass
+
+    else:
+
         pass
 
 #--------------------------------------------------------------------------
@@ -587,6 +805,18 @@ ThemeCxPython = {
         'StandardScreenDevice': 'stdscr',
         'SystemLogDevice': 'syslog',
         'name': 'tsLoggerStandardTargets'
+        },
+
+    'tsMinimumDisplaySize': {
+        'Cols': 60,
+        'Rows': 25,
+        'name': 'MinimumDisplaySize'
+        },
+
+    'tsRecommendedDisplaySize': {
+        'Cols': 80,
+        'Rows': 50,
+        'name': 'MinimumDisplaySize'
         },
 
     'tsConsoleDisplaySize': {

@@ -1,5 +1,5 @@
-#!/bin/bash
-#"Time-stamp: <08/25/2016  8:14:34 AM rsg>"
+#!/usr/bin/bash
+#"Time-stamp: <03/16/2016  8:38:14 PM rsg>"
 #
 # create an archive file (e.g., ZIP file on Windows) containing
 # your setup script setup.py, and your module (tsPlatformQuery.py)

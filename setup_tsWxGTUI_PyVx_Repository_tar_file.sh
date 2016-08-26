@@ -1,5 +1,5 @@
-#!/bin/bash
-#"Time-stamp: <08/25/2016  8:13:19 AM rsg>"
+#!/usr/bin/bash
+#"Time-stamp: <07/07/2015  6:54:58 PM rsg>"
 #
 # create an archive file (e.g., tarball on Linux, Mac OS X
 # and  Unix) containing your setup script setup.py, and
