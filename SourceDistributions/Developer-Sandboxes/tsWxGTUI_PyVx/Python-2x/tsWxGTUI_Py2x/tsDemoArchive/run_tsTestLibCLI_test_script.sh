@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/bin/bash
 #
 python test_bit_shift.py
 python test_nCursesDemo.py

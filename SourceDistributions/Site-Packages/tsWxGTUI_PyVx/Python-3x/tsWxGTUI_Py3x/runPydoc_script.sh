@@ -1,5 +1,5 @@
-#!/usr/bin/bash
-#"Time-stamp: <11/18/2012  9:30:59 AM rsg>"
+#!/bin/bash
+#"Time-stamp: <08/25/2016  8:30:42 AM rsg>"
 #
 function makeManPage() {
   pydoc $1.py > $1.man
