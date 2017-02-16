@@ -1,0 +1,55 @@
+Help on module tsGistGetTerminalSize:
+
+NAME
+    tsGistGetTerminalSize
+
+FILE
+    /cygdrive/d/WR/Technical_Preview-Draft/tsWxGTUI_PyVx/Python-2x/tsWxGTUI_Py2x/tsLibCLI/tsGistGetTerminalSize.py
+
+DESCRIPTION
+    tsGistGetTerminalSize.py - Module for acquiring the character
+    size of the Python console window as tuple (width, height) on host
+    operating systems (such as Linux, Mac OS X, Microsoft Windows and
+    Unix).
+
+FUNCTIONS
+    get_terminal_size()
+        getTerminalSize()
+        - get width and height of console
+        - works on linux,os x,windows,cygwin(windows)
+        originally retrieved from:
+        http://stackoverflow.com/questions/566746/
+               how-to-get-console-window-width-in-python
+
+DATA
+    __authors__ = 'Richard S. Gordon'
+    __copyright__ = 'Copyright (c) 2013 Richard S. Gordon.\n\t\tAll rights...
+    __credits__ = '\n\n  Credits: \n\n\t  terminalsize (https://gist.git.....
+    __date__ = '03/22/2015'
+    __header__ = '\n\ntsGistGetTerminalSize, v1.0.0 (build 03/22/201... Ge...
+    __license__ = 'GNU General Public License, Version 3, 29 June 2007'
+    __line1__ = 'tsGistGetTerminalSize, v1.0.0 (build 03/22/2015)'
+    __line2__ = 'Author(s): Richard S. Gordon'
+    __line3__ = 'Copyright (c) 2013 Richard S. Gordon.\n\t\tAll rights res...
+    __line4__ = 'GNU General Public License, Version 3, 29 June 2...U Gene...
+    __title__ = 'tsGistGetTerminalSize'
+    __version__ = '1.0.0'
+    mainTitleVersionDate = 'tsGistGetTerminalSize, v1.0.0 (build 03/22/201...
+
+VERSION
+    1.0.0
+
+DATE
+    03/22/2015
+
+CREDITS
+    
+    
+      Credits: 
+    
+    	  terminalsize (https://gist.github.com/jtriley/1108174) Features: 
+    	  Copyright (c) 2011 Justin T. Riley.
+    			All rights reserved.
+    	  GNU General Public License, Version 3, 29 June 2007
+
+

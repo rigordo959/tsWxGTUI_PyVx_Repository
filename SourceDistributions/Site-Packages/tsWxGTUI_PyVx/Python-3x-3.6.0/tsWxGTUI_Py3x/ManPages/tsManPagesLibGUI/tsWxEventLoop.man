@@ -1,0 +1,337 @@
+
+Help on module tsWxEventLoop:
+
+NAME
+    tsWxEventLoop
+
+FILE
+    ./tsLibGUI/tsWxPkg/src/tsWxEventLoop.py
+
+DESCRIPTION
+    tsWxEventLoop.py - Class uses the Standard Python Curses API to
+    receive keyboard and mouse events. It maps those events into
+    wxPython equivalent ones. It enhances the Low Level Standard
+    Python Curses API by scanning the stack of wxPython GUI objects
+    and identifying which one was visible enough to trigger the
+    event. It dispatch th event to the appropriate wxPython event
+    handler.
+
+CLASSES
+    __builtin__.object
+        EventLoop
+    
+    class EventLoop(__builtin__.object)
+     |  Base class for all event loop implementations.
+     |  
+     |  An event loop is a class which queries the queue of native events sent
+     |  to the wxWidgets application and dispatches them to the appropriate
+     |  wxEvtHandlers.
+     |  
+     |  An object of this class is created by wxAppTraits::CreateEventLoop() and
+     |  used by wxApp to run the main application event loop. Temporary event
+     |  loops are usually created by wxDialog::ShowModal().
+     |  
+     |  You can create your own event loop if you need, provided that you restore
+     |  the main event loop once yours is destroyed (see wxEventLoopActivator).
+     |  
+     |  Methods defined here:
+     |  
+     |  Dispatch(self)
+     |      Dispatches the next event in the windowing system event queue.
+     |  
+     |  DispatchTimeout(self, timeout=0)
+     |      Dispatch an event but not wait longer than the specified timeout
+     |      for it.
+     |  
+     |  Exit(self, rc)
+     |      Exit from the loop with the given exit code.
+     |  
+     |  IsEventAllowedInsideYield(self, wxEventCategory)
+     |      Returns true if the given event category is allowed inside a
+     |      YieldFor() call (i.e.
+     |  
+     |  IsMain(self)
+     |      Returns true if this is the main loop executed by wxApp::OnRun().
+     |  
+     |  IsOk(self)
+     |      Use this to check whether the event loop was successfully
+     |      created before using it.
+     |  
+     |  IsRunning(self)
+     |      Return true if this event loop is currently running.
+     |  
+     |  IsYielding(self)
+     |      Returns true if called from inside Yield() or from inside YieldFor().
+     |  
+     |  OnExit(self)
+     |      This function is called before the event loop terminates, whether
+     |      this happens normally (because of Exit() call) or abnormally
+     |      (because of an exception thrown from inside the loop).
+     |  
+     |  Pending(self)
+     |      Return true if any events are available.
+     |  
+     |  ProcessIdle(self)
+     |      This virtual function is called when the application becomes idle
+     |      and normally just sends wxIdleEvent to all interested parties.
+     |  
+     |  Run(self)
+     |      Start the event loop, return the exit code when it is finished.
+     |  
+     |  WakeUp(self)
+     |      Called by wxWidgets to wake up the event loop even if it is
+     |      currently blocked inside Dispatch().
+     |  
+     |  WakeUpIdle(self)
+     |      Makes sure that idle events are sent again.
+     |  
+     |  Yield(self, onlyIfNeeded=False)
+     |      Yields control to pending messages in the windowing system.
+     |  
+     |  YieldFor(self, eventsToProcess)
+     |      Works like Yield() with onlyIfNeeded == true, except that it
+     |      allows the caller to specify a mask of the wxEventCategory values
+     |      which indicates which events should be processed and which should
+     |      instead be "delayed" (i.e.
+     |  
+     |  __init__(self, parent=None)
+     |  
+     |  tsGetEventHandler(self, objectId, evt)
+     |  
+     |  tsGetGraphicalUserInput(self)
+     |      Receive and categorize keyboard and mouse input. Identify target
+     |      GUI object and generate the appropriate event notification.
+     |  
+     |  tsIsThisTheMouseState(self, bstate, mask)
+     |  
+     |  tsKeyboardEventGenerator(self, ch)
+     |      TBD - Under Construction. Does not yet generate wxPython Key Names,
+     |      Key Codes or Raw Key Codes.
+     |      
+     |      Categorize keyboard input. Identify target GUI object and generate
+     |      the appropriate event notification.
+     |      
+     |      The event class contains information about keypress and character
+     |      events. These events are only sent to the widget that currently has
+     |      the keyboard focus.
+     |      
+     |      Notice that there are three different kinds of keyboard events in
+     |      wxWidgets: key down and up events and char events. The difference
+     |      between the first two is clear - the first corresponds to a key press
+     |      and the second to a key release - otherwise they are identical. Just
+     |      note that if the key is maintained in a pressed state you will
+     |      typically get a lot of (automatically generated) down events but only
+     |      one up so it is wrong to assume that there is one up event corres-
+     |      ponding to each down one.
+     |      
+     |      Both key events provide untranslated key codes while the char event
+     |      carries the translated one. The untranslated code for alphanumeric
+     |      keys is always an upper case value. For the other keys it is one of
+     |      WXK_XXX values from the keycodes table. The translated key is, in
+     |      general, the character the user expects to appear as the result of
+     |      the key combination when typing the text into a text entry zone, for
+     |      example.
+     |      
+     |      A few examples to clarify this (all assume that CAPS LOCK is unpressed
+     |      and the standard US keyboard): when the "A" key is pressed, the key
+     |      down event key code is equal to ASCII A == 65. But the char event key
+     |      code is ASCII a == 97. On the other hand, if you press both SHIFT and
+     |      "A" keys simultaneously , the key code in key down event will still
+     |      be just "A" while the char event key code parameter will now be "A"
+     |      as well.
+     |      
+     |      Although in this simple case it is clear that the correct key code
+     |      could be found in the key down event handler by checking the value
+     |      returned by ShiftDown, in general you should use EVT_CHAR for this
+     |      as for non alphanumeric keys or non-US keyboard layouts the
+     |      translation is keyboard-layout dependent and can only be done
+     |      properly by the system itself.
+     |      
+     |      Another kind of translation is done when the control key is pressed:
+     |      for example, for CTRL-A key press the key down event still carries
+     |      the same key code "A" as usual but the char event will have key code
+     |      of 1, the ASCII value of this key combination.
+     |      
+     |      You may discover how the other keys on your system behave inter-
+     |      actively by running the KeyEvents sample in the wxPython demo and
+     |      pressing some keys while the blue box at the top has the keyboard
+     |      focus.
+     |      
+     |      Note: If a key down event is caught and the event handler does not
+     |      call event.Skip() then the coresponding char event will not happen.
+     |      This is by design and enables the programs that handle both types
+     |      of events to be a bit simpler.
+     |      
+     |      Note for Windows programmers: The key and char events in wxWidgets are
+     |      similar to but slightly different from Windows WM_KEYDOWN and WM_CHAR
+     |      events. In particular, Alt-x combination will generate a char event in
+     |      wxWidgets (unless it is used as an accelerator).
+     |      
+     |      Tip: be sure to call event.Skip() for events that you do not process
+     |      in key event function, otherwise menu shortcuts may cease to work under
+     |      Windows.
+     |  
+     |  tsLookupButton(self, mouseId, x, y, z, bstate)
+     |      Search the list of Buttons for the one containing the caretPoint.
+     |  
+     |  tsLookupWindows(self, theWindows, caretPoint, x, y)
+     |      Search the list of Windows for candidates containing the caretPoint.
+     |  
+     |  tsMouseEventGenerator(self, ch)
+     |      Categorize mouse input. Identify triggering object and generate
+     |      the appropriate triggering event notification.
+     |  
+     |  tsProcessEventTables(self, objectCriteria=None, objectId=None, triggeringEvent=None, triggeringObject=None)
+     |      Dispatch the triggering event to one or more event handlers
+     |      identified in the system or user event table of the triggering
+     |      object and its ancestors.
+     |      
+     |      Return True if an event handler found. False if no event handler
+     |      found.
+     |  
+     |  tsProcessSelectedEventTable(self, objectCriteria=None, objectId=None, triggeringEvent=None, triggeringObject=None, useSystemEventTable=True)
+     |      Return True after dispatching the triggering event to an event
+     |      handler identified in the system or user event table of the.
+     |      triggering object. Return False if no event handler found.
+     |  
+     |  tsResizeHandler(self, signal)
+     |      TBD - Not sure this is functional or needed.
+     |  
+     |  tsScanDescendantOrderOfShowForTopMostWindow(self, theWindows, caretPoint)
+     |      TBD - Under construction. Do not use.
+     |      
+     |      Return the non-overlayed, top most window in a list of candidate
+     |      windows that should be associated with the caret and mouse click.
+     |  
+     |  tsScanDescendantPanelStackForTopMostWindow(self, theWindows, caretPoint)
+     |      TBD - Under construction. Do not use.
+     |      
+     |      Return the overlayed, top most window in a list of candidate
+     |      windows that should be associated with the caret and mouse click.
+     |  
+     |  tsScanForTopMostWindow(self, theWindows, caretPoint)
+     |      Return the top most window in a list of candidate windows that
+     |      should be associated with the caret and mouse click.
+     |  
+     |  tsThisIsTriggeringEvent(self, mouseId, x, y, z, bstate, objectId)
+     |      Identify the triggering event.
+     |  
+     |  tsThisIsTriggeringObject(self, mouseId, x, y, z, bstate)
+     |      Identify the "objectId" of the GUI object (frame, dialog, checkbox,
+     |      radio box, button, textctrl etc.) to receive the mouse event.
+     |  
+     |  tsTimeoutEventGenerator(self)
+     |      Categorize timer input. Identify target GUI object and generate
+     |      the appropriate event notification.
+     |      
+     |      TBD - Under Construction. Scan for the caretPoint, if available.
+     |  
+     |  tsUpdatePanelStack(self)
+     |      Scan PanelStack from bottom to top and register updated
+     |      position of each overlay layer in associated data base.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Static methods defined here:
+     |  
+     |  GetActive()
+     |      Return the currently active (running) event loop.
+     |  
+     |  SetActive(loop)
+     |      Set currently active (running) event loop.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes defined here:
+     |  
+     |  ts_Active = None
+     |  
+     |  ts_EscapeActive = False
+
+DATA
+    DEBUG = True
+    DEBUG_MOUSE = True
+    EVT_CHAR = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_COMMAND_LEFT_CLICK = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_COMMAND_LEFT_DCLICK = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_COMMAND_RIGHT_CLICK = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_COMMAND_RIGHT_DCLICK = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_COMMAND_SET_FOCUS = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_LEFT_DOWN = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_LEFT_UP = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_MIDDLE_DCLICK = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_MIDDLE_DOWN = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_MIDDLE_UP = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_MOUSEWHEEL = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_NULL = 0
+    EVT_RIGHT_DCLICK = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_RIGHT_DOWN = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_RIGHT_UP = <tsWxPyEventBinder.PyEventBinder object>
+    EVT_TIMER = <tsWxPyEventBinder.PyEventBinder object>
+    MouseEventOptionMap = {'AltDown': None, 'CmdDown': None, 'CtrlDown': N...
+    MouseTriggeringEventMap = {'LeftClicked': <tsWxPyEventBinder.PyEventBi...
+    VERBOSE = True
+    __authors__ = 'Richard S. Gordon'
+    __copyright__ = 'Copyright (c) 2007-2013 Richard S. Gordon.\n\t\tAll r...
+    __credits__ = '\n\n  Credits: \n\n\t  tsLibGUI Import & Application .....
+    __date__ = '08/28/2013'
+    __header__ = '\n\ntsWxEventLoop, v1.9.3 (build 08/28/2013)\n\n  Au... ...
+    __license__ = 'GNU General Public License, Version 3, 29 June 2007'
+    __line1__ = 'tsWxEventLoop, v1.9.3 (build 08/28/2013)'
+    __line2__ = 'Author(s): Richard S. Gordon'
+    __line3__ = 'Copyright (c) 2007-2013 Richard S. Gordon.\n\t\tAll right...
+    __line4__ = 'GNU General Public License, Version 3, 29 June 2...U Gene...
+    __title__ = 'tsWxEventLoop'
+    __version__ = '1.9.3'
+    bypassEventProcessingMode = True
+    firstCallerClassNames = ['Caret', 'AcceleratorTable', 'GridSizer', 'Py...
+    mainTitleVersionDate = 'tsWxEventLoop, v1.9.3 (build 08/28/2013)'
+    wxEVENT_PROPAGATE_MAX = 2147483647
+    wxEVENT_PROPAGATE_NONE = 0
+    wxEVT_CATEGORY_ALL = 127
+    wxEVT_CATEGORY_TIMER = 8
+    wxEVT_CATEGORY_USER_INPUT = 2
+    wxEVT_CHAR = 212
+    wxEVT_COMMAND_TEXT_ENTER = 8
+    wxEVT_TIMER = 80
+
+VERSION
+    1.9.3
+
+DATE
+    08/28/2013
+
+CREDITS
+    
+    
+      Credits: 
+    
+    	  tsLibGUI Import & Application Launch Features: 
+    	  Copyright (c) 2007-2009 Frederick A. Kier.
+    			All rights reserved.
+    
+    	  Python Curses Module API & Run Time Library Features:
+    	  Copyright (c) 2001-2013 Python Software Foundation.
+    			All rights reserved.
+    	  PSF License Agreement for Python 2.7.3 & 3.3.0
+    
+    	  wxWidgets (formerly wxWindows) & wxPython API Features:
+    	  Copyright (c) 1992-2008 Julian Smart, Robert Roebling,
+    			Vadim Zeitlin and other members of the 
+    			wxWidgets team.
+    			All rights reserved.
+    	  wxWindows Library License
+    
+    	  nCurses API & Run Time Library Features:
+    	  Copyright (c) 1998-2011 Free Software Foundation, Inc.
+    			All rights reserved.
+    	  GNU General Public License, Version 3, 29 June 2007
+
+

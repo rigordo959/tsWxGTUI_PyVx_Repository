@@ -1,0 +1,89 @@
+
+------------------------------------------------------------------------------
+
+tsLinesOfCode, v2.4.0 (build 07/31/2013)
+
+  Author(s): Richard S. Gordon
+  Copyright (c) 2007-2013 Richard S. Gordon.
+		All rights reserved.
+  GNU General Public License, Version 3, 29 June 2007
+
+  Credits:
+
+	  tsLibCLI Import & Application Launch Features:
+	  Copyright (c) 2007-2009 Frederick A. Kier.
+			All rights reserved.
+
+	  File Extension Features of SLOCCount 2.26:
+	  Copyright (c) 2001-2004 David A. Wheeler.
+			All rights reserved.
+
+	  Algorithm Features of COCOMO(R) 81:
+	  Copyright (c) 1981 Dr. Barry W. Boehm.
+			All rights reserved.
+
+	  Python Logging Module API Features:
+	  Copyright (c) 2001-2013 Python Software Foundation.
+			All rights reserved.
+	  PSF License Agreement for Python 2.7.3 & 3.3.0
+
+------------------------------------------------------------------------------
+
+		Individual Source Code Feature Statistics
+
+    CODE    CMNTS    LINES    WORDS    CHARS PATH/FILE
+     344      384      728     1944    16538 /cygdrive/d/WR/SoftwareGadgetry-Dev/Python-2.x/tsToolsCLI/tsLinesOfCodeProjectMetricsPkg/sampleHelp/GeneralCmds.c
+      59       58      117      422     2253 /cygdrive/d/WR/SoftwareGadgetry-Dev/Python-2.x/tsToolsCLI/tsLinesOfCodeProjectMetricsPkg/sampleHelp/hello.f90
+       4       20       24       56      571 /cygdrive/d/WR/SoftwareGadgetry-Dev/Python-2.x/tsToolsCLI/tsLinesOfCodeProjectMetricsPkg/sampleHelp/tsConfig.py
+       0       89       89      342     4248 /cygdrive/d/WR/SoftwareGadgetry-Dev/Python-2.x/tsToolsCLI/tsLinesOfCodeProjectMetricsPkg/sampleHelp/tsLinesOfCodeProjectMetricsStatistics.txt
+       0     2216     2216     7835   286178 /cygdrive/d/WR/SoftwareGadgetry-Dev/Python-2.x/tsToolsCLI/tsLinesOfCodeProjectMetricsPkg/sampleHelp/tsLinesOfCodeStatistics-Python-2.x.txt
+       0       87       87      331     3902 /cygdrive/d/WR/SoftwareGadgetry-Dev/Python-2.x/tsToolsCLI/tsLinesOfCodeProjectMetricsPkg/sampleHelp/tsLinesOfCodeStatistics.txt
+      25       40       65      252     1414 /cygdrive/d/WR/SoftwareGadgetry-Dev/Python-2.x/tsToolsCLI/tsLinesOfCodeProjectMetricsPkg/sampleHelp/xmitr.asm
+------------------------------------------------------------------------------
+
+  Input Path:     <./tsToolsCLI/tsLinesOfCodeProjectMetricsPkg/sampleHelp/>.
+  Results are available in "/cygdrive/d/WR/SoftwareGadgetry-Dev/Python-2.x/tsLinesOfCodeProjectMetricsStatistics.txt".
+
+------------------------------------------------------------------------------
+
+		Overall Source Code Feature Statistics
+
+           FILES     CODE    CMNTS    LINES    WORDS      CHARS
+   Pct:             12.99%   87.01%  100.00%
+Totals:        7      432     2894     3326    11182     315104
+   Std:        6      126      804      805     2821     106479
+   Avg:        1       62      413      475     1597      45015
+
+------------------------------------------------------------------------------
+
+	Distribution of Source Code Feature Statistics by File Types
+
+   TYPES      FILES     CODE    CMNTS    LINES    WORDS      CHARS  %-LINES
+   .asm           1       25       40       65      252       1414    1.95%
+   .c             1      344      384      728     1944      16538   21.89%
+   .f90           1       59       58      117      422       2253    3.52%
+   .py            1        4       20       24       56        571    0.72%
+   .txt           3        0     2392     2392     8508     294328   71.92%
+
+------------------------------------------------------------------------------
+
+		"Organic" Software Project Estimate
+		Constructive Cost Model (COCOMO(R) 81)
+
+Total Physical Source Lines of Code (KSLOC) 			= 432 (0.43)
+
+Estimated Development Effort in Person-Years (Person-Months) 	= 0.08 (0.99)
+ (Basic COCOMO model, Person-Months = 2.40 * (KSLOC**1.05))
+
+Estimated Schedule in Years (Months) 				= 0.21 (2.49)
+ (Basic COCOMO model, Months = 2.50 * (person-months**0.38))
+
+Estimated Average Number of Developers  			= 0.40
+ (Effort/Schedule)
+
+Total Estimated Cost to Develop 				= $ 11192
+ (Average Salary = $ 56286.00/year, Overhead = 2.40).
+
+Estimated Productivity in Source Lines of Code per Day 		= 52
+
+------------------------------------------------------------------------------

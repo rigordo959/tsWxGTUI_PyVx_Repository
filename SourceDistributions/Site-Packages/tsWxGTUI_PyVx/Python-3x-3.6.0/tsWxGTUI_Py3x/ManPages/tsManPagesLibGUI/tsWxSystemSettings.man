@@ -1,0 +1,333 @@
+
+Help on module tsWxSystemSettings:
+
+NAME
+    tsWxSystemSettings
+
+FILE
+    ./tsLibGUI/tsWxPkg/src/tsWxSystemSettings.py
+
+DESCRIPTION
+    tsWxSystemSettings.py - Class allows the application to ask for
+    details about the system. This can include settings such as
+    standard colours, fonts, and user interface element sizes.
+
+CLASSES
+    __builtin__.object
+        SystemSettings
+    
+    class SystemSettings(__builtin__.object)
+     |  Class allows the application to ask for details about the
+     |  system. This can include settings such as standard colours,
+     |  fonts, and user interface element sizes.
+     |  
+     |  Static methods defined here:
+     |  
+     |  GetColour(index, verbose=False)
+     |      Returns a system colour. The returned colour is always valid.
+     |  
+     |  GetFont(index, verbose=False)
+     |      Returns a system font. The returned font is always valid.
+     |  
+     |  GetMetric(index, win=None, verbose=False)
+     |      Returns the value of a system metric, or -1 if the metric is not
+     |      supported on the current system.
+     |      
+     |      The value of win determines if the metric returned is a global
+     |      value or a wxWindow  based value, in which case it might determine
+     |      the widget, the display the window is on, or something similar. The
+     |      window given should be as close to the metric as possible
+     |      (e.g a wxTopLevelWindow in case of the wxSYS_CAPTION_Y metric).
+     |      
+     |      index can be one of the wxSystemMetric enum values.
+     |      
+     |      win is a pointer to the window for which the metric is requested.
+     |      Specifying the win parameter is encouraged, because some metrics
+     |      on some ports are not supported without one, or they might be
+     |      capable of reporting better values if given one. If a window does
+     |      not make sense for a metric, one should still be given, as for
+     |      example it might determine which displays cursor width is requested
+     |      with wxSYS_CURSOR_X.
+     |  
+     |  GetScreenType(verbose=False)
+     |      Returns the screen type.
+     |  
+     |  HasFeature(index, verbose=False)
+     |      Returns true if the port has certain feature.
+     |  
+     |  SetScreenType(screen)
+     |  
+     |  tsGetTerminalPixelRectangle()
+     |      Returns the bounding rectangle the client area of the display,
+     |      i.e., without taskbars and such.
+     |  
+     |  tsGetTheLogger()
+     |      Return the logger instance.
+     |  
+     |  tsGetTheTerminal()
+     |      Return the terminal instance.
+     |  
+     |  tsGetTheTerminalScreen()
+     |      Return the screen instance.
+     |  
+     |  tsSetTerminalPixelRectangle()
+     |      Updates the system terminal geometry metrics.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes defined here:
+     |  
+     |  systemScreenType = (None, None)
+     |  
+     |  wxSYS_ANSI_FIXED_FONT = 2
+     |  
+     |  wxSYS_ANSI_VAR_FONT = 3
+     |  
+     |  wxSYS_BORDER_X = 2
+     |  
+     |  wxSYS_BORDER_Y = 3
+     |  
+     |  wxSYS_CAN_DRAW_FRAME_DECORATIONS = 1
+     |  
+     |  wxSYS_CAN_ICONIZE_FRAME = 2
+     |  
+     |  wxSYS_CAPTION_Y = 32
+     |  
+     |  wxSYS_COLOUR_3DDKSHADOW = 22
+     |  
+     |  wxSYS_COLOUR_3DFACE = 16
+     |  
+     |  wxSYS_COLOUR_3DHIGHLIGHT = 21
+     |  
+     |  wxSYS_COLOUR_3DHILIGHT = 21
+     |  
+     |  wxSYS_COLOUR_3DLIGHT = 23
+     |  
+     |  wxSYS_COLOUR_3DSHADOW = 17
+     |  
+     |  wxSYS_COLOUR_ACTIVEBORDER = 11
+     |  
+     |  wxSYS_COLOUR_ACTIVECAPTION = 29
+     |  
+     |  wxSYS_COLOUR_APPWORKSPACE = 13
+     |  
+     |  wxSYS_COLOUR_BACKGROUND = 2
+     |  
+     |  wxSYS_COLOUR_BTNFACE = 16
+     |  
+     |  wxSYS_COLOUR_BTNHIGHLIGHT = 21
+     |  
+     |  wxSYS_COLOUR_BTNHILIGHT = 21
+     |  
+     |  wxSYS_COLOUR_BTNSHADOW = 17
+     |  
+     |  wxSYS_COLOUR_BTNTEXT = 19
+     |  
+     |  wxSYS_COLOUR_CAPTIONTEXT = 10
+     |  
+     |  wxSYS_COLOUR_DESKTOP = 2
+     |  
+     |  wxSYS_COLOUR_FRAMEBK = 16
+     |  
+     |  wxSYS_COLOUR_GRADIENTACTIVECAPTION = 28
+     |  
+     |  wxSYS_COLOUR_GRADIENTINACTIVECAPTION = 30
+     |  
+     |  wxSYS_COLOUR_GRAYTEXT = 18
+     |  
+     |  wxSYS_COLOUR_HIGHLIGHT = 14
+     |  
+     |  wxSYS_COLOUR_HIGHLIGHTTEXT = 15
+     |  
+     |  wxSYS_COLOUR_HOTLIGHT = 27
+     |  
+     |  wxSYS_COLOUR_INACTIVEBORDER = 12
+     |  
+     |  wxSYS_COLOUR_INACTIVECAPTION = 31
+     |  
+     |  wxSYS_COLOUR_INACTIVECAPTIONTEXT = 20
+     |  
+     |  wxSYS_COLOUR_INFOBK = 25
+     |  
+     |  wxSYS_COLOUR_INFOTEXT = 24
+     |  
+     |  wxSYS_COLOUR_LISTBOX = 26
+     |  
+     |  wxSYS_COLOUR_LISTBOXHIGHLIGHTTEXT = 35
+     |  
+     |  wxSYS_COLOUR_LISTBOXTEXT = 34
+     |  
+     |  wxSYS_COLOUR_MENU = 5
+     |  
+     |  wxSYS_COLOUR_MENUBAR = 33
+     |  
+     |  wxSYS_COLOUR_MENUHILIGHT = 32
+     |  
+     |  wxSYS_COLOUR_MENUTEXT = 8
+     |  
+     |  wxSYS_COLOUR_SCROLLBAR = 1
+     |  
+     |  wxSYS_COLOUR_WINDOW = 6
+     |  
+     |  wxSYS_COLOUR_WINDOWFRAME = 7
+     |  
+     |  wxSYS_COLOUR_WINDOWTEXT = 9
+     |  
+     |  wxSYS_CURSOR_X = 4
+     |  
+     |  wxSYS_CURSOR_Y = 5
+     |  
+     |  wxSYS_DCLICK_MSEC = 38
+     |  
+     |  wxSYS_DCLICK_X = 6
+     |  
+     |  wxSYS_DCLICK_Y = 7
+     |  
+     |  wxSYS_DEFAULT_GUI_FONT = 6
+     |  
+     |  wxSYS_DEVICE_DEFAULT_FONT = 5
+     |  
+     |  wxSYS_DRAG_X = 8
+     |  
+     |  wxSYS_DRAG_Y = 9
+     |  
+     |  wxSYS_EDGE_X = 10
+     |  
+     |  wxSYS_EDGE_Y = 11
+     |  
+     |  wxSYS_FRAMESIZE_X = 23
+     |  
+     |  wxSYS_FRAMESIZE_Y = 24
+     |  
+     |  wxSYS_HSCROLL_ARROW_X = 12
+     |  
+     |  wxSYS_HSCROLL_ARROW_Y = 13
+     |  
+     |  wxSYS_HSCROLL_Y = 27
+     |  
+     |  wxSYS_HTHUMB_X = 14
+     |  
+     |  wxSYS_ICONSPACING_X = 17
+     |  
+     |  wxSYS_ICONSPACING_Y = 18
+     |  
+     |  wxSYS_ICON_X = 15
+     |  
+     |  wxSYS_ICON_Y = 16
+     |  
+     |  wxSYS_MENU_Y = 33
+     |  
+     |  wxSYS_MOUSE_BUTTONS = 1
+     |  
+     |  wxSYS_NETWORK_PRESENT = 34
+     |  
+     |  wxSYS_OEM_FIXED_FONT = 1
+     |  
+     |  wxSYS_PENWINDOWS_PRESENT = 35
+     |  
+     |  wxSYS_SCREEN_DESKTOP = 4
+     |  
+     |  wxSYS_SCREEN_NONE = 0
+     |  
+     |  wxSYS_SCREEN_PDA = 2
+     |  
+     |  wxSYS_SCREEN_SMALL = 3
+     |  
+     |  wxSYS_SCREEN_TINY = 1
+     |  
+     |  wxSYS_SCREEN_X = 21
+     |  
+     |  wxSYS_SCREEN_Y = 22
+     |  
+     |  wxSYS_SHOW_SOUNDS = 36
+     |  
+     |  wxSYS_SMALLICON_X = 25
+     |  
+     |  wxSYS_SMALLICON_Y = 26
+     |  
+     |  wxSYS_SWAP_BUTTONS = 37
+     |  
+     |  wxSYS_SYSTEM_FONT = 4
+     |  
+     |  wxSYS_TABLET_PRESENT = 3
+     |  
+     |  wxSYS_VSCROLL_ARROW_X = 29
+     |  
+     |  wxSYS_VSCROLL_ARROW_Y = 30
+     |  
+     |  wxSYS_VSCROLL_X = 28
+     |  
+     |  wxSYS_VTHUMB_Y = 31
+     |  
+     |  wxSYS_WINDOWMIN_X = 19
+     |  
+     |  wxSYS_WINDOWMIN_Y = 20
+     |  
+     |  wxSystemColour = {1: ('wxSYS_COLOUR_SCROLLBAR', None), 2: ('wxSYS_COLO...
+     |  
+     |  wxSystemFeature = {1: ('wxSYS_CAN_DRAW_FRAME_DECORATIONS', False), 2: ...
+     |  
+     |  wxSystemFont = {1: ('wxSYS_OEM_FIXED_FONT', 'Courier 12pt'), 2: ('wxSY...
+     |  
+     |  wxSystemMetric = {1: ('wxSYS_MOUSE_BUTTONS', True), 2: ('wxSYS_BORDER_...
+     |  
+     |  wxSystemScreenType = {0: (None, None), 1: ('Tiny', None), 2: ('PDA', N...
+
+DATA
+    DEBUG = True
+    VERBOSE = True
+    __authors__ = 'Richard S. Gordon'
+    __copyright__ = 'Copyright (c) 2007-2013 Richard S. Gordon.\n\t\tAll r...
+    __credits__ = '\n\n  Credits: \n\n\t  tsLibGUI Import & Application .....
+    __date__ = '04/01/2013'
+    __header__ = '\n\ntsWxSystemSettings, v1.1.0 (build 04/01/2013)\n... G...
+    __license__ = 'GNU General Public License, Version 3, 29 June 2007'
+    __line1__ = 'tsWxSystemSettings, v1.1.0 (build 04/01/2013)'
+    __line2__ = 'Author(s): Richard S. Gordon'
+    __line3__ = 'Copyright (c) 2007-2013 Richard S. Gordon.\n\t\tAll right...
+    __line4__ = 'GNU General Public License, Version 3, 29 June 2...U Gene...
+    __title__ = 'tsWxSystemSettings'
+    __version__ = '1.1.0'
+    mainTitleVersionDate = 'tsWxSystemSettings, v1.1.0 (build 04/01/2013)'
+
+VERSION
+    1.1.0
+
+DATE
+    04/01/2013
+
+CREDITS
+    
+    
+      Credits: 
+    
+    	  tsLibGUI Import & Application Launch Features: 
+    	  Copyright (c) 2007-2009 Frederick A. Kier.
+    			All rights reserved.
+    
+    	  Python Curses Module API & Run Time Library Features:
+    	  Copyright (c) 2001-2013 Python Software Foundation.
+    			All rights reserved.
+    	  PSF License Agreement for Python 2.7.3 & 3.3.0
+    
+    	  wxWidgets (formerly wxWindows) & wxPython API Features:
+    	  Copyright (c) 1992-2008 Julian Smart, Robert Roebling,
+    			Vadim Zeitlin and other members of the 
+    			wxWidgets team.
+    			All rights reserved.
+    	  wxWindows Library License
+    
+    	  nCurses API & Run Time Library Features:
+    	  Copyright (c) 1998-2011 Free Software Foundation, Inc.
+    			All rights reserved.
+    	  GNU General Public License, Version 3, 29 June 2007
+
+

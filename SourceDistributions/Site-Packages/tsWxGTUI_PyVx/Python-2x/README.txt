@@ -1,5 +1,5 @@
 #-----------------------------------------------------------
-#"Time-stamp: <09/26/2015  4:52:09 AM rsg>
+#"Time-stamp: <12/23/2016  4:17:03 AM rsg>
 #-----------------------------------------------------------
 
 ===================== File: README.txt =====================
@@ -9,10 +9,24 @@
    +----+----+         Command Line Interface (CLI)
    | G T U I |      and "Curses"-based "wxPython"-style, 
    +---------+         Graphical-Text User Interface (GUI)
- 
-   Get that cross-platform, pixel-mode "wxPython" feeling
-   on character-mode 8-/16-color (xterm-family) & non-color
-   (vt100-family) terminals and terminal emulators.
+
+   Get that cross-platform, pixel-mode "wxPython" feeling on
+   platforms with:
+
+   * 64-bit processors, nCurses 6.x, 64-bit Python 3.6.x or
+     later GUI applications and character-mode 256-/16-/8-
+     color (xterm-family) and non-color (vt100-family)
+     terminals and terminal emulators.
+
+   * 32-bit processors, nCurses 6.x/5.x, 32-bit Python 3.5.2
+     or earlier GUI applications and character-mode 16-/8-
+     color (xterm-family) and non-color (vt100-family)
+     terminals and terminal emulators.
+
+   The TeamSTARS "tsWxGTUI_PyVx" Toolkit's cross-platform
+   Virtual Machine design and implementation supports a
+   broad assortment of open and proprietary hardware and
+   software platforms.
 
    You can find this and other plain-text files in the
    Toolkit subdirectory named:
@@ -267,6 +281,9 @@
                            Python 3.0.0-3.5.x.
 
                        Current stable release is Python 3.5.0
+                       as of 9 Sep. 2015.
+
+                       Last release candidate was Python 3.5.0rc4
                        as of 9 Sep. 2015.
 
                        NOTE: The Python Software Foundation has
@@ -724,7 +741,7 @@
              User Add-on <Path>:
                 /opt/local/lib/pythonX.Y
  
-       5.3.3 Mac OS X (10.3 Panther - 10.10 Yosemite)
+       5.3.3 Mac OS X (10.3 Panther - 10.11 El Capitan)
  
              Built-in <Path>:
                 /Library/Python/X.Y

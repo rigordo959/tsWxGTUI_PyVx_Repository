@@ -1,0 +1,98 @@
+
+   ----- Begin "tsCxGlobals" at level 0 -----
+
+                 ProductName = TeamSTARS "tsWxGTUI_PyVx" Toolkit
+               SubSystemName = "tsToolkitCLI"
+                   ThemeDate = 08/26/2016
+                   ThemeName = ThemeCxPython
+                   ThemeUser = Theme_Toolkit_Engineer
+
+         ----- Begin "Troubleshooting" at level 1 -----
+
+          Debug_CLI_Configuration = 1 (0x1)
+             Debug_CLI_Exceptions = 1 (0x1)
+                 Debug_CLI_Launch = 1 (0x1)
+               Debug_CLI_Progress = 1 (0x1)
+            Debug_CLI_Termination = 1 (0x1)
+          Debug_GUI_Configuration = 1 (0x1)
+             Debug_GUI_Exceptions = 1 (0x1)
+                 Debug_GUI_Launch = 1 (0x1)
+               Debug_GUI_Progress = 1 (0x1)
+            Debug_GUI_Termination = 1 (0x1)
+                             name = Troubleshooting
+
+         ----- End   "Troubleshooting" at level 1 -----
+
+                  VendorName = Richard S. Gordon, a.k.a. Software Gadgetry
+                        name = tsCxGlobals
+
+         ----- Begin "tsConsoleDisplaySize" at level 1 -----
+
+          Cols = 80 (0x50)
+          Rows = 50 (0x32)
+          name = tsConsoleDisplaySize
+
+         ----- End   "tsConsoleDisplaySize" at level 1 -----
+
+
+         ----- Begin "tsLoggerLevels" at level 1 -----
+
+              Alert = 35 (0x23)
+           Critical = 50 (0x32)
+              Debug = 10 (0xA)
+          Emergency = 55 (0x37)
+              Error = 40 (0x28)
+               Info = 20 (0x14)
+             NotSet = 0 (0x0)
+             Notice = 25 (0x19)
+            Private = 1 (0x1)
+            Warning = 30 (0x1E)
+               name = tsLoggerLevels
+
+         ----- End   "tsLoggerLevels" at level 1 -----
+
+
+         ----- Begin "tsLoggerStandardTargets" at level 1 -----
+
+           StandardErrorDevice = stderr
+          StandardOutputDevice = stdout
+            StandardOutputFile = 
+          StandardScreenDevice = stdscr
+               SystemLogDevice = syslog
+                          name = tsLoggerStandardTargets
+
+         ----- End   "tsLoggerStandardTargets" at level 1 -----
+
+
+         ----- Begin "tsLoggerThresholds" at level 1 -----
+
+           StandardErrorDevice = 10 (0xA)
+          StandardOutputDevice = 10 (0xA)
+            StandardOutputFile = 10 (0xA)
+          StandardScreenDevice = 10 (0xA)
+               SystemLogDevice = 40 (0x28)
+                          name = tsLoggerThresholds
+
+         ----- End   "tsLoggerThresholds" at level 1 -----
+
+
+         ----- Begin "MinimumDisplaySize" at level 1 -----
+
+          Cols = 60 (0x3C)
+          Rows = 25 (0x19)
+          name = MinimumDisplaySize
+
+         ----- End   "MinimumDisplaySize" at level 1 -----
+
+
+         ----- Begin "MinimumDisplaySize" at level 1 -----
+
+          Cols = 80 (0x50)
+          Rows = 50 (0x32)
+          name = MinimumDisplaySize
+
+         ----- End   "MinimumDisplaySize" at level 1 -----
+
+
+   ----- End   "tsCxGlobals" at level 0 -----
+

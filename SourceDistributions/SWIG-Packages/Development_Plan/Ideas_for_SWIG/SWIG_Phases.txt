@@ -1,0 +1,641 @@
+#-----------------------------------------------------------
+#"Time-stamp: <01/31/2017  9:25:34 AM rsg>
+#-----------------------------------------------------------
+
+=================== File: SWIG_Phases.txt ================== 
+
+                          TABLE OF CONTENTS
+
+Preface
+
+1. Virtual Environments
+2. CMake:    Build, Test and Package Your Software With CMake   
+3. Phase_1:  A-SWIG_Curses_GNU_NCurses
+4. Phase_2:  B-SWIG_Curses_Public_Domain_PDCurses
+5. Phase_3:  C-SWIG_Curses_ATT_Curses
+6. Phase_4:  D-SWIG_Curses_BSD_Curses
+
+=======
+Preface
+=======
+
+  Excerpts from "https://en.wikipedia.org/wiki/
+                         Curses_%28programming_library%29":
+
+        "curses is a terminal control library for Unix-like systems,
+        enabling the construction of text user interface (TUI) applica-
+        tions.
+
+        The name is a pun on the term 'cursor optimization'. It is a
+        library of functions that manage an application's display on
+        character-cell terminals (e.g., VT100)."
+
+        "Using curses, programmers are able to write text-based applica-
+        tions without writing directly for any specific terminal type.
+        The curses library on the executing system sends the correct
+        control characters based on the terminal type. It provides an
+        abstraction of one or more windows that maps onto the terminal
+        screen. Each window is represented by a character matrix. The
+        programmer sets up each window to look as they want the display
+        to look, and then tells the curses package to update the screen.
+        The library determines a minimal set of changes needed to update
+        the display and then executes these using the terminal's specific
+        capabilities and control sequences.
+
+        In short, this means that the programmer simply creates a character
+        matrix of how the screen should look and lets curses handle the work.
+
+        The curses API is described in several places. Most implementations
+        of curses use a database that can describe the capabilities of
+        thousands of different terminals. There are a few implementations,
+        such as PDCurses, which use specialized device drivers rather than
+        a terminal database. Most implementations use terminfo; some use
+        termcap. Curses has the advantage of back-portability to character-
+        cell terminals and simplicity. For an application that does not
+        require bit-mapped graphics or multiple fonts, an interface
+        implementation using curses will usually be much simpler and
+        faster than one using an X toolkit."
+
+  Planned SWIG Design and Implementation Strategy:
+
+        The SWIG design and implementation adopts the same objectives and
+        practices as NCurses and PDCures since they evolved from their
+        BSD and AT&T Unix roots:
+
+        * Design Objectives (Phase_1:  A-SWIG_Curses_GNU_NCurses) 
+
+          C Programming Language
+
+            Maintain backward compatibility with the first generation BSD
+            Unix and second generation AT&T Unix Curses predecessor's
+            Application Programming Interfaces.
+
+                Retain traditional header file names.
+
+                Retain traditional module, function and data names
+                and types.
+
+                Retain traditional test and demonstraion components.
+
+            Introduce and isolate new feature, function, data, test and
+            demonstration components.
+
+          Python Programming Language
+
+            Maintain backward compatibility with the second generation
+            (2.0-2.7.13) and third generation (3.0.1-3.5.2) Application
+            Programming Interfaces associated with NCurses 5.x/6.x based
+            Python Standard Curses Libraries used on 32-bit processors.
+
+            Introduce and isolate additional feature, function, data,
+            test and demonstration components available in the second
+            generation (2.0-2.7.13) and third generation (3.0.1-3.5.2)
+            Application Programming Interfaces associated with NCurses
+            5.x/6.x based Python SWIG Curses Libraries used on 32-bit
+            processors.
+
+            Introduce and isolate new feature, function, data, test and
+            demonstration components for latest third generation (3.6.0)
+            Application Programming Interfaces associated with NCurses
+            6.x based Python SWIG Curses Libraries used on 64-bit
+            processors.
+
+        * NCurses Implementation Strategy
+
+          Install ncurses / ncursesw based upon application requirements
+
+             Cygwin32:
+                  # MS Windows default drive "C:"; optional drive "D:"
+                  # Required for 32-bit processors
+                  # Required for 32-bit compatibility mode on 64-bit processors
+                  cd /Cygwin32
+                  setup-x86.exe
+                  search for and select ncurses / ncursesw
+                  run GUI installer
+
+             Cygwin64:
+                  # MS Windows default drive "C:"; optional drive "D:"
+                  # Required for 64-bit processors
+                  cd /Cygwin64
+                  setup-x86_64.exe
+                  search for and select ncurses / ncursesw
+                  run GUI installer
+
+             Debian / Ubuntu Linux:
+                  sudo apt-get install libncurses5-dev libncursesw5-dev
+
+             Fedora / CentOS / Scientific Linux:
+                  sudo yum install ncurses-devel
+
+             FreeBSD / PC-BSD Unix:
+                  pkg install ncurses
+
+             OpenIndiana Solaris:
+                  pkgadd -d http://get.opencsw.org/now
+                  /opt/csw/bin/pkgutil -U
+                  /opt/csw/bin/pkgutil -y -i ncurses 
+                  /usr/sbin/pkgchk -L CSWncurses # list files
+
+          Follow the lead of NCurses developers by including only header
+          files having the traditional curses name or prefix. Optionally,
+          the header files might only be hard/symbolic links to their
+          associated NCurses counterpart:
+
+             NOTE: The following files were selected because they included
+                   references to "NCURSES_H" in the distinctive boilerplate
+                   used by the Free Software Foundation and its NCurses
+                   maintenance team. The list should be updated to accomo-
+                   date SWIG dependencies.
+
+             #include <curses.h>
+             #include <cursesapp.h>
+             #include <cursesf.h>
+             #include <cursesm.h>
+             #include <cursesp.h>
+             #include <cursesw.h>
+             #include <cursslk.h>
+             #include <eti.h>
+             #include <etip.h>
+             #include <form.h>
+             #include <menu.h>
+             #include <nc_tparm.h>
+             #include <ncurses_dll.h>
+             #include <panel.h>
+             #include <term.h>
+             #include <term_entry.h>
+             #include <termcap.h>
+             #include <tic.h>
+             #include <unctrl.h>
+
+          Where installed:
+
+
+             /usr/include/curses.h -> ../curses.h
+             /usr/include/cursesf.h -> ../cursesf.h
+             /usr/include/cursesm.h -> ../cursesm.h
+             /usr/include/cursesp.h -> ../cursesp.h
+             /usr/include/cursesapp.h -> ../cursesapp.h
+             /usr/include/cursesw.h -> ../cursesw.h
+             /usr/include/cursslk.h -> ../cursslk.h
+             /usr/include/eti.h -> ../eti.h
+             /usr/include/etip.h -> ../etip.h
+             /usr/include/form.h -> ../form.h
+             /usr/include/menu.h -> ../menu.h
+             /usr/include/nc_tparm.h -> ../nc_tparm.h
+             /usr/include/ncurses_dll.h -> ../ncurses_dll.h
+             /usr/include/panel.h -> ../panel.h
+             /usr/include/term.h -> ../term.h
+             /usr/include/term_entry.h -> ../term_entry.h
+             /usr/include/termcap.h -> ../termcap.h
+             /usr/include/tic.h -> ../tic.h
+             /usr/include/unctrl.h -> ../unctrl.h
+
+             /usr/include/ncurses/curses.h -> ../curses.h
+             /usr/include/ncurses/cursesapp.h -> ../cursesapp.h
+             /usr/include/ncurses/cursesf.h -> ../cursesf.h
+             /usr/include/ncurses/cursesm.h -> ../cursesm.h
+             /usr/include/ncurses/cursesp.h -> ../cursesp.h
+             /usr/include/ncurses/cursesw.h -> ../cursesw.h
+             /usr/include/ncurses/cursslk.h -> ../cursslk.h
+             /usr/include/ncurses/eti.h -> ../eti.h
+             /usr/include/ncurses/etip.h -> ../etip.h
+             /usr/include/ncurses/form.h -> ../form.h
+             /usr/include/ncurses/menu.h -> ../menu.h
+             /usr/include/ncurses/nc_tparm.h -> ../nc_tparm.h
+             /usr/include/ncurses/ncurses_dll.h -> ../ncurses_dll.h
+             /usr/include/ncurses/panel.h -> ../panel.h
+             /usr/include/ncurses/term.h -> ../term.h
+             /usr/include/ncurses/term_entry.h -> ../term_entry.h
+             /usr/include/ncurses/termcap.h -> ../termcap.h
+             /usr/include/ncurses/tic.h -> ../tic.h
+             /usr/include/ncurses/unctrl.h -> ../unctrl.h
+
+             /usr/include/ncursesw/curses.h -> ../curses.h 
+             /usr/include/ncursesw/cursesapp.h -> ../cursesapp.h
+             /usr/include/ncursesw/cursesf.h -> ../cursesf.h
+             /usr/include/ncursesw/cursesm.h -> ../cursesm.h
+             /usr/include/ncursesw/curseps.h -> ../cursesp.h
+             /usr/include/ncursesw/cursew.h -> ../cursesw.h
+             /usr/include/ncursesw/cursslk.h -> ../cursslk.h
+             /usr/include/ncursesw/eti.h -> ../eti.h 
+             /usr/include/ncursesw/etip.h -> ../etip.h 
+             /usr/include/ncursesw/form.h -> ../form.h
+             /usr/include/ncursesw/menu.h ->  ../menu.h
+             /usr/include/ncursesw/nc_tparm.h ->  ../nc_tparm.h
+             /usr/include/ncursesw/ncurses.h -> ../ncurses.h 
+             /usr/include/ncursesw/ncurses_dll.h -> ../ncurses_dll.h 
+             /usr/include/ncursesw/panel.h -> ../panel.h
+             /usr/include/ncursesw/term.h -> ../term.h
+             /usr/include/ncursesw/term_entry.h -> ../term_entry.h
+             /usr/include/ncursesw/tic.h -> ../tic.h
+             /usr/include/ncursesw/unctrl.h -> ../unctrl.h
+
+        * PDCurses Implementation Strategy
+
+          Follow the lead of PDCurses developers by including only header
+          files having the traditional curses name or prefix which
+          symbolically link to their associated PDCurses counterpart:
+
+          #include <curses.h>
+
+          #include <panel.h>
+
+          Where:
+
+             curses.h -> /usr/include/curses.h
+
+             panel.h -> /usr/include/panel.h
+
+=======================
+1. Virtual Environments
+=======================
+
+  Excerpt from:
+
+    https://realpython.com/blog/python/python-virtual-environments-a-primer/
+
+    "Why the need for virtual environments?
+
+    Python, like most other modern programming languages, has its own unique
+    way of downloading, storing, and resolving packages (or modules). While
+    this has its advantages, there were some interesting decisions made about
+    package storage and resolution, which has lead to some problems --- namely
+    how and where packages are stored.
+
+    There are a few different locations where these packages can be installed
+    on your system. For example, most system packages are stored in a child
+    directory of the path stored in sys.prefix.
+
+    On Mac OS X, you can easily find where sys.prefix points to using the
+    Python shell:"
+
+  Excerpt from:
+
+    http://docs.python-guide.org/en/latest/dev/virtualenvs/
+
+    "Virtual Environments
+
+    A Virtual Environment is a tool to keep the dependencies required by
+    different projects in separate places, by creating virtual Python
+    environments for them. It solves the --- Project X depends on version
+    1.x but, Project Y needs 4.x --- dilemma, and keeps your global
+    site-packages directory clean and manageable."
+
+=============================================================
+2. CMake:    Build, Test and Package Your Software With CMake   
+=============================================================
+
+  ----------------------------------------------------------------------
+  After wrestling with using C and C++ with SWIG 3.0.8, on Cygwin, for
+  several months, SWIG 3.0.11 was released on 2016/12/29 and soon after
+  became available via Cygwin.
+
+  The documents included a reference to CMake and an example of its
+  usage. It seems worth further investigation.
+
+  In updating this file, I discovered that SWIG 3.0.12 had been
+  released on 2017/01/28. However, it's not yet available via Cygwin.
+  ----------------------------------------------------------------------
+
+  Excerpt from:
+
+    https://cmake.org
+
+    "CMake is an open-source, cross-platform family of tools designed
+    to build, test and package software. CMake is used to control the
+    software compilation process using simple platform and compiler
+    independent configuration files, and generate native makefiles and
+    workspaces that can be used in the compiler environment of your
+    choice. The suite of CMake tools were created by Kitware in
+    response to the need for a powerful, cross-platform build
+    environment for open-source projects such as ITK and VTK.
+
+    CMake is part of Kitware's collection of commercially supported
+    open-source platforms for software development."
+
+======================================
+3. Phase_1:  A-SWIG_Curses_GNU_NCurses
+======================================
+
+  Excerpts from "https://en.wikipedia.org/wiki/
+                         Application_programming_interface":
+
+        "In computer programming, an application programming interface
+        (API) is a set of subroutine definitions, protocols, and tools
+        for building application software. In general terms, it's a set
+        of clearly defined methods of communication between various
+        software components. A good API makes it easier to develop a
+        computer program by providing all the building blocks, which
+        are then put together by the programmer. An API may be for a
+        web-based system, operating system, database system, computer
+        hardware, or software library. An API specification can take
+        many forms, but often includes specifications for routines,
+        data structures, object classes, variables, or remote calls.
+        POSIX, Microsoft Windows API, the C++ Standard Template
+        Library, and Java APIs are examples of different forms of
+        APIs. Documentation for the API is usually provided to
+        facilitate usage. The status of APIs in intellectual
+        property law is controversial."
+
+        "Just as a graphical user interface makes it easier for people
+        to use programs, application programming interfaces make it
+        easier for developers to use certain technologies in building
+        applications. By abstracting the underlying implementation and
+        only exposing objects or actions the developer needs, an API
+        reduces the cognitive load on a programmer. While a graphical
+        interface for an email client might provide a user with a
+        button that performs all the steps for fetching and high-
+        lighting new emails, an API for file input/output might give
+        the developer a function that copies a file from one location
+        to another without requiring that the developer understand
+        the file system operations occurring behind the scenes."
+
+  Excerpt from "http://invisible-island.net/ncurses/":
+
+        "The ncurses (new curses) library is a free software emulation
+        of curses in System V Release 4.0 (SVr4), and more. It uses
+        terminfo format, supports pads and color and multiple highlights
+        and forms characters and function-key mapping, and has all the
+        other SVr4-curses enhancements over BSD curses. SVr4 curses is
+        better known today as X/Open Curses.
+
+        In mid-June 1995, the maintainer of 4.4BSD curses declared that
+        he considered 4.4BSD curses obsolete, and encouraged the keepers
+        of unix releases such as BSD/OS, FreeBSD and NetBSD to switch
+        over to ncurses.
+
+        Since 1995, ncurses has been ported to many systems:
+
+        * It is used in almost every system based on the Linux kernel
+          (aside from some embedded applications).
+
+        * It is used as the system curses library on OpenBSD, FreeBSD
+          and OSX.
+
+        * It is used in environments such as Cygwin and MinGW. The first
+          of these was EMX on OS/2 Warp.
+
+        * It is used (though usually not as the system curses) on all of
+          the vendor unix systems, e.g., AIX, HP-UX, IRIX64, SCO, Solaris,
+          Tru64.
+
+        The distribution includes the library and support utilities,
+        including:
+
+        * captoinfo, a termcap conversion tool
+
+        * clear, utility for clearing the screen
+
+        * infocmp, the terminfo decompiler
+
+        * tabs, set tabs on a terminal
+
+        * tic, the terminfo compiler
+
+        * toe, list (table of) terminfo entries
+
+        * tput, utility for retrieving terminal capabilities in shell
+          scripts
+
+        * tset, to initialize the terminal
+
+        Full manual pages are provided for the library and tools.
+
+        The ncurses distribution is available via anonymous FTP at the
+        GNU distribution site
+
+        * ftp://ftp.gnu.org/gnu/ncurses/
+
+        * http://ftp.gnu.org/gnu/ncurses/
+
+        It is also available at
+
+        * ftp://invisible-island.net/ncurses/
+
+        * http://invisible-mirror.net/archives/ncurses/"
+
+  3.1   Use SWIG to create a Python 32-bit Application Programming
+        Interface (API) from ncurses.h 5.9.
+
+            Overcomes limitation of Python 2x (2.0.1-2.7.13) and Python
+            3x (3.0.0-3.5.2) curses.py module that only includes a
+            limited subset of curses Application Programming Interface
+            (API) functions.
+
+            Should then provide functions to delete, move and
+            resize curses GUI objects.
+
+            Excerpts from Wikipedia, the free encyclopedia: 
+
+            "... An API is a set of subroutine definitions, protocols,
+            and tools for building application software. In general
+            terms, it's a set of clearly defined methods of communi-
+            cation between various software components. A good API
+            makes it easier to develop a computer program by providing
+            all the building blocks, which are then put together by
+            the programmer.
+
+            ...An API can take many forms, but often includes specifi-
+            cations for routines, data structures, object classes,
+            variables, or remote calls. Documentation for the API is
+            usually provided to facilitate usage."
+
+   3.2  Use SWIG to create a Python 32-bit Application Programming
+        Interface (API) from ncurses.h 6.0.
+
+            Overcomes limitation of Python 2x (2.0.1-2.7.13) and Python
+            3x (3.0.0-3.5.2) curses.py module that only includes a
+            limited subset of curses Application Programming Interface
+            (API) functions.
+
+            Should then provide functions to delete, move and
+            resize curses GUI objects.
+
+   3.3  Use SWIG to create a Python 64-bit Application Programming
+        Interface (API) from ncurses.h 6.0.
+
+            Overcomes limitation of Python 3x (3.6.0-3.x) curses.py
+            module that only includes a limited subset of curses
+            Application Programming Interface (API) functions.
+
+            Should then extend the color palette from 4-bit (16-colors)
+            to 8-bit (256 colors) or oerhaps 24-bit (4.6 million colors).
+
+=================================================
+4. Phase_2:  B-SWIG_Curses_Public_Domain_PDCurses
+=================================================
+
+   4.1  Use SWIG to create a Python 32-bit Application Programming
+        Interface (API) from pdcurses.h.
+
+            Overcomes absence of NCurses 5x/6x based Python 2x (2.0.1-
+            2.7.13) and Python 3x (3.0.0-3.5.2) curses modules for those
+            Python installations on Windows that are native rather than
+            ones with a curses module provided via:
+
+            * Cygwin, the popular, highly recommended, free, Unix-like GNU
+              tool plug-in from Red Hat for Win32 (MS Windows 95 / 98 / ME /
+              NT / 2000 / XP / 2003 / 2008 / Vista / 7 / 8 / 8.1 / 10) and
+              Win64 (MS Windows XP / 2003 / 2008 / Vista / 7 / 8 / 8.1 / 10)
+              (see "https://cygwin.com/install.html")
+
+              Excerpt from Wikipedia, the free encyclopedia:
+
+                   (see "https://en.wikipedia.org/wiki/Cygwin")
+
+                   "Cygwin consists of a library that implements the POSIX
+                   system call API in terms of Win32 system calls, a GNU
+                   development toolchain (including GCC and GDB) to allow
+                   software development, and running of a large number of
+                   application programs equivalent to those on Unix systems.
+                   Programmers have ported many Unix, GNU, BSD and Linux
+                   programs and packages to Cygwin, including the X Window
+                   System, K Desktop Environment 3, GNOME,[4] Apache, and
+                   TeX. Cygwin permits installing inetd, syslogd, sshd,
+                   Apache, and other daemons as standard Windows services,
+                   allowing Microsoft Windows systems to emulate Unix and
+                   Linux servers."
+
+            * GnuWin, the free, Unix-like GNU tool plug-in from the Free
+              Software Foundation's GNU Project for Win32 (MS Windows
+              95 / 98 / ME / NT / 2000 / XP / 2003 / Vista / 2008)
+              (see "http://gnuwin32.sourceforge.net")
+
+              Excerpt from Wikipedia, the free encyclopedia:
+
+                   (see "https://en.wikipedia.org/wiki/GnuWin32")
+
+                   "The GnuWin32 project provides native ports in the form
+                   of runnable computer programs, patches, and source code
+                   for various GNU and open source tools and software, much
+                   of it modified to run on the 32-bit Windows platform.
+                   The ports included in the GnuWin32 packages are:
+
+                   > GNU utilities such as bc, bison, chess, Coreutils,
+                     diffutils, ed, Flex, gawk, gettext, grep, Groff, gzip,
+                     iconv, less, m4, patch, readline, rx, sharutils, sed,
+                     tar, texinfo, units, Wget, which.
+
+                   > Archive management and compression tools, such as: arc,
+                     arj, bzip2, gzip, lha, zip, zlib.
+
+                   > Non-GNU utilities such as: cygutils, file, ntfsprogs,
+                     OpenSSL, PCRE.
+
+                   > Graphics tools.
+
+                   > PDCurses.
+
+                   > Tools for processing text.
+
+                   > Mathematical software and statistics software.
+
+                   Most programs have dependencies (typically DLLs), so that
+                   the executable files cannot simply be run in Windows unless
+                   files they depend upon are available. An alternative set of
+                   ported programs is UnxUtils; these are usually older
+                   versions, but depend only on the Microsoft C-runtime
+                   msvcrt.dll."
+
+            Should then provide functions to delete, move and
+            resize curses GUI objects.
+
+            Requires use of one of the following PDCurses API ports:
+
+            a. SDL (Simple DirectMedia Layer) API
+
+                Simple DirectMedia Layer (SDL) is a cross-platform,
+                free and open source multimedia library written in C
+                that presents a simple interface to various platforms'
+                graphics, sound, and input devices. It is widely used
+                due to its simplicity. Over 700 games, 180 applications,
+                and 120 demos have been posted on its website.
+
+                SDL has the word "layer" in its title because it is
+                actually a wrapper around operating-system-specific
+                functions. The main purpose of SDL is to provide a
+                common framework for accessing these functions.
+                For further functionality beyond this goal, many
+                libraries have been created to work on top of SDL.
+                Software developers use it to write computer games
+                and other multimedia applications that can run on
+                many operating systems: Android, iOS, Linux, Mac OS X,
+                Windows and other platforms. It manages video,
+                events, digital audio, CD-ROM, threads, shared object
+                loading, networking and timers.
+
+            b. Win32 API
+
+               An application programming interface designed to use a
+               character-mode console. It uses only mono-spaced fonts
+               and a limited set of font attributes. Its text rendition
+               approximates that of an xterm. 
+
+               It is common to all Microsoft's 32-bit Windows operating
+               systems. These currently include: Windows 95, Windows 98,
+               Windows NT, Windows CE, Windows 2000, Windows XP,
+               Windows 7, Windows 8 and Windows 10.
+
+            c. Win32a API
+
+               An application programming interface designed to use a
+               graphical-mode console. It uses Windows GDI instead of
+               the console. This lets PDCurses escape the limitations
+               of the console, so that it can implement essentially
+               everything specified in Curses. (Some of these improve-
+               ments have also been applied to PDCurses for X11, SDL,
+               etc.)
+
+               It is common to all Microsoft's 32-bit Windows operating
+               systems. These currently include: Windows 95, Windows 98,
+               Windows NT, Windows CE, Windows 2000, Windows XP,
+               Windows 7, Windows 8 and Windows 10.
+
+               The screen shot (at http://www.projectpluto.com/win32a.htm)
+               shows some of the things this flavor of PDCurses can do,
+               such as display of bold, italic, underlined, overlined,
+               dimmed, 'strikeout', blinking text, full RGB colors,
+               display of the full range of Unicode, a range of blinking
+               cursor styles and blinking text, and fullwidth and combined
+               characters. All of this is backward-compatible to the
+               original PDCurses specification.
+
+            d. X11 API
+
+               This is a port of PDCurses for X11, aka XCurses. It is
+               designed to allow existing curses programs to be re-compiled
+               with PDCurses, resulting in native X11 programs.
+
+=====================================
+5. Phase_3:  C-SWIG_Curses_ATT_Curses
+=====================================
+
+  5.1   Use SWIG to create a Python 2x (2.0.1-2.7.13) 32-bit Application
+        Programming Interface (API) from curses.h, ncurses.h or PDCurses.h
+        for uses with 8-/16-color terminals or terminal emulators such as
+        xterm and xterm-16color.
+
+            Overcomes limitation of Python 2x curses.py module that
+            only includes a limited subset of curses functions.
+
+            Should then provide functions to delete, move and
+            resize curses GUI objects and to respond to mouse position
+            and button input.
+
+=====================================
+6. Phase_4:  D-SWIG_Curses_BSD_Curses
+=====================================
+
+  6.1   Use SWIG to create a Python 2x (2.0.1-2.7.13) 32-bit Application
+        Programming Interface (API) from curses.h, ncurses.h or PDCurses.h
+        for uses with non-color terminals or terminal emulators such as
+        vt100.
+
+            Overcomes limitation of Python curses.py module that
+            only includes a limited subset of curses functions.
+
+            Should then provide functions to delete, move and
+            resize curses GUI objects and to respond to mouse position
+            and button input.
+
+======================= End-Of-File ========================

@@ -1,0 +1,320 @@
+#-----------------------------------------------------------
+#"Time-stamp: <06/18/2015  4:37:59 AM rsg>"
+#-----------------------------------------------------------
+
+=========== File: PROJECT-08-Release_Strategy.txt ==========
+
+   +----+----+  TeamSTARS "tsWxGTUI_PyVx" Toolkit
+   | ts | Wx |      with Python 2x & Python 3x based
+   +----+----+         Command Line Interface (CLI)
+   | G T U I |      and "Curses"-based "wxPython"-style, 
+   +---------+         Graphical-Text User Interface (GUI)
+ 
+   Get that cross-platform, pixel-mode "wxPython" feeling
+   on character-mode 8-/16-color (xterm-family) & non-color
+   (vt100-family) terminals and terminal emulators.
+
+====================== RELEASE STRATEGY ====================
+
+KEY ACTIVITIES:
+
+   1. Develop Application building block libraries
+
+   2. Develop Software development tools
+
+   3. Develop computer system configuration, diagnostic,
+      installation, maintenance and performnce utilities
+
+   4. Conduct Unit-, Integration-, System-, Acceptance and
+      Regression-level tests
+
+   5. Release free, open source version of project repos-
+      itory including documents, manpages, notebooks and
+      source distibutions in stages as development pro-
+      gresses
+
+NOTE:
+
+   The above is an abstract of the early Microsoft Office
+   format project documents that have been manually con-
+   verted into plain text format.
+
+====== "tsWxGTUI" Toolkit Software Release Life Cycle ======
+
++-------------------+--------------------------------------+
+| Life Cycle Stage  | What You Can Expect...               |
++-------------------+--------------------------------------+
+| Pre-Alpha         | * The character-mode emulation of    |
+|                   |   the pixel-mode "wxWidgets" API is  |
+| See the Wikipedia |   incomplete. Event handling is      |
+| definition below. |   rudimentary but usable for mouse   |
+|                   |   clicks on buttons and scroll bars. |
+|                   |                                      |
+|                   | * Your application programs can be   |
+|                   |   launched. They may use the Command |
+|                   |   Line Interface (CLI) mode. Option- |
+|                   |   ally, they may then transfer to    |
+|                   |   and from Graphical-style User      |
+|                   |   Interface (GUI) mode.              |
+|                   |                                      |
+|                   | * Keyboard input, at startup in CLI  |
+|                   |   mode, supports keyword-value pair  |
+|                   |   options and positional arguments.  |
+|                   |                                      |
+|                   | * Keyboard input, in GUI mode, is    |
+|                   |   NOT yet supported.                 |
+|                   |                                      |
+|                   | * Mouse position and button input    |
+|                   |   and event handling, in GUI mode,   |
+|                   |   is limited to detecting and        |
+|                   |   responding to buttons, checkboxes, |
+|                   |   radio buttons and scrollbar but-   |
+|                   |   tons.                              |
+|                   |                                      |
+|                   | * Changing Window size and focus,    |
+|                   |   in GUI mode, is not supported.     |
++-------------------+--------------------------------------+
+
+======= Software Release Life Cycle Stage Definitions ======
+
+From Wikipedia, the free encyclopedia:
+
+=====================
+STAGES OF DEVELOPMENT
+=====================
+
+History
+-------
+
+The origin of the "alpha/beta" test terminology is IBM. As
+long ago as the 1950s (and probably earlier), IBM used
+similar terminology for their hardware development. "A"
+test was the verification of a new product before public
+announcement. "B" test was the verification before releasing
+the product to be manufactured. "C" test was the final test
+before general availability of the product. As software
+became a significant part of IBM's offerings, the alpha
+test terminology was used to denote the pre-announcement
+test and beta test was used to show product readiness for
+general availability. Martin Belsky, a manager on some of
+IBM's earlier software projects claimed to have invented
+the terminology. IBM dropped the alpha/beta terminology
+during the 1960s, but by then it had gotten fairly wide
+notice. The usage of "beta test" to refer to testing done
+by customers was not done in IBM. Rather, IBM used the
+term "field test."[1]
+
+Pre-alpha
+---------
+
+Pre-alpha refers to all activities performed during the
+software project before testing. These activities can
+include requirements analysis, software design, software
+development, and unit testing. In typical open source
+development, there are several types of pre-alpha versions.
+Milestone versions include specific sets of functions and
+are released as soon as the functionality is complete.
+
+Alpha
+-----
+
+The alpha phase of the release life cycle is the first
+phase to begin software testing (alpha is the first letter
+of the Greek alphabet, used as the number 1). In this phase,
+developers generally test the software using white box
+techniques. Additional validation is then performed using
+black box or gray box techniques, by another testing team.
+Moving to black box testing inside the organization is
+known as alpha release.[2]
+
+Alpha software can be unstable and could cause crashes or
+data loss. External availability of alpha software is
+uncommon in proprietary software. However, open source
+software, in particular, often have publicly available
+alpha versions, often distributed as the raw source code
+of the software. The alpha phase usually ends with a
+feature freeze, indicating that no more features will be
+added to the software. At this time, the software is said
+to be feature complete.
+
+Beta
+----
+
+Beta, named after the second letter of the Greek alphabet,
+is the software development phase following alpha. It
+generally begins when the software is feature complete.
+Software in the beta phase will generally have many more
+bugs in it than completed software, as well as speed/
+performance issues and may still cause crashes or data
+loss. The focus of beta testing is reducing impacts to
+users, often incorporating usability testing. The process
+of delivering a beta version to the users is called beta
+release and this is typically the first time that the
+software is available outside of the organization that
+developed it.
+
+The users of a beta version are called beta testers. They
+are usually customers or prospective customers of the
+organization that develops the software, willing to test
+the software without charge, often receiving the final
+software free of charge or for a reduced price. Beta
+version software is often useful for demonstrations and
+previews within an organization and to prospective
+customers. Some developers refer to this stage as a
+preview, prototype, technical preview (TP), or early
+access. Some software is kept in perpetual beta --- where
+new features and functionality are continually added to
+the software without establishing a firm "final" release.
+
+Open and closed beta
+--------------------
+
+Developers release either a closed beta or an open beta;
+closed beta versions are released to a restricted group of
+individuals for a user test by invitation, while open beta
+testers are from a larger group, or anyone interested. The
+testers report any bugs that they find, and sometimes
+suggest additional features they think should be available
+in the final version. Examples of a major public beta test
+are:
+
+    In September 2000 a boxed version of Apple's Mac OS X
+    Public Beta operating system was released.[3]
+
+    Microsoft's release of community technology previews
+    (CTPs) for Windows Vista in January 2005.[4]
+
+Open betas serve the dual purpose of demonstrating a product
+to potential consumers, and testing among an extremely wide
+user base likely to bring to light obscure errors that a
+much smaller testing team might not find.
+
+Impact of the World Wide Web
+----------------------------
+
+As the Internet has facilitated rapid and inexpensive dis-
+tribution of software, companies have begun to take a looser
+approach to use of the word "beta".[5] In February 2005
+ZDNet published an article about the recent phenomenon of
+a beta version often staying for years and being used as if
+it were in production level, disparagingly called "perpetual
+beta". It noted that Gmail and Google News, for example, had
+been in beta for a long period of time and were not expected
+to drop the beta status despite the fact that they were
+widely used; however, Google News did leave beta in January
+2006, followed by Google Apps, including Gmail, in July
+2009.[6] This technique may allow a developer to delay
+offering full support and responsibility for remaining
+issues. In the context of Web 2.0, people even talk of
+perpetual betas to signify that some software is meant
+to stay in beta state. Also, "beta" is sometimes used to
+indicate something more like a release candidate, or as a
+form of time-limited demo, or marketing technique.[7]
+
+Release candidate
+-----------------
+
+A release candidate (RC) is a beta version with potential
+to be a final product, which is ready to release unless
+significant bugs emerge. In this stage of product stabiliza-
+tion, all product features have been designed, coded and
+tested through one or more beta cycles with no known show-
+stopper-class bug. A release is called code complete when
+the development team agrees that no entirely new source
+code will be added to this release. There could still be
+source code changes to fix defects, changes to documen-
+tation and data files, and peripheral code for test cases
+or utilities. Beta testers, if privately selected, will
+often be credited for using the release candidate as though
+it were a finished product. Beta testing is conducted in a
+client's or customer's location and to test the software
+from a user's perspective.
+
+=======
+RELEASE
+=======
+
+Release to manufacturing (RTM)
+------------------------------
+
+The term "release to manufacturing", also known as "going
+gold", is a term used when a software product is ready to be
+delivered or provided to the customer. This build may be
+digitally signed, allowing the end user to verify the
+integrity and authenticity of the software purchase. A copy
+of the RTM build known as the "gold master" or GM is sent
+for mass duplication. RTM precedes general availability
+(GA), when the product is released to the public.
+
+It is typically used in certain retail mass-production
+software contexts --- as opposed to a specialized software
+production or project in a commercial or government produc-
+tion and distribution --- where the software is sold as part
+of a bundle in a related computer hardware sale and typical-
+ly where the software and related hardware is ultimately to
+be available and sold on mass/public basis at retail stores
+to indicate that the software has met a defined quality
+level and is ready for mass retail distribution. RTM could
+also mean in other contexts that the software has been
+delivered or released to a client or customer for instal-
+lation or distribution to the related hardware end user
+computers or machines. The term does not define the delivery
+mechanism or volume; it only states that the quality is suf-
+ficient for mass distribution. The deliverable from the
+engineering organization is frequently in the form of a
+golden master media used for duplication or to produce the
+image for the web.
+
+General availability (GA)
+-------------------------
+
+General availability (GA) is the marketing stage at which
+all necessary commercialization activities have been com-
+pleted and a software product is available for purchase,
+depending, however, on language, region, electronic vs.
+media availability.[8] Commercialization activities could
+include security and compliance tests, as well as local-
+ization and world wide availability. The time between RTM
+and GA can be from a week to months in some cases before a
+generally available release can be declared because of the
+time needed to complete all commercialization activities
+required by GA. At this stage, the software has "gone live".
+
+Release to web
+--------------
+
+Release to web or web release is a means of software deliv-
+ery that utilizes the Internet for distribution. No phys-
+ical media are produced in this type of release mechanism
+by the manufacturer. Web releases are becoming more common
+as Internet usage grows.
+
+Support
+-------
+
+During its supported lifetime, software is sometimes sub-
+jected to service releases, or service packs, sometimes
+also called "interim releases". For example, Microsoft
+released three major service packs for the 32-bit editions
+of Windows XP and two service packs for the 64-bit editions.
+Such service releases contain a collection of updates, fixes
+and enhancements, delivered in the form of a single install-
+able package. They may also implement new features. Some
+software is released with the expectation of regular sup-
+port. Classes of software that generally involve protracted
+support as the norm include anti-virus suites and massively
+multiplayer online games. A good example of a game that
+utilizes this process is Minecraft, an Indie Game developed
+by Mojang, which features regular "updates" featuring new
+content and bug fixes.
+
+End-of-life
+-----------
+
+When software is no longer sold or supported, the product is
+said to have reached end-of-life, to be discontinued, re-
+tired, or obsolete, but user loyalty may continue its
+existence for some time, even long after its platform is
+obsolete --- e.g., the Atari ST and Commodore's Amiga.
+
+======================= End-Of-File ========================

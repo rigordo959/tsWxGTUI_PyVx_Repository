@@ -1,0 +1,224 @@
+
+
+tsPlatformRunTimeEnvironment.py, v2.6.0 (build 03/21/2015)
+
+  Author(s): Richard S. Gordon
+  Copyright (c) 2007-2015 Richard S. Gordon.
+		All rights reserved.
+  GNU General Public License, Version 3, 29 June 2007
+
+  Credits: 
+
+	  tsLibCLI Import & Application Launch Features: 
+	  Copyright (c) 2007-2009 Frederick A. Kier.
+			All rights reserved.
+	  GNU General Public License, Version 3, 29 June 2007
+
+	  terminalsize (https://gist.github.com/jtriley/1108174) Features: 
+	  Copyright (c) 2011 Justin T. Riley.
+			All rights reserved.
+	  GNU General Public License, Version 3, 29 June 2007
+
+	  Python Platform & Logging Module API Features: 
+	  Copyright (c) 2001-2013 Python Software Foundation.
+			All rights reserved.
+	  PSF License Agreement for Python 2.7.3 & 3.3.0
+
+
+=================== Begin Platform Run Time Environment ====================
+
+
+  Reported Sun, 15-Jan-2017 at 06:44:32
+
+
+  Network Identification
+  ----------------------
+         hostname = <iMacWin10VM32.hsd1.ma.comcast.net.>
+        aliaslist = <[]> # NOTE: List of Values NOT available.
+       ipaddrlist = <['fe80::8fb:23a1:d9f0:31c7']>
+
+
+  Host Central Processing Unit
+  ----------------------------
+          machine = <i686>
+        processor = <> # NOTE: Value NOT available.
+     architecture = <32> bits; <> # NOTE: Value NOT available. linkage
+        byteorder = <little>
+
+
+  Host Operating System
+  ---------------------
+              api = <posix>
+           system = <CYGWIN_NT-10.0>
+          release = <2.6.1(0.305/5/3)>
+          version = <2016-12-16 11:50>
+
+
+  Host Console Display Size
+  -------------------------
+  characters/line = <80>
+    lines/display = <50>
+
+
+  Python Platform
+  ---------------
+           branch = <> # NOTE: Value NOT available.
+            build = <default> number; <Oct 10 2016 12:50:22> date
+         compiler = <GCC 5.4.0>
+   implementation = <CPython>
+         revision = <> # NOTE: Value NOT available.
+          version = <2.7.12>
+
+
+  Process Parameters
+  ------------------
+              pid = <31688> / <0x7BC8>
+          getppid = <30072> / <0x7578>
+          getegid = <197121>
+          geteuid = <197608>
+           getgid = <197121>
+        getgroups = <[197121, 197616, 545, 4, 66049, 11, 15, 113, 66048,
+                     262154, 401408]>
+          getpgid = <31688>
+           getuid = <197608>
+         getlogin = <rsg>
+          ctermid = </dev/pty0>
+              cwd = </cygdrive/d/WR/tsWxGTUI_PyVx_SWIG_Repository/Development_
+                     Plan/Sample_Interface_Files>
+
+
+  Environment Variables
+  ---------------------
+                  ALLUSERSPROFILE = <C:\ProgramData>
+                          APPDATA = <C:\Users\rsg\AppData\Roaming>
+               COMMONPROGRAMFILES = <C:\Program Files\Common Files>
+                     COMPUTERNAME = <IMACWIN10VM32>
+                          COMSPEC = <C:\WINDOWS\system32\cmd.exe>
+                            EMAIL = <D:\Mail\The Bat!>
+                       EXECIGNORE = <*.dll>
+   FPS_BROWSER_APP_PROFILE_STRING = <Internet Explorer>
+  FPS_BROWSER_USER_PROFILE_STRING = <Default>
+                 FP_NO_HOST_CHECK = <NO>
+                             HOME = </home/rsg>
+                        HOMEDRIVE = <d:>
+                         HOMEPATH = <\Home\rsg>
+                         HOSTNAME = <iMacWin10VM32>
+                         INFOPATH =
+                                     </usr/local/info:/usr/share/info:/usr/inf
+                                     o>
+                             LANG = <en_US.UTF-8>
+                     LOCALAPPDATA = <C:\Users\rsg\AppData\Local>
+                      LOGONSERVER = <\\IMACWIN10VM32>
+             NUMBER_OF_PROCESSORS = <2>
+                           OLDPWD =
+                                     </cygdrive/d/WR/tsWxGTUI_PyVx_SWIG_Reposi
+                                     tory>
+                    ORIGINAL_PATH = </cygdrive/c/Program
+                                     Files/Parallels/Parallels Tools/Applicati
+                                     ons:/cygdrive/c/ProgramData/Oracle/Java/j
+                                     avapath:/cygdrive/c/Python27:/cygdrive/c/
+                                     Python27/Scripts:/cygdrive/c/Python34:/cy
+                                     gdrive/c/Python34/Scripts:/cygdrive/c/WIN
+                                     DOWS/system32:/cygdrive/c/WINDOWS:/cygdri
+                                     ve/c/WINDOWS/System32/Wbem:/cygdrive/c/WI
+                                     NDOWS/System32/WindowsPowerShell/v1.0:/cy
+                                     gdrive/c/Borland/Bcc55/Bin:/cygdrive/c/gn
+                                     uwin32/bin:/cygdrive/c/Bazaar:/cygdrive/c
+                                     /Program Files/SourceGear/Common/DiffMerg
+                                     e:/cygdrive/c/Program
+                                     Files/TortoiseHg:/cygdrive/c/Program
+                                     Files/Skype/Phone:/cygdrive/c/Program
+                                     Files/Microsoft SQL
+                                     Server/100/Tools/Binn:/cygdrive/c/Program
+                                     Files/Microsoft SQL
+                                     Server/100/DTS/Binn:/cygdrive/c/Program
+                                     Files/Microsoft SQL Server/100/Tools/Binn
+                                     /VSShell/Common7/IDE:/cygdrive/c/Program
+                                     Files/Microsoft Visual Studio 9.0/Common7
+                                     /IDE/PrivateAssemblies:/cygdrive/c/Progra
+                                     m Files/QuickTime/QTSystem:/cygdrive/c/PR
+                                     OGRA~1/CONDUS~1/DISKEE~1:/cygdrive/c/Pyth
+                                     on35/Scripts:/cygdrive/c/Python35:/cygdri
+                                     ve/c/Users/rsg/AppData/Local/Programs/Pyt
+                                     hon/Launcher:/cygdrive/c/Program Files/Me
+                                     rcurial:/cygdrive/c/gnuwin32/bin:%USERPRO
+                                     FILE%/AppData/Local/Microsoft/WindowsApps
+                                     >
+                               OS = <Windows_NT>
+                         OneDrive = <C:\Users\rsg\OneDrive>
+                             PATH =
+                                     </usr/local/bin:/usr/bin:/cygdrive/c/Prog
+                                     ram Files/Parallels/Parallels Tools/Appli
+                                     cations:/cygdrive/c/ProgramData/Oracle/Ja
+                                     va/javapath:/cygdrive/c/Python27:/cygdriv
+                                     e/c/Python27/Scripts:/cygdrive/c/Python34
+                                     :/cygdrive/c/Python34/Scripts:/cygdrive/c
+                                     /WINDOWS/system32:/cygdrive/c/WINDOWS:/cy
+                                     gdrive/c/WINDOWS/System32/Wbem:/cygdrive/
+                                     c/WINDOWS/System32/WindowsPowerShell/v1.0
+                                     :/cygdrive/c/Borland/Bcc55/Bin:/cygdrive/
+                                     c/gnuwin32/bin:/cygdrive/c/Bazaar:/cygdri
+                                     ve/c/Program Files/SourceGear/Common/Diff
+                                     Merge:/cygdrive/c/Program
+                                     Files/TortoiseHg:/cygdrive/c/Program
+                                     Files/Skype/Phone:/cygdrive/c/Program
+                                     Files/Microsoft SQL
+                                     Server/100/Tools/Binn:/cygdrive/c/Program
+                                     Files/Microsoft SQL
+                                     Server/100/DTS/Binn:/cygdrive/c/Program
+                                     Files/Microsoft SQL Server/100/Tools/Binn
+                                     /VSShell/Common7/IDE:/cygdrive/c/Program
+                                     Files/Microsoft Visual Studio 9.0/Common7
+                                     /IDE/PrivateAssemblies:/cygdrive/c/Progra
+                                     m Files/QuickTime/QTSystem:/cygdrive/c/PR
+                                     OGRA~1/CONDUS~1/DISKEE~1:/cygdrive/c/Pyth
+                                     on35/Scripts:/cygdrive/c/Python35:/cygdri
+                                     ve/c/Users/rsg/AppData/Local/Programs/Pyt
+                                     hon/Launcher:/cygdrive/c/Program Files/Me
+                                     rcurial:/cygdrive/c/gnuwin32/bin:%USERPRO
+                                     FILE%/AppData/Local/Microsoft/WindowsApps
+                                     :/usr/lib/lapack>
+                          PATHEXT =
+                                     <.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.
+                                     WSF;.WSH;.MSC;.PY>
+                          PRINTER = <HP LaserJet P2015 Series (26A5C8)>
+           PROCESSOR_ARCHITECTURE = <x86>
+             PROCESSOR_IDENTIFIER = <x86 Family 6 Model 60 Stepping 3,
+                                     GenuineIntel>
+                  PROCESSOR_LEVEL = <6>
+               PROCESSOR_REVISION = <3c03>
+                      PROFILEREAD = <true>
+                     PROGRAMFILES = <C:\Program Files>
+                              PS1 = <\[\e]0;\w\a\]\n\[\e[32m\]\u@\h
+                                     \[\e[33m\]\w\[\e[0m\]\n\$ >
+                     PSModulePath =
+                                     <C:\WINDOWS\system32\WindowsPowerShell\v1
+                                     .0\Modules\>
+                           PUBLIC = <C:\Users\Public>
+                              PWD = </cygdrive/d/WR/tsWxGTUI_PyVx_SWIG_Reposit
+                                     ory/Development_Plan/Sample_Interface_Fil
+                                     es>
+                      ProgramData = <C:\ProgramData>
+                      SESSIONNAME = <Console>
+                            SHELL = </bin/bash>
+                            SHLVL = <1>
+                      SYSTEMDRIVE = <C:>
+                       SYSTEMROOT = <C:\WINDOWS>
+                             TEMP = </tmp>
+                             TERM = <xterm>
+                              TMP = </tmp>
+                               TZ = <America/New_York>
+                             USER = <rsg>
+                       USERDOMAIN = <IMACWIN10VM32>
+        USERDOMAIN_ROAMINGPROFILE = <IMACWIN10VM32>
+                         USERNAME = <rsg>
+                      USERPROFILE = <C:\Users\rsg>
+                           WINDIR = <C:\WINDOWS>
+                                _ = </usr/bin/python>
+                          asl.log = <Destination=file>
+            windows_tracing_flags = <3>
+          windows_tracing_logfile =
+                                     <C:\BVTBin\Tests\installpackage\csilogfil
+                                     e.log>
+
+==================== End Platform Run Time Environment =====================

@@ -1,0 +1,513 @@
+#! /usr/bin/env python
+# "Time-stamp: <01/15/2017  8:11:19 AM rsg>"
+'''
+__init__.py - Package initialization Module for the
+"tsWxGTUI_PyVx_SWIG" Toolkit.
+'''
+
+__title__     = 'tsWxGTUI_PyVx_SWIG Toolkit'
+__version__   = '0.0.0'
+__date__      = '01/15/2017'
+__authors__   = 'Richard S. Gordon'
+__copyright__ = 'Copyright (c) 2016-2017 ' + \
+                '%s.\n\t\tAll rights reserved.' % __authors__
+__license__   = 'GNU General Public License, ' + \
+                'Version 3, 29 June 2007'
+__credits__   = '\n\n  Credits: ' + \
+                '\n\n\t  tsLibGUI Import & Application Launch Features: ' + \
+                '\n\t  Copyright (c) 2007-2009 Frederick A. Kier.' + \
+                '\n\t\t\tAll rights reserved.' + \
+                '\n\n\t  Python Curses Module API & ' + \
+                'Run Time Library Features:' + \
+                '\n\t  Copyright (c) 2001-2017 ' +\
+                'Python Software Foundation.' + \
+                '\n\t\t\tAll rights reserved.' + \
+                '\n\t  PSF License Agreement for Python 2.7.13 & 3.6.0' + \
+                '\n\n\t  wxWidgets (formerly wxWindows) & ' + \
+                'wxPython API Features:' + \
+                '\n\t  Copyright (c) 1992-2008 Julian Smart, ' + \
+                'Robert Roebling,' + \
+                '\n\t\t\tVadim Zeitlin and other members of the ' + \
+                '\n\t\t\twxWidgets team.' + \
+                '\n\t\t\tAll rights reserved.' + \
+                '\n\t  wxWindows Library License' + \
+                '\n\n\t  nCurses character-mode Terminal Control Library' + \
+                '\n\t    for Unix-like systems and API Features:' + \
+                '\n\t  Copyright (c) 1998-2004, 2006-2017 ' + \
+                'Free Software Foundation, Inc.' + \
+                '\n\t\t\tAll rights reserved.' + \
+                '\n\t  nCurses README,v 1.23 2006/04/22'
+
+__line1__ = '%s, v%s (build %s)' % (__title__, __version__, __date__)
+__line2__ = 'Author(s): %s' % __authors__
+__line3__ = '%s' % __copyright__
+
+if len( __credits__) == 0:
+    __line4__ = '%s' % __license__
+else:
+    __line4__ = '%s%s' % (__license__, __credits__)
+
+__header__ = '\n\n%s\n\n  %s\n  %s\n  %s\n' % (__line1__,
+                                               __line2__,
+                                               __line3__,
+                                               __line4__)
+
+mainTitleVersionDate = __line1__
+
+#---------------------------------------------------------------------------
+
+import curses
+import os
+import platform
+import sys
+
+#---------------------------------------------------------------------------
+
+tsPythonVersion = sys.version[0:5]
+if (tsPythonVersion >= '1') and (tsPythonVersion < '2'):
+
+    # Presume tsWxGTUI_PyVx reflects Python version
+    tsWxGTUI_PyVx = 'tsWxGTUI_Py1x_SWIG'
+
+elif (tsPythonVersion >= '2') and (tsPythonVersion < '3'):
+
+    # Presume tsWxGTUI_PyVx reflects Python version
+    tsWxGTUI_PyVx = 'tsWxGTUI_Py2x_SWIG'
+
+elif (tsPythonVersion >= '3') and (tsPythonVersion < '4'):
+
+    # Presume tsWxGTUI_PyVx reflects Python version
+    tsWxGTUI_PyVx = 'tsWxGTUI_Py3x_SWIG'
+
+else:
+
+    # Presume tsWxGTUI_PyVx reflects default Python version
+    tsWxGTUI_PyVx = 'tsWxGTUI_PyVx_SWIG'
+
+ProductName   = 'TeamSTARS "%s" Toolkit' % tsWxGTUI_PyVx
+SubSystemName = '"tsToolkitGUI"'
+VendorName    = 'Richard S. Gordon, a.k.a. Software Gadgetry'
+ThemeDate     = __date__
+
+#--------------------------------------------------------------------------
+
+try:
+
+    import tsLibCLI
+
+    import tsCxGlobals
+
+    Troubleshooting = tsCxGlobals.ThemeToUse['Troubleshooting']
+
+    Debug_CLI_Configuration = Troubleshooting['Debug_CLI_Configuration'],
+    Debug_CLI_Exceptions = Troubleshooting['Debug_CLI_Exceptions']
+    Debug_CLI_Launch = Troubleshooting['Debug_CLI_Launch']
+    Debug_CLI_Progress = Troubleshooting['Debug_CLI_Progress']
+    Debug_CLI_Termination = Troubleshooting['Debug_CLI_Termination']
+    Debug_GUI_Configuration = Troubleshooting['Debug_GUI_Configuration']
+    Debug_GUI_Exceptions = Troubleshooting['Debug_GUI_Exceptions']
+    Debug_GUI_Launch = Troubleshooting['Debug_GUI_Launch']
+    Debug_GUI_Progress = Troubleshooting['Debug_GUI_Progress']
+    Debug_GUI_Termination = Troubleshooting['Debug_GUI_Termination']
+
+except ImportError, importCode:
+
+    fmt1 = '%s: ImportError (tsLibCLI); ' % __title__
+    fmt2 = 'importCode=%s' % str(importCode)
+    msg = fmt1 + fmt2
+    print(msg)
+
+#--------------------------------------------------------------------------
+
+try:
+
+    import tsExceptions as tse
+    import tsLogger as Logger
+    from tsReportUtilities import TsReportUtilities as tsrpu
+
+except ImportError, importCode:
+
+    print('%s: ImportError (tsLibCLI); ' % __title__ + \
+          'importCode=%s' % str(importCode))
+
+DEBUG = Debug_CLI_Launch # TBD - Retain True to prevent Unimplemented Traps
+VERBOSE = True
+
+#---------------------------------------------------------------------------
+
+System = platform.system()
+Platform = '__TSWXCURSES__'
+
+if (Platform == '__SMARTPHONE__'):
+    # No borders by default on limited size screen
+    USE_BORDER_BY_DEFAULT = False
+else:
+    USE_BORDER_BY_DEFAULT = True
+
+USE_ACCESSIBILITY = False
+USE_CARET = False
+USE_CONSTRAINTS = False
+USE_DRAG_AND_DROP = False
+USE_HELP = False
+USE_MENUS = False
+USE_PALETTE = False
+USE_SYSTEM_OPTIONS = False
+USE_TOOLTIPS = False
+USE_VALIDATORS = False
+
+DefaultValidator = None
+
+#---------------------------------------------------------------------------
+
+if __name__ == '__main__':
+
+    #-------------------------------------------------------------------
+
+    print(__header__)
+    print('ProductName=' "%s" % ProductName)
+    print('SubSystemName=' "%s" % SubSystemName)
+    print('VendorName=' "%s" % VendorName)
+    print('ThemeDate=' "%s" % ThemeDate)
+
+    #-------------------------------------------------------------------
+
+    myLoggerCLI = Logger.TsLogger(name='',
+                                   threshold=Logger.INFO)
+
+    #-------------------------------------------------------------------
+
+    sizex, sizey = tsCxGlobals.get_terminal_size()
+    print('\n  width = %d; height = %d' % (sizex, sizey))
+
+    current_os = platform.system()
+    print('\n  current_os = %s' % current_os)
+
+    #-------------------------------------------------------------------
+
+    level = 0
+    myDictionaryCLI = tsCxGlobals.ThemeToUse
+    myConsole = sys.stdout
+    tsrpu.displayDictionary(level, myDictionaryCLI, myConsole)
+
+    myFileCLI = open(os.path.join(myLoggerCLI.theLogPath,
+                               'tsCxGlobalsDictionaryTest.log'), 'w')
+
+    tsrpu.displayDictionary(level, myDictionaryCLI, myFileCLI)
+    myFileCLI.close()
+
+    #-------------------------------------------------------------------
+
+    myLoggerGUI = Logger.TsLogger(name='',
+                                  threshold=Logger.INFO)
+
+    #-------------------------------------------------------------------
+
+    level = 0
+    myDictionaryGUI = ThemeToUse
+    myConsole = sys.stdout
+    tsrpu.displayDictionary(level, myDictionaryGUI, myConsole)
+
+    myFileGUI = open(os.path.join(myLoggerGUI.theLogPath,
+                                  'tsWxGlobalsDictionaryTest.log'), 'w')
+
+    tsrpu.displayDictionary(level, myDictionaryGUI, myFileGUI)
+    myFileGUI.close()
+##
+##==================== File: __init__.py ===================
+##
+## =================
+## TABLE OF CONTENTS
+## =================
+##
+## 1.0 FEATURES, CAPABILITIES AND LIMITATIONS
+##
+##     1.1 Features with BSD Unix Curses
+##     1.2 Features with AT&T Unix Curses
+##     1.3 Features with PDCurses
+##     1.4 Features with nCurses
+##
+## 2.0 USAGE TERMS & CONDITIONS
+##
+##     2.1 Copyright
+##     2.2 License
+##     2.3 Disclaimer
+##
+## ==========================================
+## 1.0 FEATURES, CAPABILITIES AND LIMITATIONS
+## ==========================================
+##
+##   +----+----+  TeamSTARS "tsWxGTUI_PyVx_SWIG" Toolkit
+##   | ts | Wx |      with Python 2x & Python 3x based
+##   +----+----+         Command Line Interface (CLI)
+##   | G T U I |      and "Curses"-based "wxPython"-style, 
+##   +---------+         Graphical-Text User Interface (GUI)
+##
+##   The TeamSTARS "tsWxGTUI_PyVx_SWIG" Toolkit's cross-
+##   platform Virtual Machine design and implementation
+##   supports a broad assortment of open and proprietary
+##   hardware and software platforms.
+##
+##   Get that cross-platform, pixel-mode "wxPython" feeling
+##   on platforms with:
+##
+##   ---------------------------------
+##   1.1 Features with BSD Unix Curses
+##   ---------------------------------
+##
+##   Excerpts From Wikipedia, the free encyclopedia:
+##
+##   * "The first curses library was written by Ken Arnold
+##     and originally released with BSD UNIX.
+##
+##     Curses is a terminal control library for Unix-like
+##     systems, enabling the construction of text user
+##     interface (TUI) applications.
+##
+##     Using curses, programmers are able to write text-
+##     based applications without writing directly for
+##     any specific terminal type. The curses library on
+##     the executing system sends the correct control
+##     characters based on the terminal type. It provides
+##     an abstraction of one or more windows that maps
+##     onto the terminal screen. Each window is represented
+##     by a character matrix. The programmer sets up each
+##     window to look as they want the display to look,
+##     and then tells the curses package to update the
+##     screen. The library determines a minimal set of
+##     changes needed to update the display and then
+##     executes these using the terminal's specific
+##     capabilities and control sequences.
+##
+##     In short, this means that the programmer simply
+##     creates a character matrix of how the screen should
+##     look and lets curses handle the work.
+##
+##     Some improvements were made to the BSD library in the
+##     1990s as "4.4BSD" curses, e.g., to provide more than
+##     one type of video highlighting. However, those are
+##     not widely used."
+##
+##   ----------------------------------
+##   1.2 Features with AT&T Unix Curses
+##   ----------------------------------
+##
+##   Excerpts From Wikipedia, the free encyclopedia:
+##
+##   "A few years later, Mark Horton, who had made improve-
+##   ments to the vi and termcap sources at Berkeley, went
+##   to AT&T Corporation and made a different version using
+##   terminfo, which became part of UNIX System III and
+##   UNIX System V. Due to licensing restrictions on the
+##   latter, the BSD and AT&T versions of the library were
+##   developed independently. In addition to the termcap/
+##   terminfo improvement, other improvements were made in
+##   the AT&T version:
+##
+##   VIDEO HIGHLIGHTING (BOLD, UNDERLINE)
+##
+##       The BSD version supported only standout.
+##
+##   LINE-DRAWING
+##
+##       The BSD version gave little support here.
+##
+##   COLORS
+##
+##       This was not anticipated in the BSD version.
+##
+##   AT&T curses development appears to have halted in the
+##   mid-1990s when X/Open Curses was defined. However,
+##   development of ncurses and PDCurses continues. A
+##   version of BSD curses continues to be maintained in
+##   the NetBSD operating system (wide character support,
+##   termcap to terminfo migration, etc.)."
+##
+##   --------------------------
+##   1.3 Features with PDCurses
+##   --------------------------
+##
+##   Excerpts From Wikipedia, the free encyclopedia:
+##
+##   * 32-bit processors, PDCurses 1.34, 32-bit Python 3.5.2
+##     or earlier GUI applications and character-mode 16-/8-
+##     color (xterm-family) and non-color (vt100-family)
+##     terminals and terminal emulators.
+##
+##     a. SDL (Simple DirectMedia Layer) API
+##
+##         Simple DirectMedia Layer (SDL) is a cross-
+##         platform, free and open source multimedia library
+##         written in C that presents a simple interface to
+##         various platforms' graphics, sound, and input
+##         devices. It is widely used due to its simplicity.
+##         Over 700 games, 180 applications, and 120 demos
+##         have been posted on its website.
+##
+##         SDL has the word "layer" in its title because it
+##         is actually a wrapper around operating-system-
+##         specific functions. The main purpose of SDL is
+##         to provide a common framework for accessing
+##         these functions. For further functionality
+##         beyond this goal, many libraries have been
+##         created to work on top of SDL. Software
+##         developers use it to write computer games
+##         and other multimedia applications that can run
+##         on many operating systems: Android, iOS, Linux,
+##         Mac OS X, Windows and other platforms. It
+##         manages video, events, digital audio, CD-ROM,
+##         threads, shared object loading, networking and
+##         timers.
+##
+##     b. Win32 API
+##
+##        An application programming interface designed to
+##        use a character-mode console. It uses only mono-
+##        spaced fonts and a limited set of font attri-
+##        butes. Its text rendition approximates that of
+##        an xterm. 
+##
+##        It is common to all Microsoft's 32-bit Windows
+##        operating systems. These currently include:
+##        Windows 95, Windows 98, Windows NT, Windows CE,
+##        Windows 2000, Windows XP, Windows 7, Windows 8
+##        and Windows 10.
+##
+##     c. Win32a API
+##
+##        An application programming interface designed to
+##        use a graphical-mode console. It uses Windows GDI
+##        instead of the console. This lets PDCurses escape
+##        the limitations of the console, so that it can
+##        implement essentially everything specified in
+##        Curses. (Some of these improvements have also
+##        been applied to PDCurses for X11, SDL, etc.)
+##
+##        It is common to all Microsoft's 32-bit Windows
+##        operating systems. These currently include:
+##        Windows 95, Windows 98, Windows NT, Windows CE,
+##        Windows 2000, Windows XP, Windows 7, Windows 8
+##        and Windows 10.
+##
+##        The screen shot (at http://www.projectpluto.com/
+##        win32a.htm) shows some of the things this flavor
+##        of PDCurses can do, such as display of bold,
+##        italic, underlined, overlined, dimmed,
+##        'strikeout', blinking text, full RGB colors,
+##        display of the full range of Unicode, a range of
+##        blinking cursor styles and blinking text, and
+##        fullwidth and combined characters. All of this
+##        is backward-compatible to the original PDCurses
+##        specification.
+##
+##     d. X11 API
+##
+##        This is a port of PDCurses for X11, aka XCurses.
+##        It is designed to allow existing curses programs
+##        to be re-compiled with PDCurses, resulting in
+##        native X11 programs.
+##
+##   -------------------------
+##   1.4 Features with nCurses
+##   -------------------------
+##
+##   Excerpts from "Announcing ncurses 6.0"
+##   at "https://www.gnu.org/software/ncurses/":
+##
+##   "The ncurses (new curses) library is a free software
+##   emulation of curses in System V Release 4.0 (SVr4),
+##   and more. It uses terminfo format, supports pads and
+##   color and multiple highlights and forms characters and
+##   function-key mapping, and has all the other SVr4-curses
+##   enhancements over BSD curses. SVr4 curses is better
+##   known today as X/Open Curses.
+##
+##   In mid-June 1995, the maintainer of 4.4BSD curses
+##   declared that he considered 4.4BSD curses obsolete,
+##   and encouraged the keepers of unix releases such as
+##   BSD/OS, FreeBSD and NetBSD to switch over to ncurses.
+##
+##   Since 1995, ncurses has been ported to many systems:
+##
+##   * It is used in almost every system based on the Linux
+##     kernel (aside from some embedded applications).
+##   * It is used as the system curses library on OpenBSD,
+##     FreeBSD and OSX.
+##   * It is used in environments such as Cygwin and MinGW.
+##     The first of these was EMX on OS/2 Warp.
+##   * It is used (though usually not as the system curses)
+##     on all of the vendor unix systems, e.g., AIX, HP-UX,
+##     IRIX64, SCO, Solaris, Tru64.
+##   * It should work readily on any ANSI/POSIX-conforming
+##     unix."
+##
+##   Excerpts from the TeamSTARS "tsWxGTUI_PyVx_SWIG" Toolkit:
+##
+##   * 64-bit processors, nCurses 6.x, 64-bit Python 3.6.x
+##     or later GUI applications and character-mode 256-/
+##     16-/8-color (xterm-family) and non-color (vt100-
+##     family) terminals and terminal emulators.
+##
+##   * 32-bit processors, nCurses 6.x/5.x, 32-bit Python
+##     3.5.2 or earlier GUI applications and character-mode
+##     16-/8-color (xterm-family) and non-color (vt100-
+##     family) terminals and terminal emulators.
+##
+## ============================
+## 2.0 USAGE TERMS & CONDITIONS
+## ============================
+##
+##     -------------
+##     2.1 Copyright
+##     -------------
+##
+##      TeamSTARS "tsWxGTUI_PyVx_SWIG" Toolkit, v0.0.0
+##
+##      Copyright (c) 2007-2009 Frederick A. Kier &
+##                              Richard S. Gordon,
+##                              a.k.a. TeamSTARS.
+##                    All rights reserved.
+##
+##      Copyright (c) 2010-2017 Richard S. Gordon,
+##                              a.k.a. Software Gadgetry.
+##                    All rights reserved.
+##
+##     -----------
+##     2.2 License
+##     -----------
+##
+##      GNU General Public License (GPL), Version 3,
+##                    29 June 2007
+##
+##      GNU Free Documentation License (GFDL) 1.3,
+##                    3 November 2008
+##
+## Permission is hereby granted, free of charge, to any
+## person obtaining a copy of this software and associated
+## documentation files (the "Software"), to deal in the
+## Software without restriction, including without
+## limitation the rights to use, copy, modify, merge,
+## publish, distribute, sublicense, and/or sell copies
+## of the Software, and to permit persons to whom the
+## Software is furnished to do so, subject to the following
+## conditions:
+##
+## The above copyright notice and this permission notice
+## shall be included in all copies or substantial portions
+## of the Software.
+##
+##     --------------
+##     2.3 Disclaimer
+##     --------------
+##
+## THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF
+## ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED
+## TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
+## PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT
+## SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR
+## ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN
+## ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+## OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE
+## OR OTHER DEALINGS IN THE SOFTWARE.
+##
+##====================== End-Of-File =======================
+

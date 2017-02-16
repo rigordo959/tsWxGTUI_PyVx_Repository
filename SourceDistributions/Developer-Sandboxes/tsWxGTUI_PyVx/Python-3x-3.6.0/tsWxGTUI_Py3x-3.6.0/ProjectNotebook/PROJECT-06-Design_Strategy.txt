@@ -1,0 +1,140 @@
+#-----------------------------------------------------------
+#"Time-stamp: <06/17/2015  5:00:53 PM rsg>"
+#-----------------------------------------------------------
+
+=========== File: PROJECT-06-Design_Strategy.txt ===========
+
+   +----+----+  TeamSTARS "tsWxGTUI_PyVx" Toolkit
+   | ts | Wx |      with Python 2x & Python 3x based
+   +----+----+         Command Line Interface (CLI)
+   | G T U I |      and "Curses"-based "wxPython"-style, 
+   +---------+         Graphical-Text User Interface (GUI)
+ 
+   Get that cross-platform, pixel-mode "wxPython" feeling
+   on character-mode 8-/16-color (xterm-family) & non-color
+   (vt100-family) terminals and terminal emulators.
+
+====================== DESIGN STRATEGY =====================
+
+The "tsWxGTUI" Toolkit's architecture and implementation
+reflects its previously described purpose, goals and non-
+goals. It incorporates the following popular, field-proven,
+free, open source technology which is comparable to their
+Commercial-Off-The-Shelf (COTS) product counterparts:
+
+1. Python Technology
+
+   "Python" is a general-purpose, high-level object-oriented
+   programming language whose design philosophy emphasizes
+   code readability. It combines "remarkable power with very
+   clear syntax", and its standard library is large and
+   comprehensive. There is an extensive assortment of free,
+   open source libraries from third-parties.
+
+   This technology supports Python's latest 2.x and 3.x
+   versions:
+ 
+   a. Enables the embedded system application programmer to
+      design processor-independent applications that run,
+      with little or no modification, on platforms with
+      32-bit and 64-bit processor architectures under
+      "Linux" (Fedora, Mandriva, OpenSuSE, Red Hat and
+      Ubuntu), "Mac OS X" (10.5 - 10.9), "Microsoft Windows"
+      (8, 7 and XP which all require "Cygwin", the free,
+      Linux-like command line interface and GNU tools from
+      Red Hat) and "Unix"-type operating systems (FreeBSD,
+      HP-UX, IBM-AIX, SGI-IRIX and Sun/Oracle Solaris).
+
+   b. Enables the embedded system application programmer to
+      design terminal-independent applications that run,
+      with little or no modification, on platforms with the
+      pixel-mode and character-mode terminals and terminal
+      emulators available on the local and remote computer
+      platforms.
+
+   c. Python's "curses" module interfaces to the low-level,
+      character-mode, "nCurses" GUI-style toolkit, the de-
+      facto standard for portable, platform-independant
+      advanced terminal handling.
+
+   d. Converts positioning and sizing dimensions between
+      the pixel-mode units used by "wxPython" applications
+      and the character-mode units used by "nCurses".
+
+   e. Converts wxPython-style color palettes and font attri-
+      butes to their "nCurses" equivalents.
+
+   f. Segregates Python-3.x from Python-2.x implementations
+      because the 3.x branch has syntactic (try-except
+      statement), symantic (handlng of byte arrays) and
+      library improvements that are not backward compatible.
+
+      * Where practical, various Python-3.x features (print
+        function) have been ported backwards to Python-2.6
+        and Python-2.7. The "tsWXGTUI" Toolkit takes advan-
+        tage of this but it is still necessary to manually
+        debug and fix the Python-3.x modules created by
+        the Python "2to3" conversion utility.
+
+      * A few Python-3.x features have been made accessible
+        to Python-2.5 via the "from __future__ import"
+        mechanism. Alas, the "tsWXGTUI" Toolkit has not yet
+        been designed to accomodate older Python versions.
+
+2. "wxWidgets"/"wxPython" Technology
+
+   "wxWidgets" (formerly "wxWindows") is a toolkit for
+   creating pixel-mode Graphical User Interfaces (GUIs) for
+   cross-platform applications on 32-bit and 64-bit archi-
+   tectures. It uses its own GUI API with the host oper-
+   ating system GUI services to achieve the native look
+   and feel of the cross-platform GUI applications.
+
+   "wxWidgets" enables GUI application programs to compile
+   and run on various computer platforms with minimal or
+   no code changes. It covers systems such as Microsoft
+   Windows, Mac OS X, iOS, Linux/Unix (X11, Motif, and
+   GTK+), OpenVMS, OS/2 and AmigaOS.
+
+   "wxWidgets" is implemented in the C++ programming
+   language. There are "wxWidget" wrappers, such as
+   "wxPython", available for use by programmers working
+   in Python or other programming languages.
+
+   a. "wxWidgets" contributes the platform-independent C++
+      GUI Application Programming Interface (API) that
+      establishes the architectural, functional, interface
+      and exception handling requirements of candidate GUI
+      API components.
+
+   b. "wxPython" contributes programmer reference documen-
+      tation, tests and sample applications for the Python-
+      specific candidate GUI API components.
+
+3. "nCurses" Technology
+
+   "nCurses" (new curses) is a programming library that pro-
+   vides an API which allows the programmer to write text-
+   based user interfaces in a terminal-independent manner.
+
+   a. Its low-level, character-mode, "nCurses" GUI-style
+      Application Programming Interface (API) allows the
+      "tsWxGTUI" Toolkit programmer to write text-based user
+      interfaces in a terminal-independent manner that run
+      with those terminals and terminal emulators available
+      on the local and remote computer platforms.
+
+   b. It supports the following terminal and terminal emula-
+      tors:
+
+      * xterm (8-color black, white, red, green, blue, cyan,
+        magenta and yellow / 64-color pair) with mouse input
+
+      * vt100/vt220 (1-color phosphor [green, orange or
+        white] with 2-color pair black-on-color and color-
+        on-black) without mouse input
+
+   c. It optimizes screen changes, in order to reduce the
+      latency experienced when using remote shells.
+
+======================= End-Of-File ========================

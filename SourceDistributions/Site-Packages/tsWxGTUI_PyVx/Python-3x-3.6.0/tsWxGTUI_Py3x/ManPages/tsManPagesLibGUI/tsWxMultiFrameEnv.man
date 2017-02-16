@@ -1,0 +1,724 @@
+
+Help on module tsWxMultiFrameEnv:
+
+NAME
+    tsWxMultiFrameEnv
+
+FILE
+    ./tsLibGUI/tsWxPkg/src/tsWxMultiFrameEnv.py
+
+DESCRIPTION
+    tsWxMultiFrameEnv.py - Class to enable an application using a
+    Command Line Interface (CLI) to launch and use the same char-
+    acter-mode terminal with a Graphical-style User Interface (GUI).
+    It uses application specified configuration keyword-value pair
+    options to initialize any application specific logger(s)
+    It wraps the CLI, underlying the GUI, and the GUI with exception
+    handlers to control the exit codes and messages used to
+    coordinate other application programs.
+
+CLASSES
+    __builtin__.object
+        tsLibCLI.tsApplicationPkg.src.tsApplication.TsApplication
+            cliAPP
+                MultiFrameEnv
+    
+    class MultiFrameEnv(cliAPP)
+     |  Class to enable an application using a Command Line Interface (CLI)
+     |  to launch and use the same character-mode terminal with a
+     |  Graphical-style User Interface (GUI). It uses application specified
+     |  configuration keyword-value pair options to initialize any
+     |  application specific logger(s) It wraps the CLI, underlying the GUI,
+     |  and the GUI with exception handlers to control the exit codes and
+     |  messages used to coordinate other application programs.
+     |  
+     |  NOTE: tsWxMultiFrameEnv is a convenience package wrapping terminal
+     |        keyboard & mouse input, field-editable video display output,
+     |        tsLogger and tsException services.
+     |  
+     |  Method resolution order:
+     |      MultiFrameEnv
+     |      cliAPP
+     |      tsLibCLI.tsApplicationPkg.src.tsApplication.TsApplication
+     |      __builtin__.object
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, *args, **kw)
+     |      Class constructor.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from cliAPP:
+     |  
+     |  Wrapper(self)
+     |      Defines and invokes application independent exception handlers
+     |      as appropriate to control exit codes and messages.
+     |  
+     |  guiModeLauncher(self)
+     |      Get a wx App
+     |      Build the communicate Frame
+     |      Enter wx main loop
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from tsLibCLI.tsApplicationPkg.src.tsApplication.TsApplication:
+     |  
+     |  callersExceptionHandler(self, callersException)
+     |      Handle caller exception.
+     |  
+     |  createLog(self, logName='')
+     |      Capture title at run time. Create log file with name derived from
+     |      title, if it does not already exist.
+     |  
+     |  getApp(self)
+     |      Return class instance for the invoking application.
+     |  
+     |  getAssignedLogger(self)
+     |      Return logger assigned by application.
+     |  
+     |  getLaunchSettings(self)
+     |      Return setting assigned by application during it launch.
+     |  
+     |  getLog(self, logName='')
+     |      Return list of named loggers.
+     |  
+     |  getRunTimeTitle(self)
+     |      Return Run Time Title, or Build Title, whichever was actually
+     |      used in command line, stripping it of any file path.
+     |  
+     |  getRunTimeTitleVersionDate(self)
+     |      Return the Build Title, Version and Date (with any Run Time update)
+     |      for use in command line parsing help and error display output.
+     |  
+     |  registerBuildAuthors(self)
+     |      Register the authors of the module source code. For example:
+     |      "Frederick A. Kier & Richard S. Gordon".
+     |  
+     |  registerBuildCopyright(self)
+     |      Register the copyright notice for the module source code. For
+     |      example:
+     |      "Copyright (c) 2007-2013. All rights reserved.".
+     |  
+     |  registerBuildCredits(self)
+     |      Register credits for third party contributions to the module
+     |      source code identifying the technolgy or feature(s), applic-
+     |      able copyright and licence. For example:
+     |      "
+     |      Credits:
+     |      
+     |              tsLibCLI Import & Application Launch Features:
+     |              Copyright (c) 2007-2009 Frederick A. Kier.
+     |                            All rights reserved.
+     |      
+     |      "
+     |  
+     |  registerBuildDate(self)
+     |      Register the build month, day and year of the module source code.
+     |      For example:
+     |      "04/22/2013".
+     |  
+     |  registerBuildHeader(self)
+     |      Register the build header for the module or construct one from
+     |      the build title, version, date, authors, copyright, license
+     |      and credits. For example,
+     |      "
+     |      
+     |      test_tsApplication, v1.5.0 (build 04/18/2013)
+     |      
+     |        Author(s): Frederick A. Kier & Richard S. Gordon
+     |        Copyright (c) 2007-2013 Frederick A. Kier & Richard S. Gordon.
+     |                      All rights reserved.
+     |        GNU General Public License, Version 3, 29 June 2007
+     |      
+     |        Credits:
+     |      
+     |                tsLibCLI Import & Application Launch Features:
+     |                Copyright (c) 2007-2009 Frederick A. Kier.
+     |                              All rights reserved.
+     |      "
+     |  
+     |  registerBuildLicense(self)
+     |      Register the build license for use and distribution of the module
+     |      source and executable code. For example:
+     |      "GNU General Public License,  Version 3, 29 June 2007".
+     |  
+     |  registerBuildPurpose(self)
+     |      Register the build purpose of the module source code. For example:
+     |      "tsApplication".
+     |  
+     |  registerBuildTitle(self)
+     |      Register the build title of the module source code. For example:
+     |      "tsApplication".
+     |  
+     |  registerBuildTitleVersionDate(self)
+     |      Register Build Title, Version and Date or construct it from available
+     |      information. For example:
+     |      "tsApplication, v1.5.0 (build 04/18/2013)"
+     |  
+     |  registerBuildVersion(self)
+     |      Register the build version of the module source code. For example:
+     |      "1.7.0".
+     |  
+     |  registerGuiMessageFilename(self)
+     |      Register GUI Message Log FileName.
+     |  
+     |  registerGuiMessageRedirect(self)
+     |      Register GUI Message Redirect flag.
+     |  
+     |  registerGuiRequired(self)
+     |      Register Graphical-style User Interface (GUI) Required flag.
+     |  
+     |  registerGuiTopLevelObject(self)
+     |      Register GUI Top Level (Frame or Dialog) Object.
+     |  
+     |  registerGuiTopLevelObjectId(self)
+     |      Register GUI Top Level (Frame or Dialog) Object ID.
+     |  
+     |  registerGuiTopLevelObjectName(self)
+     |      Register GUI Top Level (Frame or Dialog) Object Name.
+     |  
+     |  registerGuiTopLevelObjectParent(self)
+     |      Register GUI Top Level Object (Modal Dialog) Parent (Frame).
+     |  
+     |  registerGuiTopLevelObjectPosition(self)
+     |      Register GUI Top Level Object Position (Frame).
+     |  
+     |  registerGuiTopLevelObjectSize(self)
+     |      Register GUI Top Level Object Size (Frame).
+     |  
+     |  registerGuiTopLevelObjectStatusBar(self)
+     |      Register GUI Top Level Object Status Bar.
+     |  
+     |  registerGuiTopLevelObjectStyle(self)
+     |      Register GUI Top Level Object Style (Frame).
+     |  
+     |  registerGuiTopLevelObjectTitle(self)
+     |      Register GUI Top Level (Frame or Dialog) Object Title.
+     |  
+     |  registerInstantiationSettings(self)
+     |      Register Instantiation Settings consisting of keyword-value pair
+     |      options and positonal arguments.
+     |  
+     |  registerLogs(self)
+     |      Register list of application specified log files, Unix-style
+     |      devices (syslog, stderr, stdout) or nCurses-style device (stdscr).
+     |      
+     |      NOTES:
+     |      
+     |      1) Standard device names (as defined in tsLogger module):
+     |      
+     |             StandardOutputFile = ""
+     |             StandardOutputDevice = "stdout"
+     |             StandardErrorDevice = "stderr"
+     |             StandardScreenDevice = "stdscr"
+     |             SystemLogDevice = "syslog"
+     |      
+     |      2) Logs keyword is a list of log file/device names
+     |      
+     |      3) Log names are to be prefixed by the program name
+     |      
+     |      4) Log names are to be suffixed by ".log"
+     |      
+     |      5) If keyword does not exist; then no logs created
+     |      
+     |      6) If Empty list; then create default log " "
+     |      
+     |      7) If non-empty list; then create default log and logs
+     |         defined in list
+     |  
+     |  registerRunTimeEntryPoint(self)
+     |      Register run time entry point (e.g. "main").
+     |  
+     |  runMainApplication(self)
+     |      Initiate the application and generate the appropriate exit code
+     |      and message upon its termination.
+     |  
+     |  runTimeTrap(self)
+     |      Trap unresolved "runTimeEntryPoint" KeyError and AttributeError
+     |      for Pylint.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from tsLibCLI.tsApplicationPkg.src.tsApplication.TsApplication:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class TsApplication(__builtin__.object)
+     |  Base class to initialize and configure the application program
+     |  launched by an operator. Its configuration supports those
+     |  keyword-value pair options and positional arguments specified
+     |  by the application, in its invocation parameter list. It validates
+     |  the keyword-value pair options and positional arguments. It enables
+     |  an application launched via a Command Line Interface (CLI) to
+     |  initialize, configure and use the same character-mode terminal with
+     |  a Graphical-style User Interface (GUI).
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, *args, **kw)
+     |      Class constructor.
+     |  
+     |  callersExceptionHandler(self, callersException)
+     |      Handle caller exception.
+     |  
+     |  createLog(self, logName='')
+     |      Capture title at run time. Create log file with name derived from
+     |      title, if it does not already exist.
+     |  
+     |  getApp(self)
+     |      Return class instance for the invoking application.
+     |  
+     |  getAssignedLogger(self)
+     |      Return logger assigned by application.
+     |  
+     |  getLaunchSettings(self)
+     |      Return setting assigned by application during it launch.
+     |  
+     |  getLog(self, logName='')
+     |      Return list of named loggers.
+     |  
+     |  getRunTimeTitle(self)
+     |      Return Run Time Title, or Build Title, whichever was actually
+     |      used in command line, stripping it of any file path.
+     |  
+     |  getRunTimeTitleVersionDate(self)
+     |      Return the Build Title, Version and Date (with any Run Time update)
+     |      for use in command line parsing help and error display output.
+     |  
+     |  registerBuildAuthors(self)
+     |      Register the authors of the module source code. For example:
+     |      "Frederick A. Kier & Richard S. Gordon".
+     |  
+     |  registerBuildCopyright(self)
+     |      Register the copyright notice for the module source code. For
+     |      example:
+     |      "Copyright (c) 2007-2013. All rights reserved.".
+     |  
+     |  registerBuildCredits(self)
+     |      Register credits for third party contributions to the module
+     |      source code identifying the technolgy or feature(s), applic-
+     |      able copyright and licence. For example:
+     |      "
+     |      Credits:
+     |      
+     |              tsLibCLI Import & Application Launch Features:
+     |              Copyright (c) 2007-2009 Frederick A. Kier.
+     |                            All rights reserved.
+     |      
+     |      "
+     |  
+     |  registerBuildDate(self)
+     |      Register the build month, day and year of the module source code.
+     |      For example:
+     |      "04/22/2013".
+     |  
+     |  registerBuildHeader(self)
+     |      Register the build header for the module or construct one from
+     |      the build title, version, date, authors, copyright, license
+     |      and credits. For example,
+     |      "
+     |      
+     |      test_tsApplication, v1.5.0 (build 04/18/2013)
+     |      
+     |        Author(s): Frederick A. Kier & Richard S. Gordon
+     |        Copyright (c) 2007-2013 Frederick A. Kier & Richard S. Gordon.
+     |                      All rights reserved.
+     |        GNU General Public License, Version 3, 29 June 2007
+     |      
+     |        Credits:
+     |      
+     |                tsLibCLI Import & Application Launch Features:
+     |                Copyright (c) 2007-2009 Frederick A. Kier.
+     |                              All rights reserved.
+     |      "
+     |  
+     |  registerBuildLicense(self)
+     |      Register the build license for use and distribution of the module
+     |      source and executable code. For example:
+     |      "GNU General Public License,  Version 3, 29 June 2007".
+     |  
+     |  registerBuildPurpose(self)
+     |      Register the build purpose of the module source code. For example:
+     |      "tsApplication".
+     |  
+     |  registerBuildTitle(self)
+     |      Register the build title of the module source code. For example:
+     |      "tsApplication".
+     |  
+     |  registerBuildTitleVersionDate(self)
+     |      Register Build Title, Version and Date or construct it from available
+     |      information. For example:
+     |      "tsApplication, v1.5.0 (build 04/18/2013)"
+     |  
+     |  registerBuildVersion(self)
+     |      Register the build version of the module source code. For example:
+     |      "1.7.0".
+     |  
+     |  registerGuiMessageFilename(self)
+     |      Register GUI Message Log FileName.
+     |  
+     |  registerGuiMessageRedirect(self)
+     |      Register GUI Message Redirect flag.
+     |  
+     |  registerGuiRequired(self)
+     |      Register Graphical-style User Interface (GUI) Required flag.
+     |  
+     |  registerGuiTopLevelObject(self)
+     |      Register GUI Top Level (Frame or Dialog) Object.
+     |  
+     |  registerGuiTopLevelObjectId(self)
+     |      Register GUI Top Level (Frame or Dialog) Object ID.
+     |  
+     |  registerGuiTopLevelObjectName(self)
+     |      Register GUI Top Level (Frame or Dialog) Object Name.
+     |  
+     |  registerGuiTopLevelObjectParent(self)
+     |      Register GUI Top Level Object (Modal Dialog) Parent (Frame).
+     |  
+     |  registerGuiTopLevelObjectPosition(self)
+     |      Register GUI Top Level Object Position (Frame).
+     |  
+     |  registerGuiTopLevelObjectSize(self)
+     |      Register GUI Top Level Object Size (Frame).
+     |  
+     |  registerGuiTopLevelObjectStatusBar(self)
+     |      Register GUI Top Level Object Status Bar.
+     |  
+     |  registerGuiTopLevelObjectStyle(self)
+     |      Register GUI Top Level Object Style (Frame).
+     |  
+     |  registerGuiTopLevelObjectTitle(self)
+     |      Register GUI Top Level (Frame or Dialog) Object Title.
+     |  
+     |  registerInstantiationSettings(self)
+     |      Register Instantiation Settings consisting of keyword-value pair
+     |      options and positonal arguments.
+     |  
+     |  registerLogs(self)
+     |      Register list of application specified log files, Unix-style
+     |      devices (syslog, stderr, stdout) or nCurses-style device (stdscr).
+     |      
+     |      NOTES:
+     |      
+     |      1) Standard device names (as defined in tsLogger module):
+     |      
+     |             StandardOutputFile = ""
+     |             StandardOutputDevice = "stdout"
+     |             StandardErrorDevice = "stderr"
+     |             StandardScreenDevice = "stdscr"
+     |             SystemLogDevice = "syslog"
+     |      
+     |      2) Logs keyword is a list of log file/device names
+     |      
+     |      3) Log names are to be prefixed by the program name
+     |      
+     |      4) Log names are to be suffixed by ".log"
+     |      
+     |      5) If keyword does not exist; then no logs created
+     |      
+     |      6) If Empty list; then create default log " "
+     |      
+     |      7) If non-empty list; then create default log and logs
+     |         defined in list
+     |  
+     |  registerRunTimeEntryPoint(self)
+     |      Register run time entry point (e.g. "main").
+     |  
+     |  runMainApplication(self)
+     |      Initiate the application and generate the appropriate exit code
+     |      and message upon its termination.
+     |  
+     |  runTimeTrap(self)
+     |      Trap unresolved "runTimeEntryPoint" KeyError and AttributeError
+     |      for Pylint.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class cliAPP(tsLibCLI.tsApplicationPkg.src.tsApplication.TsApplication)
+     |  Class to enable an application using a Command Line Interface (CLI)
+     |  to launch and use a character-mode terminal. It uses application
+     |  specified configuration keyword-value pair options to initialize any
+     |  application specific logger(s) It wraps the CLI with exception
+     |  handlers to control the exit codes and messages used to coordinate
+     |  other application programs.
+     |  
+     |  Method resolution order:
+     |      cliAPP
+     |      tsLibCLI.tsApplicationPkg.src.tsApplication.TsApplication
+     |      __builtin__.object
+     |  
+     |  Methods defined here:
+     |  
+     |  Wrapper(self)
+     |      Defines and invokes application independent exception handlers
+     |      as appropriate to control exit codes and messages.
+     |  
+     |  __init__(self, *args, **kw)
+     |      Class constructor.
+     |  
+     |  guiModeLauncher(self)
+     |      Get a wx App
+     |      Build the communicate Frame
+     |      Enter wx main loop
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from tsLibCLI.tsApplicationPkg.src.tsApplication.TsApplication:
+     |  
+     |  callersExceptionHandler(self, callersException)
+     |      Handle caller exception.
+     |  
+     |  createLog(self, logName='')
+     |      Capture title at run time. Create log file with name derived from
+     |      title, if it does not already exist.
+     |  
+     |  getApp(self)
+     |      Return class instance for the invoking application.
+     |  
+     |  getAssignedLogger(self)
+     |      Return logger assigned by application.
+     |  
+     |  getLaunchSettings(self)
+     |      Return setting assigned by application during it launch.
+     |  
+     |  getLog(self, logName='')
+     |      Return list of named loggers.
+     |  
+     |  getRunTimeTitle(self)
+     |      Return Run Time Title, or Build Title, whichever was actually
+     |      used in command line, stripping it of any file path.
+     |  
+     |  getRunTimeTitleVersionDate(self)
+     |      Return the Build Title, Version and Date (with any Run Time update)
+     |      for use in command line parsing help and error display output.
+     |  
+     |  registerBuildAuthors(self)
+     |      Register the authors of the module source code. For example:
+     |      "Frederick A. Kier & Richard S. Gordon".
+     |  
+     |  registerBuildCopyright(self)
+     |      Register the copyright notice for the module source code. For
+     |      example:
+     |      "Copyright (c) 2007-2013. All rights reserved.".
+     |  
+     |  registerBuildCredits(self)
+     |      Register credits for third party contributions to the module
+     |      source code identifying the technolgy or feature(s), applic-
+     |      able copyright and licence. For example:
+     |      "
+     |      Credits:
+     |      
+     |              tsLibCLI Import & Application Launch Features:
+     |              Copyright (c) 2007-2009 Frederick A. Kier.
+     |                            All rights reserved.
+     |      
+     |      "
+     |  
+     |  registerBuildDate(self)
+     |      Register the build month, day and year of the module source code.
+     |      For example:
+     |      "04/22/2013".
+     |  
+     |  registerBuildHeader(self)
+     |      Register the build header for the module or construct one from
+     |      the build title, version, date, authors, copyright, license
+     |      and credits. For example,
+     |      "
+     |      
+     |      test_tsApplication, v1.5.0 (build 04/18/2013)
+     |      
+     |        Author(s): Frederick A. Kier & Richard S. Gordon
+     |        Copyright (c) 2007-2013 Frederick A. Kier & Richard S. Gordon.
+     |                      All rights reserved.
+     |        GNU General Public License, Version 3, 29 June 2007
+     |      
+     |        Credits:
+     |      
+     |                tsLibCLI Import & Application Launch Features:
+     |                Copyright (c) 2007-2009 Frederick A. Kier.
+     |                              All rights reserved.
+     |      "
+     |  
+     |  registerBuildLicense(self)
+     |      Register the build license for use and distribution of the module
+     |      source and executable code. For example:
+     |      "GNU General Public License,  Version 3, 29 June 2007".
+     |  
+     |  registerBuildPurpose(self)
+     |      Register the build purpose of the module source code. For example:
+     |      "tsApplication".
+     |  
+     |  registerBuildTitle(self)
+     |      Register the build title of the module source code. For example:
+     |      "tsApplication".
+     |  
+     |  registerBuildTitleVersionDate(self)
+     |      Register Build Title, Version and Date or construct it from available
+     |      information. For example:
+     |      "tsApplication, v1.5.0 (build 04/18/2013)"
+     |  
+     |  registerBuildVersion(self)
+     |      Register the build version of the module source code. For example:
+     |      "1.7.0".
+     |  
+     |  registerGuiMessageFilename(self)
+     |      Register GUI Message Log FileName.
+     |  
+     |  registerGuiMessageRedirect(self)
+     |      Register GUI Message Redirect flag.
+     |  
+     |  registerGuiRequired(self)
+     |      Register Graphical-style User Interface (GUI) Required flag.
+     |  
+     |  registerGuiTopLevelObject(self)
+     |      Register GUI Top Level (Frame or Dialog) Object.
+     |  
+     |  registerGuiTopLevelObjectId(self)
+     |      Register GUI Top Level (Frame or Dialog) Object ID.
+     |  
+     |  registerGuiTopLevelObjectName(self)
+     |      Register GUI Top Level (Frame or Dialog) Object Name.
+     |  
+     |  registerGuiTopLevelObjectParent(self)
+     |      Register GUI Top Level Object (Modal Dialog) Parent (Frame).
+     |  
+     |  registerGuiTopLevelObjectPosition(self)
+     |      Register GUI Top Level Object Position (Frame).
+     |  
+     |  registerGuiTopLevelObjectSize(self)
+     |      Register GUI Top Level Object Size (Frame).
+     |  
+     |  registerGuiTopLevelObjectStatusBar(self)
+     |      Register GUI Top Level Object Status Bar.
+     |  
+     |  registerGuiTopLevelObjectStyle(self)
+     |      Register GUI Top Level Object Style (Frame).
+     |  
+     |  registerGuiTopLevelObjectTitle(self)
+     |      Register GUI Top Level (Frame or Dialog) Object Title.
+     |  
+     |  registerInstantiationSettings(self)
+     |      Register Instantiation Settings consisting of keyword-value pair
+     |      options and positonal arguments.
+     |  
+     |  registerLogs(self)
+     |      Register list of application specified log files, Unix-style
+     |      devices (syslog, stderr, stdout) or nCurses-style device (stdscr).
+     |      
+     |      NOTES:
+     |      
+     |      1) Standard device names (as defined in tsLogger module):
+     |      
+     |             StandardOutputFile = ""
+     |             StandardOutputDevice = "stdout"
+     |             StandardErrorDevice = "stderr"
+     |             StandardScreenDevice = "stdscr"
+     |             SystemLogDevice = "syslog"
+     |      
+     |      2) Logs keyword is a list of log file/device names
+     |      
+     |      3) Log names are to be prefixed by the program name
+     |      
+     |      4) Log names are to be suffixed by ".log"
+     |      
+     |      5) If keyword does not exist; then no logs created
+     |      
+     |      6) If Empty list; then create default log " "
+     |      
+     |      7) If non-empty list; then create default log and logs
+     |         defined in list
+     |  
+     |  registerRunTimeEntryPoint(self)
+     |      Register run time entry point (e.g. "main").
+     |  
+     |  runMainApplication(self)
+     |      Initiate the application and generate the appropriate exit code
+     |      and message upon its termination.
+     |  
+     |  runTimeTrap(self)
+     |      Trap unresolved "runTimeEntryPoint" KeyError and AttributeError
+     |      for Pylint.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from tsLibCLI.tsApplicationPkg.src.tsApplication.TsApplication:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+
+DATA
+    DEBUG = True
+    DebugSimulatedKeyErrorTrap = True
+    MultiFrameEnvWrapperEnable = True
+    PySimpleAppMode = False
+    VERBOSE = True
+    __authors__ = 'Richard S. Gordon'
+    __copyright__ = 'Copyright (c) 2007-2013 Richard S. Gordon.\n\t\tAll r...
+    __credits__ = '\n\n  Credits: \n\n\t  tsLibGUI Import & Application .....
+    __date__ = '09/16/2013'
+    __header__ = '\n\ntsWxMultiFrameEnv, v2.4.0 (build 09/16/2013)\n\n... ...
+    __help__ = '\nAppend " -h" or " --help" to the command line before usi...
+    __license__ = 'GNU General Public License, Version 3, 29 June 2007'
+    __line1__ = 'tsWxMultiFrameEnv, v2.4.0 (build 09/16/2013)'
+    __line2__ = 'Author(s): Richard S. Gordon'
+    __line3__ = 'Copyright (c) 2007-2013 Richard S. Gordon.\n\t\tAll right...
+    __line4__ = 'GNU General Public License, Version 3, 29 June 2...U Gene...
+    __title__ = 'tsWxMultiFrameEnv'
+    __version__ = '2.4.0'
+    debugExitEnabled = False
+    frameSizingEnabled = True
+    importCode = ImportError('No module named tsLibGUI',)
+    mainTitleVersionDate = 'tsWxMultiFrameEnv, v2.4.0 (build 09/16/2013)'
+    redirectEnabled = True
+    runTimeTitleEnabled = True
+    splashScreenSeconds = 0
+    statusBarTestDrive = False
+    tracebackEnabled = False
+    wxDEFAULT_FRAME_STYLE = 570433088
+    wxDefaultPosition = (-1, -1)
+    wxDefaultSize = (-1, -1)
+    wxFrameNameStr = 'frame'
+
+VERSION
+    2.4.0
+
+DATE
+    09/16/2013
+
+CREDITS
+    
+    
+      Credits: 
+    
+    	  tsLibGUI Import & Application Launch Features: 
+    	  Copyright (c) 2007-2009 Frederick A. Kier.
+    			All rights reserved.
+    
+    	  Python Curses Module API & Run Time Library Features:
+    	  Copyright (c) 2001-2013 Python Software Foundation.
+    			All rights reserved.
+    	  PSF License Agreement for Python 2.7.3 & 3.3.0
+    
+    	  wxWidgets (formerly wxWindows) & wxPython API Features:
+    	  Copyright (c) 1992-2008 Julian Smart, Robert Roebling,
+    			Vadim Zeitlin and other members of the 
+    			wxxWidgets team.
+    			All rights reserved.
+    	  wxWindows Library License
+    
+    	  nCurses API & Run Time Library Features:
+    	  Copyright (c) 1998-2011 Free Software Foundation, Inc.
+    			All rights reserved.
+    	  GNU General Public License, Version 3, 29 June 2007
+
+

@@ -1,0 +1,133 @@
+      init in tsCxGlobalsPkg
+<open file './logs/2014-04-08-at-06-27-41/tsStripComments.log', mode 'w' at 0x7fe56338>
+tsCommandLineEnv: ImportError (tsLibCLI); importCode=No module named tsOperatorSettingsParser
+
+
+	EntryPoint (parameters:
+		Args=();
+		Options={}
+
+
+tsStripComents.py, v1.2.1 (build 08/27/2013)
+
+  Author(s): Richard S. Gordon
+  Copyright (c) 2007-2013 Richard S. Gordon.
+		All rights reserved.
+  GNU General Public License, Version 3, 29 June 2007
+
+  Credits: 
+
+	  tsLibCLI Import & Application Launch Features: 
+	  Copyright (c) 2007-2009 Frederick A. Kier. 
+			All rights reserved.
+
+	  Python Logging and Shutil Modules API Features: 
+	  Copyright (c) 2001-2013 Python Software Foundation.
+			All rights reserved.
+	  PSF License Agreement for Python 2.7.3 & 3.3.0
+
+	  Remove Comments and Docstrings Method: 
+	  Copyright (c) 2009 Dan McDougall on StackOverflow.com.
+			All rights reserved.
+
+
+tsStripComments, v1.0.0 (build 07/27/2013)
+
+	rawArgsOptions=['-h']
+
+
+usage: tsStripComments.py [-h] [-v] [-a] [-i INPUT] [-o OUTPUT] [-d] [-s] [-V]
+                          [-m {argparse}]
+
+Purpose:
+
+	tsStripCommentsts.py - Python application program to transform an
+	annotated, development version of a directory of sub-directories
+	and Python source files into an unannotated copy. The copy is
+	intended to conserve storage space when installed in an embedded
+	system. The transformation involves stripping comments and doc
+	strings by de-tokenizing a tokenized version of each Python
+	source file. Non-Python files are trimmed of trailing whitespace.
+
+Syntax:
+
+    <python-interpreter> <program> [Keyword-Value Option(s)] ... \
+                                   [Positional Argument(s)] ...
+
+Examples:
+
+    Interpreter   program app.      operator settings
+    -----------   ----------------  -----------------------------
+    python        tsStripComments.py.py
+
+    python2.7     tsStripComments.py.py \
+                                    [-h] [-v] [-a] \
+                                    [-i INPUT] \
+                                    [-o OUTPUT] \
+                                    [-d] [-s] [-V] \
+                                    [-m {argparse}] \
+
+                                    {optparse, getopt}
+
+    python3.3     tsStripComments.py.py \
+                                    [--help] [--version] [--about] \
+                                    [--input INPUT] \
+                                    [--output OUTPUT] \
+                                    [--debug] [--scan] [--Verbose] \
+                                    [--module {argparse}] \
+
+                                    {optparse, getopt}
+
+        ---------------------------------------------------------
+        Key:
+
+            "python"    - Default interpreter for platform
+
+            "python2.7" - First alternate interpreter for platform
+
+            "python3.3" - Second alternate interpreter for platform
+
+            "[]" - Brackets enclose option keywords and values
+
+            "{}" - Braces enclose option value choices and
+                   positional arguments
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -v, --version         show the build version of this software (including its
+                        title, version and date) and exit
+  -a, --about           show a summary of the terms & conditions for users of
+                        this software (including the applicable product
+                        identification, authors, contributors, copyrights,
+                        licenses and purpose) and exit.
+  -i INPUT, --input INPUT
+                        sets input directory containing annotated Python
+                        source code files and sub-directories of additional
+                        files which are to be copied without their comments
+                        and document strings. (default = "./").
+  -o OUTPUT, --output OUTPUT
+                        sets output directory containing un-annotated Python
+                        source code files and sub-directories of additional
+                        files which have been stripped of their comments and
+                        document strings. (default = "./WithoutComments").
+  -d, --debug           log/display application program progress and
+                        diagnostic messages useful in debugging and
+                        troubleshooting. (default = False).
+  -s, --scan            enable log/display software source file parsing
+                        activity details source file type (file name
+                        extension) and individual line type (code, comment,
+                        directive) (default = False)
+  -V, --Verbose         log/display verbose troubleshooting details for
+                        application program activity tracking diagnostic
+                        messages (default = False)
+  -m {argparse}, --module {argparse}
+                        sets default for standard Python parser module that
+                        will be used to extract operator settings (keyword-
+                        value pairs and positional arguments) from the command
+                        line used to launch the tsStripComments application.
+                        (NOTE: To demonstrate the similarity and differences
+                        between Optional and Positional Arguments, an Optional
+                        Argument is used to set the latest Python
+                        recommendation, "argparse", while a Positional
+                        Argument is used to override it with a now Python
+                        deprecated "optparse" or "getopt".)

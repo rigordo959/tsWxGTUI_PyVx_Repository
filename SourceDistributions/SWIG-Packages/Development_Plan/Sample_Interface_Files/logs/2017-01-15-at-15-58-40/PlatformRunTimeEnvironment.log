@@ -1,0 +1,186 @@
+
+
+tsPlatformRunTimeEnvironment.py, v2.6.0 (build 03/21/2015)
+
+  Author(s): Richard S. Gordon
+  Copyright (c) 2007-2015 Richard S. Gordon.
+		All rights reserved.
+  GNU General Public License, Version 3, 29 June 2007
+
+  Credits: 
+
+	  tsLibCLI Import & Application Launch Features: 
+	  Copyright (c) 2007-2009 Frederick A. Kier.
+			All rights reserved.
+	  GNU General Public License, Version 3, 29 June 2007
+
+	  terminalsize (https://gist.github.com/jtriley/1108174) Features: 
+	  Copyright (c) 2011 Justin T. Riley.
+			All rights reserved.
+	  GNU General Public License, Version 3, 29 June 2007
+
+	  Python Platform & Logging Module API Features: 
+	  Copyright (c) 2001-2013 Python Software Foundation.
+			All rights reserved.
+	  PSF License Agreement for Python 2.7.3 & 3.3.0
+
+
+=================== Begin Platform Run Time Environment ====================
+
+
+  Reported Sun, 15-Jan-2017 at 15:58:40
+
+
+  Network Identification
+  ----------------------
+         hostname = <WIN10PRO64VM.hsd1.ma.comcast.net.>
+        aliaslist = <[]> # NOTE: List of Values NOT available.
+       ipaddrlist = <['fe80::fd64:63e6:df8:fe3b']>
+
+
+  Host Central Processing Unit
+  ----------------------------
+          machine = <x86_64>
+        processor = <> # NOTE: Value NOT available.
+     architecture = <64> bits (sys.maxsize); <> # NOTE: Value NOT available.
+                     linkage
+        byteorder = <little>
+
+
+  Host Operating System
+  ---------------------
+              api = <posix>
+           system = <CYGWIN_NT-10.0>
+          release = <2.6.1(0.305/5/3)>
+          version = <2016-12-16 11:55>
+
+
+  Host Console Display Size
+  -------------------------
+  characters/line = <80>
+    lines/display = <50>
+
+
+  Python Platform
+  ---------------
+           branch = <> # NOTE: Value NOT available.
+            build = <default> number; <Oct 10 2016 12:56:26> date
+         compiler = <GCC 5.4.0>
+   implementation = <CPython>
+         revision = <> # NOTE: Value NOT available.
+          version = <2.7.12>
+
+
+  Process Parameters
+  ------------------
+              pid = <3868> / <0xF1C>
+          getppid = <972> / <0x3CC>
+          getegid = <197608>
+          geteuid = <197608>
+           getgid = <197608>
+        getgroups = <[401408, 545, 4, 66049, 11, 15, 68414, 113, 66048,
+                     262180]>
+          getpgid = <3868>
+           getuid = <197608>
+         getlogin = <rsg>
+          ctermid = </dev/pty0>
+              cwd = </cygdrive/d/WR/tsWxGTUI_PyVx_SWIG_Repository/Development_
+                     Plan/Sample_Interface_Files>
+
+
+  Environment Variables
+  ---------------------
+                  ALLUSERSPROFILE = <C:\ProgramData>
+                          APPDATA = <C:\Users\rsg\AppData\Roaming>
+               COMMONPROGRAMFILES = <C:\Program Files\Common Files>
+                     COMPUTERNAME = <WIN10PRO64VM>
+                          COMSPEC = <C:\Windows\system32\cmd.exe>
+          CommonProgramFiles(x86) = <C:\Program Files (x86)\Common Files>
+               CommonProgramW6432 = <C:\Program Files\Common Files>
+                            EMAIL = <C:\Users\rsg\AppData\Roaming\The Bat!>
+                       EXECIGNORE = <*.dll>
+   FPS_BROWSER_APP_PROFILE_STRING = <Internet Explorer>
+  FPS_BROWSER_USER_PROFILE_STRING = <Default>
+                             HOME = </home/rsg>
+                        HOMEDRIVE = <C:>
+                         HOMEPATH = <\Users\rsg>
+                         HOSTNAME = <WIN10PRO64VM>
+                         INFOPATH =
+                                     </usr/local/info:/usr/share/info:/usr/inf
+                                     o>
+                             LANG = <en_US.UTF-8>
+                     LOCALAPPDATA = <C:\Users\rsg\AppData\Local>
+                      LOGONSERVER = <\\WIN10PRO64VM>
+             NUMBER_OF_PROCESSORS = <2>
+                           OLDPWD = </home/rsg>
+                    ORIGINAL_PATH =
+                                     </cygdrive/c/Python27:/cygdrive/c/Python2
+                                     7/Scripts:/cygdrive/c/Program Files
+                                     (x86)/Parallels/Parallels Tools/Applicati
+                                     ons:/cygdrive/c/Windows/system32:/cygdriv
+                                     e/c/Windows:/cygdrive/c/Windows/System32/
+                                     Wbem:/cygdrive/c/Windows/System32/Windows
+                                     PowerShell/v1.0:/cygdrive/c/PROGRA~1/COND
+                                     US~1/DISKEE~1:/cygdrive/c/Program
+                                     Files/Condusiv Technologies/Diskeeper/TCE
+                                     :/cygdrive/c/Users/rsg/AppData/Roaming/Py
+                                     thon/Scripts:/cygdrive/c/Users/rsg/AppDat
+                                     a/Local/Microsoft/WindowsApps>
+                               OS = <Windows_NT>
+                         OneDrive = <C:\Users\rsg\OneDrive>
+                             PATH = </usr/local/bin:/usr/bin:/cygdrive/c/Pytho
+                                     n27:/cygdrive/c/Python27/Scripts:/cygdriv
+                                     e/c/Program Files
+                                     (x86)/Parallels/Parallels Tools/Applicati
+                                     ons:/cygdrive/c/Windows/system32:/cygdriv
+                                     e/c/Windows:/cygdrive/c/Windows/System32/
+                                     Wbem:/cygdrive/c/Windows/System32/Windows
+                                     PowerShell/v1.0:/cygdrive/c/PROGRA~1/COND
+                                     US~1/DISKEE~1:/cygdrive/c/Program
+                                     Files/Condusiv Technologies/Diskeeper/TCE
+                                     :/cygdrive/c/Users/rsg/AppData/Roaming/Py
+                                     thon/Scripts:/cygdrive/c/Users/rsg/AppDat
+                                     a/Local/Microsoft/WindowsApps:/usr/lib/la
+                                     pack>
+                          PATHEXT =
+                                     <.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.
+                                     WSF;.WSH;.MSC;.py;.pyw>
+                          PRINTER = <HP LaserJet P2015 Series (26A5C8)>
+           PROCESSOR_ARCHITECTURE = <AMD64>
+             PROCESSOR_IDENTIFIER = <Intel64 Family 6 Model 60 Stepping 3,
+                                     GenuineIntel>
+                  PROCESSOR_LEVEL = <6>
+               PROCESSOR_REVISION = <3c03>
+                      PROFILEREAD = <true>
+                     PROGRAMFILES = <C:\Program Files>
+                              PS1 = <\[\e]0;\w\a\]\n\[\e[32m\]\u@\h
+                                     \[\e[33m\]\w\[\e[0m\]\n\$ >
+                     PSModulePath = <C:\Program Files\WindowsPowerShell\Module
+                                     s;C:\Windows\system32\WindowsPowerShell\v
+                                     1.0\Modules>
+                           PUBLIC = <C:\Users\Public>
+                              PWD = </cygdrive/d/WR/tsWxGTUI_PyVx_SWIG_Reposit
+                                     ory/Development_Plan/Sample_Interface_Fil
+                                     es>
+                      ProgramData = <C:\ProgramData>
+                ProgramFiles(x86) = <C:\Program Files (x86)>
+                     ProgramW6432 = <C:\Program Files>
+                      SESSIONNAME = <Console>
+                            SHELL = </bin/bash>
+                            SHLVL = <1>
+                      SYSTEMDRIVE = <C:>
+                       SYSTEMROOT = <C:\Windows>
+                             TEMP = </tmp>
+                             TERM = <xterm>
+                              TMP = </tmp>
+                               TZ = <America/New_York>
+                             USER = <rsg>
+                       USERDOMAIN = <WIN10PRO64VM>
+        USERDOMAIN_ROAMINGPROFILE = <WIN10PRO64VM>
+                         USERNAME = <rsg>
+                      USERPROFILE = <C:\Users\rsg>
+                           WINDIR = <C:\Windows>
+                                _ = </usr/bin/python2.7>
+                          asl.log = <Destination=file>
+
+==================== End Platform Run Time Environment =====================

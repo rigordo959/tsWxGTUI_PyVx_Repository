@@ -1,5 +1,5 @@
 #-----------------------------------------------------------
-#"Time-stamp: <08/26/2015  4:40:32 AM rsg>"
+#"Time-stamp: <01/19/2017  7:56:16 AM rsg>"
 #-----------------------------------------------------------
 
 ====================== File: TO-DO.txt =====================
@@ -10,9 +10,18 @@
    | G T U I |      and "Curses"-based "wxPython"-style, 
    +---------+         Graphical-Text User Interface (GUI)
  
-   Get that cross-platform, pixel-mode "wxPython" feeling
-   on character-mode 8-/16-color (xterm-family) & non-color
-   (vt100-family) terminals and terminal emulators.
+   Get that cross-platform, pixel-mode "wxPython" feeling on
+   platforms with:
+
+   * 64-bit processors, nCurses 6.x, 64-bit Python 3.6.x or
+     later GUI applications and character-mode 256-/16-/8-
+     color (xterm-family) and non-color (vt100-family)
+     terminals and terminal emulators.
+
+   * 32-bit processors, nCurses 6.x/5.x, 32-bit Python 3.5.2
+     or earlier GUI applications and character-mode 16-/8-
+     color (xterm-family) and non-color (vt100-family)
+     terminals and terminal emulators.
 
    You can find this and other plain-text files in the
    Toolkit subdirectory named:
@@ -37,8 +46,45 @@ It reflects the following experiences and assumptions:
       advancements by various GNU/Linux operating system
       providers.
 
+      NCurses 6.0 Release Announcement, 8 August 2015
+      (Excerpt from http://invisible-island.net/):
+
+      "This release is designed to be source-compatible with
+      ncurses 5.0 through 5.9; providing a new application
+      binary interface (ABI). Although the source can still
+      be configured to support the ncurses 5 ABI, the intent
+      of the release is to provide extensions which are
+      generally useful, but binary-incompatible with ncurses 5:
+
+      Extend the cchar_t structure to allow more than 16 colors
+      to be encoded.
+
+      Modify the encoding of mouse state to make room for a 5th
+      mouse button. That allows one to use ncurses with a wheel
+      mouse with xterm or similar X terminal emulators...."
+
+      NOTES:
+
+         (1) The Python Software Foundation plans to support
+             more than 16 colors (requires 64-bit processor
+             operating in 64-bit mode) [and wheel mouse]
+             beginning with Python 3.6.0. It plans to NEVER
+             retrofit 64-bit ncurses 6.x features to any
+             Python 2.0-2.7 or Python 3.0-3.5 release.
+
+         (2) The Python Software Foundation has NOT announced
+             plans to upgrade its Standard Python Curses Module
+             to support the full nCurses 6.0 Application
+             Programming Interface (API).
+
    b) Several attempts to resolve the GUI object focus con-
       trol have been unsuccessful.
+
+      On 19 Jan. 2017, came across an nCurses document,
+      "ncurses-6.0/doc/ncurses-intro.doc", which contains a
+      discussion under the heading "Refresh of Overlapping
+      Windows" which might explain the failure of focus
+      issue and lead to its resolution.
 
    c) Resolving the keyboard shortcut key capability needed
       for vt100 terminal support without a mouse has been

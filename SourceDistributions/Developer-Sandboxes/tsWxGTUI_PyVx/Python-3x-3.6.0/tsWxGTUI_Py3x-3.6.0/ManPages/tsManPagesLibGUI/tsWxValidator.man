@@ -1,0 +1,961 @@
+
+Help on module tsWxValidator:
+
+NAME
+    tsWxValidator
+
+FILE
+    ./tsLibGUI/tsWxPkg/src/tsWxValidator.py
+
+DESCRIPTION
+    tsWxValidator.py - Class to emulate the wxPython API for non-graphical,
+    curses-based platforms.
+
+CLASSES
+    tsWxEvtHandler.EvtHandler(tsWxObject.Object)
+        Validator
+    
+    class Validator(tsWxEvtHandler.EvtHandler)
+     |  Proxy of C++ Validator class
+     |  
+     |  Method resolution order:
+     |      Validator
+     |      tsWxEvtHandler.EvtHandler
+     |      tsWxObject.Object
+     |      __builtin__.object
+     |  
+     |  Methods defined here:
+     |  
+     |  Clone(self)
+     |  
+     |  GetWindow(self)
+     |  
+     |  SetWindow(self, window)
+     |  
+     |  TransferFromWindow(self)
+     |  
+     |  TransferToWindow(self)
+     |  
+     |  Validate(self, parent)
+     |  
+     |  __init__(self)
+     |      Construct a validator.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Static methods defined here:
+     |  
+     |  IsSilent()
+     |  
+     |  SetBellOnError(doIt)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  Window
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from tsWxEvtHandler.EvtHandler:
+     |  
+     |  AddPendingEvent(self, event)
+     |      Post an event to be processed later.
+     |      
+     |      This function is similar to QueueEvent() but cannot be used to post
+     |      events from worker threads for the event objects with wxString
+     |      fields (i.e. in practice most of them) because of an unsafe use of
+     |      the same wxString object which happens because the wxString field
+     |      in the original event object and its copy made internally by this
+     |      function share the same string buffer internally. Use QueueEvent()
+     |      to avoid this.
+     |      
+     |      A copy of event is made by the function, so the original can be
+     |      deleted as soon as function returns (it is common that the original
+     |      is created on the stack). This requires that the wxEvent::Clone()
+     |      method be implemented by event so that it can be duplicated and
+     |      stored until it gets processed.
+     |      
+     |      Parameters:
+     |      
+     |      event   Event to add to the pending events queue.
+     |      
+     |      Reimplemented in wxWindow.
+     |      
+     |      From event.cpp
+     |  
+     |  Bind(self, event, handler=None, source=None, id=-1, id2=-1, useSystemEventTable=False)
+     |      Bind an event to an event handler.
+     |      
+     |      This offers basically the same functionality as Connect(), but
+     |      it is more flexible as it also allows you to use ordinary
+     |      functions and arbitrary functors as event handlers. It is also
+     |      less restrictive then Connect() because you can use an arbitrary
+     |      method as an event handler, where as Connect() requires a
+     |      wxEvtHandler derived handler.
+     |      
+     |      See Dynamic Event Handling for more detailed explanation of this
+     |      function and the Event Sample sample for usage examples.
+     |      
+     |      event: One of the EVT_* objects that specifies the
+     |             the type of event to bind.
+     |      
+     |      handler: A callable object to be invoked when the event is
+     |               delivered to self.  Pass None to disconnect an
+     |               event handler.
+     |      
+     |      source: Sometimes the event originates from a different window
+     |              than self, but you still want to catch it in self.  (For
+     |              example, a button event delivered to a frame.)  By passing
+     |              the source of the event, the event handling system is able
+     |              to differentiate between the same event type from different
+     |              controls.
+     |      
+     |      id: Used to specify the event source by ID instead of instance.
+     |      
+     |      id2: Used, as lastId, when it is desirable to bind a handler to a
+     |           range of ids, such as with EVT_MENU_RANGE.
+     |  
+     |  Connect(self, id, lastId, eventType, func, userData=None, eventSink=None)
+     |      Connects the given function dynamically with the event handler,
+     |      id and event type.
+     |      
+     |      Notice that Bind() provides a more flexible and safer way to do
+     |      the same thing as Connect(), please use it in any new code -- while
+     |      Connect() is not formally deprecated due to its existing widespread
+     |      usage, it has no advantages compared to Bind().
+     |      
+     |      This is an alternative to the use of static event tables. It is more
+     |      flexible as it allows to connect events generated by some object to
+     |      an event handler defined in a different object of a different class
+     |      (which is impossible to do directly with the event tables -- the
+     |      events can be only handled in another object if they are propagated
+     |      upwards to it). Do make sure to specify the correct eventSink when
+     |      connecting to an event of a different object.
+     |      
+     |      See Dynamic Event Handling for more detailed explanation of this
+     |      function and the Event Sample sample for usage examples.
+     |      
+     |      This specific overload allows you to connect an event handler to a
+     |      range of source IDs. Do not confuse source IDs with event types:
+     |      source IDs identify the event generator objects (typically wxMenuItem
+     |      or wxWindow objects) while the event type identify which type of
+     |      events should be handled by the given function (an event generator
+     |      object may generate many different types of events!).
+     |  
+     |  DeletePendingEvents(self)
+     |      Deletes all events queued on this event handler using QueueEvent()
+     |      or AddPendingEvent().
+     |      
+     |      Use with care because the events which are deleted are (obviously)
+     |      not processed and this may have unwanted consequences (e.g. user
+     |      actions events will be lost).
+     |      
+     |      Reimplemented in wxAppConsole.
+     |  
+     |  Disconnect(self, id, lastId, eventType, func=None, userData=None, eventSink=None)
+     |      Disconnects the given function dynamically from the event handler,
+     |      using the specified parameters as search criteria and returning
+     |      true if a matching function has been found and removed.
+     |      
+     |      This method can only disconnect functions which have been added
+     |      using the Connect() method. There is no way to disconnect functions
+     |      connected using the (static) event tables.
+     |  
+     |  DoTryChain(self, event)
+     |  
+     |  FilterEvent(self)
+     |  
+     |  FindRefInTrackerList(self, eventSink)
+     |  
+     |  GetClientData(self)
+     |      Returns user-supplied client data.
+     |      
+     |      Remarks:
+     |      
+     |      Normally, any extra data the programmer wishes to associate with the
+     |      object should be made available by deriving a new class with new data
+     |      members.
+     |      
+     |      See also:
+     |      
+     |      SetClientData()
+     |  
+     |  GetClientObject(self)
+     |      Returns a pointer to the user-supplied client data object.
+     |      
+     |      See also:
+     |      
+     |      SetClientObject(), wxClientData
+     |  
+     |  GetEventHashTable(self)
+     |  
+     |  GetEvtHandlerEnabled(self)
+     |      Returns true if the event handler is enabled, false otherwise.
+     |      
+     |      See also:
+     |      
+     |      SetEvtHandlerEnabled()
+     |  
+     |  GetId(self)
+     |      Returns the identifier of the window.
+     |  
+     |  GetNextHandler(self)
+     |      Returns the pointer to the next handler in the chain.
+     |      
+     |      See also:
+     |      
+     |      SetNextHandler(), GetPreviousHandler(), SetPreviousHandler(),
+     |      wxWindow::PushEventHandler, wxWindow::PopEventHandler
+     |  
+     |  GetPreviousHandler(self)
+     |      Returns the pointer to the previous handler in the chain.
+     |      
+     |      See also:
+     |      
+     |      SetPreviousHandler(), GetNextHandler(), SetNextHandler(),
+     |      wxWindow::PushEventHandler, wxWindow::PopEventHandler
+     |  
+     |  InactivatedProcessEvent(self, event)
+     |      From: http://docs.wxwidgets.org/trunk/
+     |            classwx_evt_handler.html#65968dd27f3aac7718f2dd6b2ddd5a08
+     |      
+     |      Processes an event, searching event tables and calling zero or more
+     |      suitable event handler function(s).
+     |      
+     |      Normally, your application would not call this function: it is
+     |      called in the wxWidgets implementation to dispatch incoming user
+     |      interface events to the framework (and application).
+     |      
+     |      However, you might need to call it if implementing new functionality
+     |      (such as a new control) where you define new event types, as opposed
+     |      to allowing the user to override virtual functions.
+     |      
+     |      Notice that you do not usually need to override ProcessEvent() to
+     |      customize the event handling, overriding the specially provided
+     |      TryBefore() and TryAfter() functions is usually enough. For example,
+     |      wxMDIParentFrame may override TryBefore() to ensure that the menu
+     |      events are processed in the active child frame before being processed
+     |      in the parent frame itself.
+     |      
+     |      The normal order of event table searching is as follows:
+     |      
+     |      1) wxApp::FilterEvent() is called. If it returns anything but -1
+     |      (default) the processing stops here.
+     |      
+     |      2) TryBefore() is called (this is where wxValidator are taken into
+     |      account for wxWindow objects). If this returns true, the function
+     |      exits.
+     |      
+     |      3) If the object is disabled (via a call to
+     |      wxEvtHandler::SetEvtHandlerEnabled) the function skips to step (7).
+     |      
+     |      4) Dynamic event table of the handlers bound using Bind<>() is
+     |      searched. If a handler is found, it is executed and the function
+     |      returns true unless the handler used wxEvent::Skip() to indicate
+     |      that it did not handle the event in which case the search continues.
+     |      
+     |      5) Static events table of the handlers bound using event table
+     |      macros is searched for this event handler. If this fails, the base
+     |      class event table table is tried, and so on until no more tables
+     |      exist or an appropriate function was found. If a handler is found,
+     |      the same logic as in the previous step applies.
+     |      
+     |      6) The search is applied down the entire chain of event handlers
+     |      (usually the chain has a length of one). This chain can be formed
+     |      using wxEvtHandler::SetNextHandler():
+     |      
+     |      (referring to the image, if A->ProcessEvent is called and it does
+     |      not handle the event, B->ProcessEvent will be called and so on...).
+     |      Note that in the case of wxWindow you can build a stack of event
+     |      handlers (see wxWindow::PushEventHandler() for more info). If any
+     |      of the handlers of the chain return true, the function exits.
+     |  
+     |  IsUnlinked(self)
+     |      Returns true if the next and the previous handler pointers of this
+     |      event handler instance are None.
+     |      
+     |      Since:
+     |      
+     |      2.9.0
+     |      
+     |      See also:
+     |      
+     |      SetPreviousHandler(), SetNextHandler()
+     |  
+     |  ProcessEvent(self, event)
+     |      Processes an event, searching event tables and calling zero or more
+     |      suitable event handler function(s).
+     |      
+     |      Normally, your application would not call this function: it is
+     |      called in the wxWidgets implementation to dispatch incoming user
+     |      interface events to the framework (and application).
+     |      
+     |      However, you might need to call it if implementing new functionality
+     |      (such as a new control) where you define new event types, as opposed
+     |      to allowing the user to override virtual functions.
+     |      
+     |      Notice that you do not usually need to override ProcessEvent() to
+     |      customize the event handling, overriding the specially provided
+     |      TryBefore() and TryAfter() functions is usually enough. For example,
+     |      wxMDIParentFrame may override TryBefore() to ensure that the menu
+     |      events are processed in the active child frame before being processed
+     |      in the parent frame itself.
+     |      
+     |      The normal order of event table searching is as follows:
+     |      
+     |      1) wxApp::FilterEvent() is called. If it returns anything but -1
+     |      (default) the processing stops here.
+     |      
+     |      2) TryBefore() is called (this is where wxValidator are taken into
+     |      account for wxWindow objects). If this returns true, the function
+     |      exits.
+     |      
+     |      3) If the object is disabled (via a call to
+     |      wxEvtHandler::SetEvtHandlerEnabled) the function skips to step (7).
+     |      
+     |      4) Dynamic event table of the handlers bound using Bind<>() is
+     |      searched. If a handler is found, it is executed and the function
+     |      returns true unless the handler used wxEvent::Skip() to indicate
+     |      that it did not handle the event in which case the search continues.
+     |      
+     |      5) Static events table of the handlers bound using event table
+     |      macros is searched for this event handler. If this fails, the base
+     |      class event table table is tried, and so on until no more tables
+     |      exist or an appropriate function was found. If a handler is found,
+     |      the same logic as in the previous step applies.
+     |      
+     |      6) The search is applied down the entire chain of event handlers
+     |      (usually the chain has a length of one). This chain can be formed
+     |      using wxEvtHandler::SetNextHandler():
+     |      
+     |      (referring to the image, if A->ProcessEvent is called and it does
+     |      not handle the event, B->ProcessEvent will be called and so on...).
+     |      Note that in the case of wxWindow you can build a stack of event
+     |      handlers (see wxWindow::PushEventHandler() for more info). If any
+     |      of the handlers of the chain return true, the function exits.
+     |  
+     |  ProcessEventIfMatchesId(self, entry, event)
+     |  
+     |  ProcessEventLocally(self, event)
+     |      Try to process the event in this handler and all those chained to it.
+     |      
+     |      As explained in ProcessEvent() documentation, the event handlers
+     |      may be chained in a doubly-linked list. This function tries to
+     |      process the event in this handler (including performing any
+     |      pre-processing done in TryBefore(), e.g. applying validators)
+     |      and all those following it in the chain until the event is processed
+     |      or the chain is exhausted.
+     |      
+     |      This function is called from ProcessEvent() and, in turn, calls
+     |      TryThis() for each handler in turn. It is not virtual and so cannot
+     |      be overridden but can, and should, be called to forward an event to
+     |      another handler instead of ProcessEvent() which would result in a
+     |      duplicate call to TryAfter(), e.g. resulting in all unprocessed
+     |      events being sent to the application object multiple times.
+     |      
+     |      Since:
+     |      
+     |      2.9.1
+     |      
+     |      Parameters:
+     |      
+     |      event   Event to process.
+     |      
+     |      Returns:
+     |      
+     |      true if this handler of one of those chained to it processed the
+     |      event.
+     |  
+     |  ProcessPendingEvents(self)
+     |      Processes the pending events previously queued using QueueEvent()
+     |      or AddPendingEvent(); you must call this function only if you are
+     |      sure there are pending events for this handler, otherwise a wxCHECK
+     |      will fail.
+     |      
+     |      The real processing still happens in ProcessEvent() which is called
+     |      by this function.
+     |      
+     |      Note that this function needs a valid application object (see
+     |      wxAppConsole::GetInstance()) because wxApp holds the list of the
+     |      event handlers with pending events and this function manipulates
+     |      that list.
+     |      
+     |      Reimplemented in wxAppConsole, and wxWindow.
+     |  
+     |  QueueEvent(self, event)
+     |              Queue event for a later processing.
+     |      
+     |              This method is similar to ProcessEvent() but while the latter is
+     |              synchronous, i.e. the event is processed immediately, before the
+     |              function returns, this one is asynchronous and returns immediately
+     |              while the event will be processed at some later time (usually
+     |              during the next event loop iteration).
+     |      
+     |              Another important difference is that this method takes ownership
+     |              of the event parameter, i.e. it will delete it itself. This implies
+     |              that the event should be allocated on the heap and that the pointer
+     |              cannot be used any more after the function returns (as it can be
+     |              deleted at any moment).
+     |      
+     |              QueueEvent() can be used for inter-thread communication from the
+     |              worker threads to the main thread, it is safe in the sense that
+     |              it uses locking internally and avoids the problem mentioned in
+     |              AddPendingEvent() documentation by ensuring that the event object
+     |              is not used by the calling thread any more. Care should still be
+     |              taken to avoid that some fields of this object are used by it,
+     |              notably any wxString members of the event object must not be
+     |              shallow copies of another wxString object as this would result
+     |              in them still using the same string buffer behind the scenes.
+     |              For example:
+     |      
+     |              #     void FunctionInAWorkerThread(const wxString& str)
+     |              #     {
+     |              #         wxCommandEvent* evt = new wxCommandEvent;
+     |      
+     |              #         // NOT evt->SetString(str) as this would be a shallow copy
+     |              #         evt->SetString(str.c_str()); // make a deep copy
+     |      
+     |              #         wxTheApp->QueueEvent( evt );
+     |              #     }
+     |      
+     |              # Note that you can use wxThreadEvent instead of wxCommandEvent to
+     |              # avoid this problem:
+     |      
+     |              #     void FunctionInAWorkerThread(const wxString& str)
+     |              #     {
+     |              #         wxThreadEvent evt;
+     |              #         evt->SetString(str);
+     |      
+     |              #         // wxThreadEvent::Clone() makes sure that the internal
+     |              #         // wxString member is not shared by other wxString
+     |              #         // instances:
+     |              #         wxTheApp->QueueEvent( evt.Clone() );
+     |              #     }
+     |      
+     |      ##        Finally notice that this method automatically wakes up the event
+     |      ##        loop if it is currently idle by calling wxWakeUpIdle() so there
+     |      ##        is no need to do it manually when using it.
+     |      
+     |      ##        Since:
+     |      ##        2.9.0
+     |      
+     |      ##        Parameters:
+     |      
+     |      ##        event         A heap-allocated event to be queued, QueueEvent() takes
+     |      ##        ownership of it. This parameter should not be NULL.
+     |      
+     |      ##        Reimplemented in wxWindow.
+     |  
+     |  ReceivePendingEventHandler(self)
+     |  
+     |  RemovePendingEventHandler(self)
+     |  
+     |  SafelyProcessEvent(self, event)
+     |      Rrocesses an event by calling ProcessEvent() and handles any
+     |      exceptions that occur in the process.
+     |      
+     |      If an exception is thrown in event handler,
+     |      wxApp::OnExceptionInMainLoop is called.
+     |      
+     |      Parameters:
+     |      
+     |      event   Event to process.
+     |      
+     |      Returns:
+     |      
+     |      true if the event was processed, false if no handler was found
+     |      or an exception was thrown.
+     |      
+     |      See also:
+     |      
+     |      wxWindow::HandleWindowEvent
+     |      
+     |      Reimplemented in wxWindow.
+     |  
+     |  SearchDynamicEventTable(self, event)
+     |  
+     |  SearchEventTable(self, table, event)
+     |      Searches the event table, executing an event handler function if
+     |      an appropriate one is found.
+     |      
+     |      Parameters:
+     |      
+     |      table   Event table to be searched.
+     |      
+     |      event   Event to be matched against an event table entry.
+     |      
+     |      Returns:
+     |      
+     |      true if a suitable event handler function was found and executed,
+     |      and the function did not call wxEvent::Skip.
+     |      
+     |      Remarks:
+     |      
+     |      This function looks through the object event table and tries to
+     |      find an entry that will match the event. An entry will match if:
+     |      
+     |      The event type matches, and
+     |      
+     |      the identifier or identifier range matches, or the event table entry
+     |      identifier is zero.
+     |      
+     |      If a suitable function is called but calls wxEvent::Skip, this
+     |      function will fail, and searching will continue.
+     |      
+     |      Todo:
+     |      
+     |      this function in the header is listed as an "implementation only"
+     |      function; are we sure we want to document it?
+     |      
+     |      See also:
+     |      
+     |      ProcessEvent()
+     |  
+     |  SetClientData(self, data)
+     |      Sets user-supplied client data.
+     |      
+     |      Parameters:
+     |      
+     |      data    Data to be associated with the event handler.
+     |      
+     |      Remarks:
+     |      
+     |      Normally, any extra data the programmer wishes to associate with the
+     |      object should be made available by deriving a new class with new data
+     |      members. You must not call this method and SetClientObject on the
+     |      same class - only one of them.
+     |      
+     |      See also:
+     |      
+     |      GetClientData()
+     |  
+     |  SetClientObject(self, data)
+     |      Set the client data object.
+     |      
+     |      Any previous object will be deleted.
+     |      
+     |      See also:
+     |      
+     |      GetClientObject(), wxClientData
+     |  
+     |  SetEvtHandlerEnabled(self, enabled)
+     |      Enables or disables the event handler.
+     |      
+     |      Parameters:
+     |      
+     |      enabled         true if the event handler is to be enabled, false
+     |      if it is to be disabled.
+     |      
+     |      Remarks:
+     |      
+     |      You can use this function to avoid having to remove the event
+     |      handler from the chain, for example when implementing a dialog
+     |      editor and changing from edit to test mode.
+     |      
+     |      See also:
+     |      
+     |      GetEvtHandlerEnabled()
+     |  
+     |  SetNextHandler(self, handler)
+     |      Sets the pointer to the next handler.
+     |      
+     |      Remarks:
+     |      
+     |      See ProcessEvent() for more info about how the chains of event
+     |      handlers are internally used. Also remember that wxEvtHandler
+     |      uses double-linked lists and thus if you use this function, you
+     |      should also call SetPreviousHandler() on the argument passed to
+     |      this function:
+     |      
+     |          handlerA->SetNextHandler(handlerB);
+     |          handlerB->SetPreviousHandler(handlerA);
+     |      
+     |      Parameters:
+     |      
+     |      handler         The event handler to be set as the next handler.
+     |                      Cannot be NULL.
+     |      See also:
+     |      
+     |      How Events are Processed
+     |      
+     |      Reimplemented in wxWindow.
+     |  
+     |  SetPreviousHandler(self, handler)
+     |      Sets the pointer to the previous handler.
+     |      
+     |      All remarks about SetNextHandler() apply to this function as well.
+     |      
+     |      Parameters:
+     |      
+     |      handler  The event handler to be set as the previous handler.
+     |               Cannot be NULL.
+     |      
+     |      See also:
+     |      
+     |      How Events are Processed
+     |      
+     |      Reimplemented in wxWindow.
+     |  
+     |  TryAfter(self, event)
+     |      Method called by ProcessEvent() as last resort.
+     |      
+     |      This method can be overridden to implement post-processing for
+     |      the events which were not processed anywhere else.
+     |      
+     |      The base class version handles forwarding the unprocessed events
+     |      to wxApp at wxEvtHandler level and propagating them upwards the
+     |      window child-parent chain at wxWindow level and so should usually
+     |      be called when overriding this method:
+     |      
+     |      class MyClass : public BaseClass // inheriting from wxEvtHandler
+     |      {
+     |      ...
+     |      protected:
+     |          virtual bool TryAfter(wxEvent& event)
+     |          {
+     |              if ( BaseClass::TryAfter(event) )
+     |                  return true;
+     |      
+     |              return MyPostProcess(event);
+     |          }
+     |      };
+     |      
+     |      See also:
+     |      
+     |      ProcessEvent()
+     |  
+     |  TryBefore(self, event)
+     |      Method called by ProcessEvent() before examining this object
+     |      event tables.
+     |      
+     |      This method can be overridden to hook into the event processing
+     |      logic as early as possible. You should usually call the base
+     |      class version when overriding this method, even if wxEvtHandler
+     |      itself does nothing here, some derived classes do use this
+     |      method, e.g. wxWindow implements support for wxValidator in it.
+     |      
+     |      Example:
+     |      
+     |      class MyClass : public BaseClass // inheriting from wxEvtHandler
+     |      {
+     |      ...
+     |      protected:
+     |          virtual bool TryBefore(wxEvent& event)
+     |          {
+     |              if ( MyPreProcess(event) )
+     |                  return true;
+     |      
+     |              return BaseClass::TryBefore(event);
+     |          }
+     |      };
+     |      
+     |      See also:
+     |      
+     |      ProcessEvent()
+     |  
+     |  TryBeforeAndHere(self, event)
+     |  
+     |  TryHereOnly(self, event)
+     |  
+     |  TryParent(self, event)
+     |      TBD
+     |  
+     |  TryThis(self, event)
+     |      Try to process the event in this event handler.
+     |      
+     |      This method is called from ProcessEventLocally() and thus,
+     |      indirectly, from ProcessEvent(), please see the detailed
+     |      description of the event processing logic there.
+     |      
+     |      It is currently not virtual and so may not be overridden.
+     |      
+     |      Since:
+     |      
+     |      2.9.1
+     |      
+     |      Parameters:
+     |      
+     |      event   Event to process.
+     |      
+     |      Returns:
+     |      
+     |      true if this object itself defines a handler for this event and
+     |      the handler did not skip the event.
+     |  
+     |  TryValidator(self, event)
+     |      TBD
+     |  
+     |  Unbind(self, event, source=None, id=-1, id2=-1, useSystemEventTable=False)
+     |      Disconencts the given function from the event handler, using the
+     |      specified parameters as search criteria and returning true if
+     |      a matching function has been found and removed.
+     |  
+     |  Unlink(self)
+     |      Unlinks this event handler from the chain it is part of (if any);
+     |      then links the "previous" event handler to the "next" one (so that
+     |      the chain will not be interrupted).
+     |  
+     |  __del__(self)
+     |      Destructor.
+     |      
+     |      If the handler is part of a chain, the destructor will unlink
+     |      itself and restore the previous and next handlers so that they
+     |      point to each other.
+     |  
+     |  tsProcessEventTables(self, objectCriteria=None, objectId=None, triggeringEvent=None, triggeringObject=None)
+     |      Dispatch the triggering event to one or more event handlers
+     |      identified in the system or user event table of the triggering
+     |      object and its ancestors.
+     |      
+     |      Return True if an event handler found. False if no event handler
+     |      found.
+     |  
+     |  tsProcessPyEventBinderEvent(self, event)
+     |      Processes an event, searching event tables and call zero or more
+     |      suitable event handler function(s).
+     |      
+     |      This method is used by "ProcessEvent" to handle events created
+     |      via "PyEventBinder". Such events do not have access to the methods
+     |      and instance variables associated with the "Event" class.
+     |      
+     |      Parameter:
+     |      
+     |      event - PyEventBinder type object (NOT an Event class instance)
+     |  
+     |  tsProcessSelectedEventTable(self, objectCriteria=None, objectId=None, triggeringEvent=None, triggeringObject=None, useSystemEventTable=True)
+     |      Return True after dispatching the triggering event to an event
+     |      handler identified in the system or user event table of the.
+     |      triggering object. Return False if no event handler found.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from tsWxEvtHandler.EvtHandler:
+     |  
+     |  EvtHandlerEnabled
+     |      Returns true if the event handler is enabled, false otherwise.
+     |      
+     |      See also:
+     |      
+     |      SetEvtHandlerEnabled()
+     |  
+     |  NextHandler
+     |      Returns the pointer to the next handler in the chain.
+     |      
+     |      See also:
+     |      
+     |      SetNextHandler(), GetPreviousHandler(), SetPreviousHandler(),
+     |      wxWindow::PushEventHandler, wxWindow::PopEventHandler
+     |  
+     |  PreviousHandler
+     |      Returns the pointer to the previous handler in the chain.
+     |      
+     |      See also:
+     |      
+     |      SetPreviousHandler(), GetNextHandler(), SetNextHandler(),
+     |      wxWindow::PushEventHandler, wxWindow::PopEventHandler
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from tsWxObject.Object:
+     |  
+     |  Destroy(self)
+     |      Deletes the C++ object this Python object is a proxy for.
+     |  
+     |  GetClassInfo(self)
+     |      Return information about the class.
+     |  
+     |  GetClassName(self)
+     |      Returns the class name of the C++ class using wxRTTI.
+     |  
+     |  IsSameAs(self, p)
+     |      For wx.Objects that use C++ reference counting internally, this
+     |      method can be used to determine if two objects are referencing
+     |      the same data object.
+     |  
+     |  tsBeginClassRegistration(self, theClass, applicationId)
+     |      Establish connection with application logger. Log the beginning of
+     |      class registration.
+     |      
+     |      Establish application access to display top-level window and to
+     |      curses screen and windows.
+     |  
+     |  tsEndClassRegistration(self, theClass)
+     |      Log the ending of class registration.
+     |  
+     |  tsGetClassNameIndent(self, theClassName)
+     |      Return the hierarchical level associated with the specified class
+     |      for use in indenting the logging of class initialization entry and
+     |      exit.
+     |  
+     |  tsGetTerminalPixelRectangle(self)
+     |      Returns the bounding rectangle the client area of the display,
+     |      i.e., without taskbars and such.
+     |  
+     |  tsGetTheLogger(self)
+     |      Return the logger instance.
+     |  
+     |  tsGetTheTerminal(self, theClass)
+     |      Return the terminal instance.
+     |  
+     |  tsGetTheTerminalScreen(self, theClass)
+     |      Return the screen instance.
+     |  
+     |  tsGetThisOwn(self)
+     |      Return MembershipFlag.
+     |  
+     |  tsInstallTheLoggerAccess(self, indent, theClass, applicationId)
+     |      Establish connection with application logger.
+     |  
+     |  tsInstallTheTerminalAccess(self, indent, theClass, applicationId)
+     |      Establish those display areas reserved for task bar and stdio
+     |      redirection. Create links to the internal information needed
+     |      to monitor and control the physical screen and virtual windows
+     |      of the Graphical Text User Interface.
+     |  
+     |  tsRegisterClassNameAndMembershipFlag(self, theClass)
+     |      Record Class Name and Membership Flag instance variables.
+     |  
+     |  tsUpdateEventAndAcceleratorTables(self, event, handler, source, id=-1, id2=-1, useSystemEventTable=False)
+     |      Bind with event and accelerator System and User tables.
+     |      
+     |      event: One of the EVT_* objects that specifies the
+     |             the type of event to bind.
+     |      
+     |      handler: A callable object to be invoked when the event is
+     |               delivered to self.  Pass None to disconnect an
+     |               event handler.
+     |      
+     |      source: Sometimes the event originates from a different window
+     |              than self, but you still want to catch it in self.  (For
+     |              example, a button event delivered to a frame.)  By passing
+     |              the source of the event, the event handling system is able
+     |              to differentiate between the same event type from different
+     |              controls.
+     |      
+     |      id: Used to specify the event source by ID instead of instance.
+     |      
+     |      id2: Used when it is desirable to bind a handler to a range of ids,
+     |           such as with EVT_MENU_RANGE.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Static methods inherited from tsWxObject.Object:
+     |  
+     |  tsGetCurrentId()
+     |      Return latest ID.
+     |  
+     |  tsGetTheId(mySelf)
+     |      Return the ID associated with this class instance.
+     |  
+     |  tsNewId()
+     |      Create a unique ID.
+     |      
+     |      Remarks:
+     |      Various controls and other parts of wxWidgets need an ID. Sometimes
+     |      the ID may be directly provided by the user or have a predefined
+     |      value, such as wxID_OPEN. Often, however, the value of the ID is
+     |      unimportant and is created automatically by calling
+     |      wxWindow::NewControlId or by passing wxID_ANY as the ID of an
+     |      object.
+     |      
+     |      There are two ways to generate an ID. One way is to start at a
+     |      negative number, and for each new ID, return the next smallest
+     |      number. This is fine for systems that can use the full range of
+     |      negative numbers for IDs, as this provides more than enough IDs
+     |      and it would take a very very long time to run out and wrap
+     |      around. However, some systems cannot use the full range of the
+     |      ID value. Windows, for example, can only use 16 bit IDs, and
+     |      only has about 32000 possible automatic IDs that can be
+     |      generated by wxWindow::NewControlId. If the program runs long
+     |      enough, depending on the program itself, using this first method
+     |      would cause the IDs to wrap around into the positive ID range
+     |      and cause possible clashes with any directly specified ID values.
+     |      
+     |      The other way is to keep track of the IDs returned by
+     |      wxWindow::NewControlId and do not return them again until the
+     |      ID is completely free and not being used by any other objects.
+     |      This will make sure that the ID values do not clash with one
+     |      another. This is accomplished by keeping a reference count for
+     |      each of the IDs that can possibly be returned by
+     |      wxWindow::NewControlId. Other IDs are not reference counted.
+     |  
+     |  tsRegisterId(usedId)
+     |      Adjust latest ID to reflect specified new one.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from tsWxObject.Object:
+     |  
+     |  ClassName
+     |      Returns the class name of the C++ class using wxRTTI.
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  thisown
+     |      Return MembershipFlag.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes inherited from tsWxObject.Object:
+     |  
+     |  CurrentId = 100
+     |  
+     |  PyApp_EventQueue = None
+     |  
+     |  PyApp_Object = None
+     |  
+     |  TheDisplay = None
+     |  
+     |  TheLogger = None
+     |  
+     |  TheTerminal = None
+     |  
+     |  TheTerminalScreen = None
+
+DATA
+    DEBUG = True
+    VERBOSE = True
+    __authors__ = 'Richard S. Gordon'
+    __copyright__ = 'Copyright (c) 2007-2013 Richard S. Gordon.\n\t\tAll r...
+    __credits__ = '\n\n  Credits: \n\n\t  tsLibGUI Import & Application .....
+    __date__ = '04/01/2013'
+    __header__ = '\n\ntsWxValidator, v0.1.0 (build 04/01/2013)\n\n  Au... ...
+    __license__ = 'GNU General Public License, Version 3, 29 June 2007'
+    __line1__ = 'tsWxValidator, v0.1.0 (build 04/01/2013)'
+    __line2__ = 'Author(s): Richard S. Gordon'
+    __line3__ = 'Copyright (c) 2007-2013 Richard S. Gordon.\n\t\tAll right...
+    __line4__ = 'GNU General Public License, Version 3, 29 June 2...U Gene...
+    __title__ = 'tsWxValidator'
+    __version__ = '0.1.0'
+    mainTitleVersionDate = 'tsWxValidator, v0.1.0 (build 04/01/2013)'
+
+VERSION
+    0.1.0
+
+DATE
+    04/01/2013
+
+CREDITS
+    
+    
+      Credits: 
+    
+    	  tsLibGUI Import & Application Launch Features: 
+    	  Copyright (c) 2007-2009 Frederick A. Kier.
+    			All rights reserved.
+    
+    	  Python Curses Module API & Run Time Library Features:
+    	  Copyright (c) 2001-2013 Python Software Foundation.
+    			All rights reserved.
+    	  PSF License Agreement for Python 2.7.3 & 3.3.0
+    
+    	  wxWidgets (formerly wxWindows) & wxPython API Features:
+    	  Copyright (c) 1992-2008 Julian Smart, Robert Roebling,
+    			Vadim Zeitlin and other members of the 
+    			wxWidgets team.
+    			All rights reserved.
+    	  wxWindows Library License
+    
+    	  nCurses API & Run Time Library Features:
+    	  Copyright (c) 1998-2011 Free Software Foundation, Inc.
+    			All rights reserved.
+    	  GNU General Public License, Version 3, 29 June 2007
+
+

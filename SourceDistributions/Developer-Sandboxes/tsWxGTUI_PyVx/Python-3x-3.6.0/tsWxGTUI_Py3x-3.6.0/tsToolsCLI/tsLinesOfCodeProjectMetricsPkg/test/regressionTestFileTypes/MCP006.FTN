@@ -1,0 +1,101 @@
+$title "MCP" cade-pn191s1.0 subroutine AIR_SIMULATE
+$cds on
+      subroutine AIR_SIMULATE( mcu_lu, slot, ident, count, buffer,
+     &                         modify, error_code )
+     & , "MCP" cade-pn191s1.0 <860620.1711>
+*
+* Purpose:
+*
+*     Simulate Control/1000 "AIR" utility.
+*
+* Revisions:
+*
+*     1.0  05/16/86  RS Gordon
+*
+*     1.0  06/20/86  RS Gordon
+*
+* Global Declarations:
+*
+      implicit none
+*
+      integer  mcu_lu, slot, ident, count, modify, error_code
+      real     buffer(*)
+*
+$     include  system_io_device.inc
+$     include  mcu_io_config.inc
+$     include  airnd_state.inc
+$     include  diw_state.inc
+$     include  simulation.inc
+*
+$page
+*
+* Local Declarations:
+*
+      integer  map, type
+      real     volts, gain, bias, signal
+*
+      integer  ident_limit, base, i
+*
+$page
+*
+* Dummy Logic
+*
+      error_code = 0 ! Preset Default Status
+*
+      if ( mcu_lu .ne. mcu ) then
+*
+          error_code = 103 ! LU not MCI card
+*
+      else if ( mcu_io_config( slot ) .eq. hp25501 ) then
+*
+          ident_limit = hp25501_count
+          base        = airnd_map_25501 + ident - 1
+          if ( ( ident .lt. 1 ) .or. ( ident .gt. ident_limit ) ) then
+              error_code = 117 ! Request out of range
+          endif
+          if ( ( ident + count - 1 ) .gt. ident_limit ) then
+              error_code = 117 ! Request out of range
+          endif
+*
+      else if ( mcu_io_config( slot ) .eq. hp25502 ) then
+*
+          ident_limit = hp25502_count
+          base        = airnd_map_25502 + ident - 1
+          if ( ( ident .lt. 1 ) .or. ( ident .gt. ident_limit ) ) then
+              error_code = 117 ! Request out of range
+          endif
+          if ( ( ident + count - 1 ) .gt. ident_limit ) then
+              error_code = 117 ! Request out of range
+          endif
+*
+      else if ( mcu_io_config( slot ) .eq. hp25503 ) then
+*
+          ident_limit = hp25503_count
+          base        = airnd_map_25503 + ident - 1
+          if ( ( ident .lt. 1 ) .or. ( ident .gt. ident_limit ) ) then
+              error_code = 117 ! Request out of range
+          endif
+          if ( ( ident + count - 1 ) .gt. ident_limit ) then
+              error_code = 117 ! Request out of range
+          endif
+*
+      else
+*
+          error_code = 111 ! Function card slot out of range
+*
+      endif
+*
+$page
+*
+      if ( error_code .eq. 0 ) then
+*
+*         ***** Copy Simulated Voltages
+          do i = 1, count
+              buffer(i) = simulation_ai( base + i - 1 )
+          enddo
+*
+      endif
+*
+      return
+*
+      end

@@ -1,5 +1,5 @@
 #-----------------------------------------------------------
-#"Time-stamp: <07/07/2015  7:55:03 PM rsg>"
+#"Time-stamp: <01/18/2017  8:32:44 AM rsg>"
 #-----------------------------------------------------------
 
 =========== File: README6-SourceDistributions.txt ==========
@@ -10,9 +10,18 @@
    | G T U I |      and "Curses"-based "wxPython"-style, 
    +---------+         Graphical-Text User Interface (GUI)
  
-   Get that cross-platform, pixel-mode "wxPython" feeling
-   on character-mode 8-/16-color (xterm-family) & non-color
-   (vt100-family) terminals and terminal emulators.
+   Get that cross-platform, pixel-mode "wxPython" feeling on
+   platforms with:
+
+   * 64-bit processors, nCurses 6.x, 64-bit Python 3.6.x or
+     later GUI applications and character-mode 256-/16-/8-
+     color (xterm-family) and non-color (vt100-family)
+     terminals and terminal emulators.
+
+   * 32-bit processors, nCurses 6.x/5.x, 32-bit Python 3.5.2
+     or earlier GUI applications and character-mode 16-/8-
+     color (xterm-family) and non-color (vt100-family)
+     terminals and terminal emulators.
 
    You can find this and other plain-text files in the
    Toolkit subdirectory named:
@@ -61,28 +70,67 @@
          |     |                 +-- ["tsWxGTUI_Py3x"]
          |     |
          |     +-- ["Site-Packages"] (Original)
+         |     |     |
+         |     |     |  Site-packages is the location where third-
+         |     |     |  party packages are installed (i.e., those
+         |     |     |  not part of the core Python distribution).
+         |     |     |  NOTE: That with Linux, Mac OS X and Unix
+         |     |     |  operating systems one must have root priv-
+         |     |     |  iledges to write to that location.
+         |     |     |
+         |     |     +-- ["tsWxGTUI_PyVx"] (Site-Package)
+         |     |           |
+         |     |           +-- ["Documents"] (Copy)
+         |     |           |
+         |     |           +-- ["ManPages"] (Copy)
+         |     |           |
+         |     |           +-- ["Python-2x"] (Site-Package)
+         |     |           |     |
+         |     |           |     +-- ["tsWxGTUI_Py2x"]
+         |     |           |
+         |     |           +-- ["Python-3x"] (Site-Package,
+         |     |                 |            Ported from Python-2x)
+         |     |                 |
+         |     |                 +-- ["tsWxGTUI_Py3x"]
+         |     |
+         |     +-- ["SWIG-Packages"] (Supplemental)
          |           |
-         |           |  Site-packages is the location where third-
+         |           |  SWIG-packages is the location where third-
          |           |  party packages are installed (i.e., those
          |           |  not part of the core Python distribution).
          |           |  NOTE: That with Linux, Mac OS X and Unix
          |           |  operating systems one must have root priv-
          |           |  iledges to write to that location.
          |           |
-         |           +-- ["tsWxGTUI_PyVx"] (Site-Package)
+         |           +-- ["Development_Plan"]
+         |           |     |
+         |           |     +-- ["Ideas_for_SWIG"]
+         |           |     |
+         |           |     +-- ["Sample_Interface_Files"]
+         |           |
+         |           +-- ["Reference_Documents"]
+         |           |     |
+         |           |     +-- ["Makefile-references"]
+         |           |     |
+         |           |     +-- ["nCurses-references"]
+         |           |     |
+         |           |     +-- ["PDCurses-references"]
+         |           |     |
+         |           |     +-- ["Python-references"]
+         |           |     |
+         |           |     +-- ["SWIG-references"]
+         |           |
+         |           +-- ["Sample_Configurations"]
          |                 |
-         |                 +-- ["Documents"] (Copy)
+         |                 +-- ["tsWxGTUI_PyVx_SWIG_Cygwin"]
          |                 |
-         |                 +-- ["ManPages"] (Copy)
+         |                 +-- ["tsWxGTUI_PyVx_SWIG_Linux"]
          |                 |
-         |                 +-- ["Python-2x"] (Site-Package)
-         |                 |     |
-         |                 |     +-- ["tsWxGTUI_Py2x"]
+         |                 +-- ["tsWxGTUI_PyVx_SWIG_Solaris"]
          |                 |
-         |                 +-- ["Python-3x"] (Site-Package,
-         |                       |            Ported from Python-2x)
-         |                       |
-         |                       +-- ["tsWxGTUI_Py3x"]
+         |                 +-- ["tsWxGTUI_PyVx_SWIG_Unix"]
+         |                 |
+         |                 +-- ["tsWxGTUI_PyVx_SWIG_Windows"]
          |
          +-- "README.txt"
 
@@ -93,6 +141,8 @@
 2. Developer-Sandbox
 
 3. Site-Package
+
+4. SWIG-Package
 
 ===================== SourceDistribution ====================
 
@@ -192,5 +242,15 @@
    Unlike the contents of the Developer-Sandbox, the third-
    party site-package and it users must explicitly import
    via the site-package.package.module path identifier.
+
+======================= SWIG-PACKAGE =======================
+
+4. SWIG-Package
+
+   SWIG-packages is the location where third-party packages
+   are installed (i.e., those not part of the core Python
+   distribution). NOTE: That with Linux, Mac OS X and Unix
+   operating systems one must have root privileges to write
+   to that location.
 
 ======================= End-Of-File ========================

@@ -1,0 +1,1358 @@
+
+------------------------------------------------------------------------------
+
+tsLinesOfCode, v2.4.0 (build 07/31/2013)
+
+  Author(s): Richard S. Gordon
+  Copyright (c) 2007-2013 Richard S. Gordon.
+		All rights reserved.
+  GNU General Public License, Version 3, 29 June 2007
+
+  Credits: 
+
+	  tsLibCLI Import & Application Launch Features: 
+	  Copyright (c) 2007-2009 Frederick A. Kier. 
+			All rights reserved.
+
+	  File Extension Features of SLOCCount 2.26: 
+	  Copyright (c) 2001-2004 David A. Wheeler. 
+			All rights reserved.
+
+	  Algorithm Features of COCOMO(R) 81: 
+	  Copyright (c) 1981 Dr. Barry W. Boehm. 
+			All rights reserved.
+
+	  Python Logging Module API Features: 
+	  Copyright (c) 2001-2013 Python Software Foundation.
+			All rights reserved.
+	  PSF License Agreement for Python 2.7.3 & 3.3.0
+
+------------------------------------------------------------------------------
+
+		Individual Source Code Feature Statistics
+
+    CODE    CMNTS    LINES    WORDS    CHARS PATH/FILE
+       0      276      276      854     9711 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\$README-tsWxGTUI_PyVx.txt
+     139      261      400     1505    14453 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\test_tsApplication.py
+     158      310      468     1837    16686 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\test_tsCommandLineEnv.py
+      87       87      174      499     5406 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\test_tsCommandLineInterface.py
+      57      134      191      695     6054 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\test_tsCxGlobals.py
+     419      210      629     1476    18189 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\test_tsDoubleLinkedList.py
+     136      119      255      674     8189 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\test_tsExceptions.py
+     342      240      582     1728    21038 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\test_tsLogger.py
+     136      131      267      877     8932 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\test_tsOperatorSettingsParser.py
+     267      182      449     1089    13999 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\test_tsPlatformRunTimeEnvironment.py
+     187      145      332      846    11167 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\test_tsReportUtilities.py
+      78      118      196      551     6452 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\test_tsSysCommand.py
+     291      262      553     1397    16966 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\test_tsWxBoxSizer.py
+     381      320      701     1748    22989 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\test_tsWxCheckBox.py
+     429      217      646     1497    18570 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\test_tsWxDoubleLinkedList.py
+      66      146      212      731     6504 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\test_tsWxGlobals.py
+     937      558     1495     4302    59225 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\test_tsWxGraphicalTextUserInterface.py
+     332      265      597     1523    19266 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\test_tsWxGridSizer.py
+     302      410      712     2498    24708 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\test_tsWxMultiFrameEnv.py
+     783      513     1296     3610    48445 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\test_tsWxRSM.py
+     414      424      838     2057    27804 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\test_tsWxScrolledWindow.py
+     344      546      890     2256    30074 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\test_tsWxScrolledWindowDual.py
+     683      517     1200     2866    39856 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\test_tsWxSplashScreen.py
+     839      842     1681     4359    58899 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\test_tsWxWidgets.py
+     477      466      943     3519    34825 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsCxGlobals.py
+      93      342      435     1801    17016 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLinesOfCodeProjectMetrics.py
+       0        0        0        0        0 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLinesOfCodeProjectMetricsStatistics.txt
+     262      237      499     1348    16800 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsPlatformQuery.py
+     651      658     1309     4370    46235 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsStripComments.py
+     185      178      363      914    10701 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsStripLineNumbers.py
+     130       95      225      602     6928 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsTreeCopy.py
+     143      109      252      704     8197 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsTreeTrimLines.py
+       1       21       22       74      638 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\Tutorial_CLI_0_hello_world_print_statement.py
+       1       23       24       86      716 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\Tutorial_CLI_1_hello_world_print_function.py
+       1       23       24       86      726 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\Tutorial_CLI_2_hello_world_script_environment.py
+       4       22       26       68      702 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\Tutorial_CLI_3_hello_world_main_module_application.py
+     262      275      537     1536    18802 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\Tutorial_CLI_4_Command_Line_PlatformQuery_Application.py
+     245      118      363      978     9612 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\Tutorial_GUI_0_Curses_LowLevel_WidgetApi_application.py
+      13       46       59      164     1572 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\Tutorial_GUI_1_wxPython_HighLevel_WidgetApi_application.py
+     212      313      525     1438    16951 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\Tutorial_GUI_2_tsWxGTUI_HighLevel_BoxSizerApi_application.py
+     192      289      481     1362    15510 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\Tutorial_GUI_3_tsWxGTUI_HighLevel_WidgetApi_application.py
+       0        0        0        0        0 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\__init__.py
+       0       17       17       74     1079 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-38-02\tsLogger-Dict.txt
+       0       17       17       65     1452 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-38-14\tsLogger-Dict.txt
+       0       17       17       74     1533 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-38-29\tsLogger-Dict.txt
+       0       17       17       74     1533 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-38-38\tsLogger-Dict.txt
+       0       17       17       74     1533 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-38-47\tsLogger-Dict.txt
+       0     1511     1511     6800    71713 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDemoArchive\$README-tsDemoArchive.txt
+       0        0        0        0        0 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDemoArchive\__init__.py
+     135      109      244      798     7651 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDemoArchive\src\demo_tsWxFrame.py
+      43       48       91      310     2860 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDemoArchive\src\demo_wxFrame.py
+     139      261      400     1505    14453 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDemoArchive\src\test_tsApplication.py
+     158      310      468     1837    16686 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDemoArchive\src\test_tsCommandLineEnv.py
+      87       87      174      499     5406 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDemoArchive\src\test_tsCommandLineInterface.py
+      57      134      191      695     6054 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDemoArchive\src\test_tsCxGlobals.py
+     419      210      629     1476    18189 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDemoArchive\src\test_tsDoubleLinkedList.py
+     136      119      255      674     8189 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDemoArchive\src\test_tsExceptions.py
+     342      240      582     1728    21038 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDemoArchive\src\test_tsLogger.py
+     136      131      267      877     8932 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDemoArchive\src\test_tsOperatorSettingsParser.py
+     267      182      449     1089    13999 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDemoArchive\src\test_tsPlatformRunTimeEnvironment.py
+       0      186      186      496     7777 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDemoArchive\src\test_tsPlatformRunTimeEnvironment.txt
+     187      145      332      846    11167 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDemoArchive\src\test_tsReportUtilities.py
+      78      118      196      551     6452 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDemoArchive\src\test_tsSysCommand.py
+     291      262      553     1397    16966 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDemoArchive\src\test_tsWxBoxSizer.py
+     381      320      701     1748    22989 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDemoArchive\src\test_tsWxCheckBox.py
+     317      302      619     1479    18954 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDemoArchive\src\test_tsWxDisplay.py
+     429      217      646     1497    18570 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDemoArchive\src\test_tsWxDoubleLinkedList.py
+      66      146      212      731     6504 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDemoArchive\src\test_tsWxGlobals.py
+     937      558     1495     4302    59225 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDemoArchive\src\test_tsWxGraphicalTextUserInterface.py
+     332      265      597     1523    19266 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDemoArchive\src\test_tsWxGridSizer.py
+     302      410      712     2498    24708 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDemoArchive\src\test_tsWxMultiFrameEnv.py
+     783      513     1296     3610    48445 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDemoArchive\src\test_tsWxRSM.py
+     414      424      838     2057    27804 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDemoArchive\src\test_tsWxScrolledWindow.py
+     344      546      890     2256    30074 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDemoArchive\src\test_tsWxScrolledWindowDual.py
+     683      517     1200     2866    39856 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDemoArchive\src\test_tsWxSplashScreen.py
+     839      842     1681     4359    58899 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDemoArchive\src\test_tsWxWidgets.py
+     477      466      943     3519    34825 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDemoArchive\src\tsCxGlobals.py
+      93      342      435     1801    17016 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDemoArchive\src\tsLinesOfCodeProjectMetrics.py
+       0     1149     1149     3908   139630 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDemoArchive\src\tsLinesOfCodeProjectMetricsStatistics.txt
+     262      237      499     1348    16800 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDemoArchive\src\tsPlatformQuery.py
+     651      658     1309     4370    46235 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDemoArchive\src\tsStripComments.py
+     185      178      363      914    10701 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDemoArchive\src\tsStripLineNumbers.py
+     130       95      225      602     6928 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDemoArchive\src\tsTreeCopy.py
+     143      109      252      704     8197 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDemoArchive\src\tsTreeTrimLines.py
+       0        0        0        0        0 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDemoArchive\src\__init__.py
+       0      186      186      549     6494 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocCLI\README-tsDocCLI.txt
+       0        0        0        0        0 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocCLI\__init__.py
+       0      632      632     2279    22580 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocCLI\tsDocCLI-1-GettingStartedFiles\README-GettingStarted.txt
+       0      192      192      495     5945 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocCLI\tsDocCLI-2-DistributionReadMeFiles\$README-InstallAndRedistribute.txt
+       0      242      242      642     8127 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocCLI\tsDocCLI-2-DistributionReadMeFiles\AUTHORS.txt
+       0      663      663     3134    25049 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocCLI\tsDocCLI-2-DistributionReadMeFiles\BUGS.txt
+       0       60       60      226     2580 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocCLI\tsDocCLI-2-DistributionReadMeFiles\CHANGE_LOG.txt
+       0      236      236     1034     9196 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocCLI\tsDocCLI-2-DistributionReadMeFiles\CONFIGURE.txt
+       0       39       39      114     1469 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocCLI\tsDocCLI-2-DistributionReadMeFiles\COPYING.txt
+       0      128      128      461     6018 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocCLI\tsDocCLI-2-DistributionReadMeFiles\CREDITS.txt
+       0       84       84      460     4719 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocCLI\tsDocCLI-2-DistributionReadMeFiles\FAQ.txt
+       0      473      473     1732    17590 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocCLI\tsDocCLI-2-DistributionReadMeFiles\INSTALL.txt
+       0       21       21       71      922 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocCLI\tsDocCLI-2-DistributionReadMeFiles\MANIFEST.txt
+       0       24       24       80     1028 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocCLI\tsDocCLI-2-DistributionReadMeFiles\NEWS.txt
+       0       21       21       72      921 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocCLI\tsDocCLI-2-DistributionReadMeFiles\OPERATE.txt
+       0       34       34       91     1075 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocCLI\tsDocCLI-2-DistributionReadMeFiles\THANKS.txt
+       0      704      704     3328    26795 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocCLI\tsDocCLI-2-DistributionReadMeFiles\TO-DO.txt
+       0      299      299     1776    14056 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocCLI\tsDocCLI-2-DistributionReadMeFiles\TROUBLESHOOT.txt
+       0       41       41       90     1501 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocCLI\tsDocCLI-3-DeveloperReadMeFiles\$README-HowToUseAndModify.txt
+      48       32       80      163     1597 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocCLI\tsDocCLI-3-DeveloperReadMeFiles\fragment.py
+       0      304      304     1953    13381 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocCLI\tsDocCLI-3-DeveloperReadMeFiles\README-01-Title_Page.txt
+       0      133      133      316     3722 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocCLI\tsDocCLI-3-DeveloperReadMeFiles\README-02-Table_Of_Contents.txt
+       0       32       32      133     1319 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocCLI\tsDocCLI-3-DeveloperReadMeFiles\README-03-Purpose.txt
+       0      100      100      516     3940 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocCLI\tsDocCLI-3-DeveloperReadMeFiles\README-04-Goals.txt
+       0       63       63      365     2855 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocCLI\tsDocCLI-3-DeveloperReadMeFiles\README-05-Non-Goals.txt
+       0      128      128      664     5482 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocCLI\tsDocCLI-3-DeveloperReadMeFiles\README-06-Design_Strategy.txt
+       0       80       80      429     4051 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocCLI\tsDocCLI-3-DeveloperReadMeFiles\README-07-Design_Architecture.txt
+       0       32       32      182     1421 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocCLI\tsDocCLI-3-DeveloperReadMeFiles\README-08-Software_Configuration_Management.txt
+       0      458      458     1358    16086 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocCLI\tsDocCLI-3-DeveloperReadMeFiles\README-09-tsWxGTUI_Directories.txt
+       0      623      623     2874    24553 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocCLI\tsDocCLI-3-DeveloperReadMeFiles\README-10-tsToolkitCLI_Directories.txt
+       0      121      121      641     4830 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocCLI\tsDocCLI-3-DeveloperReadMeFiles\README-11-tsToolkitGUI_Directories.txt
+       0      258      258     1369    10726 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocCLI\tsDocCLI-3-DeveloperReadMeFiles\README-12-Features.txt
+       0      139      139      689     5199 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocCLI\tsDocCLI-3-DeveloperReadMeFiles\README-13-Current_Capabilities.txt
+       0       59       59      233     1975 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocCLI\tsDocCLI-3-DeveloperReadMeFiles\README-14-Current_Limitations.txt
+       0       77       77      306     2961 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocCLI\tsDocCLI-3-DeveloperReadMeFiles\README-15-Reference_Documents.txt
+       0     1228     1228     4712    43887 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocCLI\tsDocCLI-3-DeveloperReadMeFiles\README-draft.txt
+       0      344      344     1198    14897 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocCLI\tsDocCLI-3-DeveloperReadMeFiles\README.txt
+       0       34       34      166     1301 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocCLI\tsDocCLI-3-DeveloperReadMeFiles\wxPython-PyPI.txt
+       0       36       36       90     1399 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocCLI\tsDocCLI-4-DeveloperTutorialFiles\$README-DeveloperTutorialFiles.txt
+      57      134      191      693     6050 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocCLI\tsDocCLI-4-DeveloperTutorialFiles\test_tsCxGlobals.py
+      66      146      212      727     6496 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocCLI\tsDocCLI-4-DeveloperTutorialFiles\test_tsWxGlobals.py
+     477      466      943     3516    34819 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocCLI\tsDocCLI-4-DeveloperTutorialFiles\tsCxGlobals.py
+       1       21       22       74      638 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocCLI\tsDocCLI-4-DeveloperTutorialFiles\Tutorial_CLI_0_hello_world_print_statement.py
+       1       23       24       86      716 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocCLI\tsDocCLI-4-DeveloperTutorialFiles\Tutorial_CLI_1_hello_world_print_function.py
+       1       23       24       86      726 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocCLI\tsDocCLI-4-DeveloperTutorialFiles\Tutorial_CLI_2_hello_world_script_environment.py
+       4       22       26       68      702 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocCLI\tsDocCLI-4-DeveloperTutorialFiles\Tutorial_CLI_3_hello_world_main_module_application.py
+     262      275      537     1536    18802 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocCLI\tsDocCLI-4-DeveloperTutorialFiles\Tutorial_CLI_4_Command_Line_PlatformQuery_Application.py
+     245      118      363      978     9612 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocCLI\tsDocCLI-4-DeveloperTutorialFiles\Tutorial_GUI_0_Curses_LowLevel_WidgetApi_application.py
+      13       46       59      164     1572 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocCLI\tsDocCLI-4-DeveloperTutorialFiles\Tutorial_GUI_1_wxPython_HighLevel_WidgetApi_application.py
+     212      313      525     1438    16951 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocCLI\tsDocCLI-4-DeveloperTutorialFiles\Tutorial_GUI_2_tsWxGTUI_HighLevel_BoxSizerApi_application.py
+       0        0        0        0        0 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocCLI\tsDocCLI-4-DeveloperTutorialFiles\__init__.py
+       0       78       78      382     2981 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocCLI\tsDocCLI-5-UsageTermsAndConditions\$README-UsageTermsAndConditions.txt
+       0      329      329     1367    12694 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocCLI\tsDocCLI-5-UsageTermsAndConditions\COPYRIGHT.txt
+       0     2895     2895    19223   133326 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocCLI\tsDocCLI-5-UsageTermsAndConditions\LICENSE.txt
+       0       48       48      177     1807 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocCLI\tsDocCLI-5-UsageTermsAndConditions\NOTICES.txt
+       0       97       97      385     3578 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocCLI\tsDocCLI-5-UsageTermsAndConditions\SplashScreenDesignersGuide.txt
+       0      219      219      634     7008 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\README-tsDocGUI.txt
+       0        0        0        0        0 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\__init__.py
+       0       67       67      296     3195 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\ASCII-Text-Files\README_BMP.txt
+       0      316      316     1343    10878 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\README-tsLibCLI.txt
+      84      189      273      877     8967 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\__init__.py
+       0        0        0        0        0 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsApplicationPkg\__init__.py
+     769      995     1764     6005    70342 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsApplicationPkg\src\tsApplication.py
+      74      102      176      534     4818 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsApplicationPkg\src\__init__.py
+     139      261      400     1505    14453 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsApplicationPkg\test\test_tsApplication.py
+       0        0        0        0        0 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsCommandLineEnvPkg\__init__.py
+     104      322      426     1622    15355 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsCommandLineEnvPkg\src\tsCommandLineEnv.py
+      74      102      176      538     4857 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsCommandLineEnvPkg\src\__init__.py
+     158      310      468     1837    16686 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsCommandLineEnvPkg\test\test_tsCommandLineEnv.py
+       0        0        0        0        0 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsCommandLineInterfacePkg\__init__.py
+      98      127      225      695     6891 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsCommandLineInterfacePkg\src\tsCommandLineInterface.py
+      74      102      176      538     4878 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsCommandLineInterfacePkg\src\__init__.py
+      87       87      174      499     5406 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsCommandLineInterfacePkg\test\test_tsCommandLineInterface.py
+       0        0        0        0        0 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsCxGlobalsPkg\__init__.py
+     477      466      943     3519    34825 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsCxGlobalsPkg\src\tsCxGlobals.py
+      73       90      163      434     4208 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsCxGlobalsPkg\src\__init__.py
+      57      134      191      695     6054 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsCxGlobalsPkg\test\test_tsCxGlobals.py
+       0        0        0        0        0 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsDoubleLinkedListPkg\__init__.py
+     532      590     1122     3025    34936 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsDoubleLinkedListPkg\src\tsDoubleLinkedList.py
+      74      103      177      544     4909 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsDoubleLinkedListPkg\src\__init__.py
+     419      210      629     1476    18189 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsDoubleLinkedListPkg\test\test_tsDoubleLinkedList.py
+       0        0        0        0        0 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsExceptionPkg\__init__.py
+     578      299      877     2120    28575 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsExceptionPkg\src\tsExceptions.py
+      74      102      176      538     4846 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsExceptionPkg\src\__init__.py
+     136      119      255      674     8189 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsExceptionPkg\test\test_tsExceptions.py
+       0        0        0        0        0 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsLoggerPkg\__init__.py
+     952     1051     2003     6775    72220 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsLoggerPkg\src\tsLogger.py
+      74       97      171      484     4487 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsLoggerPkg\src\__init__.py
+     342      240      582     1728    21038 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsLoggerPkg\test\test_tsLogger.py
+       0        0        0        0        0 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsOperatorSettingsParserPkg\__init__.py
+     862      879     1741     4482    54003 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsOperatorSettingsParserPkg\src\tsOperatorSettingsParser.py
+     138      176      314     1144    11733 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsOperatorSettingsParserPkg\src\tsOperatorSettingsParserBuilder.py
+      74      104      178      540     4949 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsOperatorSettingsParserPkg\src\__init__.py
+     136      131      267      877     8932 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsOperatorSettingsParserPkg\test\test_tsOperatorSettingsParser.py
+     904      792     1696     4445    54256 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsOperatorSettingsParserPkg\test\tsOperatorSettingsParser.py
+       0        0        0        0        0 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsPlatformRunTimeEnvironmentPkg\__init__.py
+      97      112      209      654     6500 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsPlatformRunTimeEnvironmentPkg\src\tsGistGetTerminalSize.py
+     454      324      778     2455    28020 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsPlatformRunTimeEnvironmentPkg\src\tsPlatformRunTimeEnvironment.py
+      75      104      179      546     5005 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsPlatformRunTimeEnvironmentPkg\src\__init__.py
+     267      182      449     1089    13999 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsPlatformRunTimeEnvironmentPkg\test\test_tsPlatformRunTimeEnvironment.py
+       0        0        0        0        0 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsReportUtilityPkg\__init__.py
+     369      482      851     2894    31859 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsReportUtilityPkg\src\tsReportUtilities.py
+      74      101      175      538     4858 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsReportUtilityPkg\src\__init__.py
+     187      145      332      846    11167 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsReportUtilityPkg\test\test_tsReportUtilities.py
+       0        0        0        0        0 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsSysCommandPkg\__init__.py
+     143      135      278      709     9267 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsSysCommandPkg\src\tsSysCommands.py
+      74      102      176      538     4849 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsSysCommandPkg\src\__init__.py
+      78      118      196      551     6452 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsSysCommandPkg\test\test_tsSysCommand.py
+       0      156      156      853     6419 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\README-tsLibGUI.txt
+      75      123      198      629     5538 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\__init__.py
+       0        0        0        0        0 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\__init__.py
+     258        1      259     1788    13758 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\notes\tsWxColor256.py
+     256        0      256      768     5576 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\notes\xterm-256color.py
+     143      353      496     1932    19295 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\src\tsWx.py
+     131      154      285      842     8094 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\src\tsWxAcceleratorEntry.py
+      97      123      220      791     7288 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\src\tsWxAcceleratorTable.py
+     283      332      615     2049    21575 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\src\tsWxApp.py
+     486      656     1142     4179    42280 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\src\tsWxBoxSizer.py
+     270      300      570     1781    19995 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\src\tsWxButton.py
+      61       92      153      482     4401 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\src\tsWxCallLater.py
+     155      225      380      946    10773 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\src\tsWxCaret.py
+     418      385      803     2272    26952 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\src\tsWxCheckBox.py
+     139      136      275      921     9072 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\src\tsWxChoice.py
+     192      292      484     1475    15377 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\src\tsWxColor.py
+     182      200      382     1527    14780 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\src\tsWxColorDatabase.py
+     155      136      291      880     9320 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\src\tsWxControl.py
+      82      138      220      756     7456 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\src\tsWxControlWithItems.py
+     101      162      263      908     8487 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\src\tsWxCursor.py
+     167      194      361     1296    11932 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\src\tsWxDebugHandlers.py
+     458      581     1039     3274    37478 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\src\tsWxDialog.py
+     298      331      629     1749    21837 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\src\tsWxDialogButton.py
+     408      461      869     2215    28624 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\src\tsWxDisplay.py
+     532      551     1083     2908    33582 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\src\tsWxDoubleLinkedList.py
+      64      102      166      557     4809 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\src\tsWxEraseEvent.py
+     623      551     1174     3707    42444 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\src\tsWxEvent.py
+      72       92      164      568     5108 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\src\tsWxEventDaemon.py
+    1084     1272     2356     7881    88310 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\src\tsWxEventLoop.py
+      61      110      171      552     5067 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\src\tsWxEventLoopActivator.py
+      80      120      200      621     6576 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\src\tsWxEventQueueEntry.py
+      80      109      189      578     5737 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\src\tsWxEventTableEntry.py
+     714     1440     2154     7558    77046 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\src\tsWxEvtHandler.py
+     109      641      750     2909    25240 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\src\tsWxFlexGridSizer.py
+      71      100      171      551     4845 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\src\tsWxFocusEvent.py
+     606      691     1297     3850    46279 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\src\tsWxFrame.py
+     289      330      619     1721    21119 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\src\tsWxFrameButton.py
+     397      343      740     2146    25562 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\src\tsWxGauge.py
+    2116      989     3105     9941   108458 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\src\tsWxGlobals.py
+    2519     5175     7694    24597   293336 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\src\tsWxGraphicalTextUserInterface.py
+      62      122      184      860     6791 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\src\tsWxGridBagSizer.py
+     361      473      834     2985    28050 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\src\tsWxGridSizer.py
+      60      145      205      865     7127 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\src\tsWxItemContainer.py
+     127      280      407     1474    13468 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\src\tsWxKeyboardState.py
+     128      372      500     2326    18813 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\src\tsWxKeyEvent.py
+     136      151      287      989     9750 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\src\tsWxListBox.py
+     227     1132     1359     6570    54107 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\src\tsWxLog.py
+      78      192      270     1183     9910 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\src\tsWxMenu.py
+     332      360      692     1653    21307 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\src\tsWxMenuBar.py
+     332      457      789     2246    25046 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\src\tsWxMouseEvent.py
+     142      197      339     1082    11052 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\src\tsWxMouseState.py
+     185      504      689     2470    25149 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\src\tsWxMultiFrameEnv.py
+     276      256      532     1378    16056 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\src\tsWxNonLinkedList.py
+     310      571      881     3354    32308 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\src\tsWxObject.py
+     229      239      468     1545    16111 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\src\tsWxPanel.py
+     154      143      297     1027    10434 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\src\tsWxPasswordEntryDialog.py
+     193      232      425     1300    13390 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\src\tsWxPoint.py
+     382      610      992     3003    33159 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\src\tsWxPyApp.py
+     142      157      299      920     9011 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\src\tsWxPyEventBinder.py
+     326      310      636     1905    22388 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\src\tsWxPyOnDemandOutputWindow.py
+      72       98      170      565     5142 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\src\tsWxPySimpleApp.py
+     102      152      254      919     8186 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\src\tsWxPySizer.py
+     434      465      899     2420    29521 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\src\tsWxRadioBox.py
+     419      357      776     2016    25488 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\src\tsWxRadioButton.py
+     576      680     1256     3746    41823 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\src\tsWxRect.py
+     156      169      325     1113    10959 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\src\tsWxScreen.py
+     515     1413     1928     5559    70498 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\src\tsWxScrollBar.py
+     572      749     1321     3491    44138 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\src\tsWxScrollBarButton.py
+     412      481      893     2774    31516 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\src\tsWxScrollBarGauge.py
+     986     2173     3159    10247   121338 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\src\tsWxScrolled.py
+     625      808     1433     3719    48583 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\src\tsWxScrolledText.py
+     103      185      288     1213    10709 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\src\tsWxScrolledWindow.py
+      66       90      156      487     4543 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\src\tsWxShowEvent.py
+     253      302      555     1601    17013 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\src\tsWxSize.py
+     989     1598     2587     8062    83338 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\src\tsWxSizer.py
+     327      433      760     2293    23983 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\src\tsWxSizerFlags.py
+     679      905     1584     4341    48246 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\src\tsWxSizerItem.py
+     323      191      514     1452    16936 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\src\tsWxSizerItemList.py
+      73      115      188      529     5309 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\src\tsWxSizerSpacer.py
+     241      203      444     1311    14843 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\src\tsWxSlider.py
+     127      137      264      778     8251 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\src\tsWxSplashScreen.py
+     267      317      584     1753    19719 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\src\tsWxStaticBox.py
+     304      404      708     2280    25140 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\src\tsWxStaticBoxSizer.py
+     224      218      442     1363    14827 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\src\tsWxStaticLine.py
+     267      213      480     1406    16690 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\src\tsWxStaticText.py
+     424      363      787     2454    27354 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\src\tsWxStatusBar.py
+     531      303      834     2065    29459 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\src\tsWxSystemSettings.py
+     756      586     1342     3801    49799 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\src\tsWxTaskBar.py
+     465      535     1000     2898    34320 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\src\tsWxTextCtrl.py
+    1414     1604     3018     8982   107277 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\src\tsWxTextEditBox.py
+     383      439      822     2366    25583 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\src\tsWxTextEntry.py
+     388      718     1106     3245    39456 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\src\tsWxTextEntryDialog.py
+     174      354      528     1429    15174 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\src\tsWxTimer.py
+     235      204      439     1318    14889 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\src\tsWxToggleButton.py
+     230      357      587     1473    17266 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\src\tsWxTopLevelWindow.py
+      82      110      192      522     4915 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\src\tsWxValidator.py
+    5074     7378    12452    38907   438383 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\src\tsWxWindow.py
+     178      141      319      783     8316 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\src\__init__.py
+      50       17       67      248     2240 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\test\test_bit_shift.py
+     254      131      385     1006     9630 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\test\test_nCursesDemo.py
+      14       32       46      140     1108 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\test\test_PythonReturnTypes.py
+      59       99      158      380     3469 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\test\test_tsWxAcceleratorEntry.py
+    2222      793     3015     8338   131032 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\test\test_tsWxAUI.py
+     337      296      633     1589    19654 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\test\test_tsWxBoxLogo.py
+     291      262      553     1397    16966 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\test\test_tsWxBoxSizer.py
+     381      320      701     1748    22989 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\test\test_tsWxCheckBox.py
+     166      104      270      617     7740 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\test\test_tsWxCheckBoxEvent.py
+    1382     1429     2811     8137    96392 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\test\test_tsWxCliLinesOfCode.py
+     940      555     1495     4379    64619 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\test\test_tsWxCurses.py
+     475      331      806     2263    27474 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\test\test_tsWxDiagnostic.py
+     236      233      469     1285    14502 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\test\test_tsWxDialogDemo.py
+     317      302      619     1479    18954 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\test\test_tsWxDisplay.py
+     429      217      646     1497    18570 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\test\test_tsWxDoubleLinkedList.py
+     520      449      969     2531    29911 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\test\test_tsWxEvents.py
+     457      376      833     1852    25479 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\test\test_tsWxFieldMarkup.py
+     338      270      608     1447    18201 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\test\test_tsWxFileCommander.py
+     263      234      497     1380    15334 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\test\test_tsWxFrame.py
+     349      306      655     1625    20888 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\test\test_tsWxGauge.py
+      66      146      212      731     6504 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\test\test_tsWxGlobals.py
+    1047      551     1598     4186    61728 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\test\test_tsWxGraphicalTextUserInterface.py
+     332      265      597     1523    19266 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\test\test_tsWxGridSizer.py
+     329       93      422     1011    13208 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\test\test_tsWxKeyEvents.py
+    1517     1559     3076     8856   104700 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\test\test_tsWxLinesOfCode.py
+     276      250      526     1219    15518 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\test\test_tsWxLogo.py
+     467      348      815     2234    27818 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\test\test_tsWxMarkupDiagnostic.py
+     854      703     1557     3767    53379 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\test\test_tsWxMetrics.py
+      47       31       78      268     2521 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\test\test_tsWxMidiWindow.py
+     111      100      211      469     5561 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\test\test_tsWxMouseEvent.py
+     302      410      712     2498    24708 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\test\test_tsWxMultiFrameEnv.py
+     738      800     1538     3811    52948 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\test\test_tsWxOverlays.py
+     320      324      644     1636    19777 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\test\test_tsWxPasswordEntryDialog.py
+      81       95      176      512     4678 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\test\test_tsWxPySimpleApp.py
+     365      325      690     1683    21800 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\test\test_tsWxRadioBox.py
+     159      112      271      605     7679 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\test\test_tsWxRadioBoxEvent.py
+     783      513     1296     3610    48445 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\test\test_tsWxRSM.py
+     273      249      522     1183    15689 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\test\test_tsWxScrollBar.py
+     341      363      704     1633    22698 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\test\test_tsWxScrolled.py
+     341      363      704     1633    22698 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\test\test_tsWxScrolled3Boxes.py
+     414      424      838     2057    27804 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\test\test_tsWxScrolledWindow.py
+     344      546      890     2256    30074 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\test\test_tsWxScrolledWindowDual.py
+     683      517     1200     2866    39856 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\test\test_tsWxSplashScreen.py
+     418      328      746     1897    23562 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\test\test_tsWxStaticBoxSizer.py
+     323      299      622     1530    19223 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\test\test_tsWxStaticLine.py
+     102       92      194      503     5056 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\test\test_tsWxStaticText.py
+     503      447      950     2550    29538 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\test\test_tsWxStatusBar.py
+     140      170      310      717     9752 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\test\test_tsWxSystemSettings.py
+     341      406      747     2082    22031 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\test\test_tsWxTaskBar.py
+     222      208      430     1102    12329 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\test\test_tsWxTemplate.py
+     115      102      217      746     7098 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\test\test_tsWxTextCtrl.py
+     322      323      645     1634    19754 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\test\test_tsWxTextEntryDialog.py
+     889      889     1778     4597    62404 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\test\test_tsWxVt100Widgets.py
+     839      842     1681     4359    58899 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\test\test_tsWxWidgets.py
+     835      697     1532     3759    52944 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\test\test_tsWxWidgetsMarkup.py
+       0        0        0        0        0 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibGUI\tsWxPkg\test\__init__.py
+      15        5       20       39      497 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsManPagesLibCLI\runPydoc_tsManPagesCLI.sh
+      20        8       28       63      720 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsManPagesLibCLI\runPylint_tsManPagesCLI.sh
+       0        0        0        0        0 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsManPagesLibCLI\__init__.py
+     103        4      107      215     3022 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsManPagesLibGUI\runPydoc_tsManPagesGUI.sh
+     105        6      111      233     3056 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsManPagesLibGUI\runPylint_tsManPagesGUI.sh
+       0        0        0        0        0 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsManPagesLibGUI\__init__.py
+       7       10       17       47      706 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsManPagesTestsCLI\buildManPagesTestsCLI.sh
+      13       17       30       77     1191 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsManPagesTestsGUI\buildManPagesTestsGUI.sh
+       6       10       16       42      560 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsManPagesToolsCLI\buildManPagesToolsCLI.sh
+     141      161      302      759     9603 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsManPagesToolsCLI\runPydoc_tsManPagesToolsCLI.sh
+     127       58      185      379     4857 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsManPagesToolsCLI\runPylint_tsManPagesToolsCLI.sh
+       0      128      128      574     4586 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\README-tsToolsCLI.txt
+      68      126      194      625     5115 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\__init__.py
+       0        0        0        0        0 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsLinesOfCodeProjectMetricsPkg\__init__.py
+     344      384      728     1944    16538 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsLinesOfCodeProjectMetricsPkg\basicFileTypes\GeneralCmds.c
+      59       58      117      422     2253 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsLinesOfCodeProjectMetricsPkg\basicFileTypes\hello.f90
+       4       20       24       56      571 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsLinesOfCodeProjectMetricsPkg\basicFileTypes\tsConfig.py
+       0     2216     2216     7835   286125 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsLinesOfCodeProjectMetricsPkg\basicFileTypes\tsLinesOfCodeStatistics-Python-2.x.txt
+       0       87       87      331     3894 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsLinesOfCodeProjectMetricsPkg\basicFileTypes\tsLinesOfCodeStatistics.txt
+      25       40       65      252     1414 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsLinesOfCodeProjectMetricsPkg\basicFileTypes\xmitr.asm
+       0        0        0        0        0 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsLinesOfCodeProjectMetricsPkg\basicFileTypes\__init__.py
+     344      384      728     1944    16538 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsLinesOfCodeProjectMetricsPkg\sampleHelp\GeneralCmds.c
+      59       58      117      422     2253 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsLinesOfCodeProjectMetricsPkg\sampleHelp\hello.f90
+       4       20       24       56      571 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsLinesOfCodeProjectMetricsPkg\sampleHelp\tsConfig.py
+       0       89       89      342     4240 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsLinesOfCodeProjectMetricsPkg\sampleHelp\tsLinesOfCodeProjectMetricsStatistics.txt
+       0     2216     2216     7835   286125 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsLinesOfCodeProjectMetricsPkg\sampleHelp\tsLinesOfCodeStatistics-Python-2.x.txt
+       0       87       87      331     3894 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsLinesOfCodeProjectMetricsPkg\sampleHelp\tsLinesOfCodeStatistics.txt
+      25       40       65      252     1414 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsLinesOfCodeProjectMetricsPkg\sampleHelp\xmitr.asm
+       0        0        0        0        0 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsLinesOfCodeProjectMetricsPkg\sampleHelp\__init__.py
+       0     1852     1852    10598    72071 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsLinesOfCodeProjectMetricsPkg\src\File_Extensions.txt
+     137      404      541     2204    21263 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsLinesOfCodeProjectMetricsPkg\src\tsLinesOfCode.py
+      93      342      435     1801    17016 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsLinesOfCodeProjectMetricsPkg\src\tsLinesOfCodeProjectMetrics.py
+    1170     1009     2179     5674    69185 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsLinesOfCodeProjectMetricsPkg\src\tsLOCPMOperatorSettingsParser.py
+     135      201      336     1405    12385 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsLinesOfCodeProjectMetricsPkg\src\tsProjectMetrics.py
+      93       98      191      472     5617 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsLinesOfCodeProjectMetricsPkg\src\tsSoftwareMetrics.py
+    1669     2679     4348    12417   150753 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsLinesOfCodeProjectMetricsPkg\src\tsSoftwareParser.py
+      67       98      165      518     4244 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsLinesOfCodeProjectMetricsPkg\src\__init__.py
+      88      278      366     1385    13642 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsLinesOfCodeProjectMetricsPkg\test\test_tsLinesOfCode.py
+      93      342      435     1801    17016 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsLinesOfCodeProjectMetricsPkg\test\tsLinesOfCodeProjectMetrics.py
+       0     1395     1395     7488   194854 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsLinesOfCodeProjectMetricsPkg\test\tsLinesOfCodeProjectMetricsStatistics.txt
+       0     1691     1691     6939   199755 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsLinesOfCodeProjectMetricsPkg\test\tsLinesOfCodeStatistics.txt
+       0        0        0        0        0 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsLinesOfCodeProjectMetricsPkg\test\__init__.py
+     344      384      728     1944    16538 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsLinesOfCodeProjectMetricsPkg\test\basicFileTypes\GeneralCmds.c
+      59       58      117      422     2253 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsLinesOfCodeProjectMetricsPkg\test\basicFileTypes\hello.f90
+       4       20       24       56      571 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsLinesOfCodeProjectMetricsPkg\test\basicFileTypes\tsConfig.py
+       0     2216     2216     7835   286125 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsLinesOfCodeProjectMetricsPkg\test\basicFileTypes\tsLinesOfCodeStatistics-Python-2.x.txt
+       0       87       87      331     3894 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsLinesOfCodeProjectMetricsPkg\test\basicFileTypes\tsLinesOfCodeStatistics.txt
+      25       40       65      252     1414 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsLinesOfCodeProjectMetricsPkg\test\basicFileTypes\xmitr.asm
+     226       44      270     1151     8399 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsLinesOfCodeProjectMetricsPkg\test\regressionTestFileTypes\bank.ada
+     129       34      163      470     4116 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsLinesOfCodeProjectMetricsPkg\test\regressionTestFileTypes\billing.c
+     105       25      130      620     3900 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsLinesOfCodeProjectMetricsPkg\test\regressionTestFileTypes\billing.pas
+      22        7       29       74      674 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsLinesOfCodeProjectMetricsPkg\test\regressionTestFileTypes\bodemath.h
+       7        4       11       50      399 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsLinesOfCodeProjectMetricsPkg\test\regressionTestFileTypes\bourne.sh
+     872      375     1247     3445    37530 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsLinesOfCodeProjectMetricsPkg\test\regressionTestFileTypes\cmdline.cpp
+       4        2        6        8       51 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsLinesOfCodeProjectMetricsPkg\test\regressionTestFileTypes\Cygwin.bat
+     230       87      317     1052     7459 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsLinesOfCodeProjectMetricsPkg\test\regressionTestFileTypes\f77tst.f77
+     230       87      317     1052     7463 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsLinesOfCodeProjectMetricsPkg\test\regressionTestFileTypes\f77tst.f90
+     230       87      317     1052     7459 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsLinesOfCodeProjectMetricsPkg\test\regressionTestFileTypes\ftst.f
+     344      384      728     1944    16538 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsLinesOfCodeProjectMetricsPkg\test\regressionTestFileTypes\GeneralCmds.c
+      59       58      117      422     2253 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsLinesOfCodeProjectMetricsPkg\test\regressionTestFileTypes\hello.f90
+     106      269      375     1616    19723 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsLinesOfCodeProjectMetricsPkg\test\regressionTestFileTypes\MCP004.INC
+      59       42      101      387     2540 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsLinesOfCodeProjectMetricsPkg\test\regressionTestFileTypes\MCP006.FTN
+      68       34      102      351     3861 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsLinesOfCodeProjectMetricsPkg\test\regressionTestFileTypes\MCP060.INC
+       0      270      270      960     9746 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsLinesOfCodeProjectMetricsPkg\test\regressionTestFileTypes\MCP063.INC
+     337      147      484     1400    11677 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsLinesOfCodeProjectMetricsPkg\test\regressionTestFileTypes\MIMIC038.PLM
+      20        3       23       65      512 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsLinesOfCodeProjectMetricsPkg\test\regressionTestFileTypes\MIMIC043.ASM
+      56       51      107      188     2414 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsLinesOfCodeProjectMetricsPkg\test\regressionTestFileTypes\print.cpp
+       6       35       41      193     1150 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsLinesOfCodeProjectMetricsPkg\test\regressionTestFileTypes\profile.bash
+     270        1      271     1031     6612 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsLinesOfCodeProjectMetricsPkg\test\regressionTestFileTypes\rootloci.bas
+     270        1      271      765     4824 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsLinesOfCodeProjectMetricsPkg\test\regressionTestFileTypes\rootloci_stripped.bas
+      51       46       97      331     3008 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsLinesOfCodeProjectMetricsPkg\test\regressionTestFileTypes\stackwalk.h
+       4       20       24       56      571 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsLinesOfCodeProjectMetricsPkg\test\regressionTestFileTypes\tsConfig.py
+       0      108      108      564     8210 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsLinesOfCodeProjectMetricsPkg\test\regressionTestFileTypes\tsLinesOfCodeStatistics.txt
+     365       29      394     1275    13876 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsLinesOfCodeProjectMetricsPkg\test\regressionTestFileTypes\vdap.f
+     522      598     1120     4792    36157 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsLinesOfCodeProjectMetricsPkg\test\regressionTestFileTypes\writer.plm
+      25       40       65      252     1414 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsLinesOfCodeProjectMetricsPkg\test\regressionTestFileTypes\xmitr.asm
+     344      384      728     1944    16538 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsLinesOfCodeProjectMetricsPkg\test\sampleHelp\GeneralCmds.c
+      59       58      117      422     2253 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsLinesOfCodeProjectMetricsPkg\test\sampleHelp\hello.f90
+       4       20       24       56      571 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsLinesOfCodeProjectMetricsPkg\test\sampleHelp\tsConfig.py
+       0       89       89      342     4240 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsLinesOfCodeProjectMetricsPkg\test\sampleHelp\tsLinesOfCodeProjectMetricsStatistics.txt
+       0     2216     2216     7835   286125 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsLinesOfCodeProjectMetricsPkg\test\sampleHelp\tsLinesOfCodeStatistics-Python-2.x.txt
+       0       87       87      331     3894 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsLinesOfCodeProjectMetricsPkg\test\sampleHelp\tsLinesOfCodeStatistics.txt
+      25       40       65      252     1414 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsLinesOfCodeProjectMetricsPkg\test\sampleHelp\xmitr.asm
+       0        0        0        0        0 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsPlatformQueryPkg\__init__.py
+     262      237      499     1348    16800 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsPlatformQueryPkg\src\tsPlatformQuery.py
+       0        0        0        0        0 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsPlatformQueryPkg\src\__init__.py
+       0        0        0        0        0 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsStripCommentsPkg\__init__.py
+     651      658     1309     4370    46235 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsStripCommentsPkg\src\tsStripComments.py
+     994      891     1885     4670    58929 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsStripCommentsPkg\src\tsStripSettingsParser.py
+      64       96      160      495     3959 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsStripCommentsPkg\src\__init__.py
+      89      275      364     1393    13627 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsStripCommentsPkg\test\test_tsStripComments.py
+     138      136      274      828     8661 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsStripCommentsPkg\test\test_tsStripSettingsParser.py
+       0        0        0        0        0 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsStripCommentsPkg\test\__init__.py
+       0        0        0        0        0 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsStripLineNumbersPkg\__init__.py
+     185      178      363      914    10701 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsStripLineNumbersPkg\src\tsStripLineNumbers.py
+       0        0        0        0        0 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsStripLineNumbersPkg\src\__init__.py
+       0        0        0        0        0 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsTreeCopyPkg\__init__.py
+     130       95      225      602     6928 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsTreeCopyPkg\src\tsTreeCopy.py
+       0        0        0        0        0 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsTreeCopyPkg\src\__init__.py
+       0        0        0        0        0 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsTreeTrimLinesPkg\__init__.py
+     143      109      252      704     8197 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsTreeTrimLinesPkg\src\tsTreeTrimLines.py
+     333      368      701     2142    22201 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsTreeTrimLinesPkg\src\tsTreeTrimShutil.py
+      64       98      162      515     4150 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsTreeTrimLinesPkg\src\__init__.py
+       0       45       45      195     1572 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsGUI\README-tsToolsGUI.txt
+       0        0        0        0        0 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsGUI\__init__.py
+      26       13       39      175     2663 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsUtilities\buildManPages.sh
+       7       10       17       47      706 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsUtilities\buildManPagesTestsCLI.sh
+      13       17       30       77     1191 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsUtilities\buildManPagesTestsGUI.sh
+       6       10       16       42      560 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsUtilities\buildManPagesToolsCLI.sh
+       0       44       44      142     1246 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsUtilities\getAttributes.py
+       3        0        3        3       58 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsUtilities\junktab.py
+    2284     1812     4096     9676   118189 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsUtilities\PythonTidy.py
+       0       40       40       95     1159 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsUtilities\README-tsUtilities.txt
+     203      114      317     1301    10808 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsUtilities\reindent.py
+     141      161      302      759     9603 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsUtilities\runPydoc.sh
+     119       55      174      349     4637 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsUtilities\runPydoc_script.sh
+     124       58      182      373     4756 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsUtilities\runPylint_script.sh
+      28       36       64      177     2309 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsUtilities\runRegressionTest.sh
+       2       66       68      531     3673 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsUtilities\runTree.sh
+       1       23       24      105      809 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsUtilities\run_2to3_script.sh
+       2       90       92      637     4748 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsUtilities\run_grep_import.sh
+      97      112      209      654     6500 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsUtilities\tsGistGetTerminalSize.py
+     226      108      334     1437    12095 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsUtilities\which.py
+       0       89       89      432     3064 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsUtilities\which_doc.txt
+     101      137      238     1146     9137 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsUtilities\wingdbstub.py
+       0        0        0        0        0 d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsUtilities\__init__.py
+------------------------------------------------------------------------------
+
+  Input Path:     <./>.
+  Results are available in "d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLinesOfCodeProjectMetricsStatistics.txt".
+
+------------------------------------------------------------------------------
+
+		Overall Source Code Feature Statistics
+
+           FILES     CODE    CMNTS    LINES    WORDS      CHARS
+   Pct:             42.59%   57.41%  100.00%
+Totals:      473   111200   149894   261094   816224   10179739
+   Std:      433      394      562      895     2893      42046
+   Avg:        1      235      317      552     1726      21522
+
+------------------------------------------------------------------------------
+
+	Distribution of Source Code Feature Statistics by File Types
+
+   TYPES      FILES     CODE    CMNTS    LINES    WORDS      CHARS  %-LINES
+   .ada           1      226       44      270     1151       8399    0.10%
+   .asm           6      145      203      348     1325       7582    0.13%
+   .bas           2      540        2      542     1796      11436    0.21%
+   .bash          1        6       35       41      193       1150    0.02%
+   .bat           1        4        2        6        8         51    0.00%
+   .c             6     1849     1954     3803    10190      86806    1.46%
+   .cpp           2      928      426     1354     3633      39944    0.52%
+   .f             2      595      116      711     2327      21335    0.27%
+   .f77           1      230       87      317     1052       7459    0.12%
+   .f90           6      525      377      902     3162      18728    0.35%
+   .ftn           1       59       42      101      387       2540    0.04%
+   .h             2       73       53      126      405       3682    0.05%
+   .inc           3      174      573      747     2927      33330    0.29%
+   .pas           1      105       25      130      620       3900    0.05%
+   .plm           2      859      745     1604     6192      47834    0.61%
+   .py          341   103869   113910   217779   643540    7433573   83.41%
+   .sh           21     1013      822     1835     5176      60266    0.70%
+   .txt          74        0    30478    30478   132140    2391724   11.67%
+
+------------------------------------------------------------------------------
+
+	Definition of Source Code by File Types
+
+     TYPES  DEFINITION
+      .ada  Ada Source (95 standard)
+      .asm  Assembler Source (Intel ASM80 standard)
+      .bas  BASIC Source
+     .bash  BASH Script (Bourne Again Shell)
+      .bat  BATCH Script (Microsoft Command Line Shell)
+        .c  C Source
+      .cpp  C++ Source
+        .f  FORTRAN Source
+      .f77  FORTRAN Source (77 standard)
+      .f90  FORTRAN Source (90 standard)
+      .ftn  FORTRAN Source
+        .h  C Source (Header)
+      .inc  FORTRAN Source (Include)
+      .pas  Pascal Source
+      .plm  PL/M Source (Intel PLM80 standard)
+       .py  Python Script Source
+       .sh  SH Script (Bourne Shell)
+      .txt  Plain Text (ASCII)
+
+------------------------------------------------------------------------------
+
+Skipped 752 of 1225 file(s) for having invalid "name.ext":
+
+   Valid file "name.ext" (Upper or Lower case):
+
+      .ada    .adb    .ads    .asm    .asm80  .bas    .bash   .bat    
+      .c      .c++    .cbl    .cc     .cob    .cpp    .cs     .csh    
+      .cxx    .f      .f77    .f90    .f95    .for    .ftn    .h      
+      .inc    .ksh    .p      .pas    .plm    .plm80  .plm96  .plmext 
+      .py     .rb     .s      .sh     .txt    
+
+
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsCxGlobals.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\Tutorial_CLI_4_Command_Line_PlatformQuery_Application.py.~1~
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-33-45\Dummy#2
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-33-45\Dummy#3
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-33-45\exitTest
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-33-45\PlatformRunTimeEnvironment.log
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-33-45\test_tsApplication.log
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-34-03\Dummy#2
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-34-03\Dummy#3
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-34-03\exitTest
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-34-03\PlatformRunTimeEnvironment.log
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-34-03\test_tsApplication.log
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-34-14\Dummy#2
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-34-14\Dummy#3
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-34-14\exitTest
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-34-14\PlatformRunTimeEnvironment.log
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-34-14\test_tsApplication.log
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-34-24\Dummy#2
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-34-24\Dummy#3
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-34-24\exitTest
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-34-24\PlatformRunTimeEnvironment.log
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-34-24\test_tsApplication.log
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-34-36\Dummy#2
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-34-36\Dummy#3
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-34-36\exitTest
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-34-36\PlatformRunTimeEnvironment.log
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-34-36\test_tsApplication.log
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-35-11\EntryPoint
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-35-11\mainTest
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-35-11\PlatformRunTimeEnvironment.log
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-35-11\test_tsCommandLineEnv.log
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-35-21\EntryPoint
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-35-21\mainTest
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-35-21\PlatformRunTimeEnvironment.log
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-35-21\test_tsCommandLineEnv.log
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-35-30\EntryPoint
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-35-30\mainTest
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-35-30\PlatformRunTimeEnvironment.log
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-35-30\test_tsCommandLineEnv.log
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-35-39\EntryPoint
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-35-39\mainTest
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-35-39\PlatformRunTimeEnvironment.log
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-35-39\test_tsCommandLineEnv.log
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-35-48\EntryPoint
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-35-48\mainTest
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-35-48\PlatformRunTimeEnvironment.log
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-35-48\test_tsCommandLineEnv.log
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-36-04\PlatformRunTimeEnvironment.log
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-36-04\test_tsDoubleLinkedList.log
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-36-16\PlatformRunTimeEnvironment.log
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-36-16\test_tsDoubleLinkedList.log
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-36-25\PlatformRunTimeEnvironment.log
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-36-25\test_tsDoubleLinkedList.log
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-36-34\PlatformRunTimeEnvironment.log
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-36-34\test_tsDoubleLinkedList.log
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-36-43\PlatformRunTimeEnvironment.log
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-36-43\test_tsDoubleLinkedList.log
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-36-53\PlatformRunTimeEnvironment.log
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-36-53\runtime
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-36-53\test_tsExceptions.log
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-37-05\PlatformRunTimeEnvironment.log
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-37-05\runtime
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-37-05\test_tsExceptions.log
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-37-17\PlatformRunTimeEnvironment.log
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-37-17\runtime
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-37-17\test_tsExceptions.log
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-37-26\PlatformRunTimeEnvironment.log
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-37-26\runtime
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-37-26\test_tsExceptions.log
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-37-35\PlatformRunTimeEnvironment.log
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-37-35\runtime
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-37-35\test_tsExceptions.log
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-38-02\myAsserts.log
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-38-02\myDescription.log
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-38-02\myMethod.log
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-38-02\myProgress.log
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-38-02\myProperties.log
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-38-02\PlatformRunTimeEnvironment.log
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-38-02\syslog
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-38-02\test_tsLogger.log
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-38-14\myAsserts.log
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-38-14\myDescription.log
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-38-14\myMethod.log
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-38-14\myProgress.log
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-38-14\myProperties.log
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-38-14\PlatformRunTimeEnvironment.log
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-38-14\syslog
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-38-14\test_tsLogger.log
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-38-29\myAsserts.log
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-38-29\myDescription.log
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-38-29\myMethod.log
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-38-29\myProgress.log
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-38-29\myProperties.log
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-38-29\PlatformRunTimeEnvironment.log
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-38-29\syslog
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-38-29\test_tsLogger.log
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-38-38\myAsserts.log
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-38-38\myDescription.log
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-38-38\myMethod.log
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-38-38\myProgress.log
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-38-38\myProperties.log
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-38-38\PlatformRunTimeEnvironment.log
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-38-38\syslog
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-38-38\test_tsLogger.log
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-38-47\myAsserts.log
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-38-47\myDescription.log
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-38-47\myMethod.log
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-38-47\myProgress.log
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-38-47\myProperties.log
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-38-47\PlatformRunTimeEnvironment.log
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-38-47\syslog
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-38-47\test_tsLogger.log
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-39-02\Dummy#2
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-39-02\Dummy#3
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-39-02\PlatformRunTimeEnvironment.log
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-39-02\test_tsOperatorSettingsParser.log
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-39-35\Dummy#2
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-39-35\Dummy#3
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-39-35\PlatformRunTimeEnvironment.log
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-39-35\test_tsOperatorSettingsParser.log
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-39-49\Dummy#2
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-39-49\Dummy#3
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-39-49\PlatformRunTimeEnvironment.log
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-39-49\test_tsOperatorSettingsParser.log
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-40-04\Dummy#2
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-40-04\Dummy#3
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-40-04\PlatformRunTimeEnvironment.log
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-40-04\test_tsOperatorSettingsParser.log
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-40-15\Dummy#2
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-40-15\Dummy#3
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-40-15\PlatformRunTimeEnvironment.log
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-40-15\test_tsOperatorSettingsParser.log
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-40-33\displayDictionaryTest.log
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-40-33\PlatformRunTimeEnvironment.log
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-40-33\test_tsReportUtilities.log
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-40-45\displayDictionaryTest.log
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-40-45\PlatformRunTimeEnvironment.log
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-40-45\test_tsReportUtilities.log
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-40-54\displayDictionaryTest.log
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-40-54\PlatformRunTimeEnvironment.log
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-40-54\test_tsReportUtilities.log
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-41-04\displayDictionaryTest.log
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-41-04\PlatformRunTimeEnvironment.log
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-41-04\test_tsReportUtilities.log
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-41-13\displayDictionaryTest.log
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-41-13\PlatformRunTimeEnvironment.log
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-41-13\test_tsReportUtilities.log
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-41-28\PlatformRunTimeEnvironment.log
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-41-28\test_tsSysCommand.log
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-42-04\PlatformRunTimeEnvironment.log
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-42-04\test_tsSysCommand.log
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-42-13\PlatformRunTimeEnvironment.log
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-42-13\test_tsSysCommand.log
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-42-22\PlatformRunTimeEnvironment.log
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-42-22\test_tsSysCommand.log
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-42-31\PlatformRunTimeEnvironment.log
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-42-31\test_tsSysCommand.log
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-43-06\PlatformRunTimeEnvironment.log
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-43-06\tsLinesOfCodeProjectMetrics.log
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-43-50\PlatformRunTimeEnvironment.log
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-43-50\tsLinesOfCodeProjectMetrics.log
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-44-04\PlatformRunTimeEnvironment.log
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-44-04\tsLinesOfCodeProjectMetrics.log
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-44-16\PlatformRunTimeEnvironment.log
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-44-16\tsLinesOfCodeProjectMetrics.log
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-45-02\PlatformRunTimeEnvironment.log
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\logs\2014-05-28-at-19-45-02\tsLinesOfCodeProjectMetrics.log
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocCLI\tsDocCLI-4-DeveloperTutorialFiles\Tutorial_CLI_4_Command_Line_PlatformQuery_Application.py.~1~
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\Adobe-PDF-Files\tsWxGTUI_Vol._10_SDIST_To-Do.pdf
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\Adobe-PDF-Files\tsWxGTUI_Vol.__0_SDIST_Announcement.pdf
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\Adobe-PDF-Files\tsWxGTUI_Vol.__1_SDIST_Brochure.pdf
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\Adobe-PDF-Files\tsWxGTUI_Vol.__2_SDIST_Introduction.pdf
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\Adobe-PDF-Files\tsWxGTUI_Vol.__3_SDIST_Terms_&_Conditions.pdf
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\Adobe-PDF-Files\tsWxGTUI_Vol.__3_SDIST_Usage_Terms_&_Conditions.pdf
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\Adobe-PDF-Files\tsWxGTUI_Vol.__4_SDIST_Development_Plan.pdf
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\Adobe-PDF-Files\tsWxGTUI_Vol.__4_SDIST_Software_Development_Plan.pdf
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\Adobe-PDF-Files\tsWxGTUI_Vol.__5_SDIST_System_Specification.pdf
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\Adobe-PDF-Files\tsWxGTUI_Vol.__6_SDIST_Interface_Requirements.pdf
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\Adobe-PDF-Files\tsWxGTUI_Vol.__6_SDIST_Interface_Requirements_Specificatio….pdf
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\Adobe-PDF-Files\tsWxGTUI_Vol.__7_SDIST_Functional_Requirements.pdf
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\Adobe-PDF-Files\tsWxGTUI_Vol.__7_SDIST_Software_Requirements_Specification….pdf
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\Adobe-PDF-Files\tsWxGTUI_Vol.__8_SDIST_Release_Notes.pdf
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\Adobe-PDF-Files\tsWxGTUI_Vol.__9_SDIST_Software_Users_Manual.pdf
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\JPEG-Image-Files\Block Diagram.jpg
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\JPEG-Image-Files\Distributed System.jpg
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\JPEG-Image-Files\EvtHandler-architecture.jpg
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\JPEG-Image-Files\object-architecture.jpg
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\JPEG-Image-Files\Stand-Alone System Architecture.jpg
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\JPEG-Image-Files\Stand-Among System Architecture.jpg
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\JPEG-Image-Files\System Architecture.jpg
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\JPEG-Image-Files\System Architecture60pct.jpg
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\JPEG-Image-Files\System Block Diagram.jpg
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\JPEG-Image-Files\SystemArchitecture.jpg
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\JPEG-Image-Files\tsWxGTUI Masthead.png
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\JPEG-Image-Files\tsWxPython object.jpg
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\JPEG-Image-Files\tsWxPython wxEvtHandler.jpg
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\JPEG-Image-Files\tsWxPython wxObject.jpg
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\JPEG-Image-Files\tsWxPython wxWindow.jpg
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\JPEG-Image-Files\Window-architecture.jpg
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\JPEG-Image-Files\wxObject-architecture.jpg
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Access-Files\tsWxPython.mdb
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Excel-Files\Platform_Configuration.xls
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Visio-Files\Distributed System.vsd
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Visio-Files\Networked Architecture.vsd
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Visio-Files\System Architecture.vsd
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Visio-Files\tsWxPython Org Chart.vsd
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\Class List.doc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\Relationships_Between_tsWxGTUI_Toolkit_APIs.doc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\RGB to Color Name Mapping(Triplet and Hex).doc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\Writing a Python Package by Tarek Ziade.doc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol._10_SDIST_To-Do\3346.png
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol._10_SDIST_To-Do\tsWxGTUI_Vol._10_SDIST_To-Do.doc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__0_SDIST_Announcement\3346.png
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__0_SDIST_Announcement\tsWxGTUI_Vol.__0_SDIST_Announcement.doc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__1_SDIST_Brochure\1545.jpg
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__1_SDIST_Brochure\1546.jpg
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__1_SDIST_Brochure\1547.jpg
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__1_SDIST_Brochure\1548.jpg
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__1_SDIST_Brochure\1549.jpg
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__1_SDIST_Brochure\1550.jpg
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__1_SDIST_Brochure\1551.jpg
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__1_SDIST_Brochure\1552.jpg
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__1_SDIST_Brochure\1563.jpg
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__1_SDIST_Brochure\1564.jpg
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__1_SDIST_Brochure\1565.jpg
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__1_SDIST_Brochure\1566.jpg
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__1_SDIST_Brochure\1567.jpg
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__1_SDIST_Brochure\1568.jpg
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__1_SDIST_Brochure\1569.jpg
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__1_SDIST_Brochure\1570.jpg
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__1_SDIST_Brochure\2442.png
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__1_SDIST_Brochure\3343.jpg
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__1_SDIST_Brochure\3346.png
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__1_SDIST_Brochure\tsWxGTUI_Vol.__1_SDIST_Brochure.doc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__2_SDIST_Introduction\1133.jpg
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__2_SDIST_Introduction\1135.jpg
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__2_SDIST_Introduction\1136.jpg
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__2_SDIST_Introduction\1138.png
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__2_SDIST_Introduction\1164.jpg
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__2_SDIST_Introduction\1165.jpg
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__2_SDIST_Introduction\1166.jpg
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__2_SDIST_Introduction\1167.jpg
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__2_SDIST_Introduction\1169.jpg
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__2_SDIST_Introduction\1171.jpg
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__2_SDIST_Introduction\1172.jpg
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__2_SDIST_Introduction\1173.jpg
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__2_SDIST_Introduction\1175.jpg
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__2_SDIST_Introduction\1188.jpg
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__2_SDIST_Introduction\1190.jpg
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__2_SDIST_Introduction\1193.jpg
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__2_SDIST_Introduction\1194.jpg
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__2_SDIST_Introduction\1195.jpg
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__2_SDIST_Introduction\1329.jpg
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__2_SDIST_Introduction\1331.jpg
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__2_SDIST_Introduction\1340.jpg
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__2_SDIST_Introduction\1368.jpg
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__2_SDIST_Introduction\1370.jpg
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__2_SDIST_Introduction\1412.jpg
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__2_SDIST_Introduction\1426.jpg
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__2_SDIST_Introduction\1486.jpg
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__2_SDIST_Introduction\1488.jpg
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__2_SDIST_Introduction\1495.jpg
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__2_SDIST_Introduction\1499.jpg
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__2_SDIST_Introduction\1512.jpg
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__2_SDIST_Introduction\2438.jpg
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__2_SDIST_Introduction\2443.jpg
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__2_SDIST_Introduction\2444.jpg
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__2_SDIST_Introduction\2445.jpg
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__2_SDIST_Introduction\2476.jpg
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__2_SDIST_Introduction\3141.png
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__2_SDIST_Introduction\3142.png
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__2_SDIST_Introduction\3176.png
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__2_SDIST_Introduction\3177.png
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__2_SDIST_Introduction\3178.png
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__2_SDIST_Introduction\3182.jpg
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__2_SDIST_Introduction\3188.png
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__2_SDIST_Introduction\3223.png
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__2_SDIST_Introduction\3224.png
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__2_SDIST_Introduction\3225.png
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__2_SDIST_Introduction\3226.png
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__2_SDIST_Introduction\3227.png
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__2_SDIST_Introduction\3228.png
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__2_SDIST_Introduction\3230.png
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__2_SDIST_Introduction\3254.png
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__2_SDIST_Introduction\3279.png
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__2_SDIST_Introduction\3295.png
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__2_SDIST_Introduction\3306.png
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__2_SDIST_Introduction\3307.png
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__2_SDIST_Introduction\3308.png
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__2_SDIST_Introduction\3309.png
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__2_SDIST_Introduction\3346.png
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__2_SDIST_Introduction\tsWxGTUI_Vol.__2_SDIST_Introduction.doc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__3_SDIST_Terms_&_Conditions\3346.png
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__3_SDIST_Terms_&_Conditions\tsWxGTUI_Vol.__3_SDIST_Terms_&_Conditions.doc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__3_SDIST_Usage_Terms_&_Conditions\3346.png
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__3_SDIST_Usage_Terms_&_Conditions\tsWxGTUI_Vol.__3_SDIST_Usage_Terms_&_Conditions.doc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__4_SDIST_Development_Plan\1399.png
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__4_SDIST_Development_Plan\1400.png
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__4_SDIST_Development_Plan\1402.png
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__4_SDIST_Development_Plan\1404.png
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__4_SDIST_Development_Plan\1406.png
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__4_SDIST_Development_Plan\1408.png
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__4_SDIST_Development_Plan\1410.png
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__4_SDIST_Development_Plan\1414.jpg
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__4_SDIST_Development_Plan\1426.jpg
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__4_SDIST_Development_Plan\1512.jpg
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__4_SDIST_Development_Plan\2636.jpg
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__4_SDIST_Development_Plan\3141.png
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__4_SDIST_Development_Plan\3142.png
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__4_SDIST_Development_Plan\3346.png
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__4_SDIST_Development_Plan\tsWxGTUI_Vol.__4_SDIST_Development_Plan.doc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__4_SDIST_Software_Development_Plan\1399.png
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__4_SDIST_Software_Development_Plan\1400.png
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__4_SDIST_Software_Development_Plan\1402.png
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__4_SDIST_Software_Development_Plan\1404.png
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__4_SDIST_Software_Development_Plan\1406.png
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__4_SDIST_Software_Development_Plan\1408.png
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__4_SDIST_Software_Development_Plan\1410.png
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__4_SDIST_Software_Development_Plan\1414.jpg
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__4_SDIST_Software_Development_Plan\1426.jpg
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__4_SDIST_Software_Development_Plan\1512.jpg
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__4_SDIST_Software_Development_Plan\3141.png
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__4_SDIST_Software_Development_Plan\3142.png
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__4_SDIST_Software_Development_Plan\3346.png
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__4_SDIST_Software_Development_Plan\tsWxGTUI_Vol.__4_SDIST_Software_Development_Plan.doc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__5_SDIST_System_Specification\1270.jpg
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__5_SDIST_System_Specification\1271.jpg
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__5_SDIST_System_Specification\1272.jpg
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__5_SDIST_System_Specification\1273.jpg
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__5_SDIST_System_Specification\1426.jpg
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__5_SDIST_System_Specification\1512.jpg
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__5_SDIST_System_Specification\2636.jpg
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__5_SDIST_System_Specification\3141.png
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__5_SDIST_System_Specification\3142.png
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__5_SDIST_System_Specification\3346.png
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__5_SDIST_System_Specification\981.png
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__5_SDIST_System_Specification\982.png
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__5_SDIST_System_Specification\tsWxGTUI_Vol.__5_SDIST_System_Specification.doc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__6_SDIST_Interface_Requirements\1164.jpg
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__6_SDIST_Interface_Requirements\1165.jpg
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__6_SDIST_Interface_Requirements\1166.jpg
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__6_SDIST_Interface_Requirements\1167.jpg
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__6_SDIST_Interface_Requirements\1169.jpg
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__6_SDIST_Interface_Requirements\1171.jpg
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__6_SDIST_Interface_Requirements\1172.jpg
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__6_SDIST_Interface_Requirements\1173.jpg
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__6_SDIST_Interface_Requirements\1175.jpg
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__6_SDIST_Interface_Requirements\1188.jpg
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__6_SDIST_Interface_Requirements\1190.jpg
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__6_SDIST_Interface_Requirements\1426.jpg
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__6_SDIST_Interface_Requirements\1512.jpg
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__6_SDIST_Interface_Requirements\2636.jpg
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__6_SDIST_Interface_Requirements\3141.png
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__6_SDIST_Interface_Requirements\3142.png
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__6_SDIST_Interface_Requirements\3346.png
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__6_SDIST_Interface_Requirements\tsWxGTUI_Vol.__6_SDIST_Interface_Requirements.doc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__6_SDIST_Interface_Requirements_Specification\1164.jpg
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__6_SDIST_Interface_Requirements_Specification\1165.jpg
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__6_SDIST_Interface_Requirements_Specification\1166.jpg
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__6_SDIST_Interface_Requirements_Specification\1167.jpg
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__6_SDIST_Interface_Requirements_Specification\1169.jpg
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__6_SDIST_Interface_Requirements_Specification\1171.jpg
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__6_SDIST_Interface_Requirements_Specification\1172.jpg
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__6_SDIST_Interface_Requirements_Specification\1173.jpg
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__6_SDIST_Interface_Requirements_Specification\1175.jpg
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__6_SDIST_Interface_Requirements_Specification\1188.jpg
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__6_SDIST_Interface_Requirements_Specification\1190.jpg
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__6_SDIST_Interface_Requirements_Specification\1426.jpg
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__6_SDIST_Interface_Requirements_Specification\1512.jpg
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__6_SDIST_Interface_Requirements_Specification\3141.png
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__6_SDIST_Interface_Requirements_Specification\3142.png
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__6_SDIST_Interface_Requirements_Specification\3346.png
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__6_SDIST_Interface_Requirements_Specification\tsWxGTUI_Vol.__6_SDIST_Interface_Requirements_Specification.doc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__7_SDIST_Functional_Requirements\1512.jpg
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__7_SDIST_Functional_Requirements\3346.png
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__7_SDIST_Functional_Requirements\981.png
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__7_SDIST_Functional_Requirements\982.png
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__7_SDIST_Functional_Requirements\tsWxGTUI_Vol.__7_SDIST_Functional_Requirements.doc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__7_SDIST_Software_Requirements_Specification\1512.jpg
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__7_SDIST_Software_Requirements_Specification\3346.png
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__7_SDIST_Software_Requirements_Specification\981.png
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__7_SDIST_Software_Requirements_Specification\982.png
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__7_SDIST_Software_Requirements_Specification\tsWxGTUI_Vol.__7_SDIST_Software_Requirements_Specification.doc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__8_SDIST_Release_Notes\1426.jpg
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__8_SDIST_Release_Notes\1512.jpg
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__8_SDIST_Release_Notes\2673.png
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__8_SDIST_Release_Notes\3141.png
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__8_SDIST_Release_Notes\3142.png
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__8_SDIST_Release_Notes\3346.png
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__8_SDIST_Release_Notes\tsWxGTUI_Vol.__8_SDIST_Release_Notes.doc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__9_SDIST_Software_Users_Manual\1340.jpg
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__9_SDIST_Software_Users_Manual\1426.jpg
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__9_SDIST_Software_Users_Manual\1512.jpg
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__9_SDIST_Software_Users_Manual\3141.png
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__9_SDIST_Software_Users_Manual\3142.png
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__9_SDIST_Software_Users_Manual\3230.png
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__9_SDIST_Software_Users_Manual\3346.png
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsDocGUI\MS-Word-Files\tsWxGTUI_Vol.__9_SDIST_Software_Users_Manual\tsWxGTUI_Vol.__9_SDIST_Software_Users_Manual.doc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\__init__.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsApplicationPkg\__init__.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsApplicationPkg\src\tsApplication.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsApplicationPkg\src\__init__.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsApplicationPkg\src\__pycache__\tsApplication.cpython-32.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsApplicationPkg\src\__pycache__\tsApplication.cpython-33.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsApplicationPkg\src\__pycache__\tsApplication.cpython-34.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsApplicationPkg\src\__pycache__\__init__.cpython-32.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsApplicationPkg\src\__pycache__\__init__.cpython-33.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsApplicationPkg\src\__pycache__\__init__.cpython-34.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsApplicationPkg\__pycache__\__init__.cpython-32.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsApplicationPkg\__pycache__\__init__.cpython-33.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsApplicationPkg\__pycache__\__init__.cpython-34.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsCommandLineEnvPkg\__init__.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsCommandLineEnvPkg\src\tsCommandLineEnv.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsCommandLineEnvPkg\src\__init__.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsCommandLineEnvPkg\src\__pycache__\tsCommandLineEnv.cpython-32.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsCommandLineEnvPkg\src\__pycache__\tsCommandLineEnv.cpython-33.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsCommandLineEnvPkg\src\__pycache__\tsCommandLineEnv.cpython-34.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsCommandLineEnvPkg\src\__pycache__\__init__.cpython-32.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsCommandLineEnvPkg\src\__pycache__\__init__.cpython-33.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsCommandLineEnvPkg\src\__pycache__\__init__.cpython-34.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsCommandLineEnvPkg\__pycache__\__init__.cpython-32.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsCommandLineEnvPkg\__pycache__\__init__.cpython-33.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsCommandLineEnvPkg\__pycache__\__init__.cpython-34.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsCommandLineInterfacePkg\__init__.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsCommandLineInterfacePkg\src\tsCommandLineInterface.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsCommandLineInterfacePkg\src\__init__.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsCommandLineInterfacePkg\src\__pycache__\tsCommandLineInterface.cpython-32.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsCommandLineInterfacePkg\src\__pycache__\tsCommandLineInterface.cpython-33.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsCommandLineInterfacePkg\src\__pycache__\tsCommandLineInterface.cpython-34.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsCommandLineInterfacePkg\src\__pycache__\__init__.cpython-32.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsCommandLineInterfacePkg\src\__pycache__\__init__.cpython-33.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsCommandLineInterfacePkg\src\__pycache__\__init__.cpython-34.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsCommandLineInterfacePkg\__pycache__\__init__.cpython-32.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsCommandLineInterfacePkg\__pycache__\__init__.cpython-33.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsCommandLineInterfacePkg\__pycache__\__init__.cpython-34.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsCxGlobalsPkg\__init__.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsCxGlobalsPkg\src\__init__.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsCxGlobalsPkg\src\__pycache__\__init__.cpython-32.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsCxGlobalsPkg\src\__pycache__\__init__.cpython-33.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsCxGlobalsPkg\src\__pycache__\__init__.cpython-34.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsCxGlobalsPkg\__pycache__\__init__.cpython-32.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsCxGlobalsPkg\__pycache__\__init__.cpython-33.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsCxGlobalsPkg\__pycache__\__init__.cpython-34.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsDoubleLinkedListPkg\__init__.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsDoubleLinkedListPkg\src\tsDoubleLinkedList.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsDoubleLinkedListPkg\src\__init__.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsDoubleLinkedListPkg\src\__pycache__\tsDoubleLinkedList.cpython-32.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsDoubleLinkedListPkg\src\__pycache__\tsDoubleLinkedList.cpython-33.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsDoubleLinkedListPkg\src\__pycache__\tsDoubleLinkedList.cpython-34.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsDoubleLinkedListPkg\src\__pycache__\__init__.cpython-32.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsDoubleLinkedListPkg\src\__pycache__\__init__.cpython-33.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsDoubleLinkedListPkg\src\__pycache__\__init__.cpython-34.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsDoubleLinkedListPkg\__pycache__\__init__.cpython-32.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsDoubleLinkedListPkg\__pycache__\__init__.cpython-33.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsDoubleLinkedListPkg\__pycache__\__init__.cpython-34.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsExceptionPkg\__init__.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsExceptionPkg\src\tsExceptions.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsExceptionPkg\src\__init__.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsExceptionPkg\src\__pycache__\tsExceptions.cpython-32.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsExceptionPkg\src\__pycache__\tsExceptions.cpython-33.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsExceptionPkg\src\__pycache__\tsExceptions.cpython-34.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsExceptionPkg\src\__pycache__\__init__.cpython-32.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsExceptionPkg\src\__pycache__\__init__.cpython-33.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsExceptionPkg\src\__pycache__\__init__.cpython-34.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsExceptionPkg\__pycache__\__init__.cpython-32.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsExceptionPkg\__pycache__\__init__.cpython-33.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsExceptionPkg\__pycache__\__init__.cpython-34.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsLoggerPkg\__init__.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsLoggerPkg\src\tsLogger.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsLoggerPkg\src\__init__.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsLoggerPkg\src\__pycache__\tsLogger.cpython-32.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsLoggerPkg\src\__pycache__\tsLogger.cpython-33.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsLoggerPkg\src\__pycache__\tsLogger.cpython-34.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsLoggerPkg\src\__pycache__\__init__.cpython-32.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsLoggerPkg\src\__pycache__\__init__.cpython-33.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsLoggerPkg\src\__pycache__\__init__.cpython-34.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsLoggerPkg\__pycache__\__init__.cpython-32.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsLoggerPkg\__pycache__\__init__.cpython-33.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsLoggerPkg\__pycache__\__init__.cpython-34.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsOperatorSettingsParserPkg\__init__.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsOperatorSettingsParserPkg\src\tsOperatorSettingsParser.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsOperatorSettingsParserPkg\src\__init__.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsOperatorSettingsParserPkg\src\__pycache__\tsOperatorSettingsParser.cpython-32.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsOperatorSettingsParserPkg\src\__pycache__\tsOperatorSettingsParser.cpython-33.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsOperatorSettingsParserPkg\src\__pycache__\tsOperatorSettingsParser.cpython-34.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsOperatorSettingsParserPkg\src\__pycache__\__init__.cpython-32.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsOperatorSettingsParserPkg\src\__pycache__\__init__.cpython-33.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsOperatorSettingsParserPkg\src\__pycache__\__init__.cpython-34.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsOperatorSettingsParserPkg\__pycache__\__init__.cpython-32.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsOperatorSettingsParserPkg\__pycache__\__init__.cpython-33.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsOperatorSettingsParserPkg\__pycache__\__init__.cpython-34.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsPlatformRunTimeEnvironmentPkg\__init__.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsPlatformRunTimeEnvironmentPkg\src\tsGistGetTerminalSize.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsPlatformRunTimeEnvironmentPkg\src\tsPlatformRunTimeEnvironment.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsPlatformRunTimeEnvironmentPkg\src\__init__.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsPlatformRunTimeEnvironmentPkg\src\__pycache__\tsGistGetTerminalSize.cpython-32.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsPlatformRunTimeEnvironmentPkg\src\__pycache__\tsGistGetTerminalSize.cpython-33.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsPlatformRunTimeEnvironmentPkg\src\__pycache__\tsGistGetTerminalSize.cpython-34.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsPlatformRunTimeEnvironmentPkg\src\__pycache__\tsPlatformRunTimeEnvironment.cpython-32.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsPlatformRunTimeEnvironmentPkg\src\__pycache__\tsPlatformRunTimeEnvironment.cpython-33.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsPlatformRunTimeEnvironmentPkg\src\__pycache__\tsPlatformRunTimeEnvironment.cpython-34.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsPlatformRunTimeEnvironmentPkg\src\__pycache__\__init__.cpython-32.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsPlatformRunTimeEnvironmentPkg\src\__pycache__\__init__.cpython-33.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsPlatformRunTimeEnvironmentPkg\src\__pycache__\__init__.cpython-34.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsPlatformRunTimeEnvironmentPkg\__pycache__\__init__.cpython-32.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsPlatformRunTimeEnvironmentPkg\__pycache__\__init__.cpython-33.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsPlatformRunTimeEnvironmentPkg\__pycache__\__init__.cpython-34.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsReportUtilityPkg\__init__.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsReportUtilityPkg\src\tsReportUtilities.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsReportUtilityPkg\src\__init__.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsReportUtilityPkg\src\__pycache__\tsReportUtilities.cpython-32.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsReportUtilityPkg\src\__pycache__\tsReportUtilities.cpython-33.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsReportUtilityPkg\src\__pycache__\tsReportUtilities.cpython-34.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsReportUtilityPkg\src\__pycache__\__init__.cpython-32.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsReportUtilityPkg\src\__pycache__\__init__.cpython-33.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsReportUtilityPkg\src\__pycache__\__init__.cpython-34.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsReportUtilityPkg\__pycache__\__init__.cpython-32.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsReportUtilityPkg\__pycache__\__init__.cpython-33.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsReportUtilityPkg\__pycache__\__init__.cpython-34.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsSysCommandPkg\__init__.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsSysCommandPkg\src\tsSysCommands.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsSysCommandPkg\src\__init__.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsSysCommandPkg\src\__pycache__\tsSysCommands.cpython-32.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsSysCommandPkg\src\__pycache__\tsSysCommands.cpython-33.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsSysCommandPkg\src\__pycache__\tsSysCommands.cpython-34.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsSysCommandPkg\src\__pycache__\__init__.cpython-32.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsSysCommandPkg\src\__pycache__\__init__.cpython-33.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsSysCommandPkg\src\__pycache__\__init__.cpython-34.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsSysCommandPkg\__pycache__\__init__.cpython-32.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsSysCommandPkg\__pycache__\__init__.cpython-33.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\tsSysCommandPkg\__pycache__\__init__.cpython-34.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\__pycache__\__init__.cpython-32.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\__pycache__\__init__.cpython-33.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsLibCLI\__pycache__\__init__.cpython-34.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsManPagesLibCLI\tsApplication.man
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsManPagesLibCLI\tsCommandLineEnv.man
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsManPagesLibCLI\tsCommandLineInterface.man
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsManPagesLibCLI\tsCxGlobals.man
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsManPagesLibCLI\tsDoubleLinkedList.man
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsManPagesLibCLI\tsExceptions.man
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsManPagesLibCLI\tsGistGetTerminalSize.man
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsManPagesLibCLI\tsLogger.man
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsManPagesLibCLI\tsOperatorSettingsParser.man
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsManPagesLibCLI\tsPlatformRunTimeEnvironment.man
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsManPagesLibCLI\tsReportUtilities.man
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsManPagesLibCLI\tsSysCommands.man
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsManPagesLibGUI\tsWx.man
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsManPagesLibGUI\tsWxAcceleratorEntry.man
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsManPagesLibGUI\tsWxAcceleratorTable.man
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsManPagesLibGUI\tsWxApp.man
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsManPagesLibGUI\tsWxBoxSizer.man
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsManPagesLibGUI\tsWxButton.man
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsManPagesLibGUI\tsWxCallLater.man
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsManPagesLibGUI\tsWxCaret.man
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsManPagesLibGUI\tsWxCheckBox.man
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsManPagesLibGUI\tsWxChoice.man
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsManPagesLibGUI\tsWxColor.man
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsManPagesLibGUI\tsWxColorDatabase.man
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsManPagesLibGUI\tsWxControl.man
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsManPagesLibGUI\tsWxControlWithItems.man
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsManPagesLibGUI\tsWxCursor.man
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsManPagesLibGUI\tsWxDebugHandlers.man
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsManPagesLibGUI\tsWxDialog.man
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsManPagesLibGUI\tsWxDialogButton.man
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsManPagesLibGUI\tsWxDisplay.man
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsManPagesLibGUI\tsWxDoubleLinkedList.man
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsManPagesLibGUI\tsWxEraseEvent.man
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsManPagesLibGUI\tsWxEvent.man
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsManPagesLibGUI\tsWxEventDaemon.man
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsManPagesLibGUI\tsWxEventLoop.man
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsManPagesLibGUI\tsWxEventLoopActivator.man
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsManPagesLibGUI\tsWxEventQueueEntry.man
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsManPagesLibGUI\tsWxEventTableEntry.man
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsManPagesLibGUI\tsWxEvtHandler.man
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsManPagesLibGUI\tsWxFlexGridSizer.man
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsManPagesLibGUI\tsWxFocusEvent.man
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsManPagesLibGUI\tsWxFrame.man
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsManPagesLibGUI\tsWxFrameButton.man
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsManPagesLibGUI\tsWxGauge.man
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsManPagesLibGUI\tsWxGlobals.man
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsManPagesLibGUI\tsWxGraphicalTextUserInterface.man
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsManPagesLibGUI\tsWxGridBagSizer.man
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsManPagesLibGUI\tsWxGridSizer.man
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsManPagesLibGUI\tsWxItemContainer.man
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsManPagesLibGUI\tsWxKeyboardState.man
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsManPagesLibGUI\tsWxKeyEvent.man
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsManPagesLibGUI\tsWxListBox.man
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsManPagesLibGUI\tsWxLog.man
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsManPagesLibGUI\tsWxMenu.man
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsManPagesLibGUI\tsWxMenuBar.man
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsManPagesLibGUI\tsWxMouseEvent.man
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsManPagesLibGUI\tsWxMouseState.man
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsManPagesLibGUI\tsWxMultiFrameEnv.man
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsManPagesLibGUI\tsWxNonLinkedList.man
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsManPagesLibGUI\tsWxObject.man
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsManPagesLibGUI\tsWxPanel.man
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsManPagesLibGUI\tsWxPasswordEntryDialog.man
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsManPagesLibGUI\tsWxPoint.man
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsManPagesLibGUI\tsWxPyApp.man
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsManPagesLibGUI\tsWxPyEventBinder.man
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsManPagesLibGUI\tsWxPyOnDemandOutputWindow.man
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsManPagesLibGUI\tsWxPySimpleApp.man
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsManPagesLibGUI\tsWxPySizer.man
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsManPagesLibGUI\tsWxRadioBox.man
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsManPagesLibGUI\tsWxRadioButton.man
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsManPagesLibGUI\tsWxRect.man
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsManPagesLibGUI\tsWxScreen.man
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsManPagesLibGUI\tsWxScrollBar.man
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsManPagesLibGUI\tsWxScrollBarButton.man
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsManPagesLibGUI\tsWxScrollBarGauge.man
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsManPagesLibGUI\tsWxScrolled.man
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsManPagesLibGUI\tsWxScrolledText.man
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsManPagesLibGUI\tsWxScrolledWindow.man
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsManPagesLibGUI\tsWxShowEvent.man
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsManPagesLibGUI\tsWxSize.man
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsManPagesLibGUI\tsWxSizer.man
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsManPagesLibGUI\tsWxSizerItem.man
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsManPagesLibGUI\tsWxSizerItemList.man
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsManPagesLibGUI\tsWxSizerSpacer.man
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsManPagesLibGUI\tsWxSlider.man
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsManPagesLibGUI\tsWxSplashScreen.man
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsManPagesLibGUI\tsWxStaticBox.man
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsManPagesLibGUI\tsWxStaticBoxSizer.man
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsManPagesLibGUI\tsWxStaticLine.man
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsManPagesLibGUI\tsWxStaticText.man
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsManPagesLibGUI\tsWxStatusBar.man
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsManPagesLibGUI\tsWxSystemSettings.man
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsManPagesLibGUI\tsWxTaskBar.man
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsManPagesLibGUI\tsWxTextCtrl.man
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsManPagesLibGUI\tsWxTextEditBox.man
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsManPagesLibGUI\tsWxTextEntryDialog.man
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsManPagesLibGUI\tsWxTimer.man
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsManPagesLibGUI\tsWxToggleButton.man
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsManPagesLibGUI\tsWxTopLevelWindow.man
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsManPagesLibGUI\tsWxValidator.man
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsManPagesLibGUI\tsWxWindow.man
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsManPagesTestsCLI\test_tsApplication.man
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsManPagesTestsCLI\test_tsCommandLineEnv.man
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsManPagesTestsCLI\test_tsDoubleLinkedList.man
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsManPagesTestsCLI\test_tsOperatorSettingsParser.man
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsManPagesTestsCLI\test_tsPlatformRunTimeEnvironment.man
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsManPagesTestsCLI\test_tsSysCommand.man
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsManPagesTestsGUI\test_tsWxBoxSizer.man
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsManPagesTestsGUI\test_tsWxCheckBox.man
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsManPagesTestsGUI\test_tsWxDisplay.man
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsManPagesTestsGUI\test_tsWxDoubleLinkedList.man
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsManPagesTestsGUI\test_tsWxGlobals.man
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsManPagesTestsGUI\test_tsWxGraphicalTextUserInterface.man
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsManPagesTestsGUI\test_tsWxGridSizer.man
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsManPagesTestsGUI\test_tsWxMultiFrameEnv.man
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsManPagesTestsGUI\test_tsWxRSM.man
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsManPagesTestsGUI\test_tsWxScrolledWindow.man
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsManPagesTestsGUI\test_tsWxScrolledWindowDual.man
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsManPagesTestsGUI\test_tsWxSplashScreen.man
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsManPagesTestsGUI\test_tsWxWidgets.man
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsManPagesToolsCLI\tsLinesOfCodeProjectMetrics.man
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsManPagesToolsCLI\tsPlatformQuery.man
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsManPagesToolsCLI\tsStripComments.man
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsManPagesToolsCLI\tsStripLineNumbers.man
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsManPagesToolsCLI\tsTreeCopy.man
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsManPagesToolsCLI\tsTreeTrimLines.man
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\__init__.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsLinesOfCodeProjectMetricsPkg\__init__.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsLinesOfCodeProjectMetricsPkg\src\tsLinesOfCode.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsLinesOfCodeProjectMetricsPkg\src\tsLOCPMOperatorSettingsParser.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsLinesOfCodeProjectMetricsPkg\src\tsProjectMetrics.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsLinesOfCodeProjectMetricsPkg\src\tsSoftwareMetrics.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsLinesOfCodeProjectMetricsPkg\src\tsSoftwareParser.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsLinesOfCodeProjectMetricsPkg\src\__init__.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsLinesOfCodeProjectMetricsPkg\src\__pycache__\tsLinesOfCode.cpython-32.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsLinesOfCodeProjectMetricsPkg\src\__pycache__\tsLinesOfCode.cpython-33.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsLinesOfCodeProjectMetricsPkg\src\__pycache__\tsLinesOfCode.cpython-34.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsLinesOfCodeProjectMetricsPkg\src\__pycache__\tsLOCPMOperatorSettingsParser.cpython-32.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsLinesOfCodeProjectMetricsPkg\src\__pycache__\tsLOCPMOperatorSettingsParser.cpython-33.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsLinesOfCodeProjectMetricsPkg\src\__pycache__\tsLOCPMOperatorSettingsParser.cpython-34.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsLinesOfCodeProjectMetricsPkg\src\__pycache__\tsProjectMetrics.cpython-32.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsLinesOfCodeProjectMetricsPkg\src\__pycache__\tsProjectMetrics.cpython-33.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsLinesOfCodeProjectMetricsPkg\src\__pycache__\tsProjectMetrics.cpython-34.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsLinesOfCodeProjectMetricsPkg\src\__pycache__\tsSoftwareMetrics.cpython-32.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsLinesOfCodeProjectMetricsPkg\src\__pycache__\tsSoftwareMetrics.cpython-33.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsLinesOfCodeProjectMetricsPkg\src\__pycache__\tsSoftwareMetrics.cpython-34.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsLinesOfCodeProjectMetricsPkg\src\__pycache__\tsSoftwareParser.cpython-32.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsLinesOfCodeProjectMetricsPkg\src\__pycache__\tsSoftwareParser.cpython-33.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsLinesOfCodeProjectMetricsPkg\src\__pycache__\tsSoftwareParser.cpython-34.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsLinesOfCodeProjectMetricsPkg\src\__pycache__\__init__.cpython-32.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsLinesOfCodeProjectMetricsPkg\src\__pycache__\__init__.cpython-33.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsLinesOfCodeProjectMetricsPkg\src\__pycache__\__init__.cpython-34.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsLinesOfCodeProjectMetricsPkg\__pycache__\__init__.cpython-32.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsLinesOfCodeProjectMetricsPkg\__pycache__\__init__.cpython-33.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsLinesOfCodeProjectMetricsPkg\__pycache__\__init__.cpython-34.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsPlatformQueryPkg\__init__.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsPlatformQueryPkg\src\__init__.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsPlatformQueryPkg\src\__pycache__\__init__.cpython-32.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsPlatformQueryPkg\src\__pycache__\__init__.cpython-33.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsPlatformQueryPkg\src\__pycache__\__init__.cpython-34.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsPlatformQueryPkg\__pycache__\__init__.cpython-32.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsPlatformQueryPkg\__pycache__\__init__.cpython-33.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsPlatformQueryPkg\__pycache__\__init__.cpython-34.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsStripCommentsPkg\__init__.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsStripCommentsPkg\src\tsStripComments.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsStripCommentsPkg\src\tsStripSettingsParser.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsStripCommentsPkg\src\__init__.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsStripCommentsPkg\src\__pycache__\tsStripComments.cpython-32.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsStripCommentsPkg\src\__pycache__\tsStripComments.cpython-33.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsStripCommentsPkg\src\__pycache__\tsStripComments.cpython-34.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsStripCommentsPkg\src\__pycache__\tsStripSettingsParser.cpython-32.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsStripCommentsPkg\src\__pycache__\tsStripSettingsParser.cpython-33.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsStripCommentsPkg\src\__pycache__\tsStripSettingsParser.cpython-34.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsStripCommentsPkg\src\__pycache__\__init__.cpython-32.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsStripCommentsPkg\src\__pycache__\__init__.cpython-33.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsStripCommentsPkg\src\__pycache__\__init__.cpython-34.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsStripCommentsPkg\__pycache__\__init__.cpython-32.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsStripCommentsPkg\__pycache__\__init__.cpython-33.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsStripCommentsPkg\__pycache__\__init__.cpython-34.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsStripLineNumbersPkg\__init__.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsStripLineNumbersPkg\src\__init__.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsStripLineNumbersPkg\src\__pycache__\__init__.cpython-32.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsStripLineNumbersPkg\src\__pycache__\__init__.cpython-33.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsStripLineNumbersPkg\src\__pycache__\__init__.cpython-34.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsStripLineNumbersPkg\__pycache__\__init__.cpython-32.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsStripLineNumbersPkg\__pycache__\__init__.cpython-33.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsStripLineNumbersPkg\__pycache__\__init__.cpython-34.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsTreeCopyPkg\__init__.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsTreeCopyPkg\src\__init__.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsTreeCopyPkg\src\__pycache__\__init__.cpython-32.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsTreeCopyPkg\src\__pycache__\__init__.cpython-33.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsTreeCopyPkg\src\__pycache__\__init__.cpython-34.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsTreeCopyPkg\__pycache__\__init__.cpython-32.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsTreeCopyPkg\__pycache__\__init__.cpython-33.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsTreeCopyPkg\__pycache__\__init__.cpython-34.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsTreeTrimLinesPkg\__init__.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsTreeTrimLinesPkg\src\tsTreeTrimLines.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsTreeTrimLinesPkg\src\tsTreeTrimShutil.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsTreeTrimLinesPkg\src\__init__.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsTreeTrimLinesPkg\src\__pycache__\tsTreeTrimLines.cpython-32.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsTreeTrimLinesPkg\src\__pycache__\tsTreeTrimLines.cpython-33.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsTreeTrimLinesPkg\src\__pycache__\tsTreeTrimLines.cpython-34.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsTreeTrimLinesPkg\src\__pycache__\tsTreeTrimShutil.cpython-32.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsTreeTrimLinesPkg\src\__pycache__\tsTreeTrimShutil.cpython-33.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsTreeTrimLinesPkg\src\__pycache__\tsTreeTrimShutil.cpython-34.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsTreeTrimLinesPkg\src\__pycache__\__init__.cpython-32.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsTreeTrimLinesPkg\src\__pycache__\__init__.cpython-33.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsTreeTrimLinesPkg\src\__pycache__\__init__.cpython-34.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsTreeTrimLinesPkg\__pycache__\__init__.cpython-32.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsTreeTrimLinesPkg\__pycache__\__init__.cpython-33.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\tsTreeTrimLinesPkg\__pycache__\__init__.cpython-34.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\__pycache__\__init__.cpython-32.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\__pycache__\__init__.cpython-33.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\tsToolsCLI\__pycache__\__init__.cpython-34.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\__pycache__\tsCxGlobals.cpython-32.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\__pycache__\tsCxGlobals.cpython-33.pyc
+   d:\WR\SoftwareGadgetry-PyPI\Python-3x\tsWxGTUI_Py3x\__pycache__\tsCxGlobals.cpython-34.pyc
+
+------------------------------------------------------------------------------
+
+		"Organic" Software Project Estimate
+		Constructive Cost Model (COCOMO(R) 81)
+
+Total Physical Source Lines of Code (KSLOC) 			= 111200 (111.20)
+
+Estimated Development Effort in Person-Years (Person-Months) 	= 28.15 (337.77)
+ (Basic COCOMO model, Person-Months = 2.40 * (KSLOC**1.05))
+
+Estimated Schedule in Years (Months) 				= 1.90 (22.85)
+ (Basic COCOMO model, Months = 2.50 * (person-months**0.38))
+
+Estimated Average Number of Developers  			= 14.78
+ (Effort/Schedule)
+
+Total Estimated Cost to Develop 				= $ 3802346
+ (Average Salary = $ 56286.00/year, Overhead = 2.40).
+
+Estimated Productivity in Source Lines of Code per Day 		= 1.1
+
+------------------------------------------------------------------------------

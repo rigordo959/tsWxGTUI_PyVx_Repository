@@ -1,0 +1,1120 @@
+$	TITLE ('"P7DLS" CADE-P010S3.1 TASK WRITER')
+/*
+	"WRITER" controls the transfer of HOST data, from "SHARED" memory,
+	to the "REMOTE" computer.
+
+	"WRITER" establishes communication, when not already established,
+	prior to message transfer.  During transfer, it partitions HOST
+	data into "blocks", of a prescribed size, and forwards them to
+	the "MONITR" task along with either an intermediate ("ETB") or
+	final ("ETX") "block" identifier.
+
+	Upon message transfer failure, "WRITER" discards the "HOST" data
+	block and terminates communication with the "REMOTE" computer
+	until the "HOST" again seeks message transfer.
+
+	ROUTINE CALLED BY:
+
+		SBCRMX INITIATED TASK
+
+*/
+
+WRITER: DO ;
+
+	RQWAIT: PROCEDURE( EXCHANGE$PTR, TIME$LIMIT ) ADDRESS EXTERNAL ;
+		DECLARE EXCHANGE$PTR ADDRESS ;
+		DECLARE TIME$LIMIT ADDRESS ;
+	END RQWAIT ;
+
+	RQSEND: PROCEDURE( EXCHANGE$PTR, MSG$PTR ) EXTERNAL ;
+		DECLARE EXCHANGE$PTR ADDRESS ;
+		DECLARE MSG$PTR ADDRESS ;
+	END RQSEND ;
+
+	ERROR: PROCEDURE( TEXT$PTR, TEXT$LENGTH ) EXTERNAL ;
+		DECLARE TEXT$PTR ADDRESS ;
+		DECLARE TEXT$LENGTH ADDRESS ;
+	END ERROR ;
+
+	DECLARE OUTX ADDRESS EXTERNAL ;
+	DECLARE XMITX ADDRESS EXTERNAL ;
+	DECLARE MONITX ADDRESS EXTERNAL ;
+
+	DECLARE ALIMIT ADDRESS EXTERNAL ;
+	DECLARE RESPONSE$TIMER$A$LIMIT LITERALLY 'ALIMIT' ;
+
+	DECLARE NLIMIT ADDRESS EXTERNAL ;
+	DECLARE TRANSMISSION$COUNTER$N$LIMIT LITERALLY 'NLIMIT' ;
+
+$EJECT
+
+	DECLARE FALSE LITERALLY '0' ;
+	DECLARE TRUE LITERALLY 'NOT FALSE' ;
+	DECLARE ACTIVE LITERALLY 'TRUE' ;
+	DECLARE INACTIVE LITERALLY 'FALSE' ;
+	DECLARE FOREVER LITERALLY 'WHILE 1' ;
+	DECLARE NO$LIMIT LITERALLY '0' ;
+
+	DECLARE WRITER$BUFFER$READY$TYPE LITERALLY '91' ;
+	DECLARE HOST$BUFFER$READY$TYPE LITERALLY '96' ;
+
+	DECLARE SEND$ENQ$TYPE LITERALLY '100' ;
+	DECLARE SEND$NAK$TYPE LITERALLY '101' ;
+	DECLARE SEND$ACK0$TYPE LITERALLY '102' ;
+	DECLARE SEND$ACK1$TYPE LITERALLY '103' ;
+	DECLARE SEND$EOT$TYPE LITERALLY '104' ;
+	DECLARE SEND$DLE$EOT$TYPE LITERALLY '105' ;
+	DECLARE SEND$HOST$DATA$ETB$TYPE LITERALLY '106' ;
+	DECLARE SEND$HOST$DATA$ETX$TYPE LITERALLY '107' ;
+	DECLARE SEND$HOST$DATA$ABORT$TYPE LITERALLY '108' ;
+
+	DECLARE RECVD$ENQ$TYPE LITERALLY '109' ;
+	DECLARE RECVD$NAK$TYPE LITERALLY '110' ;
+	DECLARE RECVD$ACK0$TYPE LITERALLY '111' ;
+	DECLARE RECVD$ACK1$TYPE LITERALLY '112' ;
+	DECLARE RECVD$EOT$TYPE LITERALLY '113' ;
+	DECLARE RECVD$DLE$EOT$TYPE LITERALLY '114' ;
+	DECLARE RECVD$HOST$DATA$ETB$TYPE LITERALLY '115' ;
+	DECLARE RECVD$HOST$DATA$ETX$TYPE LITERALLY '116' ;
+	DECLARE RECVD$HOST$DATA$ABORT$TYPE LITERALLY '117' ;
+
+	DECLARE SEND$WACK$TYPE LITERALLY '118' ;
+	DECLARE RECVD$WACK$TYPE LITERALLY '119' ;
+
+	DECLARE TRANSMIT$BUFFER$LENGTH LITERALLY '128' ;
+
+	DECLARE HOST$MSG$PTR ADDRESS ;
+	DECLARE ( HOST$MSG BASED HOST$MSG$PTR ) STRUCTURE(
+		LINK ADDRESS ,
+		LENGTH ADDRESS ,
+		TYPE BYTE ,
+		HOME$EXCHANGE ADDRESS ,
+		RESPONSE$EXCHANGE ADDRESS ,
+		STATUS ADDRESS ,
+		BUFFER ADDRESS ,
+		COUNT ADDRESS ,
+		ACTUAL ADDRESS ) ;
+
+$EJECT
+
+	VALID$HOST$REQUEST: PROCEDURE( EXCHANGE$PTR, TIME$LIMIT ) ADDRESS ;
+
+		DECLARE EXCHANGE$PTR ADDRESS ;
+		DECLARE TIME$LIMIT ADDRESS ;
+
+		DECLARE WRITE$MSG$PTR ADDRESS ;
+		DECLARE ( WRITE$MSG BASED WRITE$MSG$PTR ) STRUCTURE(
+			LINK ADDRESS ,
+			LENGTH ADDRESS ,
+			TYPE BYTE ,
+			HOME$EXCHANGE ADDRESS ,
+			RESPONSE$EXCHANGE ADDRESS ,
+			STATUS ADDRESS ,
+			BUFFER ADDRESS ,
+			COUNT ADDRESS ,
+			ACTUAL ADDRESS ) ;
+
+		DECLARE TYPE$ERROR$MSG (*) BYTE DATA( '"WRITE" message type invalid.' ) ;
+
+		DECLARE BUFFER$ERROR$MSG (*) BYTE DATA( '"WRITE" buffer length invalid.' ) ;
+
+		WAIT$FOR$HOST$MSG: DO ;
+			WRITE$MSG$PTR = RQWAIT( EXCHANGE$PTR, TIME$LIMIT ) ;
+		END WAIT$FOR$HOST$MSG ;
+
+		VALIDATE$HOST$MSG: DO ;
+			IF ( WRITE$MSG.TYPE <> HOST$BUFFER$READY$TYPE ) THEN
+				CALL ERROR( .TYPE$ERROR$MSG, LENGTH( TYPE$ERROR$MSG ) ) ;
+
+			IF ( WRITE$MSG.COUNT = 0 ) THEN
+				CALL ERROR( .BUFFER$ERROR$MSG, LENGTH( BUFFER$ERROR$MSG ) ) ;
+		END VALIDATE$HOST$MSG ;
+
+		RETURN WRITE$MSG$PTR ;
+
+	END VALID$HOST$REQUEST ;
+
+$EJECT
+
+	MONITOR$UPDATE: PROCEDURE( TRANSMITTER$STATUS ) BYTE ;
+
+		DECLARE TRANSMITTER$STATUS BYTE ;
+
+		DECLARE RECEIVER$STATUS BYTE ;
+
+		DECLARE TRANSMITTER$STATUS$MSG STRUCTURE(
+			LINK ADDRESS ,
+			LENGTH ADDRESS ,
+			TYPE BYTE ,
+			HOME$EXCHANGE ADDRESS ,
+			RESPONSE$EXCHANGE ADDRESS ,
+			STATUS ADDRESS ,
+			BUFFER ADDRESS ,
+			COUNT ADDRESS ,
+			ACTUAL ADDRESS ) ;
+
+		DECLARE MONITOR$MSG$PTR ADDRESS ;
+		DECLARE ( MONITOR$MSG BASED MONITOR$MSG$PTR ) STRUCTURE(
+			LINK ADDRESS ,
+			LENGTH ADDRESS ,
+			TYPE BYTE ,
+			HOME$EXCHANGE ADDRESS ,
+			RESPONSE$EXCHANGE ADDRESS ,
+			STATUS ADDRESS ,
+			BUFFER ADDRESS ,
+			COUNT ADDRESS ,
+			ACTUAL ADDRESS ) ;
+
+		DECLARE MONITOR$ERROR$MSG (*) BYTE DATA( 'MONITOR "REPLY" invalid.' ) ;
+
+		REPORT$TRANSMITTER$STATUS: DO ;
+			TRANSMITTER$STATUS$MSG.LENGTH = SIZE( TRANSMITTER$STATUS$MSG ) ;
+			TRANSMITTER$STATUS$MSG.TYPE = WRITER$BUFFER$READY$TYPE ;
+			TRANSMITTER$STATUS$MSG.HOME$EXCHANGE = .OUTX ;
+			TRANSMITTER$STATUS$MSG.RESPONSE$EXCHANGE = .OUTX ;
+			TRANSMITTER$STATUS$MSG.STATUS = TRANSMITTER$STATUS ;
+			TRANSMITTER$STATUS$MSG.BUFFER = .TRANSMITTER$STATUS$MSG.STATUS ;
+			TRANSMITTER$STATUS$MSG.COUNT = 0 ;
+			TRANSMITTER$STATUS$MSG.ACTUAL = 0 ;
+			CALL RQSEND( .MONITX, .TRANSMITTER$STATUS$MSG ) ;
+		END REPORT$TRANSMITTER$STATUS ;
+
+		WAIT$FOR$RECEIVER$STATUS: DO ;
+			MONITOR$MSG$PTR = RQWAIT( .OUTX, NO$LIMIT ) ;
+			IF ( MONITOR$MSG.TYPE = WRITER$BUFFER$READY$TYPE ) THEN
+				RECEIVER$STATUS = MONITOR$MSG.STATUS ;
+			ELSE
+				CALL ERROR( .MONITOR$ERROR$MSG, LENGTH( MONITOR$ERROR$MSG ) ) ;
+		END WAIT$FOR$RECEIVER$STATUS ;
+
+		RETURN RECEIVER$STATUS ;
+
+	END MONITOR$UPDATE ;
+
+$EJECT
+
+	ENCODE$CONTROL$REPLY: PROCEDURE( CONTROL$TYPE ) ADDRESS ;
+
+		DECLARE CONTROL$TYPE BYTE ;
+
+		DECLARE ENCODE$MSG STRUCTURE(
+			LINK ADDRESS ,
+			LENGTH ADDRESS ,
+			TYPE BYTE ,
+			HOME$EXCHANGE ADDRESS ,
+			RESPONSE$EXCHANGE ADDRESS ,
+			STATUS ADDRESS ,
+			BUFFER ADDRESS ,
+			COUNT ADDRESS ,
+			ACTUAL ADDRESS ) ;
+
+		DECLARE MSG$PTR ADDRESS ;
+		DECLARE ( MSG BASED MSG$PTR ) STRUCTURE(
+			LINK ADDRESS ,
+			LENGTH ADDRESS ,
+			TYPE BYTE ,
+			HOME$EXCHANGE ADDRESS ,
+			RESPONSE$EXCHANGE ADDRESS ,
+			STATUS ADDRESS ,
+			BUFFER ADDRESS ,
+			COUNT ADDRESS ,
+			ACTUAL ADDRESS ) ;
+
+		DECLARE ENCODE$ERROR$MSG (*) BYTE DATA( 'ENCODE "CONTROL REPLY" invalid.' ) ;
+
+		REQUEST$ENCODE$OUTPUT: DO ;
+			ENCODE$MSG.LENGTH = SIZE( ENCODE$MSG ) ;
+			ENCODE$MSG.TYPE = WRITER$BUFFER$READY$TYPE ;
+			ENCODE$MSG.HOME$EXCHANGE = .OUTX ;
+			ENCODE$MSG.RESPONSE$EXCHANGE = .OUTX ;
+			ENCODE$MSG.STATUS = CONTROL$TYPE ;
+			ENCODE$MSG.BUFFER = .ENCODE$MSG.STATUS ;
+			ENCODE$MSG.COUNT = 0 ;
+			ENCODE$MSG.ACTUAL = 0 ;
+			CALL RQSEND( XMITX, .ENCODE$MSG ) ;
+		END REQUEST$ENCODE$OUTPUT ;
+
+		WAIT$FOR$ENCODE$REPLY: DO ;
+			MSG$PTR = RQWAIT( .OUTX, NO$LIMIT ) ;
+			IF ( MSG.TYPE <> WRITER$BUFFER$READY$TYPE ) THEN
+				CALL ERROR( .ENCODE$ERROR$MSG, LENGTH( ENCODE$ERROR$MSG ) ) ;
+		END WAIT$FOR$ENCODE$REPLY ;
+
+		RETURN MSG$PTR ;
+
+	END ENCODE$CONTROL$REPLY ;
+
+$EJECT
+
+	ENCODE$DATA$REPLY: PROCEDURE( BUFFER$TYPE, BUFFER$PTR, BUFFER$COUNT ) ADDRESS ;
+
+		DECLARE BUFFER$TYPE BYTE ;
+		DECLARE BUFFER$PTR ADDRESS ;
+		DECLARE BUFFER$COUNT ADDRESS ;
+
+		DECLARE ENCODE$MSG STRUCTURE(
+			LINK ADDRESS ,
+			LENGTH ADDRESS ,
+			TYPE BYTE ,
+			HOME$EXCHANGE ADDRESS ,
+			RESPONSE$EXCHANGE ADDRESS ,
+			STATUS ADDRESS ,
+			BUFFER ADDRESS ,
+			COUNT ADDRESS ,
+			ACTUAL ADDRESS ) ;
+
+		DECLARE MSG$PTR ADDRESS ;
+		DECLARE ( MSG BASED MSG$PTR ) STRUCTURE(
+			LINK ADDRESS ,
+			LENGTH ADDRESS ,
+			TYPE BYTE ,
+			HOME$EXCHANGE ADDRESS ,
+			RESPONSE$EXCHANGE ADDRESS ,
+			STATUS ADDRESS ,
+			BUFFER ADDRESS ,
+			COUNT ADDRESS ,
+			ACTUAL ADDRESS ) ;
+
+		DECLARE ENCODE$ERROR$MSG (*) BYTE DATA( 'ENCODE "DATA REPLY" invalid.' ) ;
+
+		REQUEST$ENCODE$OUTPUT: DO ;
+			ENCODE$MSG.LENGTH = SIZE( ENCODE$MSG ) ;
+			ENCODE$MSG.TYPE = WRITER$BUFFER$READY$TYPE ;
+			ENCODE$MSG.HOME$EXCHANGE = .OUTX ;
+			ENCODE$MSG.RESPONSE$EXCHANGE = .OUTX ;
+			ENCODE$MSG.STATUS = BUFFER$TYPE ;
+			ENCODE$MSG.BUFFER = BUFFER$PTR ;
+			ENCODE$MSG.COUNT = BUFFER$COUNT ;
+			ENCODE$MSG.ACTUAL = 0 ;
+			CALL RQSEND( XMITX, .ENCODE$MSG ) ;
+		END REQUEST$ENCODE$OUTPUT ;
+
+		WAIT$FOR$ENCODE$REPLY: DO ;
+			MSG$PTR = RQWAIT( .OUTX, NO$LIMIT ) ;
+			IF ( MSG.TYPE <> WRITER$BUFFER$READY$TYPE ) THEN
+				CALL ERROR( .ENCODE$ERROR$MSG, LENGTH( ENCODE$ERROR$MSG ) ) ;
+		END WAIT$FOR$ENCODE$REPLY ;
+
+		RETURN MSG$PTR ;
+
+	END ENCODE$DATA$REPLY ;
+
+$EJECT
+
+	RECOVERABLE$TRANSFER$REPLY: PROCEDURE( BUFFER$TYPE, BUFFER$PTR, BUFFER$COUNT,
+		ALTERNATING$ACKNOWLEDGE$ACKN ) ADDRESS ;
+
+		DECLARE BUFFER$TYPE BYTE ;
+		DECLARE BUFFER$PTR ADDRESS ;
+		DECLARE BUFFER$COUNT ADDRESS ;
+		DECLARE ALTERNATING$ACKNOWLEDGE$ACKN BYTE ;
+
+		DECLARE SLAVE$MSG$PTR ADDRESS ;
+		DECLARE ( SLAVE$MSG BASED SLAVE$MSG$PTR ) STRUCTURE(
+			LINK ADDRESS ,
+			LENGTH ADDRESS ,
+			TYPE BYTE ,
+			HOME$EXCHANGE ADDRESS ,
+			RESPONSE$EXCHANGE ADDRESS ,
+			STATUS ADDRESS ,
+			BUFFER ADDRESS ,
+			COUNT ADDRESS ,
+			ACTUAL ADDRESS ) ;
+
+		DECLARE DELAY$MSG$PTR ADDRESS ;
+		DECLARE ( DELAY$MSG BASED DELAY$MSG$PTR ) STRUCTURE(
+			LINK ADDRESS ,
+			LENGTH ADDRESS ,
+			TYPE BYTE ,
+			HOME$EXCHANGE ADDRESS ,
+			RESPONSE$EXCHANGE ADDRESS ,
+			STATUS ADDRESS ,
+			BUFFER ADDRESS ,
+			COUNT ADDRESS ,
+			ACTUAL ADDRESS ) ;
+
+		DECLARE DELAY$TIME ADDRESS ;
+
+		DECLARE TRANSMISSION$COUNT ADDRESS ;
+
+		DECLARE REPLY$REQUEST$DISABLE LITERALLY 'FALSE' ;
+
+$EJECT
+
+		TRANSMISSION$COUNT = TRANSMISSION$COUNTER$N$LIMIT ;
+		TRANSMISSION: DO WHILE ( TRANSMISSION$COUNT > 0 ) ;
+
+			SLAVE$MSG$PTR = ENCODE$DATA$REPLY( BUFFER$TYPE, BUFFER$PTR, BUFFER$COUNT ) ;
+
+			IF ( SLAVE$MSG.STATUS = ALTERNATING$ACKNOWLEDGE$ACKN ) THEN
+
+				BLOCK$ACCEPT: DO ;
+					TRANSMISSION$COUNT = 0 ;
+					IF ( BUFFER$TYPE = SEND$HOST$DATA$ETB$TYPE ) THEN
+						SLAVE$MSG.STATUS = RECVD$HOST$DATA$ETB$TYPE ;
+					ELSE
+						SLAVE$MSG.STATUS = RECVD$HOST$DATA$ETX$TYPE ;
+				END BLOCK$ACCEPT ;
+
+			ELSE IF ( SLAVE$MSG.STATUS = RECVD$WACK$TYPE ) THEN
+
+$EJECT
+
+				BLOCK$WACK$ACCEPT: DO ;
+
+					DELAY$TIME = ( RESPONSE$TIMER$A$LIMIT / 2 ) + 1 ;
+					TRANSMISSION$COUNT = TRANSMISSION$COUNTER$N$LIMIT ;
+					WAIT$FOR$ACKN: DO WHILE ( TRANSMISSION$COUNT > 0 ) ;
+						DELAY$MSG$PTR = RQWAIT( .OUTX, DELAY$TIME ) ;
+						SLAVE$MSG$PTR = ENCODE$CONTROL$REPLY( SEND$ENQ$TYPE ) ;
+
+						IF ( SLAVE$MSG.STATUS = ALTERNATING$ACKNOWLEDGE$ACKN ) THEN
+
+							BLOCK$ACKN$AFTER$WACK: DO ;
+								TRANSMISSION$COUNT = 0 ;
+								IF ( BUFFER$TYPE = SEND$HOST$DATA$ETB$TYPE ) THEN
+									SLAVE$MSG.STATUS = RECVD$HOST$DATA$ETB$TYPE ;
+								ELSE
+									SLAVE$MSG.STATUS = RECVD$HOST$DATA$ETX$TYPE ;
+							END BLOCK$ACKN$AFTER$WACK ;
+
+						ELSE IF ( SLAVE$MSG.STATUS = RECVD$EOT$TYPE ) THEN
+
+							TERMINATION$INTERRUPT$AFTER$WACK: DO ;
+								TRANSMISSION$COUNT = 0 ;
+							END TERMINATION$INTERRUPT$AFTER$WACK ;
+
+						ELSE IF ( SLAVE$MSG.STATUS = RECVD$DLE$EOT$TYPE ) THEN
+
+							DISCONNECTION$INTERRUPT$AFTER$WACK: DO ;
+								TRANSMISSION$COUNT = 0 ;
+							END DISCONNECTION$INTERRUPT$AFTER$WACK ;
+
+						ELSE IF ( SLAVE$MSG.STATUS = RECVD$WACK$TYPE ) THEN
+
+							TRANSMISSION$COUNT = TRANSMISSION$COUNTER$N$LIMIT ;
+
+						ELSE
+
+							TRANSMISSION$COUNT = TRANSMISSION$COUNT - 1 ;
+
+					END WAIT$FOR$ACKN ;
+
+				END BLOCK$WACK$ACCEPT ;
+
+			ELSE IF ( SLAVE$MSG.STATUS = RECVD$NAK$TYPE ) THEN
+
+				BLOCK$REJECT: DO ;
+					TRANSMISSION$COUNT = TRANSMISSION$COUNT - 1 ;
+				END BLOCK$REJECT ;
+
+			ELSE IF ( SLAVE$MSG.STATUS = RECVD$EOT$TYPE ) THEN
+
+				TERMINATION$INTERRUPT: DO ;
+					TRANSMISSION$COUNT = 0 ;
+				END TERMINATION$INTERRUPT ;
+
+$EJECT
+
+			ELSE
+
+				INVALID$REPLY: DO ;
+
+					TRANSMISSION$COUNT = TRANSMISSION$COUNT - 1 ;
+
+					IF ( REPLY$REQUEST$DISABLE ) THEN
+
+						TAC$TGSI$COMPATIBILITY: DO ;
+							SLAVE$MSG.STATUS = RECVD$NAK$TYPE ;
+						END TAC$TGSI$COMPATIBILITY ;
+
+					ELSE
+
+						TGSI$INCOMPATIBILITY: DO ;
+
+							IF ( TRANSMISSION$COUNT > 0 ) THEN
+
+								REQUEST$REPLY: DO ;
+
+									SLAVE$MSG$PTR = ENCODE$CONTROL$REPLY( SEND$ENQ$TYPE ) ;
+
+									IF ( SLAVE$MSG.STATUS = ALTERNATING$ACKNOWLEDGE$ACKN ) THEN
+
+										ACKN$MISSED: DO ;
+
+											TRANSMISSION$COUNT = 0 ;
+
+											IF ( BUFFER$TYPE = SEND$HOST$DATA$ETB$TYPE ) THEN
+												SLAVE$MSG.STATUS = RECVD$HOST$DATA$ETB$TYPE ;
+											ELSE
+												SLAVE$MSG.STATUS = RECVD$HOST$DATA$ETX$TYPE ;
+
+										END ACKN$MISSED ;
+
+									ELSE
+
+										WRONG$ACKN: DO ;
+											SLAVE$MSG.STATUS = RECVD$NAK$TYPE ;
+										END WRONG$ACKN ;
+
+								END REQUEST$REPLY ;
+
+						END TGSI$INCOMPATIBILITY;
+
+				END INVALID$REPLY ;
+
+		END TRANSMISSION ;
+
+		RETURN SLAVE$MSG$PTR ;
+
+	END RECOVERABLE$TRANSFER$REPLY ;
+
+$EJECT
+
+	CIRCUIT$CONNECT: PROCEDURE ;
+
+		DIAL: DO ;
+		END DIAL ;
+
+		RETURN ;
+
+	END CIRCUIT$CONNECT ;
+
+$EJECT
+
+	ESTABLISHMENT: PROCEDURE( TRANSMITTER$STATUS$PTR ) ;
+
+		DECLARE TRANSMITTER$STATUS$PTR ADDRESS ;
+		DECLARE ( TRANSMITTER$STATUS BASED TRANSMITTER$STATUS$PTR ) BYTE  ;
+/*
+
+	Prior to initiating message transfer it is necessary to establish
+	that there is actually a data link between the "WRITER" and "REMOTE".
+
+	To establish the link for message transfer from the "WRITER" to the
+	"REMOTE", the "WRITER" requests the identity of the "REMOTE" by the
+	sending of an identification supervisory (control) sequence consisting
+	of a DLE character followed by a colon, an optional prefix, and ENQ.
+	(Note that at this time, immediately following circuit connection,
+	the "REMOTE" will not have any other outstanding slave response for
+	the "WRITER" since no traffic has been exchanged.)  Upon detecting
+	ENQ, "REMOTE" sends one of two replies:
+
+		1. If ready to receive, the "REMOTE" sends an ACK0 reply
+		(a DLE character, followed by a colon, a prefix that includes
+		its identity, a DLE and a 0).  Upon detecting the ACK0, the
+		"WRITER" proceeds with message transfer.
+
+		2. If not ready to receive, "REMOTE" sends a NAK reply (a DLE
+		character, followed by a colon, a prefix that includes its
+		identity, and a NAK character.  The "WRITER" upon detecting
+		the NAK may try again, proceed to termination, or exit to a
+		recovery procedure.
+
+			***********************************************
+			* NOTE: "P7DLS" CADE-P010S3.1 accepts retries *
+			*       or termination.                       *
+			***********************************************
+
+		If the "WRITER" receives an invalid reply or no reply, it
+		may send the identification sequence again, proceed to
+		termination, or exit to a recovery procedure.  N ( N > 1 )
+		tries may be made to verify the identity of the "REMOTE".
+
+			***********************************************
+			* NOTE: "P7DLS" CADE-P010S3.1 handles retries *
+			*       as part of message transfer.          *
+			***********************************************
+*/
+
+$EJECT
+
+		DECLARE RECEIVER$STATUS BYTE ;
+		DECLARE ACKNOWLEDGEMENT BYTE ;
+		DECLARE TRANSMISSION$COUNT BYTE ;
+
+		DECLARE SLAVE$MSG$PTR ADDRESS ;
+		DECLARE ( SLAVE$MSG BASED SLAVE$MSG$PTR ) STRUCTURE(
+			LINK ADDRESS ,
+			LENGTH ADDRESS ,
+			TYPE BYTE ,
+			HOME$EXCHANGE ADDRESS ,
+			RESPONSE$EXCHANGE ADDRESS ,
+			STATUS ADDRESS ,
+			BUFFER ADDRESS ,
+			COUNT ADDRESS ,
+			ACTUAL ADDRESS ) ;
+
+		ACKNOWLEDGEMENT = RECVD$NAK$TYPE ;
+		TRANSMISSION$COUNT = TRANSMISSION$COUNTER$N$LIMIT ;
+
+		SIGNAL$REMOTE$ENQUIRY: DO WHILE ( TRANSMISSION$COUNT > 0 ) ;
+
+			WAIT$FOR$REMOTE$ENQUIRY$REPLY: DO ;
+
+				SLAVE$MSG$PTR = ENCODE$CONTROL$REPLY( SEND$ENQ$TYPE ) ;
+				VALIDATE$SLAVE$MSG: DO ;
+					ACKNOWLEDGEMENT = SLAVE$MSG.STATUS ;
+					IF ( ACKNOWLEDGEMENT = RECVD$ACK0$TYPE ) THEN
+						COMPLETE$ESTABLISHMENT: DO ;
+							TRANSMITTER$STATUS = ACTIVE ;
+							TRANSMISSION$COUNT = 0 ;
+						END COMPLETE$ESTABLISHMENT ;
+
+					ELSE IF ( ACKNOWLEDGEMENT = RECVD$DLE$EOT$TYPE ) THEN
+						ABORT$ESTABLISHMENT: DO ;
+							TRANSMITTER$STATUS = INACTIVE ;
+							TRANSMISSION$COUNT = 0 ;
+						END ABORT$ESTABLISHMENT ;
+
+					ELSE
+						RETRY$ESTABLISHMENT: DO ;
+							TRANSMITTER$STATUS = INACTIVE ;
+							TRANSMISSION$COUNT = TRANSMISSION$COUNT - 1 ;
+						END RETRY$ESTABLISHMENT ;
+
+				END VALIDATE$SLAVE$MSG ;
+
+			END WAIT$FOR$REMOTE$ENQUIRY$REPLY ;
+
+		END SIGNAL$REMOTE$ENQUIRY ;
+
+		RECEIVER$STATUS = MONITOR$UPDATE( TRANSMITTER$STATUS ) ;
+		RETURN ;
+
+	END ESTABLISHMENT ;
+
+$EJECT
+
+	MESSAGE$TRANSFER: PROCEDURE( TRANSMITTER$STATUS$PTR ) ;
+
+		DECLARE TRANSMITTER$STATUS$PTR ADDRESS ;
+		DECLARE ( TRANSMITTER$STATUS BASED TRANSMITTER$STATUS$PTR ) BYTE ;
+
+/*
+	Message transfer requires that the "WRITER" send a transmission block
+	to the "REMOTE" and then wait for a reply.  If the reply indicates
+	that the block was accepted, the "WRITER" may send another block or
+	it may terminate.  If the reply is negative, the "WRITER" immediately
+	retransmits the block that was not accepted.
+
+	If the message has a heading, the "WRITER" begins its transmission
+	with a SOH character.  If the message has no heading, the "WRITER"
+	begins its transmission with a STX character.  If the last inform-
+	ation character of a heading ends on a block boundary (ended by ETB),
+	the subsequent block may be started by either SOH or STX.  In such
+	a case the receiver must be able to handle both situations.
+
+		*****************************************************
+		* NOTE: "P7DLS" CADE-P010S3.1 assumes that headings *
+		*       are short and don't end on a block boundary.*
+		*****************************************************
+
+	A block that ends at an intermediate point within a message is ended
+	with an ETB character.  A block that ends at the end of a message is
+	concluded with an ETX character.  The ETB or ETX character is immed-
+	iately followed by a block check character (BCC).  After the ETB or
+	ETX and BCC are sent, the "WRITER" waits for a reply.
+
+	The "REMOTE", upon detecting ETB or ETX followed by BCC, sends one
+	of two replies:
+
+		1. If the transmission block was accepted and the "REMOTE"
+		is ready to receive another block, it sends a DLE character,
+		followed by a colon, optional prefix, and the appropriate
+		acknowledgement.  ACK1 (a DLE character followed by a 1) is
+		used as the affirmative reply to the first block received.
+		ACK0 (a DLE character followed by a 0) is used as the affirm-
+		ative reply to the second block received.  Subsequent affirm-
+		ative acknowledgements alternate between ACK1 and ACK0.  Upon
+		detecting the appropriate affirmative acknowledgement, the
+		"WRITER", being free of any slave response obligation, may
+		either begin transmission of the next block, or initiate
+		termination if the last block ended in ETX BCC.
+
+		2. If the transmission block was not accepted and the
+		"REMOTE" is ready to receive another block, it sends a DLE
+		character, followed by a colon, optional prefix and a NAK
+		character.  Upon detecting NAK, the "WRITER", being free of
+		any slave response obligation, initiates retransmission of
+		the last transmission block.  N transmissions ( N > 1 ) may
+		be made, after which the "WRITER" exits to a recovery
+		procedure.
+
+		If the alternating reply indicates that the "REMOTE"
+		missed the outstanding block (receipt of ACK1 instead of
+		ACK0, or vice versa), the "WRITER" initiates retransmission
+		of that block as if the "REMOTE" had returned a NAK.
+
+		The use of NAK does not alter the sequence of alternating
+		acknowledgements.  The same affirmative reply (ACK0 or
+		ACK1) is used for a successful retransmission as would
+		have been used if the previous transmission of the block
+		had been successful.
+
+		If the "WRITER" receives an invalid or no reply to a
+		transmission block, it may send a reply request supervisory
+		sequence consisting of a DLE character followed by a colon,
+		optional prefix, and an ENQ character, or it may exit to a
+		recovery procedure.
+
+			************************************************
+			* NOTE: "P7DLS" CADE-P010S3.1 assumes that the *
+			*       "WRITER" will send a Reply Request     *
+			*       Supervisory Sequence.                  *
+			************************************************
+
+		Upon receipt of a reply request supervisory sequence, the
+		"REMOTE" repeats its last reply at the earliest possible
+		time.  N ( N > 1 ) tries may be made to get a valid reply.
+		If a valid reply is not received after N tries, the "WRITER"
+		exits to a recovery procedure.
+
+			************************************************
+			* NOTE: "P7DLS" CADE-P010S3.1 assumes that the *
+			*       "WRITER" will terminate for recovery.  *
+			************************************************
+
+		NOTE: The use of a reply request supervisory sequence may
+		result in the loss or duplication of transmission blocks.
+		Loss of transmission blocks may be avoided by always retrans-
+		mitting the previous block.  Although this precaution does
+		not eliminate the possible receipt of duplicate blocks, the
+		reply request supervisory sequence permits the detection of
+		such an occurrance.  The use of a numbering scheme will aid
+		in detecting loss or duplication of blocks.
+*/
+
+$EJECT
+
+/*
+				Aborts and Interrupts
+				=====================
+
+		At times during data interchange, the "WRITER" may desire to
+		end a block or transmission in an unusual manner such that
+		the "REMOTE" disregards that portion of the block or trans-
+		mission that has been received.  These procedures are called
+		"aborts".
+
+		At other times during data interchange, the "REMOTE" may
+		wish to cause the "WRITER" to stop sending, either tempor-
+		arily (in order to permit the "REMOTE" to send) or perm-
+		anently.  These procedures are called interrupts.
+
+					Block Abort
+					-----------
+
+		The "WRITER", in the process of sending a block, but before
+		the end of the block, decides to end the block in an unusual
+		manner such that the "REMOTE" will discard the block.
+
+			NOTE: If the abort resulted from a fault, under
+			some conditions retransmission of the aborted
+			block may not be possible or, if possible, may
+			not correct the fault.  In these cases message
+			cancellation or termination may be performed.
+
+		Block abort may be used by the "WRITER" when, in the process
+		of sending data, there occurs an indication that the data
+		being sent may not be valid.  Such an indication would result
+		from a buffer parity error check, or include error indications
+		from the source from which the data is being received prior
+		to transmission.
+
+		Block abort may be used by the "WRITER" when, in the process
+		of sending a fixed length block, it is determined that the
+		block exceeds the allowed length.  Such a condition, if
+		allowed to continue, might overflow the "REMOTE" buffer.
+		The condition could occur as the result of errors in the
+		transmitting mechanism or software, or by an operator.
+
+		Block abort may be used in the message transfer state to
+		cause a temporary text delay after receipt of the previous
+		acknowledgement if the "WRITER" is not capable of transmit-
+		ting the text before the predetermined timeout period.  The
+		reasons for such a delay might be the unavailability of
+		buffer space or that the speed of the input device is con-
+		siderably slower than the transmission speed and a full
+		block has not yet been read from the media.
+
+*/
+
+$EJECT
+
+/*
+		Block abort is accomplished by the "WRITER" ending the block
+		(at any time) with the ENQ character.  The "WRITER" then
+		halts transmission and waits for a reply.  The "REMOTE"
+		detects that the block was ended with ENQ rather than with
+		normal ending character (ETB or ETX), discards that portion
+		of the block that had been received, sends a NAK response
+		and remains in the receive condition.
+
+		Following receipt of the NAK response, the "WRITER" will
+		normally reinitiate the transmission with the same or a
+		new block.  Alternatively, the "WRITER" may choose to
+		initiate an appropriate termination or recovery procedure.
+		NOTE: When the application requires that the data be
+		transmitted in strict sequence, recovery procedures must
+		be employed if the aborted block cannot be successfully
+		retransmitted.
+
+			********************************************
+			* NOTE: "P7DLS" CADE-P010S3.1 accepts only *
+			*       retransmission or termination.     *
+			********************************************
+
+		In the case of a NAK response that is not received, the
+		"WRITER" will timeout and then will normally send the
+		reply request supervisory sequence (ENQ).  This additional
+		ENQ will help to insure that the "REMOTE" detects the
+		block abort action.  Upon receipt of the NAK response,
+		the "WRITER" will proceed as indicated in the preceding
+		paragraph.
+*/
+
+$EJECT
+
+/*
+				Sending Station Abort
+				---------------------
+
+		The "WRITER", in the process of sending several blocks
+		per text, decides to prematurely terminate transmission at
+		the end of a block and after receipt of the proper acknow-
+		ledgement reply.  Such a procedure is called a sending
+		station abort.
+
+		Sending station abort procedures may be used by the "WRITER"
+		when, in the process of sending multiple blocks per text, it
+		determines that it should prematurely terminate transmission.
+		Such a determination would be caused by the processor's not
+		receiving the remaining blocks in time from a peripheral
+		device or another communication line; the need for a higher
+		priority message to be transmitted; the temporary inability
+		of the "WRITER" to continue transmission; etc.
+
+		Sending station abort procedures may be used following block
+		abort procedures to accomplish a transmission abort condition;
+		that is, the "WRITER" prematurely terminates transmission
+		within a transmission block (or text) .
+
+		Sending station abort procedures are accomplished by the
+		"WRITER" completing the transmission of a block, for example
+		ETB, ENQ.  Then, upon receipt of the proper acknowledgement
+		reply (ACKN, NAK, etc. ) or a response timer timeout, the
+		"WRITER" transmits an EOT character to signal termination.
+		The "REMOTE" detects this sending station abort procedure by
+		recognizing receipt of the EOT following ETB, or ENQ instead
+		of ETX.  Receipt or transmission of EOT resets the "REMOTE"
+		and "WRITER" to the control phase.  These sending station
+		abort procedures may be followed by any procedure that is
+		normal for the control phase.  The disposition of the part-
+		ial text blocks (which were received without error) is
+		dependant on the application and system usage.
+
+			********************************************
+			* NOTE: "P7DLS" CADE-P010S3.1 assumes that *
+			*       sending station abort is followed  *
+			*       by termination and that partial    *
+			*       text blocks are discarded.         *
+			********************************************
+*/
+
+$EJECT
+
+/*
+				Termination Interrupt
+				---------------------
+
+		The "REMOTE", after receipt of a message or transmission
+		block, causes the "WRITER" to cease transmission.  Such a
+		procedure is called termination interrupt.
+
+		Termination interrupt may be used by the "REMOTE" to cause
+		the transmission to be interrupted because it is not in
+		condition to receive.  Causes for such inability to receive
+		could include the running out of paper or a hardware malfunc-
+		tion, etc.
+
+		Termination interrupt procedures are accomplished by the
+		"REMOTE" transmitting an EOT character in liew of one of its
+		normal responses.  This response indicates a negative
+		acknowledgement of the last transmission and the conclusion
+		of a transmission.  The EOT resets the "REMOTE" and "WRITER"
+		to the control phase and may be followed by any procedure
+		that is normal for the control phase.
+
+			********************************************
+			* NOTE: "P7DLS" CADE-P010S3.1 assumes that *
+			*       termination interrupt is followed  *
+			*       by termination.                    *
+			********************************************
+
+*/
+$EJECT
+/*
+			Temporary Interrupt (Optional)
+			------------------------------
+
+		After receipt of a message or transmission block, the
+		receiving station affirmatively acknowledges the infor-
+		mation received and also indicates that it is tempor-
+		arily unable to receive additional data by transmitting
+		the WACK control function.  The sending station must
+		then delay transmission of any subsequent blocks or
+		messages to that station until it has determined that
+		the receiving station is once again ready to receive.
+
+		Note: This function is intended for receiving devices
+		that are unable to accept data continuously, that is,
+		devices that become temporarily unable to accept a
+		contiguous data block or message immediately.  WACK
+		may also be used as a response to a selection or
+		request for identification supervisory sequence, or
+		to bid for master status.
+
+		Temporary Interrupt may be used by a receiving station
+		to delay the receipt of additional data until it has
+		the opportunity to clear a buffer that will be required
+		for reception of the next block or message.
+
+		Temporary Interrupt may also be used by a receiving
+		station to provide a temporary time delay during the
+		establishment control procedure ( that is, before
+		receiving data) for such terminal functions as motor
+		start-up or accessing I/O units.
+
+		Temporary Interrupt is accomplished by the receiving
+		station's transmitting the WACK control character
+		sequence consisting of the following: a DLE character,
+		a colon, an optional prefix, a DLE character and a
+		semicolon character.  It is transmitted in lieu of
+		the appropriate affirmative acknowledgement (ACKN).
+		The WACK response indicates that the receiving station
+		received the last transmission block or message cor-
+		rectly, but that it is temporarily unable to accept
+		additional data.
+
+		Upon receipt of WACK, the sending station may realease
+		the information just transmitted from storage and
+		prepare for transmission of the next block or message.
+		However, before actually initiating such transmission,
+		the sending station must first determine the state of
+		readiness of the receiving station by transmitting the
+		control character ENQ to the receiving station.
+
+		The receiving station shall respond to ENQ with the
+		WACK sequence if it is still unable to receive.  The
+		sending station may then repeat the ENQ query.  The
+		receiving station shall continue to transmit the WACK
+		sequence in response to ENQ until it is ready to re-
+		ceive additional data, at which time it shall respond
+		with the appropriate ACKN.  Upon receipt of the appro-
+		priate ACKN, the sending station shall resume sending
+		additional data.
+
+		If no response to an ENQ is received during the ENQ/
+		WACK interchange, the sending station shall exit to
+		an appropriate recovery procedure.
+
+		If an invalid response to an ENQ is received during
+		the ENQ/WACK interchange, the sending station shall
+		transmit ENQ N ( N > 1 ) times in order to solicit
+		a valid response.  After N unsuccesful attempts, the
+		sending station shall exit to an appropriate recovery
+		procedure.
+
+*/
+$EJECT
+
+		DECLARE SLAVE$MSG$PTR ADDRESS ;
+		DECLARE ( SLAVE$MSG BASED SLAVE$MSG$PTR ) STRUCTURE(
+			LINK ADDRESS ,
+			LENGTH ADDRESS ,
+			TYPE BYTE ,
+			HOME$EXCHANGE ADDRESS ,
+			RESPONSE$EXCHANGE ADDRESS ,
+			STATUS ADDRESS ,
+			BUFFER ADDRESS ,
+			COUNT ADDRESS ,
+			ACTUAL ADDRESS ) ;
+
+		DECLARE TRANSFER$STATUS BYTE ;
+
+		DECLARE ALTERNATING$ACKNOWLEDGE$ACKN BYTE ;
+
+		DECLARE BUFFER$TYPE BYTE ;
+		DECLARE BUFFER$PTR ADDRESS ;
+		DECLARE BUFFER$COUNT ADDRESS ;
+
+		DECLARE TEXT$ETB$BLOCKS ADDRESS ;
+		DECLARE TEXT$CHARACTERS ADDRESS ;
+
+$EJECT
+
+		ALTERNATING$ACKNOWLEDGE$ACKN = RECVD$ACK1$TYPE ;
+
+		TRANSFER$STATUS = TRANSMITTER$STATUS ;
+		PROCESS$WRITE$MESSAGE: DO WHILE ( TRANSFER$STATUS = ACTIVE ) ;
+
+			HOST$MSG.ACTUAL = 0 ;
+
+			TEXT$CHARACTERS = HOST$MSG.COUNT ;
+			IF ( TEXT$CHARACTERS <= TRANSMIT$BUFFER$LENGTH ) THEN
+				TEXT$ETB$BLOCKS = 0 ;
+			ELSE
+				TEXT$ETB$BLOCKS = TEXT$CHARACTERS / TRANSMIT$BUFFER$LENGTH ;
+
+			SLAVE$MSG$PTR = HOST$MSG$PTR ;
+			SLAVE$MSG.STATUS = RECVD$HOST$DATA$ETB$TYPE ;
+			TRANSMIT$DATA$BLOCKS: DO WHILE ( SLAVE$MSG.STATUS = RECVD$HOST$DATA$ETB$TYPE ) ;
+
+				IF ( TEXT$ETB$BLOCKS > 0 ) THEN
+					ETB$BLOCK$SETUP: DO ;
+						TEXT$ETB$BLOCKS = TEXT$ETB$BLOCKS - 1 ;
+						BUFFER$TYPE = SEND$HOST$DATA$ETB$TYPE ;
+						BUFFER$PTR = HOST$MSG.BUFFER + HOST$MSG.ACTUAL ;
+						BUFFER$COUNT = TRANSMIT$BUFFER$LENGTH ;
+					END ETB$BLOCK$SETUP ;
+				ELSE
+					ETX$BLOCK$SETUP: DO ;
+						BUFFER$TYPE = SEND$HOST$DATA$ETX$TYPE ;
+						BUFFER$PTR = HOST$MSG.BUFFER + HOST$MSG.ACTUAL ;
+						BUFFER$COUNT = TEXT$CHARACTERS ;
+					END ETX$BLOCK$SETUP ;
+
+				SLAVE$MSG$PTR = RECOVERABLE$TRANSFER$REPLY( BUFFER$TYPE, BUFFER$PTR, BUFFER$COUNT,
+											ALTERNATING$ACKNOWLEDGE$ACKN ) ;
+
+				IF ( ( SLAVE$MSG.STATUS = RECVD$HOST$DATA$ETB$TYPE ) OR
+					( SLAVE$MSG.STATUS = RECVD$HOST$DATA$ETX$TYPE ) ) THEN
+					BLOCK$ACKNOWLEDGED: DO ;
+						HOST$MSG.ACTUAL = HOST$MSG.ACTUAL + SLAVE$MSG.ACTUAL ;
+						TEXT$CHARACTERS = TEXT$CHARACTERS - SLAVE$MSG.ACTUAL ;
+						IF ( ALTERNATING$ACKNOWLEDGE$ACKN = RECVD$ACK1$TYPE ) THEN
+							ALTERNATING$ACKNOWLEDGE$ACKN = RECVD$ACK0$TYPE ;
+						ELSE
+							ALTERNATING$ACKNOWLEDGE$ACKN = RECVD$ACK1$TYPE ;
+					END BLOCK$ACKNOWLEDGED ;
+
+$EJECT
+
+				ELSE IF ( SLAVE$MSG.STATUS = RECVD$EOT$TYPE ) THEN
+					TERMINATION$INTERRUPT: DO ;
+						HOST$MSG.ACTUAL = 0 ;
+						TRANSFER$STATUS = INACTIVE ;
+					END TERMINATION$INTERRUPT ;
+				ELSE
+					INVALID$REPLY: DO ;
+						HOST$MSG.ACTUAL = 0 ;
+						TRANSFER$STATUS = INACTIVE ;
+						TRANSMITTER$STATUS = INACTIVE ;
+					END INVALID$REPLY ;
+
+			END TRANSMIT$DATA$BLOCKS ;
+
+			HOST$MSG.STATUS = SLAVE$MSG.STATUS ;
+
+			IF ( HOST$MSG.STATUS = RECVD$HOST$DATA$ETX$TYPE ) THEN
+				GET$NEXT$HOST$MSG: DO ;
+					CALL RQSEND( HOST$MSG.RESPONSE$EXCHANGE, HOST$MSG$PTR ) ;
+					HOST$MSG$PTR = VALID$HOST$REQUEST( .OUTX, NO$LIMIT ) ;
+				END GET$NEXT$HOST$MSG ;
+
+		END PROCESS$WRITE$MESSAGE ;
+
+		RETURN ;
+
+	END MESSAGE$TRANSFER ;
+
+$EJECT
+
+	TERMINATION: PROCEDURE( TRANSMITTER$STATUS$PTR ) ;
+
+		DECLARE TRANSMITTER$STATUS$PTR ADDRESS ;
+		DECLARE ( TRANSMITTER$STATUS BASED TRANSMITTER$STATUS$PTR ) BYTE ;
+
+/*
+	If the link has not been established for message transfer in either
+	direction ( that is, the "WRITER" has successfully completed the
+	identification procedure for neither its transmitter nor receiver),
+	either the "REMOTE" or "WRITER" may proceed to initiate disconnect
+	by transmitting a DLE character folowed by an EOT.
+
+	If the link has been established for message transfer in either or
+	both directions, then both stations must, under normal conditions,
+	transmit (and receive) an EOT prior to either station's initiating
+	disconnect by transmitting a DLE character followed by an EOT.
+
+	If the link has been established for message transfers in both
+	directions, the sending of EOT by either station signals the end of
+	message transfer in that direction.  To resume message transfers
+	after sending EOT (but prior to receiving EOT), the link must be
+	reestablished by the station that initiated termination.
+
+	EOT may only be transmitted by a station after all outstanding
+	slave responses have been received or otherwise accounted for.
+*/
+
+$EJECT
+
+		DECLARE RECEIVER$STATUS BYTE ;
+
+		DECLARE SLAVE$MSG$PTR ADDRESS ;
+		DECLARE ( SLAVE$MSG BASED SLAVE$MSG$PTR ) STRUCTURE(
+			LINK ADDRESS ,
+			LENGTH ADDRESS ,
+			TYPE BYTE ,
+			HOME$EXCHANGE ADDRESS ,
+			RESPONSE$EXCHANGE ADDRESS ,
+			STATUS ADDRESS ,
+			BUFFER ADDRESS ,
+			COUNT ADDRESS ,
+			ACTUAL ADDRESS ) ;
+
+		TRANSMITTER$STATUS = INACTIVE ;
+		RECEIVER$STATUS = MONITOR$UPDATE( TRANSMITTER$STATUS ) ;
+		IF ( RECEIVER$STATUS = ACTIVE ) THEN
+			SLAVE$MSG$PTR = ENCODE$CONTROL$REPLY( SEND$EOT$TYPE ) ;
+		SLAVE$MSG$PTR = ENCODE$CONTROL$REPLY( SEND$DLE$EOT$TYPE ) ;
+
+		RETURN ;
+
+	END TERMINATION ;
+
+$EJECT
+
+	CIRCUIT$DISCONNECT: PROCEDURE ;
+
+		HANGUP: DO ;
+		END HANGUP ;
+
+		RETURN ;
+
+	END CIRCUIT$DISCONNECT ;
+
+$EJECT
+
+	WRITER: PROCEDURE PUBLIC ;
+
+	DECLARE TRANSMITTER$STATUS BYTE ;
+
+		DATA$LINK$MASTER: DO FOREVER ;
+
+			HOST$MSG$PTR = VALID$HOST$REQUEST( .OUTX, NO$LIMIT ) ;
+
+			CALL CIRCUIT$CONNECT ;
+			CALL ESTABLISHMENT( .TRANSMITTER$STATUS ) ;
+			CALL MESSAGE$TRANSFER( .TRANSMITTER$STATUS ) ;
+			CALL TERMINATION( .TRANSMITTER$STATUS ) ;
+			CALL CIRCUIT$DISCONNECT ;
+
+			CALL RQSEND( HOST$MSG.RESPONSE$EXCHANGE, HOST$MSG$PTR ) ;
+
+		END DATA$LINK$MASTER ;
+
+	END WRITER ;
+
+END WRITER ;

@@ -1,5 +1,5 @@
 #! /usr/bin/env python
-# "Time-stamp: <03/15/2016 10:15:23 AM rsg>"
+# "Time-stamp: <12/20/2016  3:52:03 PM rsg>"
 '''
 tsWxGlobals.py - Module to establish configuration constants and
 macro-type functions for the Graphical-style User Interface mode
@@ -330,6 +330,26 @@ of the "tsWxGTUI" Toolkit.
 #                   Added 'Use_256_Color_Pair_Limit' entry in
 #                   ThemeWxPython and ThemeTeamSTARS.
 #
+#    2016/12/20 rsg Update design to reflect new information about
+#                   64-bit processor dependency of "ncurses" 6.0
+#                   and Python 3.6.0.
+#
+#                   The 16-color with its associated 256-color-pair
+#                   limit always applies on 32-bit processors and for
+#                   software running in 32-bit compatibility-mode on
+#                   64-bit processors. The Python Software foundation
+#                   has declared that this limit will always apply to
+#                   Python 2.x and Python 3.x through 3.5.2 releases.
+#
+#                   Set "USE_256_COLOR_PAIR_LIMIT" = True only for
+#                   32-bit versions of "curses", "ncurses" 5.0 and
+#                   "ncurses" 6.0. Also applies for versions running
+#                   in 32-bit compatibility mode on 64-bit processors.
+#
+#                   Set "USE_256_COLOR_PAIR_LIMIT" = False only for
+#                   64-bit versions of "ncurses" 6.0 with Python
+#                   3.6.0 or later.
+#
 # ToDo:
 #
 #    2012/03/27 rsg Troubleshoot various unit test traps when
@@ -359,8 +379,8 @@ of the "tsWxGTUI" Toolkit.
 #################################################################
 
 __title__     = 'tsWxGlobals'
-__version__   = '1.43.0'
-__date__      = '03/15/2016'
+__version__   = '1.44.0'
+__date__      = '12/20/2016'
 __authors__   = 'Richard S. Gordon'
 __copyright__ = 'Copyright (c) 2007-2016 ' + \
                 '%s.\n\t\tAll rights reserved.' % __authors__
@@ -548,7 +568,8 @@ def tsEnableColorPairLimit():
 
     if (sys.maxsize <= 2**32):
 
-        # 32-bit processors can only support up to 16 colors and up to
+        # 32-bit processors (or 64-bit processors running in 32-bit
+        # compatibility mode) can only support up to 16 colors and up to
         # 256 color pairs (16 foreground colors x 16 background colors)
         HAS_256_COLOR_PAIR_LIMIT = True
         print('ALERT: tsWxGlobals ' + \
@@ -556,10 +577,10 @@ def tsEnableColorPairLimit():
               'HAS_256_COLOR_PAIR_LIMIT=%s; sys.maxsize=%s' % (
                   str(HAS_256_COLOR_PAIR_LIMIT), str(sys.maxsize)))
 
-    elif (tsPythonVersion <= '3.5.0'):
+    elif (tsPythonVersion < '3.6.0'):
 
-        # Regardless if 32-bit or 64-bit processor, Python 2.0.0 - 2.7.11 and
-        # Python 3.0.0 - 3.5.0 can only support a maximum of 256 color pairs 
+        # Regardless if 32-bit or 64-bit processor, Python 2.0.0 - 2.7.11
+        # can only support a maximum of 256 color pairs 
         # (16 foreground colors x 16 background colors)
         HAS_256_COLOR_PAIR_LIMIT = True
         print('ALERT: tsWxGlobals ' + \
@@ -569,7 +590,7 @@ def tsEnableColorPairLimit():
 
     else:
 
-        # Python, if 64-bit processor, beginning with 3.5.1 can support more
+        # Python, if 64-bit processor, beginning with 3.6.0 can support more
         # than 256 color pairs
         # (16 foreground colors x 16 background colors)
         HAS_256_COLOR_PAIR_LIMIT = False

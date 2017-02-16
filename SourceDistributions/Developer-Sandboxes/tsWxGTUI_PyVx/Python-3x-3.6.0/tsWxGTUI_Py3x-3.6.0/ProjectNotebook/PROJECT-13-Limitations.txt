@@ -1,0 +1,88 @@
+#-----------------------------------------------------------
+#"Time-stamp: <07/01/2015  4:34:29 AM rsg>"
+#-----------------------------------------------------------
+
+============== File: PROJECT-13-Limitations.txt ============
+
+   +----+----+  TeamSTARS "tsWxGTUI_PyVx" Toolkit
+   | ts | Wx |      with Python 2x & Python 3x based
+   +----+----+         Command Line Interface (CLI)
+   | G T U I |      and "Curses"-based "wxPython"-style, 
+   +---------+         Graphical-Text User Interface (GUI)
+ 
+   Get that cross-platform, pixel-mode "wxPython" feeling
+   on character-mode 8-/16-color (xterm-family) & non-color
+   (vt100-family) terminals and terminal emulators.
+
+==================== CURRENT LIMITATIONS ===================
+
+This section details the limitations of the functional,
+interface, design, implementation, operation, quality and
+reliability goals.
+
+1. Known "nCurses"-based, "wxPython" Emulation Limitations
+
+   a. Supports typical nCurses platforms with keyboard,
+      mouse and only 8-/16 color display terminal or term-
+      inal emulator despite some older host-specific curses
+      implementation reports of 88/256 available colors and
+      7744/32768 color pairs.
+
+   b. Supports typical nCurses platforms with keyboard, mouse
+      and 1-color phosphor display terminal or vt100 and
+      vt220 terminal emulator despite some older host-spe-
+      cific curses implementation reports of no mouse.
+      However, unlike the xterm mouse, the synthesized
+      vt100/vt220 mouse can recognize only single mouse
+      button clicks but not double or triple ones.
+
+   c. Bit-mapped images are NOT supported except for the
+      prerecorded one used at startup as a Splash screen.
+
+   d. Maps wxPython-style pixel dimensions into/from nCurses
+      character row and column cell units (emulation assumes
+      character cell equivalent pixel dimensions are 8 width
+      x 12 height). The operator must therefor manually con-
+      figure the terminal window to either use smaller fonts
+      or a larger window.
+
+   e. Supports the operator selected terminal/terminal
+      emulator fixed font with the blink, bold, dim,
+      normal, reverse, standout and underline attribute
+      changed/restored by the application as appropriate.
+      However, not all host operating system platforms
+      actually blink and some change colors instead.
+
+   f. Unverified support for nCurses platforms with key-
+      board, mouse and 256-color display terminal or
+      xterm_256color terminal emulator when control switch
+      to "USE_256_COLOR_PAIR_LIMIT" is deactivated.
+
+   g. Automatically maps 68-color, "wxPython" palette only
+      into available nCurses 8-/16-color xterm palette.
+
+   h. Automatically maps 68-color, "wxPython" palette only
+      into available nCurses 2-color vt100/vt220 palette.
+
+2. Known "wxPython" Emulation Issues
+
+   a. Mouse Event handling is rudimentary but suitable for
+      left/middle/right button click, double-click use.
+
+   b. Queued GUI and non-GUI event processing is non-func-
+      tional while under development.
+
+   c. Frame / Dialog closing/resizing/deleting is is non-
+      functional while under development.
+
+   d. Frame / Dialog overlay stacking/hiding/unhiding is
+      non-functional while under development.
+
+   e. Dialog user keyboard input processing is not recom-
+      mended while under development.
+
+   f. Linux host platform-specific exceptions during the
+      determination of which GUI scrollbar object may
+      intermittantly occur with mouse clicks.
+
+======================= End-Of-File ========================

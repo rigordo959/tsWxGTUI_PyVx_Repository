@@ -1,0 +1,672 @@
+Help on module tsExceptions:
+
+NAME
+    tsExceptions
+
+FILE
+    /cygdrive/d/WR/Technical_Preview-Draft/tsWxGTUI_PyVx/Python-2x/tsWxGTUI_Py2x/tsLibCLI/tsExceptions.py
+
+DESCRIPTION
+    tsExceptions.py - Class to define and handle error exceptions.
+    Maps run time exception types into 8-bit exit codes and prints
+    associated diagnostic message and traceback info.
+
+CLASSES
+    exceptions.Exception(exceptions.BaseException)
+        TsExceptions
+            DiagnosticException
+            InputOutputException
+            ProgramException
+            UserInterfaceException
+    
+    class DiagnosticException(TsExceptions)
+     |  Exception raised for diagnostic errors.
+     |  
+     |  Attributes:
+     |      theErrorName    - string indicating error type
+     |      theErrorMessage - string describing cause of error
+     |  
+     |  Method resolution order:
+     |      DiagnosticException
+     |      TsExceptions
+     |      exceptions.Exception
+     |      exceptions.BaseException
+     |      __builtin__.object
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, theErrorName, theErrorMessage)
+     |      Handle exception.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes defined here:
+     |  
+     |  errorCodeFromNameMap = {'UNUSED_00': 0, 'UNUSED_01': 1, 'UNUSED_02': 2...
+     |  
+     |  errorCount = 64
+     |  
+     |  errorNameFromCodeMap = {0: 'UNUSED_00', 1: 'UNUSED_01', 2: 'UNUSED_02'...
+     |  
+     |  errorNames = ['UNUSED_00', 'UNUSED_01', 'UNUSED_02', 'UNUSED_03', 'UNU...
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from TsExceptions:
+     |  
+     |  __str__(self)
+     |      Called by the repr() built-in function and by string conversions
+     |      (reverse quotes) to compute the ``official'' string representation
+     |      of an object. If at all possible, this should look like a valid
+     |      Python expression that could be used to recreate an object with
+     |      the same value (given an appropriate environment). If this is not
+     |      possible, a string of the form "<...some useful description...>"
+     |      should be returned. The return value must be a string object. If
+     |      a class defines __repr__() but not __str__(), then __repr__() is
+     |      also used when an ``informal'' string representation of instances
+     |      of that class is required.
+     |      
+     |      This is typically used for debugging, so it is important that the
+     |      representation is information-rich and unambiguous.
+     |  
+     |  buildExitCode(self, exceptionCode, errorCode)
+     |      Encode an exception ID into the upper bits and an error ID into
+     |      the lower bits so that an 8-bit value is available for use upon
+     |      process exit.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from TsExceptions:
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes inherited from TsExceptions:
+     |  
+     |  exceptionCodeFromNameMap = {'Diagnostic Exception': 3, 'Input Output E...
+     |  
+     |  exceptionCount = 4
+     |  
+     |  exceptionNameFromCodeMap = {0: 'Program Exception', 1: 'Input Output E...
+     |  
+     |  exceptionNames = ['Program Exception', 'Input Output Exception', 'User...
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes inherited from exceptions.Exception:
+     |  
+     |  __new__ = <built-in method __new__ of type object>
+     |      T.__new__(S, ...) -> a new object with type S, a subtype of T
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from exceptions.BaseException:
+     |  
+     |  __delattr__(...)
+     |      x.__delattr__('name') <==> del x.name
+     |  
+     |  __getattribute__(...)
+     |      x.__getattribute__('name') <==> x.name
+     |  
+     |  __getitem__(...)
+     |      x.__getitem__(y) <==> x[y]
+     |  
+     |  __getslice__(...)
+     |      x.__getslice__(i, j) <==> x[i:j]
+     |      
+     |      Use of negative indices is not supported.
+     |  
+     |  __reduce__(...)
+     |  
+     |  __repr__(...)
+     |      x.__repr__() <==> repr(x)
+     |  
+     |  __setattr__(...)
+     |      x.__setattr__('name', value) <==> x.name = value
+     |  
+     |  __setstate__(...)
+     |  
+     |  __unicode__(...)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from exceptions.BaseException:
+     |  
+     |  __dict__
+     |  
+     |  args
+     |  
+     |  message
+    
+    class InputOutputException(TsExceptions)
+     |  Exception raised for Input/Output errors.
+     |  
+     |  Attributes:
+     |      theErrorName    - string indicating error type
+     |      theErrorMessage - string describing cause of error
+     |  
+     |  Method resolution order:
+     |      InputOutputException
+     |      TsExceptions
+     |      exceptions.Exception
+     |      exceptions.BaseException
+     |      __builtin__.object
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, theErrorName, theErrorMessage)
+     |      Handle exception.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes defined here:
+     |  
+     |  errorCodeFromNameMap = {'File Create Access Not Permitted': 0, 'File D...
+     |  
+     |  errorCount = 64
+     |  
+     |  errorNameFromCodeMap = {0: 'File Create Access Not Permitted', 1: 'Fil...
+     |  
+     |  errorNames = ['File Create Access Not Permitted', 'File Delete Access ...
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from TsExceptions:
+     |  
+     |  __str__(self)
+     |      Called by the repr() built-in function and by string conversions
+     |      (reverse quotes) to compute the ``official'' string representation
+     |      of an object. If at all possible, this should look like a valid
+     |      Python expression that could be used to recreate an object with
+     |      the same value (given an appropriate environment). If this is not
+     |      possible, a string of the form "<...some useful description...>"
+     |      should be returned. The return value must be a string object. If
+     |      a class defines __repr__() but not __str__(), then __repr__() is
+     |      also used when an ``informal'' string representation of instances
+     |      of that class is required.
+     |      
+     |      This is typically used for debugging, so it is important that the
+     |      representation is information-rich and unambiguous.
+     |  
+     |  buildExitCode(self, exceptionCode, errorCode)
+     |      Encode an exception ID into the upper bits and an error ID into
+     |      the lower bits so that an 8-bit value is available for use upon
+     |      process exit.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from TsExceptions:
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes inherited from TsExceptions:
+     |  
+     |  exceptionCodeFromNameMap = {'Diagnostic Exception': 3, 'Input Output E...
+     |  
+     |  exceptionCount = 4
+     |  
+     |  exceptionNameFromCodeMap = {0: 'Program Exception', 1: 'Input Output E...
+     |  
+     |  exceptionNames = ['Program Exception', 'Input Output Exception', 'User...
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes inherited from exceptions.Exception:
+     |  
+     |  __new__ = <built-in method __new__ of type object>
+     |      T.__new__(S, ...) -> a new object with type S, a subtype of T
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from exceptions.BaseException:
+     |  
+     |  __delattr__(...)
+     |      x.__delattr__('name') <==> del x.name
+     |  
+     |  __getattribute__(...)
+     |      x.__getattribute__('name') <==> x.name
+     |  
+     |  __getitem__(...)
+     |      x.__getitem__(y) <==> x[y]
+     |  
+     |  __getslice__(...)
+     |      x.__getslice__(i, j) <==> x[i:j]
+     |      
+     |      Use of negative indices is not supported.
+     |  
+     |  __reduce__(...)
+     |  
+     |  __repr__(...)
+     |      x.__repr__() <==> repr(x)
+     |  
+     |  __setattr__(...)
+     |      x.__setattr__('name', value) <==> x.name = value
+     |  
+     |  __setstate__(...)
+     |  
+     |  __unicode__(...)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from exceptions.BaseException:
+     |  
+     |  __dict__
+     |  
+     |  args
+     |  
+     |  message
+    
+    class ProgramException(TsExceptions)
+     |  Exception raised for program errors.
+     |  
+     |  Attributes:
+     |      theErrorName    - string indicating error type
+     |      theErrorMessage - string describing cause of error
+     |  
+     |  Method resolution order:
+     |      ProgramException
+     |      TsExceptions
+     |      exceptions.Exception
+     |      exceptions.BaseException
+     |      __builtin__.object
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, theErrorName, theErrorMessage)
+     |      Handle exception.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes defined here:
+     |  
+     |  errorCodeFromNameMap = {'Abort By Operator': 1, 'Application Trap': 2,...
+     |  
+     |  errorCount = 64
+     |  
+     |  errorNameFromCodeMap = {0: 'No Error', 1: 'Abort By Operator', 2: 'App...
+     |  
+     |  errorNames = ['No Error', 'Abort By Operator', 'Application Trap', 'Ar...
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from TsExceptions:
+     |  
+     |  __str__(self)
+     |      Called by the repr() built-in function and by string conversions
+     |      (reverse quotes) to compute the ``official'' string representation
+     |      of an object. If at all possible, this should look like a valid
+     |      Python expression that could be used to recreate an object with
+     |      the same value (given an appropriate environment). If this is not
+     |      possible, a string of the form "<...some useful description...>"
+     |      should be returned. The return value must be a string object. If
+     |      a class defines __repr__() but not __str__(), then __repr__() is
+     |      also used when an ``informal'' string representation of instances
+     |      of that class is required.
+     |      
+     |      This is typically used for debugging, so it is important that the
+     |      representation is information-rich and unambiguous.
+     |  
+     |  buildExitCode(self, exceptionCode, errorCode)
+     |      Encode an exception ID into the upper bits and an error ID into
+     |      the lower bits so that an 8-bit value is available for use upon
+     |      process exit.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from TsExceptions:
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes inherited from TsExceptions:
+     |  
+     |  exceptionCodeFromNameMap = {'Diagnostic Exception': 3, 'Input Output E...
+     |  
+     |  exceptionCount = 4
+     |  
+     |  exceptionNameFromCodeMap = {0: 'Program Exception', 1: 'Input Output E...
+     |  
+     |  exceptionNames = ['Program Exception', 'Input Output Exception', 'User...
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes inherited from exceptions.Exception:
+     |  
+     |  __new__ = <built-in method __new__ of type object>
+     |      T.__new__(S, ...) -> a new object with type S, a subtype of T
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from exceptions.BaseException:
+     |  
+     |  __delattr__(...)
+     |      x.__delattr__('name') <==> del x.name
+     |  
+     |  __getattribute__(...)
+     |      x.__getattribute__('name') <==> x.name
+     |  
+     |  __getitem__(...)
+     |      x.__getitem__(y) <==> x[y]
+     |  
+     |  __getslice__(...)
+     |      x.__getslice__(i, j) <==> x[i:j]
+     |      
+     |      Use of negative indices is not supported.
+     |  
+     |  __reduce__(...)
+     |  
+     |  __repr__(...)
+     |      x.__repr__() <==> repr(x)
+     |  
+     |  __setattr__(...)
+     |      x.__setattr__('name', value) <==> x.name = value
+     |  
+     |  __setstate__(...)
+     |  
+     |  __unicode__(...)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from exceptions.BaseException:
+     |  
+     |  __dict__
+     |  
+     |  args
+     |  
+     |  message
+    
+    class TsExceptions(exceptions.Exception)
+     |  Base class for exceptions in this module.
+     |  
+     |  Class to define and handle error exceptions. Maps run time exception
+     |  types into 8-bit exit codes and prints associated diagnostic message
+     |  and traceback info.
+     |  
+     |  Attributes:
+     |      theExceptionName - string indicating exception class
+     |      theExceptionCode - code indicating exception class
+     |      theErrorName     - string indicating error type
+     |      theErrorCode     - code indicating error type
+     |      theErrorMessage  - string describing cause of error
+     |      tracebackList    - stack traceback as a list of strings
+     |  
+     |  Method resolution order:
+     |      TsExceptions
+     |      exceptions.Exception
+     |      exceptions.BaseException
+     |      __builtin__.object
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, theExceptionName, theExceptionCode, theErrorName, theErrorCode, theErrorMessage, tracebackList)
+     |      Initialize base class.
+     |  
+     |  __str__(self)
+     |      Called by the repr() built-in function and by string conversions
+     |      (reverse quotes) to compute the ``official'' string representation
+     |      of an object. If at all possible, this should look like a valid
+     |      Python expression that could be used to recreate an object with
+     |      the same value (given an appropriate environment). If this is not
+     |      possible, a string of the form "<...some useful description...>"
+     |      should be returned. The return value must be a string object. If
+     |      a class defines __repr__() but not __str__(), then __repr__() is
+     |      also used when an ``informal'' string representation of instances
+     |      of that class is required.
+     |      
+     |      This is typically used for debugging, so it is important that the
+     |      representation is information-rich and unambiguous.
+     |  
+     |  buildExitCode(self, exceptionCode, errorCode)
+     |      Encode an exception ID into the upper bits and an error ID into
+     |      the lower bits so that an 8-bit value is available for use upon
+     |      process exit.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes defined here:
+     |  
+     |  exceptionCodeFromNameMap = {'Diagnostic Exception': 3, 'Input Output E...
+     |  
+     |  exceptionCount = 4
+     |  
+     |  exceptionNameFromCodeMap = {0: 'Program Exception', 1: 'Input Output E...
+     |  
+     |  exceptionNames = ['Program Exception', 'Input Output Exception', 'User...
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes inherited from exceptions.Exception:
+     |  
+     |  __new__ = <built-in method __new__ of type object>
+     |      T.__new__(S, ...) -> a new object with type S, a subtype of T
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from exceptions.BaseException:
+     |  
+     |  __delattr__(...)
+     |      x.__delattr__('name') <==> del x.name
+     |  
+     |  __getattribute__(...)
+     |      x.__getattribute__('name') <==> x.name
+     |  
+     |  __getitem__(...)
+     |      x.__getitem__(y) <==> x[y]
+     |  
+     |  __getslice__(...)
+     |      x.__getslice__(i, j) <==> x[i:j]
+     |      
+     |      Use of negative indices is not supported.
+     |  
+     |  __reduce__(...)
+     |  
+     |  __repr__(...)
+     |      x.__repr__() <==> repr(x)
+     |  
+     |  __setattr__(...)
+     |      x.__setattr__('name', value) <==> x.name = value
+     |  
+     |  __setstate__(...)
+     |  
+     |  __unicode__(...)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from exceptions.BaseException:
+     |  
+     |  __dict__
+     |  
+     |  args
+     |  
+     |  message
+    
+    class UserInterfaceException(TsExceptions)
+     |  Exception raised for program errors.
+     |  
+     |  Attributes:
+     |      theErrorName    - string indicating error type
+     |      theErrorMessage - string describing cause of error
+     |  
+     |  Method resolution order:
+     |      UserInterfaceException
+     |      TsExceptions
+     |      exceptions.Exception
+     |      exceptions.BaseException
+     |      __builtin__.object
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, theErrorName, theErrorMessage)
+     |      Handle exception.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes defined here:
+     |  
+     |  errorCodeFromNameMap = {'Character Graphics Not Available': 0, 'Comman...
+     |  
+     |  errorCount = 64
+     |  
+     |  errorNameFromCodeMap = {0: 'Character Graphics Not Available', 1: 'Com...
+     |  
+     |  errorNames = ['Character Graphics Not Available', 'Command Line Argume...
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from TsExceptions:
+     |  
+     |  __str__(self)
+     |      Called by the repr() built-in function and by string conversions
+     |      (reverse quotes) to compute the ``official'' string representation
+     |      of an object. If at all possible, this should look like a valid
+     |      Python expression that could be used to recreate an object with
+     |      the same value (given an appropriate environment). If this is not
+     |      possible, a string of the form "<...some useful description...>"
+     |      should be returned. The return value must be a string object. If
+     |      a class defines __repr__() but not __str__(), then __repr__() is
+     |      also used when an ``informal'' string representation of instances
+     |      of that class is required.
+     |      
+     |      This is typically used for debugging, so it is important that the
+     |      representation is information-rich and unambiguous.
+     |  
+     |  buildExitCode(self, exceptionCode, errorCode)
+     |      Encode an exception ID into the upper bits and an error ID into
+     |      the lower bits so that an 8-bit value is available for use upon
+     |      process exit.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from TsExceptions:
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes inherited from TsExceptions:
+     |  
+     |  exceptionCodeFromNameMap = {'Diagnostic Exception': 3, 'Input Output E...
+     |  
+     |  exceptionCount = 4
+     |  
+     |  exceptionNameFromCodeMap = {0: 'Program Exception', 1: 'Input Output E...
+     |  
+     |  exceptionNames = ['Program Exception', 'Input Output Exception', 'User...
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes inherited from exceptions.Exception:
+     |  
+     |  __new__ = <built-in method __new__ of type object>
+     |      T.__new__(S, ...) -> a new object with type S, a subtype of T
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from exceptions.BaseException:
+     |  
+     |  __delattr__(...)
+     |      x.__delattr__('name') <==> del x.name
+     |  
+     |  __getattribute__(...)
+     |      x.__getattribute__('name') <==> x.name
+     |  
+     |  __getitem__(...)
+     |      x.__getitem__(y) <==> x[y]
+     |  
+     |  __getslice__(...)
+     |      x.__getslice__(i, j) <==> x[i:j]
+     |      
+     |      Use of negative indices is not supported.
+     |  
+     |  __reduce__(...)
+     |  
+     |  __repr__(...)
+     |      x.__repr__() <==> repr(x)
+     |  
+     |  __setattr__(...)
+     |      x.__setattr__('name', value) <==> x.name = value
+     |  
+     |  __setstate__(...)
+     |  
+     |  __unicode__(...)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from exceptions.BaseException:
+     |  
+     |  __dict__
+     |  
+     |  args
+     |  
+     |  message
+
+DATA
+    ABORT_BY_OPERATOR = 'Abort By Operator'
+    APPLICATION_TRAP = 'Application Trap'
+    ARGUMENT_KEY_NOT_VALID = 'Argument Key Not Valid'
+    ARGUMENT_TYPE_NOT_VALID = 'Argument Type Not Valid'
+    ARGUMENT_VALUE_NOT_VALID = 'Argument Value Not Valid'
+    ARITHMETIC_ERROR = 'Arithmetic Error'
+    CHARACTER_GRAPHICS_NOT_AVAILABLE = 'Character Graphics Not Available'
+    COMMAND_LINE_ARGUMENT_DOES_NOT_EXIST = 'Command Line Argument Does Not...
+    COMMAND_LINE_ARGUMENT_NOT_UNIQUE = 'Command Line Argument Not Unique'
+    COMMAND_LINE_ARGUMENT_NOT_VALID = 'Command Line Argument Not Valid'
+    COMMAND_LINE_OPERATION_DOES_NOT_EXIST = 'Command Line Operation Does N...
+    COMMAND_LINE_OPERATION_NOT_VALID = 'Command Line Operation Not Valid'
+    COMMAND_LINE_OPTION_DOES_NOT_EXIST = 'Command Line Option Does Not Exi...
+    COMMAND_LINE_OPTION_NOT_VALID = 'Command Line Option Not Valid'
+    COMMAND_LINE_SWITCH_DOES_NOT_EXIST = 'Command Line Switch Does Not Exi...
+    COMMAND_LINE_SWITCH_NOT_VALID = 'Command Line Switch Not Valid'
+    COMMAND_LINE_SYNTAX_NOT_VALID = 'Command Line Syntax Not Valid'
+    DIAGNOSTIC_EXCEPTION = 'Diagnostic Exception'
+    EXECUTABLE_IMAGE_DOES_NOT_EXIST = 'Executable Image Does Not Exist'
+    EXECUTABLE_IMAGE_NOT_VALID = 'Executable Image Not Valid'
+    EXECUTABLE_INSTRUCTION_NOT_VALID = 'Executable Instruction Not Valid'
+    FILE_CREATE_ACCESS_NOT_PERMITTED = 'File Create Access Not Permitted'
+    FILE_DELETE_ACCESS_NOT_PERMITTED = 'File Delete Access Not Permitted'
+    FILE_DIRECTORY_NOT_FOUND = 'File Directory Not Found'
+    FILE_EXECUTE_ACCESS_NOT_PERMITTED = 'File Execute Access Not Permitted...
+    FILE_NOT_FOUND = 'File Not Found'
+    FILE_READ_ACCESS_NOT_PERMITTED = 'File Read Access Not Permitted'
+    FILE_STORAGE_MEDIA_FULL = 'File Storage Media Full'
+    FILE_WRITE_ACCESS_NOT_PERMITTED = 'File Write Access Not Permitted'
+    FORMAT_ERROR = 'Format Error'
+    GRAPHICAL_BUTTON_NOT_VALID = 'Graphical Button Not Valid'
+    GRAPHICAL_DIALOG_NOT_VALID = 'Graphical Dialog Not Valid'
+    GRAPHICAL_MENU_NOT_VALID = 'Graphical Menu Not Valid'
+    GRAPHICAL_WINDOW_DOES_NOT_EXIST = 'Graphical Window Does Not Exist'
+    GRAPHICAL_WINDOW_NOT_VALID = 'Graphical Window Not Valid'
+    GRAPHICAL_WINDOW_RESIZED = 'Graphical Window Resized'
+    INPUT_OUTPUT_EXCEPTION = 'Input Output Exception'
+    INTERRUPT_ALREADY_IN_USE = 'Interrupt Already In Use'
+    INTERRUPT_DOES_NOT_EXIST = 'Interrupt Does Not Exist'
+    INTERRUPT_RECEIVER_NOT_READY = 'Interrupt Receiver Not Ready'
+    INTERRUPT_TRANSMITTER_NOT_READY = 'Interrupt Transmitter Not Ready'
+    INVALID_ERROR_CODE = 255
+    IO_ERROR = 'IO Error'
+    LOGIC_ERROR = 'Logic Error'
+    NO_ERROR = 'No Error'
+    OS_ERROR = 'OS Error'
+    PROGRAM_EXCEPTION = 'Program Exception'
+    SIGNAL_ALREADY_IN_USE = 'Signal Already In Use'
+    SIGNAL_DOES_NOT_EXIST = 'Signal Does Not Exist'
+    SIGNAL_RECEIVER_NOT_READY = 'Signal Receiver Not Ready'
+    SIGNAL_TRANSMITTER_NOT_READY = 'Signal Transmitter Not Ready'
+    SPURIOUS_INTERRUPT_RECEIVED = 'Spurious Interrupt Received'
+    SPURIOUS_SIGNAL_RECEIVED = 'Spurious Signal Received'
+    SYNTAX_ERROR = 'Syntax Error'
+    TIMEOUT_ERROR = 'Timeout Error'
+    UNKNOWN_ERROR = 'Unknown Error'
+    USER_INTERFACE_EXCEPTION = 'User Interface Exception'
+    __all__ = ['ABORT_BY_OPERATOR', 'APPLICATION_TRAP', 'ARGUMENT_KEY_NOT_...
+    __authors__ = 'Richard S. Gordon'
+    __copyright__ = 'Copyright (c) 2007-2013 Richard S. Gordon. All rights...
+    __credits__ = '\n\n  Credits: \n\n\t  tsLibCLI Import & Application .....
+    __date__ = '07/17/2013'
+    __header__ = '\n\ntsExceptions.py, v1.3.0 (build 07/17/2013)\n\n  ...0...
+    __license__ = 'GNU General Public License, Version 3, 29 June 2007'
+    __line1__ = 'tsExceptions.py, v1.3.0 (build 07/17/2013)'
+    __line2__ = 'Author(s): Richard S. Gordon'
+    __line3__ = 'Copyright (c) 2007-2013 Richard S. Gordon. All rights res...
+    __line4__ = 'GNU General Public License, Version 3, 29 June 2...009 - ...
+    __title__ = 'tsExceptions.py'
+    __version__ = '1.3.0'
+
+VERSION
+    1.3.0
+
+DATE
+    07/17/2013
+
+CREDITS
+    
+    
+      Credits: 
+    
+    	  tsLibCLI Import & Application Launch Features: 
+    	  Copyright (c) 2007-2009 - Frederick A. Kier. 
+    			All rights reserved.
+
+

@@ -1,5 +1,5 @@
 #-----------------------------------------------------------
-#"Time-stamp: <09/26/2015  4:52:09 AM rsg>
+#"Time-stamp: <01/18/2017  8:07:55 AM rsg>
 #-----------------------------------------------------------
 
 ===================== File: README.txt =====================
@@ -9,13 +9,27 @@
    +----+----+         Command Line Interface (CLI)
    | G T U I |      and "Curses"-based "wxPython"-style, 
    +---------+         Graphical-Text User Interface (GUI)
- 
-   Get that cross-platform, pixel-mode "wxPython" feeling
-   on character-mode 8-/16-color (xterm-family) & non-color
-   (vt100-family) terminals and terminal emulators.
 
-   You can find this and other plain-text files in the
-   Toolkit subdirectory named:
+   Get that cross-platform, pixel-mode "wxPython" feeling on
+   platforms with:
+
+   * 64-bit processors, nCurses 6.x, 64-bit Python 3.6.x or
+     later GUI applications and character-mode 256-/16-/8-
+     color (xterm-family) and non-color (vt100-family)
+     terminals and terminal emulators.
+
+   * 32-bit processors, nCurses 6.x/5.x, 32-bit Python 3.5.2
+     or earlier GUI applications and character-mode 16-/8-
+     color (xterm-family) and non-color (vt100-family)
+     terminals and terminal emulators.
+
+   The TeamSTARS "tsWxGTUI_PyVx" Toolkit's cross-platform
+   Virtual Machine design and implementation supports a broad
+   assortment of open and proprietary hardware and software
+   platforms.
+
+   You can find this and other plain-text files in the Toolkit
+   subdirectory named:
 
        "./<Toolkit Recipient's Repository>/Documents".
 
@@ -26,6 +40,23 @@
          +-- ["Documents"]
 
 ===================== TABLE OF CONTENTS ====================
+
+Preface
+
+   A. Software Interface Generator (SWIG)
+
+   B. "nCurses" Library (Enhanced terminal control for
+      Unix-like systems, enabling the construction of
+      Graphical-style Text User Interface applications)
+
+   C. Python Standard "Curses" Library (Basic Unix
+      Capabilities)
+
+   D. Python SWIG "Curses" Library (Enhanced Unix
+      Capabilities)
+
+   E. Python SWIG "PDCurses" Library (Emulated-Unix
+      Platforms)
 
 1. Introduction
 
@@ -54,6 +85,142 @@
    4.2 Experimental Developer-Sandboxes
 
 5. Sdist, Build & Install Contents & Organization
+
+============================= Preface ===========================
+
+Preface
+
+   The TeamSTARS "tsWxGTUI_PyVx" Toolkit is an evolutionary
+   upgrade from it predecessor, the TeamSTARS "tsWxGTUI_PyVx"
+   Toolkit. It uses the Software Interface Generator (SWIG), a
+   software development tool, to introduce new features and
+   capabilities.
+
+A. Software Interface Generator (SWIG)
+
+   SWIG is a software development tool that connects software
+   libraries written in C and C++ with applications written in a
+   variety of high-level programming languages. It is used with
+   different types of target languages including common scripting
+   languages such as Javascript, Perl, PHP, Python, Tcl and Ruby.
+   It is used to create high-level interpreted or compiled
+   programming environments, user interfaces, and as a tool for
+   testing and prototyping C/C++ software. SWIG is used to parse
+   C/C++ interfaces and generate the 'glue code' required for the
+   above target languages to call into the C/C++ code.
+
+B. "nCurses" Library (Enhanced terminal control for Unix-like
+   systems, enabling the construction of Graphical-style Text
+   User Interface applications)
+
+   For many years, the Python Software Foundation supported only
+   the Free Software Foundation GNU Project's "ncurses" (new
+   curses) library. The library being a free software emulation
+   of curses in AT&T Unix System V Release 4.0 (SVr4), and more.
+   It uses terminfo format, supports pads and color and multiple
+   highlights and forms characters and function-key mapping, and
+   has all the other SVr4-curses enhancements over BSD Unix
+   curses. SVr4 curses is better known today as X/Open Curses.
+
+   The most recent release introduced support for multi-byte
+   unicode and for 64-bit processors (with associated support for
+   at least 256 colors).   
+
+C. Python Standard "Curses" Library (Basic Unix Capabilities)
+
+   The Python Standard "Curses" Library module never supported
+   all of the available "nCurses" Library Application Programming
+   Interface (API) functions. Its API subset only included those
+   functions traditionally found in the AT&T Unix System V
+   Release 4.0 "Curses" library.
+
+D. Python SWIG "Curses" Library (Enhanced Unix Capabilities)
+
+   SWIG has made it practical to optionally provide the full
+   "nCurses" API to users of the "TeamSTARS "tsWxGTUI_PyVx"
+   Toolkit.
+
+E. Python SWIG "PDCurses" Library (Emulated-Unix Platforms)
+                                   
+   For those applications that require it, the "TeamSTARS
+   "tsWxGTUI_PyVx" Toolkit can optionally produce the
+   'glue code' by which Public Domain Curses ("PDCurses") can
+   interface to:
+
+   1. Unix-like systems offering only the AT&T Unix System V
+      Release 4.0 Curses API.
+
+   2. Non-Unix systems (such as  DOS, OS/2, Windows, X11 and SDL).
+      PDCurses offers Microsoft Windows several API options:
+
+      Requires use of one of the following PDCurses API ports:
+
+      a. SDL (Simple DirectMedia Layer) API
+
+          Simple DirectMedia Layer (SDL) is a cross-platform,
+          free and open source multimedia library written in C
+          that presents a simple interface to various platforms'
+          graphics, sound, and input devices. It is widely used
+          due to its simplicity. Over 700 games, 180 applications,
+          and 120 demos have been posted on its website.
+
+          SDL has the word "layer" in its title because it is
+          actually a wrapper around operating-system-specific
+          functions. The main purpose of SDL is to provide a
+          common framework for accessing these functions. For
+          further functionality beyond this goal, many libraries
+          have been created to work on top of SDL. Software
+          developers use it to write computer games and other
+          multimedia applications that can run on many operating
+          systems: Android, iOS, Linux, Mac OS X, Windows and
+          other platforms. It manages video, events, digital
+          audio, CD-ROM, threads, shared object loading,
+          networking and timers.
+
+      b. Win32 API
+
+         An application programming interface designed to use a
+         character-mode console. It uses only mono-spaced fonts
+         and a limited set of font attributes. Its text rendition
+         approximates that of an xterm. 
+
+         It is common to all Microsoft's 32-bit Windows operating
+         systems. These currently include: Windows 95, Windows 98,
+         Windows NT, Windows CE, Windows 2000, Windows XP,
+         Windows 7, Windows 8 and Windows 10.
+
+      c. Win32a API
+
+         An application programming interface designed to use a
+         graphical-mode console. It uses Windows GDI instead of
+         the console. This lets PDCurses escape the limitations
+         of the console, so that it can implement essentially
+         everything specified in Curses. (Some of these improve-
+         ments have also been applied to PDCurses for X11, SDL,
+         etc.)
+
+         It is common to all Microsoft's 32-bit Windows operating
+         systems. These currently include: Windows 95, Windows 98,
+         Windows NT, Windows CE, Windows 2000, Windows XP,
+         Windows 7, Windows 8 and Windows 10.
+
+         The screen shot (at http://www.projectpluto.com/win32a.htm)
+         shows some of the things this flavor of PDCurses can do,
+         such as display of bold, italic, underlined, overlined,
+         dimmed, 'strikeout', blinking text, full RGB colors,
+         display of the full range of Unicode, a range of blinking
+         cursor styles and blinking text, and fullwidth and combined
+         characters. All of this is backward-compatible to the
+         original PDCurses specification.
+
+      d. X11 API
+
+         This is a port of PDCurses for X11, aka XCurses. It is
+         designed to allow existing curses programs to be re-compiled
+         with PDCurses, resulting in native X11 programs.
+
+   SWIG is free software and the code that SWIG generates is
+   compatible with commercial and non-commercial projects.
 
 ========================== Introduction =========================
 
@@ -264,10 +431,14 @@
 
        2.2.1 "Python-3x" - Identifies third generation Python
                            language. Syntax is associated with
-                           Python 3.0.0-3.5.x.
+                           Python 3.0.0-3.6.x.
 
-                       Current stable release is Python 3.5.0
-                       as of 9 Sep. 2015.
+                       Current stable release is Python 3.6.0 as
+                       of 23 Dec. 2016. See the new features in
+                       Python 3.6 compared to Python 3.5 in:
+
+                           "https://docs.python.org/3/whatsnew/
+                                    3.6.html"
 
                        NOTE: The Python Software Foundation has
                              designated Python 3.x to be under
@@ -284,8 +455,8 @@
                            language. Syntax is associated with
                            Python 2.0.0-2.7.x.
 
-                       Current stable release is Python 2.7.10
-                       as of 23 May 2015.
+                       Current stable release is Python 2.7.13
+                       as of 17 Dec. 2016.
 
                        NOTE: The Python Software Foundation has
                              designated Python 2.x to be in its
@@ -724,7 +895,7 @@
              User Add-on <Path>:
                 /opt/local/lib/pythonX.Y
  
-       5.3.3 Mac OS X (10.3 Panther - 10.10 Yosemite)
+       5.3.3 Mac OS X (10.3 Panther - 10.11 El Capitan)
  
              Built-in <Path>:
                 /Library/Python/X.Y

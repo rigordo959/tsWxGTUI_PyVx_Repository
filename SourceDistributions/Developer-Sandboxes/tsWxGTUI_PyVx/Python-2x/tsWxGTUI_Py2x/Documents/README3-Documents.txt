@@ -1,5 +1,5 @@
 #-----------------------------------------------------------
-#"Time-stamp: <09/30/2015 10:14:01 AM rsg>"
+#"Time-stamp: <12/18/2016  2:42:54 PM rsg>"
 #-----------------------------------------------------------
 
 ================ File: README3-Documents.txt ===============
@@ -10,9 +10,18 @@
    | G T U I |      and "Curses"-based "wxPython"-style, 
    +---------+         Graphical-Text User Interface (GUI)
  
-   Get that cross-platform, pixel-mode "wxPython" feeling
-   on character-mode 8-/16-color (xterm-family) & non-color
-   (vt100-family) terminals and terminal emulators.
+   Get that cross-platform, pixel-mode "wxPython" feeling on
+   platforms with:
+
+   * 64-bit processors, nCurses 6.x, 64-bit Python 3.6.x or
+     later GUI applications and character-mode 256-/16-/8-
+     color (xterm-family) and non-color (vt100-family)
+     terminals and terminal emulators.
+
+   * 32-bit processors, nCurses 6.x/5.x, 32-bit Python 3.5.2
+     or earlier GUI applications and character-mode 16-/8-
+     color (xterm-family) and non-color (vt100-family)
+     terminals and terminal emulators.
 
    You can find this and other plain-text files in the
    Toolkit subdirectory named:

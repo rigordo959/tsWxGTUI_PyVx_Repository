@@ -1,0 +1,105 @@
+#-----------------------------------------------------------
+#"Time-stamp: <06/18/2015  4:30:46 AM rsg>"
+#-----------------------------------------------------------
+
+============== File: PROJECT-05-Non-Goals.txt ==============
+
+   +----+----+  TeamSTARS "tsWxGTUI_PyVx" Toolkit
+   | ts | Wx |      with Python 2x & Python 3x based
+   +----+----+         Command Line Interface (CLI)
+   | G T U I |      and "Curses"-based "wxPython"-style, 
+   +---------+         Graphical-Text User Interface (GUI)
+ 
+   Get that cross-platform, pixel-mode "wxPython" feeling
+   on character-mode 8-/16-color (xterm-family) & non-color
+   (vt100-family) terminals and terminal emulators.
+
+======================== NON-GOALS =========================
+
+This is a high-level view of functional, interface, design,
+implementation, operation, quality and reliability require-
+ments that are beyond the work scope.
+
+1. A means to emulate each and every capability of the
+   Application Programming Interface (API) of the pixel-mode
+   Graphical User Interface (such as the C++ language based
+   "wxWidgets" and its Python language based "wxPython"
+   wrapper) because the "tsWxGTUI" Toolkit is designed for
+   embedded systems which typically have limited, appli-
+   cation-specific processing, memory, communication,
+   input/output and file storage resources. Some may have
+   character-mode hardware only suitable for their operating
+   system's command line console.
+
+2. A means to develop support for pixel-mode GUI features
+   such as icons, proportional fonts and other bit-mapped
+   images because many embedded system displays operate
+   only in character-mode.
+
+3. A means to programmatically re-size the top level appli-
+   cation Frame or any other GUI object because:
+
+   a. The host operating system's command line shell window
+      is opened upon operator login and the size of the
+      login window establishes the initial size of the char-
+      acter-mode display (such as "stdscr", the Python
+      "Curses" or GNU "nCurses" low-level GUI-style standard
+      screen).
+
+   b. The application that directly use the character-mode
+      display (identified as "stdscr" in Python "Curses" or
+      GNU "nCurses") are efficient enough to respond to
+      operator re-sizing events related to the top-level
+      "stdscr" or any associated GUI-style objects. They
+      can also use the "pad" feature to create virtual
+      windows whose out-of-bounds contents are clipped (not
+      displayed) without triggering an error. Those appli-
+      cation are responsible for programmatically re-sizing
+      low-level GUI objects and any dependent ones.
+
+   c. It is not yet known how to make applications program-
+      matically re-size any or all of the high- and low-
+      level GUI-style objects and any dependent ones, with-
+      out a complete, time consuming application re-start.
+
+4. A means and expertise to re-compile and re-build the
+   "nCurses" library and associated Python wrapper with the
+   wide character option needed to support Unicode charact-
+   ers and 256-colors because its installation could ad-
+   versely effect the operation of host operating system
+   utilities.
+
+5. A means and expertise to extend the Python Curses module
+   to include support for all of the currently available
+   "nCurses" methods and functions. The use of Python C-lan-
+   guage extensions is beyond the work scope because the
+   cross-platform "tsWxGTUI_PyVx" Toolkit is intended to be
+   used on host computer platforms for which the Toolkit
+   developer does not have the access required for qualifi-
+   cation testing. From "Extending Python with C or C++":
+   "It is quite easy to add new built-in modules to Python,
+   if you know how to program in C. Such extension modules
+   can do two things that can't be done directly in Python:
+   they can implement new built-in object types, and they
+   can call C library functions and system calls. To support
+   extensions, the Python API (Application Programmers
+   Interface) defines a set of functions, macros and vari-
+   ables that provide access to most aspects of the Python
+   run-time system. The Python API is incorporated in a C
+   source file by including the header "Python.h". The com-
+   pilation of an extension module depends on its intended
+   use as well as on your system setup; details are given
+   in later chapters. Do note that if your use case is call-
+   ing C library functions or system calls, you should con-
+   sider using the ctypes module rather than writing custom
+   C code. Not only does ctypes let you write Python code to
+   interface with C code, but it is more portable between
+   implementations of Python than writing and compiling an
+   extension module which typically ties you to CPython." 
+
+5. A means and expertise to resolve anomalies in the look
+   and feel of vt100, vt220, xterm, xterm-color, xterm-
+   16color, xterm-88color and xterm-256color terminal emu-
+   lations that are platform-specific. 
+
+======================= End-Of-File ========================

@@ -1,0 +1,152 @@
+
+Help on module tsWxDebugHandlers:
+
+NAME
+    tsWxDebugHandlers
+
+FILE
+    ./tsLibGUI/tsWxPkg/src/tsWxDebugHandlers.py
+
+DESCRIPTION
+    tsWxDebugHandlers.py - Class that provides assert and check
+    handlers for debugging.
+
+CLASSES
+    __builtin__.object
+        DebugHandlers
+    
+    class DebugHandlers(__builtin__.object)
+     |  Assertion handlers: check if the condition is true and call assert handler
+     |  (which will by default notify the user about failure) if it is not.
+     |  
+     |  wxASSERT and wxFAIL handlers as well as wxTrap() function do nothing at all
+     |  if wxDEBUG_LEVEL is 0 however they do check their conditions at default
+     |  debug level 1, unlike the previous wxWidgets versions.
+     |  
+     |  wxASSERT_LEVEL_2 is meant to be used for "expensive" asserts which should
+     |  normally be disabled because they have a big impact on performance and so
+     |  this macro only does anything if wxDEBUG_LEVEL >= 2.
+     |  
+     |  wxCHECK handlers always check their conditions, setting debug level to 0
+     |  only makes them silent in case of failure, otherwise -- including at
+     |  default debug level 1 -- they call the assert handler if the condition
+     |  is false
+     |  
+     |  They are supposed to be used only in invalid situation: for example, an
+     |  invalid parameter (e.g. a NULL pointer) is passed to a function. Instead
+     |  of dereferencing it and causing core dump the function might use
+     |  
+     |  wxCHECK_RET( p != NULL, "pointer ca not be NULL" )
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self)
+     |      Constructor
+     |  
+     |  wxASSERT(self, cond)
+     |      assert checks if the condition is true and calls the assert handler
+     |      with a default message if it is not
+     |      
+     |      NB: the macro is defined like this to ensure that nested if/else
+     |      statements containing it are compiled in the same way whether
+     |      it is defined as empty or not
+     |  
+     |  wxASSERT_MSG(self, cond, msg=None)
+     |      assert checks if the condition is true and calls the assert handler
+     |      with the provided message if it is not
+     |      
+     |      NB: the macro is defined like this to ensure that nested if/else
+     |      statements containing it are compiled in the same way whether
+     |      it is defined as empty or not
+     |  
+     |  wxCHECK(self, cond, rc)
+     |      check which returns with the specified return code if the condition
+     |      fails
+     |  
+     |  wxCHECK2(self, cond, op=None)
+     |      check that expression is true, perform op if not
+     |  
+     |  wxCHECK2_MSG(self, cond, op=None, msg=None)
+     |      the generic macro: takes the condition to check, the statement to
+     |      be execute in case the condition is false and the message to pass
+     |      to the assert handler
+     |  
+     |  wxCHECK_MSG(self, cond, rc, msg=None)
+     |      check which returns with the specified return code if the condition
+     |      fails
+     |  
+     |  wxFAIL(self)
+     |      wxFAIL is a special form of assert: it always triggers (and so is
+     |      usually used in normally unreachable code
+     |  
+     |  wxFAIL_COND_MSG(self, cond, msg=None)
+     |      wxFAIL is a special form of assert: it always triggers (and so is
+     |      usually used in normally unreachable code
+     |  
+     |  wxFAIL_MSG(self, msg=None)
+     |      wxFAIL is a special form of assert: it always triggers (and so is
+     |      usually used in normally unreachable code
+     |  
+     |  wxTRAP(self)
+     |      wxTRAP is a special form of assert: it always triggers (and so is
+     |      usually used in application trap handler code
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+
+DATA
+    DEBUG = True
+    VERBOSE = True
+    __authors__ = 'Richard S. Gordon'
+    __copyright__ = 'Copyright (c) 2007-2013 Richard S. Gordon.\n\t\tAll r...
+    __credits__ = '\n\n  Credits: \n\n\t  tsLibGUI Import & Application .....
+    __date__ = '04/01/2013'
+    __header__ = '\n\ntsWxDebugHandlers, v1.0.1 (build 04/01/2013)\n\n... ...
+    __license__ = 'GNU General Public License, Version 3, 29 June 2007'
+    __line1__ = 'tsWxDebugHandlers, v1.0.1 (build 04/01/2013)'
+    __line2__ = 'Author(s): Richard S. Gordon'
+    __line3__ = 'Copyright (c) 2007-2013 Richard S. Gordon.\n\t\tAll right...
+    __line4__ = 'GNU General Public License, Version 3, 29 June 2...U Gene...
+    __title__ = 'tsWxDebugHandlers'
+    __version__ = '1.0.1'
+    mainTitleVersionDate = 'tsWxDebugHandlers, v1.0.1 (build 04/01/2013)'
+
+VERSION
+    1.0.1
+
+DATE
+    04/01/2013
+
+CREDITS
+    
+    
+      Credits: 
+    
+    	  tsLibGUI Import & Application Launch Features: 
+    	  Copyright (c) 2007-2009 Frederick A. Kier.
+    			All rights reserved.
+    
+    	  Python Curses Module API & Run Time Library Features:
+    	  Copyright (c) 2001-2013 Python Software Foundation.
+    			All rights reserved.
+    	  PSF License Agreement for Python 2.7.3 & 3.3.0
+    
+    	  wxWidgets (formerly wxWindows) & wxPython API Features:
+    	  Copyright (c) 1992-2008 Julian Smart, Robert Roebling,
+    			Vadim Zeitlin and other members of the 
+    			wxWidgets team.
+    			All rights reserved.
+    	  wxWindows Library License
+    
+    	  nCurses API & Run Time Library Features:
+    	  Copyright (c) 1998-2011 Free Software Foundation, Inc.
+    			All rights reserved.
+    	  GNU General Public License, Version 3, 29 June 2007
+
+

@@ -1,0 +1,28 @@
+edit:
+
+all:
+
+clean:
+    rm *.o _curses_swig.dll
+
+INTERFACES: curses_swig.i
+SRCS:	    curses_swig.c curses_swig_wrap.c
+OBJS:       curses_swig.o curses_swig_wrap.o
+LIBPATH:    -L/lib/python2.7/config
+LIBS:       -lpython2.7
+
+curses_swig.c:
+    swig -python curses_swig.i
+
+curses_swig.o:
+  gcc -c $SRCS
+  gcc -shared $OBJS $LIBPATH $LIBS -o curses_swig.dll 
+
+swig -python curses_swig.i
+
+gcc -c curses_swig.c curses_swig_wrap.c -I/usr/include/python2.7
+
+gcc -shared curses_swig.o curses_swig_wrap.o \
+    -L/lib/python2.7/config \
+    -lpython2.7 \
+    -o _curses_swig.dll

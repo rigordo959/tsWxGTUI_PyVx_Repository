@@ -1,0 +1,89 @@
+2017/01/15 15:53:33,237      INFO: tsApplication.TsApplication: 
+	"logs": <"[]">
+2017/01/15 15:53:33,253      INFO: tsApplication.TsApplication: 
+	"Command Line": <"['tsPlatformQuery.py']">
+2017/01/15 15:53:33,253      INFO: tsApplication.TsApplication: 
+	"buildTitle" = <"tsPlatformQuery">.
+2017/01/15 15:53:33,253      INFO: tsApplication.TsApplication: 
+	"buildVersion" = <"2.3.0">.
+2017/01/15 15:53:33,254      INFO: tsApplication.TsApplication: 
+	"buildDate" = <"03/22/2015">.
+2017/01/15 15:53:33,254      INFO: tsApplication.TsApplication: 
+	"buildAuthors" = <"Richard S. Gordon">.
+2017/01/15 15:53:33,254      INFO: tsApplication.TsApplication: 
+	"buildCopyright" = <"Copyright (c) 2007-2015 Richard S. Gordon.
+		All rights reserved.">.
+2017/01/15 15:53:33,254      INFO: tsApplication.TsApplication: 
+	"buildLicense" = <"GNU General Public License, Version 3, 29 June 2007">.
+2017/01/15 15:53:33,254      INFO: tsApplication.TsApplication: 
+	"buildCredits" = <"
+
+  Credits: 
+
+	  tsLibCLI Import & Application Launch Features: 
+	  Copyright (c) 2007-2009 Frederick A. Kier.
+			All rights reserved.
+
+	  Python Platform & Logging Module API Features: 
+	  Copyright (c) 2001-2013 Python Software Foundation.
+			All rights reserved.
+	  PSF License Agreement for Python 2.7.3 & 3.3.0">.
+2017/01/15 15:53:33,254      INFO: tsApplication.TsApplication: 
+	"buildTitleVersionDate" = <"tsPlatformQuery, v2.3.0 (build 03/22/2015)">.
+2017/01/15 15:53:33,254      INFO: tsApplication.TsApplication: 
+	"buildHeader" = <"
+
+tsPlatformQuery, v2.3.0 (build 03/22/2015)
+
+  Author(s): Richard S. Gordon
+  Copyright (c) 2007-2015 Richard S. Gordon.
+		All rights reserved.
+  GNU General Public License, Version 3, 29 June 2007
+
+  Credits: 
+
+	  tsLibCLI Import & Application Launch Features: 
+	  Copyright (c) 2007-2009 Frederick A. Kier.
+			All rights reserved.
+
+	  Python Platform & Logging Module API Features: 
+	  Copyright (c) 2001-2013 Python Software Foundation.
+			All rights reserved.
+	  PSF License Agreement for Python 2.7.3 & 3.3.0
+">.
+2017/01/15 15:53:33,254      INFO: tsApplication.TsApplication: 
+	"buildPurpose" = <"
+tsPlatformQuery - Tool to capture current hardware and software
+information about the run time environment available to computer
+programs.
+">.
+2017/01/15 15:53:33,254      INFO: tsApplication.TsApplication: 
+	"runTimeEntryPoint" = <"<function theMainApplication at 0x6ffffa96c80>">.
+2017/01/15 15:53:33,254      INFO: tsApplication.TsApplication: "guiRequired" not found, using <"False">
+2017/01/15 15:53:33,254      INFO: tsApplication.TsApplication: 
+	"buildTitleVersionDate" = <"tsPlatformQuery, v2.3.0 (build 03/22/2015)">.
+2017/01/15 15:53:33,254      INFO: tsApplication.TsApplication: 
+	"buildHeader" = <"
+
+tsPlatformQuery, v2.3.0 (build 03/22/2015)
+
+  Author(s): Richard S. Gordon
+  Copyright (c) 2007-2015 Richard S. Gordon.
+		All rights reserved.
+  GNU General Public License, Version 3, 29 June 2007
+
+  Credits: 
+
+	  tsLibCLI Import & Application Launch Features: 
+	  Copyright (c) 2007-2009 Frederick A. Kier.
+			All rights reserved.
+
+	  Python Platform & Logging Module API Features: 
+	  Copyright (c) 2001-2013 Python Software Foundation.
+			All rights reserved.
+	  PSF License Agreement for Python 2.7.3 & 3.3.0
+">.
+2017/01/15 15:53:33,254      INFO: tsApplication.TsApplication: 
+	"runTimeEntryPoint" = <"<function theMainApplication at 0x6ffffa96c80>">.
+2017/01/15 15:53:33,254      INFO: dir(self.parent)=['Wrapper', '_App', '_Logs', '_TheAsignedLogger', '_TheAssignedLogger', '__class__', '__delattr__', '__dict__', '__doc__', '__format__', '__getattribute__', '__hash__', '__init__', '__module__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__', 'applicationStyle', 'args', 'buildAuthors', 'buildCopyright', 'buildCredits', 'buildDate', 'buildHeader', 'buildLicense', 'buildPurpose', 'buildTitle', 'buildTitleVersionDate', 'buildVersion', 'callersExceptionHandler', 'createLog', 'currentTime', 'enableDefaultCommandLineParser', 'getApp', 'getAssignedLogger', 'getLaunchSettings', 'getLog', 'getRunTimeTitle', 'getRunTimeTitleVersionDate', 'guiMessageFilename', 'guiMessageRedirect', 'guiRequired', 'guiTopLevelObject', 'guiTopLevelObjectId', 'guiTopLevelObjectName', 'guiTopLevelObjectParent', 'guiTopLevelObjectPosition', 'guiTopLevelObjectSize', 'guiTopLevelObjectStatusBar', 'guiTopLevelObjectStyle', 'guiTopLevelObjectTitle', 'logger', 'logs', 'options', 'registerBuildAuthors', 'registerBuildCopyright', 'registerBuildCredits', 'registerBuildDate', 'registerBuildHeader', 'registerBuildLicense', 'registerBuildPurpose', 'registerBuildTitle', 'registerBuildTitleVersionDate', 'registerBuildVersion', 'registerGuiMessageFilename', 'registerGuiMessageRedirect', 'registerGuiRequired', 'registerGuiTopLevelObject', 'registerGuiTopLevelObjectId', 'registerGuiTopLevelObjectName', 'registerGuiTopLevelObjectParent', 'registerGuiTopLevelObjectPosition', 'registerGuiTopLevelObjectSize', 'registerGuiTopLevelObjectStatusBar', 'registerGuiTopLevelObjectStyle', 'registerGuiTopLevelObjectTitle', 'registerInstantiationSettings', 'registerLogs', 'registerRunTimeEntryPoint', 'resizeConsoleDisplay', 'runMainApplication', 'runTimeEntryPoint', 'runTimeTitle', 'runTimeTitleVersionDate', 'runTimeTrap', 'shutdownTime', 'startupTime', 'sysArgv', 'tsAppArgs', 'tsAppKw']
+2017/01/15 15:53:33,254      INFO: Command Line Parser Module = "argparse"
